@@ -134,7 +134,12 @@ function pickCandidate(candidates, tag, name) {
     const bare = candidates.find((c) => !c.title.includes("("));
     if (bare) return bare;
   }
-  return candidates[0];
+  // Any other known-but-unmapped tag (e.g. "十二神将" zodiac characters, which have
+  // yearly re-releases under the same base name) falls through to here. Guessing
+  // candidates[0] has now been wrong for Makura (十二神将 -> matched an unrelated
+  // 2025 Valentine version instead of the 2022 zodiac version, caught by an HP/ATK
+  // mismatch). Null out rather than guess; these need a manual pick.
+  return null;
 }
 
 const list = JSON.parse(fs.readFileSync(path.join(SCRATCH, "list.json"), "utf-8"));
