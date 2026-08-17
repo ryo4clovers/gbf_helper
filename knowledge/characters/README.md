@@ -74,6 +74,10 @@
 | [yorozuya-ssr.md](./yorozuya-ssr.md) | 万事屋銀ちゃん / Yorozuya | SSR | 光 | 下書き |
 | [arthur-light-ssr.md](./arthur-light-ssr.md) | アーサー(光) / Arthur (Light) | SSR | 光 | 下書き |
 | [grea-light-ssr.md](./grea-light-ssr.md) | グレア(光) / Grea (Light) | SSR | 光 | 下書き |
+| [shiva-summer-ssr.md](./shiva-summer-ssr.md) | シヴァ(水着) / Shiva (Summer) | SSR | 光 | 下書き |
+| [zahlhamelina-yukata-ssr.md](./zahlhamelina-yukata-ssr.md) | ザルハメリナ(浴衣) / Zahlhamelina (Yukata) | SSR | 光 | 下書き |
+| [nehan-grand-ssr.md](./nehan-grand-ssr.md) | ネハン(リミテッド) / Nehan (Grand) | SSR | 光 | 下書き |
+| [tikoh-ssr.md](./tikoh-ssr.md) | ティコ / Tikoh | SSR | 光 | 下書き |
 
 ## 運用ルール
 
