@@ -1,0 +1,30 @@
+{
+  "name": "gbf-knowledge-mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server exposing a Granblue Fantasy character-skill knowledge base for RAG-style Q&A",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "gbf-knowledge-mcp-server": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "tsx --test test/**/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "gray-matter": "^4.0.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

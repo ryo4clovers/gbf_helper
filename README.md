@@ -20,3 +20,8 @@ knowledge/
 ```
 
 各カテゴリ配下は Markdown ファイルで記述する。
+
+## 関連ドキュメント
+
+- [docs/data-collection-notes.md](docs/data-collection-notes.md) — データ収集の情報源・取得方法・優先順位などの作業メモ
+- [mcp-server/README.md](mcp-server/README.md) — ナレッジベースをMCPサーバーとして公開する仕組みのセットアップ手順
