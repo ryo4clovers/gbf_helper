@@ -52,7 +52,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - `list.json`: 121体の一覧(新しい順、element/tag/href)。
   - `picks.json`: 各キャラに対応するgbf.wiki候補ページの選定結果。属性接頭辞パターン(光○○等)は対応する `(Light)` 等のページが見つからない場合 `candidate: null` にしている(10体、要手動確認)。
   - `dossiers/batch_XXX-YYY.txt`: 8体ずつにまとめたGameWith+gbf.wikiの生テキスト。
-- **進捗**: list.jsonのインデックス0〜109まで処理済み(index 0の水着ハイラは既存の`light-ssr-payila-summer.md`と重複のためスキップ、実質109体作成)。index 110以降が未処理(`dossiers/batch_104-111.txt`の続きから)。
+- **進捗**: list.jsonのインデックス0〜111まで処理済み(index 0の水着ハイラは既存の`light-ssr-payila-summer.md`と重複のためスキップ、実質111体作成)。index 112以降が未処理(`dossiers/batch_112-119.txt`から)。
   - index92 ロボミ(SSR)はgbf.wiki検索候補が召喚石ページ(「Robomi Rocket」)だったため不採用、GameWithのみで作成。
   - index94 銃ゾーイ(SSR)はgbf.wiki検索候補が無関係のページ(「Side-scrolling Quotes」)だったため不採用、GameWithのみで作成。
   - index100 バウタオーダ(SSR)はgbf.wiki検索候補「Baotorda」がHP/ATK不一致の別バージョン(SSR以外)だったため不採用、GameWithのみで作成。
@@ -67,4 +67,4 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - 「リミテッド」タグの無印ページ・フォールバックは的中率が低い(Caesar/Basaraは正解だったがSandalphon/Cosmosは武器/召喚石ページに誤爆)と判明したため無効化した(`scratch-pick-and-dump.mjs`)。以降のリミテッドタグは自動的にnullになるので、都度手動確認が必要。gbf.wiki候補が見つからず/信頼できずGameWithのみで作成したキャラ(光ミニゴブ、光ナーヴェ、サンダルフォン(リミテッド)、ロベルティナ(光)、ボレミア(光)、光ヨウ、光アーサー、マイシェラ、フェザー、ニュージェネ、2年生チーム(μ's)、クビラ(十二神将))あり。
   - index83 クビラ(十二神将)は「十二神将」タグ(未マッピング)でgbf.wiki候補が返らず、代わりに検索1位の`Kumbhira (Event)`(低レアリティ版、HP/ATK不一致)を誤って候補に採用しかけたが、マコラ等と同様にHP/ATK照合で不一致を検出しGameWithのみで作成。
 - 候補選定ロジックは複数回のバグ修正を経て安定(詳細は上記「取得方法の技術メモ」参照)。`picks.json`は最新の修正を反映済みなので、再利用時に再修正は不要。季節タグ(ハロウィン/クリスマス/バレンタイン)は実際には「(Holiday)」という汎用英語ページ名になっているケースが多いことが判明。
-- 続きを行う場合: `dossiers/batch_104-111.txt` から読み進める。scratchディレクトリが失われている場合は [scripts/data-collection/](../scripts/data-collection/) 内のスクリプトを `scratch-fetch.mjs`(GameWith一括取得)→`scratch-fetch-gbfwiki.sh`(gbf.wiki検索結果取得)→`scratch-pick-and-dump.mjs`(候補選定+ダンプ)→`scratch-build-dossier.mjs`(最終ダンプ生成)の順で再実行すれば同じデータを再構築できる。
+- 続きを行う場合: `dossiers/batch_112-119.txt` から読み進める。scratchディレクトリが失われている場合は [scripts/data-collection/](../scripts/data-collection/) 内のスクリプトを `scratch-fetch.mjs`(GameWith一括取得)→`scratch-fetch-gbfwiki.sh`(gbf.wiki検索結果取得)→`scratch-pick-and-dump.mjs`(候補選定+ダンプ)→`scratch-build-dossier.mjs`(最終ダンプ生成)の順で再実行すれば同じデータを再構築できる。
