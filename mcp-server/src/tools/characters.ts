@@ -94,7 +94,7 @@ export function registerCharacterTools(server: McpServer, knowledgeBasePath: str
           .string()
           .min(1)
           .max(200)
-          .describe("キャラクターのid(ファイル名、例: katalina-sr)または名前(日本語/英語、部分一致可)"),
+          .describe("キャラクターのid(ファイル名、例: water-sr-katalina-normal)または名前(日本語/英語、部分一致可)"),
       },
       annotations: READ_ONLY_ANNOTATIONS,
     },

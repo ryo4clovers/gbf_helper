@@ -30,7 +30,7 @@ npm run build
 
 ```bash
 npx @modelcontextprotocol/inspector --cli node dist/index.js --method tools/list
-npx @modelcontextprotocol/inspector --cli node dist/index.js --method tools/call --tool-name get_character --tool-arg id_or_name=katalina-sr
+npx @modelcontextprotocol/inspector --cli node dist/index.js --method tools/call --tool-name get_character --tool-arg id_or_name=water-sr-katalina-normal
 ```
 
 ## Claude Desktop への登録

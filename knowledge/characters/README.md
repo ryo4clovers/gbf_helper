@@ -13,87 +13,93 @@
 
 | ファイル | 名前(JP/EN) | レアリティ | 属性 | ステータス |
 | --- | --- | --- | --- | --- |
-| [katalina-sr.md](./katalina-sr.md) | カタリナ / Katalina | SR | 水 | 下書き |
-| [vira-sr.md](./vira-sr.md) | ヴィーラ / Vira | SR | 闇 | 下書き |
-| [percival-ssr.md](./percival-ssr.md) | パーシヴァル / Percival | SSR | 火 | 下書き |
-| [seox-summer-ssr.md](./seox-summer-ssr.md) | シス(水着) / Seox (Summer) | SSR | 土 | 下書き |
-| [payila-summer-ssr.md](./payila-summer-ssr.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
-| [gwynne-yukata-ssr.md](./gwynne-yukata-ssr.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
-| [yoruichi-shihoin-ssr.md](./yoruichi-shihoin-ssr.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
-| [europa-holiday-ssr.md](./europa-holiday-ssr.md) | エウロペ(ドレス) / Europa (Holiday) | SSR | 光 | 下書き |
-| [anthuria-summer-ssr.md](./anthuria-summer-ssr.md) | アンスリア(水着) / Anthuria (Summer) | SSR | 光 | 下書き |
-| [arriet-light-ssr.md](./arriet-light-ssr.md) | アンリエット(光) / Arriet (Light) | SSR | 光 | 下書き |
-| [caesar-grand-ssr.md](./caesar-grand-ssr.md) | シーザー(リミテッド) / Caesar (Grand) | SSR | 光 | 下書き |
-| [amaterasu-ssr.md](./amaterasu-ssr.md) | アマテラス / Amaterasu | SSR | 光 | 下書き |
-| [kaworu-mark6-ssr.md](./kaworu-mark6-ssr.md) | カヲル&Mark.6 / Kaworu & Mark.06 | SSR | 光 | 下書き |
-| [shinji-unit01-ssr.md](./shinji-unit01-ssr.md) | シンジ&初号機 / Shinji & Unit 01 | SSR | 光 | 下書き |
-| [vajra-halloween-ssr.md](./vajra-halloween-ssr.md) | ヴァジラ(ハロウィン) / Vajra (Halloween) | SSR | 光 | 下書き |
-| [korwa-yukata-ssr.md](./korwa-yukata-ssr.md) | コルワ(浴衣) / Korwa (Yukata) | SSR | 光 | 下書き |
-| [kou-light-ssr.md](./kou-light-ssr.md) | コウ(光) / Kou (Light) | SSR | 光 | 下書き |
-| [mars-ssr.md](./mars-ssr.md) | マーズ / Mars | SSR | 光 | 下書き |
-| [pijiu-ssr.md](./pijiu-ssr.md) | ピィジウ / Pijiu | SSR | 光 | 下書き |
-| [cherine-ssr.md](./cherine-ssr.md) | シェリーネ / Cherine | SSR | 光 | 下書き |
-| [vikala-yukata-ssr.md](./vikala-yukata-ssr.md) | ビカラ(浴衣) / Vikala (Yukata) | SSR | 光 | 下書き |
-| [basara-grand-ssr.md](./basara-grand-ssr.md) | バサラ(リミテッド) / Basara (Grand) | SSR | 光 | 下書き |
-| [feena-light-ssr.md](./feena-light-ssr.md) | フィーナ(光) / Feena (Light) | SSR | 光 | 下書き |
-| [mini-goblin-light-ssr.md](./mini-goblin-light-ssr.md) | ミニゴブ(光) | SSR | 光 | 下書き |
-| [zooey-holiday-ssr.md](./zooey-holiday-ssr.md) | ゾーイ(クリスマス) / Zooey (Holiday) | SSR | 光 | 下書き |
-| [wilnas-halloween-ssr.md](./wilnas-halloween-ssr.md) | ウィルナス(光/ハロウィン) / Wilnas (Halloween) | SSR | 光 | 下書き |
-| [nave-light-ssr.md](./nave-light-ssr.md) | ナーヴェ(光) | SSR | 光 | 下書き |
-| [ragazzo-summer-ssr.md](./ragazzo-summer-ssr.md) | ラガッツォ(水着) / Ragazzo (Summer) | SSR | 光 | 下書き |
-| [cucouroux-summer-ssr.md](./cucouroux-summer-ssr.md) | ククル(水着) / Cucouroux (Summer) | SSR | 光 | 下書き |
-| [sui-ssr.md](./sui-ssr.md) | スイ / Sui | SSR | 光 | 下書き |
-| [anne-light-ssr.md](./anne-light-ssr.md) | アン(光) / Anne (Light) | SSR | 光 | 下書き |
-| [horus-summer-ssr.md](./horus-summer-ssr.md) | ホルス(水着) / Horus (Summer) | SSR | 光 | 下書き |
-| [raziel-ssr.md](./raziel-ssr.md) | ラジエル / Raziel | SSR | 光 | 下書き |
-| [sandalphon-grand-ssr.md](./sandalphon-grand-ssr.md) | サンダルフォン(リミテッド) | SSR | 光 | 下書き |
-| [robertina-light-ssr.md](./robertina-light-ssr.md) | ロベルティナ(光) | SSR | 光 | 下書き |
-| [illnott-holiday-ssr.md](./illnott-holiday-ssr.md) | イルノート(クリスマス) / Illnott (Holiday) | SSR | 光 | 下書き |
-| [bolemia-light-ssr.md](./bolemia-light-ssr.md) | ボレミア(光) | SSR | 光 | 下書き |
-| [utsusemi-ssr.md](./utsusemi-ssr.md) | ウツセミ / Utsusemi | SSR | 光 | 下書き |
-| [siegfried-another-light-ssr.md](./siegfried-another-light-ssr.md) | ジークフリート(光/アナザー) | SSR | 光 | 下書き |
-| [seruel-summer-ssr.md](./seruel-summer-ssr.md) | セルエル(水着) / Seruel (Summer) | SSR | 光 | 下書き |
-| [yurius-summer-ssr.md](./yurius-summer-ssr.md) | ユリウス(水着) / Yurius (Summer) | SSR | 光 | 下書き |
-| [cosmos-grand-ssr.md](./cosmos-grand-ssr.md) | コスモス(リミテッド) | SSR | 光 | 下書き |
-| [drossel-light-ssr.md](./drossel-light-ssr.md) | ドロッセル(光) | SSR | 光 | 下書き |
-| [monika-summer-ssr.md](./monika-summer-ssr.md) | モニカ(水着) / Monika (Summer) | SSR | 光 | 下書き |
-| [lu-oh-grand-ssr.md](./lu-oh-grand-ssr.md) | ルオー(リミテッド) | SSR | 光 | 下書き |
-| [makura-ssr.md](./makura-ssr.md) | マコラ(十二神将) | SSR | 光 | 下書き |
-| [florence-halloween-ssr.md](./florence-halloween-ssr.md) | フロレンス(光/ハロウィン) / Florence (Halloween) | SSR | 光 | 下書き |
-| [mugen-halloween-ssr.md](./mugen-halloween-ssr.md) | ムゲン(光/ハロウィン) / Mugen (Halloween) | SSR | 光 | 下書き |
-| [sturm-summer-ssr.md](./sturm-summer-ssr.md) | スツルム(水着) / Sturm (Summer) | SSR | 光 | 下書き |
-| [prishe-ssr.md](./prishe-ssr.md) | プリッシュ / Prishe | SSR | 光 | 下書き |
-| [yoh-light-ssr.md](./yoh-light-ssr.md) | ヨウ(光) / Yoh (Light) | SSR | 光 | 下書き |
-| [narmaya-yukata-ssr.md](./narmaya-yukata-ssr.md) | ナルメア(浴衣) / Narmaya (Yukata) | SSR | 光 | 下書き |
-| [yuni-grand-ssr.md](./yuni-grand-ssr.md) | ユニ(リミテッド) / Yuni (Grand) | SSR | 光 | 下書き |
-| [ladiva-valentine-ssr.md](./ladiva-valentine-ssr.md) | ファスティバ(バレンタイン) / Ladiva (Valentine) | SSR | 光 | 下書き |
-| [mahira-holiday-ssr.md](./mahira-holiday-ssr.md) | マキラ(クリスマス) / Mahira (Holiday) | SSR | 光 | 下書き |
-| [nobita-ssr.md](./nobita-ssr.md) | のび太 / Nobita | SSR | 光 | 下書き |
-| [arulumaya-light-ssr.md](./arulumaya-light-ssr.md) | アルルメイヤ(光) / Arulumaya (Light) | SSR | 光 | 下書き |
-| [lunalu-light-ssr.md](./lunalu-light-ssr.md) | ルナール(光) / Lunalu (Light) | SSR | 光 | 下書き |
-| [yorozuya-ssr.md](./yorozuya-ssr.md) | 万事屋銀ちゃん / Yorozuya | SSR | 光 | 下書き |
-| [arthur-light-ssr.md](./arthur-light-ssr.md) | アーサー(光) / Arthur (Light) | SSR | 光 | 下書き |
-| [grea-light-ssr.md](./grea-light-ssr.md) | グレア(光) / Grea (Light) | SSR | 光 | 下書き |
-| [shiva-summer-ssr.md](./shiva-summer-ssr.md) | シヴァ(水着) / Shiva (Summer) | SSR | 光 | 下書き |
-| [zahlhamelina-yukata-ssr.md](./zahlhamelina-yukata-ssr.md) | ザルハメリナ(浴衣) / Zahlhamelina (Yukata) | SSR | 光 | 下書き |
-| [nehan-grand-ssr.md](./nehan-grand-ssr.md) | ネハン(リミテッド) / Nehan (Grand) | SSR | 光 | 下書き |
-| [tikoh-ssr.md](./tikoh-ssr.md) | ティコ / Tikoh | SSR | 光 | 下書き |
-| [bobobo-ssr.md](./bobobo-ssr.md) | ボボボーボ・ボーボボ / Bobobo-bo Bo-bobo | SSR | 光 | 下書き |
-| [farrah-and-juri-ssr.md](./farrah-and-juri-ssr.md) | ファラ＆ユーリ / Farrah and Juri | SSR | 光 | 下書き |
-| [aglovale-valentine-ssr.md](./aglovale-valentine-ssr.md) | アグロヴァル(バレンタイン) / Aglovale (Valentine) | SSR | 光 | 下書き |
-| [cagliostro-grand-ssr.md](./cagliostro-grand-ssr.md) | カリオストロ(リミテッド) / Cagliostro (Grand) | SSR | 光 | 下書き |
-| [michela-light-ssr.md](./michela-light-ssr.md) | マイシェラ(光) / Michela (Light) | SSR | 光 | 下書き |
-| [nicholas-light-ssr.md](./nicholas-light-ssr.md) | シロウ(光) / Nicholas (Light) | SSR | 光 | 下書き |
-| [lily-holiday-ssr.md](./lily-holiday-ssr.md) | リリィ(クリスマス) / Lily (Holiday) | SSR | 光 | 下書き |
-| [feather-ssr.md](./feather-ssr.md) | フェザー / Feather (SSR) | SSR | 光 | 下書き |
-| [gawain-light-ssr.md](./gawain-light-ssr.md) | ガウェイン(光) / Gawain (Light) | SSR | 光 | 下書き |
-| [rosamia-yukata-ssr.md](./rosamia-yukata-ssr.md) | ロザミア(浴衣) / Rosamia (Yukata) | SSR | 光 | 下書き |
-| [percival-light-ssr.md](./percival-light-ssr.md) | パーシヴァル(光) / Percival (Light) | SSR | 光 | 下書き |
-| [new-generations-ssr.md](./new-generations-ssr.md) | ニュージェネ / New Generations | SSR | 光 | 下書き |
+| [water-sr-katalina-normal.md](./water-sr-katalina-normal.md) | カタリナ / Katalina | SR | 水 | 下書き |
+| [dark-sr-vira-normal.md](./dark-sr-vira-normal.md) | ヴィーラ / Vira | SR | 闇 | 下書き |
+| [fire-ssr-percival-normal.md](./fire-ssr-percival-normal.md) | パーシヴァル / Percival | SSR | 火 | 下書き |
+| [earth-ssr-seox-summer.md](./earth-ssr-seox-summer.md) | シス(水着) / Seox (Summer) | SSR | 土 | 下書き |
+| [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
+| [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
+| [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
+| [light-ssr-europa-holiday.md](./light-ssr-europa-holiday.md) | エウロペ(ドレス) / Europa (Holiday) | SSR | 光 | 下書き |
+| [light-ssr-anthuria-summer.md](./light-ssr-anthuria-summer.md) | アンスリア(水着) / Anthuria (Summer) | SSR | 光 | 下書き |
+| [light-ssr-arriet-light.md](./light-ssr-arriet-light.md) | アンリエット(光) / Arriet (Light) | SSR | 光 | 下書き |
+| [light-ssr-caesar-grand.md](./light-ssr-caesar-grand.md) | シーザー(リミテッド) / Caesar (Grand) | SSR | 光 | 下書き |
+| [light-ssr-amaterasu-normal.md](./light-ssr-amaterasu-normal.md) | アマテラス / Amaterasu | SSR | 光 | 下書き |
+| [light-ssr-kaworu-mark6-normal.md](./light-ssr-kaworu-mark6-normal.md) | カヲル&Mark.6 / Kaworu & Mark.06 | SSR | 光 | 下書き |
+| [light-ssr-shinji-unit01-normal.md](./light-ssr-shinji-unit01-normal.md) | シンジ&初号機 / Shinji & Unit 01 | SSR | 光 | 下書き |
+| [light-ssr-vajra-halloween.md](./light-ssr-vajra-halloween.md) | ヴァジラ(ハロウィン) / Vajra (Halloween) | SSR | 光 | 下書き |
+| [light-ssr-korwa-yukata.md](./light-ssr-korwa-yukata.md) | コルワ(浴衣) / Korwa (Yukata) | SSR | 光 | 下書き |
+| [light-ssr-kou-light.md](./light-ssr-kou-light.md) | コウ(光) / Kou (Light) | SSR | 光 | 下書き |
+| [light-ssr-mars-normal.md](./light-ssr-mars-normal.md) | マーズ / Mars | SSR | 光 | 下書き |
+| [light-ssr-pijiu-normal.md](./light-ssr-pijiu-normal.md) | ピィジウ / Pijiu | SSR | 光 | 下書き |
+| [light-ssr-cherine-normal.md](./light-ssr-cherine-normal.md) | シェリーネ / Cherine | SSR | 光 | 下書き |
+| [light-ssr-vikala-yukata.md](./light-ssr-vikala-yukata.md) | ビカラ(浴衣) / Vikala (Yukata) | SSR | 光 | 下書き |
+| [light-ssr-basara-grand.md](./light-ssr-basara-grand.md) | バサラ(リミテッド) / Basara (Grand) | SSR | 光 | 下書き |
+| [light-ssr-feena-light.md](./light-ssr-feena-light.md) | フィーナ(光) / Feena (Light) | SSR | 光 | 下書き |
+| [light-ssr-mini-goblin-light.md](./light-ssr-mini-goblin-light.md) | ミニゴブ(光) | SSR | 光 | 下書き |
+| [light-ssr-zooey-holiday.md](./light-ssr-zooey-holiday.md) | ゾーイ(クリスマス) / Zooey (Holiday) | SSR | 光 | 下書き |
+| [light-ssr-wilnas-halloween.md](./light-ssr-wilnas-halloween.md) | ウィルナス(光/ハロウィン) / Wilnas (Halloween) | SSR | 光 | 下書き |
+| [light-ssr-nave-light.md](./light-ssr-nave-light.md) | ナーヴェ(光) | SSR | 光 | 下書き |
+| [light-ssr-ragazzo-summer.md](./light-ssr-ragazzo-summer.md) | ラガッツォ(水着) / Ragazzo (Summer) | SSR | 光 | 下書き |
+| [light-ssr-cucouroux-summer.md](./light-ssr-cucouroux-summer.md) | ククル(水着) / Cucouroux (Summer) | SSR | 光 | 下書き |
+| [light-ssr-sui-normal.md](./light-ssr-sui-normal.md) | スイ / Sui | SSR | 光 | 下書き |
+| [light-ssr-anne-light.md](./light-ssr-anne-light.md) | アン(光) / Anne (Light) | SSR | 光 | 下書き |
+| [light-ssr-horus-summer.md](./light-ssr-horus-summer.md) | ホルス(水着) / Horus (Summer) | SSR | 光 | 下書き |
+| [light-ssr-raziel-normal.md](./light-ssr-raziel-normal.md) | ラジエル / Raziel | SSR | 光 | 下書き |
+| [light-ssr-sandalphon-grand.md](./light-ssr-sandalphon-grand.md) | サンダルフォン(リミテッド) | SSR | 光 | 下書き |
+| [light-ssr-robertina-light.md](./light-ssr-robertina-light.md) | ロベルティナ(光) | SSR | 光 | 下書き |
+| [light-ssr-illnott-holiday.md](./light-ssr-illnott-holiday.md) | イルノート(クリスマス) / Illnott (Holiday) | SSR | 光 | 下書き |
+| [light-ssr-bolemia-light.md](./light-ssr-bolemia-light.md) | ボレミア(光) | SSR | 光 | 下書き |
+| [light-ssr-utsusemi-normal.md](./light-ssr-utsusemi-normal.md) | ウツセミ / Utsusemi | SSR | 光 | 下書き |
+| [light-ssr-siegfried-another-light.md](./light-ssr-siegfried-another-light.md) | ジークフリート(光/アナザー) | SSR | 光 | 下書き |
+| [light-ssr-seruel-summer.md](./light-ssr-seruel-summer.md) | セルエル(水着) / Seruel (Summer) | SSR | 光 | 下書き |
+| [light-ssr-yurius-summer.md](./light-ssr-yurius-summer.md) | ユリウス(水着) / Yurius (Summer) | SSR | 光 | 下書き |
+| [light-ssr-cosmos-grand.md](./light-ssr-cosmos-grand.md) | コスモス(リミテッド) | SSR | 光 | 下書き |
+| [light-ssr-drossel-light.md](./light-ssr-drossel-light.md) | ドロッセル(光) | SSR | 光 | 下書き |
+| [light-ssr-monika-summer.md](./light-ssr-monika-summer.md) | モニカ(水着) / Monika (Summer) | SSR | 光 | 下書き |
+| [light-ssr-lu-oh-grand.md](./light-ssr-lu-oh-grand.md) | ルオー(リミテッド) | SSR | 光 | 下書き |
+| [light-ssr-makura-normal.md](./light-ssr-makura-normal.md) | マコラ(十二神将) | SSR | 光 | 下書き |
+| [light-ssr-florence-halloween.md](./light-ssr-florence-halloween.md) | フロレンス(光/ハロウィン) / Florence (Halloween) | SSR | 光 | 下書き |
+| [light-ssr-mugen-halloween.md](./light-ssr-mugen-halloween.md) | ムゲン(光/ハロウィン) / Mugen (Halloween) | SSR | 光 | 下書き |
+| [light-ssr-sturm-summer.md](./light-ssr-sturm-summer.md) | スツルム(水着) / Sturm (Summer) | SSR | 光 | 下書き |
+| [light-ssr-prishe-normal.md](./light-ssr-prishe-normal.md) | プリッシュ / Prishe | SSR | 光 | 下書き |
+| [light-ssr-yoh-light.md](./light-ssr-yoh-light.md) | ヨウ(光) / Yoh (Light) | SSR | 光 | 下書き |
+| [light-ssr-narmaya-yukata.md](./light-ssr-narmaya-yukata.md) | ナルメア(浴衣) / Narmaya (Yukata) | SSR | 光 | 下書き |
+| [light-ssr-yuni-grand.md](./light-ssr-yuni-grand.md) | ユニ(リミテッド) / Yuni (Grand) | SSR | 光 | 下書き |
+| [light-ssr-ladiva-valentine.md](./light-ssr-ladiva-valentine.md) | ファスティバ(バレンタイン) / Ladiva (Valentine) | SSR | 光 | 下書き |
+| [light-ssr-mahira-holiday.md](./light-ssr-mahira-holiday.md) | マキラ(クリスマス) / Mahira (Holiday) | SSR | 光 | 下書き |
+| [light-ssr-nobita-normal.md](./light-ssr-nobita-normal.md) | のび太 / Nobita | SSR | 光 | 下書き |
+| [light-ssr-arulumaya-light.md](./light-ssr-arulumaya-light.md) | アルルメイヤ(光) / Arulumaya (Light) | SSR | 光 | 下書き |
+| [light-ssr-lunalu-light.md](./light-ssr-lunalu-light.md) | ルナール(光) / Lunalu (Light) | SSR | 光 | 下書き |
+| [light-ssr-yorozuya-normal.md](./light-ssr-yorozuya-normal.md) | 万事屋銀ちゃん / Yorozuya | SSR | 光 | 下書き |
+| [light-ssr-arthur-light.md](./light-ssr-arthur-light.md) | アーサー(光) / Arthur (Light) | SSR | 光 | 下書き |
+| [light-ssr-grea-light.md](./light-ssr-grea-light.md) | グレア(光) / Grea (Light) | SSR | 光 | 下書き |
+| [light-ssr-shiva-summer.md](./light-ssr-shiva-summer.md) | シヴァ(水着) / Shiva (Summer) | SSR | 光 | 下書き |
+| [light-ssr-zahlhamelina-yukata.md](./light-ssr-zahlhamelina-yukata.md) | ザルハメリナ(浴衣) / Zahlhamelina (Yukata) | SSR | 光 | 下書き |
+| [light-ssr-nehan-grand.md](./light-ssr-nehan-grand.md) | ネハン(リミテッド) / Nehan (Grand) | SSR | 光 | 下書き |
+| [light-ssr-tikoh-normal.md](./light-ssr-tikoh-normal.md) | ティコ / Tikoh | SSR | 光 | 下書き |
+| [light-ssr-bobobo-normal.md](./light-ssr-bobobo-normal.md) | ボボボーボ・ボーボボ / Bobobo-bo Bo-bobo | SSR | 光 | 下書き |
+| [light-ssr-farrah-and-juri-normal.md](./light-ssr-farrah-and-juri-normal.md) | ファラ＆ユーリ / Farrah and Juri | SSR | 光 | 下書き |
+| [light-ssr-aglovale-valentine.md](./light-ssr-aglovale-valentine.md) | アグロヴァル(バレンタイン) / Aglovale (Valentine) | SSR | 光 | 下書き |
+| [light-ssr-cagliostro-grand.md](./light-ssr-cagliostro-grand.md) | カリオストロ(リミテッド) / Cagliostro (Grand) | SSR | 光 | 下書き |
+| [light-ssr-michela-light.md](./light-ssr-michela-light.md) | マイシェラ(光) / Michela (Light) | SSR | 光 | 下書き |
+| [light-ssr-nicholas-light.md](./light-ssr-nicholas-light.md) | シロウ(光) / Nicholas (Light) | SSR | 光 | 下書き |
+| [light-ssr-lily-holiday.md](./light-ssr-lily-holiday.md) | リリィ(クリスマス) / Lily (Holiday) | SSR | 光 | 下書き |
+| [light-ssr-feather-normal.md](./light-ssr-feather-normal.md) | フェザー / Feather (SSR) | SSR | 光 | 下書き |
+| [light-ssr-gawain-light.md](./light-ssr-gawain-light.md) | ガウェイン(光) / Gawain (Light) | SSR | 光 | 下書き |
+| [light-ssr-rosamia-yukata.md](./light-ssr-rosamia-yukata.md) | ロザミア(浴衣) / Rosamia (Yukata) | SSR | 光 | 下書き |
+| [light-ssr-percival-light.md](./light-ssr-percival-light.md) | パーシヴァル(光) / Percival (Light) | SSR | 光 | 下書き |
+| [light-ssr-new-generations-normal.md](./light-ssr-new-generations-normal.md) | ニュージェネ / New Generations | SSR | 光 | 下書き |
 
 ## 運用ルール
 
-- ファイル名は `id`(kebab-case、例: `katalina-sr-starter`)と一致させる。同名キャラの別レアリティ/別バージョンは `id` で区別する(例: `katalina-sr-starter` と `katalina-ssr-xxx`)。
+- ファイル名(および frontmatter の `id`)は次の形式に統一する:
+  `{属性}-{レアリティ}-{英語名}-{バージョン}.md`
+  - 属性: `light` / `fire` / `water` / `earth` / `wind` / `dark`(英語表記、小文字)
+  - レアリティ: `ssr` / `sr` / `r`(小文字)
+  - 英語名: キャラクターの英語名をkebab-caseにしたもの(例: `farrah-and-juri`、`kaworu-mark6`)
+  - バージョン: 水着/浴衣/ハロウィン/クリスマス/バレンタイン/リミテッド等のバージョン差分を英語kebab-caseで表す(例: `summer`、`yukata`、`halloween`、`holiday`、`valentine`、`grand`)。属性接頭辞のみで区別されるバージョン(例: 「光○○」)は `light` を使う。バージョン差分がない恒常キャラは `normal` を使う。
+  - 例: `light-ssr-sturm-summer.md`(スツルム(水着)/SSR/光属性)、`light-ssr-tikoh-normal.md`(ティコ/SSR/光属性、バージョンなし)、`water-sr-katalina-normal.md`(カタリナ/SR/水属性)
 - 各ファイルは `_template.md` の形式(YAML frontmatter + スキル構成セクション)に沿う。
 - 数値やスキル効果は、公式発表や検証済みの一次情報を元に記載し、`source` に出典URLと取得日を明記する。Wiki等の二次情報のみの場合は `status: 下書き` とし、未確認事項は「未確認・要検証事項」に明記する。
 - この一覧表は手動更新(MCPサーバーは `*.md` を直接スキャンするため、一覧の鮮度には依存しない)。
