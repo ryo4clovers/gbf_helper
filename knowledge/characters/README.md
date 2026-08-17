@@ -106,6 +106,8 @@
 | [light-ssr-pecorine-normal.md](./light-ssr-pecorine-normal.md) | ペコリーヌ / Pecorine | SSR | 光 | 下書き |
 | [light-ssr-charlotta-light.md](./light-ssr-charlotta-light.md) | シャルロッテ(光) / Charlotta (Light) | SSR | 光 | 下書き |
 | [light-ssr-levin-sisters-normal.md](./light-ssr-levin-sisters-normal.md) | レヴィオン姉妹 / Levin Sisters | SSR | 光 | 下書き |
+| [light-ssr-precure-normal.md](./light-ssr-precure-normal.md) | プリキュア / Cure Black and Cure White | SSR | 光 | 下書き |
+| [light-ssr-silva-light.md](./light-ssr-silva-light.md) | シルヴァ(光) / Silva (Light) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
