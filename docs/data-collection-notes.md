@@ -52,6 +52,6 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - `list.json`: 121体の一覧(新しい順、element/tag/href)。
   - `picks.json`: 各キャラに対応するgbf.wiki候補ページの選定結果。属性接頭辞パターン(光○○等)は対応する `(Light)` 等のページが見つからない場合 `candidate: null` にしている(10体、要手動確認)。
   - `dossiers/batch_XXX-YYY.txt`: 8体ずつにまとめたGameWith+gbf.wikiの生テキスト。
-- **進捗**: list.jsonのインデックス0〜31まで処理済み(index 0の水着ハイラは既存の`payila-summer-ssr.md`と重複のためスキップ、実質31体作成)。index 32以降が未処理。gbf.wiki候補が見つからず/信頼できずGameWithのみで作成した5体(光ミニゴブ、光ナーヴェ、サンダルフォン(リミテッド)、ロベルティナ(光)、ボレミア(光))あり。
+- **進捗**: list.jsonのインデックス0〜32まで処理済み(index 0の水着ハイラは既存の`payila-summer-ssr.md`と重複のためスキップ、実質32体作成)。index 33以降が未処理。gbf.wiki候補が見つからず/信頼できずGameWithのみで作成した5体(光ミニゴブ、光ナーヴェ、サンダルフォン(リミテッド)、ロベルティナ(光)、ボレミア(光))あり。
 - 候補選定ロジックは複数回のバグ修正を経て安定(詳細は上記「取得方法の技術メモ」参照)。`picks.json`は最新の修正を反映済みなので、再利用時に再修正は不要。季節タグ(ハロウィン/クリスマス/バレンタイン)は実際には「(Holiday)」という汎用英語ページ名になっているケースが多いことが判明。
 - 続きを行う場合: `dossiers/batch_024-031.txt` から読み進める。scratchディレクトリが失われている場合は [scripts/data-collection/](../scripts/data-collection/) 内のスクリプトを `scratch-fetch.mjs`(GameWith一括取得)→`scratch-fetch-gbfwiki.sh`(gbf.wiki検索結果取得)→`scratch-pick-and-dump.mjs`(候補選定+ダンプ)→`scratch-build-dossier.mjs`(最終ダンプ生成)の順で再実行すれば同じデータを再構築できる。

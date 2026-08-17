@@ -50,6 +50,7 @@
 | [robertina-light-ssr.md](./robertina-light-ssr.md) | ロベルティナ(光) | SSR | 光 | 下書き |
 | [illnott-holiday-ssr.md](./illnott-holiday-ssr.md) | イルノート(クリスマス) / Illnott (Holiday) | SSR | 光 | 下書き |
 | [bolemia-light-ssr.md](./bolemia-light-ssr.md) | ボレミア(光) | SSR | 光 | 下書き |
+| [utsusemi-ssr.md](./utsusemi-ssr.md) | ウツセミ / Utsusemi | SSR | 光 | 下書き |
 
 ## 運用ルール
 
