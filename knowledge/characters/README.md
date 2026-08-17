@@ -114,6 +114,8 @@
 | [light-ssr-sandalphon-normal.md](./light-ssr-sandalphon-normal.md) | サンダルフォン / Sandalphon (Event) | SSR | 光 | 下書き |
 | [light-ssr-zooey-gun-normal.md](./light-ssr-zooey-gun-normal.md) | ゾーイ(銃) / Zooey (Light) | SSR | 光 | 下書き |
 | [light-ssr-mary-holiday.md](./light-ssr-mary-holiday.md) | マリー(クリスマス) / Mary (Holiday) | SSR | 光 | 下書き |
+| [light-ssr-vira-grand.md](./light-ssr-vira-grand.md) | ヴィーラ(リミテッド) / Vira (Grand) | SSR | 光 | 下書き |
+| [light-ssr-sakura-kinomoto-normal.md](./light-ssr-sakura-kinomoto-normal.md) | 木之本桜 / Sakura Kinomoto | SSR | 光 | 下書き |
 
 ## 運用ルール
 
