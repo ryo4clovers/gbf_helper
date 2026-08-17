@@ -94,6 +94,10 @@
 | [light-ssr-danua-light.md](./light-ssr-danua-light.md) | ダヌア(光) / Danua (Light) | SSR | 光 | 下書き |
 | [light-ssr-noa-grand.md](./light-ssr-noa-grand.md) | ノア(リミテッド) / Noa (Grand) | SSR | 光 | 下書き |
 | [light-ssr-shitori-normal.md](./light-ssr-shitori-normal.md) | シトリ / Shitori | SSR | 光 | 下書き |
+| [light-ssr-jeanne-darc-grand.md](./light-ssr-jeanne-darc-grand.md) | ジャンヌダルク(リミテッド) / Jeanne d'Arc (Grand) | SSR | 光 | 下書き |
+| [light-ssr-hallessena-halloween.md](./light-ssr-hallessena-halloween.md) | ハレゼナ(ハロウィン) / Hallessena (Halloween) | SSR | 光 | 下書き |
+| [light-ssr-sara-light.md](./light-ssr-sara-light.md) | サラ(光) / Sara (Light) | SSR | 光 | 下書き |
+| [light-ssr-second-years-normal.md](./light-ssr-second-years-normal.md) | 2年生チーム(μ's) / Second-Years (μ's) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
