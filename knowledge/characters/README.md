@@ -82,6 +82,9 @@
 | [farrah-and-juri-ssr.md](./farrah-and-juri-ssr.md) | ファラ＆ユーリ / Farrah and Juri | SSR | 光 | 下書き |
 | [aglovale-valentine-ssr.md](./aglovale-valentine-ssr.md) | アグロヴァル(バレンタイン) / Aglovale (Valentine) | SSR | 光 | 下書き |
 | [cagliostro-grand-ssr.md](./cagliostro-grand-ssr.md) | カリオストロ(リミテッド) / Cagliostro (Grand) | SSR | 光 | 下書き |
+| [michela-light-ssr.md](./michela-light-ssr.md) | マイシェラ(光) / Michela (Light) | SSR | 光 | 下書き |
+| [nicholas-light-ssr.md](./nicholas-light-ssr.md) | シロウ(光) / Nicholas (Light) | SSR | 光 | 下書き |
+| [lily-holiday-ssr.md](./lily-holiday-ssr.md) | リリィ(クリスマス) / Lily (Holiday) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
