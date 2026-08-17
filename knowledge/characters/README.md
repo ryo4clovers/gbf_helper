@@ -85,6 +85,9 @@
 | [michela-light-ssr.md](./michela-light-ssr.md) | マイシェラ(光) / Michela (Light) | SSR | 光 | 下書き |
 | [nicholas-light-ssr.md](./nicholas-light-ssr.md) | シロウ(光) / Nicholas (Light) | SSR | 光 | 下書き |
 | [lily-holiday-ssr.md](./lily-holiday-ssr.md) | リリィ(クリスマス) / Lily (Holiday) | SSR | 光 | 下書き |
+| [feather-ssr.md](./feather-ssr.md) | フェザー / Feather (SSR) | SSR | 光 | 下書き |
+| [gawain-light-ssr.md](./gawain-light-ssr.md) | ガウェイン(光) / Gawain (Light) | SSR | 光 | 下書き |
+| [rosamia-yukata-ssr.md](./rosamia-yukata-ssr.md) | ロザミア(浴衣) / Rosamia (Yukata) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
