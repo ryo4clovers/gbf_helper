@@ -42,6 +42,11 @@
 | [nave-light-ssr.md](./nave-light-ssr.md) | ナーヴェ(光) | SSR | 光 | 下書き |
 | [ragazzo-summer-ssr.md](./ragazzo-summer-ssr.md) | ラガッツォ(水着) / Ragazzo (Summer) | SSR | 光 | 下書き |
 | [cucouroux-summer-ssr.md](./cucouroux-summer-ssr.md) | ククル(水着) / Cucouroux (Summer) | SSR | 光 | 下書き |
+| [sui-ssr.md](./sui-ssr.md) | スイ / Sui | SSR | 光 | 下書き |
+| [anne-light-ssr.md](./anne-light-ssr.md) | アン(光) / Anne (Light) | SSR | 光 | 下書き |
+| [horus-summer-ssr.md](./horus-summer-ssr.md) | ホルス(水着) / Horus (Summer) | SSR | 光 | 下書き |
+| [raziel-ssr.md](./raziel-ssr.md) | ラジエル / Raziel | SSR | 光 | 下書き |
+| [sandalphon-grand-ssr.md](./sandalphon-grand-ssr.md) | サンダルフォン(リミテッド) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
