@@ -108,6 +108,8 @@
 | [light-ssr-levin-sisters-normal.md](./light-ssr-levin-sisters-normal.md) | レヴィオン姉妹 / Levin Sisters | SSR | 光 | 下書き |
 | [light-ssr-precure-normal.md](./light-ssr-precure-normal.md) | プリキュア / Cure Black and Cure White | SSR | 光 | 下書き |
 | [light-ssr-silva-light.md](./light-ssr-silva-light.md) | シルヴァ(光) / Silva (Light) | SSR | 光 | 下書き |
+| [light-ssr-naoise-summer.md](./light-ssr-naoise-summer.md) | ノイシュ(水着) / Naoise (Summer) | SSR | 光 | 下書き |
+| [light-ssr-conan-edogawa-normal.md](./light-ssr-conan-edogawa-normal.md) | 江戸川コナン / Conan Edogawa | SSR | 光 | 下書き |
 
 ## 運用ルール
 
