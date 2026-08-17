@@ -66,6 +66,14 @@
 | [yoh-light-ssr.md](./yoh-light-ssr.md) | ヨウ(光) / Yoh (Light) | SSR | 光 | 下書き |
 | [narmaya-yukata-ssr.md](./narmaya-yukata-ssr.md) | ナルメア(浴衣) / Narmaya (Yukata) | SSR | 光 | 下書き |
 | [yuni-grand-ssr.md](./yuni-grand-ssr.md) | ユニ(リミテッド) / Yuni (Grand) | SSR | 光 | 下書き |
+| [ladiva-valentine-ssr.md](./ladiva-valentine-ssr.md) | ファスティバ(バレンタイン) / Ladiva (Valentine) | SSR | 光 | 下書き |
+| [mahira-holiday-ssr.md](./mahira-holiday-ssr.md) | マキラ(クリスマス) / Mahira (Holiday) | SSR | 光 | 下書き |
+| [nobita-ssr.md](./nobita-ssr.md) | のび太 / Nobita | SSR | 光 | 下書き |
+| [arulumaya-light-ssr.md](./arulumaya-light-ssr.md) | アルルメイヤ(光) / Arulumaya (Light) | SSR | 光 | 下書き |
+| [lunalu-light-ssr.md](./lunalu-light-ssr.md) | ルナール(光) / Lunalu (Light) | SSR | 光 | 下書き |
+| [yorozuya-ssr.md](./yorozuya-ssr.md) | 万事屋銀ちゃん / Yorozuya | SSR | 光 | 下書き |
+| [arthur-light-ssr.md](./arthur-light-ssr.md) | アーサー(光) / Arthur (Light) | SSR | 光 | 下書き |
+| [grea-light-ssr.md](./grea-light-ssr.md) | グレア(光) / Grea (Light) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
