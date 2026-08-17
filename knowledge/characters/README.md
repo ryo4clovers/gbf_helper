@@ -132,6 +132,8 @@
 | [light-ssr-albert-normal.md](./light-ssr-albert-normal.md) | アルベール(SSR) / Albert | SSR | 光 | 下書き |
 | [light-ssr-jeanne-darc-normal.md](./light-ssr-jeanne-darc-normal.md) | ジャンヌダルク(SSR) / Jeanne d'Arc | SSR | 光 | 下書き |
 | [light-ssr-fif-normal.md](./light-ssr-fif-normal.md) | フュンフ / Fif | SSR | 光 | 下書き |
+| [light-ssr-tweyen-normal.md](./light-ssr-tweyen-normal.md) | ソーン / Tweyen | SSR | 光 | 下書き |
+| [light-ssr-sophia-light.md](./light-ssr-sophia-light.md) | 光ソフィア / Sophia (Light) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
