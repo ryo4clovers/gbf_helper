@@ -47,6 +47,9 @@
 | [horus-summer-ssr.md](./horus-summer-ssr.md) | ホルス(水着) / Horus (Summer) | SSR | 光 | 下書き |
 | [raziel-ssr.md](./raziel-ssr.md) | ラジエル / Raziel | SSR | 光 | 下書き |
 | [sandalphon-grand-ssr.md](./sandalphon-grand-ssr.md) | サンダルフォン(リミテッド) | SSR | 光 | 下書き |
+| [robertina-light-ssr.md](./robertina-light-ssr.md) | ロベルティナ(光) | SSR | 光 | 下書き |
+| [illnott-holiday-ssr.md](./illnott-holiday-ssr.md) | イルノート(クリスマス) / Illnott (Holiday) | SSR | 光 | 下書き |
+| [bolemia-light-ssr.md](./bolemia-light-ssr.md) | ボレミア(光) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
