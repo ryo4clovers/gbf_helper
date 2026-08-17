@@ -52,11 +52,13 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - `list.json`: 121体の一覧(新しい順、element/tag/href)。
   - `picks.json`: 各キャラに対応するgbf.wiki候補ページの選定結果。属性接頭辞パターン(光○○等)は対応する `(Light)` 等のページが見つからない場合 `candidate: null` にしている(10体、要手動確認)。
   - `dossiers/batch_XXX-YYY.txt`: 8体ずつにまとめたGameWith+gbf.wikiの生テキスト。
-- **進捗**: list.jsonのインデックス0〜105まで処理済み(index 0の水着ハイラは既存の`light-ssr-payila-summer.md`と重複のためスキップ、実質105体作成)。index 106以降が未処理(`dossiers/batch_104-111.txt`の続きから)。
+- **進捗**: list.jsonのインデックス0〜107まで処理済み(index 0の水着ハイラは既存の`light-ssr-payila-summer.md`と重複のためスキップ、実質107体作成)。index 108以降が未処理(`dossiers/batch_104-111.txt`の続きから)。
   - index92 ロボミ(SSR)はgbf.wiki検索候補が召喚石ページ(「Robomi Rocket」)だったため不採用、GameWithのみで作成。
   - index94 銃ゾーイ(SSR)はgbf.wiki検索候補が無関係のページ(「Side-scrolling Quotes」)だったため不採用、GameWithのみで作成。
   - index100 バウタオーダ(SSR)はgbf.wiki検索候補「Baotorda」がHP/ATK不一致の別バージョン(SSR以外)だったため不採用、GameWithのみで作成。
   - index105 ロザミア(SSR)はgbf.wiki検索候補「Rosamia」がHP/ATK不一致の別バージョン(Rレアリティ版)だったため不採用、GameWithのみで作成。
+  - index106 ゾーイ(SSR)はgbf.wikiページの内容が取得できなかったため不採用、GameWithのみで作成。
+  - index107 フェリ(SSR)はgbf.wiki検索候補「Ferry」がHP/ATK不一致の別バージョンだったため不採用、GameWithのみで作成。
   - index45 光ヨウ(SSR)はgbf.wiki候補が見つからずGameWithのみで作成(`light-ssr-yoh-light.md`)。GameWithページに2025年8月バランス調整前後の数値が混在していたため、調整後(最新)の内容を採用。
   - index47 ユニ(リミテッド)はリミテッド無印フォールバックが無効化された状態でも`Yuni`(Grand版)ページが正しくヒットし、HP/ATK/入手武器の一致で確認できた(`light-ssr-yuni-grand.md`)。
   - index54 光アーサーはgbf.wiki候補が見つからずGameWithのみで作成(`light-ssr-arthur-light.md`、release_dateは不明として要確認扱い)。

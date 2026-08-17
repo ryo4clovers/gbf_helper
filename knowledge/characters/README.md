@@ -124,6 +124,8 @@
 | [light-ssr-juliet-light.md](./light-ssr-juliet-light.md) | ジュリエット / Juliet | SSR | 光 | 下書き |
 | [light-ssr-heles-summer.md](./light-ssr-heles-summer.md) | ヘルエス(水着) / Heles (Summer) | SSR | 光 | 下書き |
 | [light-ssr-rosamia-normal.md](./light-ssr-rosamia-normal.md) | ロザミア(SSR) / Rosamia (SSR) | SSR | 光 | 下書き |
+| [light-ssr-zooey-normal.md](./light-ssr-zooey-normal.md) | ゾーイ(SSR) / Zooey | SSR | 光 | 下書き |
+| [light-ssr-ferry-normal.md](./light-ssr-ferry-normal.md) | フェリ(SSR) / Ferry (SSR) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
