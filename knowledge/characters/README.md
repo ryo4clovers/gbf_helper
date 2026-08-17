@@ -103,6 +103,9 @@
 | [light-ssr-melissabelle-valentine.md](./light-ssr-melissabelle-valentine.md) | メリッサベル(バレンタイン) / Melissabelle (Valentine) | SSR | 光 | 下書き |
 | [light-ssr-kumbhira-normal.md](./light-ssr-kumbhira-normal.md) | クビラ(十二神将) / Kumbhira | SSR | 光 | 下書き |
 | [light-ssr-metera-holiday.md](./light-ssr-metera-holiday.md) | メーテラ(クリスマス) / Metera (Holiday) | SSR | 光 | 下書き |
+| [light-ssr-pecorine-normal.md](./light-ssr-pecorine-normal.md) | ペコリーヌ / Pecorine | SSR | 光 | 下書き |
+| [light-ssr-charlotta-light.md](./light-ssr-charlotta-light.md) | シャルロッテ(光) / Charlotta (Light) | SSR | 光 | 下書き |
+| [light-ssr-levin-sisters-normal.md](./light-ssr-levin-sisters-normal.md) | レヴィオン姉妹 / Levin Sisters | SSR | 光 | 下書き |
 
 ## 運用ルール
 
