@@ -51,6 +51,9 @@
 | [illnott-holiday-ssr.md](./illnott-holiday-ssr.md) | イルノート(クリスマス) / Illnott (Holiday) | SSR | 光 | 下書き |
 | [bolemia-light-ssr.md](./bolemia-light-ssr.md) | ボレミア(光) | SSR | 光 | 下書き |
 | [utsusemi-ssr.md](./utsusemi-ssr.md) | ウツセミ / Utsusemi | SSR | 光 | 下書き |
+| [siegfried-another-light-ssr.md](./siegfried-another-light-ssr.md) | ジークフリート(光/アナザー) | SSR | 光 | 下書き |
+| [seruel-summer-ssr.md](./seruel-summer-ssr.md) | セルエル(水着) / Seruel (Summer) | SSR | 光 | 下書き |
+| [yurius-summer-ssr.md](./yurius-summer-ssr.md) | ユリウス(水着) / Yurius (Summer) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
