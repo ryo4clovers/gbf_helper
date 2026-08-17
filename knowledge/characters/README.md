@@ -118,6 +118,8 @@
 | [light-ssr-sakura-kinomoto-normal.md](./light-ssr-sakura-kinomoto-normal.md) | 木之本桜 / Sakura Kinomoto | SSR | 光 | 下書き |
 | [light-ssr-dorothy-and-claudia-normal.md](./light-ssr-dorothy-and-claudia-normal.md) | ドロシー＆クラウディア / Dorothy and Claudia | SSR | 光 | 下書き |
 | [light-ssr-mikazuki-munechika-normal.md](./light-ssr-mikazuki-munechika-normal.md) | 三日月宗近 / Mikazuki Munechika | SSR | 光 | 下書き |
+| [light-ssr-baotorda-normal.md](./light-ssr-baotorda-normal.md) | バウタオーダ(SSR) / Baotorda (SSR) | SSR | 光 | 下書き |
+| [light-ssr-clarisse-light.md](./light-ssr-clarisse-light.md) | クラリス(光) / Clarisse (Light) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
