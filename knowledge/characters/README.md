@@ -78,6 +78,10 @@
 | [zahlhamelina-yukata-ssr.md](./zahlhamelina-yukata-ssr.md) | ザルハメリナ(浴衣) / Zahlhamelina (Yukata) | SSR | 光 | 下書き |
 | [nehan-grand-ssr.md](./nehan-grand-ssr.md) | ネハン(リミテッド) / Nehan (Grand) | SSR | 光 | 下書き |
 | [tikoh-ssr.md](./tikoh-ssr.md) | ティコ / Tikoh | SSR | 光 | 下書き |
+| [bobobo-ssr.md](./bobobo-ssr.md) | ボボボーボ・ボーボボ / Bobobo-bo Bo-bobo | SSR | 光 | 下書き |
+| [farrah-and-juri-ssr.md](./farrah-and-juri-ssr.md) | ファラ＆ユーリ / Farrah and Juri | SSR | 光 | 下書き |
+| [aglovale-valentine-ssr.md](./aglovale-valentine-ssr.md) | アグロヴァル(バレンタイン) / Aglovale (Valentine) | SSR | 光 | 下書き |
+| [cagliostro-grand-ssr.md](./cagliostro-grand-ssr.md) | カリオストロ(リミテッド) / Cagliostro (Grand) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
