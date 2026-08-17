@@ -57,6 +57,7 @@
 | [cosmos-grand-ssr.md](./cosmos-grand-ssr.md) | コスモス(リミテッド) | SSR | 光 | 下書き |
 | [drossel-light-ssr.md](./drossel-light-ssr.md) | ドロッセル(光) | SSR | 光 | 下書き |
 | [monika-summer-ssr.md](./monika-summer-ssr.md) | モニカ(水着) / Monika (Summer) | SSR | 光 | 下書き |
+| [lu-oh-grand-ssr.md](./lu-oh-grand-ssr.md) | ルオー(リミテッド) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
