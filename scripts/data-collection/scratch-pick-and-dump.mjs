@@ -73,8 +73,30 @@ const ELEMENT_PREFIX_HINTS = {
   "風": ["(Wind)"],
 };
 
+// GameWith's `tag` (rel attribute) is not always consistent with the character's
+// actual displayed name (e.g. a character literally named "浴衣コルワ" was tagged
+// 水着 instead of 浴衣, which picked the wrong gbf.wiki page — a same-named but
+// different-element version). Derive the hint from the name text itself first —
+// it's what a human would go by — and only fall back to the site's tag metadata
+// if the name doesn't contain a recognizable keyword.
+const NAME_KEYWORD_HINTS = [
+  ["浴衣", ["(Yukata)", "(Summer)"]],
+  ["水着", ["(Summer)"]],
+  ["ハロウィン", ["(Halloween)"]],
+  ["クリスマス", ["(Christmas)"]],
+  ["バレンタイン", ["(Valentine)"]],
+  ["ドレス", ["(Dress)", "(Holiday)"]],
+];
+
 function pickCandidate(candidates, tag, name) {
   if (candidates.length === 0) return null;
+  for (const [keyword, hints] of NAME_KEYWORD_HINTS) {
+    if (!name.includes(keyword)) continue;
+    for (const hint of hints) {
+      const found = candidates.find((c) => c.title.includes(hint));
+      if (found) return found;
+    }
+  }
   const hints = TAG_SUFFIX_HINTS[tag] || [];
   for (const hint of hints) {
     const found = candidates.find((c) => c.title.includes(hint));

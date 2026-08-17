@@ -26,6 +26,14 @@
 | [caesar-grand-ssr.md](./caesar-grand-ssr.md) | シーザー(リミテッド) / Caesar (Grand) | SSR | 光 | 下書き |
 | [amaterasu-ssr.md](./amaterasu-ssr.md) | アマテラス / Amaterasu | SSR | 光 | 下書き |
 | [kaworu-mark6-ssr.md](./kaworu-mark6-ssr.md) | カヲル&Mark.6 / Kaworu & Mark.06 | SSR | 光 | 下書き |
+| [shinji-unit01-ssr.md](./shinji-unit01-ssr.md) | シンジ&初号機 / Shinji & Unit 01 | SSR | 光 | 下書き |
+| [vajra-halloween-ssr.md](./vajra-halloween-ssr.md) | ヴァジラ(ハロウィン) / Vajra (Halloween) | SSR | 光 | 下書き |
+| [korwa-yukata-ssr.md](./korwa-yukata-ssr.md) | コルワ(浴衣) / Korwa (Yukata) | SSR | 光 | 下書き |
+| [kou-light-ssr.md](./kou-light-ssr.md) | コウ(光) / Kou (Light) | SSR | 光 | 下書き |
+| [mars-ssr.md](./mars-ssr.md) | マーズ / Mars | SSR | 光 | 下書き |
+| [pijiu-ssr.md](./pijiu-ssr.md) | ピィジウ / Pijiu | SSR | 光 | 下書き |
+| [cherine-ssr.md](./cherine-ssr.md) | シェリーネ / Cherine | SSR | 光 | 下書き |
+| [vikala-yukata-ssr.md](./vikala-yukata-ssr.md) | ビカラ(浴衣) / Vikala (Yukata) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
