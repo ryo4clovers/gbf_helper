@@ -98,6 +98,8 @@
 | [light-ssr-hallessena-halloween.md](./light-ssr-hallessena-halloween.md) | ハレゼナ(ハロウィン) / Hallessena (Halloween) | SSR | 光 | 下書き |
 | [light-ssr-sara-light.md](./light-ssr-sara-light.md) | サラ(光) / Sara (Light) | SSR | 光 | 下書き |
 | [light-ssr-second-years-normal.md](./light-ssr-second-years-normal.md) | 2年生チーム(μ's) / Second-Years (μ's) | SSR | 光 | 下書き |
+| [light-ssr-halluel-and-malluel-summer.md](./light-ssr-halluel-and-malluel-summer.md) | ハールート・マールート(水着) / Halluel and Malluel (Summer) | SSR | 光 | 下書き |
+| [light-ssr-geisenborger-normal.md](./light-ssr-geisenborger-normal.md) | ガイゼンボーガ / Geisenborger | SSR | 光 | 下書き |
 
 ## 運用ルール
 
