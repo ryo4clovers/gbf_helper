@@ -59,6 +59,8 @@
 | [monika-summer-ssr.md](./monika-summer-ssr.md) | モニカ(水着) / Monika (Summer) | SSR | 光 | 下書き |
 | [lu-oh-grand-ssr.md](./lu-oh-grand-ssr.md) | ルオー(リミテッド) | SSR | 光 | 下書き |
 | [makura-ssr.md](./makura-ssr.md) | マコラ(十二神将) | SSR | 光 | 下書き |
+| [florence-halloween-ssr.md](./florence-halloween-ssr.md) | フロレンス(光/ハロウィン) / Florence (Halloween) | SSR | 光 | 下書き |
+| [mugen-halloween-ssr.md](./mugen-halloween-ssr.md) | ムゲン(光/ハロウィン) / Mugen (Halloween) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
