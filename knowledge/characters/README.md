@@ -55,6 +55,8 @@
 | [seruel-summer-ssr.md](./seruel-summer-ssr.md) | セルエル(水着) / Seruel (Summer) | SSR | 光 | 下書き |
 | [yurius-summer-ssr.md](./yurius-summer-ssr.md) | ユリウス(水着) / Yurius (Summer) | SSR | 光 | 下書き |
 | [cosmos-grand-ssr.md](./cosmos-grand-ssr.md) | コスモス(リミテッド) | SSR | 光 | 下書き |
+| [drossel-light-ssr.md](./drossel-light-ssr.md) | ドロッセル(光) | SSR | 光 | 下書き |
+| [monika-summer-ssr.md](./monika-summer-ssr.md) | モニカ(水着) / Monika (Summer) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
