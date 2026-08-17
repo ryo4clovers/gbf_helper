@@ -61,6 +61,11 @@
 | [makura-ssr.md](./makura-ssr.md) | マコラ(十二神将) | SSR | 光 | 下書き |
 | [florence-halloween-ssr.md](./florence-halloween-ssr.md) | フロレンス(光/ハロウィン) / Florence (Halloween) | SSR | 光 | 下書き |
 | [mugen-halloween-ssr.md](./mugen-halloween-ssr.md) | ムゲン(光/ハロウィン) / Mugen (Halloween) | SSR | 光 | 下書き |
+| [sturm-summer-ssr.md](./sturm-summer-ssr.md) | スツルム(水着) / Sturm (Summer) | SSR | 光 | 下書き |
+| [prishe-ssr.md](./prishe-ssr.md) | プリッシュ / Prishe | SSR | 光 | 下書き |
+| [yoh-light-ssr.md](./yoh-light-ssr.md) | ヨウ(光) / Yoh (Light) | SSR | 光 | 下書き |
+| [narmaya-yukata-ssr.md](./narmaya-yukata-ssr.md) | ナルメア(浴衣) / Narmaya (Yukata) | SSR | 光 | 下書き |
+| [yuni-grand-ssr.md](./yuni-grand-ssr.md) | ユニ(リミテッド) / Yuni (Grand) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
