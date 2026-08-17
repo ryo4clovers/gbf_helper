@@ -34,6 +34,14 @@
 | [pijiu-ssr.md](./pijiu-ssr.md) | ピィジウ / Pijiu | SSR | 光 | 下書き |
 | [cherine-ssr.md](./cherine-ssr.md) | シェリーネ / Cherine | SSR | 光 | 下書き |
 | [vikala-yukata-ssr.md](./vikala-yukata-ssr.md) | ビカラ(浴衣) / Vikala (Yukata) | SSR | 光 | 下書き |
+| [basara-grand-ssr.md](./basara-grand-ssr.md) | バサラ(リミテッド) / Basara (Grand) | SSR | 光 | 下書き |
+| [feena-light-ssr.md](./feena-light-ssr.md) | フィーナ(光) / Feena (Light) | SSR | 光 | 下書き |
+| [mini-goblin-light-ssr.md](./mini-goblin-light-ssr.md) | ミニゴブ(光) | SSR | 光 | 下書き |
+| [zooey-holiday-ssr.md](./zooey-holiday-ssr.md) | ゾーイ(クリスマス) / Zooey (Holiday) | SSR | 光 | 下書き |
+| [wilnas-halloween-ssr.md](./wilnas-halloween-ssr.md) | ウィルナス(光/ハロウィン) / Wilnas (Halloween) | SSR | 光 | 下書き |
+| [nave-light-ssr.md](./nave-light-ssr.md) | ナーヴェ(光) | SSR | 光 | 下書き |
+| [ragazzo-summer-ssr.md](./ragazzo-summer-ssr.md) | ラガッツォ(水着) / Ragazzo (Summer) | SSR | 光 | 下書き |
+| [cucouroux-summer-ssr.md](./cucouroux-summer-ssr.md) | ククル(水着) / Cucouroux (Summer) | SSR | 光 | 下書き |
 
 ## 運用ルール
 

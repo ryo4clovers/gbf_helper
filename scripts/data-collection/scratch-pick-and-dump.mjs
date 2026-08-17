@@ -52,9 +52,9 @@ function extractGbfWikiSearchCandidates(html) {
 const TAG_SUFFIX_HINTS = {
   "水着": ["(Summer)"],
   "浴衣": ["(Yukata)", "(Summer)"],
-  "ハロウィン": ["(Halloween)"],
-  "クリスマス": ["(Christmas)"],
-  "バレンタイン": ["(Valentine)"],
+  "ハロウィン": ["(Halloween)", "(Holiday)"],
+  "クリスマス": ["(Christmas)", "(Holiday)"],
+  "バレンタイン": ["(Valentine)", "(Holiday)"],
   "ドレス": ["(Dress)", "(Holiday)"],
   "リミテッド": ["(Grand)"],
   "コラボ": [],
@@ -82,12 +82,19 @@ const ELEMENT_PREFIX_HINTS = {
 const NAME_KEYWORD_HINTS = [
   ["浴衣", ["(Yukata)", "(Summer)"]],
   ["水着", ["(Summer)"]],
-  ["ハロウィン", ["(Halloween)"]],
-  ["クリスマス", ["(Christmas)"]],
-  ["バレンタイン", ["(Valentine)"]],
+  ["ハロウィン", ["(Halloween)", "(Holiday)"]],
+  ["クリスマス", ["(Christmas)", "(Holiday)"]],
+  ["バレンタイン", ["(Valentine)", "(Holiday)"]],
   ["ドレス", ["(Dress)", "(Holiday)"]],
 ];
 
+// If the name or tag positively identifies this as a specific costume/element variant
+// but none of that keyword's known hints match any fetched candidate, we do NOT fall
+// back to guessing (candidates[0] or the bare page) — that has repeatedly picked a
+// wrong, differently-kitted character/summon (Europa Summon, base-element Arriet,
+// Summer-not-Yukata Korwa, 2018 Zooey (Event) instead of the 2025 Christmas version).
+// Returning null forces a manual check for that one character instead of silently
+// shipping cross-checked-against-the-wrong-entity data.
 function pickCandidate(candidates, tag, name) {
   if (candidates.length === 0) return null;
   for (const [keyword, hints] of NAME_KEYWORD_HINTS) {
@@ -96,11 +103,23 @@ function pickCandidate(candidates, tag, name) {
       const found = candidates.find((c) => c.title.includes(hint));
       if (found) return found;
     }
+    return null;
   }
   const hints = TAG_SUFFIX_HINTS[tag] || [];
-  for (const hint of hints) {
-    const found = candidates.find((c) => c.title.includes(hint));
-    if (found) return found;
+  if (hints.length > 0) {
+    for (const hint of hints) {
+      const found = candidates.find((c) => c.title.includes(hint));
+      if (found) return found;
+    }
+    if (tag === "リミテッド") {
+      // Unlike costume variants, a "Grand"/Limited-rarity character usually has no
+      // separate "(Grand)"-suffixed gbf.wiki page — the bare-name page already covers
+      // that version (verified for Caesar, Basara: bare page's HP/ATK matched GameWith
+      // exactly). Fall back to the bare title here rather than nulling out.
+      const bare = candidates.find((c) => !c.title.includes("("));
+      if (bare) return bare;
+    }
+    return null;
   }
   if (!tag) {
     const elementPrefix = name.match(/^(光|闇|火|水|土|風)/)?.[1];
