@@ -126,6 +126,8 @@
 | [light-ssr-rosamia-normal.md](./light-ssr-rosamia-normal.md) | ロザミア(SSR) / Rosamia (SSR) | SSR | 光 | 下書き |
 | [light-ssr-zooey-normal.md](./light-ssr-zooey-normal.md) | ゾーイ(SSR) / Zooey | SSR | 光 | 下書き |
 | [light-ssr-ferry-normal.md](./light-ssr-ferry-normal.md) | フェリ(SSR) / Ferry (SSR) | SSR | 光 | 下書き |
+| [light-ssr-io-grand.md](./light-ssr-io-grand.md) | イオ(リミテッド) / Io (Grand) | SSR | 光 | 下書き |
+| [light-ssr-zeta-summer.md](./light-ssr-zeta-summer.md) | ゼタ(水着) / Zeta (Summer) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
