@@ -19,6 +19,13 @@
 | [seox-summer-ssr.md](./seox-summer-ssr.md) | シス(水着) / Seox (Summer) | SSR | 土 | 下書き |
 | [payila-summer-ssr.md](./payila-summer-ssr.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [gwynne-yukata-ssr.md](./gwynne-yukata-ssr.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
+| [yoruichi-shihoin-ssr.md](./yoruichi-shihoin-ssr.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
+| [europa-holiday-ssr.md](./europa-holiday-ssr.md) | エウロペ(ドレス) / Europa (Holiday) | SSR | 光 | 下書き |
+| [anthuria-summer-ssr.md](./anthuria-summer-ssr.md) | アンスリア(水着) / Anthuria (Summer) | SSR | 光 | 下書き |
+| [arriet-light-ssr.md](./arriet-light-ssr.md) | アンリエット(光) / Arriet (Light) | SSR | 光 | 下書き |
+| [caesar-grand-ssr.md](./caesar-grand-ssr.md) | シーザー(リミテッド) / Caesar (Grand) | SSR | 光 | 下書き |
+| [amaterasu-ssr.md](./amaterasu-ssr.md) | アマテラス / Amaterasu | SSR | 光 | 下書き |
+| [kaworu-mark6-ssr.md](./kaworu-mark6-ssr.md) | カヲル&Mark.6 / Kaworu & Mark.06 | SSR | 光 | 下書き |
 
 ## 運用ルール
 
