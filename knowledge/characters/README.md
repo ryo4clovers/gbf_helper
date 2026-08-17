@@ -54,6 +54,7 @@
 | [siegfried-another-light-ssr.md](./siegfried-another-light-ssr.md) | ジークフリート(光/アナザー) | SSR | 光 | 下書き |
 | [seruel-summer-ssr.md](./seruel-summer-ssr.md) | セルエル(水着) / Seruel (Summer) | SSR | 光 | 下書き |
 | [yurius-summer-ssr.md](./yurius-summer-ssr.md) | ユリウス(水着) / Yurius (Summer) | SSR | 光 | 下書き |
+| [cosmos-grand-ssr.md](./cosmos-grand-ssr.md) | コスモス(リミテッド) | SSR | 光 | 下書き |
 
 ## 運用ルール
 

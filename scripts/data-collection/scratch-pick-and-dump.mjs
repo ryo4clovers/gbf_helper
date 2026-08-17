@@ -111,14 +111,12 @@ function pickCandidate(candidates, tag, name) {
       const found = candidates.find((c) => c.title.includes(hint));
       if (found) return found;
     }
-    if (tag === "リミテッド") {
-      // Unlike costume variants, a "Grand"/Limited-rarity character usually has no
-      // separate "(Grand)"-suffixed gbf.wiki page — the bare-name page already covers
-      // that version (verified for Caesar, Basara: bare page's HP/ATK matched GameWith
-      // exactly). Fall back to the bare title here rather than nulling out.
-      const bare = candidates.find((c) => !c.title.includes("("));
-      if (bare) return bare;
-    }
+    // NOTE: previously tried falling back to the bare (no-parens) title for
+    // "リミテッド" tags, on the theory that Grand/Limited characters often have no
+    // separate "(Grand)" page (true for Caesar, Basara). Disabled: it also matched
+    // weapon/summon pages with no parenthetical marker at all (Sandalphon ->
+    // "Triple Zero" summon, Cosmos -> "Cosmic Sword" weapon) — wrong more often than
+    // right. Null out and let these get checked by hand instead.
     return null;
   }
   if (!tag) {
