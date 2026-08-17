@@ -110,6 +110,8 @@
 | [light-ssr-silva-light.md](./light-ssr-silva-light.md) | シルヴァ(光) / Silva (Light) | SSR | 光 | 下書き |
 | [light-ssr-naoise-summer.md](./light-ssr-naoise-summer.md) | ノイシュ(水着) / Naoise (Summer) | SSR | 光 | 下書き |
 | [light-ssr-conan-edogawa-normal.md](./light-ssr-conan-edogawa-normal.md) | 江戸川コナン / Conan Edogawa | SSR | 光 | 下書き |
+| [light-ssr-robomi-normal.md](./light-ssr-robomi-normal.md) | ロボミ(SSR) / Robomi | SSR | 光 | 下書き |
+| [light-ssr-sandalphon-normal.md](./light-ssr-sandalphon-normal.md) | サンダルフォン / Sandalphon (Event) | SSR | 光 | 下書き |
 
 ## 運用ルール
 
