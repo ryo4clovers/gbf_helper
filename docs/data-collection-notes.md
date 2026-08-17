@@ -52,7 +52,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - `list.json`: 121体の一覧(新しい順、element/tag/href)。
   - `picks.json`: 各キャラに対応するgbf.wiki候補ページの選定結果。属性接頭辞パターン(光○○等)は対応する `(Light)` 等のページが見つからない場合 `candidate: null` にしている(10体、要手動確認)。
   - `dossiers/batch_XXX-YYY.txt`: 8体ずつにまとめたGameWith+gbf.wikiの生テキスト。
-- **進捗**: list.jsonのインデックス0〜111まで処理済み(index 0の水着ハイラは既存の`light-ssr-payila-summer.md`と重複のためスキップ、実質111体作成)。index 112以降が未処理(`dossiers/batch_112-119.txt`から)。
+- **進捗**: list.jsonのインデックス0〜113まで処理済み(index 0の水着ハイラは既存の`light-ssr-payila-summer.md`と重複のためスキップ、実質113体作成)。index 114以降が未処理(`dossiers/batch_112-119.txt`の続きから)。
   - index92 ロボミ(SSR)はgbf.wiki検索候補が召喚石ページ(「Robomi Rocket」)だったため不採用、GameWithのみで作成。
   - index94 銃ゾーイ(SSR)はgbf.wiki検索候補が無関係のページ(「Side-scrolling Quotes」)だったため不採用、GameWithのみで作成。
   - index100 バウタオーダ(SSR)はgbf.wiki検索候補「Baotorda」がHP/ATK不一致の別バージョン(SSR以外)だったため不採用、GameWithのみで作成。

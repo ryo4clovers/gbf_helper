@@ -130,6 +130,8 @@
 | [light-ssr-zeta-summer.md](./light-ssr-zeta-summer.md) | ゼタ(水着) / Zeta (Summer) | SSR | 光 | 下書き |
 | [light-ssr-amira-normal.md](./light-ssr-amira-normal.md) | アーミラ(SSR) / Amira | SSR | 光 | 下書き |
 | [light-ssr-albert-normal.md](./light-ssr-albert-normal.md) | アルベール(SSR) / Albert | SSR | 光 | 下書き |
+| [light-ssr-jeanne-darc-normal.md](./light-ssr-jeanne-darc-normal.md) | ジャンヌダルク(SSR) / Jeanne d'Arc | SSR | 光 | 下書き |
+| [light-ssr-fif-normal.md](./light-ssr-fif-normal.md) | フュンフ / Fif | SSR | 光 | 下書き |
 
 ## 運用ルール
 
