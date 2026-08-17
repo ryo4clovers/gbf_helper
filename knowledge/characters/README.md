@@ -90,6 +90,10 @@
 | [light-ssr-rosamia-yukata.md](./light-ssr-rosamia-yukata.md) | ロザミア(浴衣) / Rosamia (Yukata) | SSR | 光 | 下書き |
 | [light-ssr-percival-light.md](./light-ssr-percival-light.md) | パーシヴァル(光) / Percival (Light) | SSR | 光 | 下書き |
 | [light-ssr-new-generations-normal.md](./light-ssr-new-generations-normal.md) | ニュージェネ / New Generations | SSR | 光 | 下書き |
+| [light-ssr-ilsa-light.md](./light-ssr-ilsa-light.md) | イルザ(光) / Ilsa (Light) | SSR | 光 | 下書き |
+| [light-ssr-danua-light.md](./light-ssr-danua-light.md) | ダヌア(光) / Danua (Light) | SSR | 光 | 下書き |
+| [light-ssr-noa-grand.md](./light-ssr-noa-grand.md) | ノア(リミテッド) / Noa (Grand) | SSR | 光 | 下書き |
+| [light-ssr-shitori-normal.md](./light-ssr-shitori-normal.md) | シトリ / Shitori | SSR | 光 | 下書き |
 
 ## 運用ルール
 
