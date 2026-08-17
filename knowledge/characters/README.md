@@ -88,6 +88,8 @@
 | [feather-ssr.md](./feather-ssr.md) | フェザー / Feather (SSR) | SSR | 光 | 下書き |
 | [gawain-light-ssr.md](./gawain-light-ssr.md) | ガウェイン(光) / Gawain (Light) | SSR | 光 | 下書き |
 | [rosamia-yukata-ssr.md](./rosamia-yukata-ssr.md) | ロザミア(浴衣) / Rosamia (Yukata) | SSR | 光 | 下書き |
+| [percival-light-ssr.md](./percival-light-ssr.md) | パーシヴァル(光) / Percival (Light) | SSR | 光 | 下書き |
+| [new-generations-ssr.md](./new-generations-ssr.md) | ニュージェネ / New Generations | SSR | 光 | 下書き |
 
 ## 運用ルール
 
