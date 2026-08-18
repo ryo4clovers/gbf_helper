@@ -761,6 +761,7 @@
 | [fire-sr-ryan-normal.md](./fire-sr-ryan-normal.md) | ライアン(SR) / Ryan (SR) | SR | 火 | 下書き |
 | [fire-sr-lina-inverse-normal.md](./fire-sr-lina-inverse-normal.md) | リナ / Lina Inverse | SR | 火 | 下書き |
 | [fire-sr-sutera-fire.md](./fire-sr-sutera-fire.md) | 火スーテラ / Sutera (Fire) | SR | 火 | 下書き |
+| [fire-sr-anila-normal.md](./fire-sr-anila-normal.md) | アニラ(SR) / Anila (SR) | SR | 火 | 下書き |
 
 ## 運用ルール
 

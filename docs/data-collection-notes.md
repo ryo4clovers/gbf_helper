@@ -276,7 +276,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index29 ライアン(SR)はgbf.wiki検索候補「Ryan」が基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
 - index30 リナ(スレイヤーズコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
 - index31 火スーテラはgbf.wiki候補とHP/ATK完全一致(HP1320/ATK5750)で確認、採用。batch_024-031.txt完了。
-- 火属性SR(32/55体完了)。次はindex32から継続(batch_032-039.txt)。
+- index32 アニラ(SR、十二神将)はgbf.wiki候補なし。GameWithのみで作成。
+- 火属性SR(33/55体完了)。次はindex33から継続(batch_032-039.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
