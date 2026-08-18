@@ -856,6 +856,7 @@
 | [earth-sr-laguna-normal.md](./earth-sr-laguna-normal.md) | ラグナ / Laguna | SR | 土 | 下書き |
 | [earth-sr-redluck-normal.md](./earth-sr-redluck-normal.md) | レッドラック / Redluck | SR | 土 | 下書き |
 | [earth-sr-aufstern-normal.md](./earth-sr-aufstern-normal.md) | アウフスタ / Aufstern | SR | 土 | 下書き |
+| [earth-sr-tokitoki-airi-normal.md](./earth-sr-tokitoki-airi-normal.md) | 十時愛梨 / Airi Totoki | SR | 土 | 下書き |
 
 ## 運用ルール
 
