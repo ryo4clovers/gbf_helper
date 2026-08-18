@@ -454,6 +454,7 @@
 | [earth-ssr-melleau-normal.md](./earth-ssr-melleau-normal.md) | メルゥ / Melleau | SSR | 土 | 下書き |
 | [earth-ssr-arulumaya-normal.md](./earth-ssr-arulumaya-normal.md) | アルルメイヤ / Arulumaya | SSR | 土 | 下書き |
 | [earth-ssr-cagliostro-earth.md](./earth-ssr-cagliostro-earth.md) | カリオストロ(土属性) / Cagliostro (Earth) | SSR | 土 | 下書き |
+| [earth-ssr-aletheia-normal.md](./earth-ssr-aletheia-normal.md) | アレーティア / Aletheia | SSR | 土 | 下書き |
 
 ## 運用ルール
 
