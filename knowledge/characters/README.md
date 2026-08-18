@@ -746,6 +746,7 @@
 | [fire-sr-ghandagoza-summer.md](./fire-sr-ghandagoza-summer.md) | 水着ガンダゴウザ / Ghandagoza (Summer) | SR | 火 | 下書き |
 | [fire-sr-karen-summer.md](./fire-sr-karen-summer.md) | 水着カレン / Karen (Summer) | SR | 火 | 下書き |
 | [fire-sr-sutera-event.md](./fire-sr-sutera-event.md) | スーテラ(イベント) / Sutera | SR | 火 | 下書き |
+| [fire-sr-lyria-normal.md](./fire-sr-lyria-normal.md) | ルリア / Lyria | SR | 主人公と同じ(便宜上火) | 下書き |
 
 ## 運用ルール
 
