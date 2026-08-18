@@ -538,6 +538,7 @@
 | [wind-ssr-monika-grand.md](./wind-ssr-monika-grand.md) | モニカ(リミテッド) / Monika (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-stan-and-aliza-normal.md](./wind-ssr-stan-and-aliza-normal.md) | スタン&アリーザ / Stan and Aliza | SSR | 風 | 下書き |
 | [wind-ssr-first-years-mus-normal.md](./wind-ssr-first-years-mus-normal.md) | 1年生チーム(μ's) / μ's First Years | SSR | 風 | 下書き |
+| [wind-ssr-suzaku-kururugi-normal.md](./wind-ssr-suzaku-kururugi-normal.md) | 枢木スザク / Suzaku Kururugi | SSR | 風 | 下書き |
 
 ## 運用ルール
 
