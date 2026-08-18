@@ -607,6 +607,8 @@
 | [dark-ssr-hallessena-summer.md](./dark-ssr-hallessena-summer.md) | 水着ハレゼナ / Hallessena (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-ourolyathe-limited.md](./dark-ssr-ourolyathe-limited.md) | オロロジャイア(リミテッド) / Ourolyathe (Limited) | SSR | 闇 | 下書き |
 | [dark-ssr-chloe-dark.md](./dark-ssr-chloe-dark.md) | 闇クロエ / Chloe (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-lefiya-yukata.md](./dark-ssr-lefiya-yukata.md) | 浴衣レフィーエ / Le Fay (Yukata) | SSR | 闇 | 下書き |
+| [dark-ssr-magus-summer.md](./dark-ssr-magus-summer.md) | 水着メイガス / Magus (Summer) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
