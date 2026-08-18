@@ -231,7 +231,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index30 J・JはATK完全一致(5750)・称号一致で同一キャラクターと確認したが、HPがGameWith1450/gbf.wiki1150(+CF200=1350)で不一致。同一キャラと判断しGameWith数値を採用、不一致を明記。
   - index31 セイランはgbf.wiki候補が壊れた検証用ページ(Broken/Character Validation)で使用不可のため不採用、GameWithのみで作成。batch_024-031.txt完了。
   - index32 アーミラ(SR)はgbf.wiki候補なし。GameWithのみで作成(神撃のバハムート由来キャラのため想定通り)。最終上限解放後の性能を採用。
-  - 光属性SR(33/41体完了)。次はindex33から継続(batch_032-039.txt)。
+  - index33 バウタオーダ(SR)はgbf.wiki候補とATK完全一致(6490)で確認、採用(HPはやや差異あり要検証)。
+  - 光属性SR(34/41体完了)。次はindex34から継続(batch_032-039.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
