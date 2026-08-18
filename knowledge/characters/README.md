@@ -793,6 +793,7 @@
 | [water-sr-yuel-normal.md](./water-sr-yuel-normal.md) | ユエル(SR) / Yuel (Water) | SR | 水 | 下書き |
 | [water-sr-owen-normal.md](./water-sr-owen-normal.md) | オーウェン / Owen | SR | 水 | 下書き |
 | [water-sr-charlotta-summer.md](./water-sr-charlotta-summer.md) | 水着シャルロッテ / Charlotta (Summer) | SR | 水 | 下書き |
+| [water-sr-nitta-minami-normal.md](./water-sr-nitta-minami-normal.md) | 新田美波 / Minami Nitta | SR | 水 | 下書き |
 
 ## 運用ルール
 

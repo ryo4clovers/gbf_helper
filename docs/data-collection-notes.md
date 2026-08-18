@@ -295,7 +295,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - GameWith全44体のページ取得完了、gbf.wiki検索は37/44体で候補あり(curl経由で取得)。
 - dossier生成完了(batch_000-007.txt 〜 batch_040-043.txt)。次はindex0から処理開始。
 - index0 ジョエル(SR)はgbf.wiki候補「Joel」がHP970(3★、クロスフェイトボーナス込み)/ATK3900(3★)で基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
-- 水属性SR(9/44体完了)。次はindex9から継続(batch_008-015.txt)。
+- 水属性SR(10/44体完了)。次はindex10から継続(batch_008-015.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
