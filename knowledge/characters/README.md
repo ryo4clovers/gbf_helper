@@ -634,6 +634,8 @@
 | [dark-ssr-ippatsu-dark.md](./dark-ssr-ippatsu-dark.md) | 闇イッパツ(SSR) / Ippatsu (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-fediel-limited.md](./dark-ssr-fediel-limited.md) | フェディエル(リミテッド) / Fediel (Limited) | SSR | 闇 | 下書き |
 | [dark-ssr-lich-limited.md](./dark-ssr-lich-limited.md) | リッチ(リミテッド) / Lich (Limited) | SSR | 闇 | 下書き |
+| [dark-ssr-tabina-summer.md](./dark-ssr-tabina-summer.md) | 水着タヴィーナ / Tabina (Summer) | SSR | 闇 | 下書き |
+| [dark-ssr-meg-summer.md](./dark-ssr-meg-summer.md) | 水着メグ / Meg (Summer) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
