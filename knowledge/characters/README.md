@@ -235,6 +235,8 @@
 | [fire-ssr-societte-fire.md](./fire-ssr-societte-fire.md) | 火ソシエ / Societte (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-percival-summer.md](./fire-ssr-percival-summer.md) | 水着パーシヴァル / Percival (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-aliza-normal.md](./fire-ssr-aliza-normal.md) | アリーザ(SSR) / Aliza | SSR | 火 | 下書き |
+| [fire-ssr-aoidos-normal.md](./fire-ssr-aoidos-normal.md) | アオイドス / Aoidos | SSR | 火 | 下書き |
+| [fire-ssr-zahlhamelina-normal.md](./fire-ssr-zahlhamelina-normal.md) | ザルハメリナ / Zahlhamelina | SSR | 火 | 下書き |
 
 ## 運用ルール
 
