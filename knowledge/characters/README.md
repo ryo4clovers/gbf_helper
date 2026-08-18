@@ -650,6 +650,8 @@
 | [dark-ssr-kou-normal.md](./dark-ssr-kou-normal.md) | コウ / Kou | SSR | 闇 | 下書き |
 | [dark-ssr-third-years-mus-normal.md](./dark-ssr-third-years-mus-normal.md) | 3年生チーム(μ's) / Third Years (μ's) | SSR | 闇 | 下書き |
 | [dark-ssr-anthuria-yukata.md](./dark-ssr-anthuria-yukata.md) | 浴衣アンスリア / Anthuria (Yukata) | SSR | 闇 | 下書き |
+| [dark-ssr-kolulu-normal.md](./dark-ssr-kolulu-normal.md) | コルル / Kolulu | SSR | 闇 | 下書き |
+| [dark-ssr-lelouch-normal.md](./dark-ssr-lelouch-normal.md) | ルルーシュ / Lelouch | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
