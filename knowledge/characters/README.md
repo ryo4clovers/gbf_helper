@@ -210,6 +210,7 @@
 | [fire-ssr-mugen-grand.md](./fire-ssr-mugen-grand.md) | ムゲン(リミテッド) / Mugen (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-teena-summer.md](./fire-ssr-teena-summer.md) | 水着ティナ / Teena (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-scathacha-valentine.md](./fire-ssr-scathacha-valentine.md) | スカーサハ(バレンタイン) / Scathacha (Valentine) | SSR | 火 | 下書き |
+| [fire-ssr-yuisis-fire.md](./fire-ssr-yuisis-fire.md) | 火ユイシス / Yuisis (Fire) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
