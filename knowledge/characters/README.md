@@ -558,6 +558,7 @@
 | [wind-ssr-siegfried-yukata.md](./wind-ssr-siegfried-yukata.md) | 浴衣ジークフリート / Siegfried (Yukata) | SSR | 風 | 下書き |
 | [wind-ssr-korwa-summer.md](./wind-ssr-korwa-summer.md) | 水着コルワ / Korwa (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-scathacha-normal.md](./wind-ssr-scathacha-normal.md) | スカーサハ / Scathacha | SSR | 風 | 下書き |
+| [wind-ssr-yuisis-normal.md](./wind-ssr-yuisis-normal.md) | ユイシス / Yuisis | SSR | 風 | 下書き |
 
 ## 運用ルール
 
