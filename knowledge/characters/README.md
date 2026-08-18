@@ -775,6 +775,7 @@
 | [fire-sr-dorothy-normal.md](./fire-sr-dorothy-normal.md) | ドロシー / Dorothy | SR | 火 | 下書き |
 | [fire-sr-honda-mio-normal.md](./fire-sr-honda-mio-normal.md) | 本田未央 / Mio Honda | SR | 火 | 下書き |
 | [fire-sr-carren-normal.md](./fire-sr-carren-normal.md) | カレン / Carren | SR | 火 | 下書き |
+| [fire-sr-teena-normal.md](./fire-sr-teena-normal.md) | ティナ / Teena | SR | 火 | 下書き |
 
 ## 運用ルール
 
