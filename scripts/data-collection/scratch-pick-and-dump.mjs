@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const SCRATCH = "C:/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/water_ssr";
+const SCRATCH = "C:/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/wind_ssr";
 
 function htmlToText(html) {
   html = html.replace(/<script[\s\S]*?<\/script>/gi, "");
@@ -164,7 +164,7 @@ fs.writeFileSync(path.join(SCRATCH, "picks.json"), JSON.stringify(picks, null, 2
 
 // Phase 2: emit bash script to fetch each picked gbf.wiki page via curl
 const SCRATCH_BASH_PATH =
-  "/c/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/water_ssr";
+  "/c/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/wind_ssr";
 const lines = [
   "#!/bin/bash",
   `SCRATCH="${SCRATCH_BASH_PATH}"`,
