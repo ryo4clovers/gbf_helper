@@ -303,6 +303,8 @@
 | [water-ssr-tanjiro-and-friends-normal.md](./water-ssr-tanjiro-and-friends-normal.md) | 炭治郎&禰豆子&善逸&伊之助 / Tanjiro, Nezuko, Zenitsu & Inosuke | SSR | 水 | 下書き |
 | [water-ssr-mirin-holiday.md](./water-ssr-mirin-holiday.md) | ミリン(クリスマス) / Mirin (Holiday) | SSR | 水 | 下書き |
 | [water-ssr-rosetta-halloween.md](./water-ssr-rosetta-halloween.md) | ロゼッタ(ハロウィン) / Rosetta (Halloween) | SSR | 水 | 下書き |
+| [water-ssr-juliet-water.md](./water-ssr-juliet-water.md) | 水ジュリエット / Juliet (Water) | SSR | 水 | 下書き |
+| [water-ssr-lucio-summer.md](./water-ssr-lucio-summer.md) | 水着ルシオ / Lucio (Summer) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
