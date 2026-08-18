@@ -686,6 +686,7 @@
 | [dark-ssr-seox-normal.md](./dark-ssr-seox-normal.md) | シス / Seox | SSR | 闇 | 下書き |
 | [dark-ssr-vaseraga-normal.md](./dark-ssr-vaseraga-normal.md) | バザラガ / Vaseraga | SSR | 闇 | 下書き |
 | [dark-ssr-rosetta-holiday.md](./dark-ssr-rosetta-holiday.md) | ロゼッタ(クリスマス) / Rosetta (Holiday) | SSR | 闇 | 下書き |
+| [dark-ssr-cerberus-normal.md](./dark-ssr-cerberus-normal.md) | ケルベロス / Cerberus | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
