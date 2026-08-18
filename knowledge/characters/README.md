@@ -580,6 +580,9 @@
 | [dark-ssr-shao-normal.md](./dark-ssr-shao-normal.md) | シャオ(SSR) / Shao (SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-greed-and-ling-yao-normal.md](./dark-ssr-greed-and-ling-yao-normal.md) | グリード＆リン･ヤオ / Greed & Ling Yao | SSR | 闇 | 下書き |
 | [dark-ssr-manu-ponomau-normal.md](./dark-ssr-manu-ponomau-normal.md) | マヌ＝ポヌマウ / Manu Ponomau | SSR | 闇 | 下書き |
+| [dark-ssr-wamdus-valentine.md](./dark-ssr-wamdus-valentine.md) | 闇ワムデュス(バレンタイン) / Wamdus (Valentine) | SSR | 闇 | 下書き |
+| [dark-ssr-constance-normal.md](./dark-ssr-constance-normal.md) | コンスタンツィア / Constance | SSR | 闇 | 下書き |
+| [dark-ssr-zeta-holiday.md](./dark-ssr-zeta-holiday.md) | ゼタ(クリスマス) / Zeta (Holiday) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

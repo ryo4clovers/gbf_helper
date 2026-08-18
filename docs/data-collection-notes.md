@@ -100,7 +100,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index0 黒崎一護、index3 グリード＆リン・ヤオはコラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)、GameWithのみで作成。
   - index4 マヌ＝ポヌマウはgbf.wiki候補なし。GameWithのみで作成。
   - index1 浴衣オシリスはgbf.wiki「Osiris (Yukata)」とHP1304/ATK8680(4★表記)で一致確認、採用。
-  - 闇属性SSR処理中(5/113体完了)。次はindex5 闇ワムデュス(バレンタイン)から継続。
+  - index5 闇ワムデュス(バレンタイン)、index6 コンスタンツィア、index7 ゼタ(クリスマス)はgbf.wiki候補とHP/ATK完全一致で確認、採用(batch_000-007.txt完了)。
+  - 闇属性SSR処理中(8/113体完了)。次はindex8から継続(batch_008-015.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
