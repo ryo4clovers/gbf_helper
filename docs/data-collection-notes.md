@@ -113,7 +113,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index22 ディアブロ、index23 シオン(共に転スラコラボ)はgbf.wiki候補なし。GameWithのみで作成。batch_016-023.txt完了。
   - index24 闇ウィル(SSR)はgbf.wiki候補なし。GameWithのみで作成。
   - index25 闇サテュロス(ハロウィン)はgbf.wiki候補とHP/ATK完全一致で確認、採用。
-  - 闇属性SSR処理中(26/113体完了)。次はindex26から継続(batch_024-031.txt)。
+  - index26 闇フロレンスはgbf.wiki候補とHP/ATK完全一致で確認、採用。
+  - index27 闇セワスチアン(SSR)はgbf.wiki候補なし。GameWithのみで作成。
+  - 闇属性SSR処理中(28/113体完了)。次はindex28 水着ヘカテーから継続(batch_024-031.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。

@@ -601,6 +601,8 @@
 | [dark-ssr-shion-normal.md](./dark-ssr-shion-normal.md) | シオン / Shion | SSR | 闇 | 下書き |
 | [dark-ssr-wil-dark.md](./dark-ssr-wil-dark.md) | 闇ウィル(SSR) / Wil (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-satyr-halloween.md](./dark-ssr-satyr-halloween.md) | 闇サテュロス(ハロウィン) / Satyr (Halloween) | SSR | 闇 | 下書き |
+| [dark-ssr-florence-dark.md](./dark-ssr-florence-dark.md) | 闇フロレンス / Florence (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-sevastian-dark.md](./dark-ssr-sevastian-dark.md) | 闇セワスチアン(SSR) / Sevastian (Dark) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
