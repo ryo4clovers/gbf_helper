@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const SCRATCH = "C:/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/light_ssr";
+const SCRATCH = "C:/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/fire_ssr";
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36";
 
 const list = JSON.parse(fs.readFileSync(path.join(SCRATCH, "list.json"), "utf-8"));

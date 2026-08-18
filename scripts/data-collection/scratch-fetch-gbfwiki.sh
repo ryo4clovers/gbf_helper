@@ -1,11 +1,11 @@
 #!/bin/bash
 # Re-fetch gbf.wiki search results via curl (Node's fetch gets 403'd by Cloudflare, curl doesn't).
-SCRATCH="/c/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/light_ssr"
-WIN_SCRATCH="C:/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/light_ssr"
+SCRATCH="/c/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/fire_ssr"
+WIN_SCRATCH="C:/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/fire_ssr"
 UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
 
 START=${1:-0}
-END=${2:-121}
+END=${2:-111}
 
 node -e "
 const fs = require('fs');

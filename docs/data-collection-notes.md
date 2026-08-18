@@ -72,3 +72,13 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index83 クビラ(十二神将)は「十二神将」タグ(未マッピング)でgbf.wiki候補が返らず、代わりに検索1位の`Kumbhira (Event)`(低レアリティ版、HP/ATK不一致)を誤って候補に採用しかけたが、マコラ等と同様にHP/ATK照合で不一致を検出しGameWithのみで作成。
 - 候補選定ロジックは複数回のバグ修正を経て安定(詳細は上記「取得方法の技術メモ」参照)。`picks.json`は最新の修正を反映済みなので、再利用時に再修正は不要。季節タグ(ハロウィン/クリスマス/バレンタイン)は実際には「(Holiday)」という汎用英語ページ名になっているケースが多いことが判明。
 - 続きを行う場合: `dossiers/batch_112-119.txt` から読み進める。scratchディレクトリが失われている場合は [scripts/data-collection/](../scripts/data-collection/) 内のスクリプトを `scratch-fetch.mjs`(GameWith一括取得)→`scratch-fetch-gbfwiki.sh`(gbf.wiki検索結果取得)→`scratch-pick-and-dump.mjs`(候補選定+ダンプ)→`scratch-build-dossier.mjs`(最終ダンプ生成)の順で再実行すれば同じデータを再構築できる。
+
+### 進行中の作業(2026-08-18〜): 全属性・全レアリティへの拡大(「全キャラクタデータの取得」ゴール)
+
+光属性SSR 121体の収集完了後、`全キャラクタデータの取得`という広いゴールに対応するため、残りの属性(火/水/土/風/闇)のSSR、その後SR/Rへと収集範囲を拡大する作業を開始した。
+
+- **収集パイプラインを汎用化**: 新規スクリプト [scripts/data-collection/scratch-build-list.mjs](../scripts/data-collection/scratch-build-list.mjs) を追加。`node scratch-build-list.mjs <属性(漢字1文字)> <scratchディレクトリ絶対パス>` で、GameWithのSSR一覧ページ(新しい順)を取得・パースし、指定属性でフィルタした`list.json`を生成する(以前は光属性版のみ手動で作られていた)。パース対象は `<li data-attr='属性' data-kana='...'><a href='...'>...<div class='_n' rel='タグ'>名前</div>` という構造(シングルクォート、`rel`属性はタグ無しの場合省略される点に注意)。
+- 既存の `scratch-fetch.mjs` / `scratch-fetch-gbfwiki.sh` / `scratch-pick-and-dump.mjs` / `scratch-build-dossier.mjs` は内部の `SCRATCH` 定数を書き換えるだけで属性ごとに使い回せる(現在は `fire_ssr` を指す状態)。属性を切り替える際は該当ファイル内の `SCRATCH =`/`SCRATCH=` 行のディレクトリ名を書き換えること。
+- Node.jsの`fetch`はgbf.wikiの検索ページ(`index.php?search=...`)に対して403(Cloudflare)を返すため、gbf.wiki検索結果の取得は必ず`scratch-fetch-gbfwiki.sh`(curl経由)を使うこと。GameWith本体のページ取得は引き続きNode `fetch`で問題ない。
+- **火属性SSR 111体**の収集に着手(list.json構築・GameWith/gbf.wiki取得・候補選定・ダウジエ生成まで完了、`scratchpad/fire_ssr/`)。79/111体にgbf.wiki候補あり、32体は`candidate: null`(手動要確認)。既存の`fire-ssr-percival-normal.md`はlist.jsonのindex102「パーシヴァル」(無印)と重複するためスキップする。
+- 収集順序は光属性の時と同様「GameWithのSSRキャラ評価一覧の新しい順」を各属性ごとに適用する(全属性を横断した1つの時系列ではなく、属性ごとに独立した新しい順リスト)。属性を一巡したら次はSR、その次はRという優先順位([キャラクターデータの収集優先順位](#キャラクターデータの収集優先順位2026-08-18時点の方針)を参照)。
