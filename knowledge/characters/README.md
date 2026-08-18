@@ -543,6 +543,7 @@
 | [wind-ssr-grimnir-limited.md](./wind-ssr-grimnir-limited.md) | グリームニル(リミテッド) / Grimnir (Limited) | SSR | 風 | 下書き |
 | [wind-ssr-vira-wind.md](./wind-ssr-vira-wind.md) | 風ヴィーラ / Vira (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-katzelia-normal.md](./wind-ssr-katzelia-normal.md) | カッツェリーラ / Katzelia | SSR | 風 | 下書き |
+| [wind-ssr-estarriola-normal.md](./wind-ssr-estarriola-normal.md) | エスタリオラ / Estarriola | SSR | 風 | 下書き |
 
 ## 運用ルール
 
