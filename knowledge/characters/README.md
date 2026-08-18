@@ -453,6 +453,7 @@
 | [earth-ssr-siegfried-earth.md](./earth-ssr-siegfried-earth.md) | ジークフリート(土属性) / Siegfried | SSR | 土 | 下書き |
 | [earth-ssr-melleau-normal.md](./earth-ssr-melleau-normal.md) | メルゥ / Melleau | SSR | 土 | 下書き |
 | [earth-ssr-arulumaya-normal.md](./earth-ssr-arulumaya-normal.md) | アルルメイヤ / Arulumaya | SSR | 土 | 下書き |
+| [earth-ssr-cagliostro-earth.md](./earth-ssr-cagliostro-earth.md) | カリオストロ(土属性) / Cagliostro (Earth) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
