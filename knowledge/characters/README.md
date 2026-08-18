@@ -671,6 +671,9 @@
 | [dark-ssr-zeta-dark.md](./dark-ssr-zeta-dark.md) | 闇ゼタ / Zeta (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-orchid-grand.md](./dark-ssr-orchid-grand.md) | オーキス(リミテッド) / Orchid (Grand) | SSR | 闇 | 下書き |
 | [dark-ssr-marquiares-normal.md](./dark-ssr-marquiares-normal.md) | マルキアレス / Marquiares | SSR | 闇 | 下書き |
+| [dark-ssr-vaito-dark.md](./dark-ssr-vaito-dark.md) | 闇ヴァイト / Vaito (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-zooey-summer.md](./dark-ssr-zooey-summer.md) | 水着ゾーイ / Zooey (Summer) | SSR | 闇 | 下書き |
+| [dark-ssr-forte-normal.md](./dark-ssr-forte-normal.md) | フォルテ / Forte | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
