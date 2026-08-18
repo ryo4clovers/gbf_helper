@@ -679,6 +679,8 @@
 | [dark-ssr-beatrix-normal.md](./dark-ssr-beatrix-normal.md) | ベアトリクス / Beatrix | SSR | 闇 | 下書き |
 | [dark-ssr-narmaya-normal.md](./dark-ssr-narmaya-normal.md) | ナルメア / Narmaya | SSR | 闇 | 下書き |
 | [dark-ssr-cagliostro-halloween.md](./dark-ssr-cagliostro-halloween.md) | カリオストロ(ハロウィン) / Cagliostro (Halloween) | SSR | 闇 | 下書き |
+| [dark-ssr-vania-normal.md](./dark-ssr-vania-normal.md) | ヴァンピィ / Vania | SSR | 闇 | 下書き |
+| [dark-ssr-danua-summer.md](./dark-ssr-danua-summer.md) | 水着ダヌア / Danua (Summer) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

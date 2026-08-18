@@ -181,7 +181,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index101 ベアトリクスはgbf.wiki候補とHP/ATK完全一致(HP1300/ATK9250、4★表記)で確認、採用。バランス調整後・最終上限解放後の性能を採用。
   - index102 ナルメアはgbf.wiki候補とHP/ATK完全一致(HP1330/ATK12200、5★表記)で確認、採用。最終上限解放後の性能を採用。
   - index103 カリオストロ(ハロウィン)はgbf.wiki候補とHP/ATK完全一致(HP1550/ATK8100)で確認、採用。2024年10月バランス調整後の性能を採用。batch_096-103.txt完了。
-  - 闇属性SSR処理中(103/113体完了)。次はindex104から継続(batch_104-111.txt)。
+  - index104 ヴァンピィはgbf.wiki候補とHP/ATK完全一致(HP1390/ATK10880、5★表記)で確認、採用。バランス調整後・最終上限解放後の性能を採用。入手方法はGameWithに記載なく不明。
+  - index105 水着ダヌアはgbf.wiki候補とHP/ATK完全一致(HP1590/ATK8350)で確認、採用。
+  - 闇属性SSR処理中(105/113体完了)。次はindex106から継続(batch_104-111.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
