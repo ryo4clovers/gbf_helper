@@ -204,7 +204,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index3 ブリジール&コーデリアはgbf.wiki候補とHP/ATK完全一致(HP1240/ATK6300)で確認、採用。
   - index4 光ミリン(SR)はgbf.wiki候補とHP/ATK完全一致(HP1036/ATK7320)で確認、採用。
   - index5 光サビルバラはgbf.wiki候補なし。GameWithのみで作成。
-  - 光属性SR(6/41体完了)。次はindex6から継続(batch_000-007.txt)。
+  - index6 光エルタはgbf.wiki候補とHP/ATK完全一致(HP1051/ATK6620)で確認、採用。
+  - 光属性SR(7/41体完了)。次はindex7から継続(batch_000-007.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。

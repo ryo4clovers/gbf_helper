@@ -694,6 +694,7 @@
 | [light-sr-bridgette-and-cordelia-normal.md](./light-sr-bridgette-and-cordelia-normal.md) | ブリジール&コーデリア / Bridgette and Cordelia | SR | 光 | 下書き |
 | [light-sr-mirin-light.md](./light-sr-mirin-light.md) | 光ミリン(SR) / Mirin (Light) | SR | 光 | 下書き |
 | [light-sr-sabbatara-light.md](./light-sr-sabbatara-light.md) | 光サビルバラ / Sabbatara (Light) | SR | 光 | 下書き |
+| [light-sr-elta-light.md](./light-sr-elta-light.md) | 光エルタ / Elta (Light) | SR | 光 | 下書き |
 
 ## 運用ルール
 
