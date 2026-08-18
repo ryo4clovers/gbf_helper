@@ -488,6 +488,7 @@
 | [wind-ssr-richard-wind.md](./wind-ssr-richard-wind.md) | リチャード(風属性SSR) / Richard (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-izuku-midoriya-normal.md](./wind-ssr-izuku-midoriya-normal.md) | 緑谷出久(デク) / Izuku Midoriya | SSR | 風 | 下書き |
 | [wind-ssr-catherine-wind.md](./wind-ssr-catherine-wind.md) | キャサリン(風属性SSR) / Catherine (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-kaguya-limited.md](./wind-ssr-kaguya-limited.md) | カグヤ(リミテッド) / Kaguya (Limited) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
