@@ -313,7 +313,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index16 ウェルダー(SR)は変身システムを持つ特殊仕様のキャラ。gbf.wiki候補は基本レアリティ版のため不採用、GameWithのみで作成、変身後/最終上限解放後の性能を中心に簡略化して記載。
 - index43 ユーリ(土)はgbf.wiki候補「Yuri Lowell」がテイルズオブヴェスペリアコラボの別キャラクター(コラボタグ付き)と判断し不採用、GameWithのみで作成。
 - 土属性SR収集完了(51/51体)。次は風属性SRの収集に着手(パイプラインをwind_srに再ターゲット)。
-- 風属性SR: scratch-build-list.mjsでリスト取得49体。GameWith全49体のページ取得完了、gbf.wiki検索は34/49体で候補あり(curl経由で取得)。dossier生成完了(batch_000-007.txt〜batch_048-048.txt)。次はindex0から処理開始。
+- 風属性SR: scratch-build-list.mjsでリスト取得49体。GameWith全49体のページ取得完了、gbf.wiki検索は34/49体で候補あり(curl経由で取得)。dossier生成完了(batch_000-007.txt〜batch_048-048.txt)。
+- 風属性SR(1/49体完了)。次はindex1(プロトジョヤ)から継続(batch_000-007.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
