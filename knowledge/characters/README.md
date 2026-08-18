@@ -61,6 +61,9 @@
 | [earth-ssr-jamil-normal.md](./earth-ssr-jamil-normal.md) | ジャミル(SSR、土属性) / Jamil | SSR | 土 | 下書き |
 | [earth-ssr-skull-and-balurga-normal.md](./earth-ssr-skull-and-balurga-normal.md) | スカル&バルルガン / Skull and Balurga | SSR | 土 | 下書き |
 | [earth-ssr-laguna-normal.md](./earth-ssr-laguna-normal.md) | ラグナ(SSR) / Laguna | SSR | 土 | 下書き |
+| [earth-ssr-special-week-and-silence-suzuka-and-tokai-teio-normal.md](./earth-ssr-special-week-and-silence-suzuka-and-tokai-teio-normal.md) | スペシャルウィーク&サイレンススズカ&トウカイテイオー / Special Week & Silence Suzuka & Tokai Teio | SSR | 土 | 下書き |
+| [earth-ssr-shindara-normal.md](./earth-ssr-shindara-normal.md) | シンダラ / Shindara | SSR | 土 | 下書き |
+| [earth-ssr-satyr-earth.md](./earth-ssr-satyr-earth.md) | サテュロス(土属性) / Satyr (Earth) | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |

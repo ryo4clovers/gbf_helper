@@ -12,7 +12,7 @@ has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
 last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/490228) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。十二神将(卯)シンダラのスタイルシフト形態。"
+source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/490228) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。十二神将(卯)シンダラ([earth-ssr-shindara-normal.md](./earth-ssr-shindara-normal.md))のスタイルシフト形態。"
 ---
 
 # スーパーシンダラ(スタイルシフト)(Shindara (Super Style))
