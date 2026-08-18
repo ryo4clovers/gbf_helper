@@ -660,6 +660,7 @@
 | [dark-ssr-eustace-dark.md](./dark-ssr-eustace-dark.md) | 闇ユーステス / Eustace (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-lady-grey-halloween.md](./dark-ssr-lady-grey-halloween.md) | レディ・グレイ(ハロウィン) / Lady Grey (Halloween) | SSR | 闇 | 下書き |
 | [dark-ssr-freezie-normal.md](./dark-ssr-freezie-normal.md) | フーちゃん(フリーシア) / Freezie | SSR | 闇 | 下書き |
+| [dark-ssr-wulf-and-renie-normal.md](./dark-ssr-wulf-and-renie-normal.md) | ウーフとレニー / Wulf and Renie | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

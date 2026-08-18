@@ -164,7 +164,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index81 ターニャ(SSR)はgbf.wiki検索候補「Tanya」がHP/ATK不一致(基本レアリティ版)だったため不採用、GameWithのみで作成。取得時点で最終上限解放(8/25実装予定)の性能はGameWith未公開のため最終前の性能を記載。
   - index82 闇ユーステスはgbf.wiki候補と4★表記でHP/ATK完全一致で確認、採用。
   - index83 レディ・グレイ(ハロウィン)、index84 フーちゃんはgbf.wiki候補とHP/ATK完全一致で確認、採用。
-  - 闇属性SSR処理中(85/113体完了)。次はindex85から継続(batch_080-087.txt)。
+  - index85 ウーフとレニーはgbf.wiki候補とHP/ATK完全一致で確認、採用。
+  - 闇属性SSR処理中(86/113体完了)。次はindex86 ジョーカーから継続(batch_080-087.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
