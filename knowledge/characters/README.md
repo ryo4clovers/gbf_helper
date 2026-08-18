@@ -868,6 +868,7 @@
 | [earth-sr-claudia-normal.md](./earth-sr-claudia-normal.md) | クラウディア / Claudia | SR | 土 | 下書き |
 | [earth-sr-volenna-normal.md](./earth-sr-volenna-normal.md) | ボレミア(SR) / Volenna (SR) | SR | 土 | 下書き |
 | [earth-sr-ladiva-normal.md](./earth-sr-ladiva-normal.md) | ファスティバ / Ladiva | SR | 土 | 下書き |
+| [earth-sr-rackam-holiday.md](./earth-sr-rackam-holiday.md) | ラカム(クリスマス) / Rackam (Holiday) | SR | 土 | 下書き |
 
 ## 運用ルール
 
