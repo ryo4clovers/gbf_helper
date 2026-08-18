@@ -836,6 +836,7 @@
 | [earth-sr-lowain-bros-normal.md](./earth-sr-lowain-bros-normal.md) | チーム・ローアイン / The Lowain Bros | SR | 土 | 下書き |
 | [earth-sr-almeida-summer.md](./earth-sr-almeida-summer.md) | 水着アルメイダ / Almeida (Summer) | SR | 土 | 下書き |
 | [earth-sr-vanzza-normal.md](./earth-sr-vanzza-normal.md) | ヴァンツァ(SR) / Vanzza (SR) | SR | 土 | 下書き |
+| [earth-sr-leona-normal.md](./earth-sr-leona-normal.md) | レオナ / Leona | SR | 土 | 下書き |
 
 ## 運用ルール
 
