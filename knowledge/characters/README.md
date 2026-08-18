@@ -147,6 +147,14 @@
 | [fire-ssr-lyria-event.md](./fire-ssr-lyria-event.md) | ルリア(SSR) / Lyria (Event SSR) | SSR | 火 | 下書き |
 | [fire-ssr-sanchira-normal.md](./fire-ssr-sanchira-normal.md) | サンチラ / Sanchira | SSR | 火 | 下書き |
 | [fire-ssr-maria-teresa-holiday.md](./fire-ssr-maria-teresa-holiday.md) | マリアテレサ(クリスマス) / Maria Teresa (Holiday) | SSR | 火 | 下書き |
+| [fire-ssr-asuka-unit02-normal.md](./fire-ssr-asuka-unit02-normal.md) | アスカ&2号機 / Asuka & Unit 02 | SSR | 火 | 下書き |
+| [fire-ssr-kurapika-normal.md](./fire-ssr-kurapika-normal.md) | クラピカ / Kurapika | SSR | 火 | 下書き |
+| [fire-ssr-atum-summer.md](./fire-ssr-atum-summer.md) | 水着アトゥム / Atum (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-hauhet-normal.md](./fire-ssr-hauhet-normal.md) | ハウヘト / Hauhet | SSR | 火 | 下書き |
+| [fire-ssr-lavirita-normal.md](./fire-ssr-lavirita-normal.md) | ラヴィリタ / Lavirita | SSR | 火 | 下書き |
+| [fire-ssr-yuel-grand.md](./fire-ssr-yuel-grand.md) | 火ユエル(リミテッド) / Yuel (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-feower-holiday.md](./fire-ssr-feower-holiday.md) | 火カトル(クリスマス) / Feower (Holiday) | SSR | 火 | 下書き |
+| [fire-ssr-wamdus-holiday.md](./fire-ssr-wamdus-holiday.md) | 火ワムデュス(クリスマス) / Wamdus (Holiday) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
