@@ -644,6 +644,8 @@
 | [dark-ssr-predator-normal.md](./dark-ssr-predator-normal.md) | プレデター(SSR) / Predator (SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-lei-limited.md](./dark-ssr-lei-limited.md) | レイ(リミテッド) / Lei (Limited) | SSR | 闇 | 下書き |
 | [dark-ssr-seox-event.md](./dark-ssr-seox-event.md) | シス(イベント) / Seox (Event) | SSR | 闇 | 下書き |
+| [dark-ssr-lucius-normal.md](./dark-ssr-lucius-normal.md) | ルシウス(SSR) / Lucius (SSR) | SSR | 闇 | 下書き |
+| [dark-ssr-vikala-normal.md](./dark-ssr-vikala-normal.md) | ビカラ / Vikala | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
