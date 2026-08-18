@@ -204,6 +204,8 @@
 | [fire-ssr-mimlemel-summer.md](./fire-ssr-mimlemel-summer.md) | 水着ミムルメモル / Mimlemel (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-abby-normal.md](./fire-ssr-abby-normal.md) | アビー(SSR) / Abby | SSR | 火 | 下書き |
 | [fire-ssr-satyr-normal.md](./fire-ssr-satyr-normal.md) | サテュロス / Satyr | SSR | 火 | 下書き |
+| [fire-ssr-illnott-normal.md](./fire-ssr-illnott-normal.md) | イルノート / Illnott | SSR | 火 | 下書き |
+| [fire-ssr-reinhardtzar-grand.md](./fire-ssr-reinhardtzar-grand.md) | ラインハルザ(リミテッド) / Reinhardtzar (Grand) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
