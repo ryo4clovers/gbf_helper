@@ -799,6 +799,7 @@
 | [water-sr-erin-normal.md](./water-sr-erin-normal.md) | エリン(SR) / Erin (SR) | SR | 水 | 下書き |
 | [water-sr-lily-normal.md](./water-sr-lily-normal.md) | リリィ(SR) / Lily (SR) | SR | 水 | 下書き |
 | [water-sr-anastasia-normal.md](./water-sr-anastasia-normal.md) | アナスタシア(アーニャ) / Anastasia | SR | 水 | 下書き |
+| [water-sr-pengy-gacha.md](./water-sr-pengy-gacha.md) | ペンギー(ガチャ) / Pengy | SR | 水 | 下書き |
 
 ## 運用ルール
 
