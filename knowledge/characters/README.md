@@ -786,6 +786,7 @@
 | [fire-sr-alec-normal.md](./fire-sr-alec-normal.md) | アレク / Alec | SR | 火 | 下書き |
 | [water-sr-joel-normal.md](./water-sr-joel-normal.md) | ジョエル(SR) / Joel (SR) | SR | 水 | 下書き |
 | [water-sr-leona-yukata.md](./water-sr-leona-yukata.md) | 浴衣レオナ / Leona (Yukata) | SR | 水 | 下書き |
+| [water-sr-cailana-normal.md](./water-sr-cailana-normal.md) | カイラナ(SR) / Cailana (SR) | SR | 水 | 下書き |
 
 ## 運用ルール
 
