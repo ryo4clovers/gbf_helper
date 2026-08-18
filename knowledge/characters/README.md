@@ -220,6 +220,8 @@
 | [fire-ssr-frau-normal.md](./fire-ssr-frau-normal.md) | フラウ / Frau | SSR | 火 | 下書き |
 | [fire-ssr-athena-normal.md](./fire-ssr-athena-normal.md) | アテナ / Athena | SSR | 火 | 下書き |
 | [fire-ssr-shiva-grand.md](./fire-ssr-shiva-grand.md) | シヴァ(リミテッド) / Shiva (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-lancelot-and-vane-normal.md](./fire-ssr-lancelot-and-vane-normal.md) | ランスロット&ヴェイン / Lancelot and Vane | SSR | 火 | 下書き |
+| [fire-ssr-tsubasa-normal.md](./fire-ssr-tsubasa-normal.md) | ツバサ / Tsubasa | SSR | 火 | 下書き |
 
 ## 運用ルール
 
