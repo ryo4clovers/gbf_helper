@@ -188,6 +188,8 @@
 | [fire-ssr-vira-valentine.md](./fire-ssr-vira-valentine.md) | 火ヴィーラ(バレンタイン) / Vira (Valentine) | SSR | 火 | 下書き |
 | [fire-ssr-lilele-fire.md](./fire-ssr-lilele-fire.md) | 火リルル / Lilele (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-wilnas-grand.md](./fire-ssr-wilnas-grand.md) | ウィルナス(リミテッド) / Wilnas (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-altair-holiday.md](./fire-ssr-altair-holiday.md) | 火アルタイル(クリスマス) / Altair (Holiday) | SSR | 火 | 下書き |
+| [fire-ssr-hijikata-and-okita-normal.md](./fire-ssr-hijikata-and-okita-normal.md) | 土方十四郎&沖田総悟 / Hijikata and Okita | SSR | 火 | 下書き |
 
 ## 運用ルール
 
