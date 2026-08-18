@@ -616,6 +616,8 @@
 | [dark-ssr-yuni-holiday.md](./dark-ssr-yuni-holiday.md) | 闇ユニ(クリスマス) / Yuni (Holiday) | SSR | 闇 | 下書き |
 | [dark-ssr-tikoh-halloween.md](./dark-ssr-tikoh-halloween.md) | 闇ティコ(ハロウィン) / Tikoh (Halloween) | SSR | 闇 | 下書き |
 | [dark-ssr-meg-and-mari-normal.md](./dark-ssr-meg-and-mari-normal.md) | メグ＆まりっぺ / Meg and Mari | SSR | 闇 | 下書き |
+| [dark-ssr-itadori-and-fushiguro-normal.md](./dark-ssr-itadori-and-fushiguro-normal.md) | 虎杖悠仁＆伏黒恵 / Itadori Yuji & Fushiguro Megumi | SSR | 闇 | 下書き |
+| [dark-ssr-cupitan-summer.md](./dark-ssr-cupitan-summer.md) | 水着クピタン / Cupitan (Summer) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
