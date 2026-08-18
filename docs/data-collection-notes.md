@@ -176,7 +176,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index95 マルキアレスはgbf.wiki候補とHP/ATK完全一致(HP1150/ATK9290、4★表記)で確認、採用。最終・バランス調整後の性能を採用。batch_088-095.txt完了。
   - index96 闇ヴァイト、index97 水着ゾーイはgbf.wiki候補なし。GameWithのみで作成。ヴァイトは最終解放後の性能を採用。
   - index98 フォルテはgbf.wiki候補とHP/ATK完全一致(HP1340/ATK10130)で確認、採用。
-  - 闇属性SSR処理中(98/113体完了)。次はindex99から継続(batch_096-103.txt)。
+  - index99 黒騎士(リミテッド)はgbf.wiki候補なし。GameWithのみで作成。バランス調整後・最終上限解放後の性能を採用。
+  - index100 闇ジャンヌダルクはgbf.wiki候補とHP/ATK完全一致(HP1200/ATK9800)で確認、採用。2021年12月バランス調整後の性能を採用。
+  - 闇属性SSR処理中(100/113体完了)。次はindex101から継続(batch_096-103.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
