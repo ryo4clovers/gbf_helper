@@ -321,6 +321,8 @@
 | [water-ssr-europa-grand.md](./water-ssr-europa-grand.md) | エウロペ(リミテッド) / Europa (Grand) | SSR | 水 | 下書き |
 | [water-ssr-folia-grand.md](./water-ssr-folia-grand.md) | フォリア(リミテッド) / Folia (Grand) | SSR | 水 | 下書き |
 | [water-ssr-grea-summer.md](./water-ssr-grea-summer.md) | 水着グレア / Grea (Summer) | SSR | 水 | 下書き |
+| [water-ssr-2nd-years-normal.md](./water-ssr-2nd-years-normal.md) | 2年生チーム / 2nd Years | SSR | 水 | 下書き |
+| [water-ssr-kokkoro-water.md](./water-ssr-kokkoro-water.md) | 水ククル(SSR) / Kokkoro (Water) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
