@@ -341,6 +341,9 @@
 | [water-ssr-yodarha-normal.md](./water-ssr-yodarha-normal.md) | ヨダルラーハ(SSR) / Yodarha | SSR | 水 | 下書き |
 | [water-ssr-katalina-grand.md](./water-ssr-katalina-grand.md) | カタリナ(リミテッド) / Katalina (Grand) | SSR | 水 | 下書き |
 | [water-ssr-silva-normal.md](./water-ssr-silva-normal.md) | シルヴァ / Silva | SSR | 水 | 下書き |
+| [water-ssr-societte-water.md](./water-ssr-societte-water.md) | ソシエ(SSR) / Societte | SSR | 水 | 下書き |
+| [water-ssr-feower-normal.md](./water-ssr-feower-normal.md) | カトル / Feower | SSR | 水 | 下書き |
+| [water-ssr-anre-normal.md](./water-ssr-anre-normal.md) | ウーノ / Anre | SSR | 水 | 下書き |
 
 ## 運用ルール
 

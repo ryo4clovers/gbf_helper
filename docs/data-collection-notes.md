@@ -88,7 +88,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index19 チチリは「四聖」シリーズキャラ(玲瓏佩強化によるフェイトエピクリアで段階強化される仕様)。gbf.wiki候補が見つからずGameWithのみで作成。
   - **完了**: 火属性SSR 111/111体(list.jsonの全indexを処理完了。index102パーシヴァルは既存ファイルと重複のためスキップ、実ファイル数110新規+既存1=計111)。`batch_104-110.txt`まで全バッチ処理済み。
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
-  - **進捗(水属性SSR)**: index91まで処理済み(92/99体)。続きを行う場合: `scratchpad/water_ssr/dossiers/batch_088-095.txt` の index92(ソシエ)から読み進める。
+  - **進捗(水属性SSR)**: index94まで処理済み(95/99体)。続きを行う場合: `scratchpad/water_ssr/dossiers/batch_088-095.txt` の index95(水ランスロット)から読み進める。
+  - index92 ソシエ(SSR)はgbf.wiki検索候補「Sapphire Dance: Gentiana」が召喚石ページ(キャラクターと無関係)だったため不採用、GameWithのみで作成。
+  - index93 カトル・index94 ウーノは十天衆(限界超越システム持ち)でgbf.wiki自動検索では候補なしだったが、追加調査で公式英語名がそれぞれ「Feower」「Anre」(数字連想ではない独自の英語名)と判明したため、ファイル名・name_enをこれに合わせて作成(water-ssr-feower-normal.md/water-ssr-anre-normal.md)。番号由来の名前(Quatre/Uno等)を安易に採用しないよう注意。
   - index89 ヨダルラーハ(SSR)はgbf.wiki検索候補「Yodarha」がRレアリティ版のページ(HP640/ATK4290不一致)だったため不採用、GameWithのみで作成。
   - index87 イングヴェイはノーマルスタイル/スタイルシフトの2形態を持つ複雑な仕様のため要点を簡略化して記載。gbf.wikiの取得内容がノーマルスタイル部分までで切れていたため、スタイルシフト時の性能はGameWith単独出典とした(5★時点HP2210/ATK8900一致確認)。
   - index85 シャノワールはgbf.wiki取得内容が途中(2アビ部分)で切れていたため、4アビ「スティール・ユア・ハート」のみGameWith単独出典とした(他はGameWith/gbf.wikiで4★時点HP1300/ATK8700一致確認)。
