@@ -266,7 +266,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index19 パーシヴァル(SR)はgbf.wiki検索候補「Percival」がSSR相当のステータスで不一致のため不採用、GameWithのみで作成。
 - index20 赤城みりあ(アイマスシンデレラガールズコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
 - index21 ダーント(SR)はgbf.wiki検索候補「Dante」が基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
-- 火属性SR(22/55体完了)。次はindex22から継続(batch_016-023.txt)。
+- index22 火ククル(SR)はgbf.wiki候補なし。GameWithのみで作成。
+- 火属性SR(23/55体完了)。次はindex23から継続(batch_016-023.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
