@@ -297,7 +297,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index0 ジョエル(SR)はgbf.wiki候補「Joel」がHP970(3★、クロスフェイトボーナス込み)/ATK3900(3★)で基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
 - index13 リリィ(SR)はgbf.wiki候補「Lily」がHP1876(5★)/ATK7720(5★)でGameWithのHP1140/ATK3800と不一致のため不採用、GameWithのみで作成。
 - index17 ディアンサはgbf.wiki候補「Diantha」がHP1750(4★)/ATK6500(4★)でGameWithのHP900/ATK5000と不一致のため不採用、GameWithのみで作成。
-- 水属性SR(18/44体完了)。次はindex18から継続(batch_016-023.txt)。
+- index18 モルフェとヴェトルはモルフェ⇔ヴェトル間で操作キャラが入れ替わる「ペアキャラクター」。gbf.wiki候補「Side-scrolling Quotes」は無関係のページのため不採用、GameWithのみで作成。英語名(name_en)は公式表記未確認のためカタカナ読みからの仮romanizationとして記載。
+- 水属性SR(19/44体完了)。次はindex19から継続(batch_016-023.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
