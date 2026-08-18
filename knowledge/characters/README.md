@@ -887,6 +887,7 @@
 | [wind-sr-yuri-wind.md](./wind-sr-yuri-wind.md) | 風ユーリ / Yuri (Wind) | SR | 風 | 下書き |
 | [wind-sr-yuisis-yukata.md](./wind-sr-yuisis-yukata.md) | 浴衣ユイシス(SR) / Yuisis (Yukata) | SR | 風 | 下書き |
 | [wind-sr-amuro-toru-normal.md](./wind-sr-amuro-toru-normal.md) | 安室透 / Amuro Toru | SR | 風 | 下書き |
+| [wind-sr-mikasa-normal.md](./wind-sr-mikasa-normal.md) | ミカサ / Mikasa | SR | 風 | 下書き |
 
 ## 運用ルール
 
