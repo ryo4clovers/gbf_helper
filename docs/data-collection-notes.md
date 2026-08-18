@@ -284,7 +284,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index37 城ヶ崎莉嘉はデレマス(モバマス)コラボキャラ。コラボキャラのためgbf.wiki候補は自動検索で見つからず(想定通り)、GameWithのみで作成。
 - index40 マリー(SR)はgbf.wiki候補「Mary」がHP800(3★)/ATK4000(3★)で基本レアリティ(R)版のため不採用、GameWithのみで作成。
 - index41 サーヤ(イベント)はgbf.wiki候補「Sarya」がHP1150(4★)/ATK7310(4★)でGameWithのHP840/ATK5780と不一致のため不採用、GameWithのみで作成。
-- 火属性SR(44/55体完了)。次はindex44から継続(batch_040-047.txt)。
+- 火属性SR(45/55体完了)。次はindex45から継続(batch_040-047.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
