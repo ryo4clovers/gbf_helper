@@ -88,7 +88,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index19 チチリは「四聖」シリーズキャラ(玲瓏佩強化によるフェイトエピクリアで段階強化される仕様)。gbf.wiki候補が見つからずGameWithのみで作成。
   - **完了**: 火属性SSR 111/111体(list.jsonの全indexを処理完了。index102パーシヴァルは既存ファイルと重複のためスキップ、実ファイル数110新規+既存1=計111)。`batch_104-110.txt`まで全バッチ処理済み。
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
-  - **進捗(水属性SSR)**: index95まで処理済み(96/99体、`batch_088-095.txt`完了)。続きを行う場合: `scratchpad/water_ssr/dossiers/batch_096-098.txt` の index96から読み進める(残り3体で水属性SSR完了)。
+  - **完了**: 水属性SSR 99/99体(list.jsonの全indexを処理完了。`batch_096-098.txt`まで全バッチ処理済み)。index96シャルロッテ・index97リリィ(SSR)・index98アルタイルで水属性SSRが完了した。
+  - **土属性SSR収集に着手予定**(次のステップ)。同じパイプライン(`scratch-build-list.mjs 土` → `SCRATCH`定数を`earth_ssr`に書き換え → GameWith/gbf.wiki取得 → pick-and-dump → dossier生成)を再実行する。
   - index92 ソシエ(SSR)はgbf.wiki検索候補「Sapphire Dance: Gentiana」が召喚石ページ(キャラクターと無関係)だったため不採用、GameWithのみで作成。
   - index93 カトル・index94 ウーノは十天衆(限界超越システム持ち)でgbf.wiki自動検索では候補なしだったが、追加調査で公式英語名がそれぞれ「Feower」「Anre」(数字連想ではない独自の英語名)と判明したため、ファイル名・name_enをこれに合わせて作成(water-ssr-feower-normal.md/water-ssr-anre-normal.md)。番号由来の名前(Quatre/Uno等)を安易に採用しないよう注意。
   - index89 ヨダルラーハ(SSR)はgbf.wiki検索候補「Yodarha」がRレアリティ版のページ(HP640/ATK4290不一致)だったため不採用、GameWithのみで作成。

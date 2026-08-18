@@ -345,6 +345,9 @@
 | [water-ssr-feower-normal.md](./water-ssr-feower-normal.md) | カトル / Feower | SSR | 水 | 下書き |
 | [water-ssr-anre-normal.md](./water-ssr-anre-normal.md) | ウーノ / Anre | SSR | 水 | 下書き |
 | [water-ssr-lancelot-water.md](./water-ssr-lancelot-water.md) | 水ランスロット / Lancelot (Water) | SSR | 水 | 下書き |
+| [water-ssr-charlotta-normal.md](./water-ssr-charlotta-normal.md) | シャルロッテ / Charlotta | SSR | 水 | 下書き |
+| [water-ssr-lily-normal.md](./water-ssr-lily-normal.md) | リリィ(SSR) / Lily | SSR | 水 | 下書き |
+| [water-ssr-altair-normal.md](./water-ssr-altair-normal.md) | アルタイル / Altair | SSR | 水 | 下書き |
 
 ## 運用ルール
 
