@@ -166,7 +166,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index83 レディ・グレイ(ハロウィン)、index84 フーちゃんはgbf.wiki候補とHP/ATK完全一致で確認、採用。
   - index85 ウーフとレニーはgbf.wiki候補とHP/ATK完全一致で確認、採用。
   - index86 ジョーカー(ペルソナ5コラボ)、index87 闇ルナール(SSR)はgbf.wiki候補なし。GameWithのみで作成。ルナールはアビコピー対応表が大規模なため詳細割愛。batch_080-087.txt完了。
-  - 闇属性SSR処理中(88/113体完了)。次はindex88から継続(batch_088-095.txt)。
+  - index88 闇シロウはgbf.wiki候補なし。GameWithのみで作成。
+  - 闇属性SSR処理中(89/113体完了)。次はindex89 オリヴィエ(リミテッド)から継続(batch_088-095.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
