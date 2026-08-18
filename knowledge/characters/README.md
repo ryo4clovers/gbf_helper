@@ -697,6 +697,7 @@
 | [light-sr-elta-light.md](./light-sr-elta-light.md) | 光エルタ / Elta (Light) | SR | 光 | 下書き |
 | [light-sr-barawa-light.md](./light-sr-barawa-light.md) | 光バロワ / Barawa (Light) | SR | 光 | 下書き |
 | [light-sr-zeta-normal.md](./light-sr-zeta-normal.md) | ゼタ(SR) / Zeta (SR) | SR | 光 | 下書き |
+| [light-sr-feena-holiday.md](./light-sr-feena-holiday.md) | フィーナ(クリスマス) / Feena (Holiday) | SR | 光 | 下書き |
 
 ## 運用ルール
 

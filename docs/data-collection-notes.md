@@ -207,7 +207,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index6 光エルタはgbf.wiki候補とHP/ATK完全一致(HP1051/ATK6620)で確認、採用。
   - index7 光バロワはgbf.wiki候補なし。GameWithのみで作成。batch_000-007.txt完了。
   - index8 ゼタ(SR)はgbf.wiki検索候補「Zeta」がHP1520(5★)/ATK11400(5★)で基本SSR版と判断し不採用、GameWithのみで作成。
-  - 光属性SR(9/41体完了)。次はindex9から継続(batch_008-015.txt)。
+  - index9 フィーナ(クリスマス)はgbf.wiki候補とHP/ATK完全一致(HP840/ATK8050)で確認、採用。
+  - 光属性SR(10/41体完了)。次はindex10から継続(batch_008-015.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
