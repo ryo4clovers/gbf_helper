@@ -335,6 +335,8 @@
 | [water-ssr-izmir-normal.md](./water-ssr-izmir-normal.md) | イシュミール / Izmir | SSR | 水 | 下書き |
 | [water-ssr-romeo-normal.md](./water-ssr-romeo-normal.md) | ロミオ / Romeo | SSR | 水 | 下書き |
 | [water-ssr-chat-noir-normal.md](./water-ssr-chat-noir-normal.md) | シャノワール / Chat Noir | SSR | 水 | 下書き |
+| [water-ssr-narmaya-summer.md](./water-ssr-narmaya-summer.md) | 水着ナルメア / Narmaya (Summer) | SSR | 水 | 下書き |
+| [water-ssr-yngwie-normal.md](./water-ssr-yngwie-normal.md) | イングヴェイ / Yngwie | SSR | 水 | 下書き |
 
 ## 運用ルール
 
