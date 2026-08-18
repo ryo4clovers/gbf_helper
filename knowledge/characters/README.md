@@ -422,6 +422,7 @@
 | [earth-ssr-ladiva-normal.md](./earth-ssr-ladiva-normal.md) | ファスティバ(SSR) / Ladiva (SSR) | SSR | 土 | 下書き |
 | [earth-ssr-baal-normal.md](./earth-ssr-baal-normal.md) | バアル / Baal | SSR | 土 | 下書き |
 | [earth-ssr-medusa-normal.md](./earth-ssr-medusa-normal.md) | メドゥーサ(恒常) / Medusa | SSR | 土 | 下書き |
+| [earth-ssr-robelia-normal.md](./earth-ssr-robelia-normal.md) | ロベリア / Robelia | SSR | 土 | 下書き |
 
 ## 運用ルール
 
