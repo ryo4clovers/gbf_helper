@@ -563,6 +563,7 @@
 | [wind-ssr-lecia-grand.md](./wind-ssr-lecia-grand.md) | リーシャ(リミテッド) / Lecia (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-korwa-normal.md](./wind-ssr-korwa-normal.md) | コルワ / Korwa | SSR | 風 | 下書き |
 | [wind-ssr-anchira-normal.md](./wind-ssr-anchira-normal.md) | アンチラ(十二神将) / Anchira | SSR | 風 | 下書き |
+| [wind-ssr-rosetta-grand.md](./wind-ssr-rosetta-grand.md) | ロゼッタ(リミテッド) / Rosetta (Grand) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
