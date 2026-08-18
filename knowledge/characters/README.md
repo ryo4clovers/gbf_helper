@@ -158,6 +158,7 @@
 | [fire-ssr-aglovale-yukata.md](./fire-ssr-aglovale-yukata.md) | 浴衣アグロヴァル / Aglovale (Yukata) | SSR | 火 | 下書き |
 | [fire-ssr-tweyen-yukata.md](./fire-ssr-tweyen-yukata.md) | 浴衣ソーン / Tweyen (Yukata) | SSR | 火 | 下書き |
 | [fire-ssr-sato-normal.md](./fire-ssr-sato-normal.md) | さと / Sato | SSR | 火 | 下書き |
+| [fire-ssr-chichiri-normal.md](./fire-ssr-chichiri-normal.md) | チチリ / Chichiri | SSR | 火 | 下書き |
 
 ## 運用ルール
 
