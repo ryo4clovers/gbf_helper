@@ -571,6 +571,7 @@
 | [wind-ssr-nio-normal.md](./wind-ssr-nio-normal.md) | ニオ(十天衆) / Nio | SSR | 風 | 下書き |
 | [wind-ssr-siete-normal.md](./wind-ssr-siete-normal.md) | シエテ(十天衆) / Siete | SSR | 風 | 下書き |
 | [wind-ssr-lena-wind.md](./wind-ssr-lena-wind.md) | レナ(風属性) / Lena (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-christina-normal.md](./wind-ssr-christina-normal.md) | クリスティーナ / Christina | SSR | 風 | 下書き |
 
 ## 運用ルール
 
