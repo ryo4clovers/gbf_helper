@@ -820,6 +820,7 @@
 | [water-sr-ejaeli-normal.md](./water-sr-ejaeli-normal.md) | エジェリー / Ejaeli | SR | 水 | 下書き |
 | [water-sr-vane-event.md](./water-sr-vane-event.md) | ヴェイン(イベント) / Vane (Event) | SR | 水 | 下書き |
 | [water-sr-shibuya-rin-normal.md](./water-sr-shibuya-rin-normal.md) | 渋谷凛 / Rin Shibuya | SR | 水 | 下書き |
+| [water-sr-katalina-summer.md](./water-sr-katalina-summer.md) | 水着カタリナ / Katalina (Summer) | SR | 水 | 下書き |
 
 ## 運用ルール
 
