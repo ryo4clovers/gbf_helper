@@ -652,6 +652,8 @@
 | [dark-ssr-anthuria-yukata.md](./dark-ssr-anthuria-yukata.md) | 浴衣アンスリア / Anthuria (Yukata) | SSR | 闇 | 下書き |
 | [dark-ssr-kolulu-normal.md](./dark-ssr-kolulu-normal.md) | コルル / Kolulu | SSR | 闇 | 下書き |
 | [dark-ssr-lelouch-normal.md](./dark-ssr-lelouch-normal.md) | ルルーシュ / Lelouch | SSR | 闇 | 下書き |
+| [dark-ssr-kyaru-normal.md](./dark-ssr-kyaru-normal.md) | キャル / Kyaru | SSR | 闇 | 下書き |
+| [dark-ssr-niyah-normal.md](./dark-ssr-niyah-normal.md) | ニーア / Niyah | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
