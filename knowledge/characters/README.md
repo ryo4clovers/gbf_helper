@@ -583,6 +583,10 @@
 | [dark-ssr-wamdus-valentine.md](./dark-ssr-wamdus-valentine.md) | 闇ワムデュス(バレンタイン) / Wamdus (Valentine) | SSR | 闇 | 下書き |
 | [dark-ssr-constance-normal.md](./dark-ssr-constance-normal.md) | コンスタンツィア / Constance | SSR | 闇 | 下書き |
 | [dark-ssr-zeta-holiday.md](./dark-ssr-zeta-holiday.md) | ゼタ(クリスマス) / Zeta (Holiday) | SSR | 闇 | 下書き |
+| [dark-ssr-danua-dark.md](./dark-ssr-danua-dark.md) | 闇ダヌア / Danua (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-sariel-limited.md](./dark-ssr-sariel-limited.md) | サリエル(リミテッド) / Sariel (Limited) | SSR | 闇 | 下書き |
+| [dark-ssr-catura-summer.md](./dark-ssr-catura-summer.md) | 水着シャトラ / Catura (Summer) | SSR | 闇 | 下書き |
+| [dark-ssr-chrollo-normal.md](./dark-ssr-chrollo-normal.md) | クロロ / Chrollo | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
