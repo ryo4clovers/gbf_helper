@@ -440,6 +440,7 @@
 | [earth-ssr-makira-normal.md](./earth-ssr-makira-normal.md) | マキラ / Makira | SSR | 土 | 下書き |
 | [earth-ssr-eustace-halloween.md](./earth-ssr-eustace-halloween.md) | ユーステス(ハロウィン) / Eustace (Halloween) | SSR | 土 | 下書き |
 | [earth-ssr-nemone-normal.md](./earth-ssr-nemone-normal.md) | ネモネ / Nemone | SSR | 土 | 下書き |
+| [earth-ssr-ayer-normal.md](./earth-ssr-ayer-normal.md) | アイル / Ayer | SSR | 土 | 下書き |
 
 ## 運用ルール
 
