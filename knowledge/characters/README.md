@@ -495,6 +495,7 @@
 | [wind-ssr-caro-normal.md](./wind-ssr-caro-normal.md) | カロ / Caro | SSR | 風 | 下書き |
 | [wind-ssr-cantate-normal.md](./wind-ssr-cantate-normal.md) | カンターテ / Cantate | SSR | 風 | 下書き |
 | [wind-ssr-cinnamoroll-and-pompompurin-normal.md](./wind-ssr-cinnamoroll-and-pompompurin-normal.md) | シナモロール&ポムポムプリン / Cinnamoroll & Pompompurin | SSR | 風 | 下書き |
+| [wind-ssr-ewiyar-grand.md](./wind-ssr-ewiyar-grand.md) | イーウィヤ(リミテッド) / Ewiyar (Grand) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
