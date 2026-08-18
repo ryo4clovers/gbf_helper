@@ -259,7 +259,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index12 グレア(SR)はgbf.wiki検索候補「Grea」が基本版と判断し不採用、GameWithのみで作成。
 - index13 炎獄先生エルモートはgbf.wiki候補とHP/ATK完全一致(HP1060/ATK5950)で確認、採用。
 - index14 水着ガンダゴウザはgbf.wiki候補とHP/ATK完全一致(HP900/ATK8000)で確認、採用。
-- 火属性SR(15/55体完了)。次はindex15から継続(batch_008-015.txt)。
+- index15 水着カレンはgbf.wiki候補なし。GameWithのみで作成。batch_008-015.txt完了。
+- 火属性SR(16/55体完了)。次はindex16から継続(batch_016-023.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
