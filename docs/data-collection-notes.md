@@ -309,7 +309,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - scratch-build-list.mjsで土属性SRのリストを取得: 51体。
 - GameWith全51体のページ取得完了、gbf.wiki検索は43/51体で候補あり(curl経由で取得)。
 - dossier生成完了。次はindex0から処理開始。
-- 土属性SR(1/51体完了)。次はindex1から継続(batch_000-007.txt)。
+- index1 コワフュール(SR)はgbf.wiki候補「La Coiffe」が基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
+- 土属性SR(2/51体完了)。次はindex2から継続(batch_000-007.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
