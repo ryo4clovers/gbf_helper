@@ -787,6 +787,7 @@
 | [water-sr-joel-normal.md](./water-sr-joel-normal.md) | ジョエル(SR) / Joel (SR) | SR | 水 | 下書き |
 | [water-sr-leona-yukata.md](./water-sr-leona-yukata.md) | 浴衣レオナ / Leona (Yukata) | SR | 水 | 下書き |
 | [water-sr-cailana-normal.md](./water-sr-cailana-normal.md) | カイラナ(SR) / Cailana (SR) | SR | 水 | 下書き |
+| [water-sr-farrah-summer.md](./water-sr-farrah-summer.md) | 水着ファラ / Farrah (Summer) | SR | 水 | 下書き |
 
 ## 運用ルール
 
