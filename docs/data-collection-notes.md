@@ -300,7 +300,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index18 モルフェとヴェトルはモルフェ⇔ヴェトル間で操作キャラが入れ替わる「ペアキャラクター」。gbf.wiki候補「Side-scrolling Quotes」は無関係のページのため不採用、GameWithのみで作成。英語名(name_en)は公式表記未確認のためカタカナ読みからの仮romanizationとして記載。
 - index19 ローアイン(SR)はgbf.wiki候補「Lowain」が基本レアリティ(R)版のため不採用、GameWithのみで作成。
 - index22 ランスロット(SR)はgbf.wiki候補「Lancelot」がHP1570(5★)/ATK10830(5★)でSSR相当のため不採用、GameWithのみで作成。
-- 水属性SR(28/44体完了)。次はindex28から継続(batch_024-031.txt)。
+- index28 ロミオ(SR)はgbf.wiki候補「Romeo」がHP1770(5★)/ATK10120(5★)でSSR相当のため不採用、GameWithのみで作成。
+- 水属性SR(29/44体完了)。次はindex29から継続(batch_024-031.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
