@@ -222,6 +222,9 @@
 | [fire-ssr-shiva-grand.md](./fire-ssr-shiva-grand.md) | シヴァ(リミテッド) / Shiva (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-lancelot-and-vane-normal.md](./fire-ssr-lancelot-and-vane-normal.md) | ランスロット&ヴェイン / Lancelot and Vane | SSR | 火 | 下書き |
 | [fire-ssr-tsubasa-normal.md](./fire-ssr-tsubasa-normal.md) | ツバサ / Tsubasa | SSR | 火 | 下書き |
+| [fire-ssr-3rd-years-normal.md](./fire-ssr-3rd-years-normal.md) | 3年生チーム / 3rd Years | SSR | 火 | 下書き |
+| [fire-ssr-ilsa-summer.md](./fire-ssr-ilsa-summer.md) | 水着イルザ / Ilsa (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-therese-normal.md](./fire-ssr-therese-normal.md) | テレーズ(SSR) / Therese (SSR) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
