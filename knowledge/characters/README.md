@@ -642,6 +642,8 @@
 | [dark-ssr-amira-summer.md](./dark-ssr-amira-summer.md) | 水着アーミラ / Amira (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-black-knight-and-orchis-normal.md](./dark-ssr-black-knight-and-orchis-normal.md) | 黒騎士&オルキス / Black Knight & Orchis | SSR | 闇 | 下書き |
 | [dark-ssr-predator-normal.md](./dark-ssr-predator-normal.md) | プレデター(SSR) / Predator (SSR) | SSR | 闇 | 下書き |
+| [dark-ssr-lei-limited.md](./dark-ssr-lei-limited.md) | レイ(リミテッド) / Lei (Limited) | SSR | 闇 | 下書き |
+| [dark-ssr-seox-event.md](./dark-ssr-seox-event.md) | シス(イベント) / Seox (Event) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
