@@ -116,7 +116,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index26 闇フロレンスはgbf.wiki候補とHP/ATK完全一致で確認、採用。
   - index27 闇セワスチアン(SSR)はgbf.wiki候補なし。GameWithのみで作成。
   - index28 水着ヘカテーはgbf.wiki候補とHP/ATK完全一致で確認、採用。
-  - 闇属性SSR処理中(29/113体完了)。次はindex29 水着ハレゼナから継続(batch_024-031.txt)。
+  - index29 水着ハレゼナはgbf.wiki候補とHP/ATK完全一致で確認、採用。
+  - index30 オロロジャイア(リミテッド)はgbf.wiki候補なし。GameWithのみで作成。男性態・女性態の両性を持つ特殊キャラ。
+  - 闇属性SSR処理中(31/113体完了)。次はindex31 闇クロエから継続(batch_024-031.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
