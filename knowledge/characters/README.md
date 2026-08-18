@@ -187,6 +187,7 @@
 | [fire-ssr-sylph-normal.md](./fire-ssr-sylph-normal.md) | シルフ / Sylph | SSR | 火 | 下書き |
 | [fire-ssr-vira-valentine.md](./fire-ssr-vira-valentine.md) | 火ヴィーラ(バレンタイン) / Vira (Valentine) | SSR | 火 | 下書き |
 | [fire-ssr-lilele-fire.md](./fire-ssr-lilele-fire.md) | 火リルル / Lilele (Fire) | SSR | 火 | 下書き |
+| [fire-ssr-wilnas-grand.md](./fire-ssr-wilnas-grand.md) | ウィルナス(リミテッド) / Wilnas (Grand) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
