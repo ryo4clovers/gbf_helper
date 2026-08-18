@@ -344,6 +344,7 @@
 | [water-ssr-societte-water.md](./water-ssr-societte-water.md) | ソシエ(SSR) / Societte | SSR | 水 | 下書き |
 | [water-ssr-feower-normal.md](./water-ssr-feower-normal.md) | カトル / Feower | SSR | 水 | 下書き |
 | [water-ssr-anre-normal.md](./water-ssr-anre-normal.md) | ウーノ / Anre | SSR | 水 | 下書き |
+| [water-ssr-lancelot-water.md](./water-ssr-lancelot-water.md) | 水ランスロット / Lancelot (Water) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
