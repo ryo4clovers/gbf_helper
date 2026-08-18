@@ -851,6 +851,7 @@
 | [earth-sr-paris-normal.md](./earth-sr-paris-normal.md) | パリス(SR) / Paris (SR) | SR | 土 | 下書き |
 | [earth-sr-jj-summer.md](./earth-sr-jj-summer.md) | 水着J・J / J.J. (Summer) | SR | 土 | 下書き |
 | [earth-sr-sara-summer.md](./earth-sr-sara-summer.md) | 水着サラ / Sara (Summer) | SR | 土 | 下書き |
+| [earth-sr-almeida-normal.md](./earth-sr-almeida-normal.md) | アルメイダ / Almeida | SR | 土 | 下書き |
 
 ## 運用ルール
 
