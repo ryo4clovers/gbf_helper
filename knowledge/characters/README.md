@@ -726,6 +726,7 @@
 | [light-sr-rosamia-normal.md](./light-sr-rosamia-normal.md) | ロザミア(SR) / Rosamia (SR) | SR | 光 | 下書き |
 | [light-sr-shimamura-uzuki-normal.md](./light-sr-shimamura-uzuki-normal.md) | 島村卯月 / Uzuki Shimamura | SR | 光 | 下書き |
 | [light-sr-noa-normal.md](./light-sr-noa-normal.md) | ノア / Noa | SR | 光 | 下書き |
+| [light-sr-arusha-normal.md](./light-sr-arusha-normal.md) | アルシャ / Arusha | SR | 光 | 下書き |
 
 ## 運用ルール
 
