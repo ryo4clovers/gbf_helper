@@ -848,6 +848,7 @@
 | [earth-sr-jin-summer.md](./earth-sr-jin-summer.md) | 水着ジン / Jin (Summer) | SR | 土 | 下書き |
 | [earth-sr-herja-normal.md](./earth-sr-herja-normal.md) | ヘリヤ(SR) / Herja (SR) | SR | 土 | 下書き |
 | [earth-sr-jessica-earth.md](./earth-sr-jessica-earth.md) | ジェシカ(土) / Jessica (Earth) | SR | 土 | 下書き |
+| [earth-sr-paris-normal.md](./earth-sr-paris-normal.md) | パリス(SR) / Paris (SR) | SR | 土 | 下書き |
 
 ## 運用ルール
 
