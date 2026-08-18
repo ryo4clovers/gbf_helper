@@ -139,6 +139,14 @@
 | [light-ssr-seruel-normal.md](./light-ssr-seruel-normal.md) | セルエル / Seruel | SSR | 光 | 下書き |
 | [light-ssr-sarunan-light.md](./light-ssr-sarunan-light.md) | 光サルナーン / Sarunan (Light) | SSR | 光 | 下書き |
 | [light-ssr-lefiya-normal.md](./light-ssr-lefiya-normal.md) | レ・フィーエ / De La Fille | SSR | 光 | 下書き |
+| [fire-ssr-atman-summer.md](./fire-ssr-atman-summer.md) | 水着アートマン / Atman (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-mikaboshi-grand.md](./fire-ssr-mikaboshi-grand.md) | ミカボシ(リミテッド) / Mikaboshi (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-roy-mustang-normal.md](./fire-ssr-roy-mustang-normal.md) | ロイ・マスタング / Roy Mustang | SSR | 火 | 下書き |
+| [fire-ssr-parashurama-normal.md](./fire-ssr-parashurama-normal.md) | パラシュラーマ / Parashurama | SSR | 火 | 下書き |
+| [fire-ssr-eustace-yukata.md](./fire-ssr-eustace-yukata.md) | 浴衣ユーステス / Eustace (Yukata) | SSR | 火 | 下書き |
+| [fire-ssr-lyria-event.md](./fire-ssr-lyria-event.md) | ルリア(SSR) / Lyria (Event SSR) | SSR | 火 | 下書き |
+| [fire-ssr-sanchira-normal.md](./fire-ssr-sanchira-normal.md) | サンチラ / Sanchira | SSR | 火 | 下書き |
+| [fire-ssr-maria-teresa-holiday.md](./fire-ssr-maria-teresa-holiday.md) | マリアテレサ(クリスマス) / Maria Teresa (Holiday) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
