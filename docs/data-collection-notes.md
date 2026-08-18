@@ -161,7 +161,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index77 キャル(プリコネコラボ)、index78 ニーア(十賢者)はgbf.wiki候補なし。GameWithのみで作成。ニーアは十賢者の複雑な段階的強化システムを簡略化。
   - index79 闇フェリ(リミテッド)はgbf.wiki候補「Ferry (Grand)」とHP/ATK完全一致で確認、採用。batch_072-079.txt完了。
   - index80 闇クラリス(バレンタイン)はgbf.wiki候補とHP一致で確認、採用。
-  - 闇属性SSR処理中(81/113体完了)。次はindex81から継続(batch_080-087.txt)。
+  - index81 ターニャ(SSR)はgbf.wiki検索候補「Tanya」がHP/ATK不一致(基本レアリティ版)だったため不採用、GameWithのみで作成。取得時点で最終上限解放(8/25実装予定)の性能はGameWith未公開のため最終前の性能を記載。
+  - index82 闇ユーステスはgbf.wiki候補と4★表記でHP/ATK完全一致で確認、採用。
+  - 闇属性SSR処理中(83/113体完了)。次はindex83から継続(batch_080-087.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。

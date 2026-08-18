@@ -656,6 +656,8 @@
 | [dark-ssr-niyah-normal.md](./dark-ssr-niyah-normal.md) | ニーア / Niyah | SSR | 闇 | 下書き |
 | [dark-ssr-ferry-grand.md](./dark-ssr-ferry-grand.md) | 闇フェリ(リミテッド) / Ferry (Grand) | SSR | 闇 | 下書き |
 | [dark-ssr-clarisse-valentine.md](./dark-ssr-clarisse-valentine.md) | 闇クラリス(バレンタイン) / Clarisse (Valentine) | SSR | 闇 | 下書き |
+| [dark-ssr-tanya-normal.md](./dark-ssr-tanya-normal.md) | ターニャ(SSR) / Tanya (SSR) | SSR | 闇 | 下書き |
+| [dark-ssr-eustace-dark.md](./dark-ssr-eustace-dark.md) | 闇ユーステス / Eustace (Dark) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
