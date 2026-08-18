@@ -428,6 +428,7 @@
 | [earth-ssr-first-years-team-normal.md](./earth-ssr-first-years-team-normal.md) | 1年生チーム / First-Years Team | SSR | 土 | 下書き |
 | [earth-ssr-rosetta-summer.md](./earth-ssr-rosetta-summer.md) | 水着ロゼッタ / Rosetta (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-cain-grand.md](./earth-ssr-cain-grand.md) | カイン(リミテッド) / Cain (Grand) | SSR | 土 | 下書き |
+| [earth-ssr-soriz-normal.md](./earth-ssr-soriz-normal.md) | ソリッズ(SSR) / Soriz (SSR) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
