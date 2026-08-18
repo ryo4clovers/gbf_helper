@@ -871,6 +871,7 @@
 | [earth-sr-rackam-holiday.md](./earth-sr-rackam-holiday.md) | ラカム(クリスマス) / Rackam (Holiday) | SR | 土 | 下書き |
 | [earth-sr-mariah-normal.md](./earth-sr-mariah-normal.md) | マライア / Mariah | SR | 土 | 下書き |
 | [earth-sr-yuri-normal.md](./earth-sr-yuri-normal.md) | ユーリ(土) / Yuri | SR | 土 | 下書き |
+| [earth-sr-farrah-normal.md](./earth-sr-farrah-normal.md) | ファラ(SR) / Farrah (SR) | SR | 土 | 下書き |
 
 ## 運用ルール
 
