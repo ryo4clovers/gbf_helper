@@ -863,6 +863,7 @@
 | [earth-sr-galadar-normal.md](./earth-sr-galadar-normal.md) | ガラドア(SR) / Galadar (SR) | SR | 土 | 下書き |
 | [earth-sr-mimura-kanako-normal.md](./earth-sr-mimura-kanako-normal.md) | 三村かな子 / Kanako Mimura | SR | 土 | 下書き |
 | [earth-sr-jin-ronin.md](./earth-sr-jin-ronin.md) | ジン(克己浪人) / Jin (Ronin) | SR | 土 | 下書き |
+| [earth-sr-eugen-summer.md](./earth-sr-eugen-summer.md) | 水着オイゲン / Eugen (Summer) | SR | 土 | 下書き |
 
 ## 運用ルール
 
