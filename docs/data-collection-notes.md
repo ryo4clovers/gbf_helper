@@ -90,7 +90,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
   - **完了**: 水属性SSR 99/99体(list.jsonの全indexを処理完了。`batch_096-098.txt`まで全バッチ処理済み)。index96シャルロッテ・index97リリィ(SSR)・index98アルタイルで水属性SSRが完了した。
   - **土属性SSR収集に着手**(scratchディレクトリ`earth_ssr`)。`scratch-build-list.mjs 土`でlist.json生成(108体)→パイプラインスクリプトの`SCRATCH`定数を`earth_ssr`に書き換え→GameWith/gbf.wiki取得(gamewith/gbfwikiサブディレクトリを事前に`mkdir`しておく必要があった、無いとENOENTで失敗)→pick-and-dump(79/108体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_104-107.txt`、14バッチ)まで完了。既存の`earth-ssr-seox-summer.md`はlist.jsonに同名キャラが見当たらず重複なし。
-  - **進捗(土属性SSR)**: index103まで処理済み(104/108体、`batch_096-103.txt`完了)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_104-107.txt` のindex104から読み進める(残り4体で土属性SSR完了)。
+  - **進捗(土属性SSR)**: index104まで処理済み(105/108体)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_104-107.txt` のindex105から読み進める(残り3体で土属性SSR完了)。
   - index102 サラーサも十天衆キャラで限界超越Lv150+斧/剣モードのフォームチェンジを持つ非常に複雑な仕様のため、最終上限解放+限界超越内容を大幅に簡略化して記載。gbf.wiki候補なしのためGameWithのみで作成。
   - index101 オクトーは十天衆キャラで限界超越Lv150まである非常に複雑な仕様のため、最終上限解放+限界超越内容を大幅に簡略化して記載。gbf.wiki候補なしのためGameWithのみで作成。
   - index90 マキラは十二神将キャラで最終上限解放システムと「鼓の音」固有ゲージを持つ複雑な仕様のため、最終後の内容を中心に一部簡略化して記載。gbf.wiki候補なしのためGameWithのみで作成。
