@@ -282,7 +282,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index35 アンナ(SR)はgbf.wiki検索候補「Anna」が基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
 - index36 ベスは育成次第で6属性/3タイプに変化する特殊仕様のキャラ。gbf.wiki候補は不一致のため不採用、GameWithのみで作成、火属性/攻撃タイプ成長時を中心に大幅簡略化。
 - index37 城ヶ崎莉嘉はデレマス(モバマス)コラボキャラ。コラボキャラのためgbf.wiki候補は自動検索で見つからず(想定通り)、GameWithのみで作成。
-- 火属性SR(40/55体完了)。次はindex40から継続(batch_040以降)。
+- index40 マリー(SR)はgbf.wiki候補「Mary」がHP800(3★)/ATK4000(3★)で基本レアリティ(R)版のため不採用、GameWithのみで作成。
+- 火属性SR(41/55体完了)。次はindex41から継続(batch_040-047.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
