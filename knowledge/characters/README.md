@@ -438,6 +438,7 @@
 | [earth-ssr-de-la-fille-earth.md](./earth-ssr-de-la-fille-earth.md) | 土レ・フィーエ / De La Fille (Earth) | SSR | 土 | 下書き |
 | [earth-ssr-razia-normal.md](./earth-ssr-razia-normal.md) | ラスティナ(SSR) / Razia | SSR | 土 | 下書き |
 | [earth-ssr-makira-normal.md](./earth-ssr-makira-normal.md) | マキラ / Makira | SSR | 土 | 下書き |
+| [earth-ssr-eustace-halloween.md](./earth-ssr-eustace-halloween.md) | ユーステス(ハロウィン) / Eustace (Halloween) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
