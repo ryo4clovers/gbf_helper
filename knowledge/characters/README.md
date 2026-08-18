@@ -731,6 +731,7 @@
 | [light-sr-naoise-light.md](./light-sr-naoise-light.md) | 光ノイシュ / Naoise (Light) | SR | 光 | 下書き |
 | [fire-sr-ferry-summer.md](./fire-sr-ferry-summer.md) | 水着フェリ / Ferry (Summer) | SR | 火 | 下書き |
 | [fire-sr-cassius-yukata.md](./fire-sr-cassius-yukata.md) | 浴衣カシウス / Cassius (Yukata) | SR | 火 | 下書き |
+| [fire-sr-friday-summer.md](./fire-sr-friday-summer.md) | 水着フライデー / Friday (Summer) | SR | 火 | 下書き |
 
 ## 運用ルール
 
