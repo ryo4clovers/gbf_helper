@@ -690,6 +690,7 @@
 | [dark-ssr-lady-grey-normal.md](./dark-ssr-lady-grey-normal.md) | レディ・グレイ / Lady Grey | SSR | 闇 | 下書き |
 | [light-sr-tyre-yukata.md](./light-sr-tyre-yukata.md) | 浴衣タイアー / Tyre (Yukata) | SR | 光 | 下書き |
 | [light-sr-kumbhira-normal.md](./light-sr-kumbhira-normal.md) | クビラ(SR) / Kumbhira (SR) | SR | 光 | 下書き |
+| [light-sr-philosophia-normal.md](./light-sr-philosophia-normal.md) | フィラソピラ(SR) / Philosophia (SR) | SR | 光 | 下書き |
 
 ## 運用ルール
 
