@@ -260,6 +260,8 @@
 | [water-ssr-rei-and-unit00-normal.md](./water-ssr-rei-and-unit00-normal.md) | レイ＆零号機 / Rei & Unit-00 | SSR | 水 | 下書き |
 | [water-ssr-chichiri-water.md](./water-ssr-chichiri-water.md) | 水チチリ / Chichiri (Water) | SSR | 水 | 下書き |
 | [water-ssr-tien-halloween.md](./water-ssr-tien-halloween.md) | エッセル(ハロウィン) / Tien (Halloween) | SSR | 水 | 下書き |
+| [water-ssr-joel-normal.md](./water-ssr-joel-normal.md) | ジョエル / Joel (SSR) | SSR | 水 | 下書き |
+| [water-ssr-silva-grand.md](./water-ssr-silva-grand.md) | シルヴィア(リミテッド) / Silva (Grand) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
