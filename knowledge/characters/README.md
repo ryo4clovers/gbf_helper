@@ -211,6 +211,8 @@
 | [fire-ssr-teena-summer.md](./fire-ssr-teena-summer.md) | 水着ティナ / Teena (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-scathacha-valentine.md](./fire-ssr-scathacha-valentine.md) | スカーサハ(バレンタイン) / Scathacha (Valentine) | SSR | 火 | 下書き |
 | [fire-ssr-yuisis-fire.md](./fire-ssr-yuisis-fire.md) | 火ユイシス / Yuisis (Fire) | SSR | 火 | 下書き |
+| [fire-ssr-vira-bonus.md](./fire-ssr-vira-bonus.md) | 火ヴィーラ(特典) / Vira (Bonus) | SSR | 火 | 下書き |
+| [fire-ssr-siegfried-fire.md](./fire-ssr-siegfried-fire.md) | 火ジーク / Siegfried (Fire) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
