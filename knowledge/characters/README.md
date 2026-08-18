@@ -492,6 +492,7 @@
 | [wind-ssr-vania-yukata.md](./wind-ssr-vania-yukata.md) | 浴衣ヴァンピィ / Vania (Yukata) | SSR | 風 | 下書き |
 | [wind-ssr-aliza-summer.md](./wind-ssr-aliza-summer.md) | 水着アリーザ / Aliza (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-lily-wind.md](./wind-ssr-lily-wind.md) | 風リリィ / Lily (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-caro-normal.md](./wind-ssr-caro-normal.md) | カロ / Caro | SSR | 風 | 下書き |
 
 ## 運用ルール
 
