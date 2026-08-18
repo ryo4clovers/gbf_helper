@@ -845,6 +845,7 @@
 | [earth-sr-ayer-summer.md](./earth-sr-ayer-summer.md) | 水着アイル / Ayer (Summer) | SR | 土 | 下書き |
 | [earth-sr-walder-normal.md](./earth-sr-walder-normal.md) | ウェルダー(SR) / Walder (SR) | SR | 土 | 下書き |
 | [earth-sr-cain-normal.md](./earth-sr-cain-normal.md) | カイン(SR) / Cain (SR) | SR | 土 | 下書き |
+| [earth-sr-jin-summer.md](./earth-sr-jin-summer.md) | 水着ジン / Jin (Summer) | SR | 土 | 下書き |
 
 ## 運用ルール
 
