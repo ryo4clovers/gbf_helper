@@ -638,6 +638,7 @@
 | [dark-ssr-meg-summer.md](./dark-ssr-meg-summer.md) | 水着メグ / Meg (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-albert-dark.md](./dark-ssr-albert-dark.md) | 闇アルベール / Albert (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-cassius-event.md](./dark-ssr-cassius-event.md) | カシウス(SSR) / Cassius (Event SSR) | SSR | 闇 | 下書き |
+| [dark-ssr-zehek-normal.md](./dark-ssr-zehek-normal.md) | ゼヘク(SSR) / Zehek (SSR) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
