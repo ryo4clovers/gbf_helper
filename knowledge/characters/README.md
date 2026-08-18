@@ -196,6 +196,8 @@
 | [fire-ssr-ms-miranda-normal.md](./fire-ssr-ms-miranda-normal.md) | ミランダ / Ms. Miranda | SSR | 火 | 下書き |
 | [fire-ssr-shion-normal.md](./fire-ssr-shion-normal.md) | シオン / Shion | SSR | 火 | 下書き |
 | [fire-ssr-kumbhira-summer.md](./fire-ssr-kumbhira-summer.md) | 水着クビラ / Kumbhira (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-vaseraga-fire.md](./fire-ssr-vaseraga-fire.md) | 火バザラガ / Vaseraga (Fire) | SSR | 火 | 下書き |
+| [fire-ssr-rengoku-kyojuro-normal.md](./fire-ssr-rengoku-kyojuro-normal.md) | 煉獄杏寿郎 / Rengoku Kyojuro | SSR | 火 | 下書き |
 
 ## 運用ルール
 
