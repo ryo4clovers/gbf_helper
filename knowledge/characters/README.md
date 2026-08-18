@@ -829,6 +829,7 @@
 | [water-sr-therese-normal.md](./water-sr-therese-normal.md) | テレーズ(SR) / Therese (SR) | SR | 水 | 下書き |
 | [earth-sr-zaja-halloween.md](./earth-sr-zaja-halloween.md) | ザザ(ハロウィン) / Zaja (Halloween) | SR | 土 | 下書き |
 | [earth-sr-la-coiffe-normal.md](./earth-sr-la-coiffe-normal.md) | コワフュール(SR) / La Coiffe (SR) | SR | 土 | 下書き |
+| [earth-sr-lancelot-and-vane-summer.md](./earth-sr-lancelot-and-vane-summer.md) | 水着ランスロット&ヴェイン / Lancelot and Vane (Summer) | SR | 土 | 下書き |
 
 ## 運用ルール
 
