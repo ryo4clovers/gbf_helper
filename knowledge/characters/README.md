@@ -684,6 +684,8 @@
 | [dark-ssr-sarunan-dark.md](./dark-ssr-sarunan-dark.md) | 闇サルナーン / Sarunan (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-vira-normal.md](./dark-ssr-vira-normal.md) | ヴィーラ / Vira (SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-seox-normal.md](./dark-ssr-seox-normal.md) | シス / Seox | SSR | 闇 | 下書き |
+| [dark-ssr-vaseraga-normal.md](./dark-ssr-vaseraga-normal.md) | バザラガ / Vaseraga | SSR | 闇 | 下書き |
+| [dark-ssr-rosetta-holiday.md](./dark-ssr-rosetta-holiday.md) | ロゼッタ(クリスマス) / Rosetta (Holiday) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

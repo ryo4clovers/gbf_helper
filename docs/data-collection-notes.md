@@ -186,7 +186,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index106 闇サルナーンはgbf.wiki候補とHP一致(HP1340)、ATKはgbf.wiki基本値8360+Cross-Fateボーナス500=8860でGameWith記載と一致確認、採用。
   - index107 ヴィーラ(SSR)はgbf.wiki検索候補「Vira」がHP1000(4★)/ATK7000(4★)で基本レアリティ版と判断し不採用、GameWithのみで作成。最終上限解放後の性能を採用。
   - index108 シス(十天衆)はgbf.wiki候補なし。GameWithのみで作成。限界超越Lv150時点の性能を中心に大幅簡略化して記載(十天衆の複雑な多段強化システムのため)。
-  - 闇属性SSR処理中(108/113体完了)。次はindex109から継続(batch_104-111.txt)。
+  - index109 バザラガはgbf.wiki候補とHP/ATK完全一致(HP1680/ATK12540、5★表記)で確認、採用。最終上限解放後の性能を採用。
+  - index110 ロゼッタ(クリスマス)はgbf.wiki候補「Rosetta (Holiday)」と入手武器/声優/称号が完全一致し同一キャラクターと確認したが、ステータスがGameWith(HP1540/ATK7280)とgbf.wiki(HP2000/ATK7500)で不一致。キャラクター種別の誤りではないためGameWith数値を採用し、不一致を明記して要検証扱いとした。
+  - 闇属性SSR処理中(110/113体完了)。次はindex111から継続(batch_104-111.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
