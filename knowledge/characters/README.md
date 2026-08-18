@@ -560,6 +560,7 @@
 | [wind-ssr-scathacha-normal.md](./wind-ssr-scathacha-normal.md) | スカーサハ / Scathacha | SSR | 風 | 下書き |
 | [wind-ssr-yuisis-normal.md](./wind-ssr-yuisis-normal.md) | ユイシス / Yuisis | SSR | 風 | 下書き |
 | [wind-ssr-melissabelle-normal.md](./wind-ssr-melissabelle-normal.md) | メリッサベル / Melissabelle | SSR | 風 | 下書き |
+| [wind-ssr-lecia-grand.md](./wind-ssr-lecia-grand.md) | リーシャ(リミテッド) / Lecia (Grand) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
