@@ -413,6 +413,7 @@
 | [earth-ssr-leona-grand.md](./earth-ssr-leona-grand.md) | レオナ(リミテッド) / Leona (Grand) | SSR | 土 | 下書き |
 | [earth-ssr-pengy-normal.md](./earth-ssr-pengy-normal.md) | ペンギー(SSR) / Pengy (SSR) | SSR | 土 | 下書き |
 | [earth-ssr-herja-normal.md](./earth-ssr-herja-normal.md) | ヘリヤ(SSR) / Herja (SSR) | SSR | 土 | 下書き |
+| [earth-ssr-jin-earth.md](./earth-ssr-jin-earth.md) | ジン(土属性SSR) / Jin (Earth) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
