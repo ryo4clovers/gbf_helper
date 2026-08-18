@@ -12,7 +12,7 @@ has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
 last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/161175)、gbf.wiki (https://gbf.wiki/Alexiel_(Summer)) (取得日: 2026-08-18)。GameWith記載のHP1240/ATK9000はgbf.wikiの数値と一致。"
+source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/161175)、gbf.wiki (https://gbf.wiki/Alexiel_(Summer)) (取得日: 2026-08-18)。GameWith記載のHP1240/ATK9000はgbf.wikiの数値と一致。リミテッド版は[earth-ssr-alexiel-grand.md](./earth-ssr-alexiel-grand.md)を参照。"
 ---
 
 # 水着ブローディア(Alexiel (Summer))
