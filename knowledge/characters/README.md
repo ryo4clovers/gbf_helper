@@ -323,6 +323,9 @@
 | [water-ssr-grea-summer.md](./water-ssr-grea-summer.md) | 水着グレア / Grea (Summer) | SSR | 水 | 下書き |
 | [water-ssr-2nd-years-normal.md](./water-ssr-2nd-years-normal.md) | 2年生チーム / 2nd Years | SSR | 水 | 下書き |
 | [water-ssr-kokkoro-water.md](./water-ssr-kokkoro-water.md) | 水ククル(SSR) / Kokkoro (Water) | SSR | 水 | 下書き |
+| [water-ssr-vajra-normal.md](./water-ssr-vajra-normal.md) | ヴァジラ / Vajra | SSR | 水 | 下書き |
+| [water-ssr-yuel-water.md](./water-ssr-yuel-water.md) | 水ユエル / Yuel (Water) | SSR | 水 | 下書き |
+| [water-ssr-anne-water.md](./water-ssr-anne-water.md) | アン / Anne | SSR | 水 | 下書き |
 
 ## 運用ルール
 
