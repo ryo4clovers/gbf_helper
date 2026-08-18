@@ -138,6 +138,7 @@
 | [light-ssr-lefiya-summer.md](./light-ssr-lefiya-summer.md) | 水着レフィーエ / Lefiya (Summer) | SSR | 光 | 下書き |
 | [light-ssr-seruel-normal.md](./light-ssr-seruel-normal.md) | セルエル / Seruel | SSR | 光 | 下書き |
 | [light-ssr-sarunan-light.md](./light-ssr-sarunan-light.md) | 光サルナーン / Sarunan (Light) | SSR | 光 | 下書き |
+| [light-ssr-lefiya-normal.md](./light-ssr-lefiya-normal.md) | レ・フィーエ / De La Fille | SSR | 光 | 下書き |
 
 ## 運用ルール
 

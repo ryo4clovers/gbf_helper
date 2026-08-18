@@ -52,9 +52,11 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - `list.json`: 121体の一覧(新しい順、element/tag/href)。
   - `picks.json`: 各キャラに対応するgbf.wiki候補ページの選定結果。属性接頭辞パターン(光○○等)は対応する `(Light)` 等のページが見つからない場合 `candidate: null` にしている(10体、要手動確認)。
   - `dossiers/batch_XXX-YYY.txt`: 8体ずつにまとめたGameWith+gbf.wikiの生テキスト。
-- **進捗**: list.jsonのインデックス0〜119まで処理済み(index 0の水着ハイラは既存の`light-ssr-payila-summer.md`と重複のためスキップ、実質119体作成)。index 120(最終1体)が未処理(`dossiers/batch_120-120.txt`)。
+- **進捗**: list.jsonのインデックス0〜120まで**全件処理完了**(index 0の水着ハイラは既存の`light-ssr-payila-summer.md`と重複のためスキップ、実質120体新規作成、既存1体と合わせて121体の光属性SSRキャラを収集済み)。
   - index115 光ソフィアはgbf.wiki候補が最初から存在しない(picks.jsonでcandidate: null)ため、GameWithのみで作成(`light-ssr-sophia-light.md`)。
   - index117 水着レフィーエ、index119 光サルナーンもgbf.wiki候補が最初から存在しない(candidate: null)ため、GameWithのみで作成(`light-ssr-lefiya-summer.md`、`light-ssr-sarunan-light.md`)。
+  - index120 レ・フィーエ(無印)はGameWith(HP1930/ATK6400)とgbf.wiki候補「De La Fille」(5★時HP1900/ATK7600、4★時ATK6400)でATKは4★時に完全一致したがHPに若干差異があった。称号・声優・実装日・バージョン一覧(水着/浴衣/土)が完全一致したため同一キャラと判断し採用(`light-ssr-lefiya-normal.md`)。差異は要検証事項として記録。
+- **光属性SSR 121体の収集作業が完了**(2026-08-18)。今後、他属性・他レアリティのキャラクター収集に着手する場合は、本セクションと同様の手順(GameWith SSR一覧の属性フィルタ→GameWith+gbf.wikiクロスチェック→命名規則に沿ったファイル作成→README.md/本メモの更新)を踏襲する。
   - index92 ロボミ(SSR)はgbf.wiki検索候補が召喚石ページ(「Robomi Rocket」)だったため不採用、GameWithのみで作成。
   - index94 銃ゾーイ(SSR)はgbf.wiki検索候補が無関係のページ(「Side-scrolling Quotes」)だったため不採用、GameWithのみで作成。
   - index100 バウタオーダ(SSR)はgbf.wiki検索候補「Baotorda」がHP/ATK不一致の別バージョン(SSR以外)だったため不採用、GameWithのみで作成。
