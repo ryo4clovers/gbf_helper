@@ -743,6 +743,7 @@
 | [fire-sr-izuminokami-kanesada-normal.md](./fire-sr-izuminokami-kanesada-normal.md) | 和泉守兼定 / Izuminokami Kanesada | SR | 火 | 下書き |
 | [fire-sr-grea-event.md](./fire-sr-grea-event.md) | グレア(SR) / Grea (Event) | SR | 火 | 下書き |
 | [fire-sr-elmott-blazing-teacher.md](./fire-sr-elmott-blazing-teacher.md) | 炎獄先生エルモート / Blazing Teacher Elmott | SR | 火 | 下書き |
+| [fire-sr-ghandagoza-summer.md](./fire-sr-ghandagoza-summer.md) | 水着ガンダゴウザ / Ghandagoza (Summer) | SR | 火 | 下書き |
 
 ## 運用ルール
 
