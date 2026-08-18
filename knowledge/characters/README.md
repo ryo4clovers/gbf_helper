@@ -287,6 +287,8 @@
 | [water-ssr-vermeersch-grand.md](./water-ssr-vermeersch-grand.md) | ワムデュス(リミテッド) / Vermeersch (Grand) | SSR | 水 | 下書き |
 | [water-ssr-clarisse-summer.md](./water-ssr-clarisse-summer.md) | 水着クラリス / Clarisse (Summer) | SSR | 水 | 下書き |
 | [water-ssr-gwynne-normal.md](./water-ssr-gwynne-normal.md) | グウィン / Gwynne | SSR | 水 | 下書き |
+| [water-ssr-sophia-water.md](./water-ssr-sophia-water.md) | 水ソフィア / Sophia (Water) | SSR | 水 | 下書き |
+| [water-ssr-cassius-valentine.md](./water-ssr-cassius-valentine.md) | 水カシウス(バレンタイン) / Cassius (Valentine) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
