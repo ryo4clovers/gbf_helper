@@ -241,6 +241,7 @@
 | [fire-ssr-heles-normal.md](./fire-ssr-heles-normal.md) | ヘルエス / Heles | SSR | 火 | 下書き |
 | [fire-ssr-rackam-grand.md](./fire-ssr-rackam-grand.md) | ラカム(リミテッド) / Rackam (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-ghandagoza-normal.md](./fire-ssr-ghandagoza-normal.md) | ガンダゴウザ / Ghandagoza | SSR | 火 | 下書き |
+| [fire-ssr-clarisse-fire.md](./fire-ssr-clarisse-fire.md) | 火クラリス / Clarisse (Fire) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
