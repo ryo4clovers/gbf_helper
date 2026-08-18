@@ -853,6 +853,7 @@
 | [earth-sr-sara-summer.md](./earth-sr-sara-summer.md) | 水着サラ / Sara (Summer) | SR | 土 | 下書き |
 | [earth-sr-almeida-normal.md](./earth-sr-almeida-normal.md) | アルメイダ / Almeida | SR | 土 | 下書き |
 | [earth-sr-jamil-normal.md](./earth-sr-jamil-normal.md) | ジャミル(土) / Jamil | SR | 土 | 下書き |
+| [earth-sr-laguna-normal.md](./earth-sr-laguna-normal.md) | ラグナ / Laguna | SR | 土 | 下書き |
 
 ## 運用ルール
 
