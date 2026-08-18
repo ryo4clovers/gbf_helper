@@ -599,6 +599,8 @@
 | [dark-ssr-rimuru-normal.md](./dark-ssr-rimuru-normal.md) | リムル＝テンペスト / Rimuru Tempest | SSR | 闇 | 下書き |
 | [dark-ssr-diablo-normal.md](./dark-ssr-diablo-normal.md) | ディアブロ / Diablo | SSR | 闇 | 下書き |
 | [dark-ssr-shion-normal.md](./dark-ssr-shion-normal.md) | シオン / Shion | SSR | 闇 | 下書き |
+| [dark-ssr-wil-dark.md](./dark-ssr-wil-dark.md) | 闇ウィル(SSR) / Wil (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-satyr-halloween.md](./dark-ssr-satyr-halloween.md) | 闇サテュロス(ハロウィン) / Satyr (Halloween) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
