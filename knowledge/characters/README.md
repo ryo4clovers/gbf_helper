@@ -277,6 +277,8 @@
 | [water-ssr-anila-yukata.md](./water-ssr-anila-yukata.md) | 浴衣アニラ / Anila (Yukata) | SSR | 水 | 下書き |
 | [water-ssr-fediel-summer.md](./water-ssr-fediel-summer.md) | 水着フェディエル / Fediel (Summer) | SSR | 水 | 下書き |
 | [water-ssr-vaseraga-summer.md](./water-ssr-vaseraga-summer.md) | 水着バザラガ / Vaseraga (Summer) | SSR | 水 | 下書き |
+| [water-ssr-korwa-water.md](./water-ssr-korwa-water.md) | 水コルワ / Korwa (Water) | SSR | 水 | 下書き |
+| [water-ssr-sen-valentine.md](./water-ssr-sen-valentine.md) | セン(バレンタイン) / Sen (Valentine) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
