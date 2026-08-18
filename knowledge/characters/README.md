@@ -797,6 +797,7 @@
 | [water-sr-lamretta-water.md](./water-sr-lamretta-water.md) | 水ラムレッダ / Lamretta (Water) | SR | 水 | 下書き |
 | [water-sr-mina-normal.md](./water-sr-mina-normal.md) | マイム / Mina | SR | 水 | 下書き |
 | [water-sr-erin-normal.md](./water-sr-erin-normal.md) | エリン(SR) / Erin (SR) | SR | 水 | 下書き |
+| [water-sr-lily-normal.md](./water-sr-lily-normal.md) | リリィ(SR) / Lily (SR) | SR | 水 | 下書き |
 
 ## 運用ルール
 
