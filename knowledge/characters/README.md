@@ -524,6 +524,7 @@
 | [wind-ssr-shinobu-kocho-normal.md](./wind-ssr-shinobu-kocho-normal.md) | 胡蝶しのぶ / Shinobu Kocho | SSR | 風 | 下書き |
 | [wind-ssr-sutera-normal.md](./wind-ssr-sutera-normal.md) | スーテラ(SSR) / Sutera (SSR) | SSR | 風 | 下書き |
 | [wind-ssr-florence-normal.md](./wind-ssr-florence-normal.md) | フロレンス / Florence | SSR | 風 | 下書き |
+| [wind-ssr-mimori-amamiya-normal.md](./wind-ssr-mimori-amamiya-normal.md) | 天宮ミモリ / Mimori Amamiya | SSR | 風 | 下書き |
 
 ## 運用ルール
 
