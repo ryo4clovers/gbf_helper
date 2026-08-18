@@ -826,6 +826,7 @@
 | [water-sr-io-normal.md](./water-sr-io-normal.md) | イオ(SR) / Io (SR) | SR | 水 | 下書き |
 | [water-sr-katalina-normal.md](./water-sr-katalina-normal.md) | カタリナ(SR) / Katalina (SR) | SR | 水 | 下書き |
 | [water-sr-mishra-normal.md](./water-sr-mishra-normal.md) | マイシェラ / Mishra | SR | 水 | 下書き |
+| [water-sr-therese-normal.md](./water-sr-therese-normal.md) | テレーズ(SR) / Therese (SR) | SR | 水 | 下書き |
 
 ## 運用ルール
 
