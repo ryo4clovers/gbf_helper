@@ -271,6 +271,8 @@
 | [water-ssr-nectar-water.md](./water-ssr-nectar-water.md) | 水ネクタル / Nectar (Water) | SSR | 水 | 下書き |
 | [water-ssr-yuri-water.md](./water-ssr-yuri-water.md) | 水ユーリ / Yuri (Water) | SSR | 水 | 下書き |
 | [water-ssr-delrifado-water.md](./water-ssr-delrifado-water.md) | 水デリフォード / Delrifado (Water) | SSR | 水 | 下書き |
+| [water-ssr-haila-normal.md](./water-ssr-haila-normal.md) | ハイラ / Haila | SSR | 水 | 下書き |
+| [water-ssr-gabriel-grand.md](./water-ssr-gabriel-grand.md) | ガブリエル(リミテッド) / Gabriel (Grand) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
