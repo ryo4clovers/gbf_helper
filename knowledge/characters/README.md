@@ -289,6 +289,8 @@
 | [water-ssr-gwynne-normal.md](./water-ssr-gwynne-normal.md) | グウィン / Gwynne | SSR | 水 | 下書き |
 | [water-ssr-sophia-water.md](./water-ssr-sophia-water.md) | 水ソフィア / Sophia (Water) | SSR | 水 | 下書き |
 | [water-ssr-cassius-valentine.md](./water-ssr-cassius-valentine.md) | 水カシウス(バレンタイン) / Cassius (Valentine) | SSR | 水 | 下書き |
+| [water-ssr-cupitan-normal.md](./water-ssr-cupitan-normal.md) | クピタン / Cupitan | SSR | 水 | 下書き |
+| [water-ssr-lancelot-grand.md](./water-ssr-lancelot-grand.md) | ランスロット(リミテッド) / Lancelot (Grand) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
