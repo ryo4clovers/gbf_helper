@@ -780,6 +780,7 @@
 | [fire-sr-ezecrain-normal.md](./fire-sr-ezecrain-normal.md) | エゼクレイン / Ezecrain | SR | 火 | 下書き |
 | [fire-sr-elmott-normal.md](./fire-sr-elmott-normal.md) | エルモート(SR) / Elmott (SR) | SR | 火 | 下書き |
 | [fire-sr-jessica-fire.md](./fire-sr-jessica-fire.md) | 火ジェシカ / Jessica (Fire) | SR | 火 | 下書き |
+| [fire-sr-aliza-normal.md](./fire-sr-aliza-normal.md) | アリーザ / Aliza (SR) | SR | 火 | 下書き |
 
 ## 運用ルール
 
