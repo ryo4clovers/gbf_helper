@@ -817,6 +817,7 @@
 | [water-sr-pengy-event.md](./water-sr-pengy-event.md) | ペンギー(イベント) / Pengy (Event) | SR | 水 | 下書き |
 | [water-sr-kawashima-mizuki-normal.md](./water-sr-kawashima-mizuki-normal.md) | 川島瑞樹 / Mizuki Kawashima | SR | 水 | 下書き |
 | [water-sr-milleore-normal.md](./water-sr-milleore-normal.md) | ミラオル / Milleore | SR | 水 | 下書き |
+| [water-sr-ejaeli-normal.md](./water-sr-ejaeli-normal.md) | エジェリー / Ejaeli | SR | 水 | 下書き |
 
 ## 運用ルール
 
