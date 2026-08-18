@@ -752,6 +752,7 @@
 | [fire-sr-akagi-miria-normal.md](./fire-sr-akagi-miria-normal.md) | 赤城みりあ / Miria Akagi | SR | 火 | 下書き |
 | [fire-sr-dante-normal.md](./fire-sr-dante-normal.md) | ダーント(SR) / Dante (SR) | SR | 火 | 下書き |
 | [fire-sr-kukuru-fire.md](./fire-sr-kukuru-fire.md) | 火ククル(SR) / Kukuru (Fire) | SR | 火 | 下書き |
+| [fire-sr-barawa-event.md](./fire-sr-barawa-event.md) | 火バロワ(イベ) / Barawa (Fire, Event) | SR | 火 | 下書き |
 
 ## 運用ルール
 
