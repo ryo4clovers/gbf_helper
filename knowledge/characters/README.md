@@ -446,6 +446,7 @@
 | [earth-ssr-catherine-normal.md](./earth-ssr-catherine-normal.md) | キャサリン(土属性SSR) / Catherine | SSR | 土 | 下書き |
 | [earth-ssr-eustace-normal.md](./earth-ssr-eustace-normal.md) | ユーステス(土属性) / Eustace | SSR | 土 | 下書き |
 | [earth-ssr-clarisse-holiday.md](./earth-ssr-clarisse-holiday.md) | クラリス(クリスマス) / Clarisse (Holiday) | SSR | 土 | 下書き |
+| [earth-ssr-vira-summer.md](./earth-ssr-vira-summer.md) | 水着ヴィーラ / Vira (Summer) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
