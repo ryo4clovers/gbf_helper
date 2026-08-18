@@ -682,6 +682,7 @@
 | [dark-ssr-vania-normal.md](./dark-ssr-vania-normal.md) | ヴァンピィ / Vania | SSR | 闇 | 下書き |
 | [dark-ssr-danua-summer.md](./dark-ssr-danua-summer.md) | 水着ダヌア / Danua (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-sarunan-dark.md](./dark-ssr-sarunan-dark.md) | 闇サルナーン / Sarunan (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-vira-normal.md](./dark-ssr-vira-normal.md) | ヴィーラ / Vira (SSR) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

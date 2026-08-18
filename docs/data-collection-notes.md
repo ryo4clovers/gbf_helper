@@ -184,7 +184,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index104 ヴァンピィはgbf.wiki候補とHP/ATK完全一致(HP1390/ATK10880、5★表記)で確認、採用。バランス調整後・最終上限解放後の性能を採用。入手方法はGameWithに記載なく不明。
   - index105 水着ダヌアはgbf.wiki候補とHP/ATK完全一致(HP1590/ATK8350)で確認、採用。
   - index106 闇サルナーンはgbf.wiki候補とHP一致(HP1340)、ATKはgbf.wiki基本値8360+Cross-Fateボーナス500=8860でGameWith記載と一致確認、採用。
-  - 闇属性SSR処理中(106/113体完了)。次はindex107から継続(batch_104-111.txt)。
+  - index107 ヴィーラ(SSR)はgbf.wiki検索候補「Vira」がHP1000(4★)/ATK7000(4★)で基本レアリティ版と判断し不採用、GameWithのみで作成。最終上限解放後の性能を採用。
+  - 闇属性SSR処理中(107/113体完了)。次はindex108から継続(batch_104-111.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
