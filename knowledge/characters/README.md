@@ -808,6 +808,7 @@
 | [water-sr-naga-normal.md](./water-sr-naga-normal.md) | ナーガ / Naga | SR | 水 | 下書き |
 | [water-sr-lancelot-normal.md](./water-sr-lancelot-normal.md) | ランスロット(SR) / Lancelot (SR) | SR | 水 | 下書き |
 | [water-sr-vane-gacha.md](./water-sr-vane-gacha.md) | ヴェイン(ガチャ) / Vane (SR) | SR | 水 | 下書き |
+| [water-sr-sig-gacha.md](./water-sr-sig-gacha.md) | シグ(ガチャ) / Sig (SR) | SR | 水 | 下書き |
 
 ## 運用ルール
 
