@@ -333,6 +333,8 @@
 | [water-ssr-katapillar-and-vira-normal.md](./water-ssr-katapillar-and-vira-normal.md) | キャタピラとヴィーラ / Lady Katapillar and Vira | SSR | 水 | 下書き |
 | [water-ssr-arulumaya-holiday.md](./water-ssr-arulumaya-holiday.md) | アルルメイヤ(クリスマス) / Arulumaya (Holiday) | SSR | 水 | 下書き |
 | [water-ssr-izmir-normal.md](./water-ssr-izmir-normal.md) | イシュミール / Izmir | SSR | 水 | 下書き |
+| [water-ssr-romeo-normal.md](./water-ssr-romeo-normal.md) | ロミオ / Romeo | SSR | 水 | 下書き |
+| [water-ssr-chat-noir-normal.md](./water-ssr-chat-noir-normal.md) | シャノワール / Chat Noir | SSR | 水 | 下書き |
 
 ## 運用ルール
 
