@@ -319,6 +319,8 @@
 | [water-ssr-maria-teresa-normal.md](./water-ssr-maria-teresa-normal.md) | マリア・テレサ / Maria Teresa | SSR | 水 | 下書き |
 | [water-ssr-aglovale-normal.md](./water-ssr-aglovale-normal.md) | アグロヴァル / Aglovale | SSR | 水 | 下書き |
 | [water-ssr-europa-grand.md](./water-ssr-europa-grand.md) | エウロペ(リミテッド) / Europa (Grand) | SSR | 水 | 下書き |
+| [water-ssr-folia-grand.md](./water-ssr-folia-grand.md) | フォリア(リミテッド) / Folia (Grand) | SSR | 水 | 下書き |
+| [water-ssr-grea-summer.md](./water-ssr-grea-summer.md) | 水着グレア / Grea (Summer) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
