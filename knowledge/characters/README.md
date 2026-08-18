@@ -595,6 +595,8 @@
 | [dark-ssr-koku-normal.md](./dark-ssr-koku-normal.md) | コク / Koku | SSR | 闇 | 下書き |
 | [dark-ssr-indra-normal.md](./dark-ssr-indra-normal.md) | インダラ / Indra | SSR | 闇 | 下書き |
 | [dark-ssr-aletheia-dark.md](./dark-ssr-aletheia-dark.md) | 闇アレーティア / Aletheia (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-yggdrasil-holiday.md](./dark-ssr-yggdrasil-holiday.md) | 闇ユグドラシル(クリスマス) / Yggdrasil (Holiday) | SSR | 闇 | 下書き |
+| [dark-ssr-rimuru-normal.md](./dark-ssr-rimuru-normal.md) | リムル＝テンペスト / Rimuru Tempest | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

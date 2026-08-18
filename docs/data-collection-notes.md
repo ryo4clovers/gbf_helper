@@ -108,7 +108,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index16 エヴァンジェリン(ネギまコラボ)、index17 コク(四聖)はgbf.wiki候補なし。GameWithのみで作成。
   - index18 インダラ(十二神将)はgbf.wiki候補なし。GameWithのみで作成。
   - index19 闇アレーティアはgbf.wiki候補とHP/ATK完全一致で確認、採用。
-  - 闇属性SSR処理中(20/113体完了)。次はindex20から継続(batch_016-023.txt)。
+  - index20 闇ユグドラシル(クリスマス)はgbf.wiki候補とHP/ATK完全一致で確認、採用。
+  - index21 リムル＝テンペスト(転スラコラボ)はgbf.wiki候補なし。GameWithのみで作成。
+  - 闇属性SSR処理中(22/113体完了)。次はindex22 ディアブロから継続(batch_016-023.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
