@@ -165,6 +165,8 @@
 | [fire-ssr-bakugo-katsuki-normal.md](./fire-ssr-bakugo-katsuki-normal.md) | 爆豪勝己 / Bakugo Katsuki | SSR | 火 | 下書き |
 | [fire-ssr-zeta-grand.md](./fire-ssr-zeta-grand.md) | ゼタ(リミテッド) / Zeta (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-noa-holiday.md](./fire-ssr-noa-holiday.md) | 火ノア(クリスマス) / Noa (Holiday) | SSR | 火 | 下書き |
+| [fire-ssr-barawa-and-sarya-normal.md](./fire-ssr-barawa-and-sarya-normal.md) | バロワ&サーヤ / Barawa and Sarya | SSR | 火 | 下書き |
+| [fire-ssr-sabir-vala-fire.md](./fire-ssr-sabir-vala-fire.md) | 火サビルバラ / Sabir Vala (Fire) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
