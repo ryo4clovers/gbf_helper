@@ -795,6 +795,7 @@
 | [water-sr-charlotta-summer.md](./water-sr-charlotta-summer.md) | 水着シャルロッテ / Charlotta (Summer) | SR | 水 | 下書き |
 | [water-sr-nitta-minami-normal.md](./water-sr-nitta-minami-normal.md) | 新田美波 / Minami Nitta | SR | 水 | 下書き |
 | [water-sr-lamretta-water.md](./water-sr-lamretta-water.md) | 水ラムレッダ / Lamretta (Water) | SR | 水 | 下書き |
+| [water-sr-mina-normal.md](./water-sr-mina-normal.md) | マイム / Mina | SR | 水 | 下書き |
 
 ## 運用ルール
 
