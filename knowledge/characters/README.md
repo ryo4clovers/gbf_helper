@@ -225,6 +225,8 @@
 | [fire-ssr-3rd-years-normal.md](./fire-ssr-3rd-years-normal.md) | 3年生チーム / 3rd Years | SSR | 火 | 下書き |
 | [fire-ssr-ilsa-summer.md](./fire-ssr-ilsa-summer.md) | 水着イルザ / Ilsa (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-therese-normal.md](./fire-ssr-therese-normal.md) | テレーズ(SSR) / Therese (SSR) | SSR | 火 | 下書き |
+| [fire-ssr-charioce-xvii-normal.md](./fire-ssr-charioce-xvii-normal.md) | シャリオス17世 / Charioce XVII | SSR | 火 | 下書き |
+| [fire-ssr-danua-halloween.md](./fire-ssr-danua-halloween.md) | ダヌア(ハロウィン) / Danua (Halloween) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
