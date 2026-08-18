@@ -146,7 +146,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index62 カシウス(SSR)はgbf.wiki検索候補「Cassius (Event)」がHP/ATK不一致(HP1200/ATK6600 vs GameWithのSSR HP1600/ATK8000、別バージョンページ)だったため不採用、GameWithのみで作成。
   - index63 ゼヘク(SSR)はgbf.wiki検索候補「Magus, Triad of Wisdom」が無関係のページだったため不採用、GameWithのみで作成。2024年10月バランス調整対象で調整後の性能を採用。batch_056-063.txt完了。
   - index64 水着アーミラはgbf.wiki候補とHP/ATK完全一致で確認、採用。
-  - 闇属性SSR処理中(65/113体完了)。次はindex65から継続(batch_064-071.txt)。
+  - index65 黒騎士&オルキス(アニメ特典)はgbf.wiki候補なし。GameWithのみで作成。
+  - index66 プレデター(SSR)はgbf.wiki検索候補「Predator」がHP/ATK不一致(基本レアリティ版、HP960/ATK2700 vs GameWithのSSR HP1100/ATK10500)だったため不採用、GameWithのみで作成。
+  - 闇属性SSR処理中(67/113体完了)。次はindex67から継続(batch_064-071.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
