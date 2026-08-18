@@ -274,7 +274,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index27 神月かりん(ストリートファイターコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
 - index28 セシールはgbf.wiki検索候補「Side-scrolling Quotes」が無関係のページだったため不採用、GameWithのみで作成。
 - index29 ライアン(SR)はgbf.wiki検索候補「Ryan」が基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
-- 火属性SR(30/55体完了)。次はindex30から継続(batch_024-031.txt)。
+- index30 リナ(スレイヤーズコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
+- 火属性SR(31/55体完了)。次はindex31から継続(batch_024-031.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
