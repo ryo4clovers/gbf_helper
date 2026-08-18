@@ -35,6 +35,8 @@
 | [earth-ssr-shindara-super.md](./earth-ssr-shindara-super.md) | スーパーシンダラ(スタイルシフト) / Shindara (Super Style) | SSR | 土 | 下書き |
 | [earth-ssr-makura-valentine.md](./earth-ssr-makura-valentine.md) | マコラ(バレンタイン、土属性) / Makura (Valentine) | SSR | 土 | 下書き |
 | [earth-ssr-jack-rakan-normal.md](./earth-ssr-jack-rakan-normal.md) | ジャック・ラカン / Jack Rakan | SSR | 土 | 下書き |
+| [earth-ssr-maleagant-normal.md](./earth-ssr-maleagant-normal.md) | メレアガンス / Maleagant | SSR | 土 | 下書き |
+| [earth-ssr-manamel-halloween.md](./earth-ssr-manamel-halloween.md) | マナマル(ハロウィン、土属性) / Manamel (Halloween) | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
