@@ -669,6 +669,8 @@
 | [dark-ssr-cagliostro-dark.md](./dark-ssr-cagliostro-dark.md) | 闇カリオストロ / Cagliostro (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-katalina-dark.md](./dark-ssr-katalina-dark.md) | 闇カタリナ / Katalina (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-zeta-dark.md](./dark-ssr-zeta-dark.md) | 闇ゼタ / Zeta (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-orchid-grand.md](./dark-ssr-orchid-grand.md) | オーキス(リミテッド) / Orchid (Grand) | SSR | 闇 | 下書き |
+| [dark-ssr-marquiares-normal.md](./dark-ssr-marquiares-normal.md) | マルキアレス / Marquiares | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

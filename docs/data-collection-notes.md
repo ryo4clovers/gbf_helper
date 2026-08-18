@@ -172,7 +172,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index91 闇カリオストロはgbf.wiki候補とHP/ATK完全一致(HP1805/ATK6370)で確認、採用。2021年12月バランス調整後の性能を採用。
   - index92 闇カタリナ(アニメ第1巻BD/DVD特典)はgbf.wiki候補なし。GameWithのみで作成。
   - index93 闇ゼタはgbf.wiki候補とHP/ATK完全一致(HP1020/ATK10400、4★表記)で確認、採用。batch_088-095.txt完了。
-  - 闇属性SSR処理中(93/113体完了)。次はindex94から継続(batch_096-103.txt)。
+  - index94 オーキス(リミテッド)はgbf.wiki候補「Orchid (Grand)」とHP/ATK完全一致(HP1650/ATK7300、4★表記)で確認、採用。最終上限解放後の性能を採用。
+  - index95 マルキアレスはgbf.wiki候補とHP/ATK完全一致(HP1150/ATK9290、4★表記)で確認、採用。最終・バランス調整後の性能を採用。batch_088-095.txt完了。
+  - 闇属性SSR処理中(95/113体完了)。次はindex96から継続(batch_096-103.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
