@@ -700,6 +700,7 @@
 | [light-sr-feena-holiday.md](./light-sr-feena-holiday.md) | フィーナ(クリスマス) / Feena (Holiday) | SR | 光 | 下書き |
 | [light-sr-sophia-normal.md](./light-sr-sophia-normal.md) | ソフィア(SR) / Sophia (SR) | SR | 光 | 下書き |
 | [light-sr-ezecrain-light.md](./light-sr-ezecrain-light.md) | 光エゼクレイン / Ezecrain (Light) | SR | 光 | 下書き |
+| [light-sr-saarya-light.md](./light-sr-saarya-light.md) | 光サーヤ / Saarya (Light) | SR | 光 | 下書き |
 
 ## 運用ルール
 
