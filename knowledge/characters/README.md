@@ -749,6 +749,7 @@
 | [fire-sr-lyria-normal.md](./fire-sr-lyria-normal.md) | ルリア / Lyria | SR | 主人公と同じ(便宜上火) | 下書き |
 | [fire-sr-lucius-fire.md](./fire-sr-lucius-fire.md) | 火ルシウス / Lucius (Fire) | SR | 火 | 下書き |
 | [fire-sr-percival-sidestory.md](./fire-sr-percival-sidestory.md) | パーシヴァル(SR) / Percival (SR) | SR | 火 | 下書き |
+| [fire-sr-akagi-miria-normal.md](./fire-sr-akagi-miria-normal.md) | 赤城みりあ / Miria Akagi | SR | 火 | 下書き |
 
 ## 運用ルール
 
