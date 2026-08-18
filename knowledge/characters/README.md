@@ -283,6 +283,8 @@
 | [water-ssr-catura-holiday.md](./water-ssr-catura-holiday.md) | 水シャトラ(クリスマス) / Catura (Holiday) | SSR | 水 | 下書き |
 | [water-ssr-erica-normal.md](./water-ssr-erica-normal.md) | エリカ / Erica | SSR | 水 | 下書き |
 | [water-ssr-yngwie-shift.md](./water-ssr-yngwie-shift.md) | イングヴェイ(シフト後) / Yngwie (Style Shift) | SSR | 水 | 下書き |
+| [water-ssr-jeanne-dark-summer.md](./water-ssr-jeanne-dark-summer.md) | 水着闇ジャンヌ / Jeanne d'Arc (Dark Summer) | SSR | 水 | 下書き |
+| [water-ssr-vermeersch-grand.md](./water-ssr-vermeersch-grand.md) | ワムデュス(リミテッド) / Vermeersch (Grand) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
