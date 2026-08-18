@@ -244,6 +244,8 @@
 | [fire-ssr-clarisse-fire.md](./fire-ssr-clarisse-fire.md) | 火クラリス / Clarisse (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-essel-normal.md](./fire-ssr-essel-normal.md) | エッセル / Essel | SSR | 火 | 下書き |
 | [fire-ssr-zeta-fire.md](./fire-ssr-zeta-fire.md) | 火ゼタ / Zeta (Fire) | SSR | 火 | 下書き |
+| [fire-ssr-anila-normal.md](./fire-ssr-anila-normal.md) | アニラ / Anila | SSR | 火 | 下書き |
+| [fire-ssr-agielba-normal.md](./fire-ssr-agielba-normal.md) | アギエルバ / Agielba | SSR | 火 | 下書き |
 
 ## 運用ルール
 
