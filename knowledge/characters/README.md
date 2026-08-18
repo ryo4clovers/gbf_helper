@@ -778,6 +778,7 @@
 | [fire-sr-teena-normal.md](./fire-sr-teena-normal.md) | ティナ / Teena | SR | 火 | 下書き |
 | [fire-sr-jessica-summer.md](./fire-sr-jessica-summer.md) | 水着ジェシカ / Jessica (Summer) | SR | 火 | 下書き |
 | [fire-sr-ezecrain-normal.md](./fire-sr-ezecrain-normal.md) | エゼクレイン / Ezecrain | SR | 火 | 下書き |
+| [fire-sr-elmott-normal.md](./fire-sr-elmott-normal.md) | エルモート(SR) / Elmott (SR) | SR | 火 | 下書き |
 
 ## 運用ルール
 
