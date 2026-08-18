@@ -811,6 +811,7 @@
 | [water-sr-sig-gacha.md](./water-sr-sig-gacha.md) | シグ(ガチャ) / Sig (SR) | SR | 水 | 下書き |
 | [water-sr-chun-li-normal.md](./water-sr-chun-li-normal.md) | 春麗(チュンリー) / Chun-Li | SR | 水 | 下書き |
 | [water-sr-sakuraba-kaoru-normal.md](./water-sr-sakuraba-kaoru-normal.md) | 桜庭薫 / Kaoru Sakuraba | SR | 水 | 下書き |
+| [water-sr-suframare-summer.md](./water-sr-suframare-summer.md) | 水着スフラマール / Suframare (Summer) | SR | 水 | 下書き |
 
 ## 運用ルール
 
