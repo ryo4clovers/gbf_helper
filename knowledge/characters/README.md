@@ -859,6 +859,7 @@
 | [earth-sr-tokitoki-airi-normal.md](./earth-sr-tokitoki-airi-normal.md) | 十時愛梨 / Airi Totoki | SR | 土 | 下書き |
 | [earth-sr-skull-normal.md](./earth-sr-skull-normal.md) | スカル(SR) / Skull (SR) | SR | 土 | 下書き |
 | [earth-sr-yaia-normal.md](./earth-sr-yaia-normal.md) | ヤイア(SR) / Yaia (SR) | SR | 土 | 下書き |
+| [earth-sr-jasmine-normal.md](./earth-sr-jasmine-normal.md) | ジャスミン(SR) / Jasmine (SR) | SR | 土 | 下書き |
 
 ## 運用ルール
 
