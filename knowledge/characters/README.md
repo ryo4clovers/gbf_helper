@@ -776,6 +776,7 @@
 | [fire-sr-honda-mio-normal.md](./fire-sr-honda-mio-normal.md) | 本田未央 / Mio Honda | SR | 火 | 下書き |
 | [fire-sr-carren-normal.md](./fire-sr-carren-normal.md) | カレン / Carren | SR | 火 | 下書き |
 | [fire-sr-teena-normal.md](./fire-sr-teena-normal.md) | ティナ / Teena | SR | 火 | 下書き |
+| [fire-sr-jessica-summer.md](./fire-sr-jessica-summer.md) | 水着ジェシカ / Jessica (Summer) | SR | 火 | 下書き |
 
 ## 運用ルール
 
