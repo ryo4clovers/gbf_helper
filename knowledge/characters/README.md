@@ -162,6 +162,7 @@
 | [fire-ssr-elmott-yukata.md](./fire-ssr-elmott-yukata.md) | 浴衣エルモート / Elmott (Yukata) | SSR | 火 | 下書き |
 | [fire-ssr-feeney-grand.md](./fire-ssr-feeney-grand.md) | フェニー(リミテッド) / Feeney (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-nehan-valentine.md](./fire-ssr-nehan-valentine.md) | 火ネハン(バレンタイン) / Nehan (Valentine) | SSR | 火 | 下書き |
+| [fire-ssr-bakugo-katsuki-normal.md](./fire-ssr-bakugo-katsuki-normal.md) | 爆豪勝己 / Bakugo Katsuki | SSR | 火 | 下書き |
 
 ## 運用ルール
 
