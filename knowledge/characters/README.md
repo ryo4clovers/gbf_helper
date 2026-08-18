@@ -872,6 +872,7 @@
 | [earth-sr-mariah-normal.md](./earth-sr-mariah-normal.md) | マライア / Mariah | SR | 土 | 下書き |
 | [earth-sr-yuri-normal.md](./earth-sr-yuri-normal.md) | ユーリ(土) / Yuri | SR | 土 | 下書き |
 | [earth-sr-farrah-normal.md](./earth-sr-farrah-normal.md) | ファラ(SR) / Farrah (SR) | SR | 土 | 下書き |
+| [earth-sr-jin-event.md](./earth-sr-jin-event.md) | ジン(砂神) / Jin (Event) | SR | 土 | 下書き |
 
 ## 運用ルール
 
