@@ -855,6 +855,7 @@
 | [earth-sr-jamil-normal.md](./earth-sr-jamil-normal.md) | ジャミル(土) / Jamil | SR | 土 | 下書き |
 | [earth-sr-laguna-normal.md](./earth-sr-laguna-normal.md) | ラグナ / Laguna | SR | 土 | 下書き |
 | [earth-sr-redluck-normal.md](./earth-sr-redluck-normal.md) | レッドラック / Redluck | SR | 土 | 下書き |
+| [earth-sr-aufstern-normal.md](./earth-sr-aufstern-normal.md) | アウフスタ / Aufstern | SR | 土 | 下書き |
 
 ## 運用ルール
 
