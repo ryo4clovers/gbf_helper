@@ -695,6 +695,7 @@
 | [light-sr-mirin-light.md](./light-sr-mirin-light.md) | 光ミリン(SR) / Mirin (Light) | SR | 光 | 下書き |
 | [light-sr-sabbatara-light.md](./light-sr-sabbatara-light.md) | 光サビルバラ / Sabbatara (Light) | SR | 光 | 下書き |
 | [light-sr-elta-light.md](./light-sr-elta-light.md) | 光エルタ / Elta (Light) | SR | 光 | 下書き |
+| [light-sr-barawa-light.md](./light-sr-barawa-light.md) | 光バロワ / Barawa (Light) | SR | 光 | 下書き |
 
 ## 運用ルール
 
