@@ -191,6 +191,8 @@
 | [fire-ssr-altair-holiday.md](./fire-ssr-altair-holiday.md) | 火アルタイル(クリスマス) / Altair (Holiday) | SSR | 火 | 下書き |
 | [fire-ssr-hijikata-and-okita-normal.md](./fire-ssr-hijikata-and-okita-normal.md) | 土方十四郎&沖田総悟 / Hijikata and Okita | SSR | 火 | 下書き |
 | [fire-ssr-elmott-normal.md](./fire-ssr-elmott-normal.md) | エルモート(SSR) / Elmott (SSR) | SSR | 火 | 下書き |
+| [fire-ssr-naoise-fire.md](./fire-ssr-naoise-fire.md) | 火ノイシュ / Naoise (Fire) | SSR | 火 | 下書き |
+| [fire-ssr-izmir-yukata.md](./fire-ssr-izmir-yukata.md) | 浴衣イシュミール / Izmir (Yukata) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
