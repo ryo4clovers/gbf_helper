@@ -875,6 +875,7 @@
 | [earth-sr-jin-event.md](./earth-sr-jin-event.md) | ジン(砂神) / Jin (Event) | SR | 土 | 下書き |
 | [earth-sr-sara-event.md](./earth-sr-sara-event.md) | サラ(SR) / Sara (Event) | SR | 土 | 下書き |
 | [earth-sr-solids-normal.md](./earth-sr-solids-normal.md) | ソリッズ(土) / Solids | SR | 土 | 下書き |
+| [earth-sr-lamretta-normal.md](./earth-sr-lamretta-normal.md) | ラムレッダ(SR) / Lamretta (SR) | SR | 土 | 下書き |
 
 ## 運用ルール
 
