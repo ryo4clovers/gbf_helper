@@ -590,6 +590,7 @@
 | [dark-ssr-grimnir-dark.md](./dark-ssr-grimnir-dark.md) | 闇グリームニル / Grimnir (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-seofon-yukata.md](./dark-ssr-seofon-yukata.md) | 浴衣シエテ / Seofon (Yukata) | SSR | 闇 | 下書き |
 | [dark-ssr-tsukuyomi-normal.md](./dark-ssr-tsukuyomi-normal.md) | ツクヨミ / Tsukuyomi | SSR | 闇 | 下書き |
+| [dark-ssr-lobelia-valentine.md](./dark-ssr-lobelia-valentine.md) | 闇ロベリア(バレンタイン) / Lobelia (Valentine) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

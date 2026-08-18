@@ -104,7 +104,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index8 闇ダヌア、index9 サリエル(リミテッド)、index11 クロロはgbf.wiki候補なし。GameWithのみで作成。
   - index10 水着シャトラはgbf.wiki「Catura (Summer)」とHP2021/ATK8375で一致確認、採用。
   - index12 闇グリームニル、index13 浴衣シエテ、index14 ツクヨミはgbf.wiki候補とHP/ATK完全一致で確認、採用。
-  - 闇属性SSR処理中(15/113体完了)。次はindex15から継続(batch_008-015.txt)。
+  - index15 闇ロベリア(バレンタイン)はgbf.wiki候補とHP/ATK完全一致で確認、採用。batch_008-015.txt完了。
+  - 闇属性SSR処理中(16/113体完了)。次はindex16から継続(batch_016-023.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
