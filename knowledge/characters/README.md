@@ -443,6 +443,7 @@
 | [earth-ssr-ayer-normal.md](./earth-ssr-ayer-normal.md) | アイル / Ayer | SSR | 土 | 下書き |
 | [earth-ssr-hallessena-normal.md](./earth-ssr-hallessena-normal.md) | ハレゼナ / Hallessena | SSR | 土 | 下書き |
 | [earth-ssr-eugen-grand.md](./earth-ssr-eugen-grand.md) | オイゲン(リミテッド) / Eugen (Grand) | SSR | 土 | 下書き |
+| [earth-ssr-catherine-normal.md](./earth-ssr-catherine-normal.md) | キャサリン(土属性SSR) / Catherine | SSR | 土 | 下書き |
 
 ## 運用ルール
 
