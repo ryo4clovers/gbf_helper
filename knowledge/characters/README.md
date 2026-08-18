@@ -623,6 +623,7 @@
 | [dark-ssr-azusa-summer.md](./dark-ssr-azusa-summer.md) | 水着アズサ / Azusa (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-cendrillon-normal.md](./dark-ssr-cendrillon-normal.md) | サンドリヨン / Cendrillon | SSR | 闇 | 下書き |
 | [dark-ssr-halmal-limited.md](./dark-ssr-halmal-limited.md) | 闇ハルマル(リミテッド) / Halmal (Dark, Limited) | SSR | 闇 | 下書き |
+| [dark-ssr-fiorito-holiday.md](./dark-ssr-fiorito-holiday.md) | 闇フィオリト(クリスマス) / Fiorito (Holiday) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
