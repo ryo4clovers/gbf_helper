@@ -179,6 +179,8 @@
 | [fire-ssr-percival-grand.md](./fire-ssr-percival-grand.md) | パーシヴァル(リミテッド) / Percival (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-luffy-normal.md](./fire-ssr-luffy-normal.md) | ルフィ / Luffy | SSR | 火 | 下書き |
 | [fire-ssr-anderson-normal.md](./fire-ssr-anderson-normal.md) | アンダーソン / Anderson | SSR | 火 | 下書き |
+| [fire-ssr-mirin-summer.md](./fire-ssr-mirin-summer.md) | 水着ミリン / Mirin (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-anna-fire.md](./fire-ssr-anna-fire.md) | アンナ(SSR) / Anna (SSR) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
