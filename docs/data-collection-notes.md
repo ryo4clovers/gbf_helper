@@ -86,4 +86,4 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index5 ルリア(SSR)はgbf.wiki検索候補「Lyria (Event)」がHP/ATK不一致(低レアリティ版、HP770/ATK5280 vs GameWithのHP1380/ATK8300)だったため不採用、GameWithのみで作成。ページ内に別バージョン「Lyria (Event SSR)」の存在が示唆されていたが未取得。属性が「主人公と同属性」という特殊仕様のため、便宜上「火」として分類(要注記)。
   - index18 さとはgbf.wiki検索候補「Magus, Triad of Wisdom」が召喚石ページ(キャラクターと無関係)だったため不採用、GameWithのみで作成。
   - index19 チチリは「四聖」シリーズキャラ(玲瓏佩強化によるフェイトエピクリアで段階強化される仕様)。gbf.wiki候補が見つからずGameWithのみで作成。
-  - **進捗**: index35まで処理済み(36/111体)。続きを行う場合: `scratchpad/fire_ssr/dossiers/batch_032-039.txt` の index36(火カイン(クリスマス))から読み進める。
+  - **進捗**: index37まで処理済み(38/111体)。続きを行う場合: `scratchpad/fire_ssr/dossiers/batch_032-039.txt` の index38(ルフィ)から読み進める。

@@ -175,6 +175,8 @@
 | [fire-ssr-nezha-yukata.md](./fire-ssr-nezha-yukata.md) | 浴衣ナタク / Nezha (Yukata) | SSR | 火 | 下書き |
 | [fire-ssr-hekate-normal.md](./fire-ssr-hekate-normal.md) | ヘカテー / Hekate | SSR | 火 | 下書き |
 | [fire-ssr-michael-grand.md](./fire-ssr-michael-grand.md) | ミカエル(リミテッド) / Michael (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-cain-holiday.md](./fire-ssr-cain-holiday.md) | 火カイン(クリスマス) / Cain (Holiday) | SSR | 火 | 下書き |
+| [fire-ssr-percival-grand.md](./fire-ssr-percival-grand.md) | パーシヴァル(リミテッド) / Percival (Grand) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
