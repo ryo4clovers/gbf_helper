@@ -546,6 +546,7 @@
 | [wind-ssr-estarriola-normal.md](./wind-ssr-estarriola-normal.md) | エスタリオラ / Estarriola | SSR | 風 | 下書き |
 | [wind-ssr-yuel-summer.md](./wind-ssr-yuel-summer.md) | 水着ユエル / Yuel (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-heles-wind.md](./wind-ssr-heles-wind.md) | 風ヘルエス / Heles (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-sen-normal.md](./wind-ssr-sen-normal.md) | セン(SSR) / Sen (SSR) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
