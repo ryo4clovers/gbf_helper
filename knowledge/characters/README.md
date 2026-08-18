@@ -457,6 +457,7 @@
 | [earth-ssr-aletheia-normal.md](./earth-ssr-aletheia-normal.md) | アレーティア / Aletheia | SSR | 土 | 下書き |
 | [wind-ssr-nelliel-normal.md](./wind-ssr-nelliel-normal.md) | ネリエル / Nelliel | SSR | 風 | 下書き |
 | [wind-ssr-megu-and-marippe-dress.md](./wind-ssr-megu-and-marippe-dress.md) | メグ&まりっぺ(ドレス) / Meg and Marippe (Dress) | SSR | 風 | 下書き |
+| [wind-ssr-notus-normal.md](./wind-ssr-notus-normal.md) | ノトス / Notus | SSR | 風 | 下書き |
 
 ## 運用ルール
 
