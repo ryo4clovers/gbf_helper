@@ -442,6 +442,7 @@
 | [earth-ssr-nemone-normal.md](./earth-ssr-nemone-normal.md) | ネモネ / Nemone | SSR | 土 | 下書き |
 | [earth-ssr-ayer-normal.md](./earth-ssr-ayer-normal.md) | アイル / Ayer | SSR | 土 | 下書き |
 | [earth-ssr-hallessena-normal.md](./earth-ssr-hallessena-normal.md) | ハレゼナ / Hallessena | SSR | 土 | 下書き |
+| [earth-ssr-eugen-grand.md](./earth-ssr-eugen-grand.md) | オイゲン(リミテッド) / Eugen (Grand) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
