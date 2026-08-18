@@ -567,6 +567,7 @@
 | [wind-ssr-feena-normal.md](./wind-ssr-feena-normal.md) | フィーナ(SSR) / Feena | SSR | 風 | 下書き |
 | [wind-ssr-henriette-normal.md](./wind-ssr-henriette-normal.md) | アンリエット / Henriette | SSR | 風 | 下書き |
 | [wind-ssr-petra-normal.md](./wind-ssr-petra-normal.md) | ペトラ(SSR) / Petra | SSR | 風 | 下書き |
+| [wind-ssr-carmelina-normal.md](./wind-ssr-carmelina-normal.md) | カルメリーナ / Carmelina | SSR | 風 | 下書き |
 
 ## 運用ルール
 
