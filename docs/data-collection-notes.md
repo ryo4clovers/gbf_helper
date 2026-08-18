@@ -94,7 +94,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index107 アレーティアはgbf.wiki「Aletheia」のHP/ATKがGameWith値と完全一致せず4★/5★の中間値だったが、名称・二つ名(剣の賢者)等で同一キャラクターと確認できたため採用、`source`に注記。
   - **風属性SSR収集に着手**(scratchディレクトリ`wind_ssr`)。`scratch-build-list.mjs 風`でlist.json生成(121体)→パイプラインスクリプトの`SCRATCH`定数を`wind_ssr`に書き換え→GameWith取得(Node fetch)→gbf.wiki検索はNode fetchが403のため`scratch-fetch-gbfwiki.sh`(curl)で取得→pick-and-dump(76/121体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_120-120.txt`、16バッチ)まで完了。既存の`wind-ssr-gwynne-yukata.md`はlist.jsonのindex0(浴衣グウィン)と重複のためスキップ。
   - index1 ネリエル(ネリエル・トゥ・オーデルシュヴァンク)はBLEACHコラボキャラのためgbf.wiki候補なし(想定通り)、GameWithのみで作成。
-  - **進捗(風属性SSR)**: index80まで処理済み(81/121体)。続きを行う場合: `scratchpad/wind_ssr/dossiers/batch_080-087.txt` のindex81(モニカ(リミテッド))から読み進める。
+  - **進捗(風属性SSR)**: index81まで処理済み(82/121体)。続きを行う場合: `scratchpad/wind_ssr/dossiers/batch_080-087.txt` のindex82(スタン＆アリーザ)から読み進める。
+  - index81 モニカ(リミテッド)はgbf.wiki「Monika (Grand)」のHP1400がGameWithと一致(ATKはダンプ範囲外のため未検証)、採用。
   - index80 風ソシエはgbf.wiki「Societte (Wind)」のHP1590がGameWithと一致(ATKはダンプ範囲外のため未検証)、採用。
   - index79 ミュオン(クリスマス)はgbf.wiki「Meteon (Holiday)」のHP1200がGameWithと一致(ATKはダンプ範囲外のため未検証)、採用。
   - index78 ガチャピンはコラボキャラのためgbf.wiki候補なし(想定通り)。GameWithのみで作成。

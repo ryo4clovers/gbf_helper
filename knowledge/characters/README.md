@@ -535,6 +535,7 @@
 | [wind-ssr-gachapin-normal.md](./wind-ssr-gachapin-normal.md) | ガチャピン / Gachapin | SSR | 風 | 下書き |
 | [wind-ssr-meteon-holiday.md](./wind-ssr-meteon-holiday.md) | ミュオン(クリスマス) / Meteon (Holiday) | SSR | 風 | 下書き |
 | [wind-ssr-societte-wind.md](./wind-ssr-societte-wind.md) | 風ソシエ / Societte (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-monika-grand.md](./wind-ssr-monika-grand.md) | モニカ(リミテッド) / Monika (Grand) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
