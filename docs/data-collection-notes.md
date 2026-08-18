@@ -221,7 +221,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index20 エリカ(サクラ大戦コラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
   - index21 ナーヴェはgbf.wiki検索候補「Novei」がHP1320(4★)/ATK8600(4★)で別バージョンと判断し不採用、GameWithのみで作成。
   - index22 輿水幸子(アイマスシンデレラガールズコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
-  - 光属性SR(23/41体完了)。次はindex23から継続(batch_016-023.txt)。
+  - index23 ソリッズ(光)はgbf.wiki検索候補「Soriz」が基本版でGameWith記載と不一致だったため不採用、GameWithのみで作成。batch_016-023.txt完了。
+  - 光属性SR(24/41体完了)。次はindex24から継続(batch_024-031.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
