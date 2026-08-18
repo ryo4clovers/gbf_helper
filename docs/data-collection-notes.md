@@ -132,7 +132,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index43 闇ジャスミン(SSR)はgbf.wiki検索候補「Jasmine」がHP/ATK不一致(基本レアリティ版、HP840/ATK3000 vs GameWithのSSR HP2000/ATK5500)だったため不採用、GameWithのみで作成。
   - index44 浴衣イルザはgbf.wiki候補とHP/ATK完全一致で確認、採用。
   - index45 水着アズサ、index46 サンドリヨンはgbf.wiki候補とHP/ATK完全一致で確認、採用。
-  - 闇属性SSR処理中(47/113体完了)。次はindex47 闇ハルマル(リミテッド)から継続(batch_040-047.txt)。
+  - index47 闇ハルマル(リミテッド)はgbf.wiki候補なし。GameWithのみで作成。batch_040-047.txt完了。
+  - 闇属性SSR処理中(48/113体完了)。次はindex48から継続(batch_048-055.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
