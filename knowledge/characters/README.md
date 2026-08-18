@@ -160,6 +160,8 @@
 | [fire-ssr-sato-normal.md](./fire-ssr-sato-normal.md) | さと / Sato | SSR | 火 | 下書き |
 | [fire-ssr-chichiri-normal.md](./fire-ssr-chichiri-normal.md) | チチリ / Chichiri | SSR | 火 | 下書き |
 | [fire-ssr-elmott-yukata.md](./fire-ssr-elmott-yukata.md) | 浴衣エルモート / Elmott (Yukata) | SSR | 火 | 下書き |
+| [fire-ssr-feeney-grand.md](./fire-ssr-feeney-grand.md) | フェニー(リミテッド) / Feeney (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-nehan-valentine.md](./fire-ssr-nehan-valentine.md) | 火ネハン(バレンタイン) / Nehan (Valentine) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
