@@ -195,6 +195,7 @@
 | [fire-ssr-izmir-yukata.md](./fire-ssr-izmir-yukata.md) | 浴衣イシュミール / Izmir (Yukata) | SSR | 火 | 下書き |
 | [fire-ssr-ms-miranda-normal.md](./fire-ssr-ms-miranda-normal.md) | ミランダ / Ms. Miranda | SSR | 火 | 下書き |
 | [fire-ssr-shion-normal.md](./fire-ssr-shion-normal.md) | シオン / Shion | SSR | 火 | 下書き |
+| [fire-ssr-kumbhira-summer.md](./fire-ssr-kumbhira-summer.md) | 水着クビラ / Kumbhira (Summer) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
