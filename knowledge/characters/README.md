@@ -541,6 +541,7 @@
 | [wind-ssr-suzaku-kururugi-normal.md](./wind-ssr-suzaku-kururugi-normal.md) | 枢木スザク / Suzaku Kururugi | SSR | 風 | 下書き |
 | [wind-ssr-morrigna-normal.md](./wind-ssr-morrigna-normal.md) | バイヴカハ / Morrigna | SSR | 風 | 下書き |
 | [wind-ssr-grimnir-limited.md](./wind-ssr-grimnir-limited.md) | グリームニル(リミテッド) / Grimnir (Limited) | SSR | 風 | 下書き |
+| [wind-ssr-vira-wind.md](./wind-ssr-vira-wind.md) | 風ヴィーラ / Vira (Wind) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
