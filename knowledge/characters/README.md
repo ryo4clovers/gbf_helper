@@ -473,6 +473,7 @@
 | [wind-ssr-mahira-summer.md](./wind-ssr-mahira-summer.md) | 水着マキラ / Mahira (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-joy-hama.md](./wind-ssr-joy-hama.md) | ジョイ(ハマ) / Joy (Hama) | SSR | 風 | 下書き |
 | [wind-ssr-negi-normal.md](./wind-ssr-negi-normal.md) | ネギ(ネギ・スプリングフィールド) / Negi | SSR | 風 | 下書き |
+| [wind-ssr-setsuna-sakurazaki.md](./wind-ssr-setsuna-sakurazaki.md) | 桜咲刹那 / Setsuna Sakurazaki | SSR | 風 | 下書き |
 
 ## 運用ルール
 
