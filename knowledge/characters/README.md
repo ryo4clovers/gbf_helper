@@ -789,6 +789,7 @@
 | [water-sr-cailana-normal.md](./water-sr-cailana-normal.md) | カイラナ(SR) / Cailana (SR) | SR | 水 | 下書き |
 | [water-sr-farrah-summer.md](./water-sr-farrah-summer.md) | 水着ファラ / Farrah (Summer) | SR | 水 | 下書き |
 | [water-sr-lilele-summer.md](./water-sr-lilele-summer.md) | 水着リルル / Lilele (Summer) | SR | 水 | 下書き |
+| [water-sr-aliza-water.md](./water-sr-aliza-water.md) | 水アリーザ(SR) / Aliza (Water) | SR | 水 | 下書き |
 
 ## 運用ルール
 
