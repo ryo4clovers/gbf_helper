@@ -626,6 +626,8 @@
 | [dark-ssr-fiorito-holiday.md](./dark-ssr-fiorito-holiday.md) | 闇フィオリト(クリスマス) / Fiorito (Holiday) | SSR | 闇 | 下書き |
 | [dark-ssr-yuel-and-sochie-dark.md](./dark-ssr-yuel-and-sochie-dark.md) | 闇ユエル&ソシエ / Yuel & Sochie (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-bowman-normal.md](./dark-ssr-bowman-normal.md) | ボーマン / Bowman | SSR | 闇 | 下書き |
+| [dark-ssr-jessica-dark.md](./dark-ssr-jessica-dark.md) | 闇ジェシカ / Jessica (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-zoro-and-sanji-normal.md](./dark-ssr-zoro-and-sanji-normal.md) | ゾロ&サンジ / Zoro & Sanji | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

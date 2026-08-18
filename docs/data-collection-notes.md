@@ -136,7 +136,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index48 闇フィオリト(クリスマス)はgbf.wiki候補とHP/ATK完全一致で確認、採用。
   - index49 闇ユエル&ソシエはgbf.wiki検索候補「Sapphire Dance: Gentiana」が無関係の水属性召喚石ページだったため不採用、GameWithのみで作成。
   - index50 ボーマンはgbf.wiki候補とHP/ATK完全一致で確認、採用。
-  - 闇属性SSR処理中(51/113体完了)。次はindex51から継続(batch_048-055.txt)。
+  - index51 闇ジェシカ、index52 ゾロ&サンジ(ワンピースコラボ)はgbf.wiki候補なし。GameWithのみで作成。
+  - 闇属性SSR処理中(53/113体完了)。次はindex53から継続(batch_048-055.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
