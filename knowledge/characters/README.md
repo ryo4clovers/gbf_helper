@@ -450,6 +450,7 @@
 | [earth-ssr-sara-normal.md](./earth-ssr-sara-normal.md) | サラ(SSR) / Sara | SSR | 土 | 下書き |
 | [earth-ssr-octo-normal.md](./earth-ssr-octo-normal.md) | オクトー / Octo | SSR | 土 | 下書き |
 | [earth-ssr-salasa-normal.md](./earth-ssr-salasa-normal.md) | サラーサ / Salasa | SSR | 土 | 下書き |
+| [earth-ssr-siegfried-earth.md](./earth-ssr-siegfried-earth.md) | ジークフリート(土属性) / Siegfried | SSR | 土 | 下書き |
 
 ## 運用ルール
 
