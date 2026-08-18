@@ -213,7 +213,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index12 光サーヤはgbf.wiki候補なし。GameWithのみで作成。
   - index13 ジャンヌダルク(SR)はgbf.wiki検索候補「Jeanne d'Arc」がHP1840(5★)/ATK9850(5★)で基本版と判断し不採用、GameWithのみで作成。
   - index14 ヴェリトール(SR)はgbf.wiki検索候補「Vermeil」がHP675(3★)/ATK4500(3★)で基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
-  - 光属性SR(15/41体完了)。次はindex15から継続(batch_008-015.txt)。
+  - index15 アルベール(SR)はgbf.wiki検索候補「Albert」がHP1280(4★)/ATK4800(4★)でGameWith記載(HP1240/ATK3150)と不一致だったため不採用、GameWithのみで作成。batch_008-015.txt完了。
+  - 光属性SR(16/41体完了)。次はindex16から継続(batch_016-023.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。

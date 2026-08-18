@@ -703,6 +703,7 @@
 | [light-sr-saarya-light.md](./light-sr-saarya-light.md) | 光サーヤ / Saarya (Light) | SR | 光 | 下書き |
 | [light-sr-jeanne-darc-normal.md](./light-sr-jeanne-darc-normal.md) | ジャンヌダルク(SR) / Jeanne d'Arc (SR) | SR | 光 | 下書き |
 | [light-sr-vermeil-normal.md](./light-sr-vermeil-normal.md) | ヴェリトール(SR) / Vermeil (SR) | SR | 光 | 下書き |
+| [light-sr-albert-normal.md](./light-sr-albert-normal.md) | アルベール(SR) / Albert (SR) | SR | 光 | 下書き |
 
 ## 運用ルール
 
