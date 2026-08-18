@@ -216,6 +216,8 @@
 | [fire-ssr-colossus-normal.md](./fire-ssr-colossus-normal.md) | コロッサス / Colossus | SSR | 火 | 下書き |
 | [fire-ssr-tabina-normal.md](./fire-ssr-tabina-normal.md) | タヴィーナ / Tabina | SSR | 火 | 下書き |
 | [fire-ssr-kallen-normal.md](./fire-ssr-kallen-normal.md) | カレン / Kallen | SSR | 火 | 下書き |
+| [fire-ssr-alanaan-normal.md](./fire-ssr-alanaan-normal.md) | アラナン / Alanaan | SSR | 火 | 下書き |
+| [fire-ssr-frau-normal.md](./fire-ssr-frau-normal.md) | フラウ / Frau | SSR | 火 | 下書き |
 
 ## 運用ルール
 
