@@ -50,6 +50,8 @@
 | [earth-ssr-nobara-and-maki-normal.md](./earth-ssr-nobara-and-maki-normal.md) | 釘崎野薔薇&禪院真希 / Nobara Kugisaki & Maki Zenin | SSR | 土 | 下書き |
 | [earth-ssr-pholia-yukata.md](./earth-ssr-pholia-yukata.md) | フォリア(浴衣、土属性) / Pholia (Yukata) | SSR | 土 | 下書き |
 | [earth-ssr-yaia-normal.md](./earth-ssr-yaia-normal.md) | ヤイア(SSR) / Yaia | SSR | 土 | 下書き |
+| [earth-ssr-orchis-earth.md](./earth-ssr-orchis-earth.md) | オーキス(土属性) / Orchis (Earth) | SSR | 土 | 下書き |
+| [earth-ssr-amelia-normal.md](./earth-ssr-amelia-normal.md) | エミリア / Amelia | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
