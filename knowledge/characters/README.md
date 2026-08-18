@@ -448,6 +448,7 @@
 | [earth-ssr-clarisse-holiday.md](./earth-ssr-clarisse-holiday.md) | クラリス(クリスマス) / Clarisse (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-vira-summer.md](./earth-ssr-vira-summer.md) | 水着ヴィーラ / Vira (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-sara-normal.md](./earth-ssr-sara-normal.md) | サラ(SSR) / Sara | SSR | 土 | 下書き |
+| [earth-ssr-octo-normal.md](./earth-ssr-octo-normal.md) | オクトー / Octo | SSR | 土 | 下書き |
 
 ## 運用ルール
 
