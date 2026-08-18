@@ -167,6 +167,8 @@
 | [fire-ssr-noa-holiday.md](./fire-ssr-noa-holiday.md) | 火ノア(クリスマス) / Noa (Holiday) | SSR | 火 | 下書き |
 | [fire-ssr-barawa-and-sarya-normal.md](./fire-ssr-barawa-and-sarya-normal.md) | バロワ&サーヤ / Barawa and Sarya | SSR | 火 | 下書き |
 | [fire-ssr-sabir-vala-fire.md](./fire-ssr-sabir-vala-fire.md) | 火サビルバラ / Sabir Vala (Fire) | SSR | 火 | 下書き |
+| [fire-ssr-ragazzo-normal.md](./fire-ssr-ragazzo-normal.md) | ラガッツォ / Ragazzo | SSR | 火 | 下書き |
+| [fire-ssr-dorothy-and-claudia-summer.md](./fire-ssr-dorothy-and-claudia-summer.md) | 水着ドロシー&クラウディア / Dorothy and Claudia (Summer) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
