@@ -301,7 +301,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index19 ローアイン(SR)はgbf.wiki候補「Lowain」が基本レアリティ(R)版のため不採用、GameWithのみで作成。
 - index22 ランスロット(SR)はgbf.wiki候補「Lancelot」がHP1570(5★)/ATK10830(5★)でSSR相当のため不採用、GameWithのみで作成。
 - index28 ロミオ(SR)はgbf.wiki候補「Romeo」がHP1770(5★)/ATK10120(5★)でSSR相当のため不採用、GameWithのみで作成。
-- 水属性SR(42/44体完了)。次はindex42から継続(batch_040-043.txt)。
+- 水属性SR(43/44体完了)。次はindex43から継続(batch_040-043.txt、最終キャラ)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
