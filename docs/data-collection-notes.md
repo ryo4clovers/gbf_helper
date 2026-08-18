@@ -159,7 +159,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index75 コルルはgbf.wiki候補とHP/ATK完全一致で確認、採用。
   - index76 ルルーシュ(コードギアスコラボ)はgbf.wiki候補なし。GameWithのみで作成。
   - index77 キャル(プリコネコラボ)、index78 ニーア(十賢者)はgbf.wiki候補なし。GameWithのみで作成。ニーアは十賢者の複雑な段階的強化システムを簡略化。
-  - 闇属性SSR処理中(79/113体完了)。次はindex79 闇フェリ(リミテッド)から継続(batch_072-079.txt)。
+  - index79 闇フェリ(リミテッド)はgbf.wiki候補「Ferry (Grand)」とHP/ATK完全一致で確認、採用。batch_072-079.txt完了。
+  - 闇属性SSR処理中(80/113体完了)。次はindex80から継続(batch_080-087.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
