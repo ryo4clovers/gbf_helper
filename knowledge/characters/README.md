@@ -299,6 +299,8 @@
 | [water-ssr-andira-summer.md](./water-ssr-andira-summer.md) | 水着アンチラ / Andira (Summer) | SSR | 水 | 下書き |
 | [water-ssr-isaac-normal.md](./water-ssr-isaac-normal.md) | アイザック / Isaac | SSR | 水 | 下書き |
 | [water-ssr-zeta-water.md](./water-ssr-zeta-water.md) | 水ゼタ / Zeta (Water) | SSR | 水 | 下書き |
+| [water-ssr-filene-normal.md](./water-ssr-filene-normal.md) | フィルレイン / Filene | SSR | 水 | 下書き |
+| [water-ssr-tanjiro-and-friends-normal.md](./water-ssr-tanjiro-and-friends-normal.md) | 炭治郎&禰豆子&善逸&伊之助 / Tanjiro, Nezuko, Zenitsu & Inosuke | SSR | 水 | 下書き |
 
 ## 運用ルール
 
