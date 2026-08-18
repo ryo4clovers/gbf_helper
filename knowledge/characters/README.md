@@ -664,6 +664,7 @@
 | [dark-ssr-joker-normal.md](./dark-ssr-joker-normal.md) | ジョーカー / Joker | SSR | 闇 | 下書き |
 | [dark-ssr-lunal-dark.md](./dark-ssr-lunal-dark.md) | 闇ルナール(SSR) / Lunal (Dark, SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-sirow-dark.md](./dark-ssr-sirow-dark.md) | 闇シロウ / Sirow (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-olivia-grand.md](./dark-ssr-olivia-grand.md) | オリヴィエ(リミテッド) / Olivia (Grand) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
