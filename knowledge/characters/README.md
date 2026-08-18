@@ -715,6 +715,7 @@
 | [light-sr-daetta-normal.md](./light-sr-daetta-normal.md) | ダエッタ(SR) / Daetta (SR) | SR | 光 | 下書き |
 | [light-sr-ladiva-holiday.md](./light-sr-ladiva-holiday.md) | ファスティバ(クリスマス) / Ladiva (Holiday) | SR | 光 | 下書き |
 | [light-sr-ferry-halloween.md](./light-sr-ferry-halloween.md) | フェリ(ハロウィン) / Ferry (Halloween) | SR | 光 | 下書き |
+| [light-sr-sophie-normal.md](./light-sr-sophie-normal.md) | ソフィ / Sophie | SR | 光 | 下書き |
 
 ## 運用ルール
 
