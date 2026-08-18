@@ -291,6 +291,8 @@
 | [water-ssr-cassius-valentine.md](./water-ssr-cassius-valentine.md) | 水カシウス(バレンタイン) / Cassius (Valentine) | SSR | 水 | 下書き |
 | [water-ssr-cupitan-normal.md](./water-ssr-cupitan-normal.md) | クピタン / Cupitan | SSR | 水 | 下書き |
 | [water-ssr-lancelot-grand.md](./water-ssr-lancelot-grand.md) | ランスロット(リミテッド) / Lancelot (Grand) | SSR | 水 | 下書き |
+| [water-ssr-doraemon-normal.md](./water-ssr-doraemon-normal.md) | ドラえもん / Doraemon | SSR | 水 | 下書き |
+| [water-ssr-sharem-summer.md](./water-ssr-sharem-summer.md) | 水着シャレム / Helel ben Shalem (Summer) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
