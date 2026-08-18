@@ -770,6 +770,7 @@
 | [fire-sr-elmott-summer.md](./fire-sr-elmott-summer.md) | 水着エルモート / Elmott (Summer) | SR | 火 | 下書き |
 | [fire-sr-mira-normal.md](./fire-sr-mira-normal.md) | ミラ / Mira | SR | 火 | 下書き |
 | [fire-sr-mary-normal.md](./fire-sr-mary-normal.md) | マリー(SR) / Mary (SR) | SR | 火 | 下書き |
+| [fire-sr-sarya-event.md](./fire-sr-sarya-event.md) | サーヤ(イベント) / Sarya (Event) | SR | 火 | 下書き |
 
 ## 運用ルール
 
