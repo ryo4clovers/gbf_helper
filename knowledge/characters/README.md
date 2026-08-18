@@ -20,6 +20,8 @@
 | [earth-ssr-io-normal.md](./earth-ssr-io-normal.md) | 土イオ / Io | SSR | 土 | 下書き |
 | [earth-ssr-edward-elric-normal.md](./earth-ssr-edward-elric-normal.md) | エドワード・エルリック / Edward Elric | SSR | 土 | 下書き |
 | [earth-ssr-felluca-normal.md](./earth-ssr-felluca-normal.md) | フェルルカ / Felluca | SSR | 土 | 下書き |
+| [earth-ssr-fylkis-normal.md](./earth-ssr-fylkis-normal.md) | フィルキス / Fylkis | SSR | 土 | 下書き |
+| [earth-ssr-apollonia-summer.md](./earth-ssr-apollonia-summer.md) | 水着アポロニア / Apollonia (Summer) | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
