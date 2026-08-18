@@ -519,6 +519,7 @@
 | [wind-ssr-sho-normal.md](./wind-ssr-sho-normal.md) | ショウ / Sho | SSR | 風 | 下書き |
 | [wind-ssr-narmaya-grand.md](./wind-ssr-narmaya-grand.md) | ナルメア(リミテッド) / Narmaya (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-nezha-normal.md](./wind-ssr-nezha-normal.md) | ナタク / Nezha | SSR | 風 | 下書き |
+| [wind-ssr-nectar-normal.md](./wind-ssr-nectar-normal.md) | ネクタル / Nectar | SSR | 風 | 下書き |
 
 ## 運用ルール
 
