@@ -311,6 +311,8 @@
 | [water-ssr-sturm-water.md](./water-ssr-sturm-water.md) | 水スツルム / Sturm (Water) | SSR | 水 | 下書き |
 | [water-ssr-vampy-and-vess-normal.md](./water-ssr-vampy-and-vess-normal.md) | ヴァンピィ&ベス / Vampy and Vess | SSR | 水 | 下書き |
 | [water-ssr-lecia-water.md](./water-ssr-lecia-water.md) | 水リーシャ / Lecia (Water) | SSR | 水 | 下書き |
+| [water-ssr-europa-summer.md](./water-ssr-europa-summer.md) | 水着エウロペ / Europa (Summer) | SSR | 水 | 下書き |
+| [water-ssr-cagliostro-summer.md](./water-ssr-cagliostro-summer.md) | 水着カリオストロ / Cagliostro (Summer) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
