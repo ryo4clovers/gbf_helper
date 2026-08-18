@@ -755,6 +755,7 @@
 | [fire-sr-barawa-event.md](./fire-sr-barawa-event.md) | 火バロワ(イベ) / Barawa (Fire, Event) | SR | 火 | 下書き |
 | [fire-sr-stahn-normal.md](./fire-sr-stahn-normal.md) | スタン(テイルズ) / Stahn | SR | 火 | 下書き |
 | [fire-sr-gemini-normal.md](./fire-sr-gemini-normal.md) | ジェミニ / Gemini Sunrise | SR | 火 | 下書き |
+| [fire-sr-sen-normal.md](./fire-sr-sen-normal.md) | セン / Sen | SR | 火 | 下書き |
 
 ## 運用ルール
 

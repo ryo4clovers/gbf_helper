@@ -270,7 +270,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index23 火バロワ(イベ)はgbf.wiki候補なし。GameWithのみで作成。batch_016-023.txt完了。
 - index24 スタン(テイルズオブデスティニーコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
 - index25 ジェミニ(サクラ大戦コラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
-- 火属性SR(26/55体完了)。次はindex26から継続(batch_024-031.txt)。
+- index26 センはgbf.wiki候補とHP/ATK完全一致(HP900/ATK6750)で確認、採用。
+- 火属性SR(27/55体完了)。次はindex27から継続(batch_024-031.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
