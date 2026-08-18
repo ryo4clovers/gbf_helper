@@ -745,6 +745,7 @@
 | [fire-sr-elmott-blazing-teacher.md](./fire-sr-elmott-blazing-teacher.md) | 炎獄先生エルモート / Blazing Teacher Elmott | SR | 火 | 下書き |
 | [fire-sr-ghandagoza-summer.md](./fire-sr-ghandagoza-summer.md) | 水着ガンダゴウザ / Ghandagoza (Summer) | SR | 火 | 下書き |
 | [fire-sr-karen-summer.md](./fire-sr-karen-summer.md) | 水着カレン / Karen (Summer) | SR | 火 | 下書き |
+| [fire-sr-sutera-event.md](./fire-sr-sutera-event.md) | スーテラ(イベント) / Sutera | SR | 火 | 下書き |
 
 ## 運用ルール
 
