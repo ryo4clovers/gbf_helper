@@ -88,7 +88,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index19 チチリは「四聖」シリーズキャラ(玲瓏佩強化によるフェイトエピクリアで段階強化される仕様)。gbf.wiki候補が見つからずGameWithのみで作成。
   - **完了**: 火属性SSR 111/111体(list.jsonの全indexを処理完了。index102パーシヴァルは既存ファイルと重複のためスキップ、実ファイル数110新規+既存1=計111)。`batch_104-110.txt`まで全バッチ処理済み。
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
-  - **進捗(水属性SSR)**: index79まで処理済み(80/99体、`batch_072-079.txt`完了)。続きを行う場合: `scratchpad/water_ssr/dossiers/batch_080-087.txt` の index80から読み進める。
+  - **進捗(水属性SSR)**: index81まで処理済み(82/99体)。続きを行う場合: `scratchpad/water_ssr/dossiers/batch_080-087.txt` の index82(アルルメイヤ(クリスマス))から読み進める。
+  - index80 ヴェイン(SSR)はgbf.wiki検索候補「Vane's Cooking」が召喚石ページ(キャラクターと無関係)だったため不採用、GameWithのみで作成。
   - 注意: scratchpadディレクトリは実際にはリポジトリ内ではなく、セッション一時ディレクトリ(`AppData/Local/Temp/claude/<repo-slug>/<session-id>/scratchpad/`)に生成される。過去ログの相対パス表記(`scratchpad/water_ssr/...`)は実体としてはこの一時ディレクトリ配下を指す。
   - index79 ドランク(リミテッド)はgbf.wiki取得内容が途中(1アビ部分)で切れていたため、奥義とアビリティ4「ツインスフィア」のみGameWith単独出典とした(他はGameWith/gbf.wikiで4★時点HP1250/ATK7510一致確認)。
   - index74 ヴァジラはgbf.wiki候補が見つからなかったため、GameWithのみで作成(HP1140/ATK8720)。

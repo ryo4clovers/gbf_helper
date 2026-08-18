@@ -329,6 +329,8 @@
 | [water-ssr-diantha-summer.md](./water-ssr-diantha-summer.md) | 水着ディアンサ / Diantha (Summer) | SSR | 水 | 下書き |
 | [water-ssr-izmir-summer.md](./water-ssr-izmir-summer.md) | 水着イシュミール / Izmir (Summer) | SSR | 水 | 下書き |
 | [water-ssr-drang-grand.md](./water-ssr-drang-grand.md) | ドランク(リミテッド) / Drang (Grand) | SSR | 水 | 下書き |
+| [water-ssr-vane-normal.md](./water-ssr-vane-normal.md) | ヴェイン(SSR) / Vane | SSR | 水 | 下書き |
+| [water-ssr-katapillar-and-vira-normal.md](./water-ssr-katapillar-and-vira-normal.md) | キャタピラとヴィーラ / Lady Katapillar and Vira | SSR | 水 | 下書き |
 
 ## 運用ルール
 
