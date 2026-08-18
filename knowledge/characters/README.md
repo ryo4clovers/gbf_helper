@@ -193,6 +193,8 @@
 | [fire-ssr-elmott-normal.md](./fire-ssr-elmott-normal.md) | エルモート(SSR) / Elmott (SSR) | SSR | 火 | 下書き |
 | [fire-ssr-naoise-fire.md](./fire-ssr-naoise-fire.md) | 火ノイシュ / Naoise (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-izmir-yukata.md](./fire-ssr-izmir-yukata.md) | 浴衣イシュミール / Izmir (Yukata) | SSR | 火 | 下書き |
+| [fire-ssr-ms-miranda-normal.md](./fire-ssr-ms-miranda-normal.md) | ミランダ / Ms. Miranda | SSR | 火 | 下書き |
+| [fire-ssr-shion-normal.md](./fire-ssr-shion-normal.md) | シオン / Shion | SSR | 火 | 下書き |
 
 ## 運用ルール
 
