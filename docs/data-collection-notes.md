@@ -249,7 +249,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index2 水着フライデーはgbf.wiki候補とHP/ATK完全一致(HP1250/ATK6250)で確認、採用。曜日限定(金曜日)強化の特殊仕様キャラ。
 - index3 火アステールはgbf.wiki候補なし。GameWithのみで作成。
 - index4 ロジーヌ(SR)はgbf.wiki検索候補「Rosine」が基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
-- 火属性SR(5/55体完了)。次はindex5から継続(batch_000-007.txt)。
+- index5 ティナ(バレンタイン)はgbf.wiki候補とHP/ATK完全一致(HP1250/ATK6250)で確認、採用。
+- 火属性SR(6/55体完了)。次はindex6から継続(batch_000-007.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
