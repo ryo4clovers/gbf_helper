@@ -255,6 +255,8 @@
 | [water-ssr-alliah-yukata.md](./water-ssr-alliah-yukata.md) | 浴衣アリア / Alliah (Yukata) | SSR | 水 | 下書き |
 | [water-ssr-octavia-grand.md](./water-ssr-octavia-grand.md) | オクタヴィア(リミテッド) / Octavia (Grand) | SSR | 水 | 下書き |
 | [water-ssr-ange-normal.md](./water-ssr-ange-normal.md) | アンジェ / Ange (SSR) | SSR | 水 | 下書き |
+| [water-ssr-gawain-valentine.md](./water-ssr-gawain-valentine.md) | 水ガウェイン(バレンタイン) / Gawain (Valentine) | SSR | 水 | 下書き |
+| [water-ssr-darydara-normal.md](./water-ssr-darydara-normal.md) | ダリダラ / Darydara | SSR | 水 | 下書き |
 
 ## 運用ルール
 
