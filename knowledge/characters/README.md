@@ -573,6 +573,7 @@
 | [wind-ssr-lena-wind.md](./wind-ssr-lena-wind.md) | レナ(風属性) / Lena (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-christina-normal.md](./wind-ssr-christina-normal.md) | クリスティーナ / Christina | SSR | 風 | 下書き |
 | [wind-ssr-metera-wind.md](./wind-ssr-metera-wind.md) | 風メーテラ(SSR) / Metera (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-netzach-normal.md](./wind-ssr-netzach-normal.md) | ネツァワルピリ / Netzach | SSR | 風 | 下書き |
 
 ## 運用ルール
 
