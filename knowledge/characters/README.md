@@ -699,6 +699,7 @@
 | [light-sr-zeta-normal.md](./light-sr-zeta-normal.md) | ゼタ(SR) / Zeta (SR) | SR | 光 | 下書き |
 | [light-sr-feena-holiday.md](./light-sr-feena-holiday.md) | フィーナ(クリスマス) / Feena (Holiday) | SR | 光 | 下書き |
 | [light-sr-sophia-normal.md](./light-sr-sophia-normal.md) | ソフィア(SR) / Sophia (SR) | SR | 光 | 下書き |
+| [light-sr-ezecrain-light.md](./light-sr-ezecrain-light.md) | 光エゼクレイン / Ezecrain (Light) | SR | 光 | 下書き |
 
 ## 運用ルール
 
