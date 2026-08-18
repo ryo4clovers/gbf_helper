@@ -407,6 +407,7 @@
 | [earth-ssr-sandalphon-another.md](./earth-ssr-sandalphon-another.md) | サンダルフォン(アナザー) / Sandalphon (Another) | SSR | 土 | 下書き |
 | [earth-ssr-fiorito-normal.md](./earth-ssr-fiorito-normal.md) | フィオリト / Fiorito | SSR | 土 | 下書き |
 | [earth-ssr-mireille-and-risette-normal.md](./earth-ssr-mireille-and-risette-normal.md) | ミレイユ&リゼット / Mireille and Risette | SSR | 土 | 下書き |
+| [earth-ssr-aria-golden-knight.md](./earth-ssr-aria-golden-knight.md) | 黄金の騎士(アリア) / Aria (Golden Knight) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
