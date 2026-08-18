@@ -189,7 +189,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index109 バザラガはgbf.wiki候補とHP/ATK完全一致(HP1680/ATK12540、5★表記)で確認、採用。最終上限解放後の性能を採用。
   - index110 ロゼッタ(クリスマス)はgbf.wiki候補「Rosetta (Holiday)」と入手武器/声優/称号が完全一致し同一キャラクターと確認したが、ステータスがGameWith(HP1540/ATK7280)とgbf.wiki(HP2000/ATK7500)で不一致。キャラクター種別の誤りではないためGameWith数値を採用し、不一致を明記して要検証扱いとした。
   - index111 ケルベロスはgbf.wiki候補なし。GameWithのみで作成。バランス調整後・最終上限解放後の性能を採用。batch_104-111.txt完了。
-  - 闇属性SSR処理中(111/113体完了)。次はindex112から継続(batch_112-112.txt)。
+  - index112 レディ・グレイ(通常版)はgbf.wiki候補なし。GameWithのみで作成。バランス調整後・最終上限解放後の性能を採用。batch_112-112.txt完了。
+  - **闇属性SSR全113体完了！(113/113)** 次は闇属性SR/Rの収集、または他属性(光・火・水・土・風)のSR/R収集に進む。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
