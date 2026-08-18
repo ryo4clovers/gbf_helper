@@ -822,6 +822,7 @@
 | [water-sr-shibuya-rin-normal.md](./water-sr-shibuya-rin-normal.md) | 渋谷凛 / Rin Shibuya | SR | 水 | 下書き |
 | [water-sr-katalina-summer.md](./water-sr-katalina-summer.md) | 水着カタリナ / Katalina (Summer) | SR | 水 | 下書き |
 | [water-sr-sig-event.md](./water-sr-sig-event.md) | シグ(イベント) / Sig (Event) | SR | 水 | 下書き |
+| [water-sr-ulamnuran-normal.md](./water-sr-ulamnuran-normal.md) | ウラムヌラン / Ulamnuran | SR | 水 | 下書き |
 
 ## 運用ルール
 
