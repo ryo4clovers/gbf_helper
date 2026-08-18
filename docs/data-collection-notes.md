@@ -90,7 +90,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
   - **完了**: 水属性SSR 99/99体(list.jsonの全indexを処理完了。`batch_096-098.txt`まで全バッチ処理済み)。index96シャルロッテ・index97リリィ(SSR)・index98アルタイルで水属性SSRが完了した。
   - **土属性SSR収集に着手**(scratchディレクトリ`earth_ssr`)。`scratch-build-list.mjs 土`でlist.json生成(108体)→パイプラインスクリプトの`SCRATCH`定数を`earth_ssr`に書き換え→GameWith/gbf.wiki取得(gamewith/gbfwikiサブディレクトリを事前に`mkdir`しておく必要があった、無いとENOENTで失敗)→pick-and-dump(79/108体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_104-107.txt`、14バッチ)まで完了。既存の`earth-ssr-seox-summer.md`はlist.jsonに同名キャラが見当たらず重複なし。
-  - **進捗(土属性SSR)**: index53まで処理済み(54/108体)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_048-055.txt` の index54(土ベアトリクス)から読み進める。
+  - **進捗(土属性SSR)**: index54まで処理済み(55/108体)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_048-055.txt` の index55(モニカ(バレンタイン))から読み進める。
   - index42 ジャミル(SSR)はgbf.wiki検索候補「Jamil」がHP/ATK不一致(4★時点HP1170/ATK6650、恐らく低レアリティ版)だったため不採用、GameWithのみで作成。
   - index44 ラグナ(SSR)はgbf.wiki検索候補「Laguna」がアビリティ構成の全く異なる別エンティティ(SR版など)のページだったため不採用、GameWithのみで作成。
   - index46 シンダラは十二神将(卯)のベースキャラ。index16で先に収集した「スーパーシンダラ」(`earth-ssr-shindara-super.md`)はこのキャラのスタイルシフト形態であり、両ファイルは相互リンク済み。これで「未収集」だったベース欠落TODOは解消。
