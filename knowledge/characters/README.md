@@ -631,6 +631,7 @@
 | [dark-ssr-magisa-summer.md](./dark-ssr-magisa-summer.md) | 水着マギサ / Magisa (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-vajra-summer.md](./dark-ssr-vajra-summer.md) | 水着ヴァジラ / Vajra (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-manamel-normal.md](./dark-ssr-manamel-normal.md) | マナマル / Manamel | SSR | 闇 | 下書き |
+| [dark-ssr-ippatsu-dark.md](./dark-ssr-ippatsu-dark.md) | 闇イッパツ(SSR) / Ippatsu (Dark) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

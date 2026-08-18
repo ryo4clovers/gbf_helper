@@ -139,7 +139,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index51 闇ジェシカ、index52 ゾロ&サンジ(ワンピースコラボ)はgbf.wiki候補なし。GameWithのみで作成。
   - index53 水着マギサ、index54 水着ヴァジラはgbf.wiki候補とHP/ATK完全一致で確認、採用。
   - index55 マナマルはgbf.wiki候補とHP/ATK完全一致で確認、採用。batch_048-055.txt完了。
-  - 闇属性SSR処理中(56/113体完了、半分完了)。次はindex56から継続(batch_056-063.txt)。
+  - index56 闇イッパツ(SSR)はgbf.wiki候補なし。GameWithのみで作成。
+  - 闇属性SSR処理中(57/113体完了)。次はindex57 フェディエル(リミテッド)から継続(batch_056-063.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
