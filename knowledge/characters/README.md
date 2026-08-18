@@ -452,6 +452,7 @@
 | [earth-ssr-salasa-normal.md](./earth-ssr-salasa-normal.md) | サラーサ / Salasa | SSR | 土 | 下書き |
 | [earth-ssr-siegfried-earth.md](./earth-ssr-siegfried-earth.md) | ジークフリート(土属性) / Siegfried | SSR | 土 | 下書き |
 | [earth-ssr-melleau-normal.md](./earth-ssr-melleau-normal.md) | メルゥ / Melleau | SSR | 土 | 下書き |
+| [earth-ssr-arulumaya-normal.md](./earth-ssr-arulumaya-normal.md) | アルルメイヤ / Arulumaya | SSR | 土 | 下書き |
 
 ## 運用ルール
 
