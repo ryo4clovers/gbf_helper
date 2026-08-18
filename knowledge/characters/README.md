@@ -611,6 +611,8 @@
 | [dark-ssr-magus-summer.md](./dark-ssr-magus-summer.md) | 水着メイガス / Magus (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-cidala-valentine.md](./dark-ssr-cidala-valentine.md) | 闇シンダラ(バレンタイン) / Cidala (Valentine) | SSR | 闇 | 下書き |
 | [dark-ssr-toga-himiko-normal.md](./dark-ssr-toga-himiko-normal.md) | トガヒミコ / Toga Himiko | SSR | 闇 | 下書き |
+| [dark-ssr-tyra-normal.md](./dark-ssr-tyra-normal.md) | ティラ / Tyra | SSR | 闇 | 下書き |
+| [dark-ssr-lowain-dark.md](./dark-ssr-lowain-dark.md) | 闇ローアイン(SSR) / Lowain (Dark) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

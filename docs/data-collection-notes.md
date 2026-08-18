@@ -123,7 +123,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index33 水着メイガスはgbf.wiki候補とHP/ATK完全一致で確認、採用。
   - index34 闇シンダラ(バレンタイン)はgbf.wiki候補とHP/ATK完全一致で確認、採用。
   - index35 トガヒミコ(ヒロアカコラボ)はgbf.wiki候補なし。GameWithのみで作成。変身前後で奥義・アビリティが完全に変化する特殊仕様。
-  - 闇属性SSR処理中(36/113体完了)。次はindex36から継続(batch_032-039.txt)。
+  - index36 ティラはgbf.wiki候補とHP/ATK完全一致で確認、採用。
+  - index37 闇ローアイン(SSR)はgbf.wiki候補なし。GameWithのみで作成。
+  - 闇属性SSR処理中(38/113体完了)。次はindex38 闇ユニ(クリスマス)から継続(batch_032-039.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
