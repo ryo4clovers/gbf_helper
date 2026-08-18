@@ -432,6 +432,7 @@
 | [earth-ssr-alexiel-grand.md](./earth-ssr-alexiel-grand.md) | ブローディア(リミテッド) / Alexiel (Grand) | SSR | 土 | 下書き |
 | [earth-ssr-medusa-valentine.md](./earth-ssr-medusa-valentine.md) | メドゥーサ(バレンタイン) / Medusa (Valentine) | SSR | 土 | 下書き |
 | [earth-ssr-vaseraga-earth.md](./earth-ssr-vaseraga-earth.md) | 土バザラガ / Vaseraga (Earth) | SSR | 土 | 下書き |
+| [earth-ssr-ilsa-normal.md](./earth-ssr-ilsa-normal.md) | イルザ / Ilsa | SSR | 土 | 下書き |
 
 ## 運用ルール
 
