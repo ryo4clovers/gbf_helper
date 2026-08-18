@@ -273,6 +273,8 @@
 | [water-ssr-delrifado-water.md](./water-ssr-delrifado-water.md) | 水デリフォード / Delrifado (Water) | SSR | 水 | 下書き |
 | [water-ssr-haila-normal.md](./water-ssr-haila-normal.md) | ハイラ / Haila | SSR | 水 | 下書き |
 | [water-ssr-gabriel-grand.md](./water-ssr-gabriel-grand.md) | ガブリエル(リミテッド) / Gabriel (Grand) | SSR | 水 | 下書き |
+| [water-ssr-vikala-halloween.md](./water-ssr-vikala-halloween.md) | 水ビカラ(ハロウィン) / Vikala (Halloween) | SSR | 水 | 下書き |
+| [water-ssr-anila-yukata.md](./water-ssr-anila-yukata.md) | 浴衣アニラ / Anila (Yukata) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
