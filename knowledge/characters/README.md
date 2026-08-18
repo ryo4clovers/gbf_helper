@@ -198,6 +198,7 @@
 | [fire-ssr-kumbhira-summer.md](./fire-ssr-kumbhira-summer.md) | 水着クビラ / Kumbhira (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-vaseraga-fire.md](./fire-ssr-vaseraga-fire.md) | 火バザラガ / Vaseraga (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-rengoku-kyojuro-normal.md](./fire-ssr-rengoku-kyojuro-normal.md) | 煉獄杏寿郎 / Rengoku Kyojuro | SSR | 火 | 下書き |
+| [fire-ssr-nemone-holiday.md](./fire-ssr-nemone-holiday.md) | ネモネ(クリスマス) / Nemone (Holiday) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
