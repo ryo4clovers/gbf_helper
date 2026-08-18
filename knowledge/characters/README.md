@@ -227,6 +227,8 @@
 | [fire-ssr-therese-normal.md](./fire-ssr-therese-normal.md) | テレーズ(SSR) / Therese (SSR) | SSR | 火 | 下書き |
 | [fire-ssr-charioce-xvii-normal.md](./fire-ssr-charioce-xvii-normal.md) | シャリオス17世 / Charioce XVII | SSR | 火 | 下書き |
 | [fire-ssr-danua-halloween.md](./fire-ssr-danua-halloween.md) | ダヌア(ハロウィン) / Danua (Halloween) | SSR | 火 | 下書き |
+| [fire-ssr-nina-drango-normal.md](./fire-ssr-nina-drango-normal.md) | ニーナ・ドランゴ / Nina Drango | SSR | 火 | 下書き |
+| [fire-ssr-grea-normal.md](./fire-ssr-grea-normal.md) | グレア / Grea | SSR | 火 | 下書き |
 
 ## 運用ルール
 
