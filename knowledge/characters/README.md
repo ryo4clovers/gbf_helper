@@ -470,6 +470,7 @@
 | [wind-ssr-cassius-summer.md](./wind-ssr-cassius-summer.md) | 水着カシウス / Cassius (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-skuld-normal.md](./wind-ssr-skuld-normal.md) | スクルド / Skuld | SSR | 風 | 下書き |
 | [wind-ssr-cagliostro-and-clarisse-normal.md](./wind-ssr-cagliostro-and-clarisse-normal.md) | カリオストロ&クラリス / Cagliostro and Clarisse | SSR | 風 | 下書き |
+| [wind-ssr-mahira-summer.md](./wind-ssr-mahira-summer.md) | 水着マキラ / Mahira (Summer) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
