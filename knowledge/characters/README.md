@@ -315,6 +315,8 @@
 | [water-ssr-cagliostro-summer.md](./water-ssr-cagliostro-summer.md) | 水着カリオストロ / Cagliostro (Summer) | SSR | 水 | 下書き |
 | [water-ssr-sandalphon-summer.md](./water-ssr-sandalphon-summer.md) | 水着サンダルフォン / Sandalphon (Summer) | SSR | 水 | 下書き |
 | [water-ssr-macula-marius-normal.md](./water-ssr-macula-marius-normal.md) | マキュラ・マリウス / Macula Marius | SSR | 水 | 下書き |
+| [water-ssr-haseena-leela-normal.md](./water-ssr-haseena-leela-normal.md) | ハーゼリーラ / Haseena Leela | SSR | 水 | 下書き |
+| [water-ssr-maria-teresa-normal.md](./water-ssr-maria-teresa-normal.md) | マリア・テレサ / Maria Teresa | SSR | 水 | 下書き |
 
 ## 運用ルール
 
