@@ -90,7 +90,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
   - **完了**: 水属性SSR 99/99体(list.jsonの全indexを処理完了。`batch_096-098.txt`まで全バッチ処理済み)。index96シャルロッテ・index97リリィ(SSR)・index98アルタイルで水属性SSRが完了した。
   - **土属性SSR収集に着手**(scratchディレクトリ`earth_ssr`)。`scratch-build-list.mjs 土`でlist.json生成(108体)→パイプラインスクリプトの`SCRATCH`定数を`earth_ssr`に書き換え→GameWith/gbf.wiki取得(gamewith/gbfwikiサブディレクトリを事前に`mkdir`しておく必要があった、無いとENOENTで失敗)→pick-and-dump(79/108体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_104-107.txt`、14バッチ)まで完了。既存の`earth-ssr-seox-summer.md`はlist.jsonに同名キャラが見当たらず重複なし。
-  - **進捗(土属性SSR)**: index58まで処理済み(59/108体)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_056-063.txt` のindex59から読み進める。
+  - **進捗(土属性SSR)**: index59まで処理済み(60/108体)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_056-063.txt` のindex60から読み進める。
   - index58 フィオリトは2024年8月バランス調整あり。調整後(最新)の性能を記載し、調整前の内容は未確認・要検証事項に割愛と明記。
   - index56 ラムレッダ(SSR)はgbf.wiki検索候補「Lamretta」が同キャラの別バージョン(無印)ページで、HP1350は一致するもののATK5600(GameWith側ATK9300と不一致)かつアビリティ構成も全く異なる別エンティティだったため不採用、GameWithのみで作成。
   - index42 ジャミル(SSR)はgbf.wiki検索候補「Jamil」がHP/ATK不一致(4★時点HP1170/ATK6650、恐らく低レアリティ版)だったため不採用、GameWithのみで作成。
