@@ -636,6 +636,8 @@
 | [dark-ssr-lich-limited.md](./dark-ssr-lich-limited.md) | リッチ(リミテッド) / Lich (Limited) | SSR | 闇 | 下書き |
 | [dark-ssr-tabina-summer.md](./dark-ssr-tabina-summer.md) | 水着タヴィーナ / Tabina (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-meg-summer.md](./dark-ssr-meg-summer.md) | 水着メグ / Meg (Summer) | SSR | 闇 | 下書き |
+| [dark-ssr-albert-dark.md](./dark-ssr-albert-dark.md) | 闇アルベール / Albert (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-cassius-event.md](./dark-ssr-cassius-event.md) | カシウス(SSR) / Cassius (Event SSR) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
