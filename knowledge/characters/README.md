@@ -630,6 +630,7 @@
 | [dark-ssr-zoro-and-sanji-normal.md](./dark-ssr-zoro-and-sanji-normal.md) | ゾロ&サンジ / Zoro & Sanji | SSR | 闇 | 下書き |
 | [dark-ssr-magisa-summer.md](./dark-ssr-magisa-summer.md) | 水着マギサ / Magisa (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-vajra-summer.md](./dark-ssr-vajra-summer.md) | 水着ヴァジラ / Vajra (Summer) | SSR | 闇 | 下書き |
+| [dark-ssr-manamel-normal.md](./dark-ssr-manamel-normal.md) | マナマル / Manamel | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
