@@ -269,6 +269,8 @@
 | [water-ssr-nier-yukata.md](./water-ssr-nier-yukata.md) | 浴衣ニーア / Nier (Yukata) | SSR | 水 | 下書き |
 | [water-ssr-tefnut-summer.md](./water-ssr-tefnut-summer.md) | 水着テフヌト / Tefnut (Summer) | SSR | 水 | 下書き |
 | [water-ssr-nectar-water.md](./water-ssr-nectar-water.md) | 水ネクタル / Nectar (Water) | SSR | 水 | 下書き |
+| [water-ssr-yuri-water.md](./water-ssr-yuri-water.md) | 水ユーリ / Yuri (Water) | SSR | 水 | 下書き |
+| [water-ssr-delrifado-water.md](./water-ssr-delrifado-water.md) | 水デリフォード / Delrifado (Water) | SSR | 水 | 下書き |
 
 ## 運用ルール
 

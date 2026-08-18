@@ -88,7 +88,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index19 チチリは「四聖」シリーズキャラ(玲瓏佩強化によるフェイトエピクリアで段階強化される仕様)。gbf.wiki候補が見つからずGameWithのみで作成。
   - **完了**: 火属性SSR 111/111体(list.jsonの全indexを処理完了。index102パーシヴァルは既存ファイルと重複のためスキップ、実ファイル数110新規+既存1=計111)。`batch_104-110.txt`まで全バッチ処理済み。
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
-  - **進捗(水属性SSR)**: index19まで処理済み(20/99体)。続きを行う場合: `scratchpad/water_ssr/dossiers/batch_016-023.txt` の index20(水ユーリ)から読み進める。
+  - **進捗(水属性SSR)**: index21まで処理済み(22/99体)。続きを行う場合: `scratchpad/water_ssr/dossiers/batch_016-023.txt` の index22(ハイラ)から読み進める。
   - index11 ジョエルはgbf.wiki検索候補「Joel」がHP/ATK不一致(低レアリティ版、HP820/ATK3900 vs GameWithのHP1900/ATK5700)だったため不採用、GameWithのみで作成。
   - **命名訂正**: index10(エッセル(ハロウィン))のgbf.wiki候補ページで正式英語名が「Tien」と判明(HP/ATK完全一致で確認)。既存の`fire-ssr-essel-normal.md`(GameWithのみで作成、火属性エッセル)を`fire-ssr-tien-normal.md`にリネームし、`name_en`を`Essel`→`Tien`に訂正。今後エッセル関連キャラは`tien`の英語名で統一する。
   - index5 アンジェはgbf.wiki検索候補「Ange」がHP/ATK不一致(無印バージョン、HP1250/ATK6250 vs GameWithのHP1266/ATK9670)だったため不採用、GameWithのみで作成。
