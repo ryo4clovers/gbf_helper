@@ -482,6 +482,7 @@
 | [wind-ssr-galleon-summer.md](./wind-ssr-galleon-summer.md) | 水着ガレヲン / Galleon (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-ami-normal.md](./wind-ssr-ami-normal.md) | アミ(風四聖) / Ami | SSR | 風 | 下書き |
 | [wind-ssr-mirin-wind.md](./wind-ssr-mirin-wind.md) | ミリン(風属性SSR) / Mirin (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-veight-wind.md](./wind-ssr-veight-wind.md) | ヴァイト(風属性) / Veight (Wind) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
