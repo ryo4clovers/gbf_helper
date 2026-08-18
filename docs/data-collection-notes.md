@@ -245,7 +245,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 
 パイプラインを`fire_sr`に retarget。火属性SRは全55体。既存の`fire-sr-*.md`ファイルは無し(重複スキップ対象なし)。list.json(55体)→GameWith取得(55/55成功)→gbf.wiki検索(55/55成功)→候補選定(39/55にgbf.wiki候補あり)→ページ取得(39/39成功)→dossier生成まで完了。
 - index0 水着フェリはgbf.wiki候補とHP/ATK完全一致(HP920/ATK6200)で確認、採用。
-- 火属性SR(1/55体完了)。次はindex1から継続(batch_000-007.txt)。
+- index1 浴衣カシウスはgbf.wiki候補とHP/ATK完全一致(HP1150/ATK6850)で確認、採用。
+- 火属性SR(2/55体完了)。次はindex2から継続(batch_000-007.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。

@@ -730,6 +730,7 @@
 | [light-sr-ferry-normal.md](./light-sr-ferry-normal.md) | フェリ(SR) / Ferry | SR | 光 | 下書き |
 | [light-sr-naoise-light.md](./light-sr-naoise-light.md) | 光ノイシュ / Naoise (Light) | SR | 光 | 下書き |
 | [fire-sr-ferry-summer.md](./fire-sr-ferry-summer.md) | 水着フェリ / Ferry (Summer) | SR | 火 | 下書き |
+| [fire-sr-cassius-yukata.md](./fire-sr-cassius-yukata.md) | 浴衣カシウス / Cassius (Yukata) | SR | 火 | 下書き |
 
 ## 運用ルール
 
