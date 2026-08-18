@@ -249,6 +249,8 @@
 | [fire-ssr-io-summer.md](./fire-ssr-io-summer.md) | 水着イオ / Io (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-magisa-normal.md](./fire-ssr-magisa-normal.md) | マギサ / Magisa | SSR | 火 | 下書き |
 | [fire-ssr-yuel-fire.md](./fire-ssr-yuel-fire.md) | 火ユエル / Yuel (Fire) | SSR | 火 | 下書き |
+| [water-ssr-you-summer.md](./water-ssr-you-summer.md) | 水着ヨウ / You (Summer) | SSR | 水 | 下書き |
+| [water-ssr-hitsugaya-and-matsumoto-normal.md](./water-ssr-hitsugaya-and-matsumoto-normal.md) | 日番谷冬獅郎＆松本乱菊 / Hitsugaya & Matsumoto | SSR | 水 | 下書き |
 
 ## 運用ルール
 
