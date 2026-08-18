@@ -814,6 +814,7 @@
 | [water-sr-suframare-summer.md](./water-sr-suframare-summer.md) | 水着スフラマール / Suframare (Summer) | SR | 水 | 下書き |
 | [water-sr-romeo-normal.md](./water-sr-romeo-normal.md) | ロミオ(SR) / Romeo (SR) | SR | 水 | 下書き |
 | [water-sr-sahli-lao-normal.md](./water-sr-sahli-lao-normal.md) | ザーリリャオー / Sahli Lao | SR | 水 | 下書き |
+| [water-sr-pengy-event.md](./water-sr-pengy-event.md) | ペンギー(イベント) / Pengy (Event) | SR | 水 | 下書き |
 
 ## 運用ルール
 
