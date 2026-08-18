@@ -424,6 +424,7 @@
 | [earth-ssr-medusa-normal.md](./earth-ssr-medusa-normal.md) | メドゥーサ(恒常) / Medusa | SSR | 土 | 下書き |
 | [earth-ssr-robelia-normal.md](./earth-ssr-robelia-normal.md) | ロベリア / Robelia | SSR | 土 | 下書き |
 | [earth-ssr-caim-normal.md](./earth-ssr-caim-normal.md) | カイム / Caim | SSR | 土 | 下書き |
+| [earth-ssr-dante-and-freiheit-normal.md](./earth-ssr-dante-and-freiheit-normal.md) | ダーント&フライハイト / Dante and Freiheit | SSR | 土 | 下書き |
 
 ## 運用ルール
 

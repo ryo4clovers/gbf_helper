@@ -90,7 +90,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
   - **完了**: 水属性SSR 99/99体(list.jsonの全indexを処理完了。`batch_096-098.txt`まで全バッチ処理済み)。index96シャルロッテ・index97リリィ(SSR)・index98アルタイルで水属性SSRが完了した。
   - **土属性SSR収集に着手**(scratchディレクトリ`earth_ssr`)。`scratch-build-list.mjs 土`でlist.json生成(108体)→パイプラインスクリプトの`SCRATCH`定数を`earth_ssr`に書き換え→GameWith/gbf.wiki取得(gamewith/gbfwikiサブディレクトリを事前に`mkdir`しておく必要があった、無いとENOENTで失敗)→pick-and-dump(79/108体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_104-107.txt`、14バッチ)まで完了。既存の`earth-ssr-seox-summer.md`はlist.jsonに同名キャラが見当たらず重複なし。
-  - **進捗(土属性SSR)**: index76まで処理済み(77/108体)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_072-079.txt` のindex77から読み進める。
+  - **進捗(土属性SSR)**: index77まで処理済み(78/108体)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_072-079.txt` のindex78から読み進める。
   - index76 カイムも十賢者(アーカルム)キャラで最終上限解放+2026年7月実装の限界超越システムを持つ複雑な仕様のため、最終後の内容を中心に大幅に簡略化して記載。gbf.wiki候補なしのためGameWithのみで作成。
   - index75 ロベリアは十賢者(アーカルム)キャラで最終上限解放システムを持つ複雑な仕様のため、最終後(Lv100/4アビ習得済み)の内容に要点を簡略化して記載。gbf.wiki候補なしのためGameWithのみで作成。
   - index74 メドゥーサ(恒常)はgbf.wiki検索候補「Gorgon Sisters」がキャラクターページではなく別の関連ページ(グループ/モンスターページ)だったため不採用、GameWithのみで作成。既存のearth-ssr-medusa-grand.md(index20、メドゥーサ(リミテッド))とは別バージョンとして相互リンク。
