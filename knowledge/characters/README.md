@@ -722,6 +722,7 @@
 | [light-sr-seiran-normal.md](./light-sr-seiran-normal.md) | セイラン / Seiran | SR | 光 | 下書き |
 | [light-sr-amira-normal.md](./light-sr-amira-normal.md) | アーミラ(SR) / Amira (SR) | SR | 光 | 下書き |
 | [light-sr-baotorda-normal.md](./light-sr-baotorda-normal.md) | バウタオーダ(SR) / Baotorda (SR) | SR | 光 | 下書き |
+| [light-sr-johann-event.md](./light-sr-johann-event.md) | ヨハン(イベント) / Johann (Event) | SR | 光 | 下書き |
 
 ## 運用ルール
 
