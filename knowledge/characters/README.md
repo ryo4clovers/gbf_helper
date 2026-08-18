@@ -704,6 +704,8 @@
 | [light-sr-jeanne-darc-normal.md](./light-sr-jeanne-darc-normal.md) | ジャンヌダルク(SR) / Jeanne d'Arc (SR) | SR | 光 | 下書き |
 | [light-sr-vermeil-normal.md](./light-sr-vermeil-normal.md) | ヴェリトール(SR) / Vermeil (SR) | SR | 光 | 下書き |
 | [light-sr-albert-normal.md](./light-sr-albert-normal.md) | アルベール(SR) / Albert (SR) | SR | 光 | 下書き |
+| [light-sr-nakoruru-normal.md](./light-sr-nakoruru-normal.md) | ナコルル / Nakoruru | SR | 光 | 下書き |
+| [light-sr-johann-normal.md](./light-sr-johann-normal.md) | ヨハン(ガチャ) / Johann | SR | 光 | 下書き |
 
 ## 運用ルール
 
