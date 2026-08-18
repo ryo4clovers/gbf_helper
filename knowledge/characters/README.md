@@ -468,6 +468,7 @@
 | [wind-ssr-haaselia-summer.md](./wind-ssr-haaselia-summer.md) | 水着ハーゼリーラ / Haaselia (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-killua-normal.md](./wind-ssr-killua-normal.md) | キルア / Killua | SSR | 風 | 下書き |
 | [wind-ssr-cassius-summer.md](./wind-ssr-cassius-summer.md) | 水着カシウス / Cassius (Summer) | SSR | 風 | 下書き |
+| [wind-ssr-skuld-normal.md](./wind-ssr-skuld-normal.md) | スクルド / Skuld | SSR | 風 | 下書き |
 
 ## 運用ルール
 
