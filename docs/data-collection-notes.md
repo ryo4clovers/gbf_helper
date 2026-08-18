@@ -227,7 +227,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index26 フェリ(ハロウィン)はgbf.wiki候補とHP/ATK完全一致(HP1035/ATK5740)で確認、採用。
   - index27 ソフィ(テイルズオブグレイセスコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
   - index28 ロボミ(SR)はgbf.wiki検索候補「Robomi Rocket」が召喚石ページだったため不採用、GameWithのみで作成。
-  - 光属性SR(29/41体完了)。次はindex29から継続(batch_024-031.txt)。
+  - index29 フェザーはgbf.wiki検索候補「Feather」がHP640(3★)/ATK4500(3★)で基本レアリティ(R)版と判断し不採用、GameWithのみで作成。最終上限解放後の性能を採用。
+  - 光属性SR(30/41体完了)。次はindex30から継続(batch_024-031.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
