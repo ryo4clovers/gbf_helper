@@ -411,6 +411,7 @@
 | [earth-ssr-diantha-earth.md](./earth-ssr-diantha-earth.md) | ディアンサ(土属性) / Diantha (Earth) | SSR | 土 | 下書き |
 | [earth-ssr-silva-summer.md](./earth-ssr-silva-summer.md) | 水着シルヴァ / Silva (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-leona-grand.md](./earth-ssr-leona-grand.md) | レオナ(リミテッド) / Leona (Grand) | SSR | 土 | 下書き |
+| [earth-ssr-pengy-normal.md](./earth-ssr-pengy-normal.md) | ペンギー(SSR) / Pengy (SSR) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
