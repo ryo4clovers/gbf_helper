@@ -478,6 +478,7 @@
 | [wind-ssr-veldora-normal.md](./wind-ssr-veldora-normal.md) | ヴェルドラ(ヴェルドラ=テンペスト) / Veldora | SSR | 風 | 下書き |
 | [wind-ssr-lyria-normal.md](./wind-ssr-lyria-normal.md) | リーシャ(恒常、風属性) / Lyria (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-vane-grand.md](./wind-ssr-vane-grand.md) | ヴェイン(リミテッド) / Vane (Grand) | SSR | 風 | 下書き |
+| [wind-ssr-noire-normal.md](./wind-ssr-noire-normal.md) | ノワール(キャラ) / Noire | SSR | 風 | 下書き |
 
 ## 運用ルール
 
