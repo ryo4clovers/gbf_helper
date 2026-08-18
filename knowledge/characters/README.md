@@ -831,6 +831,7 @@
 | [earth-sr-la-coiffe-normal.md](./earth-sr-la-coiffe-normal.md) | コワフュール(SR) / La Coiffe (SR) | SR | 土 | 下書き |
 | [earth-sr-lancelot-and-vane-summer.md](./earth-sr-lancelot-and-vane-summer.md) | 水着ランスロット&ヴェイン / Lancelot and Vane (Summer) | SR | 土 | 下書き |
 | [earth-sr-catherine-normal.md](./earth-sr-catherine-normal.md) | キャサリン(SR) / Catherine (SR) | SR | 土 | 下書き |
+| [earth-sr-beatrix-normal.md](./earth-sr-beatrix-normal.md) | ベアトリクス(SR) / Beatrix (SR) | SR | 土 | 下書き |
 
 ## 運用ルール
 
