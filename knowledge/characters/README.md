@@ -658,6 +658,8 @@
 | [dark-ssr-clarisse-valentine.md](./dark-ssr-clarisse-valentine.md) | 闇クラリス(バレンタイン) / Clarisse (Valentine) | SSR | 闇 | 下書き |
 | [dark-ssr-tanya-normal.md](./dark-ssr-tanya-normal.md) | ターニャ(SSR) / Tanya (SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-eustace-dark.md](./dark-ssr-eustace-dark.md) | 闇ユーステス / Eustace (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-lady-grey-halloween.md](./dark-ssr-lady-grey-halloween.md) | レディ・グレイ(ハロウィン) / Lady Grey (Halloween) | SSR | 闇 | 下書き |
+| [dark-ssr-freezie-normal.md](./dark-ssr-freezie-normal.md) | フーちゃん(フリーシア) / Freezie | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
