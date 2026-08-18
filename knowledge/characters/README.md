@@ -493,6 +493,7 @@
 | [wind-ssr-aliza-summer.md](./wind-ssr-aliza-summer.md) | 水着アリーザ / Aliza (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-lily-wind.md](./wind-ssr-lily-wind.md) | 風リリィ / Lily (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-caro-normal.md](./wind-ssr-caro-normal.md) | カロ / Caro | SSR | 風 | 下書き |
+| [wind-ssr-cantate-normal.md](./wind-ssr-cantate-normal.md) | カンターテ / Cantate | SSR | 風 | 下書き |
 
 ## 運用ルール
 
