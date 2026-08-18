@@ -758,6 +758,7 @@
 | [fire-sr-sen-normal.md](./fire-sr-sen-normal.md) | セン / Sen | SR | 火 | 下書き |
 | [fire-sr-kanzuki-karin-normal.md](./fire-sr-kanzuki-karin-normal.md) | 神月かりん / Karin Kanzuki | SR | 火 | 下書き |
 | [fire-sr-cecile-normal.md](./fire-sr-cecile-normal.md) | セシール / Cecile | SR | 火 | 下書き |
+| [fire-sr-ryan-normal.md](./fire-sr-ryan-normal.md) | ライアン(SR) / Ryan (SR) | SR | 火 | 下書き |
 
 ## 運用ルール
 
