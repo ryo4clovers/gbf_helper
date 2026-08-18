@@ -305,6 +305,8 @@
 | [water-ssr-rosetta-halloween.md](./water-ssr-rosetta-halloween.md) | ロゼッタ(ハロウィン) / Rosetta (Halloween) | SSR | 水 | 下書き |
 | [water-ssr-juliet-water.md](./water-ssr-juliet-water.md) | 水ジュリエット / Juliet (Water) | SSR | 水 | 下書き |
 | [water-ssr-lucio-summer.md](./water-ssr-lucio-summer.md) | 水着ルシオ / Lucio (Summer) | SSR | 水 | 下書き |
+| [water-ssr-kolulu-summer.md](./water-ssr-kolulu-summer.md) | 水着コルル / Kolulu (Summer) | SSR | 水 | 下書き |
+| [water-ssr-shura-normal.md](./water-ssr-shura-normal.md) | シュラ / Shura | SSR | 水 | 下書き |
 
 ## 運用ルール
 
