@@ -171,6 +171,8 @@
 | [fire-ssr-dorothy-and-claudia-summer.md](./fire-ssr-dorothy-and-claudia-summer.md) | 水着ドロシー&クラウディア / Dorothy and Claudia (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-enyo-summer.md](./fire-ssr-enyo-summer.md) | 水着エニュオ / Enyo (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-baal-fire.md](./fire-ssr-baal-fire.md) | 火バアル / Baal (Fire) | SSR | 火 | 下書き |
+| [fire-ssr-icarus-normal.md](./fire-ssr-icarus-normal.md) | イカロス / Icarus | SSR | 火 | 下書き |
+| [fire-ssr-nezha-yukata.md](./fire-ssr-nezha-yukata.md) | 浴衣ナタク / Nezha (Yukata) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
