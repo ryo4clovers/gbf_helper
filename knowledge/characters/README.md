@@ -526,6 +526,7 @@
 | [wind-ssr-florence-normal.md](./wind-ssr-florence-normal.md) | フロレンス / Florence | SSR | 風 | 下書き |
 | [wind-ssr-mimori-amamiya-normal.md](./wind-ssr-mimori-amamiya-normal.md) | 天宮ミモリ / Mimori Amamiya | SSR | 風 | 下書き |
 | [wind-ssr-albert-summer.md](./wind-ssr-albert-summer.md) | 水着アルベール / Albert (Summer) | SSR | 風 | 下書き |
+| [wind-ssr-anila-summer.md](./wind-ssr-anila-summer.md) | 水着アニラ / Anila (Summer) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
