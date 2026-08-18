@@ -768,6 +768,7 @@
 | [fire-sr-beth-normal.md](./fire-sr-beth-normal.md) | ベス / Beth | SR | 変動(便宜上火) | 下書き |
 | [fire-sr-jogasaki-rika-normal.md](./fire-sr-jogasaki-rika-normal.md) | 城ヶ崎莉嘉 / Rika Jogasaki | SR | 火 | 下書き |
 | [fire-sr-elmott-summer.md](./fire-sr-elmott-summer.md) | 水着エルモート / Elmott (Summer) | SR | 火 | 下書き |
+| [fire-sr-mira-normal.md](./fire-sr-mira-normal.md) | ミラ / Mira | SR | 火 | 下書き |
 
 ## 運用ルール
 
