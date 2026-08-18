@@ -201,7 +201,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - パイプライン完了: list.json(41体)→GameWith取得(41/41成功)→gbf.wiki検索(41/41成功、curl経由)→候補選定(29/41にgbf.wiki候補あり)→ページ取得(29/29成功)→dossier生成(`batch_000-007.txt`〜`batch_040-040.txt`、6バッチ)。
 - **進捗**: index0 浴衣タイアーはgbf.wiki候補とHP/ATK完全一致(HP1250/ATK6250)で確認、採用。index1 クビラ(SR)はgbf.wiki候補なし、GameWithのみで作成(2019年12月ブレイブグラウンド実装)。
   - index2 フィラソピラ(SR)はgbf.wiki検索候補「Philosophia」がHP850(3★)/ATK3300(3★)で基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
-  - 光属性SR(3/41体完了)。次はindex3から継続(batch_000-007.txt)。
+  - index3 ブリジール&コーデリアはgbf.wiki候補とHP/ATK完全一致(HP1240/ATK6300)で確認、採用。
+  - 光属性SR(4/41体完了)。次はindex4から継続(batch_000-007.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
