@@ -632,6 +632,8 @@
 | [dark-ssr-vajra-summer.md](./dark-ssr-vajra-summer.md) | 水着ヴァジラ / Vajra (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-manamel-normal.md](./dark-ssr-manamel-normal.md) | マナマル / Manamel | SSR | 闇 | 下書き |
 | [dark-ssr-ippatsu-dark.md](./dark-ssr-ippatsu-dark.md) | 闇イッパツ(SSR) / Ippatsu (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-fediel-limited.md](./dark-ssr-fediel-limited.md) | フェディエル(リミテッド) / Fediel (Limited) | SSR | 闇 | 下書き |
+| [dark-ssr-lich-limited.md](./dark-ssr-lich-limited.md) | リッチ(リミテッド) / Lich (Limited) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
