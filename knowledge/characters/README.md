@@ -624,6 +624,8 @@
 | [dark-ssr-cendrillon-normal.md](./dark-ssr-cendrillon-normal.md) | サンドリヨン / Cendrillon | SSR | 闇 | 下書き |
 | [dark-ssr-halmal-limited.md](./dark-ssr-halmal-limited.md) | 闇ハルマル(リミテッド) / Halmal (Dark, Limited) | SSR | 闇 | 下書き |
 | [dark-ssr-fiorito-holiday.md](./dark-ssr-fiorito-holiday.md) | 闇フィオリト(クリスマス) / Fiorito (Holiday) | SSR | 闇 | 下書き |
+| [dark-ssr-yuel-and-sochie-dark.md](./dark-ssr-yuel-and-sochie-dark.md) | 闇ユエル&ソシエ / Yuel & Sochie (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-bowman-normal.md](./dark-ssr-bowman-normal.md) | ボーマン / Bowman | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
