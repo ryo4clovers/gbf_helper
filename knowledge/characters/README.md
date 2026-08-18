@@ -218,6 +218,7 @@
 | [fire-ssr-kallen-normal.md](./fire-ssr-kallen-normal.md) | カレン / Kallen | SSR | 火 | 下書き |
 | [fire-ssr-alanaan-normal.md](./fire-ssr-alanaan-normal.md) | アラナン / Alanaan | SSR | 火 | 下書き |
 | [fire-ssr-frau-normal.md](./fire-ssr-frau-normal.md) | フラウ / Frau | SSR | 火 | 下書き |
+| [fire-ssr-athena-normal.md](./fire-ssr-athena-normal.md) | アテナ / Athena | SSR | 火 | 下書き |
 
 ## 運用ルール
 
