@@ -30,6 +30,8 @@
 | [earth-ssr-gon-normal.md](./earth-ssr-gon-normal.md) | ゴン / Gon | SSR | 土 | 下書き |
 | [earth-ssr-lich-summer.md](./earth-ssr-lich-summer.md) | 水着リッチ / Lich (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-vlana-dress.md](./earth-ssr-vlana-dress.md) | ドレスフラウ / Vlana (Dress) | SSR | 土 | 下書き |
+| [earth-ssr-siegfried-grand.md](./earth-ssr-siegfried-grand.md) | ジークフリート(リミテッド) / Siegfried (Grand) | SSR | 土 | 下書き |
+| [earth-ssr-lou-summer.md](./earth-ssr-lou-summer.md) | 水着ルオー(土属性) / Lou (Summer) | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
