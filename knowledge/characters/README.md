@@ -253,6 +253,8 @@
 | [water-ssr-hitsugaya-and-matsumoto-normal.md](./water-ssr-hitsugaya-and-matsumoto-normal.md) | 日番谷冬獅郎＆松本乱菊 / Hitsugaya & Matsumoto | SSR | 水 | 下書き |
 | [water-ssr-olivier-normal.md](./water-ssr-olivier-normal.md) | オリヴィエ・ミラ・アームストロング / Olivier Mira Armstrong | SSR | 水 | 下書き |
 | [water-ssr-alliah-yukata.md](./water-ssr-alliah-yukata.md) | 浴衣アリア / Alliah (Yukata) | SSR | 水 | 下書き |
+| [water-ssr-octavia-grand.md](./water-ssr-octavia-grand.md) | オクタヴィア(リミテッド) / Octavia (Grand) | SSR | 水 | 下書き |
+| [water-ssr-ange-normal.md](./water-ssr-ange-normal.md) | アンジェ / Ange (SSR) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
