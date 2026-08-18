@@ -511,6 +511,7 @@
 | [wind-ssr-freyr-normal.md](./wind-ssr-freyr-normal.md) | フレイ / Freyr | SSR | 風 | 下書き |
 | [wind-ssr-yggdrasil-wind.md](./wind-ssr-yggdrasil-wind.md) | 風ユグドラシル / Yggdrasil (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-ewiyar-normal.md](./wind-ssr-ewiyar-normal.md) | イーウィヤ / Ewiyar | SSR | 風 | 下書き |
+| [wind-ssr-randall-normal.md](./wind-ssr-randall-normal.md) | ランドル / Randall (SSR) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
