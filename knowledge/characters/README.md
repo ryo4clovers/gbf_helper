@@ -54,6 +54,8 @@
 | [earth-ssr-amelia-normal.md](./earth-ssr-amelia-normal.md) | エミリア / Amelia | SSR | 土 | 下書き |
 | [earth-ssr-europa-holiday.md](./earth-ssr-europa-holiday.md) | エウロペ(クリスマス、土属性) / Europa (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-adam-normal.md](./earth-ssr-adam-normal.md) | アダム / Adam | SSR | 土 | 下書き |
+| [earth-ssr-aglovale-and-tor-normal.md](./earth-ssr-aglovale-and-tor-normal.md) | アグロヴァル&トー / Aglovale and Tor | SSR | 土 | 下書き |
+| [earth-ssr-tikoh-summer.md](./earth-ssr-tikoh-summer.md) | 水着ティコ / Tikoh (Summer) | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
