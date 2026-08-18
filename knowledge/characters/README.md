@@ -842,6 +842,7 @@
 | [earth-sr-makira-normal.md](./earth-sr-makira-normal.md) | マキラ(SR) / Makira (SR) | SR | 土 | 下書き |
 | [earth-sr-mimlemel-and-pun-kin-halloween.md](./earth-sr-mimlemel-and-pun-kin-halloween.md) | ミムルメモル&パンプキン(ハロウィン) / Mimlemel and Pun-Kin (Halloween) | SR | 土 | 下書き |
 | [earth-sr-yamanbagiri-kunihiro-normal.md](./earth-sr-yamanbagiri-kunihiro-normal.md) | 山姥切国広 / Yamanbagiri Kunihiro | SR | 土 | 下書き |
+| [earth-sr-ayer-summer.md](./earth-sr-ayer-summer.md) | 水着アイル / Ayer (Summer) | SR | 土 | 下書き |
 
 ## 運用ルール
 
