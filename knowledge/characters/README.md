@@ -475,6 +475,7 @@
 | [wind-ssr-negi-normal.md](./wind-ssr-negi-normal.md) | ネギ(ネギ・スプリングフィールド) / Negi | SSR | 風 | 下書き |
 | [wind-ssr-setsuna-sakurazaki.md](./wind-ssr-setsuna-sakurazaki.md) | 桜咲刹那 / Setsuna Sakurazaki | SSR | 風 | 下書き |
 | [wind-ssr-raphael-grand.md](./wind-ssr-raphael-grand.md) | ラファエル(リミテッド) / Raphael (Grand) | SSR | 風 | 下書き |
+| [wind-ssr-veldora-normal.md](./wind-ssr-veldora-normal.md) | ヴェルドラ(ヴェルドラ=テンペスト) / Veldora | SSR | 風 | 下書き |
 
 ## 運用ルール
 

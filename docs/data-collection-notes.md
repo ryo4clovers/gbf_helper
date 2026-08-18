@@ -94,7 +94,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index107 アレーティアはgbf.wiki「Aletheia」のHP/ATKがGameWith値と完全一致せず4★/5★の中間値だったが、名称・二つ名(剣の賢者)等で同一キャラクターと確認できたため採用、`source`に注記。
   - **風属性SSR収集に着手**(scratchディレクトリ`wind_ssr`)。`scratch-build-list.mjs 風`でlist.json生成(121体)→パイプラインスクリプトの`SCRATCH`定数を`wind_ssr`に書き換え→GameWith取得(Node fetch)→gbf.wiki検索はNode fetchが403のため`scratch-fetch-gbfwiki.sh`(curl)で取得→pick-and-dump(76/121体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_120-120.txt`、16バッチ)まで完了。既存の`wind-ssr-gwynne-yukata.md`はlist.jsonのindex0(浴衣グウィン)と重複のためスキップ。
   - index1 ネリエル(ネリエル・トゥ・オーデルシュヴァンク)はBLEACHコラボキャラのためgbf.wiki候補なし(想定通り)、GameWithのみで作成。
-  - **進捗(風属性SSR)**: index20まで処理済み(21/121体)。続きを行う場合: `scratchpad/wind_ssr/dossiers/batch_016-023.txt` のindex21(ヴェルドラ)から読み進める。
+  - **進捗(風属性SSR)**: index21まで処理済み(22/121体)。続きを行う場合: `scratchpad/wind_ssr/dossiers/batch_016-023.txt` のindex22(風リーシャ)から読み進める。
   - index17 ジョイ(ハマ)はgbf.wiki検索候補「Joy (Event)」が同キャラの別バージョン(低レアリティ)ページで、HP108/ATK6000(GameWith側HP1080/ATK9011と大きく不一致)だったため不採用、GameWithのみで作成。
   - index102 サラーサも十天衆キャラで限界超越Lv150+斧/剣モードのフォームチェンジを持つ非常に複雑な仕様のため、最終上限解放+限界超越内容を大幅に簡略化して記載。gbf.wiki候補なしのためGameWithのみで作成。
   - index101 オクトーは十天衆キャラで限界超越Lv150まである非常に複雑な仕様のため、最終上限解放+限界超越内容を大幅に簡略化して記載。gbf.wiki候補なしのためGameWithのみで作成。
