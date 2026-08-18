@@ -279,7 +279,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index32 アニラ(SR、十二神将)はgbf.wiki候補なし。GameWithのみで作成。
 - index33 天道輝(アイマスSideMコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
 - index34 火ノイシュ(SR)はgbf.wiki検索候補「Naoise (Fire)」がSSR相当のステータスで不一致のため不採用、GameWithのみで作成。最終上限解放後の性能を採用。
-- 火属性SR(35/55体完了)。次はindex35から継続(batch_032-039.txt)。
+- index35 アンナ(SR)はgbf.wiki検索候補「Anna」が基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
+- 火属性SR(36/55体完了)。次はindex36から継続(batch_032-039.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
