@@ -533,6 +533,7 @@
 | [wind-ssr-yodarha-wind.md](./wind-ssr-yodarha-wind.md) | 風ヨダルラーハ / Yodarha (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-seruel-holiday.md](./wind-ssr-seruel-holiday.md) | セルエル(クリスマス) / Seruel (Holiday) | SSR | 風 | 下書き |
 | [wind-ssr-gachapin-normal.md](./wind-ssr-gachapin-normal.md) | ガチャピン / Gachapin | SSR | 風 | 下書き |
+| [wind-ssr-meteon-holiday.md](./wind-ssr-meteon-holiday.md) | ミュオン(クリスマス) / Meteon (Holiday) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
