@@ -240,6 +240,10 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index39 フェリ(SR)はgbf.wiki候補とHP/ATK完全一致(HP1035/ATK5740)で確認、採用。batch_032-039.txt完了。
   - index40 光ノイシュはgbf.wiki検索候補「Naoise」が風属性版(元素値04、全く異なるスキル構成)で不一致のため不採用、GameWithのみで作成。batch_040-040.txt完了。
   - **光属性SR全41体完了！(41/41)** 次は火属性SRの収集に進む。
+
+### 進行中の作業(2026-08-19〜): 火属性SR収集
+
+パイプラインを`fire_sr`に retarget。火属性SRは全55体。既存の`fire-sr-*.md`ファイルは無し(重複スキップ対象なし)。list.json(55体)→GameWith取得(55/55成功)→gbf.wiki検索(55/55成功)→候補選定(39/55にgbf.wiki候補あり)→ページ取得(39/39成功)→dossier生成まで完了。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
