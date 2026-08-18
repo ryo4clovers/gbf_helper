@@ -554,6 +554,7 @@
 | [wind-ssr-jeanne-darc-summer.md](./wind-ssr-jeanne-darc-summer.md) | 水着ジャンヌダルク / Jeanne d'Arc (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-tiamat-normal.md](./wind-ssr-tiamat-normal.md) | ティアマト / Tiamat | SSR | 風 | 下書き |
 | [wind-ssr-levi-normal.md](./wind-ssr-levi-normal.md) | リヴァイ / Levi | SSR | 風 | 下書き |
+| [wind-ssr-lancelot-wind.md](./wind-ssr-lancelot-wind.md) | 風ランスロット / Lancelot (Wind) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
