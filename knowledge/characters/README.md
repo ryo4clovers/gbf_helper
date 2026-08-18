@@ -676,6 +676,7 @@
 | [dark-ssr-forte-normal.md](./dark-ssr-forte-normal.md) | フォルテ / Forte | SSR | 闇 | 下書き |
 | [dark-ssr-black-knight-grand.md](./dark-ssr-black-knight-grand.md) | 黒騎士(リミテッド) / Black Knight (Grand) | SSR | 闇 | 下書き |
 | [dark-ssr-jeanne-darc-dark.md](./dark-ssr-jeanne-darc-dark.md) | 闇ジャンヌダルク / Jeanne d'Arc (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-beatrix-normal.md](./dark-ssr-beatrix-normal.md) | ベアトリクス / Beatrix | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
