@@ -564,6 +564,7 @@
 | [wind-ssr-korwa-normal.md](./wind-ssr-korwa-normal.md) | コルワ / Korwa | SSR | 風 | 下書き |
 | [wind-ssr-anchira-normal.md](./wind-ssr-anchira-normal.md) | アンチラ(十二神将) / Anchira | SSR | 風 | 下書き |
 | [wind-ssr-rosetta-grand.md](./wind-ssr-rosetta-grand.md) | ロゼッタ(リミテッド) / Rosetta (Grand) | SSR | 風 | 下書き |
+| [wind-ssr-feena-normal.md](./wind-ssr-feena-normal.md) | フィーナ(SSR) / Feena | SSR | 風 | 下書き |
 
 ## 運用ルール
 
