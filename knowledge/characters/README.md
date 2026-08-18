@@ -882,6 +882,7 @@
 | [wind-sr-joy-normal.md](./wind-sr-joy-normal.md) | ジョイ(プロトジョヤ) / Joy (Event) | SR | 風 | 下書き |
 | [wind-sr-krugne-normal.md](./wind-sr-krugne-normal.md) | クルーニ(SR) / Krugne (SR) | SR | 風 | 下書き |
 | [wind-sr-korwa-uniform.md](./wind-sr-korwa-uniform.md) | 制服コルワ / Korwa (Uniform) | SR | 風 | 下書き |
+| [wind-sr-yaia-christmas.md](./wind-sr-yaia-christmas.md) | ヤイア(クリスマス) / Yaia (Holiday) | SR | 風 | 下書き |
 
 ## 運用ルール
 
