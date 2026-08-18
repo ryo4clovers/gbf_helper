@@ -281,6 +281,8 @@
 | [water-ssr-sen-valentine.md](./water-ssr-sen-valentine.md) | セン(バレンタイン) / Sen (Valentine) | SSR | 水 | 下書き |
 | [water-ssr-erin-normal.md](./water-ssr-erin-normal.md) | エリン(SSR) / Erin (SSR) | SSR | 水 | 下書き |
 | [water-ssr-catura-holiday.md](./water-ssr-catura-holiday.md) | 水シャトラ(クリスマス) / Catura (Holiday) | SSR | 水 | 下書き |
+| [water-ssr-erica-normal.md](./water-ssr-erica-normal.md) | エリカ / Erica | SSR | 水 | 下書き |
+| [water-ssr-yngwie-shift.md](./water-ssr-yngwie-shift.md) | イングヴェイ(シフト後) / Yngwie (Style Shift) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
