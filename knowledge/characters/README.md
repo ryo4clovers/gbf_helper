@@ -242,7 +242,7 @@
 | [fire-ssr-rackam-grand.md](./fire-ssr-rackam-grand.md) | ラカム(リミテッド) / Rackam (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-ghandagoza-normal.md](./fire-ssr-ghandagoza-normal.md) | ガンダゴウザ / Ghandagoza | SSR | 火 | 下書き |
 | [fire-ssr-clarisse-fire.md](./fire-ssr-clarisse-fire.md) | 火クラリス / Clarisse (Fire) | SSR | 火 | 下書き |
-| [fire-ssr-essel-normal.md](./fire-ssr-essel-normal.md) | エッセル / Essel | SSR | 火 | 下書き |
+| [fire-ssr-tien-normal.md](./fire-ssr-tien-normal.md) | エッセル / Tien | SSR | 火 | 下書き |
 | [fire-ssr-zeta-fire.md](./fire-ssr-zeta-fire.md) | 火ゼタ / Zeta (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-anila-normal.md](./fire-ssr-anila-normal.md) | アニラ / Anila | SSR | 火 | 下書き |
 | [fire-ssr-agielba-normal.md](./fire-ssr-agielba-normal.md) | アギエルバ / Agielba | SSR | 火 | 下書き |
@@ -259,6 +259,7 @@
 | [water-ssr-darydara-normal.md](./water-ssr-darydara-normal.md) | ダリダラ / Darydara | SSR | 水 | 下書き |
 | [water-ssr-rei-and-unit00-normal.md](./water-ssr-rei-and-unit00-normal.md) | レイ＆零号機 / Rei & Unit-00 | SSR | 水 | 下書き |
 | [water-ssr-chichiri-water.md](./water-ssr-chichiri-water.md) | 水チチリ / Chichiri (Water) | SSR | 水 | 下書き |
+| [water-ssr-tien-halloween.md](./water-ssr-tien-halloween.md) | エッセル(ハロウィン) / Tien (Halloween) | SSR | 水 | 下書き |
 
 ## 運用ルール
 

@@ -1,7 +1,7 @@
 ---
-id: "fire-ssr-essel-normal"
+id: "fire-ssr-tien-normal"
 name_jp: "エッセル"
-name_en: "Essel"
+name_en: "Tien"
 rarity: SSR
 element: "火"
 race: "エルーン"
@@ -15,7 +15,7 @@ last_updated: 2026-08-18
 source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/54606) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。十天衆特有の「限界超越」システムにより性能が段階的に強化されるが、本ファイルでは最終上限解放(Lv100)・バランス調整後の基本仕様を中心に記載。"
 ---
 
-# エッセル(Essel)
+# エッセル(Tien)
 
 ## 概要
 
