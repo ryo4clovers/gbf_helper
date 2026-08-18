@@ -713,6 +713,7 @@
 | [light-sr-koshimizu-sachiko-normal.md](./light-sr-koshimizu-sachiko-normal.md) | 輿水幸子 / Sachiko Koshimizu | SR | 光 | 下書き |
 | [light-sr-soriz-event.md](./light-sr-soriz-event.md) | ソリッズ(光) / Soriz (Event) | SR | 光 | 下書き |
 | [light-sr-daetta-normal.md](./light-sr-daetta-normal.md) | ダエッタ(SR) / Daetta (SR) | SR | 光 | 下書き |
+| [light-sr-ladiva-holiday.md](./light-sr-ladiva-holiday.md) | ファスティバ(クリスマス) / Ladiva (Holiday) | SR | 光 | 下書き |
 
 ## 運用ルール
 

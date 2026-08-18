@@ -223,7 +223,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index22 輿水幸子(アイマスシンデレラガールズコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
   - index23 ソリッズ(光)はgbf.wiki検索候補「Soriz」が基本版でGameWith記載と不一致だったため不採用、GameWithのみで作成。batch_016-023.txt完了。
   - index24 ダエッタ(SR)はgbf.wiki検索候補「Daetta」がHP700(3★)/ATK5280(3★)で基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
-  - 光属性SR(25/41体完了)。次はindex25から継続(batch_024-031.txt)。
+  - index25 ファスティバ(クリスマス)はgbf.wiki候補とHP/ATK完全一致(HP1100/ATK7850)で確認、採用。
+  - 光属性SR(26/41体完了)。次はindex26から継続(batch_024-031.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
