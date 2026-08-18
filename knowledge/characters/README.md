@@ -553,6 +553,7 @@
 | [wind-ssr-selfira-normal.md](./wind-ssr-selfira-normal.md) | セレフィラ(SSR) / Selfira | SSR | 風 | 下書き |
 | [wind-ssr-jeanne-darc-summer.md](./wind-ssr-jeanne-darc-summer.md) | 水着ジャンヌダルク / Jeanne d'Arc (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-tiamat-normal.md](./wind-ssr-tiamat-normal.md) | ティアマト / Tiamat | SSR | 風 | 下書き |
+| [wind-ssr-levi-normal.md](./wind-ssr-levi-normal.md) | リヴァイ / Levi | SSR | 風 | 下書き |
 
 ## 運用ルール
 
