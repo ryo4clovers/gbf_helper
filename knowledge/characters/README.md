@@ -237,6 +237,8 @@
 | [fire-ssr-aliza-normal.md](./fire-ssr-aliza-normal.md) | アリーザ(SSR) / Aliza | SSR | 火 | 下書き |
 | [fire-ssr-aoidos-normal.md](./fire-ssr-aoidos-normal.md) | アオイドス / Aoidos | SSR | 火 | 下書き |
 | [fire-ssr-zahlhamelina-normal.md](./fire-ssr-zahlhamelina-normal.md) | ザルハメリナ / Zahlhamelina | SSR | 火 | 下書き |
+| [fire-ssr-metera-fire.md](./fire-ssr-metera-fire.md) | 火メーテラ / Metera (Fire) | SSR | 火 | 下書き |
+| [fire-ssr-heles-normal.md](./fire-ssr-heles-normal.md) | ヘルエス / Heles | SSR | 火 | 下書き |
 
 ## 運用ルール
 
