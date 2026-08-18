@@ -285,7 +285,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index40 マリー(SR)はgbf.wiki候補「Mary」がHP800(3★)/ATK4000(3★)で基本レアリティ(R)版のため不採用、GameWithのみで作成。
 - index41 サーヤ(イベント)はgbf.wiki候補「Sarya」がHP1150(4★)/ATK7310(4★)でGameWithのHP840/ATK5780と不一致のため不採用、GameWithのみで作成。
 - index51 アリーザ(SR)はgbf.wiki候補「Aliza」がHP1400(4★)/ATK9830(4★)でGameWithのHP840/ATK6700と不一致のため不採用、GameWithのみで作成。
-- 火属性SR(52/55体完了)。次はindex52から継続(batch_048-054.txt)。
+- index52 アビー(SR)はgbf.wiki候補「Abby」がHP1100(4★)/ATK10500(4★)でSSR相当のため不採用、GameWithのみで作成。
+- 火属性SR(53/55体完了)。次はindex53から継続(batch_048-054.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
