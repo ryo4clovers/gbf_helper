@@ -279,6 +279,8 @@
 | [water-ssr-vaseraga-summer.md](./water-ssr-vaseraga-summer.md) | 水着バザラガ / Vaseraga (Summer) | SSR | 水 | 下書き |
 | [water-ssr-korwa-water.md](./water-ssr-korwa-water.md) | 水コルワ / Korwa (Water) | SSR | 水 | 下書き |
 | [water-ssr-sen-valentine.md](./water-ssr-sen-valentine.md) | セン(バレンタイン) / Sen (Valentine) | SSR | 水 | 下書き |
+| [water-ssr-erin-normal.md](./water-ssr-erin-normal.md) | エリン(SSR) / Erin (SSR) | SSR | 水 | 下書き |
+| [water-ssr-catura-holiday.md](./water-ssr-catura-holiday.md) | 水シャトラ(クリスマス) / Catura (Holiday) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
