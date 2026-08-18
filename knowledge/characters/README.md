@@ -529,6 +529,7 @@
 | [wind-ssr-anila-summer.md](./wind-ssr-anila-summer.md) | 水着アニラ / Anila (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-noeud-wind.md](./wind-ssr-noeud-wind.md) | 風ノイシュ / Noeud (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-kaede-takagaki-normal.md](./wind-ssr-kaede-takagaki-normal.md) | 高垣楓 / Kaede Takagaki | SSR | 風 | 下書き |
+| [wind-ssr-grimnir-valentine.md](./wind-ssr-grimnir-valentine.md) | グリームニル(バレンタイン) / Grimnir (Valentine) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
