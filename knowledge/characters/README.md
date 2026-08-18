@@ -597,6 +597,8 @@
 | [dark-ssr-aletheia-dark.md](./dark-ssr-aletheia-dark.md) | 闇アレーティア / Aletheia (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-yggdrasil-holiday.md](./dark-ssr-yggdrasil-holiday.md) | 闇ユグドラシル(クリスマス) / Yggdrasil (Holiday) | SSR | 闇 | 下書き |
 | [dark-ssr-rimuru-normal.md](./dark-ssr-rimuru-normal.md) | リムル＝テンペスト / Rimuru Tempest | SSR | 闇 | 下書き |
+| [dark-ssr-diablo-normal.md](./dark-ssr-diablo-normal.md) | ディアブロ / Diablo | SSR | 闇 | 下書き |
+| [dark-ssr-shion-normal.md](./dark-ssr-shion-normal.md) | シオン / Shion | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
