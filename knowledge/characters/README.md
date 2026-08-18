@@ -506,6 +506,7 @@
 | [wind-ssr-nami-and-robin-normal.md](./wind-ssr-nami-and-robin-normal.md) | ナミ&ロビン / Nami & Robin | SSR | 風 | 下書き |
 | [wind-ssr-eustace-summer.md](./wind-ssr-eustace-summer.md) | 水着ユーステス / Eustace (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-shion-summer.md](./wind-ssr-shion-summer.md) | 水着シオン / Shion (Summer) | SSR | 風 | 下書き |
+| [wind-ssr-elea-normal.md](./wind-ssr-elea-normal.md) | エイレア / Elea | SSR | 風 | 下書き |
 
 ## 運用ルール
 
