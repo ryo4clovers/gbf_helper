@@ -67,6 +67,7 @@
 | [earth-ssr-anthuria-holiday.md](./earth-ssr-anthuria-holiday.md) | アンスリア(クリスマス、土属性) / Anthuria (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-benjamin-normal.md](./earth-ssr-benjamin-normal.md) | ベンジャミン / Benjamin | SSR | 土 | 下書き |
 | [earth-ssr-cucouroux-halloween.md](./earth-ssr-cucouroux-halloween.md) | ククル(ハロウィン) / Cucouroux (Halloween) | SSR | 土 | 下書き |
+| [earth-ssr-metera-summer.md](./earth-ssr-metera-summer.md) | 水着メーテラ / Metera (Summer) | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
