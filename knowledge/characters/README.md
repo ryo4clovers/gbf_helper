@@ -502,6 +502,7 @@
 | [wind-ssr-charlotta-grand.md](./wind-ssr-charlotta-grand.md) | 風シャルロッテ(リミテッド) / Charlotta (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-therese-wind.md](./wind-ssr-therese-wind.md) | 風テレーズ / Therese (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-aria-wind.md](./wind-ssr-aria-wind.md) | 風アリア / Aria (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-lich-halloween.md](./wind-ssr-lich-halloween.md) | リッチ(ハロウィン) / Lich (Halloween) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
