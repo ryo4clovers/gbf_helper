@@ -239,6 +239,8 @@
 | [fire-ssr-zahlhamelina-normal.md](./fire-ssr-zahlhamelina-normal.md) | ザルハメリナ / Zahlhamelina | SSR | 火 | 下書き |
 | [fire-ssr-metera-fire.md](./fire-ssr-metera-fire.md) | 火メーテラ / Metera (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-heles-normal.md](./fire-ssr-heles-normal.md) | ヘルエス / Heles | SSR | 火 | 下書き |
+| [fire-ssr-rackam-grand.md](./fire-ssr-rackam-grand.md) | ラカム(リミテッド) / Rackam (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-ghandagoza-normal.md](./fire-ssr-ghandagoza-normal.md) | ガンダゴウザ / Ghandagoza | SSR | 火 | 下書き |
 
 ## 運用ルール
 
