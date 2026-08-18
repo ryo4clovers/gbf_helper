@@ -728,6 +728,7 @@
 | [light-sr-noa-normal.md](./light-sr-noa-normal.md) | ノア / Noa | SR | 光 | 下書き |
 | [light-sr-arusha-normal.md](./light-sr-arusha-normal.md) | アルシャ / Arusha | SR | 光 | 下書き |
 | [light-sr-ferry-normal.md](./light-sr-ferry-normal.md) | フェリ(SR) / Ferry | SR | 光 | 下書き |
+| [light-sr-naoise-light.md](./light-sr-naoise-light.md) | 光ノイシュ / Naoise (Light) | SR | 光 | 下書き |
 
 ## 運用ルール
 

@@ -238,7 +238,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index37 ノアはgbf.wiki候補とHP/ATK完全一致(HP1200/ATK7500、5★表記)で確認、採用。最終上限解放後の性能を採用。
   - index38 アルシャはgbf.wiki候補とHP/ATK完全一致(HP1355/ATK5625)で確認、採用。
   - index39 フェリ(SR)はgbf.wiki候補とHP/ATK完全一致(HP1035/ATK5740)で確認、採用。batch_032-039.txt完了。
-  - 光属性SR(40/41体完了)。次はindex40から継続(batch_040-040.txt)。
+  - index40 光ノイシュはgbf.wiki検索候補「Naoise」が風属性版(元素値04、全く異なるスキル構成)で不一致のため不採用、GameWithのみで作成。batch_040-040.txt完了。
+  - **光属性SR全41体完了！(41/41)** 次は火属性SRの収集に進む。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
