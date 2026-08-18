@@ -620,6 +620,8 @@
 | [dark-ssr-cupitan-summer.md](./dark-ssr-cupitan-summer.md) | 水着クピタン / Cupitan (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-jasmine-normal.md](./dark-ssr-jasmine-normal.md) | 闇ジャスミン(SSR) / Jasmine (SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-ilsa-yukata.md](./dark-ssr-ilsa-yukata.md) | 浴衣イルザ / Ilsa (Yukata) | SSR | 闇 | 下書き |
+| [dark-ssr-azusa-summer.md](./dark-ssr-azusa-summer.md) | 水着アズサ / Azusa (Summer) | SSR | 闇 | 下書き |
+| [dark-ssr-cendrillon-normal.md](./dark-ssr-cendrillon-normal.md) | サンドリヨン / Cendrillon | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
