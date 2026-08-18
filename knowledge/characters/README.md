@@ -879,6 +879,7 @@
 | [earth-sr-gayne-normal.md](./earth-sr-gayne-normal.md) | ガイーヌ / Gayne | SR | 土 | 下書き |
 | [earth-sr-eugen-normal.md](./earth-sr-eugen-normal.md) | オイゲン / Eugen | SR | 土 | 下書き |
 | [wind-sr-spinnah-christmas.md](./wind-sr-spinnah-christmas.md) | スピナー(クリスマス) / Spinnah (Holiday) | SR | 風 | 下書き |
+| [wind-sr-joy-normal.md](./wind-sr-joy-normal.md) | ジョイ(プロトジョヤ) / Joy (Event) | SR | 風 | 下書き |
 
 ## 運用ルール
 
