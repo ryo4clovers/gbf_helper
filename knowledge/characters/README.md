@@ -285,6 +285,8 @@
 | [water-ssr-yngwie-shift.md](./water-ssr-yngwie-shift.md) | イングヴェイ(シフト後) / Yngwie (Style Shift) | SSR | 水 | 下書き |
 | [water-ssr-jeanne-dark-summer.md](./water-ssr-jeanne-dark-summer.md) | 水着闇ジャンヌ / Jeanne d'Arc (Dark Summer) | SSR | 水 | 下書き |
 | [water-ssr-vermeersch-grand.md](./water-ssr-vermeersch-grand.md) | ワムデュス(リミテッド) / Vermeersch (Grand) | SSR | 水 | 下書き |
+| [water-ssr-clarisse-summer.md](./water-ssr-clarisse-summer.md) | 水着クラリス / Clarisse (Summer) | SSR | 水 | 下書き |
+| [water-ssr-gwynne-normal.md](./water-ssr-gwynne-normal.md) | グウィン / Gwynne | SSR | 水 | 下書き |
 
 ## 運用ルール
 
