@@ -813,6 +813,7 @@
 | [water-sr-sakuraba-kaoru-normal.md](./water-sr-sakuraba-kaoru-normal.md) | 桜庭薫 / Kaoru Sakuraba | SR | 水 | 下書き |
 | [water-sr-suframare-summer.md](./water-sr-suframare-summer.md) | 水着スフラマール / Suframare (Summer) | SR | 水 | 下書き |
 | [water-sr-romeo-normal.md](./water-sr-romeo-normal.md) | ロミオ(SR) / Romeo (SR) | SR | 水 | 下書き |
+| [water-sr-sahli-lao-normal.md](./water-sr-sahli-lao-normal.md) | ザーリリャオー / Sahli Lao | SR | 水 | 下書き |
 
 ## 運用ルール
 
