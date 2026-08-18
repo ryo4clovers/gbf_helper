@@ -203,6 +203,7 @@
 | [fire-ssr-tatsuzaki-hiiro-normal.md](./fire-ssr-tatsuzaki-hiiro-normal.md) | 竜ヶ崎ヒイロ / Tatsuzaki Hiiro | SSR | 火 | 下書き |
 | [fire-ssr-mimlemel-summer.md](./fire-ssr-mimlemel-summer.md) | 水着ミムルメモル / Mimlemel (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-abby-normal.md](./fire-ssr-abby-normal.md) | アビー(SSR) / Abby | SSR | 火 | 下書き |
+| [fire-ssr-satyr-normal.md](./fire-ssr-satyr-normal.md) | サテュロス / Satyr | SSR | 火 | 下書き |
 
 ## 運用ルール
 
