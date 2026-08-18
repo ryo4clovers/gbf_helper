@@ -317,6 +317,8 @@
 | [water-ssr-macula-marius-normal.md](./water-ssr-macula-marius-normal.md) | マキュラ・マリウス / Macula Marius | SSR | 水 | 下書き |
 | [water-ssr-haseena-leela-normal.md](./water-ssr-haseena-leela-normal.md) | ハーゼリーラ / Haseena Leela | SSR | 水 | 下書き |
 | [water-ssr-maria-teresa-normal.md](./water-ssr-maria-teresa-normal.md) | マリア・テレサ / Maria Teresa | SSR | 水 | 下書き |
+| [water-ssr-aglovale-normal.md](./water-ssr-aglovale-normal.md) | アグロヴァル / Aglovale | SSR | 水 | 下書き |
+| [water-ssr-europa-grand.md](./water-ssr-europa-grand.md) | エウロペ(リミテッド) / Europa (Grand) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
