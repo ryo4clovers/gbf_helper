@@ -419,6 +419,7 @@
 | [earth-ssr-zeta-and-vaseraga-halloween.md](./earth-ssr-zeta-and-vaseraga-halloween.md) | ゼタ&バザラガ(ハロウィン) / Zeta and Vaseraga (Halloween) | SSR | 土 | 下書き |
 | [earth-ssr-alexiel-summer.md](./earth-ssr-alexiel-summer.md) | 水着ブローディア / Alexiel (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-jessica-yukata.md](./earth-ssr-jessica-yukata.md) | 浴衣ジェシカ / Jessica (Yukata) | SSR | 土 | 下書き |
+| [earth-ssr-ladiva-normal.md](./earth-ssr-ladiva-normal.md) | ファスティバ(SSR) / Ladiva (SSR) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
