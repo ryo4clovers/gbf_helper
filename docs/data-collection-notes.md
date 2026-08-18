@@ -255,7 +255,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index8 カルバ(SR)はgbf.wiki検索候補「Karva」が基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
 - index9 ベアトリクス(ハロウィン)はgbf.wiki候補とHP/ATK完全一致(HP1120/ATK6580)で確認、採用。
 - index10 ラインハルザ(SR)はgbf.wiki候補とHP/ATK完全一致(HP800/ATK7007)で確認、採用。
-- 火属性SR(11/55体完了)。次はindex11から継続(batch_008-015.txt)。
+- index11 和泉守兼定(刀剣乱舞コラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
+- 火属性SR(12/55体完了)。次はindex12から継続(batch_008-015.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。

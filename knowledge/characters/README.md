@@ -740,6 +740,7 @@
 | [fire-sr-karva-normal.md](./fire-sr-karva-normal.md) | カルバ(SR) / Karva (SR) | SR | 火 | 下書き |
 | [fire-sr-beatrix-halloween.md](./fire-sr-beatrix-halloween.md) | ベアトリクス(ハロウィン) / Beatrix (Halloween) | SR | 火 | 下書き |
 | [fire-sr-reinhardtzar-normal.md](./fire-sr-reinhardtzar-normal.md) | ラインハルザ(SR) / Reinhardtzar | SR | 火 | 下書き |
+| [fire-sr-izuminokami-kanesada-normal.md](./fire-sr-izuminokami-kanesada-normal.md) | 和泉守兼定 / Izuminokami Kanesada | SR | 火 | 下書き |
 
 ## 運用ルール
 
