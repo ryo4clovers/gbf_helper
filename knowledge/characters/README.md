@@ -509,6 +509,7 @@
 | [wind-ssr-elea-normal.md](./wind-ssr-elea-normal.md) | エイレア / Elea | SSR | 風 | 下書き |
 | [wind-ssr-lilisette-normal.md](./wind-ssr-lilisette-normal.md) | リリゼット / Lilisette | SSR | 風 | 下書き |
 | [wind-ssr-freyr-normal.md](./wind-ssr-freyr-normal.md) | フレイ / Freyr | SSR | 風 | 下書き |
+| [wind-ssr-yggdrasil-wind.md](./wind-ssr-yggdrasil-wind.md) | 風ユグドラシル / Yggdrasil (Wind) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
