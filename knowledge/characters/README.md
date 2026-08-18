@@ -17,6 +17,7 @@
 | [dark-sr-vira-normal.md](./dark-sr-vira-normal.md) | ヴィーラ / Vira | SR | 闇 | 下書き |
 | [fire-ssr-percival-normal.md](./fire-ssr-percival-normal.md) | パーシヴァル / Percival | SSR | 火 | 下書き |
 | [earth-ssr-seox-summer.md](./earth-ssr-seox-summer.md) | シス(水着) / Seox (Summer) | SSR | 土 | 下書き |
+| [earth-ssr-io-normal.md](./earth-ssr-io-normal.md) | 土イオ / Io | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
