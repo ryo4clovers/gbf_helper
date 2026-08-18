@@ -153,7 +153,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index69 ルシウス(SSR)はgbf.wiki検索候補「Lucius」がHP/ATK不一致(基本レアリティ版、HP1250/ATK8760 vs GameWithのSSR HP1285/ATK9800)だったため不採用、GameWithのみで作成。
   - index70 ビカラ(十二神将)はgbf.wiki候補なし。GameWithのみで作成。
   - index71 シャレム(リミテッド)はgbf.wiki候補なし。GameWithのみで作成。batch_064-071.txt完了。
-  - 闇属性SSR処理中(72/113体完了)。次はindex72から継続(batch_072-079.txt)。
+  - index72 コウはgbf.wiki候補とHP/ATK完全一致(5★表記)で確認、採用。
+  - 闇属性SSR処理中(73/113体完了)。次はindex73から継続(batch_072-079.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。

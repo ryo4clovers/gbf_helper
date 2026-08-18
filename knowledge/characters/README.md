@@ -647,6 +647,7 @@
 | [dark-ssr-lucius-normal.md](./dark-ssr-lucius-normal.md) | ルシウス(SSR) / Lucius (SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-vikala-normal.md](./dark-ssr-vikala-normal.md) | ビカラ / Vikala | SSR | 闇 | 下書き |
 | [dark-ssr-sharem-limited.md](./dark-ssr-sharem-limited.md) | へレル・ベン・シャレム(リミテッド) / Sharem (Limited) | SSR | 闇 | 下書き |
+| [dark-ssr-kou-normal.md](./dark-ssr-kou-normal.md) | コウ / Kou | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
