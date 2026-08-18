@@ -750,6 +750,7 @@
 | [fire-sr-lucius-fire.md](./fire-sr-lucius-fire.md) | 火ルシウス / Lucius (Fire) | SR | 火 | 下書き |
 | [fire-sr-percival-sidestory.md](./fire-sr-percival-sidestory.md) | パーシヴァル(SR) / Percival (SR) | SR | 火 | 下書き |
 | [fire-sr-akagi-miria-normal.md](./fire-sr-akagi-miria-normal.md) | 赤城みりあ / Miria Akagi | SR | 火 | 下書き |
+| [fire-sr-dante-normal.md](./fire-sr-dante-normal.md) | ダーント(SR) / Dante (SR) | SR | 火 | 下書き |
 
 ## 運用ルール
 
