@@ -94,8 +94,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index107 アレーティアはgbf.wiki「Aletheia」のHP/ATKがGameWith値と完全一致せず4★/5★の中間値だったが、名称・二つ名(剣の賢者)等で同一キャラクターと確認できたため採用、`source`に注記。
   - **風属性SSR収集に着手**(scratchディレクトリ`wind_ssr`)。`scratch-build-list.mjs 風`でlist.json生成(121体)→パイプラインスクリプトの`SCRATCH`定数を`wind_ssr`に書き換え→GameWith取得(Node fetch)→gbf.wiki検索はNode fetchが403のため`scratch-fetch-gbfwiki.sh`(curl)で取得→pick-and-dump(76/121体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_120-120.txt`、16バッチ)まで完了。既存の`wind-ssr-gwynne-yukata.md`はlist.jsonのindex0(浴衣グウィン)と重複のためスキップ。
   - index1 ネリエル(ネリエル・トゥ・オーデルシュヴァンク)はBLEACHコラボキャラのためgbf.wiki候補なし(想定通り)、GameWithのみで作成。
-  - **進捗(風属性SSR)**: index44まで処理済み(45/121体)。続きを行う場合: `scratchpad/wind_ssr/dossiers/batch_040-047.txt` のindex45(風シャルロッテ(リミテッド))から読み進める。
+  - **進捗(風属性SSR)**: index45まで処理済み(46/121体)。続きを行う場合: `scratchpad/wind_ssr/dossiers/batch_040-047.txt` のindex46(風テレーズ)から読み進める。
   - index44 U・フライデーはgbf.wiki「Ultimate Friday」のHP1700がGameWithと一致(ATKはダンプ範囲外のため未検証)、採用。
+  - index45 風シャルロッテ(リミテッド)はgbf.wiki「Charlotta (Grand)」のHP1730/ATK7560がGameWithと完全一致、採用。
   - index40 シナモロール&ポムポムプリンはサンリオコラボキャラのためgbf.wiki候補なし(想定通り)。GameWithのみで作成。
   - index41 イーウィヤ(リミテッド)はgbf.wiki「Ewiyar (Grand)」のHP1118/ATK9410がGameWithと完全一致、採用。
   - index42 シエテ(アナザー)はgbf.wiki「Seofon (Event)」のHP1277がGameWithと一致(ATKはダンプ範囲外のため未検証)、採用。十天衆キャラのため詳細を一部簡略化。

@@ -499,6 +499,7 @@
 | [wind-ssr-seofon-event.md](./wind-ssr-seofon-event.md) | シエテ(アナザー) / Seofon (Event) | SSR | 風 | 下書き |
 | [wind-ssr-sandalphon-valentine.md](./wind-ssr-sandalphon-valentine.md) | サンダルフォン(バレンタイン) / Sandalphon (Valentine) | SSR | 風 | 下書き |
 | [wind-ssr-ultimate-friday-normal.md](./wind-ssr-ultimate-friday-normal.md) | U・フライデー / Ultimate Friday | SSR | 風 | 下書き |
+| [wind-ssr-charlotta-grand.md](./wind-ssr-charlotta-grand.md) | 風シャルロッテ(リミテッド) / Charlotta (Grand) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
