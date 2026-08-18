@@ -90,7 +90,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
   - **完了**: 水属性SSR 99/99体(list.jsonの全indexを処理完了。`batch_096-098.txt`まで全バッチ処理済み)。index96シャルロッテ・index97リリィ(SSR)・index98アルタイルで水属性SSRが完了した。
   - **土属性SSR収集に着手**(scratchディレクトリ`earth_ssr`)。`scratch-build-list.mjs 土`でlist.json生成(108体)→パイプラインスクリプトの`SCRATCH`定数を`earth_ssr`に書き換え→GameWith/gbf.wiki取得(gamewith/gbfwikiサブディレクトリを事前に`mkdir`しておく必要があった、無いとENOENTで失敗)→pick-and-dump(79/108体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_104-107.txt`、14バッチ)まで完了。既存の`earth-ssr-seox-summer.md`はlist.jsonに同名キャラが見当たらず重複なし。
-  - **進捗(土属性SSR)**: index15まで処理済み(16/108体、`batch_008-015.txt`完了)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_016-023.txt` の index16から読み進める。
+  - **進捗(土属性SSR)**: index16まで処理済み(17/108体)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_016-023.txt` の index17(土マコラ(バレンタイン))から読み進める。
+  - index16 スーパーシンダラはベース十二神将「土シンダラ」のスタイルシフト形態。ベースの通常版「土シンダラ」自体はlist.jsonの108件に含まれておらず未収集のため、別途手動で確認・収集が必要(TODO)。
   - index0 水着シスは既存の`earth-ssr-seox-summer.md`と重複のためスキップ。
   - index92 ソシエ(SSR)はgbf.wiki検索候補「Sapphire Dance: Gentiana」が召喚石ページ(キャラクターと無関係)だったため不採用、GameWithのみで作成。
   - index93 カトル・index94 ウーノは十天衆(限界超越システム持ち)でgbf.wiki自動検索では候補なしだったが、追加調査で公式英語名がそれぞれ「Feower」「Anre」(数字連想ではない独自の英語名)と判明したため、ファイル名・name_enをこれに合わせて作成(water-ssr-feower-normal.md/water-ssr-anre-normal.md)。番号由来の名前(Quatre/Uno等)を安易に採用しないよう注意。
