@@ -134,6 +134,10 @@
 | [light-ssr-fif-normal.md](./light-ssr-fif-normal.md) | フュンフ / Fif | SSR | 光 | 下書き |
 | [light-ssr-tweyen-normal.md](./light-ssr-tweyen-normal.md) | ソーン / Tweyen | SSR | 光 | 下書き |
 | [light-ssr-sophia-light.md](./light-ssr-sophia-light.md) | 光ソフィア / Sophia (Light) | SSR | 光 | 下書き |
+| [light-ssr-charlotta-halloween.md](./light-ssr-charlotta-halloween.md) | シャルロッテ(ハロウィン) / Charlotta (Halloween) | SSR | 光 | 下書き |
+| [light-ssr-lefiya-summer.md](./light-ssr-lefiya-summer.md) | 水着レフィーエ / Lefiya (Summer) | SSR | 光 | 下書き |
+| [light-ssr-seruel-normal.md](./light-ssr-seruel-normal.md) | セルエル / Seruel | SSR | 光 | 下書き |
+| [light-ssr-sarunan-light.md](./light-ssr-sarunan-light.md) | 光サルナーン / Sarunan (Light) | SSR | 光 | 下書き |
 
 ## 運用ルール
 

@@ -52,8 +52,9 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - `list.json`: 121体の一覧(新しい順、element/tag/href)。
   - `picks.json`: 各キャラに対応するgbf.wiki候補ページの選定結果。属性接頭辞パターン(光○○等)は対応する `(Light)` 等のページが見つからない場合 `candidate: null` にしている(10体、要手動確認)。
   - `dossiers/batch_XXX-YYY.txt`: 8体ずつにまとめたGameWith+gbf.wikiの生テキスト。
-- **進捗**: list.jsonのインデックス0〜115まで処理済み(index 0の水着ハイラは既存の`light-ssr-payila-summer.md`と重複のためスキップ、実質115体作成)。index 116以降が未処理(`dossiers/batch_112-119.txt`の続きから)。
+- **進捗**: list.jsonのインデックス0〜119まで処理済み(index 0の水着ハイラは既存の`light-ssr-payila-summer.md`と重複のためスキップ、実質119体作成)。index 120(最終1体)が未処理(`dossiers/batch_120-120.txt`)。
   - index115 光ソフィアはgbf.wiki候補が最初から存在しない(picks.jsonでcandidate: null)ため、GameWithのみで作成(`light-ssr-sophia-light.md`)。
+  - index117 水着レフィーエ、index119 光サルナーンもgbf.wiki候補が最初から存在しない(candidate: null)ため、GameWithのみで作成(`light-ssr-lefiya-summer.md`、`light-ssr-sarunan-light.md`)。
   - index92 ロボミ(SSR)はgbf.wiki検索候補が召喚石ページ(「Robomi Rocket」)だったため不採用、GameWithのみで作成。
   - index94 銃ゾーイ(SSR)はgbf.wiki検索候補が無関係のページ(「Side-scrolling Quotes」)だったため不採用、GameWithのみで作成。
   - index100 バウタオーダ(SSR)はgbf.wiki検索候補「Baotorda」がHP/ATK不一致の別バージョン(SSR以外)だったため不採用、GameWithのみで作成。
