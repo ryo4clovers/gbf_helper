@@ -735,6 +735,7 @@
 | [fire-sr-astel-fire.md](./fire-sr-astel-fire.md) | 火アステール / Astel (Fire) | SR | 火 | 下書き |
 | [fire-sr-rosine-normal.md](./fire-sr-rosine-normal.md) | ロジーヌ(SR) / Rosine (SR) | SR | 火 | 下書き |
 | [fire-sr-teena-valentine.md](./fire-sr-teena-valentine.md) | ティナ(バレンタイン) / Teena (Valentine) | SR | 火 | 下書き |
+| [fire-sr-zooey-shrine-maiden.md](./fire-sr-zooey-shrine-maiden.md) | 巫女ゾーイ / Zooey (Shrine Maiden) | SR | 火 | 下書き |
 
 ## 運用ルール
 
