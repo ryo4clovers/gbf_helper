@@ -257,6 +257,8 @@
 | [water-ssr-ange-normal.md](./water-ssr-ange-normal.md) | アンジェ / Ange (SSR) | SSR | 水 | 下書き |
 | [water-ssr-gawain-valentine.md](./water-ssr-gawain-valentine.md) | 水ガウェイン(バレンタイン) / Gawain (Valentine) | SSR | 水 | 下書き |
 | [water-ssr-darydara-normal.md](./water-ssr-darydara-normal.md) | ダリダラ / Darydara | SSR | 水 | 下書き |
+| [water-ssr-rei-and-unit00-normal.md](./water-ssr-rei-and-unit00-normal.md) | レイ＆零号機 / Rei & Unit-00 | SSR | 水 | 下書き |
+| [water-ssr-chichiri-water.md](./water-ssr-chichiri-water.md) | 水チチリ / Chichiri (Water) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
