@@ -181,6 +181,8 @@
 | [fire-ssr-anderson-normal.md](./fire-ssr-anderson-normal.md) | アンダーソン / Anderson | SSR | 火 | 下書き |
 | [fire-ssr-mirin-summer.md](./fire-ssr-mirin-summer.md) | 水着ミリン / Mirin (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-anna-fire.md](./fire-ssr-anna-fire.md) | アンナ(SSR) / Anna (SSR) | SSR | 火 | 下書き |
+| [fire-ssr-iroha-normal.md](./fire-ssr-iroha-normal.md) | イロハ / Iroha | SSR | 火 | 下書き |
+| [fire-ssr-silva-yukata.md](./fire-ssr-silva-yukata.md) | 浴衣シルヴァ / Silva (Yukata) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
