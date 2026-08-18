@@ -28,6 +28,8 @@
 | [earth-ssr-reinhardtzar-holiday.md](./earth-ssr-reinhardtzar-holiday.md) | ラインハルザ(クリスマス) / Reinhardtzar (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-berceau-normal.md](./earth-ssr-berceau-normal.md) | ベルソー / Berceau | SSR | 土 | 下書き |
 | [earth-ssr-gon-normal.md](./earth-ssr-gon-normal.md) | ゴン / Gon | SSR | 土 | 下書き |
+| [earth-ssr-lich-summer.md](./earth-ssr-lich-summer.md) | 水着リッチ / Lich (Summer) | SSR | 土 | 下書き |
+| [earth-ssr-vlana-dress.md](./earth-ssr-vlana-dress.md) | ドレスフラウ / Vlana (Dress) | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
