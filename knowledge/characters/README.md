@@ -229,6 +229,8 @@
 | [fire-ssr-danua-halloween.md](./fire-ssr-danua-halloween.md) | ダヌア(ハロウィン) / Danua (Halloween) | SSR | 火 | 下書き |
 | [fire-ssr-nina-drango-normal.md](./fire-ssr-nina-drango-normal.md) | ニーナ・ドランゴ / Nina Drango | SSR | 火 | 下書き |
 | [fire-ssr-grea-normal.md](./fire-ssr-grea-normal.md) | グレア / Grea | SSR | 火 | 下書き |
+| [fire-ssr-sturm-grand.md](./fire-ssr-sturm-grand.md) | スツルム(リミテッド) / Sturm (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-beatrix-summer.md](./fire-ssr-beatrix-summer.md) | 水着ベアトリクス / Beatrix (Summer) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
