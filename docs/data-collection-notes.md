@@ -216,7 +216,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index15 アルベール(SR)はgbf.wiki検索候補「Albert」がHP1280(4★)/ATK4800(4★)でGameWith記載(HP1240/ATK3150)と不一致だったため不採用、GameWithのみで作成。batch_008-015.txt完了。
   - index16 ナコルル(サムライスピリッツコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
   - index17 ヨハン(ガチャ)はgbf.wiki候補とHP/ATK完全一致(HP1380/ATK5000)で確認、採用。
-  - 光属性SR(18/41体完了)。次はindex18から継続(batch_016-023.txt)。
+  - index18 シロウ(SR)はgbf.wiki検索候補「Nicholas」が元素値06(闇属性)・HP1850(4★)/ATK7550(4★)で別バージョンと判断し不採用、GameWithのみで作成。
+  - 光属性SR(19/41体完了)。次はindex19から継続(batch_016-023.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。

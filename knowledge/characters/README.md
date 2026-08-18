@@ -706,6 +706,7 @@
 | [light-sr-albert-normal.md](./light-sr-albert-normal.md) | アルベール(SR) / Albert (SR) | SR | 光 | 下書き |
 | [light-sr-nakoruru-normal.md](./light-sr-nakoruru-normal.md) | ナコルル / Nakoruru | SR | 光 | 下書き |
 | [light-sr-johann-normal.md](./light-sr-johann-normal.md) | ヨハン(ガチャ) / Johann | SR | 光 | 下書き |
+| [light-sr-nicholas-light.md](./light-sr-nicholas-light.md) | シロウ(SR) / Nicholas (Light) | SR | 光 | 下書き |
 
 ## 運用ルール
 
