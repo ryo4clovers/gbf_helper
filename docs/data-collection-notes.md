@@ -82,6 +82,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - Node.jsの`fetch`はgbf.wikiの検索ページ(`index.php?search=...`)に対して403(Cloudflare)を返すため、gbf.wiki検索結果の取得は必ず`scratch-fetch-gbfwiki.sh`(curl経由)を使うこと。GameWith本体のページ取得は引き続きNode `fetch`で問題ない。
 - **火属性SSR 111体**の収集に着手(list.json構築・GameWith/gbf.wiki取得・候補選定・ダウジエ生成まで完了、`scratchpad/fire_ssr/`)。79/111体にgbf.wiki候補あり、32体は`candidate: null`(手動要確認)。既存の`fire-ssr-percival-normal.md`はlist.jsonのindex102「パーシヴァル」(無印)と重複するためスキップする。
 - 収集順序は光属性の時と同様「GameWithのSSRキャラ評価一覧の新しい順」を各属性ごとに適用する(全属性を横断した1つの時系列ではなく、属性ごとに独立した新しい順リスト)。属性を一巡したら次はSR、その次はRという優先順位([キャラクターデータの収集優先順位](#キャラクターデータの収集優先順位2026-08-18時点の方針)を参照)。
-- **進捗(火属性SSR)**: list.jsonのインデックス0〜15まで処理済み(16/111体)。既存の`fire-ssr-percival-normal.md`はindex102「パーシヴァル」(無印)と重複するため、その番になったらスキップする。
+- **進捗(火属性SSR)**: list.jsonのインデックス0〜18まで処理済み(19/111体)。既存の`fire-ssr-percival-normal.md`はindex102「パーシヴァル」(無印)と重複するため、その番になったらスキップする。
   - index5 ルリア(SSR)はgbf.wiki検索候補「Lyria (Event)」がHP/ATK不一致(低レアリティ版、HP770/ATK5280 vs GameWithのHP1380/ATK8300)だったため不採用、GameWithのみで作成。ページ内に別バージョン「Lyria (Event SSR)」の存在が示唆されていたが未取得。属性が「主人公と同属性」という特殊仕様のため、便宜上「火」として分類(要注記)。
-  - 続きを行う場合: `scratchpad/fire_ssr/dossiers/batch_016-023.txt` から読み進める。
+  - index18 さとはgbf.wiki検索候補「Magus, Triad of Wisdom」が召喚石ページ(キャラクターと無関係)だったため不採用、GameWithのみで作成。
+  - 続きを行う場合: `scratchpad/fire_ssr/dossiers/batch_016-023.txt` の index19(チチリ)から読み進める。

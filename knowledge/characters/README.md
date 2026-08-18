@@ -155,6 +155,9 @@
 | [fire-ssr-yuel-grand.md](./fire-ssr-yuel-grand.md) | 火ユエル(リミテッド) / Yuel (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-feower-holiday.md](./fire-ssr-feower-holiday.md) | 火カトル(クリスマス) / Feower (Holiday) | SSR | 火 | 下書き |
 | [fire-ssr-wamdus-holiday.md](./fire-ssr-wamdus-holiday.md) | 火ワムデュス(クリスマス) / Wamdus (Holiday) | SSR | 火 | 下書き |
+| [fire-ssr-aglovale-yukata.md](./fire-ssr-aglovale-yukata.md) | 浴衣アグロヴァル / Aglovale (Yukata) | SSR | 火 | 下書き |
+| [fire-ssr-tweyen-yukata.md](./fire-ssr-tweyen-yukata.md) | 浴衣ソーン / Tweyen (Yukata) | SSR | 火 | 下書き |
+| [fire-ssr-sato-normal.md](./fire-ssr-sato-normal.md) | さと / Sato | SSR | 火 | 下書き |
 
 ## 運用ルール
 
