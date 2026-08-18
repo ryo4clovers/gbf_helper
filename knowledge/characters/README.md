@@ -295,6 +295,8 @@
 | [water-ssr-sharem-summer.md](./water-ssr-sharem-summer.md) | 水着シャレム / Helel ben Shalem (Summer) | SSR | 水 | 下書き |
 | [water-ssr-poseidon-grand.md](./water-ssr-poseidon-grand.md) | ポセイドン(リミテッド) / Poseidon (Grand) | SSR | 水 | 下書き |
 | [water-ssr-siegfried-summer.md](./water-ssr-siegfried-summer.md) | 水着ジークフリート / Siegfried (Summer) | SSR | 水 | 下書き |
+| [water-ssr-troue-normal.md](./water-ssr-troue-normal.md) | トルー / Troue | SSR | 水 | 下書き |
+| [water-ssr-andira-summer.md](./water-ssr-andira-summer.md) | 水着アンチラ / Andira (Summer) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
