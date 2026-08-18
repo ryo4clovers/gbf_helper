@@ -184,6 +184,8 @@
 | [fire-ssr-iroha-normal.md](./fire-ssr-iroha-normal.md) | イロハ / Iroha | SSR | 火 | 下書き |
 | [fire-ssr-silva-yukata.md](./fire-ssr-silva-yukata.md) | 浴衣シルヴァ / Silva (Yukata) | SSR | 火 | 下書き |
 | [fire-ssr-medusa-summer.md](./fire-ssr-medusa-summer.md) | 水着メドゥーサ / Medusa (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-sylph-normal.md](./fire-ssr-sylph-normal.md) | シルフ / Sylph | SSR | 火 | 下書き |
+| [fire-ssr-vira-valentine.md](./fire-ssr-vira-valentine.md) | 火ヴィーラ(バレンタイン) / Vira (Valentine) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
