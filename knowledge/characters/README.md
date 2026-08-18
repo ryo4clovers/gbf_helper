@@ -420,6 +420,7 @@
 | [earth-ssr-alexiel-summer.md](./earth-ssr-alexiel-summer.md) | 水着ブローディア / Alexiel (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-jessica-yukata.md](./earth-ssr-jessica-yukata.md) | 浴衣ジェシカ / Jessica (Yukata) | SSR | 土 | 下書き |
 | [earth-ssr-ladiva-normal.md](./earth-ssr-ladiva-normal.md) | ファスティバ(SSR) / Ladiva (SSR) | SSR | 土 | 下書き |
+| [earth-ssr-baal-normal.md](./earth-ssr-baal-normal.md) | バアル / Baal | SSR | 土 | 下書き |
 
 ## 運用ルール
 
