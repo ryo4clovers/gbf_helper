@@ -13,7 +13,6 @@
 
 | ファイル | 名前(JP/EN) | レアリティ | 属性 | ステータス |
 | --- | --- | --- | --- | --- |
-| [water-sr-katalina-normal.md](./water-sr-katalina-normal.md) | カタリナ / Katalina | SR | 水 | 下書き |
 | [dark-sr-vira-normal.md](./dark-sr-vira-normal.md) | ヴィーラ / Vira | SR | 闇 | 下書き |
 | [fire-ssr-percival-normal.md](./fire-ssr-percival-normal.md) | パーシヴァル / Percival | SSR | 火 | 下書き |
 | [earth-ssr-seox-summer.md](./earth-ssr-seox-summer.md) | シス(水着) / Seox (Summer) | SSR | 土 | 下書き |
