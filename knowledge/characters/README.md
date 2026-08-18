@@ -765,6 +765,7 @@
 | [fire-sr-tendo-akira-normal.md](./fire-sr-tendo-akira-normal.md) | 天道輝 / Akira Tendo | SR | 火 | 下書き |
 | [fire-sr-naoise-fire.md](./fire-sr-naoise-fire.md) | 火ノイシュ(SR) / Naoise (Fire, SR) | SR | 火 | 下書き |
 | [fire-sr-anna-normal.md](./fire-sr-anna-normal.md) | アンナ(SR) / Anna (SR) | SR | 火 | 下書き |
+| [fire-sr-beth-normal.md](./fire-sr-beth-normal.md) | ベス / Beth | SR | 変動(便宜上火) | 下書き |
 
 ## 運用ルール
 
