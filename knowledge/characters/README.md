@@ -201,6 +201,8 @@
 | [fire-ssr-nemone-holiday.md](./fire-ssr-nemone-holiday.md) | ネモネ(クリスマス) / Nemone (Holiday) | SSR | 火 | 下書き |
 | [fire-ssr-azazel-halloween.md](./fire-ssr-azazel-halloween.md) | アザゼル(ハロウィン) / Azazel (Halloween) | SSR | 火 | 下書き |
 | [fire-ssr-tatsuzaki-hiiro-normal.md](./fire-ssr-tatsuzaki-hiiro-normal.md) | 竜ヶ崎ヒイロ / Tatsuzaki Hiiro | SSR | 火 | 下書き |
+| [fire-ssr-mimlemel-summer.md](./fire-ssr-mimlemel-summer.md) | 水着ミムルメモル / Mimlemel (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-abby-normal.md](./fire-ssr-abby-normal.md) | アビー(SSR) / Abby | SSR | 火 | 下書き |
 
 ## 運用ルール
 
