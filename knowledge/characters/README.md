@@ -710,6 +710,7 @@
 | [light-sr-tear-normal.md](./light-sr-tear-normal.md) | ティア / Tear | SR | 光 | 下書き |
 | [light-sr-erica-normal.md](./light-sr-erica-normal.md) | エリカ / Erica | SR | 光 | 下書き |
 | [light-sr-novei-promo.md](./light-sr-novei-promo.md) | ナーヴェ / Novei (Promo) | SR | 光 | 下書き |
+| [light-sr-koshimizu-sachiko-normal.md](./light-sr-koshimizu-sachiko-normal.md) | 輿水幸子 / Sachiko Koshimizu | SR | 光 | 下書き |
 
 ## 運用ルール
 
