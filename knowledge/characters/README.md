@@ -293,6 +293,8 @@
 | [water-ssr-lancelot-grand.md](./water-ssr-lancelot-grand.md) | ランスロット(リミテッド) / Lancelot (Grand) | SSR | 水 | 下書き |
 | [water-ssr-doraemon-normal.md](./water-ssr-doraemon-normal.md) | ドラえもん / Doraemon | SSR | 水 | 下書き |
 | [water-ssr-sharem-summer.md](./water-ssr-sharem-summer.md) | 水着シャレム / Helel ben Shalem (Summer) | SSR | 水 | 下書き |
+| [water-ssr-poseidon-grand.md](./water-ssr-poseidon-grand.md) | ポセイドン(リミテッド) / Poseidon (Grand) | SSR | 水 | 下書き |
+| [water-ssr-siegfried-summer.md](./water-ssr-siegfried-summer.md) | 水着ジークフリート / Siegfried (Summer) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
