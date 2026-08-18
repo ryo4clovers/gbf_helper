@@ -177,6 +177,8 @@
 | [fire-ssr-michael-grand.md](./fire-ssr-michael-grand.md) | ミカエル(リミテッド) / Michael (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-cain-holiday.md](./fire-ssr-cain-holiday.md) | 火カイン(クリスマス) / Cain (Holiday) | SSR | 火 | 下書き |
 | [fire-ssr-percival-grand.md](./fire-ssr-percival-grand.md) | パーシヴァル(リミテッド) / Percival (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-luffy-normal.md](./fire-ssr-luffy-normal.md) | ルフィ / Luffy | SSR | 火 | 下書き |
+| [fire-ssr-anderson-normal.md](./fire-ssr-anderson-normal.md) | アンダーソン / Anderson | SSR | 火 | 下書き |
 
 ## 運用ルール
 
