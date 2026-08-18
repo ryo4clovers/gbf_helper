@@ -88,7 +88,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index19 チチリは「四聖」シリーズキャラ(玲瓏佩強化によるフェイトエピクリアで段階強化される仕様)。gbf.wiki候補が見つからずGameWithのみで作成。
   - **完了**: 火属性SSR 111/111体(list.jsonの全indexを処理完了。index102パーシヴァルは既存ファイルと重複のためスキップ、実ファイル数110新規+既存1=計111)。`batch_104-110.txt`まで全バッチ処理済み。
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
-  - **進捗(水属性SSR)**: index59まで処理済み(60/99体)。続きを行う場合: `scratchpad/water_ssr/dossiers/batch_056-063.txt` の index60(水ヴァンピィ&ベス)から読み進める。
+  - **進捗(水属性SSR)**: index61まで処理済み(62/99体)。続きを行う場合: `scratchpad/water_ssr/dossiers/batch_056-063.txt` の index62(水着エウロペ)から読み進める。
   - index30 エリン(SSR)はgbf.wiki検索候補「Erin」がHP/ATK不一致(低レアリティ版、HP1420/ATK4800 vs GameWithのHP1810/ATK6250)だったため不採用、GameWithのみで作成。
   - index32 エリカはgbf.wiki検索候補「Erica Fontaine」がHP/ATK不一致(低レアリティ版、HP1100/ATK4000 vs GameWithのHP1600/ATK8000)だったため不採用、GameWithのみで作成。
   - index11 ジョエルはgbf.wiki検索候補「Joel」がHP/ATK不一致(低レアリティ版、HP820/ATK3900 vs GameWithのHP1900/ATK5700)だったため不採用、GameWithのみで作成。

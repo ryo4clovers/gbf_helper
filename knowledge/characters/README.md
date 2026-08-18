@@ -309,6 +309,8 @@
 | [water-ssr-shura-normal.md](./water-ssr-shura-normal.md) | シュラ / Shura | SSR | 水 | 下書き |
 | [water-ssr-milleore-and-zaharrilao-normal.md](./water-ssr-milleore-and-zaharrilao-normal.md) | ミラオル&ザーリリャオー / Milleore and Sahli Lao | SSR | 水 | 下書き |
 | [water-ssr-sturm-water.md](./water-ssr-sturm-water.md) | 水スツルム / Sturm (Water) | SSR | 水 | 下書き |
+| [water-ssr-vampy-and-vess-normal.md](./water-ssr-vampy-and-vess-normal.md) | ヴァンピィ&ベス / Vampy and Vess | SSR | 水 | 下書き |
+| [water-ssr-lecia-water.md](./water-ssr-lecia-water.md) | 水リーシャ / Lecia (Water) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
