@@ -42,6 +42,8 @@
 | [earth-ssr-raziel-summer.md](./earth-ssr-raziel-summer.md) | 水着ラジエル / Raziel (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-kolulu-earth.md](./earth-ssr-kolulu-earth.md) | コルル(土属性) / Kolulu (Earth) | SSR | 土 | 下書き |
 | [earth-ssr-sabrina-normal.md](./earth-ssr-sabrina-normal.md) | サブリナ / Sabrina | SSR | 土 | 下書き |
+| [earth-ssr-olivia-earth.md](./earth-ssr-olivia-earth.md) | オリヴィエ(土属性) / Olivia (Earth) | SSR | 土 | 下書き |
+| [earth-ssr-uriel-grand.md](./earth-ssr-uriel-grand.md) | ウリエル(リミテッド) / Uriel (Grand) | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
