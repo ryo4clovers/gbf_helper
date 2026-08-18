@@ -430,6 +430,7 @@
 | [earth-ssr-cain-grand.md](./earth-ssr-cain-grand.md) | カイン(リミテッド) / Cain (Grand) | SSR | 土 | 下書き |
 | [earth-ssr-soriz-normal.md](./earth-ssr-soriz-normal.md) | ソリッズ(SSR) / Soriz (SSR) | SSR | 土 | 下書き |
 | [earth-ssr-alexiel-grand.md](./earth-ssr-alexiel-grand.md) | ブローディア(リミテッド) / Alexiel (Grand) | SSR | 土 | 下書き |
+| [earth-ssr-medusa-valentine.md](./earth-ssr-medusa-valentine.md) | メドゥーサ(バレンタイン) / Medusa (Valentine) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
