@@ -26,6 +26,8 @@
 | [earth-ssr-vaishravana-grand.md](./earth-ssr-vaishravana-grand.md) | バイシュラ(リミテッド) / Vaishravana (Grand) | SSR | 土 | 下書き |
 | [earth-ssr-bennu-holiday.md](./earth-ssr-bennu-holiday.md) | ベンヌ(クリスマス) / Bennu (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-reinhardtzar-holiday.md](./earth-ssr-reinhardtzar-holiday.md) | ラインハルザ(クリスマス) / Reinhardtzar (Holiday) | SSR | 土 | 下書き |
+| [earth-ssr-berceau-normal.md](./earth-ssr-berceau-normal.md) | ベルソー / Berceau | SSR | 土 | 下書き |
+| [earth-ssr-gon-normal.md](./earth-ssr-gon-normal.md) | ゴン / Gon | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
