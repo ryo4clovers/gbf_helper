@@ -709,6 +709,7 @@
 | [light-sr-nicholas-light.md](./light-sr-nicholas-light.md) | シロウ(SR) / Nicholas (Light) | SR | 光 | 下書き |
 | [light-sr-tear-normal.md](./light-sr-tear-normal.md) | ティア / Tear | SR | 光 | 下書き |
 | [light-sr-erica-normal.md](./light-sr-erica-normal.md) | エリカ / Erica | SR | 光 | 下書き |
+| [light-sr-novei-promo.md](./light-sr-novei-promo.md) | ナーヴェ / Novei (Promo) | SR | 光 | 下書き |
 
 ## 運用ルール
 

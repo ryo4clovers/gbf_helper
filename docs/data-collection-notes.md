@@ -219,7 +219,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index18 シロウ(SR)はgbf.wiki検索候補「Nicholas」が元素値06(闇属性)・HP1850(4★)/ATK7550(4★)で別バージョンと判断し不採用、GameWithのみで作成。
   - index19 ティア(テイルズコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
   - index20 エリカ(サクラ大戦コラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。
-  - 光属性SR(21/41体完了)。次はindex21から継続(batch_016-023.txt)。
+  - index21 ナーヴェはgbf.wiki検索候補「Novei」がHP1320(4★)/ATK8600(4★)で別バージョンと判断し不採用、GameWithのみで作成。
+  - 光属性SR(22/41体完了)。次はindex22から継続(batch_016-023.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
