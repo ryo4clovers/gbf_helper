@@ -738,6 +738,7 @@
 | [fire-sr-zooey-shrine-maiden.md](./fire-sr-zooey-shrine-maiden.md) | 巫女ゾーイ / Zooey (Shrine Maiden) | SR | 火 | 下書き |
 | [fire-sr-ippatsu-normal.md](./fire-sr-ippatsu-normal.md) | イッパツ(SR) / Ippatsu (SR) | SR | 火 | 下書き |
 | [fire-sr-karva-normal.md](./fire-sr-karva-normal.md) | カルバ(SR) / Karva (SR) | SR | 火 | 下書き |
+| [fire-sr-beatrix-halloween.md](./fire-sr-beatrix-halloween.md) | ベアトリクス(ハロウィン) / Beatrix (Halloween) | SR | 火 | 下書き |
 
 ## 運用ルール
 
