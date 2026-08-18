@@ -575,6 +575,11 @@
 | [wind-ssr-metera-wind.md](./wind-ssr-metera-wind.md) | 風メーテラ(SSR) / Metera (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-netzach-normal.md](./wind-ssr-netzach-normal.md) | ネツァワルピリ / Netzach | SSR | 風 | 下書き |
 | [wind-ssr-gawain-wind.md](./wind-ssr-gawain-wind.md) | 風ガウェイン / Gawain (Wind) | SSR | 風 | 下書き |
+| [dark-ssr-ichigo-kurosaki-normal.md](./dark-ssr-ichigo-kurosaki-normal.md) | 黒崎一護 / Ichigo Kurosaki | SSR | 闇 | 下書き |
+| [dark-ssr-osiris-yukata.md](./dark-ssr-osiris-yukata.md) | 浴衣オシリス / Osiris (Yukata) | SSR | 闇 | 下書き |
+| [dark-ssr-shao-normal.md](./dark-ssr-shao-normal.md) | シャオ(SSR) / Shao (SSR) | SSR | 闇 | 下書き |
+| [dark-ssr-greed-and-ling-yao-normal.md](./dark-ssr-greed-and-ling-yao-normal.md) | グリード＆リン･ヤオ / Greed & Ling Yao | SSR | 闇 | 下書き |
+| [dark-ssr-manu-ponomau-normal.md](./dark-ssr-manu-ponomau-normal.md) | マヌ＝ポヌマウ / Manu Ponomau | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

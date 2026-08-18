@@ -95,6 +95,12 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - **風属性SSR収集に着手**(scratchディレクトリ`wind_ssr`)。`scratch-build-list.mjs 風`でlist.json生成(121体)→パイプラインスクリプトの`SCRATCH`定数を`wind_ssr`に書き換え→GameWith取得(Node fetch)→gbf.wiki検索はNode fetchが403のため`scratch-fetch-gbfwiki.sh`(curl)で取得→pick-and-dump(76/121体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_120-120.txt`、16バッチ)まで完了。既存の`wind-ssr-gwynne-yukata.md`はlist.jsonのindex0(浴衣グウィン)と重複のためスキップ。
   - index1 ネリエル(ネリエル・トゥ・オーデルシュヴァンク)はBLEACHコラボキャラのためgbf.wiki候補なし(想定通り)、GameWithのみで作成。
   - **完了**: 風属性SSR 121/121体(list.jsonの全indexを処理完了、index0は重複スキップのため実質120体新規作成)。index120風ガウェインで風属性SSRが完了した。次はDark(闇)属性SSRに着手する。
+  - **闇属性SSR収集に着手**(scratchディレクトリ`dark_ssr`)。`scratch-build-list.mjs 闇`でlist.json生成(113体)→パイプラインスクリプトの`SCRATCH`定数を`dark_ssr`に書き換え→GameWith取得(Node fetch、113/113成功)→gbf.wiki検索は`scratch-fetch-gbfwiki.sh`(curl)で取得(111/113、index73「3年生チーム(μ's)」は0件)→pick-and-dump(69/113体にgbf.wiki候補あり、fetch_pages.sh 140件)→gbf.wikiページ取得(69/69成功)→dossier生成(`batch_000-007.txt`〜`batch_112-112.txt`、15バッチ)まで完了。既存の`dark-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
+  - index2 シャオ(SSR)はgbf.wiki検索候補「Shao」がHP/ATK不一致(ページ内に「Shao」「Shao (SSR)」の複数バージョン注記があり、取得内容はHP1710(5★)/ATK6420(5★)でGameWithのSSR版HP1520/ATK6800と一致せず、基本レアリティ版のページと判断)だったため不採用、GameWithのみで作成。
+  - index0 黒崎一護、index3 グリード＆リン・ヤオはコラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)、GameWithのみで作成。
+  - index4 マヌ＝ポヌマウはgbf.wiki候補なし。GameWithのみで作成。
+  - index1 浴衣オシリスはgbf.wiki「Osiris (Yukata)」とHP1304/ATK8680(4★表記)で一致確認、採用。
+  - 闇属性SSR処理中(5/113体完了)。次はindex5 闇ワムデュス(バレンタイン)から継続。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
