@@ -521,6 +521,7 @@
 | [wind-ssr-nezha-normal.md](./wind-ssr-nezha-normal.md) | ナタク / Nezha | SSR | 風 | 下書き |
 | [wind-ssr-nectar-normal.md](./wind-ssr-nectar-normal.md) | ネクタル / Nectar | SSR | 風 | 下書き |
 | [wind-ssr-shatora-normal.md](./wind-ssr-shatora-normal.md) | シャトラ(十二神将) / Shatora | SSR | 風 | 下書き |
+| [wind-ssr-shinobu-kocho-normal.md](./wind-ssr-shinobu-kocho-normal.md) | 胡蝶しのぶ / Shinobu Kocho | SSR | 風 | 下書き |
 
 ## 運用ルール
 
