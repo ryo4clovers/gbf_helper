@@ -90,7 +90,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
   - **完了**: 水属性SSR 99/99体(list.jsonの全indexを処理完了。`batch_096-098.txt`まで全バッチ処理済み)。index96シャルロッテ・index97リリィ(SSR)・index98アルタイルで水属性SSRが完了した。
   - **土属性SSR収集に着手**(scratchディレクトリ`earth_ssr`)。`scratch-build-list.mjs 土`でlist.json生成(108体)→パイプラインスクリプトの`SCRATCH`定数を`earth_ssr`に書き換え→GameWith/gbf.wiki取得(gamewith/gbfwikiサブディレクトリを事前に`mkdir`しておく必要があった、無いとENOENTで失敗)→pick-and-dump(79/108体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_104-107.txt`、14バッチ)まで完了。既存の`earth-ssr-seox-summer.md`はlist.jsonに同名キャラが見当たらず重複なし。
-  - **進捗(土属性SSR)**: index67まで処理済み(68/108体)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_064-071.txt` のindex68から読み進める。
+  - **進捗(土属性SSR)**: index68まで処理済み(69/108体)。続きを行う場合: `scratchpad/earth_ssr/dossiers/batch_064-071.txt` のindex69から読み進める。
   - index65 ヘリヤ(SSR)はgbf.wiki検索候補「Herja」が同キャラの別バージョン(3★R版)ページで、HP840/ATK3800(GameWith側HP2020/ATK6820と不一致)だったため不採用、GameWithのみで作成。
   - index64 ペンギー(SSR)はgbf.wiki検索候補「Pengy」が同キャラの別バージョン(無印)ページで、HP2000/ATK3750(GameWith側HP1280/ATK8800と不一致)だったため不採用、GameWithのみで作成。
   - index60 黄金の騎士(アリア)はgbf.wiki候補が見つからなかったため、GameWithのみで作成。name_en「Aria」はキャラクター名からの推定表記で未検証(七曜の騎士の一人、後にGrand/Summer/Wind版が実装されるキャラの初出リミテッド版)。
