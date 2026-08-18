@@ -297,6 +297,8 @@
 | [water-ssr-siegfried-summer.md](./water-ssr-siegfried-summer.md) | 水着ジークフリート / Siegfried (Summer) | SSR | 水 | 下書き |
 | [water-ssr-troue-normal.md](./water-ssr-troue-normal.md) | トルー / Troue | SSR | 水 | 下書き |
 | [water-ssr-andira-summer.md](./water-ssr-andira-summer.md) | 水着アンチラ / Andira (Summer) | SSR | 水 | 下書き |
+| [water-ssr-isaac-normal.md](./water-ssr-isaac-normal.md) | アイザック / Isaac | SSR | 水 | 下書き |
+| [water-ssr-zeta-water.md](./water-ssr-zeta-water.md) | 水ゼタ / Zeta (Water) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
