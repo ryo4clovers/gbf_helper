@@ -718,6 +718,7 @@
 | [light-sr-sophie-normal.md](./light-sr-sophie-normal.md) | ソフィ / Sophie | SR | 光 | 下書き |
 | [light-sr-robomi-normal.md](./light-sr-robomi-normal.md) | ロボミ(SR) / Robomi (SR) | SR | 光 | 下書き |
 | [light-sr-feather-normal.md](./light-sr-feather-normal.md) | フェザー / Feather (SR) | SR | 光 | 下書き |
+| [light-sr-jj-normal.md](./light-sr-jj-normal.md) | J・J / J.J. | SR | 光 | 下書き |
 
 ## 運用ルール
 
