@@ -472,6 +472,7 @@
 | [wind-ssr-cagliostro-and-clarisse-normal.md](./wind-ssr-cagliostro-and-clarisse-normal.md) | カリオストロ&クラリス / Cagliostro and Clarisse | SSR | 風 | 下書き |
 | [wind-ssr-mahira-summer.md](./wind-ssr-mahira-summer.md) | 水着マキラ / Mahira (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-joy-hama.md](./wind-ssr-joy-hama.md) | ジョイ(ハマ) / Joy (Hama) | SSR | 風 | 下書き |
+| [wind-ssr-negi-normal.md](./wind-ssr-negi-normal.md) | ネギ(ネギ・スプリングフィールド) / Negi | SSR | 風 | 下書き |
 
 ## 運用ルール
 
