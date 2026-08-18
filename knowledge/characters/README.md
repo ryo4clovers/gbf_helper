@@ -792,6 +792,7 @@
 | [water-sr-aliza-water.md](./water-sr-aliza-water.md) | 水アリーザ(SR) / Aliza (Water) | SR | 水 | 下書き |
 | [water-sr-yuel-normal.md](./water-sr-yuel-normal.md) | ユエル(SR) / Yuel (Water) | SR | 水 | 下書き |
 | [water-sr-owen-normal.md](./water-sr-owen-normal.md) | オーウェン / Owen | SR | 水 | 下書き |
+| [water-sr-charlotta-summer.md](./water-sr-charlotta-summer.md) | 水着シャルロッテ / Charlotta (Summer) | SR | 水 | 下書き |
 
 ## 運用ルール
 
