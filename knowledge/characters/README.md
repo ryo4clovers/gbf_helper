@@ -832,6 +832,7 @@
 | [earth-sr-lancelot-and-vane-summer.md](./earth-sr-lancelot-and-vane-summer.md) | 水着ランスロット&ヴェイン / Lancelot and Vane (Summer) | SR | 土 | 下書き |
 | [earth-sr-catherine-normal.md](./earth-sr-catherine-normal.md) | キャサリン(SR) / Catherine (SR) | SR | 土 | 下書き |
 | [earth-sr-beatrix-normal.md](./earth-sr-beatrix-normal.md) | ベアトリクス(SR) / Beatrix (SR) | SR | 土 | 下書き |
+| [earth-sr-razia-normal.md](./earth-sr-razia-normal.md) | ラスティナ(SR) / Razia (SR) | SR | 土 | 下書き |
 
 ## 運用ルール
 
