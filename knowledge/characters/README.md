@@ -861,6 +861,7 @@
 | [earth-sr-yaia-normal.md](./earth-sr-yaia-normal.md) | ヤイア(SR) / Yaia (SR) | SR | 土 | 下書き |
 | [earth-sr-jasmine-normal.md](./earth-sr-jasmine-normal.md) | ジャスミン(SR) / Jasmine (SR) | SR | 土 | 下書き |
 | [earth-sr-galadar-normal.md](./earth-sr-galadar-normal.md) | ガラドア(SR) / Galadar (SR) | SR | 土 | 下書き |
+| [earth-sr-mimura-kanako-normal.md](./earth-sr-mimura-kanako-normal.md) | 三村かな子 / Kanako Mimura | SR | 土 | 下書き |
 
 ## 運用ルール
 
