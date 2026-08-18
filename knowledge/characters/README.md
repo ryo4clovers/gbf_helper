@@ -561,6 +561,7 @@
 | [wind-ssr-yuisis-normal.md](./wind-ssr-yuisis-normal.md) | ユイシス / Yuisis | SSR | 風 | 下書き |
 | [wind-ssr-melissabelle-normal.md](./wind-ssr-melissabelle-normal.md) | メリッサベル / Melissabelle | SSR | 風 | 下書き |
 | [wind-ssr-lecia-grand.md](./wind-ssr-lecia-grand.md) | リーシャ(リミテッド) / Lecia (Grand) | SSR | 風 | 下書き |
+| [wind-ssr-korwa-normal.md](./wind-ssr-korwa-normal.md) | コルワ / Korwa | SSR | 風 | 下書き |
 
 ## 運用ルール
 
