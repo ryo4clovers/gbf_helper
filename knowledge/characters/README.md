@@ -173,6 +173,8 @@
 | [fire-ssr-baal-fire.md](./fire-ssr-baal-fire.md) | 火バアル / Baal (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-icarus-normal.md](./fire-ssr-icarus-normal.md) | イカロス / Icarus | SSR | 火 | 下書き |
 | [fire-ssr-nezha-yukata.md](./fire-ssr-nezha-yukata.md) | 浴衣ナタク / Nezha (Yukata) | SSR | 火 | 下書き |
+| [fire-ssr-hekate-normal.md](./fire-ssr-hekate-normal.md) | ヘカテー / Hekate | SSR | 火 | 下書き |
+| [fire-ssr-michael-grand.md](./fire-ssr-michael-grand.md) | ミカエル(リミテッド) / Michael (Grand) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
