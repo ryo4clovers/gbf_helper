@@ -486,6 +486,7 @@
 | [wind-ssr-spinnah-normal.md](./wind-ssr-spinnah-normal.md) | スピナー(SSR) / Spinnah (SSR) | SSR | 風 | 下書き |
 | [wind-ssr-pochacco-normal.md](./wind-ssr-pochacco-normal.md) | ポチャッコ / Pochacco | SSR | 風 | 下書き |
 | [wind-ssr-richard-wind.md](./wind-ssr-richard-wind.md) | リチャード(風属性SSR) / Richard (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-izuku-midoriya-normal.md](./wind-ssr-izuku-midoriya-normal.md) | 緑谷出久(デク) / Izuku Midoriya | SSR | 風 | 下書き |
 
 ## 運用ルール
 
