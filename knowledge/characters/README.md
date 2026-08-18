@@ -206,6 +206,8 @@
 | [fire-ssr-satyr-normal.md](./fire-ssr-satyr-normal.md) | サテュロス / Satyr | SSR | 火 | 下書き |
 | [fire-ssr-illnott-normal.md](./fire-ssr-illnott-normal.md) | イルノート / Illnott | SSR | 火 | 下書き |
 | [fire-ssr-reinhardtzar-grand.md](./fire-ssr-reinhardtzar-grand.md) | ラインハルザ(リミテッド) / Reinhardtzar (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-drang-fire.md](./fire-ssr-drang-fire.md) | 火ドランク / Drang (Fire) | SSR | 火 | 下書き |
+| [fire-ssr-mugen-grand.md](./fire-ssr-mugen-grand.md) | ムゲン(リミテッド) / Mugen (Grand) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
