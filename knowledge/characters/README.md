@@ -183,6 +183,7 @@
 | [fire-ssr-anna-fire.md](./fire-ssr-anna-fire.md) | アンナ(SSR) / Anna (SSR) | SSR | 火 | 下書き |
 | [fire-ssr-iroha-normal.md](./fire-ssr-iroha-normal.md) | イロハ / Iroha | SSR | 火 | 下書き |
 | [fire-ssr-silva-yukata.md](./fire-ssr-silva-yukata.md) | 浴衣シルヴァ / Silva (Yukata) | SSR | 火 | 下書き |
+| [fire-ssr-medusa-summer.md](./fire-ssr-medusa-summer.md) | 水着メドゥーサ / Medusa (Summer) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
