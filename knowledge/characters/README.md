@@ -417,6 +417,7 @@
 | [earth-ssr-narmaya-holiday.md](./earth-ssr-narmaya-holiday.md) | ナルメア(クリスマス) / Narmaya (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-magisa-holiday.md](./earth-ssr-magisa-holiday.md) | マギサ(クリスマス) / Magisa (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-zeta-and-vaseraga-halloween.md](./earth-ssr-zeta-and-vaseraga-halloween.md) | ゼタ&バザラガ(ハロウィン) / Zeta and Vaseraga (Halloween) | SSR | 土 | 下書き |
+| [earth-ssr-alexiel-summer.md](./earth-ssr-alexiel-summer.md) | 水着ブローディア / Alexiel (Summer) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
