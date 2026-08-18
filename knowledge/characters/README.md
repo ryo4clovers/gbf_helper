@@ -806,6 +806,7 @@
 | [water-sr-lowain-normal.md](./water-sr-lowain-normal.md) | ローアイン(SR) / Lowain (SR) | SR | 水 | 下書き |
 | [water-sr-pamela-normal.md](./water-sr-pamela-normal.md) | パメラ / Pamela | SR | 水 | 下書き |
 | [water-sr-naga-normal.md](./water-sr-naga-normal.md) | ナーガ / Naga | SR | 水 | 下書き |
+| [water-sr-lancelot-normal.md](./water-sr-lancelot-normal.md) | ランスロット(SR) / Lancelot (SR) | SR | 水 | 下書き |
 
 ## 運用ルール
 
