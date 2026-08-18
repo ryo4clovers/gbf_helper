@@ -409,6 +409,7 @@
 | [earth-ssr-mireille-and-risette-normal.md](./earth-ssr-mireille-and-risette-normal.md) | ミレイユ&リゼット / Mireille and Risette | SSR | 土 | 下書き |
 | [earth-ssr-aria-golden-knight.md](./earth-ssr-aria-golden-knight.md) | 黄金の騎士(アリア) / Aria (Golden Knight) | SSR | 土 | 下書き |
 | [earth-ssr-diantha-earth.md](./earth-ssr-diantha-earth.md) | ディアンサ(土属性) / Diantha (Earth) | SSR | 土 | 下書き |
+| [earth-ssr-silva-summer.md](./earth-ssr-silva-summer.md) | 水着シルヴァ / Silva (Summer) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
