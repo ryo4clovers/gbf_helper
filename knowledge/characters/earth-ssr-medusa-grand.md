@@ -12,7 +12,7 @@ has_ex_ability: false
 release_date: "2024-08-31"
 status: 下書き
 last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/462208)、gbf.wiki (https://gbf.wiki/Medusa_(Grand)) (取得日: 2026-08-18)。GameWith記載のHP1250/ATK9300はgbf.wikiの数値と一致。"
+source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/462208)、gbf.wiki (https://gbf.wiki/Medusa_(Grand)) (取得日: 2026-08-18)。GameWith記載のHP1250/ATK9300はgbf.wikiの数値と一致。恒常版は[earth-ssr-medusa-normal.md](./earth-ssr-medusa-normal.md)を参照。"
 ---
 
 # メドゥーサ(リミテッド)(Medusa (Grand))

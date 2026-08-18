@@ -421,6 +421,7 @@
 | [earth-ssr-jessica-yukata.md](./earth-ssr-jessica-yukata.md) | 浴衣ジェシカ / Jessica (Yukata) | SSR | 土 | 下書き |
 | [earth-ssr-ladiva-normal.md](./earth-ssr-ladiva-normal.md) | ファスティバ(SSR) / Ladiva (SSR) | SSR | 土 | 下書き |
 | [earth-ssr-baal-normal.md](./earth-ssr-baal-normal.md) | バアル / Baal | SSR | 土 | 下書き |
+| [earth-ssr-medusa-normal.md](./earth-ssr-medusa-normal.md) | メドゥーサ(恒常) / Medusa | SSR | 土 | 下書き |
 
 ## 運用ルール
 
