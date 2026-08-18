@@ -693,6 +693,7 @@
 | [light-sr-philosophia-normal.md](./light-sr-philosophia-normal.md) | フィラソピラ(SR) / Philosophia (SR) | SR | 光 | 下書き |
 | [light-sr-bridgette-and-cordelia-normal.md](./light-sr-bridgette-and-cordelia-normal.md) | ブリジール&コーデリア / Bridgette and Cordelia | SR | 光 | 下書き |
 | [light-sr-mirin-light.md](./light-sr-mirin-light.md) | 光ミリン(SR) / Mirin (Light) | SR | 光 | 下書き |
+| [light-sr-sabbatara-light.md](./light-sr-sabbatara-light.md) | 光サビルバラ / Sabbatara (Light) | SR | 光 | 下書き |
 
 ## 運用ルール
 
