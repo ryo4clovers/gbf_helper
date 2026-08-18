@@ -804,6 +804,7 @@
 | [water-sr-diantha-normal.md](./water-sr-diantha-normal.md) | ディアンサ / Diantha | SR | 水 | 下書き |
 | [water-sr-morphe-and-vetur-normal.md](./water-sr-morphe-and-vetur-normal.md) | モルフェとヴェトル / Morphe and Vetur | SR | 水 | 下書き |
 | [water-sr-lowain-normal.md](./water-sr-lowain-normal.md) | ローアイン(SR) / Lowain (SR) | SR | 水 | 下書き |
+| [water-sr-pamela-normal.md](./water-sr-pamela-normal.md) | パメラ / Pamela | SR | 水 | 下書き |
 
 ## 運用ルール
 
