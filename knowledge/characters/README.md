@@ -655,6 +655,7 @@
 | [dark-ssr-kyaru-normal.md](./dark-ssr-kyaru-normal.md) | キャル / Kyaru | SSR | 闇 | 下書き |
 | [dark-ssr-niyah-normal.md](./dark-ssr-niyah-normal.md) | ニーア / Niyah | SSR | 闇 | 下書き |
 | [dark-ssr-ferry-grand.md](./dark-ssr-ferry-grand.md) | 闇フェリ(リミテッド) / Ferry (Grand) | SSR | 闇 | 下書き |
+| [dark-ssr-clarisse-valentine.md](./dark-ssr-clarisse-valentine.md) | 闇クラリス(バレンタイン) / Clarisse (Valentine) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
