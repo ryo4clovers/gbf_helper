@@ -88,7 +88,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index19 チチリは「四聖」シリーズキャラ(玲瓏佩強化によるフェイトエピクリアで段階強化される仕様)。gbf.wiki候補が見つからずGameWithのみで作成。
   - **完了**: 火属性SSR 111/111体(list.jsonの全indexを処理完了。index102パーシヴァルは既存ファイルと重複のためスキップ、実ファイル数110新規+既存1=計111)。`batch_104-110.txt`まで全バッチ処理済み。
   - **水属性SSR収集に着手**(scratchディレクトリ`water_ssr`)。`scratch-build-list.mjs 水`でlist.json生成(99体)→パイプラインスクリプトの`SCRATCH`定数を`water_ssr`に書き換え→GameWith/gbf.wiki取得→pick-and-dump(67/99体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_096-098.txt`、13バッチ)まで完了。既存の`water-ssr-*.md`ファイルは無し(重複スキップ対象なし)。
-  - **進捗(水属性SSR)**: index1まで処理済み(2/99体)。続きを行う場合: `scratchpad/water_ssr/dossiers/batch_000-007.txt` の index2(オリヴィエ(ハガレン))から読み進める。
+  - **進捗(水属性SSR)**: index3まで処理済み(4/99体)。続きを行う場合: `scratchpad/water_ssr/dossiers/batch_000-007.txt` の index4から読み進める。
   - index85 テレーズ(SSR)はgbf.wiki検索候補「Therese」が別バージョン「[Bunny Duelist] Therese」ページ(HP1250/ATK6250)にリダイレクトされ、目的の「Therese (SSR)」ページではなかったため不採用、GameWithのみで作成。
   - index74 コロッサスはgbf.wiki検索候補「Colossus Alter」が召喚石ページ(キャラクターと無関係)だったため不採用、GameWithのみで作成。
   - index51 エルモート(SSR)はgbf.wiki検索候補「Elmott」がHP/ATK不一致(低レアリティ版、HP900/ATK6750 vs GameWithのHP1125/ATK8775)だったため不採用、GameWithのみで作成。
