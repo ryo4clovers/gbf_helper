@@ -38,6 +38,8 @@
 | [earth-ssr-maleagant-normal.md](./earth-ssr-maleagant-normal.md) | メレアガンス / Maleagant | SSR | 土 | 下書き |
 | [earth-ssr-manamel-halloween.md](./earth-ssr-manamel-halloween.md) | マナマル(ハロウィン、土属性) / Manamel (Halloween) | SSR | 土 | 下書き |
 | [earth-ssr-medusa-grand.md](./earth-ssr-medusa-grand.md) | メドゥーサ(リミテッド) / Medusa (Grand) | SSR | 土 | 下書き |
+| [earth-ssr-shushuku-normal.md](./earth-ssr-shushuku-normal.md) | シュシュク / Shushuku | SSR | 土 | 下書き |
+| [earth-ssr-raziel-summer.md](./earth-ssr-raziel-summer.md) | 水着ラジエル / Raziel (Summer) | SSR | 土 | 下書き |
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
