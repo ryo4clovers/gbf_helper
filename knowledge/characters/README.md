@@ -208,6 +208,8 @@
 | [fire-ssr-reinhardtzar-grand.md](./fire-ssr-reinhardtzar-grand.md) | ラインハルザ(リミテッド) / Reinhardtzar (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-drang-fire.md](./fire-ssr-drang-fire.md) | 火ドランク / Drang (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-mugen-grand.md](./fire-ssr-mugen-grand.md) | ムゲン(リミテッド) / Mugen (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-teena-summer.md](./fire-ssr-teena-summer.md) | 水着ティナ / Teena (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-scathacha-valentine.md](./fire-ssr-scathacha-valentine.md) | スカーサハ(バレンタイン) / Scathacha (Valentine) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
