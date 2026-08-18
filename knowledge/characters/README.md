@@ -337,6 +337,8 @@
 | [water-ssr-chat-noir-normal.md](./water-ssr-chat-noir-normal.md) | シャノワール / Chat Noir | SSR | 水 | 下書き |
 | [water-ssr-narmaya-summer.md](./water-ssr-narmaya-summer.md) | 水着ナルメア / Narmaya (Summer) | SSR | 水 | 下書き |
 | [water-ssr-yngwie-normal.md](./water-ssr-yngwie-normal.md) | イングヴェイ / Yngwie | SSR | 水 | 下書き |
+| [water-ssr-lilele-water.md](./water-ssr-lilele-water.md) | リルル / Lilele | SSR | 水 | 下書き |
+| [water-ssr-yodarha-normal.md](./water-ssr-yodarha-normal.md) | ヨダルラーハ(SSR) / Yodarha | SSR | 水 | 下書き |
 
 ## 運用ルール
 
