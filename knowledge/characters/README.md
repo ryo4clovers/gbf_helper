@@ -618,6 +618,8 @@
 | [dark-ssr-meg-and-mari-normal.md](./dark-ssr-meg-and-mari-normal.md) | メグ＆まりっぺ / Meg and Mari | SSR | 闇 | 下書き |
 | [dark-ssr-itadori-and-fushiguro-normal.md](./dark-ssr-itadori-and-fushiguro-normal.md) | 虎杖悠仁＆伏黒恵 / Itadori Yuji & Fushiguro Megumi | SSR | 闇 | 下書き |
 | [dark-ssr-cupitan-summer.md](./dark-ssr-cupitan-summer.md) | 水着クピタン / Cupitan (Summer) | SSR | 闇 | 下書き |
+| [dark-ssr-jasmine-normal.md](./dark-ssr-jasmine-normal.md) | 闇ジャスミン(SSR) / Jasmine (SSR) | SSR | 闇 | 下書き |
+| [dark-ssr-ilsa-yukata.md](./dark-ssr-ilsa-yukata.md) | 浴衣イルザ / Ilsa (Yukata) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
