@@ -311,7 +311,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - dossier生成完了。次はindex0から処理開始。
 - index1 コワフュール(SR)はgbf.wiki候補「La Coiffe」が基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
 - index16 ウェルダー(SR)は変身システムを持つ特殊仕様のキャラ。gbf.wiki候補は基本レアリティ版のため不採用、GameWithのみで作成、変身後/最終上限解放後の性能を中心に簡略化して記載。
-- 土属性SR(30/51体完了)。次はindex30から継続(batch_024-031.txt)。
+- 土属性SR(31/51体完了)。batch_024-031.txt完了。次はindex31から継続(batch_032-039.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
