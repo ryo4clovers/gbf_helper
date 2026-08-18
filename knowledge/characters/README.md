@@ -326,6 +326,9 @@
 | [water-ssr-vajra-normal.md](./water-ssr-vajra-normal.md) | ヴァジラ / Vajra | SSR | 水 | 下書き |
 | [water-ssr-yuel-water.md](./water-ssr-yuel-water.md) | 水ユエル / Yuel (Water) | SSR | 水 | 下書き |
 | [water-ssr-anne-water.md](./water-ssr-anne-water.md) | アン / Anne | SSR | 水 | 下書き |
+| [water-ssr-diantha-summer.md](./water-ssr-diantha-summer.md) | 水着ディアンサ / Diantha (Summer) | SSR | 水 | 下書き |
+| [water-ssr-izmir-summer.md](./water-ssr-izmir-summer.md) | 水着イシュミール / Izmir (Summer) | SSR | 水 | 下書き |
+| [water-ssr-drang-grand.md](./water-ssr-drang-grand.md) | ドランク(リミテッド) / Drang (Grand) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
