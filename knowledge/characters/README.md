@@ -854,6 +854,7 @@
 | [earth-sr-almeida-normal.md](./earth-sr-almeida-normal.md) | アルメイダ / Almeida | SR | 土 | 下書き |
 | [earth-sr-jamil-normal.md](./earth-sr-jamil-normal.md) | ジャミル(土) / Jamil | SR | 土 | 下書き |
 | [earth-sr-laguna-normal.md](./earth-sr-laguna-normal.md) | ラグナ / Laguna | SR | 土 | 下書き |
+| [earth-sr-redluck-normal.md](./earth-sr-redluck-normal.md) | レッドラック / Redluck | SR | 土 | 下書き |
 
 ## 運用ルール
 
