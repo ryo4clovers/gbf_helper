@@ -725,6 +725,7 @@
 | [light-sr-johann-event.md](./light-sr-johann-event.md) | ヨハン(イベント) / Johann (Event) | SR | 光 | 下書き |
 | [light-sr-rosamia-normal.md](./light-sr-rosamia-normal.md) | ロザミア(SR) / Rosamia (SR) | SR | 光 | 下書き |
 | [light-sr-shimamura-uzuki-normal.md](./light-sr-shimamura-uzuki-normal.md) | 島村卯月 / Uzuki Shimamura | SR | 光 | 下書き |
+| [light-sr-noa-normal.md](./light-sr-noa-normal.md) | ノア / Noa | SR | 光 | 下書き |
 
 ## 運用ルール
 

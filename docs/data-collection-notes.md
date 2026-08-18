@@ -235,7 +235,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index34 ヨハン(イベント)はgbf.wiki検索候補が既出のガチャ版と重複しGameWith記載と不一致のため不採用、GameWithのみで作成。
   - index35 ロザミア(SR)はgbf.wiki検索候補「Rosamia」がRレアリティ版と判断し不採用、GameWithのみで作成。
   - index36 島村卯月(アイマスシンデレラガールズコラボ)はgbf.wiki候補なし。GameWithのみで作成(想定通り)。最終上限解放後の性能を採用。
-  - 光属性SR(37/41体完了)。次はindex37から継続(batch_032-039.txt)。
+  - index37 ノアはgbf.wiki候補とHP/ATK完全一致(HP1200/ATK7500、5★表記)で確認、採用。最終上限解放後の性能を採用。
+  - 光属性SR(38/41体完了)。次はindex38から継続(batch_032-039.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
