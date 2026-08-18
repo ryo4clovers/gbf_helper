@@ -169,6 +169,8 @@
 | [fire-ssr-sabir-vala-fire.md](./fire-ssr-sabir-vala-fire.md) | 火サビルバラ / Sabir Vala (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-ragazzo-normal.md](./fire-ssr-ragazzo-normal.md) | ラガッツォ / Ragazzo | SSR | 火 | 下書き |
 | [fire-ssr-dorothy-and-claudia-summer.md](./fire-ssr-dorothy-and-claudia-summer.md) | 水着ドロシー&クラウディア / Dorothy and Claudia (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-enyo-summer.md](./fire-ssr-enyo-summer.md) | 水着エニュオ / Enyo (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-baal-fire.md](./fire-ssr-baal-fire.md) | 火バアル / Baal (Fire) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
