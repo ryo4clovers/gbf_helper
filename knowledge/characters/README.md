@@ -267,6 +267,8 @@
 | [water-ssr-yatima-grand.md](./water-ssr-yatima-grand.md) | ヤチマ(リミテッド) / Yatima (Grand) | SSR | 水 | 下書き |
 | [water-ssr-uruki-normal.md](./water-ssr-uruki-normal.md) | ウルキ / Uruki | SSR | 水 | 下書き |
 | [water-ssr-nier-yukata.md](./water-ssr-nier-yukata.md) | 浴衣ニーア / Nier (Yukata) | SSR | 水 | 下書き |
+| [water-ssr-tefnut-summer.md](./water-ssr-tefnut-summer.md) | 水着テフヌト / Tefnut (Summer) | SSR | 水 | 下書き |
+| [water-ssr-nectar-water.md](./water-ssr-nectar-water.md) | 水ネクタル / Nectar (Water) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
