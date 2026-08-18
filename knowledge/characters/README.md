@@ -568,6 +568,7 @@
 | [wind-ssr-henriette-normal.md](./wind-ssr-henriette-normal.md) | アンリエット / Henriette | SSR | 風 | 下書き |
 | [wind-ssr-petra-normal.md](./wind-ssr-petra-normal.md) | ペトラ(SSR) / Petra | SSR | 風 | 下書き |
 | [wind-ssr-carmelina-normal.md](./wind-ssr-carmelina-normal.md) | カルメリーナ / Carmelina | SSR | 風 | 下書き |
+| [wind-ssr-nio-normal.md](./wind-ssr-nio-normal.md) | ニオ(十天衆) / Nio | SSR | 風 | 下書き |
 
 ## 運用ルール
 
