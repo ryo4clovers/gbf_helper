@@ -12,7 +12,7 @@ has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
 last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/392367)、gbf.wiki (https://gbf.wiki/Ewiyar_(Grand)) (取得日: 2026-08-18)。GameWith記載のHP1118/ATK9410はgbf.wikiの数値と一致。"
+source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/392367)、gbf.wiki (https://gbf.wiki/Ewiyar_(Grand)) (取得日: 2026-08-18)。GameWith記載のHP1118/ATK9410はgbf.wikiの数値と一致。恒常版は[wind-ssr-ewiyar-normal.md](./wind-ssr-ewiyar-normal.md)を参照。"
 ---
 
 # イーウィヤ(リミテッド)(Ewiyar (Grand))
