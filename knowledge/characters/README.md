@@ -265,6 +265,8 @@
 | [water-ssr-ilsa-dress.md](./water-ssr-ilsa-dress.md) | ドレスイルザ / Ilsa (Dress) | SSR | 水 | 下書き |
 | [water-ssr-shukra-normal.md](./water-ssr-shukra-normal.md) | シュクラ / Shukra | SSR | 水 | 下書き |
 | [water-ssr-yatima-grand.md](./water-ssr-yatima-grand.md) | ヤチマ(リミテッド) / Yatima (Grand) | SSR | 水 | 下書き |
+| [water-ssr-uruki-normal.md](./water-ssr-uruki-normal.md) | ウルキ / Uruki | SSR | 水 | 下書き |
+| [water-ssr-nier-yukata.md](./water-ssr-nier-yukata.md) | 浴衣ニーア / Nier (Yukata) | SSR | 水 | 下書き |
 
 ## 運用ルール
 
