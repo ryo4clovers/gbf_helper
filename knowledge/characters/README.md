@@ -515,6 +515,7 @@
 | [wind-ssr-enyo-normal.md](./wind-ssr-enyo-normal.md) | エニュオ / Enyo | SSR | 風 | 下書き |
 | [wind-ssr-vane-halloween.md](./wind-ssr-vane-halloween.md) | ヴェイン(ハロウィン) / Vane (Halloween) | SSR | 風 | 下書き |
 | [wind-ssr-azusa-normal.md](./wind-ssr-azusa-normal.md) | アズサ / Azusa | SSR | 風 | 下書き |
+| [wind-ssr-yngwie-yukata.md](./wind-ssr-yngwie-yukata.md) | 浴衣イングヴェイ / Yngwie (Yukata) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
