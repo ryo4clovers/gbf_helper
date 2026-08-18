@@ -639,6 +639,7 @@
 | [dark-ssr-albert-dark.md](./dark-ssr-albert-dark.md) | 闇アルベール / Albert (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-cassius-event.md](./dark-ssr-cassius-event.md) | カシウス(SSR) / Cassius (Event SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-zehek-normal.md](./dark-ssr-zehek-normal.md) | ゼヘク(SSR) / Zehek (SSR) | SSR | 闇 | 下書き |
+| [dark-ssr-amira-summer.md](./dark-ssr-amira-summer.md) | 水着アーミラ / Amira (Summer) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
