@@ -628,6 +628,8 @@
 | [dark-ssr-bowman-normal.md](./dark-ssr-bowman-normal.md) | ボーマン / Bowman | SSR | 闇 | 下書き |
 | [dark-ssr-jessica-dark.md](./dark-ssr-jessica-dark.md) | 闇ジェシカ / Jessica (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-zoro-and-sanji-normal.md](./dark-ssr-zoro-and-sanji-normal.md) | ゾロ&サンジ / Zoro & Sanji | SSR | 闇 | 下書き |
+| [dark-ssr-magisa-summer.md](./dark-ssr-magisa-summer.md) | 水着マギサ / Magisa (Summer) | SSR | 闇 | 下書き |
+| [dark-ssr-vajra-summer.md](./dark-ssr-vajra-summer.md) | 水着ヴァジラ / Vajra (Summer) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
