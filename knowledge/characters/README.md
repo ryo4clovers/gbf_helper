@@ -518,6 +518,7 @@
 | [wind-ssr-yngwie-yukata.md](./wind-ssr-yngwie-yukata.md) | 浴衣イングヴェイ / Yngwie (Yukata) | SSR | 風 | 下書き |
 | [wind-ssr-sho-normal.md](./wind-ssr-sho-normal.md) | ショウ / Sho | SSR | 風 | 下書き |
 | [wind-ssr-narmaya-grand.md](./wind-ssr-narmaya-grand.md) | ナルメア(リミテッド) / Narmaya (Grand) | SSR | 風 | 下書き |
+| [wind-ssr-nezha-normal.md](./wind-ssr-nezha-normal.md) | ナタク / Nezha | SSR | 風 | 下書き |
 
 ## 運用ルール
 
