@@ -302,6 +302,14 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index22 ランスロット(SR)はgbf.wiki候補「Lancelot」がHP1570(5★)/ATK10830(5★)でSSR相当のため不採用、GameWithのみで作成。
 - index28 ロミオ(SR)はgbf.wiki候補「Romeo」がHP1770(5★)/ATK10120(5★)でSSR相当のため不採用、GameWithのみで作成。
 - 水属性SR完了(44/44体)。次は土属性SRの収集を開始する(scratch-build-list.mjs等をearth_srへ再設定)。
+
+### 進行中の作業(2026-08-19〜): 土属性SR収集
+
+- scratch-fetch.mjs / scratch-pick-and-dump.mjs / scratch-build-dossier.mjs / scratch-fetch-gbfwiki.sh のSCRATCH定数をearth_srへ変更。
+- scratch-build-list.mjsで土属性SRのリストを取得: 51体。
+- GameWith全51体のページ取得完了、gbf.wiki検索は43/51体で候補あり(curl経由で取得)。
+- dossier生成完了。次はindex0から処理開始。
+- 土属性SR(1/51体完了)。次はindex1から継続(batch_000-007.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
