@@ -886,6 +886,7 @@
 | [wind-sr-arthur-and-mordred-normal.md](./wind-sr-arthur-and-mordred-normal.md) | アーサー&モルドレッド / Arthur and Mordred | SR | 風 | 下書き |
 | [wind-sr-yuri-wind.md](./wind-sr-yuri-wind.md) | 風ユーリ / Yuri (Wind) | SR | 風 | 下書き |
 | [wind-sr-yuisis-yukata.md](./wind-sr-yuisis-yukata.md) | 浴衣ユイシス(SR) / Yuisis (Yukata) | SR | 風 | 下書き |
+| [wind-sr-amuro-toru-normal.md](./wind-sr-amuro-toru-normal.md) | 安室透 / Amuro Toru | SR | 風 | 下書き |
 
 ## 運用ルール
 
