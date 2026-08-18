@@ -248,6 +248,7 @@
 | [fire-ssr-agielba-normal.md](./fire-ssr-agielba-normal.md) | アギエルバ / Agielba | SSR | 火 | 下書き |
 | [fire-ssr-io-summer.md](./fire-ssr-io-summer.md) | 水着イオ / Io (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-magisa-normal.md](./fire-ssr-magisa-normal.md) | マギサ / Magisa | SSR | 火 | 下書き |
+| [fire-ssr-yuel-fire.md](./fire-ssr-yuel-fire.md) | 火ユエル / Yuel (Fire) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
