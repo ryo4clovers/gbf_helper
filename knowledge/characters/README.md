@@ -606,6 +606,7 @@
 | [dark-ssr-hekate-summer.md](./dark-ssr-hekate-summer.md) | 水着ヘカテー / Hekate (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-hallessena-summer.md](./dark-ssr-hallessena-summer.md) | 水着ハレゼナ / Hallessena (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-ourolyathe-limited.md](./dark-ssr-ourolyathe-limited.md) | オロロジャイア(リミテッド) / Ourolyathe (Limited) | SSR | 闇 | 下書き |
+| [dark-ssr-chloe-dark.md](./dark-ssr-chloe-dark.md) | 闇クロエ / Chloe (Dark) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
