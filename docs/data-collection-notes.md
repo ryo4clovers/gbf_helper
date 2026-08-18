@@ -94,7 +94,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index107 アレーティアはgbf.wiki「Aletheia」のHP/ATKがGameWith値と完全一致せず4★/5★の中間値だったが、名称・二つ名(剣の賢者)等で同一キャラクターと確認できたため採用、`source`に注記。
   - **風属性SSR収集に着手**(scratchディレクトリ`wind_ssr`)。`scratch-build-list.mjs 風`でlist.json生成(121体)→パイプラインスクリプトの`SCRATCH`定数を`wind_ssr`に書き換え→GameWith取得(Node fetch)→gbf.wiki検索はNode fetchが403のため`scratch-fetch-gbfwiki.sh`(curl)で取得→pick-and-dump(76/121体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_120-120.txt`、16バッチ)まで完了。既存の`wind-ssr-gwynne-yukata.md`はlist.jsonのindex0(浴衣グウィン)と重複のためスキップ。
   - index1 ネリエル(ネリエル・トゥ・オーデルシュヴァンク)はBLEACHコラボキャラのためgbf.wiki候補なし(想定通り)、GameWithのみで作成。
-  - **進捗(風属性SSR)**: index92まで処理済み(93/121体)。続きを行う場合: `scratchpad/wind_ssr/dossiers/batch_088-095.txt` のindex93(コッコロ)から読み進める。
+  - **進捗(風属性SSR)**: index93まで処理済み(94/121体)。続きを行う場合: `scratchpad/wind_ssr/dossiers/batch_088-095.txt` のindex94(ユリウス)から読み進める。
+  - index93 コッコロはプリコネコラボキャラのためgbf.wiki候補なし(想定通り)。GameWithのみで作成。
   - index92 セン(SSR)はgbf.wiki候補「Sen」がHP900/ATK6750(恒常低レア版)でGameWith記載のHP1140/ATK8700(SSR)と不一致のため不採用、GameWithのみで作成。バランス調整後・最終解放(Lv100)後の性能を中心に簡略化して記載。
   - index91 風ヘルエスはgbf.wiki「Heles (Wind)」のHP1170がGameWithと一致(ATKはダンプ範囲外のため未検証)、採用。
   - index90 水着ユエルはgbf.wiki「Yuel (Summer)」のHP1620/ATK7440がGameWithと完全一致、採用。2023年9月バランス調整後の性能を採用。
