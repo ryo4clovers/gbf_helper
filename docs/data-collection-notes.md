@@ -247,7 +247,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index0 水着フェリはgbf.wiki候補とHP/ATK完全一致(HP920/ATK6200)で確認、採用。
 - index1 浴衣カシウスはgbf.wiki候補とHP/ATK完全一致(HP1150/ATK6850)で確認、採用。
 - index2 水着フライデーはgbf.wiki候補とHP/ATK完全一致(HP1250/ATK6250)で確認、採用。曜日限定(金曜日)強化の特殊仕様キャラ。
-- 火属性SR(3/55体完了)。次はindex3から継続(batch_000-007.txt)。
+- index3 火アステールはgbf.wiki候補なし。GameWithのみで作成。
+- 火属性SR(4/55体完了)。次はindex4から継続(batch_000-007.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
