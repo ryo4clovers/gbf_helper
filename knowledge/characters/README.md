@@ -466,6 +466,7 @@
 | [wind-ssr-lancelot-halloween.md](./wind-ssr-lancelot-halloween.md) | ランスロット(ハロウィン) / Lancelot (Halloween) | SSR | 風 | 下書き |
 | [wind-ssr-lamorak-normal.md](./wind-ssr-lamorak-normal.md) | ラモラック / Lamorak | SSR | 風 | 下書き |
 | [wind-ssr-haaselia-summer.md](./wind-ssr-haaselia-summer.md) | 水着ハーゼリーラ / Haaselia (Summer) | SSR | 風 | 下書き |
+| [wind-ssr-killua-normal.md](./wind-ssr-killua-normal.md) | キルア / Killua | SSR | 風 | 下書き |
 
 ## 運用ルール
 
