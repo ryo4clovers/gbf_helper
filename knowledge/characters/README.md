@@ -231,6 +231,8 @@
 | [fire-ssr-grea-normal.md](./fire-ssr-grea-normal.md) | グレア / Grea | SSR | 火 | 下書き |
 | [fire-ssr-sturm-grand.md](./fire-ssr-sturm-grand.md) | スツルム(リミテッド) / Sturm (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-beatrix-summer.md](./fire-ssr-beatrix-summer.md) | 水着ベアトリクス / Beatrix (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-anthuria-normal.md](./fire-ssr-anthuria-normal.md) | アンスリア / Anthuria | SSR | 火 | 下書き |
+| [fire-ssr-societte-fire.md](./fire-ssr-societte-fire.md) | 火ソシエ / Societte (Fire) | SSR | 火 | 下書き |
 
 ## 運用ルール
 
