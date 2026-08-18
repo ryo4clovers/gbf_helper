@@ -688,6 +688,8 @@
 | [dark-ssr-rosetta-holiday.md](./dark-ssr-rosetta-holiday.md) | ロゼッタ(クリスマス) / Rosetta (Holiday) | SSR | 闇 | 下書き |
 | [dark-ssr-cerberus-normal.md](./dark-ssr-cerberus-normal.md) | ケルベロス / Cerberus | SSR | 闇 | 下書き |
 | [dark-ssr-lady-grey-normal.md](./dark-ssr-lady-grey-normal.md) | レディ・グレイ / Lady Grey | SSR | 闇 | 下書き |
+| [light-sr-tyre-yukata.md](./light-sr-tyre-yukata.md) | 浴衣タイアー / Tyre (Yukata) | SR | 光 | 下書き |
+| [light-sr-kumbhira-normal.md](./light-sr-kumbhira-normal.md) | クビラ(SR) / Kumbhira (SR) | SR | 光 | 下書き |
 
 ## 運用ルール
 
