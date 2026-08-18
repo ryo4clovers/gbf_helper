@@ -339,6 +339,8 @@
 | [water-ssr-yngwie-normal.md](./water-ssr-yngwie-normal.md) | イングヴェイ / Yngwie | SSR | 水 | 下書き |
 | [water-ssr-lilele-water.md](./water-ssr-lilele-water.md) | リルル / Lilele | SSR | 水 | 下書き |
 | [water-ssr-yodarha-normal.md](./water-ssr-yodarha-normal.md) | ヨダルラーハ(SSR) / Yodarha | SSR | 水 | 下書き |
+| [water-ssr-katalina-grand.md](./water-ssr-katalina-grand.md) | カタリナ(リミテッド) / Katalina (Grand) | SSR | 水 | 下書き |
+| [water-ssr-silva-normal.md](./water-ssr-silva-normal.md) | シルヴァ / Silva | SSR | 水 | 下書き |
 
 ## 運用ルール
 
