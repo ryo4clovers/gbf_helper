@@ -839,6 +839,7 @@
 | [earth-sr-leona-normal.md](./earth-sr-leona-normal.md) | レオナ / Leona | SR | 土 | 下書き |
 | [earth-sr-carmelina-normal.md](./earth-sr-carmelina-normal.md) | カルメリーナ(SR) / Carmelina (SR) | SR | 土 | 下書き |
 | [earth-sr-nezahualpilli-normal.md](./earth-sr-nezahualpilli-normal.md) | ネツァワルピリ(SR) / Nezahualpilli (SR) | SR | 土 | 下書き |
+| [earth-sr-makira-normal.md](./earth-sr-makira-normal.md) | マキラ(SR) / Makira (SR) | SR | 土 | 下書き |
 
 ## 運用ルール
 
