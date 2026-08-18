@@ -403,6 +403,7 @@
 | [water-ssr-altair-normal.md](./water-ssr-altair-normal.md) | アルタイル / Altair | SSR | 水 | 下書き |
 | [earth-ssr-beatrix-earth.md](./earth-ssr-beatrix-earth.md) | 土ベアトリクス / Beatrix (Earth) | SSR | 土 | 下書き |
 | [earth-ssr-monika-valentine.md](./earth-ssr-monika-valentine.md) | モニカ(バレンタイン) / Monika (Valentine) | SSR | 土 | 下書き |
+| [earth-ssr-lamretta-normal.md](./earth-ssr-lamretta-normal.md) | ラムレッダ(SSR) / Lamretta (SSR) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
