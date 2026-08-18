@@ -402,6 +402,7 @@
 | [water-ssr-lily-normal.md](./water-ssr-lily-normal.md) | リリィ(SSR) / Lily | SSR | 水 | 下書き |
 | [water-ssr-altair-normal.md](./water-ssr-altair-normal.md) | アルタイル / Altair | SSR | 水 | 下書き |
 | [earth-ssr-beatrix-earth.md](./earth-ssr-beatrix-earth.md) | 土ベアトリクス / Beatrix (Earth) | SSR | 土 | 下書き |
+| [earth-ssr-monika-valentine.md](./earth-ssr-monika-valentine.md) | モニカ(バレンタイン) / Monika (Valentine) | SSR | 土 | 下書き |
 
 ## 運用ルール
 
