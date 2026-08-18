@@ -551,6 +551,7 @@
 | [wind-ssr-yurius-normal.md](./wind-ssr-yurius-normal.md) | ユリウス / Yurius | SSR | 風 | 下書き |
 | [wind-ssr-monika-normal.md](./wind-ssr-monika-normal.md) | モニカ / Monika | SSR | 風 | 下書き |
 | [wind-ssr-selfira-normal.md](./wind-ssr-selfira-normal.md) | セレフィラ(SSR) / Selfira | SSR | 風 | 下書き |
+| [wind-ssr-jeanne-darc-summer.md](./wind-ssr-jeanne-darc-summer.md) | 水着ジャンヌダルク / Jeanne d'Arc (Summer) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
