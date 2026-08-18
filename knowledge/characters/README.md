@@ -784,6 +784,7 @@
 | [fire-sr-abby-normal.md](./fire-sr-abby-normal.md) | アビー(SR) / Abby (SR) | SR | 火 | 下書き |
 | [fire-sr-rackam-normal.md](./fire-sr-rackam-normal.md) | ラカム(SR) / Rackam (SR) | SR | 火 | 下書き |
 | [fire-sr-alec-normal.md](./fire-sr-alec-normal.md) | アレク / Alec | SR | 火 | 下書き |
+| [water-sr-joel-normal.md](./water-sr-joel-normal.md) | ジョエル(SR) / Joel (SR) | SR | 水 | 下書き |
 
 ## 運用ルール
 

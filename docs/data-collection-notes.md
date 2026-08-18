@@ -287,6 +287,15 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - index51 アリーザ(SR)はgbf.wiki候補「Aliza」がHP1400(4★)/ATK9830(4★)でGameWithのHP840/ATK6700と不一致のため不採用、GameWithのみで作成。
 - index52 アビー(SR)はgbf.wiki候補「Abby」がHP1100(4★)/ATK10500(4★)でSSR相当のため不採用、GameWithのみで作成。
 - 火属性SR完了(55/55体)。次は水属性SRの収集を開始する(scratch-build-list.mjs等をwater_srへ再設定)。
+
+### 進行中の作業(2026-08-19〜): 水属性SR収集
+
+- scratch-fetch.mjs / scratch-pick-and-dump.mjs / scratch-build-dossier.mjs / scratch-fetch-gbfwiki.sh のSCRATCH定数をwater_srへ変更。
+- scratch-build-list.mjsで水属性SRのリストを取得: 44体。
+- GameWith全44体のページ取得完了、gbf.wiki検索は37/44体で候補あり(curl経由で取得)。
+- dossier生成完了(batch_000-007.txt 〜 batch_040-043.txt)。次はindex0から処理開始。
+- index0 ジョエル(SR)はgbf.wiki候補「Joel」がHP970(3★、クロスフェイトボーナス込み)/ATK3900(3★)で基本レアリティ(R)版と判断し不採用、GameWithのみで作成。
+- 水属性SR(1/44体完了)。次はindex1から継続(batch_000-007.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
