@@ -527,6 +527,7 @@
 | [wind-ssr-mimori-amamiya-normal.md](./wind-ssr-mimori-amamiya-normal.md) | 天宮ミモリ / Mimori Amamiya | SSR | 風 | 下書き |
 | [wind-ssr-albert-summer.md](./wind-ssr-albert-summer.md) | 水着アルベール / Albert (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-anila-summer.md](./wind-ssr-anila-summer.md) | 水着アニラ / Anila (Summer) | SSR | 風 | 下書き |
+| [wind-ssr-noeud-wind.md](./wind-ssr-noeud-wind.md) | 風ノイシュ / Noeud (Wind) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
