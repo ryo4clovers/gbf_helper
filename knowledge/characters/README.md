@@ -497,6 +497,7 @@
 | [wind-ssr-cinnamoroll-and-pompompurin-normal.md](./wind-ssr-cinnamoroll-and-pompompurin-normal.md) | シナモロール&ポムポムプリン / Cinnamoroll & Pompompurin | SSR | 風 | 下書き |
 | [wind-ssr-ewiyar-grand.md](./wind-ssr-ewiyar-grand.md) | イーウィヤ(リミテッド) / Ewiyar (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-seofon-event.md](./wind-ssr-seofon-event.md) | シエテ(アナザー) / Seofon (Event) | SSR | 風 | 下書き |
+| [wind-ssr-sandalphon-valentine.md](./wind-ssr-sandalphon-valentine.md) | サンダルフォン(バレンタイン) / Sandalphon (Valentine) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
