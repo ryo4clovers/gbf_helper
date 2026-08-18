@@ -587,6 +587,9 @@
 | [dark-ssr-sariel-limited.md](./dark-ssr-sariel-limited.md) | サリエル(リミテッド) / Sariel (Limited) | SSR | 闇 | 下書き |
 | [dark-ssr-catura-summer.md](./dark-ssr-catura-summer.md) | 水着シャトラ / Catura (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-chrollo-normal.md](./dark-ssr-chrollo-normal.md) | クロロ / Chrollo | SSR | 闇 | 下書き |
+| [dark-ssr-grimnir-dark.md](./dark-ssr-grimnir-dark.md) | 闇グリームニル / Grimnir (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-seofon-yukata.md](./dark-ssr-seofon-yukata.md) | 浴衣シエテ / Seofon (Yukata) | SSR | 闇 | 下書き |
+| [dark-ssr-tsukuyomi-normal.md](./dark-ssr-tsukuyomi-normal.md) | ツクヨミ / Tsukuyomi | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
