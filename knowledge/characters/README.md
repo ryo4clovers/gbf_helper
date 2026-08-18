@@ -460,6 +460,7 @@
 | [wind-ssr-notus-normal.md](./wind-ssr-notus-normal.md) | ノトス / Notus | SSR | 風 | 下書き |
 | [wind-ssr-echidna-normal.md](./wind-ssr-echidna-normal.md) | エキドナ / Echidna | SSR | 風 | 下書き |
 | [wind-ssr-lyria-style-shift.md](./wind-ssr-lyria-style-shift.md) | リーシャ(スタイルシフト、碧騎士) / Lyria (Style Shift) | SSR | 風 | 下書き |
+| [wind-ssr-walfrid-grand.md](./wind-ssr-walfrid-grand.md) | ヴァルフリート(リミテッド) / Walfrid (Grand) | SSR | 風 | 下書き |
 
 ## 運用ルール
 
