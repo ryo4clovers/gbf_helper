@@ -490,6 +490,7 @@
 | [wind-ssr-catherine-wind.md](./wind-ssr-catherine-wind.md) | キャサリン(風属性SSR) / Catherine (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-kaguya-limited.md](./wind-ssr-kaguya-limited.md) | カグヤ(リミテッド) / Kaguya (Limited) | SSR | 風 | 下書き |
 | [wind-ssr-vania-yukata.md](./wind-ssr-vania-yukata.md) | 浴衣ヴァンピィ / Vania (Yukata) | SSR | 風 | 下書き |
+| [wind-ssr-aliza-summer.md](./wind-ssr-aliza-summer.md) | 水着アリーザ / Aliza (Summer) | SSR | 風 | 下書き |
 
 ## 運用ルール
 

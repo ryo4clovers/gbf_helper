@@ -94,10 +94,11 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index107 アレーティアはgbf.wiki「Aletheia」のHP/ATKがGameWith値と完全一致せず4★/5★の中間値だったが、名称・二つ名(剣の賢者)等で同一キャラクターと確認できたため採用、`source`に注記。
   - **風属性SSR収集に着手**(scratchディレクトリ`wind_ssr`)。`scratch-build-list.mjs 風`でlist.json生成(121体)→パイプラインスクリプトの`SCRATCH`定数を`wind_ssr`に書き換え→GameWith取得(Node fetch)→gbf.wiki検索はNode fetchが403のため`scratch-fetch-gbfwiki.sh`(curl)で取得→pick-and-dump(76/121体にgbf.wiki候補あり)→dossier生成(`batch_000-007.txt`〜`batch_120-120.txt`、16バッチ)まで完了。既存の`wind-ssr-gwynne-yukata.md`はlist.jsonのindex0(浴衣グウィン)と重複のためスキップ。
   - index1 ネリエル(ネリエル・トゥ・オーデルシュヴァンク)はBLEACHコラボキャラのためgbf.wiki候補なし(想定通り)、GameWithのみで作成。
-  - **進捗(風属性SSR)**: index35まで処理済み(36/121体)。続きを行う場合: `scratchpad/wind_ssr/dossiers/batch_032-039.txt` のindex36(水着アリーザ)から読み進める。
+  - **進捗(風属性SSR)**: index36まで処理済み(37/121体)。続きを行う場合: `scratchpad/wind_ssr/dossiers/batch_032-039.txt` のindex37(風リリィ)から読み進める。
   - index33 風キャサリンはgbf.wiki「Catherine (Wind)」のHP1150/ATK7930がGameWithと完全一致、採用。
   - index34 カグヤ(リミテッド)はgbf.wiki候補なし。GameWithのみで作成。
   - index35 浴衣ヴァンピィはgbf.wiki「Vania (Yukata)」のHP1100/ATK9500がGameWithと完全一致、採用。
+  - index36 水着アリーザはgbf.wiki「Aliza (Summer)」のHP1268がGameWithと一致(ATKはダンプ範囲外のため未検証)、採用。
   - index29 スピナー(SSR)はgbf.wiki検索候補「Spinnah」が同キャラの別バージョン(3★基本版)ページで、HP600/ATK4200(GameWith側HP1261/ATK9696と不一致)だったため不採用、GameWithのみで作成。
   - index27 ミリン(風属性SSR)はgbf.wiki候補なし。GameWithのHP/ATK表記が「13309350」という他キャラと異なる並びで取得されたため、ATK9350/HP1330と推定して記載(要ゲーム内確認)。
   - index17 ジョイ(ハマ)はgbf.wiki検索候補「Joy (Event)」が同キャラの別バージョン(低レアリティ)ページで、HP108/ATK6000(GameWith側HP1080/ATK9011と大きく不一致)だったため不採用、GameWithのみで作成。
