@@ -536,6 +536,7 @@
 | [wind-ssr-meteon-holiday.md](./wind-ssr-meteon-holiday.md) | ミュオン(クリスマス) / Meteon (Holiday) | SSR | 風 | 下書き |
 | [wind-ssr-societte-wind.md](./wind-ssr-societte-wind.md) | 風ソシエ / Societte (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-monika-grand.md](./wind-ssr-monika-grand.md) | モニカ(リミテッド) / Monika (Grand) | SSR | 風 | 下書き |
+| [wind-ssr-stan-and-aliza-normal.md](./wind-ssr-stan-and-aliza-normal.md) | スタン&アリーザ / Stan and Aliza | SSR | 風 | 下書き |
 
 ## 運用ルール
 
