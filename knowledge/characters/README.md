@@ -425,6 +425,7 @@
 | [earth-ssr-robelia-normal.md](./earth-ssr-robelia-normal.md) | ロベリア / Robelia | SSR | 土 | 下書き |
 | [earth-ssr-caim-normal.md](./earth-ssr-caim-normal.md) | カイム / Caim | SSR | 土 | 下書き |
 | [earth-ssr-dante-and-freiheit-normal.md](./earth-ssr-dante-and-freiheit-normal.md) | ダーント&フライハイト / Dante and Freiheit | SSR | 土 | 下書き |
+| [earth-ssr-first-years-team-normal.md](./earth-ssr-first-years-team-normal.md) | 1年生チーム / First-Years Team | SSR | 土 | 下書き |
 
 ## 運用ルール
 
