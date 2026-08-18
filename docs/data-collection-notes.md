@@ -190,7 +190,16 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
   - index110 ロゼッタ(クリスマス)はgbf.wiki候補「Rosetta (Holiday)」と入手武器/声優/称号が完全一致し同一キャラクターと確認したが、ステータスがGameWith(HP1540/ATK7280)とgbf.wiki(HP2000/ATK7500)で不一致。キャラクター種別の誤りではないためGameWith数値を採用し、不一致を明記して要検証扱いとした。
   - index111 ケルベロスはgbf.wiki候補なし。GameWithのみで作成。バランス調整後・最終上限解放後の性能を採用。batch_104-111.txt完了。
   - index112 レディ・グレイ(通常版)はgbf.wiki候補なし。GameWithのみで作成。バランス調整後・最終上限解放後の性能を採用。batch_112-112.txt完了。
-  - **闇属性SSR全113体完了！(113/113)** 次は闇属性SR/Rの収集、または他属性(光・火・水・土・風)のSR/R収集に進む。
+  - **闇属性SSR全113体完了！(113/113)** 全6属性のSSR収集が完了(光121/火111/水99/土108/風121/闇113、計673体)。方針(40行目)通り次はSR収集フェーズに移行する。
+
+### 進行中の作業(2026-08-19〜): SR収集フェーズ開始(光属性SRから)
+
+全属性SSR完了を受け、SR収集を開始。GameWithのSRキャラ評価一覧ページ(https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/20723 、SSR用20722とは別ページ、新しい順)を新たに発見し使用。SSR収集順序(光→火→水→土→風→闇)を踏襲し、SRも光属性から着手する。
+
+- `scripts/data-collection/scratch-build-list.mjs`のLIST_URLをSR一覧(20723)に変更。`scratch-fetch.mjs`/`scratch-fetch-gbfwiki.sh`/`scratch-pick-and-dump.mjs`/`scratch-build-dossier.mjs`のSCRATCH定数を`light_sr`に retarget。
+- 光属性SRは全41体(SSRの121体よりかなり少ない)。既存の`light-sr-*.md`ファイルは無し(重複スキップ対象なし)。
+- パイプライン完了: list.json(41体)→GameWith取得(41/41成功)→gbf.wiki検索(41/41成功、curl経由)→候補選定(29/41にgbf.wiki候補あり)→ページ取得(29/29成功)→dossier生成(`batch_000-007.txt`〜`batch_040-040.txt`、6バッチ)。
+- **進捗**: index0から着手。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
