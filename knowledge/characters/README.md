@@ -436,6 +436,7 @@
 | [earth-ssr-yggdrasil-normal.md](./earth-ssr-yggdrasil-normal.md) | ユグドラシル / Yggdrasil | SSR | 土 | 下書き |
 | [earth-ssr-medusa-promo.md](./earth-ssr-medusa-promo.md) | メドゥーサ(特典) / Medusa (Promo) | SSR | 土 | 下書き |
 | [earth-ssr-de-la-fille-earth.md](./earth-ssr-de-la-fille-earth.md) | 土レ・フィーエ / De La Fille (Earth) | SSR | 土 | 下書き |
+| [earth-ssr-razia-normal.md](./earth-ssr-razia-normal.md) | ラスティナ(SSR) / Razia | SSR | 土 | 下書き |
 
 ## 運用ルール
 
