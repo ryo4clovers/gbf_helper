@@ -550,6 +550,7 @@
 | [wind-ssr-kokkoro-normal.md](./wind-ssr-kokkoro-normal.md) | コッコロ / Kokkoro | SSR | 風 | 下書き |
 | [wind-ssr-yurius-normal.md](./wind-ssr-yurius-normal.md) | ユリウス / Yurius | SSR | 風 | 下書き |
 | [wind-ssr-monika-normal.md](./wind-ssr-monika-normal.md) | モニカ / Monika | SSR | 風 | 下書き |
+| [wind-ssr-selfira-normal.md](./wind-ssr-selfira-normal.md) | セレフィラ(SSR) / Selfira | SSR | 風 | 下書き |
 
 ## 運用ルール
 
