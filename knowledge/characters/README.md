@@ -593,6 +593,8 @@
 | [dark-ssr-lobelia-valentine.md](./dark-ssr-lobelia-valentine.md) | 闇ロベリア(バレンタイン) / Lobelia (Valentine) | SSR | 闇 | 下書き |
 | [dark-ssr-evangeline-normal.md](./dark-ssr-evangeline-normal.md) | エヴァンジェリン / Evangeline | SSR | 闇 | 下書き |
 | [dark-ssr-koku-normal.md](./dark-ssr-koku-normal.md) | コク / Koku | SSR | 闇 | 下書き |
+| [dark-ssr-indra-normal.md](./dark-ssr-indra-normal.md) | インダラ / Indra | SSR | 闇 | 下書き |
+| [dark-ssr-aletheia-dark.md](./dark-ssr-aletheia-dark.md) | 闇アレーティア / Aletheia (Dark) | SSR | 闇 | 下書き |
 
 ## 運用ルール
 
