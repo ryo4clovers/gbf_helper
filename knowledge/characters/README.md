@@ -13,7 +13,6 @@
 
 | ファイル | 名前(JP/EN) | レアリティ | 属性 | ステータス |
 | --- | --- | --- | --- | --- |
-| [dark-sr-vira-normal.md](./dark-sr-vira-normal.md) | ヴィーラ / Vira | SR | 闇 | 下書き |
 | [fire-ssr-percival-normal.md](./fire-ssr-percival-normal.md) | パーシヴァル / Percival | SSR | 火 | 下書き |
 | [earth-ssr-seox-summer.md](./earth-ssr-seox-summer.md) | シス(水着) / Seox (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-io-normal.md](./earth-ssr-io-normal.md) | 土イオ / Io | SSR | 土 | 下書き |
@@ -960,6 +959,7 @@
 | [dark-sr-jogasaki-mika-normal.md](./dark-sr-jogasaki-mika-normal.md) | 城ヶ崎美嘉 / Mika Jougasaki | SR | 闇 | 下書き |
 | [dark-sr-ange-halloween.md](./dark-sr-ange-halloween.md) | アンジェ(ハロウィン) / Ange (Halloween) | SR | 闇 | 下書き |
 | [dark-sr-lucius-normal.md](./dark-sr-lucius-normal.md) | ルシウス / Lucius | SR | 闇 | 下書き |
+| [dark-sr-vira-normal.md](./dark-sr-vira-normal.md) | ヴィーラ(SR) / Vira | SR | 闇 | 下書き |
 
 ## 運用ルール
 
