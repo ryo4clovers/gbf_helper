@@ -89,6 +89,25 @@ function deriveSlug(nameEn) {
 
 const list = JSON.parse(fs.readFileSync(path.join(SCRATCH, "list.json"), "utf-8"));
 const report = JSON.parse(fs.readFileSync(path.join(SCRATCH, "verify_report.json"), "utf-8"));
+const turnsPath = path.join(SCRATCH, "summon_turns.json");
+const turnsData = fs.existsSync(turnsPath) ? JSON.parse(fs.readFileSync(turnsPath, "utf-8")) : null;
+
+function renderCallSection(turnsEntry, fallbackText) {
+  if (turnsEntry && turnsEntry.tiers.length > 0) {
+    return turnsEntry.tiers
+      .map((t) => {
+        const heading = t.skillName ? `${t.tier}『${t.skillName}』` : t.tier;
+        const lines = [`### ${heading}`, "", `- 効果: ${t.effect.split("\n").join(" / ")}`];
+        if (t.firstUseTurn) lines.push(`- 初回召喚: ${t.firstUseTurn}ターン後`);
+        if (t.cooldownTurns) lines.push(`- 使用間隔: ${t.cooldownTurns}ターン`);
+        lines.push(`- 再召喚: ${t.noReSummon ? "不可" : "可"}`);
+        lines.push("- 出典: GameWith(個別ページ)");
+        return lines.join("\n");
+      })
+      .join("\n\n");
+  }
+  return `- 効果: ${fallbackText.split("\n").join(" / ")}\n- 出典: GameWith`;
+}
 
 fs.mkdirSync(OUT_DIR, { recursive: true });
 
@@ -187,6 +206,20 @@ for (let i = 0; i < list.length; i++) {
       ? "\n- 4★(4凸)時点のHP/ATKはGameWithの記載値のみで、gbf.wikiによるクロスチェックができていない(候補ページが見つからないため)。"
       : "";
 
+  const turnsEntry = turnsData ? turnsData[i] : null;
+  const noTurnDataNote =
+    turnsData && (!turnsEntry || turnsEntry.tiers.length === 0)
+      ? "\n- 召喚ターン(初回召喚/使用間隔/再召喚可否)はGameWith個別ページから抽出できなかったため未記載。個別ページを直接確認する必要がある。"
+      : "";
+  // A tier whose effect text still contains a turn-keyword after stripping
+  // means the page packed more than one uncap tier's info into a single
+  // paragraph without a clean separator — the reported turn numbers may
+  // belong to the wrong tier. Surface this rather than ship it silently.
+  const ambiguousTurnNote =
+    turnsEntry?.tiers.some((t) => /使用間隔|召喚までの間隔|初回召喚|使用可能/.test(t.effect))
+      ? "\n- 召喚ターン情報が1段落に複数段階分まとめて記載されているページのため、表示している初回召喚/使用間隔の数値がどの段階のものか不確実。GameWith個別ページで直接確認すること。"
+      : "";
+
   const body = `---
 id: "${id}"
 name_jp: "${c.name.replace(/･/g, "・")}"
@@ -221,8 +254,7 @@ ${statsRows.join("\n")}
 
 ## 召喚効果
 
-- 効果: ${c.call_effect_raw.split("\n").join(" / ")}
-- 出典: GameWith
+${renderCallSection(turnsEntry, c.call_effect_raw)}
 
 ## 加護効果(メイン編成時)
 
@@ -244,7 +276,7 @@ ${
 
 ## 未確認・要検証事項
 
-- サブ加護効果の正確な倍率はGameWith一覧に明記されていない場合、未検証。${verifyNote}${noCandidateNote}${missingFourTsuNote}${unverifiedMaxTierNote}
+- サブ加護効果の正確な倍率はGameWith一覧に明記されていない場合、未検証。${verifyNote}${noCandidateNote}${missingFourTsuNote}${unverifiedMaxTierNote}${noTurnDataNote}${ambiguousTurnNote}
 - gbf.wikiでさらに上位の上限解放段階(5★/6★等)が存在する場合、本ファイルはGameWithの標準的な表記(3★/4★)までの記載としており、それ以降は未反映。
 `;
 

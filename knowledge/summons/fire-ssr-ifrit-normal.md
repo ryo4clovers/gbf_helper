@@ -33,8 +33,12 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 ## 召喚効果
 
+### 初期『インフェルノ』
+
 - 効果: 敵全体に火属性ダメージ(特大) / 味方全体の攻撃UP(中)
-- 出典: GameWith
+- 使用間隔: 9ターン
+- 再召喚: 可
+- 出典: GameWith(個別ページ)
 
 ## 加護効果(メイン編成時)
 
