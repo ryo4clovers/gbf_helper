@@ -907,6 +907,7 @@
 | [wind-sr-eso-normal.md](./wind-sr-eso-normal.md) | エシオ(SR) / Eso (SR) | SR | 風 | 下書き |
 | [wind-sr-rashid-normal.md](./wind-sr-rashid-normal.md) | ラシード / Rashid | SR | 風 | 下書き |
 | [wind-sr-robertina-normal.md](./wind-sr-robertina-normal.md) | ロベルティナ / Robertina (Promo) | SR | 風 | 下書き |
+| [wind-sr-sevilbarra-normal.md](./wind-sr-sevilbarra-normal.md) | サビルバラ / Sevilbarra | SR | 風 | 下書き |
 
 ## 運用ルール
 
