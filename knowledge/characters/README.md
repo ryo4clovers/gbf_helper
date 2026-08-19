@@ -942,6 +942,7 @@
 | [dark-sr-jamil-dark.md](./dark-sr-jamil-dark.md) | 闇ジャミル / Jamil (Dark) | SR | 闇 | 下書き |
 | [dark-sr-predator-normal.md](./dark-sr-predator-normal.md) | プレデター / Predator | SR | 闇 | 下書き |
 | [dark-sr-deliford-normal.md](./dark-sr-deliford-normal.md) | デリフォード(SR) / Deliford (SR) | SR | 闇 | 下書き |
+| [dark-sr-cagliostro-normal.md](./dark-sr-cagliostro-normal.md) | カリオストロ(SR) / Cagliostro (Event) | SR | 闇 | 下書き |
 
 ## 運用ルール
 
