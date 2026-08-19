@@ -904,6 +904,7 @@
 | [wind-sr-mimlemel-and-stumpeye-normal.md](./wind-sr-mimlemel-and-stumpeye-normal.md) | ミムルメモル&切り株 / Mimlemel and Stumpeye | SR | 風 | 下書き |
 | [wind-sr-jin-summer.md](./wind-sr-jin-summer.md) | ふんどしジン / Jin (Summer) | SR | 風 | 下書き |
 | [wind-sr-shinguji-sakura-normal.md](./wind-sr-shinguji-sakura-normal.md) | 真宮寺さくら / Sakura Shinguji | SR | 風 | 下書き |
+| [wind-sr-eso-normal.md](./wind-sr-eso-normal.md) | エシオ(SR) / Eso (SR) | SR | 風 | 下書き |
 
 ## 運用ルール
 
