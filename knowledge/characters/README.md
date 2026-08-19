@@ -986,6 +986,7 @@
 | [fire-r-anna-normal.md](./fire-r-anna-normal.md) | アンナ(R) / Anna | R | 火 | 下書き |
 | [fire-r-ryan-normal.md](./fire-r-ryan-normal.md) | ライアン(R) / Ryan | R | 火 | 下書き |
 | [water-r-haira-normal.md](./water-r-haira-normal.md) | ハイラ(R) / Haira (R) | R | 水 | 下書き |
+| [water-r-randall-normal.md](./water-r-randall-normal.md) | ランドル(R) / Randall | R | 水 | 下書き |
 
 ## 運用ルール
 
