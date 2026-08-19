@@ -993,6 +993,7 @@
 | [water-r-joel-normal.md](./water-r-joel-normal.md) | ジョエル / Joel | R | 水 | 下書き |
 | [water-r-yodarha-normal.md](./water-r-yodarha-normal.md) | ヨダルラーハ / Yodarha | R | 水 | 下書き |
 | [water-r-suframare-normal.md](./water-r-suframare-normal.md) | スフラマール / Suframare | R | 水 | 下書き |
+| [water-r-richard-normal.md](./water-r-richard-normal.md) | リチャード / Richard | R | 水 | 下書き |
 
 ## 運用ルール
 
