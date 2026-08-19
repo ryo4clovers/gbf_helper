@@ -320,7 +320,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - SR全属性(光・火・水・土・風・闇)の収集が完了。次はR属性の収集に着手予定。
 - R属性収集開始。GameWithのRキャラ評価一覧ページはarticle/show/20724(SSRは20722、SRは20723)と判明。scratch-build-list.mjsのLIST_URLを更新。パイプラインをlight_rに再ターゲット。
 - 光属性R: scratch-build-list.mjsでリスト取得6体。GameWith全6体のページ取得完了、gbf.wiki検索は6/6体で候補あり(curl経由で取得)。dossier生成完了(batch_000-005.txt)。
-- 光属性R(1/6体完了)。次はindex1(ヴェリトール)から継続(batch_000-005.txt)。
+- 光属性R(2/6体完了)。次はindex2(フィラソピラ(R))から継続(batch_000-005.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
