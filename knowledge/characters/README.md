@@ -931,6 +931,7 @@
 | [dark-sr-meg-normal.md](./dark-sr-meg-normal.md) | メグ / Meg (Event) | SR | 闇 | 下書き |
 | [dark-sr-you-normal.md](./dark-sr-you-normal.md) | ヨウ / You (Event) | SR | 闇 | 下書き |
 | [dark-sr-richard-dark.md](./dark-sr-richard-dark.md) | 闇リチャード / Richard (Dark) | SR | 闇 | 下書き |
+| [dark-sr-skull-dark.md](./dark-sr-skull-dark.md) | 闇スカル / Skull (Dark) | SR | 闇 | 下書き |
 
 ## 運用ルール
 
