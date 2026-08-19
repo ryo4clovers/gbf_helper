@@ -977,6 +977,7 @@
 | [fire-r-dante-normal.md](./fire-r-dante-normal.md) | ダーント(R) / Dante | R | 火 | 下書き |
 | [fire-r-ippatsu-normal.md](./fire-r-ippatsu-normal.md) | イッパツ(R) / Ippatsu | R | 火 | 下書き |
 | [fire-r-karva-normal.md](./fire-r-karva-normal.md) | カルバ / Karva | R | 火 | 下書き |
+| [fire-r-barawa-normal.md](./fire-r-barawa-normal.md) | バロワ(R) / Barawa (R) | R | 火 | 下書き |
 
 ## 運用ルール
 
