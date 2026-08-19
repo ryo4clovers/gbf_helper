@@ -956,6 +956,7 @@
 | [dark-sr-yuri-lowell-normal.md](./dark-sr-yuri-lowell-normal.md) | ユーリ(テイルズ) / Yuri Lowell | SR | 闇 | 下書き |
 | [dark-sr-zehek-normal.md](./dark-sr-zehek-normal.md) | ゼヘク(SR) / Zehek (SR) | SR | 闇 | 下書き |
 | [dark-sr-zaja-normal.md](./dark-sr-zaja-normal.md) | ザザ / Zaja | SR | 闇 | 下書き |
+| [dark-sr-rita-normal.md](./dark-sr-rita-normal.md) | リタ / Rita | SR | 闇 | 下書き |
 
 ## 運用ルール
 
