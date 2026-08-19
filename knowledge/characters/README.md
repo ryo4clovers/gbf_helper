@@ -1025,6 +1025,7 @@
 | [dark-r-vikala-normal.md](./dark-r-vikala-normal.md) | ビカラ(R) / Vikala (R) | R | 闇 | 下書き |
 | [dark-r-bakura-normal.md](./dark-r-bakura-normal.md) | バクラ / Bakura | R | 闇 | 下書き |
 | [dark-r-lunalu-summer.md](./dark-r-lunalu-summer.md) | 水着ルナール / Lunalu (Summer) | R | 闇 | 下書き |
+| [dark-r-lunalu-normal.md](./dark-r-lunalu-normal.md) | ルナール / Lunalu | R | 闇 | 下書き |
 
 ## 運用ルール
 
