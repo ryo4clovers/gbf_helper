@@ -949,6 +949,7 @@
 | [dark-sr-kanzaki-ranko-normal.md](./dark-sr-kanzaki-ranko-normal.md) | 神崎蘭子 / Ranko Kanzaki | SR | 闇 | 下書き |
 | [dark-sr-elize-normal.md](./dark-sr-elize-normal.md) | エリーゼ / Elize | SR | 闇 | 下書き |
 | [dark-sr-stahn-normal.md](./dark-sr-stahn-normal.md) | スタン(SR) / Stan (Event) | SR | 闇 | 下書き |
+| [dark-sr-shao-normal.md](./dark-sr-shao-normal.md) | シャオ / Shao | SR | 闇 | 下書き |
 
 ## 運用ルール
 
