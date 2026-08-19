@@ -52,6 +52,47 @@
 | [fire-ssr-crimson-spear-ebony-scythe-normal.md](./fire-ssr-crimson-spear-ebony-scythe-normal.md) | 紅き穿光と黒き大鎌 / Crimson Spear, Ebony Scythe | SSR | 火 | 下書き |
 | [fire-ssr-grendel-normal.md](./fire-ssr-grendel-normal.md) | ベオウルフ / Grendel | SSR | 火 | 下書き |
 | [fire-ssr-sylph-normal.md](./fire-ssr-sylph-normal.md) | シルフ / Sylph | SSR | 火 | 下書き |
+| [water-ssr-varuna-normal.md](./water-ssr-varuna-normal.md) | ヴァルナ / Varuna | SSR | 水 | 下書き |
+| [water-ssr-europa-normal.md](./water-ssr-europa-normal.md) | エウロペ / Europa | SSR | 水 | 下書き |
+| [water-ssr-gabriel-normal.md](./water-ssr-gabriel-normal.md) | ガブリエル / Gabriel | SSR | 水 | 下書き |
+| [water-ssr-the-moon-normal.md](./water-ssr-the-moon-normal.md) | ザ・ムーン / The Moon | SSR | 水 | 下書き |
+| [water-ssr-wamdus-normal.md](./water-ssr-wamdus-normal.md) | ワムデュス / Wamdus | SSR | 水 | 下書き |
+| [water-ssr-bonito-normal.md](./water-ssr-bonito-normal.md) | カツウォヌス / Bonito | SSR | 水 | 下書き |
+| [water-ssr-kaguya-normal.md](./water-ssr-kaguya-normal.md) | カグヤ / Kaguya | SSR | 水 | 下書き |
+| [water-ssr-ca-ong-normal.md](./water-ssr-ca-ong-normal.md) | カー・オン / Ca Ong | SSR | 水 | 下書き |
+| [water-ssr-macula-marius-summer.md](./water-ssr-macula-marius-summer.md) | 水着マキュラ・マリウス / Macula Marius (Summer) | SSR | 水 | 下書き |
+| [water-ssr-demi-varuna-normal.md](./water-ssr-demi-varuna-normal.md) | ヴァルナ・ディヴィジョン / Demi Varuna | SSR | 水 | 下書き |
+| [water-ssr-poseidon-the-tide-father-normal.md](./water-ssr-poseidon-the-tide-father-normal.md) | 気高き水神ポセイドン / Poseidon, the Tide Father | SSR | 水 | 下書き |
+| [water-ssr-charybdis-normal.md](./water-ssr-charybdis-normal.md) | カリュブディス / Charybdis | SSR | 水 | 下書き |
+| [water-ssr-giyu-tomioka-normal.md](./water-ssr-giyu-tomioka-normal.md) | 冨岡義勇 / Giyu Tomioka | SSR | 水 | 下書き |
+| [water-ssr-leviathan-magna-normal.md](./water-ssr-leviathan-magna-normal.md) | リヴァイアサン・マグナ / Leviathan Magna | SSR | 水 | 下書き |
+| [water-ssr-snow-white-normal.md](./water-ssr-snow-white-normal.md) | スノウホワイト / Snow White | SSR | 水 | 下書き |
+| [water-ssr-justice-normal.md](./water-ssr-justice-normal.md) | ジャスティス / Justice | SSR | 水 | 下書き |
+| [water-ssr-princess-long-ji-normal.md](./water-ssr-princess-long-ji-normal.md) | 竜吉公主 / Princess Long Ji | SSR | 水 | 下書き |
+| [water-ssr-macula-marius-normal.md](./water-ssr-macula-marius-normal.md) | マキュラ・マリウス / Macula Marius | SSR | 水 | 下書き |
+| [water-ssr-xeno-cocytus-normal.md](./water-ssr-xeno-cocytus-normal.md) | ゼノコキュートス / Xeno Cocytus | SSR | 水 | 下書き |
+| [water-ssr-grani-normal.md](./water-ssr-grani-normal.md) | グラニ / Grani | SSR | 水 | 下書き |
+| [water-ssr-xuanwu-normal.md](./water-ssr-xuanwu-normal.md) | 玄武 / Xuanwu | SSR | 水 | 下書き |
+| [water-ssr-blessed-wedding-normal.md](./water-ssr-blessed-wedding-normal.md) | 結婚式 / Blessed Wedding | SSR | 水 | 下書き |
+| [water-ssr-silver-salvation-normal.md](./water-ssr-silver-salvation-normal.md) | 一臂の力を揮う銀の軍師 / Silver Salvation | SSR | 水 | 下書き |
+| [water-ssr-deepflight-oyster-normal.md](./water-ssr-deepflight-oyster-normal.md) | カキフライ / Deepflight Oyster | SSR | 水 | 下書き |
+| [water-ssr-cocytus-normal.md](./water-ssr-cocytus-normal.md) | コキュートス / Cocytus | SSR | 水 | 下書き |
+| [water-ssr-oceanus-normal.md](./water-ssr-oceanus-normal.md) | オケアノス / Oceanus | SSR | 水 | 下書き |
+| [water-ssr-ebisu-normal.md](./water-ssr-ebisu-normal.md) | ヱビス / Ebisu | SSR | 水 | 下書き |
+| [water-ssr-fenrir-normal.md](./water-ssr-fenrir-normal.md) | フェンリル / Fenrir | SSR | 水 | 下書き |
+| [water-ssr-neptune-normal.md](./water-ssr-neptune-normal.md) | ネプチューン / Neptune | SSR | 水 | 下書き |
+| [water-ssr-odajumoki-gang-normal.md](./water-ssr-odajumoki-gang-normal.md) | オダヅモッキー・ギャングスタ / Odajumoki Gang | SSR | 水 | 下書き |
+| [water-ssr-poseidon-normal.md](./water-ssr-poseidon-normal.md) | ポセイドン / Poseidon | SSR | 水 | 下書き |
+| [water-ssr-verona-heart-normal.md](./water-ssr-verona-heart-normal.md) | ヴェローナ・ハート / Verona Heart | SSR | 水 | 下書き |
+| [water-ssr-god-albacore-normal.md](./water-ssr-god-albacore-normal.md) | ゴッド・アルバコア / God Albacore | SSR | 水 | 下書き |
+| [water-ssr-snapshot-of-divinity-yukata.md](./water-ssr-snapshot-of-divinity-yukata.md) | 十二神将水浴衣図 / Snapshot of Divinity | SSR | 水 | 下書き |
+| [water-ssr-frost-lords-army-normal.md](./water-ssr-frost-lords-army-normal.md) | 竜騰虎闘の氷皇軍 / Frost Lord's Army | SSR | 水 | 下書き |
+| [water-ssr-ikelos-normal.md](./water-ssr-ikelos-normal.md) | イケロス / Ikelos | SSR | 水 | 下書き |
+| [water-ssr-sapphire-dance-gentiana-normal.md](./water-ssr-sapphire-dance-gentiana-normal.md) | 蒼紅之舞・竜胆 / Sapphire Dance: Gentiana | SSR | 水 | 下書き |
+| [water-ssr-illuyanka-normal.md](./water-ssr-illuyanka-normal.md) | イルルヤンカシュ / Illuyanka | SSR | 水 | 下書き |
+| [water-ssr-audumbla-normal.md](./water-ssr-audumbla-normal.md) | アウズンブラ / Audumbla | SSR | 水 | 下書き |
+| [water-ssr-manawydan-normal.md](./water-ssr-manawydan-normal.md) | マナウィダン / Manawydan | SSR | 水 | 下書き |
+| [water-ssr-branwen-normal.md](./water-ssr-branwen-normal.md) | ブランウェン / Branwen | SSR | 水 | 下書き |
 | [light-ssr-lucifer-normal.md](./light-ssr-lucifer-normal.md) | ルシフェル / Lucifer | SSR | 光 | 下書き |
 
 ## 運用ルール

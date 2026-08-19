@@ -7,7 +7,7 @@ element: "火"
 obtain: "ボスドロップ"
 status: 下書き
 last_updated: 2026-08-20
-source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) のみ(取得日: 2026-08-20)。gbf.wiki候補は自動検索で見つからず/確認できず。"
+source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Colossus_Magna) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致(Lv100=648/1635、Lv150=778/1965)。gbf.wiki検索では見つからなかったが、直接URL(Base_Magna形式)で存在を確認。"
 ---
 
 # コロッサス・マグナ(Colossus Magna)
@@ -53,6 +53,4 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## 未確認・要検証事項
 
 - サブ加護効果の正確な倍率はGameWith一覧に明記されていない場合、未検証。
-- gbf.wiki候補が自動検索で見つからなかったため、正確なHP/ATKは未検証。
-- 4★(4凸)時点のHP/ATKはGameWithの記載値のみで、gbf.wikiによるクロスチェックができていない(候補ページが見つからないため)。
-- gbf.wikiでさらに上位の上限解放段階(5★/6★等)が存在する場合、本ファイルはGameWithの標準的な表記(3★/4★)までの記載としており、それ以降は未反映。
+- gbf.wikiでは5★/6★までさらに上限解放が可能(Lv250: HP1064/ATK2665)だが、本ファイルはGameWithの標準的な表記(3★/4★)までの記載としており、それ以降は未反映。

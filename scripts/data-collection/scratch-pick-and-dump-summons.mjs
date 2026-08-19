@@ -76,23 +76,28 @@ const NAME_KEYWORD_HINTS = [
 function pickCandidate(name, candidates) {
   if (candidates.length === 0) return null;
 
+  // Filter out known-irrelevant pages (character Lore/Voice subpages, raid
+  // bosses, etc.) FIRST — a Lore subpage can contain "(SSR)" in its title too
+  // (e.g. "Lowain (SSR)/Lore"), so checking for that substring before this
+  // filter previously grabbed junk pages that merely mentioned the rarity.
+  const plausible = candidates.filter(
+    (c) => !NON_SUMMON_MARKERS.some((marker) => c.title.includes(marker)),
+  );
+
   for (const [keyword, hints] of NAME_KEYWORD_HINTS) {
     if (!name.includes(keyword)) continue;
     for (const hint of hints) {
-      const found = candidates.find((c) => c.title.includes(hint));
+      const found = plausible.find((c) => c.title.includes(hint));
       if (found) return found;
     }
   }
 
-  const summonMatch = candidates.find((c) => c.title.includes("(Summon)"));
+  const summonMatch = plausible.find((c) => c.title.includes("(Summon)"));
   if (summonMatch) return summonMatch;
 
-  const ssrMatch = candidates.find((c) => c.title.includes("(SSR)"));
+  const ssrMatch = plausible.find((c) => c.title.includes("(SSR)"));
   if (ssrMatch) return ssrMatch;
 
-  const plausible = candidates.filter(
-    (c) => !NON_SUMMON_MARKERS.some((marker) => c.title.includes(marker)),
-  );
   const bareCandidates = plausible.filter((c) => !c.title.includes("("));
   if (bareCandidates.length === 1) return bareCandidates[0];
 
