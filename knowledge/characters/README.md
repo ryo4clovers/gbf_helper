@@ -934,6 +934,8 @@
 | [dark-sr-skull-dark.md](./dark-sr-skull-dark.md) | 闇スカル / Skull (Dark) | SR | 闇 | 下書き |
 | [dark-sr-cassius-normal.md](./dark-sr-cassius-normal.md) | カシウス / Cassius | SR | 闇 | 下書き |
 | [dark-sr-feather-halloween.md](./dark-sr-feather-halloween.md) | フェザー(ハロウィン) / Feather (Halloween) | SR | 闇 | 下書き |
+| [dark-sr-arulumaya-yukata.md](./dark-sr-arulumaya-yukata.md) | 浴衣アルルメイヤ / Arulumaya (Yukata) | SR | 闇 | 下書き |
+| [dark-sr-olivia-summer.md](./dark-sr-olivia-summer.md) | 水着オリヴィエ / Olivia (Summer) | SR | 闇 | 下書き |
 
 ## 運用ルール
 
