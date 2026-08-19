@@ -1017,6 +1017,7 @@
 | [wind-r-pavidus-normal.md](./wind-r-pavidus-normal.md) | パヴィーダ / Pavidus | R | 風 | 下書き |
 | [wind-r-karteira-normal.md](./wind-r-karteira-normal.md) | カルテイラ(R) / Karteira | R | 風 | 下書き |
 | [wind-r-krugne-normal.md](./wind-r-krugne-normal.md) | クルーニ(R) / Krugne | R | 風 | 下書き |
+| [wind-r-leonora-normal.md](./wind-r-leonora-normal.md) | レオノーラ / Leonora | R | 風 | 下書き |
 
 ## 運用ルール
 
