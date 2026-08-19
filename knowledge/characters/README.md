@@ -930,6 +930,7 @@
 | [dark-sr-wulf-and-renie-halloween.md](./dark-sr-wulf-and-renie-halloween.md) | ウーフとレニー(ハロウィン) / Wulf and Renie (Halloween) | SR | 闇 | 下書き |
 | [dark-sr-meg-normal.md](./dark-sr-meg-normal.md) | メグ / Meg (Event) | SR | 闇 | 下書き |
 | [dark-sr-you-normal.md](./dark-sr-you-normal.md) | ヨウ / You (Event) | SR | 闇 | 下書き |
+| [dark-sr-richard-dark.md](./dark-sr-richard-dark.md) | 闇リチャード / Richard (Dark) | SR | 闇 | 下書き |
 
 ## 運用ルール
 
