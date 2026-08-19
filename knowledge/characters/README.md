@@ -967,6 +967,7 @@
 | [light-r-daetta-normal.md](./light-r-daetta-normal.md) | ダエッタ / Daetta | R | 光 | 下書き |
 | [light-r-feather-normal.md](./light-r-feather-normal.md) | フェザー(R) / Feather | R | 光 | 下書き |
 | [light-r-rosamia-normal.md](./light-r-rosamia-normal.md) | ロザミア(R) / Rosamia | R | 光 | 下書き |
+| [fire-r-neko-normal.md](./fire-r-neko-normal.md) | 猫 / Neko (Cat) | R | 火 | 下書き |
 
 ## 運用ルール
 

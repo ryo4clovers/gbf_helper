@@ -321,7 +321,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - R属性収集開始。GameWithのRキャラ評価一覧ページはarticle/show/20724(SSRは20722、SRは20723)と判明。scratch-build-list.mjsのLIST_URLを更新。パイプラインをlight_rに再ターゲット。
 - 光属性R: scratch-build-list.mjsでリスト取得6体。GameWith全6体のページ取得完了、gbf.wiki検索は6/6体で候補あり(curl経由で取得)。dossier生成完了(batch_000-005.txt)。
 - 光属性R収集完了(6/6体)。次は火属性Rの収集に着手(パイプラインをfire_rに再ターゲット)。
-- 火属性R: scratch-build-list.mjsでリスト取得18体。GameWith全18体のページ取得完了、gbf.wiki検索は17/18体で候補あり(curl経由で取得)。dossier生成完了(batch_000-007.txt〜batch_016-017.txt)。次はindex0から処理開始。
+- 火属性R: scratch-build-list.mjsでリスト取得18体。GameWith全18体のページ取得完了、gbf.wiki検索は17/18体で候補あり(curl経由で取得)。dossier生成完了(batch_000-007.txt〜batch_016-017.txt)。
+- 火属性R(1/18体完了)。index0 猫は「主人公と同属性」の特殊仕様キャラでGameWithが火属性ページとして分類。gbf.wiki候補「Karyl」は無関係の別キャラと判断し不採用、GameWithのみで作成。次はindex1(ドロッセル(R))から継続(batch_000-007.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
