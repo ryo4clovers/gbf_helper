@@ -3,6 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { KNOWLEDGE_BASE_PATH } from "./constants.js";
 import { registerCharacterTools } from "./tools/characters.js";
 import { registerMechanicsTools } from "./tools/mechanics.js";
+import { registerSummonTools } from "./tools/summons.js";
 
 const server = new McpServer({
   name: "gbf-knowledge-mcp-server",
@@ -11,6 +12,7 @@ const server = new McpServer({
 
 registerCharacterTools(server, KNOWLEDGE_BASE_PATH);
 registerMechanicsTools(server, KNOWLEDGE_BASE_PATH);
+registerSummonTools(server, KNOWLEDGE_BASE_PATH);
 
 const transport = new StdioServerTransport();
 await server.connect(transport);

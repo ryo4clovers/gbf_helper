@@ -6,10 +6,13 @@ import type {
   CharacterFrontmatter,
   MechanicsDoc,
   MechanicsFrontmatter,
+  SummonDoc,
+  SummonFrontmatter,
 } from "../types.js";
 
 const CHARACTERS_DIR = "characters";
 const MECHANICS_DIR = "mechanics";
+const SUMMONS_DIR = "summons";
 
 async function listMarkdownFiles(dirPath: string): Promise<string[]> {
   let entries: string[];
@@ -55,6 +58,20 @@ async function parseCharacterFile(filePath: string): Promise<CharacterDoc> {
   };
 }
 
+async function parseSummonFile(filePath: string): Promise<SummonDoc> {
+  const raw = await fs.readFile(filePath, "utf-8");
+  const { data, content } = matter(raw);
+  const id = path.basename(filePath, ".md");
+  return {
+    id,
+    filePath,
+    frontmatter: data as SummonFrontmatter,
+    title: extractTitle(content),
+    body: content,
+    sections: splitIntoSections(content),
+  };
+}
+
 // mechanics/_template.md has no YAML frontmatter; status/last_updated/source live
 // as "> ラベル: 値" blockquote lines directly under the H1 heading instead.
 const BLOCKQUOTE_PATTERNS = {
@@ -94,6 +111,11 @@ export async function loadMechanicsTopics(knowledgeBasePath: string): Promise<Me
   return Promise.all(files.map(parseMechanicsFile));
 }
 
+export async function loadSummons(knowledgeBasePath: string): Promise<SummonDoc[]> {
+  const files = await listMarkdownFiles(path.join(knowledgeBasePath, SUMMONS_DIR));
+  return Promise.all(files.map(parseSummonFile));
+}
+
 export async function findCharacterById(
   knowledgeBasePath: string,
   id: string,
@@ -108,4 +130,12 @@ export async function findMechanicsTopicById(
 ): Promise<MechanicsDoc | null> {
   const topics = await loadMechanicsTopics(knowledgeBasePath);
   return topics.find((t) => t.id === id) ?? null;
+}
+
+export async function findSummonById(
+  knowledgeBasePath: string,
+  id: string,
+): Promise<SummonDoc | null> {
+  const summons = await loadSummons(knowledgeBasePath);
+  return summons.find((s) => s.id === id) ?? null;
 }

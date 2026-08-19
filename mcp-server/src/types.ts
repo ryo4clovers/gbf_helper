@@ -21,6 +21,18 @@ export interface MechanicsFrontmatter {
   source: string;
 }
 
+export interface SummonFrontmatter {
+  id: string;
+  name_jp: string;
+  name_en: string;
+  rarity: "SSR" | "SR" | "R";
+  element: "火" | "水" | "土" | "風" | "光" | "闇" | "無属性";
+  obtain?: string;
+  status: "未着手" | "下書き" | "検証済み";
+  last_updated: string;
+  source: string;
+}
+
 export interface KnowledgeDoc<TFrontmatter> {
   id: string;
   filePath: string;
@@ -32,3 +44,4 @@ export interface KnowledgeDoc<TFrontmatter> {
 
 export type CharacterDoc = KnowledgeDoc<CharacterFrontmatter>;
 export type MechanicsDoc = KnowledgeDoc<MechanicsFrontmatter>;
+export type SummonDoc = KnowledgeDoc<SummonFrontmatter>;

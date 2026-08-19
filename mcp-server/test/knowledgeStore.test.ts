@@ -2,7 +2,13 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadCharacters, loadMechanicsTopics, findCharacterById } from "../src/services/knowledgeStore.ts";
+import {
+  loadCharacters,
+  loadMechanicsTopics,
+  loadSummons,
+  findCharacterById,
+  findSummonById,
+} from "../src/services/knowledgeStore.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FIXTURES_PATH = path.join(__dirname, "fixtures", "knowledge");
@@ -32,6 +38,22 @@ test("loadCharacters parses a character that has an EX ability", async () => {
 
 test("findCharacterById returns null for an unknown id", async () => {
   const doc = await findCharacterById(FIXTURES_PATH, "does-not-exist");
+  assert.equal(doc, null);
+});
+
+test("loadSummons skips README.md and parses frontmatter/sections", async () => {
+  const summons = await loadSummons(FIXTURES_PATH);
+  assert.equal(summons.length, 1);
+  const [doc] = summons;
+  assert.equal(doc.id, "test-summon");
+  assert.equal(doc.frontmatter.name_jp, "テスト召喚石");
+  assert.equal(doc.frontmatter.rarity, "SSR");
+  assert.ok(doc.sections["召喚効果"]?.includes("火属性ダメージ"));
+  assert.ok(doc.sections["加護効果(メイン編成時)"]?.includes("火属性攻撃力アップ"));
+});
+
+test("findSummonById returns null for an unknown id", async () => {
+  const doc = await findSummonById(FIXTURES_PATH, "does-not-exist");
   assert.equal(doc, null);
 });
 
