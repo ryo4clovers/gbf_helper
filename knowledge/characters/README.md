@@ -960,6 +960,7 @@
 | [dark-sr-ange-halloween.md](./dark-sr-ange-halloween.md) | アンジェ(ハロウィン) / Ange (Halloween) | SR | 闇 | 下書き |
 | [dark-sr-lucius-normal.md](./dark-sr-lucius-normal.md) | ルシウス / Lucius | SR | 闇 | 下書き |
 | [dark-sr-vira-normal.md](./dark-sr-vira-normal.md) | ヴィーラ(SR) / Vira | SR | 闇 | 下書き |
+| [dark-sr-danua-normal.md](./dark-sr-danua-normal.md) | ダヌア / Danua | SR | 闇 | 下書き |
 
 ## 運用ルール
 
