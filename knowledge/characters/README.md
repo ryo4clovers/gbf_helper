@@ -958,6 +958,8 @@
 | [dark-sr-zaja-normal.md](./dark-sr-zaja-normal.md) | ザザ / Zaja | SR | 闇 | 下書き |
 | [dark-sr-rita-normal.md](./dark-sr-rita-normal.md) | リタ / Rita | SR | 闇 | 下書き |
 | [dark-sr-jogasaki-mika-normal.md](./dark-sr-jogasaki-mika-normal.md) | 城ヶ崎美嘉 / Mika Jougasaki | SR | 闇 | 下書き |
+| [dark-sr-ange-halloween.md](./dark-sr-ange-halloween.md) | アンジェ(ハロウィン) / Ange (Halloween) | SR | 闇 | 下書き |
+| [dark-sr-lucius-normal.md](./dark-sr-lucius-normal.md) | ルシウス / Lucius | SR | 闇 | 下書き |
 
 ## 運用ルール
 
