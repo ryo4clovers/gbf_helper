@@ -970,6 +970,7 @@
 | [fire-r-neko-normal.md](./fire-r-neko-normal.md) | 猫 / Neko (Cat) | R | 火 | 下書き |
 | [fire-r-drusilla-normal.md](./fire-r-drusilla-normal.md) | ドロッセル(R) / Drusilla | R | 火 | 下書き |
 | [fire-r-ippatsu-summer.md](./fire-r-ippatsu-summer.md) | 水着イッパツ / Ippatsu (Summer) | R | 火 | 下書き |
+| [fire-r-rosine-normal.md](./fire-r-rosine-normal.md) | ロジーヌ / Rosine | R | 火 | 下書き |
 
 ## 運用ルール
 
