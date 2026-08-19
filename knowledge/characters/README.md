@@ -946,6 +946,7 @@
 | [dark-sr-ludmila-normal.md](./dark-sr-ludmila-normal.md) | ルドミリア / Ludmila | SR | 闇 | 下書き |
 | [dark-sr-luna-normal.md](./dark-sr-luna-normal.md) | ルナ(シャドバ) / Luna (Shadowverse) | SR | 闇 | 下書き |
 | [dark-sr-tanya-normal.md](./dark-sr-tanya-normal.md) | ターニャ(SR) / Tanya (SR) | SR | 闇 | 下書き |
+| [dark-sr-kanzaki-ranko-normal.md](./dark-sr-kanzaki-ranko-normal.md) | 神崎蘭子 / Ranko Kanzaki | SR | 闇 | 下書き |
 
 ## 運用ルール
 
