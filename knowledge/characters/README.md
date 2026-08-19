@@ -891,6 +891,7 @@
 | [wind-sr-arthur-normal.md](./wind-sr-arthur-normal.md) | アーサー(SR) / Arthur (Event) | SR | 風 | 下書き |
 | [wind-sr-mirin-normal.md](./wind-sr-mirin-normal.md) | ミリン / Mirin | SR | 風 | 下書き |
 | [wind-sr-karteira-normal.md](./wind-sr-karteira-normal.md) | カルテイラ(SR) / Karteira (SR) | SR | 風 | 下書き |
+| [wind-sr-chloe-summer.md](./wind-sr-chloe-summer.md) | 水着クロエ / Chloe (Summer) | SR | 風 | 下書き |
 
 ## 運用ルール
 
