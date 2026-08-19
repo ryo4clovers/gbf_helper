@@ -1010,6 +1010,7 @@
 | [earth-r-volenna-normal.md](./earth-r-volenna-normal.md) | ボレミア(R) / Volenna | R | 土 | 下書き |
 | [earth-r-farrah-normal.md](./earth-r-farrah-normal.md) | ファラ / Farrah | R | 土 | 下書き |
 | [earth-r-galadar-normal.md](./earth-r-galadar-normal.md) | ガラドア / Galadar | R | 土 | 下書き |
+| [earth-r-herja-normal.md](./earth-r-herja-normal.md) | ヘリヤ(R) / Herja | R | 土 | 下書き |
 
 ## 運用ルール
 
