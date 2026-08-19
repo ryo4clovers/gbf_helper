@@ -1004,6 +1004,7 @@
 | [earth-r-norcel-normal.md](./earth-r-norcel-normal.md) | ノルセル / Norcel | R | 土 | 下書き |
 | [earth-r-walder-christmas.md](./earth-r-walder-christmas.md) | ウェルダー(クリスマス) / Walder (Christmas) | R | 土 | 下書き |
 | [earth-r-garma-normal.md](./earth-r-garma-normal.md) | ガルマ / Garma | R | 土 | 下書き |
+| [earth-r-walder-summer.md](./earth-r-walder-summer.md) | 水着ウェルダー / Walder (Summer) | R | 土 | 下書き |
 
 ## 運用ルール
 
