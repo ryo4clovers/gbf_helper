@@ -324,7 +324,7 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - 火属性R: scratch-build-list.mjsでリスト取得18体。GameWith全18体のページ取得完了、gbf.wiki検索は17/18体で候補あり(curl経由で取得)。dossier生成完了(batch_000-007.txt〜batch_016-017.txt)。
 - 火属性R収集完了(18/18体)。次は水属性Rの収集に着手(パイプラインをwater_rに再ターゲット)。
 - 水属性R: scratch-build-list.mjsでリスト取得10体。GameWith全10体のページ取得完了、gbf.wiki検索は9/10体で候補あり(curl経由で取得)。dossier生成完了(batch_000-007.txt〜batch_008-009.txt)。
-- 水属性R(5/10体完了)。index0 ハイラ(R)は攻撃行動をしない特殊なR十二神将。gbf.wiki候補なし。GameWithのみで作成。index2 カイラナ(R)はgbf.wiki「Cailana」(SR版と共通ページ)でHP580/ATK4320が一致、確認済みとして採用。index3 アリステラはgbf.wiki「Alistair」でHP750/ATK4240が一致、確認済みとして採用(gbf.wikiでは性別が男性と記載)。index4 ブリジールはgbf.wiki「Bridgette」がHP600/ATK4520でGameWithのHP710/ATK4700と不一致のため不採用、GameWithのみで作成。次はindex5(ジョエル)から継続(batch_000-007.txt)。index0 猫は「主人公と同属性」の特殊仕様キャラでGameWithが火属性ページとして分類。gbf.wiki候補「Karyl」は無関係の別キャラと判断し不採用、GameWithのみで作成。  - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
+- 水属性R(6/10体完了)。index0 ハイラ(R)は攻撃行動をしない特殊なR十二神将。gbf.wiki候補なし。GameWithのみで作成。index2 カイラナ(R)はgbf.wiki「Cailana」(SR版と共通ページ)でHP580/ATK4320が一致、確認済みとして採用。index3 アリステラはgbf.wiki「Alistair」でHP750/ATK4240が一致、確認済みとして採用(gbf.wikiでは性別が男性と記載)。index4 ブリジールはgbf.wiki「Bridgette」がHP600/ATK4520でGameWithのHP710/ATK4700と不一致のため不採用、GameWithのみで作成。index5 ジョエルはgbf.wiki「Joel」でHP820/ATK3900が一致、確認済みとして採用。次はindex6(ヨダルラーハ)から継続(batch_000-007.txt)。index0 猫は「主人公と同属性」の特殊仕様キャラでGameWithが火属性ページとして分類。gbf.wiki候補「Karyl」は無関係の別キャラと判断し不採用、GameWithのみで作成。  - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。
   - index116 レナ(風属性)はgbf.wiki候補なし。GameWithのみで作成。バランス調整後・最終解放後の性能を採用。ファイル名は当初「lyria-heroism」と誤って作成したため「lena-wind」に修正して作成した。

@@ -990,6 +990,7 @@
 | [water-r-cailana-normal.md](./water-r-cailana-normal.md) | カイラナ(R) / Cailana | R | 水 | 下書き |
 | [water-r-aristella-normal.md](./water-r-aristella-normal.md) | アリステラ / Alistair | R | 水 | 下書き |
 | [water-r-bridgette-normal.md](./water-r-bridgette-normal.md) | ブリジール / Bridgette | R | 水 | 下書き |
+| [water-r-joel-normal.md](./water-r-joel-normal.md) | ジョエル / Joel | R | 水 | 下書き |
 
 ## 運用ルール
 
