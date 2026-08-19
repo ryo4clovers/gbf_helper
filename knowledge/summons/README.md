@@ -13,7 +13,45 @@
 
 | ファイル | 名前(日本語 / 英語) | レアリティ | 属性 | ステータス |
 | --- | --- | --- | --- | --- |
+| [fire-ssr-shiva-normal.md](./fire-ssr-shiva-normal.md) | シヴァ / Shiva | SSR | 火 | 下書き |
 | [fire-ssr-the-sun-normal.md](./fire-ssr-the-sun-normal.md) | ザ・サン / The Sun | SSR | 火 | 下書き |
+| [fire-ssr-wilnas-normal.md](./fire-ssr-wilnas-normal.md) | ウィルナス / Wilnas | SSR | 火 | 下書き |
+| [fire-ssr-agni-normal.md](./fire-ssr-agni-normal.md) | アグニス / Agni | SSR | 火 | 下書き |
+| [fire-ssr-sylph-flutterspirit-of-purity-normal.md](./fire-ssr-sylph-flutterspirit-of-purity-normal.md) | 白純の霊蝶シルフ / Sylph, Flutterspirit of Purity | SSR | 火 | 下書き |
+| [fire-ssr-michael-normal.md](./fire-ssr-michael-normal.md) | ミカエル / Michael | SSR | 火 | 下書き |
+| [fire-ssr-red-hare-normal.md](./fire-ssr-red-hare-normal.md) | セキトバ / Red Hare | SSR | 火 | 下書き |
+| [fire-ssr-belial-summer.md](./fire-ssr-belial-summer.md) | 水着ベリアル / Belial (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-satyr-summer.md](./fire-ssr-satyr-summer.md) | 水着サテュロス / Satyr (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-surtr-normal.md](./fire-ssr-surtr-normal.md) | スルト / Surtr | SSR | 火 | 下書き |
+| [fire-ssr-prometheus-normal.md](./fire-ssr-prometheus-normal.md) | プロメテウス / Prometheus | SSR | 火 | 下書き |
+| [fire-ssr-demi-agni-normal.md](./fire-ssr-demi-agni-normal.md) | アグニス・ディヴィジョン / Demi Agni | SSR | 火 | 下書き |
+| [fire-ssr-the-devil-normal.md](./fire-ssr-the-devil-normal.md) | ザ・デビル / The Devil | SSR | 火 | 下書き |
+| [fire-ssr-colossus-magna-normal.md](./fire-ssr-colossus-magna-normal.md) | コロッサス・マグナ / Colossus Magna | SSR | 火 | 下書き |
+| [fire-ssr-athena-normal.md](./fire-ssr-athena-normal.md) | アテナ / Athena | SSR | 火 | 下書き |
+| [fire-ssr-athena-summer.md](./fire-ssr-athena-summer.md) | 水着アテナ / Athena (Summer) | SSR | 火 | 下書き |
+| [fire-ssr-xeno-ifrit-normal.md](./fire-ssr-xeno-ifrit-normal.md) | ゼノイフリート / Xeno Ifrit | SSR | 火 | 下書き |
+| [fire-ssr-zaoshen-normal.md](./fire-ssr-zaoshen-normal.md) | ザオシェン / Zaoshen | SSR | 火 | 下書き |
+| [fire-ssr-sethlans-normal.md](./fire-ssr-sethlans-normal.md) | セスランス / Sethlans | SSR | 火 | 下書き |
+| [fire-ssr-zhuque-normal.md](./fire-ssr-zhuque-normal.md) | 朱雀 / Zhuque | SSR | 火 | 下書き |
+| [fire-ssr-sky-carriage-ss-pew-pew-normal.md](./fire-ssr-sky-carriage-ss-pew-pew-normal.md) | スカイキャリッジ☆ミ号 / Sky Carriage SS Pew Pew | SSR | 火 | 下書き |
+| [fire-ssr-mukku-normal.md](./fire-ssr-mukku-normal.md) | ムック / Mukku | SSR | 火 | 下書き |
+| [fire-ssr-ignis-dragon-normal.md](./fire-ssr-ignis-dragon-normal.md) | イグニスドラゴン / Ignis Dragon | SSR | 火 | 下書き |
+| [fire-ssr-lonesome-dragoness-normal.md](./fire-ssr-lonesome-dragoness-normal.md) | 孤独の竜姫 / Lonesome Dragoness | SSR | 火 | 下書き |
+| [fire-ssr-ifrit-normal.md](./fire-ssr-ifrit-normal.md) | イフリート / Ifrit | SSR | 火 | 下書き |
+| [fire-ssr-fafnir-normal.md](./fire-ssr-fafnir-normal.md) | ファフニール / Fafnir | SSR | 火 | 下書き |
+| [fire-ssr-satyr-normal.md](./fire-ssr-satyr-normal.md) | サテュロス / Satyr | SSR | 火 | 下書き |
+| [fire-ssr-twin-elements-normal.md](./fire-ssr-twin-elements-normal.md) | フラム＝グラス / Twin Elements | SSR | 火 | 下書き |
+| [fire-ssr-lady-katapillar-normal.md](./fire-ssr-lady-katapillar-normal.md) | キャタピラさん / Lady Katapillar | SSR | 火 | 下書き |
+| [fire-ssr-unrivaled-fighter-normal.md](./fire-ssr-unrivaled-fighter-normal.md) | 古今独歩の大拳豪 / Unrivaled Fighter | SSR | 火 | 下書き |
+| [fire-ssr-vanes-cooking-normal.md](./fire-ssr-vanes-cooking-normal.md) | クッキング・ヴェイン / Vane's Cooking | SSR | 火 | 下書き |
+| [fire-ssr-phoenix-normal.md](./fire-ssr-phoenix-normal.md) | フェニックス / Phoenix | SSR | 火 | 下書き |
+| [fire-ssr-oxymoron-normal.md](./fire-ssr-oxymoron-normal.md) | オクシモロン / Oxymoron | SSR | 火 | 下書き |
+| [fire-ssr-eren-normal.md](./fire-ssr-eren-normal.md) | エレン / Eren | SSR | 火 | 下書き |
+| [fire-ssr-grueler-normal.md](./fire-ssr-grueler-normal.md) | ゲルラ / Grueler | SSR | 火 | 下書き |
+| [fire-ssr-urkin-normal.md](./fire-ssr-urkin-normal.md) | ンニ / Urkin | SSR | 火 | 下書き |
+| [fire-ssr-crimson-spear-ebony-scythe-normal.md](./fire-ssr-crimson-spear-ebony-scythe-normal.md) | 紅き穿光と黒き大鎌 / Crimson Spear, Ebony Scythe | SSR | 火 | 下書き |
+| [fire-ssr-grendel-normal.md](./fire-ssr-grendel-normal.md) | ベオウルフ / Grendel | SSR | 火 | 下書き |
+| [fire-ssr-sylph-normal.md](./fire-ssr-sylph-normal.md) | シルフ / Sylph | SSR | 火 | 下書き |
 | [light-ssr-lucifer-normal.md](./light-ssr-lucifer-normal.md) | ルシフェル / Lucifer | SSR | 光 | 下書き |
 
 ## 運用ルール
