@@ -988,6 +988,7 @@
 | [water-r-haira-normal.md](./water-r-haira-normal.md) | ハイラ(R) / Haira (R) | R | 水 | 下書き |
 | [water-r-randall-normal.md](./water-r-randall-normal.md) | ランドル(R) / Randall | R | 水 | 下書き |
 | [water-r-cailana-normal.md](./water-r-cailana-normal.md) | カイラナ(R) / Cailana | R | 水 | 下書き |
+| [water-r-aristella-normal.md](./water-r-aristella-normal.md) | アリステラ / Alistair | R | 水 | 下書き |
 
 ## 運用ルール
 
