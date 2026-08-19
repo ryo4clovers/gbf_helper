@@ -975,6 +975,7 @@
 | [fire-r-flesselles-normal.md](./fire-r-flesselles-normal.md) | フレッセル / Flesselles | R | 火 | 下書き |
 | [fire-r-viceroy-normal.md](./fire-r-viceroy-normal.md) | エアロバイス / Viceroy | R | 火 | 下書き |
 | [fire-r-dante-normal.md](./fire-r-dante-normal.md) | ダーント(R) / Dante | R | 火 | 下書き |
+| [fire-r-ippatsu-normal.md](./fire-r-ippatsu-normal.md) | イッパツ(R) / Ippatsu | R | 火 | 下書き |
 
 ## 運用ルール
 
