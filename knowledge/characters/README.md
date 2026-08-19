@@ -997,6 +997,7 @@
 | [water-r-deliford-normal.md](./water-r-deliford-normal.md) | デリフォード(R) / Deliford | R | 水 | 下書き |
 | [earth-r-catura-normal.md](./earth-r-catura-normal.md) | シャトラ(R) / Catura (R) | R | 土 | 下書き |
 | [earth-r-la-coiffe-normal.md](./earth-r-la-coiffe-normal.md) | コワフュール / La Coiffe | R | 土 | 下書き |
+| [earth-r-balurga-normal.md](./earth-r-balurga-normal.md) | バルルガン / Balurga | R | 土 | 下書き |
 
 ## 運用ルール
 
