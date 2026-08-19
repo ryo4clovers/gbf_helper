@@ -939,6 +939,7 @@
 | [dark-sr-narmaya-valentine.md](./dark-sr-narmaya-valentine.md) | ナルメア(バレンタイン) / Narmaya (Valentine) | SR | 闇 | 下書き |
 | [dark-sr-randall-normal.md](./dark-sr-randall-normal.md) | ランドル(SR) / Randall (SR) | SR | 闇 | 下書き |
 | [dark-sr-vania-normal.md](./dark-sr-vania-normal.md) | ヴァンピィ(SR) / Vania (SR) | SR | 闇 | 下書き |
+| [dark-sr-jamil-dark.md](./dark-sr-jamil-dark.md) | 闇ジャミル / Jamil (Dark) | SR | 闇 | 下書き |
 
 ## 運用ルール
 
