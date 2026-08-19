@@ -32,8 +32,12 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 ## 召喚効果
 
-- 効果: 敵全体に闇属性ダメージ(特大) / 敵の弱体耐性DOWN
-- 出典: GameWith
+### 初期『安らぎの風』
+
+- 効果: 敵全体に闇属性ダメージ(特大) / ・弱体耐性5%DOWN×180秒
+- 使用間隔: 9ターン
+- 再召喚: 可
+- 出典: GameWith(個別ページ)
 
 ## 加護効果(メイン編成時)
 
