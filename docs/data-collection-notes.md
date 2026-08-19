@@ -41,6 +41,29 @@
 - 加護効果テキストは、単純な召喚石は「メイン加護効果」のみの記載(サブ加護効果の数値はGameWith一覧に明記されないことが多く、未確認・要検証事項に注記)。「ザ・サン」のように「メイン効果:」「サブ効果:」が明記されている召喚石は、その通りに加護効果(メイン編成時)/サブ加護効果(サブ編成時)へ振り分ける。
 - 完了サンプル: `light-ssr-lucifer-normal.md`(単純な加護効果のみのケース)、`fire-ssr-the-sun-normal.md`(メイン/サブ効果が明確に分かれる複雑なケース)。
 
+## 召喚石データ収集完了(2026-08-20)
+
+SSR召喚石、火・水・土・風・光・闇の全六属性(コラボ・イベント産含む、SRは情報源が乏しいため対象外)の収集が完了した。最終内訳:
+
+- 火39、水41、土42、風49、光49、闇48 = 合計268体(一覧ページの生パース時点では269件だったが、GameWith側のHTML崩れで「サリエル(クリスマス)」が2行に分裂していたのを1体にマージしたため268体が正しい総数)。
+
+半自動パイプラインの構成(`scripts/data-collection/`):
+
+1. `scratch-build-summon-list.mjs <属性> <scratch-dir>` — GameWith一覧ページ(article/show/136372)から指定属性の全召喚石を抽出、`list.json`に書き出す。
+2. `scratch-fetch-gbfwiki.sh <start> <end>` — 各召喚石名でgbf.wikiを検索し、候補ページ一覧を取得(既存の文字コード系キャラ収集スクリプトを流用)。
+3. `scratch-pick-and-dump-summons.mjs <scratch-dir>` — 検索結果から最も妥当な候補を自動選定(「(Summon)」「(SSR)」優先、次に唯一のbare候補)し、`picks.json`と`fetch_pages.sh`を生成。自動選定できなかったもの(だいたい3〜4割)は手動でgbf.wiki検索・直接URL(`Base_Magna`形式など)で個別に解決。
+4. `fetch_pages.sh` — 選定したgbf.wikiページを一括curl取得。
+5. `scratch-verify-summon-stats.mjs <scratch-dir>` — GameWithのATK/HPとgbf.wikiのLevel100(3★)/Level150(4★)を突き合わせ、MATCH/PARTIAL_MATCH/MISMATCH/NO_CANDIDATEを判定する`verify_report.txt`を生成。
+6. `scratch-generate-summon-files.mjs <scratch-dir> <属性英語> <out-dir>` — list.jsonの効果テキストとverify_reportのステータスからMarkdownファイルを一括生成。
+
+判明した注意点:
+- GameWithの一覧ページは「基本値」のみ表示し、実際はさらに上のレベル帯(gbf.wikiのLv150)が存在する召喚石が一定数ある(シヴァ、ウィルナスなど)。ステータス欄は「GameWithのatk===atk_maxかどうか」ではなく「gbf.wiki自体にLv150行があるかどうか」を正とする実装にした。
+- 「○○・マグナ」系の召喚石はgbf.wiki検索(Special:Search)に出てこないことが多いが、直接URL `https://gbf.wiki/{英語名}_Magna` でページが存在することが複数例で確認された(コロッサス・マグナ、ユグドラシル・マグナ、ティアマト・マグナ、レヴィアタン・マグナ、セレスト・マグナ)。同様に「Xeno」系キャラ名(ゼノイフリート等)は「ゼノ」+名前を連結した日本語クエリでは検索に失敗することが多く、英語名で直接検索/直接URLを試すと見つかる。
+- ピッカーの「(SSR)」自動一致は、無関係なキャラクターLoreサブページ(例:「Lowain (SSR)/Lore」)にもマッチしてしまうバグがあった。NON_SUMMON_MARKERSでのフィルタリングを(SSR)判定より先に行うよう修正済み。
+- 加護効果テキストが「メイン効果:」「サブ効果:」で明示的に分かれる場合と、「サブ効果:」のみラベルがあり無印部分がメイン効果という場合(ベリアル等)の両方が存在する。後者に対応していなかったバグを修正済み(修正前に生成された`wind-ssr-elil-normal.md`は手動で直した)。
+- GameWith一覧のATK/HP欄が空欄(記載漏れ)の召喚石が稀にある(桂小太郎&エリザベス、ベルゼバブ)。この場合はgbf.wikiの数値をそのまま採用し、未確認・要検証事項に明記した。
+- Windowsのbash環境で、日本語ファイル名を`curl -o`の出力先に直接指定すると稀に無言で失敗することがある(該当ファイルが生成されない)。ASCII名で一旦保存してから`fs.copyFileSync`でリネームする方が確実。
+
 ## 実機(ログイン済みブラウザ)でできること・できないこと
 
 Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経由で `game.granbluefantasy.jp` に直接アクセス可能(2026-08-18に動作確認、所持キャラ161体のアカウント)。
