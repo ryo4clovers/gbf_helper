@@ -53,4 +53,5 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 - サブ加護効果の正確な倍率はGameWith一覧に明記されていない場合、未検証。
 - gbf.wikiとの間でステータスに不一致あり(GameWith: HP570/ATK1450 vs gbf.wiki Lv100: {"hp":"570","atk":"1455"})。要ゲーム内再検証。
+- 召喚ターン(初回召喚/使用間隔/再召喚可否)はGameWith個別ページから抽出できなかったため未記載。個別ページを直接確認する必要がある。
 - gbf.wikiでさらに上位の上限解放段階(5★/6★等)が存在する場合、本ファイルはGameWithの標準的な表記(3★/4★)までの記載としており、それ以降は未反映。
