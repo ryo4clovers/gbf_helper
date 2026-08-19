@@ -319,7 +319,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - 闇属性SR収集完了(35/35体)。gbf.wiki不一致(基本レアリティ版/別バージョン/ペアキャラ別ページ/召喚石やイベントページ/コラボキャラの想定通り不在)は都度検出しGameWithのみで作成。index19 神崎蘭子は変身システム(『闇の力』10で目覚めし鼓動発動)を持つ特殊仕様のキャラ、目覚めし鼓動発動後の性能を中心に簡略化して記載。index33 ヴィーラ(SR)は旧来の下書きファイルが存在していたため、より詳細な内容に更新し、README.mdの重複行(旧行16)を削除。
 - SR全属性(光・火・水・土・風・闇)の収集が完了。次はR属性の収集に着手予定。
 - R属性収集開始。GameWithのRキャラ評価一覧ページはarticle/show/20724(SSRは20722、SRは20723)と判明。scratch-build-list.mjsのLIST_URLを更新。パイプラインをlight_rに再ターゲット。
-- 光属性R: scratch-build-list.mjsでリスト取得6体。GameWith全6体のページ取得完了、gbf.wiki検索は6/6体で候補あり(curl経由で取得)。dossier生成完了(batch_000-005.txt)。次はindex0から処理開始。
+- 光属性R: scratch-build-list.mjsでリスト取得6体。GameWith全6体のページ取得完了、gbf.wiki検索は6/6体で候補あり(curl経由で取得)。dossier生成完了(batch_000-005.txt)。
+- 光属性R(1/6体完了)。次はindex1(ヴェリトール)から継続(batch_000-005.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。

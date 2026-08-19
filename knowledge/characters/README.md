@@ -961,6 +961,7 @@
 | [dark-sr-lucius-normal.md](./dark-sr-lucius-normal.md) | ルシウス / Lucius | SR | 闇 | 下書き |
 | [dark-sr-vira-normal.md](./dark-sr-vira-normal.md) | ヴィーラ(SR) / Vira | SR | 闇 | 下書き |
 | [dark-sr-danua-normal.md](./dark-sr-danua-normal.md) | ダヌア / Danua | SR | 闇 | 下書き |
+| [light-r-cordelia-normal.md](./light-r-cordelia-normal.md) | コーデリア / Cordelia | R | 光 | 下書き |
 
 ## 運用ルール
 
