@@ -1027,6 +1027,7 @@
 | [dark-r-lunalu-summer.md](./dark-r-lunalu-summer.md) | 水着ルナール / Lunalu (Summer) | R | 闇 | 下書き |
 | [dark-r-lunalu-normal.md](./dark-r-lunalu-normal.md) | ルナール / Lunalu | R | 闇 | 下書き |
 | [dark-r-lowain-summer.md](./dark-r-lowain-summer.md) | 水着ローアイン / Lowain (Summer) | R | 闇 | 下書き |
+| [dark-r-lowain-normal.md](./dark-r-lowain-normal.md) | ローアイン(R) / Lowain | R | 闇 | 下書き |
 
 ## 運用ルール
 
