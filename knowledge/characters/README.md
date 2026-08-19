@@ -952,6 +952,7 @@
 | [dark-sr-shao-normal.md](./dark-sr-shao-normal.md) | シャオ / Shao | SR | 闇 | 下書き |
 | [dark-sr-will-normal.md](./dark-sr-will-normal.md) | ウィル(SR) / Will (SR) | SR | 闇 | 下書き |
 | [dark-sr-shirasaka-koume-normal.md](./dark-sr-shirasaka-koume-normal.md) | 白坂小梅 / Koume Shirasaka | SR | 闇 | 下書き |
+| [dark-sr-tanya-summer.md](./dark-sr-tanya-summer.md) | 水着ターニャ / Tanya (Summer) | SR | 闇 | 下書き |
 
 ## 運用ルール
 
