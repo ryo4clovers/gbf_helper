@@ -969,6 +969,7 @@
 | [light-r-rosamia-normal.md](./light-r-rosamia-normal.md) | ロザミア(R) / Rosamia | R | 光 | 下書き |
 | [fire-r-neko-normal.md](./fire-r-neko-normal.md) | 猫 / Neko (Cat) | R | 火 | 下書き |
 | [fire-r-drusilla-normal.md](./fire-r-drusilla-normal.md) | ドロッセル(R) / Drusilla | R | 火 | 下書き |
+| [fire-r-ippatsu-summer.md](./fire-r-ippatsu-summer.md) | 水着イッパツ / Ippatsu (Summer) | R | 火 | 下書き |
 
 ## 運用ルール
 
