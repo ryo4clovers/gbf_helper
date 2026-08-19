@@ -980,6 +980,7 @@
 | [fire-r-barawa-normal.md](./fire-r-barawa-normal.md) | バロワ(R) / Barawa (R) | R | 火 | 下書き |
 | [fire-r-cumyu-fire.md](./fire-r-cumyu-fire.md) | 火クムユ / Cumyu (Fire) | R | 火 | 下書き |
 | [fire-r-elmelaura-normal.md](./fire-r-elmelaura-normal.md) | エルメラウラ / Elmelaura | R | 火 | 下書き |
+| [fire-r-mary-summer.md](./fire-r-mary-summer.md) | 水着マリー / Mary (Summer) | R | 火 | 下書き |
 
 ## 運用ルール
 
