@@ -913,6 +913,7 @@
 | [wind-sr-goblin-mage-normal.md](./wind-sr-goblin-mage-normal.md) | ミニゴブ / Goblin Mage | SR | 風 | 下書き |
 | [wind-sr-kashiwagi-tsubasa-normal.md](./wind-sr-kashiwagi-tsubasa-normal.md) | 柏木翼 / Tsubasa Kashiwagi | SR | 風 | 下書き |
 | [wind-sr-lecia-summer.md](./wind-sr-lecia-summer.md) | 水着リーシャ(SR) / Lecia (Summer) | SR | 風 | 下書き |
+| [wind-sr-lecia-normal.md](./wind-sr-lecia-normal.md) | リーシャ(SR) / Lecia | SR | 風 | 下書き |
 
 ## 運用ルール
 
