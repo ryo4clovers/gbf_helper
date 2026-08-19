@@ -923,6 +923,7 @@
 | [wind-sr-helnar-summer.md](./wind-sr-helnar-summer.md) | 水着ヘルナル / Helnar (Summer) | SR | 風 | 下書き |
 | [wind-sr-selfira-normal.md](./wind-sr-selfira-normal.md) | セレフィラ(SR) / Selfira (Event) | SR | 風 | 下書き |
 | [wind-sr-elta-normal.md](./wind-sr-elta-normal.md) | エルタ / Elta | SR | 風 | 下書き |
+| [wind-sr-keehar-normal.md](./wind-sr-keehar-normal.md) | キハール / Keehar | SR | 風 | 下書き |
 
 ## 運用ルール
 
