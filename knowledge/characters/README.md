@@ -1013,6 +1013,7 @@
 | [earth-r-herja-normal.md](./earth-r-herja-normal.md) | ヘリヤ(R) / Herja | R | 土 | 下書き |
 | [wind-r-spinnah-normal.md](./wind-r-spinnah-normal.md) | スピナー / Spinnah | R | 風 | 下書き |
 | [wind-r-chloe-normal.md](./wind-r-chloe-normal.md) | クロエ / Chloe | R | 風 | 下書き |
+| [wind-r-thelonim-normal.md](./wind-r-thelonim-normal.md) | セロニム / Thelonim | R | 風 | 下書き |
 
 ## 運用ルール
 
