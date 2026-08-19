@@ -995,6 +995,7 @@
 | [water-r-suframare-normal.md](./water-r-suframare-normal.md) | スフラマール / Suframare | R | 水 | 下書き |
 | [water-r-richard-normal.md](./water-r-richard-normal.md) | リチャード / Richard | R | 水 | 下書き |
 | [water-r-deliford-normal.md](./water-r-deliford-normal.md) | デリフォード(R) / Deliford | R | 水 | 下書き |
+| [earth-r-catura-normal.md](./earth-r-catura-normal.md) | シャトラ(R) / Catura (R) | R | 土 | 下書き |
 
 ## 運用ルール
 
