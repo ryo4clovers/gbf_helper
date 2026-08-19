@@ -32,8 +32,12 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 ## 召喚効果
 
+### 初期『ヴェローナ･ハート』
+
 - 効果: 味方全体にバリア効果
-- 出典: GameWith
+- 使用間隔: 9ターン
+- 再召喚: 可
+- 出典: GameWith(個別ページ)
 
 ## 加護効果(メイン編成時)
 
