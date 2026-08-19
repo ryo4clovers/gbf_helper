@@ -233,6 +233,54 @@
 | [light-ssr-sapphire-dance-habotan-normal.md](./light-ssr-sapphire-dance-habotan-normal.md) | 蒼紅之舞・葉牡丹 / Sapphire Dance: Habotan | SSR | 光 | 下書き |
 | [light-ssr-colossal-hermit-normal.md](./light-ssr-colossal-hermit-normal.md) | 灼弩火罹 / Colossal Hermit | SSR | 光 | 下書き |
 | [light-ssr-ultra-robo-grand-god-kaiser-normal.md](./light-ssr-ultra-robo-grand-god-kaiser-normal.md) | 極鋼巨帝グランゴッドカイザー / Ultra Robo Grand God Kaiser | SSR | 光 | 下書き |
+| [dark-ssr-hades-normal.md](./dark-ssr-hades-normal.md) | ハデス / Hades | SSR | 闇 | 下書き |
+| [dark-ssr-sariel-normal.md](./dark-ssr-sariel-normal.md) | サリエル / Sariel | SSR | 闇 | 下書き |
+| [dark-ssr-death-normal.md](./dark-ssr-death-normal.md) | デス / Death | SSR | 闇 | 下書き |
+| [dark-ssr-bahamut-normal.md](./dark-ssr-bahamut-normal.md) | バハムート / Bahamut | SSR | 闇 | 下書き |
+| [dark-ssr-beelzebub-normal.md](./dark-ssr-beelzebub-normal.md) | ベルゼバブ / Beelzebub | SSR | 闇 | 下書き |
+| [dark-ssr-belial-normal.md](./dark-ssr-belial-normal.md) | ベリアル / Belial | SSR | 闇 | 下書き |
+| [dark-ssr-sariel-christmas.md](./dark-ssr-sariel-christmas.md) | サリエル(クリスマス) / Sariel (Holiday) | SSR | 闇 | 下書き |
+| [dark-ssr-sleepyhead-summer.md](./dark-ssr-sleepyhead-summer.md) | 水着スリーピィ / Sleepyhead (Summer) | SSR | 闇 | 下書き |
+| [dark-ssr-anubis-normal.md](./dark-ssr-anubis-normal.md) | アヌビス / Anubis | SSR | 闇 | 下書き |
+| [dark-ssr-typhon-normal.md](./dark-ssr-typhon-normal.md) | テュポーン / Typhon | SSR | 闇 | 下書き |
+| [dark-ssr-demi-hades-normal.md](./dark-ssr-demi-hades-normal.md) | ハデス・ディヴィジョン / Demi Hades | SSR | 闇 | 下書き |
+| [dark-ssr-celeste-magna-normal.md](./dark-ssr-celeste-magna-normal.md) | セレスト・マグナ / Celeste Magna | SSR | 闇 | 下書き |
+| [dark-ssr-stygian-qilin-normal.md](./dark-ssr-stygian-qilin-normal.md) | 黒麒麟 / Stygian Qilin | SSR | 闇 | 下書き |
+| [dark-ssr-nyarlathotep-normal.md](./dark-ssr-nyarlathotep-normal.md) | ナイアルラトホテップ / Nyarlathotep | SSR | 闇 | 下書き |
+| [dark-ssr-zirnitra-normal.md](./dark-ssr-zirnitra-normal.md) | ジルニトラ / Zirnitra | SSR | 闇 | 下書き |
+| [dark-ssr-cerberus-hellhound-trifecta-normal.md](./dark-ssr-cerberus-hellhound-trifecta-normal.md) | 冥界の三魔犬ケルベロス / Cerberus, Hellhound Trifecta | SSR | 闇 | 下書き |
+| [dark-ssr-nacht-normal.md](./dark-ssr-nacht-normal.md) | ナハト / Nacht | SSR | 闇 | 下書き |
+| [dark-ssr-dark-angel-olivia-normal.md](./dark-ssr-dark-angel-olivia-normal.md) | Dエンジェル・オリヴィエ / Dark Angel Olivia | SSR | 闇 | 下書き |
+| [dark-ssr-tsukuyomi-normal.md](./dark-ssr-tsukuyomi-normal.md) | ツクヨミ / Tsukuyomi | SSR | 闇 | 下書き |
+| [dark-ssr-lich-normal.md](./dark-ssr-lich-normal.md) | リッチ / Lich | SSR | 闇 | 下書き |
+| [dark-ssr-shantotto-ii-normal.md](./dark-ssr-shantotto-ii-normal.md) | シャントットII / Shantotto II | SSR | 闇 | 下書き |
+| [dark-ssr-c-c-normal.md](./dark-ssr-c-c-normal.md) | C.C. / C.C. | SSR | 闇 | 下書き |
+| [dark-ssr-narita-normal.md](./dark-ssr-narita-normal.md) | ナリタ / Narita | SSR | 闇 | 下書き |
+| [dark-ssr-xeno-diablo-normal.md](./dark-ssr-xeno-diablo-normal.md) | ゼノディアボロス / Xeno Diablo | SSR | 闇 | 下書き |
+| [dark-ssr-satan-normal.md](./dark-ssr-satan-normal.md) | サタン / Satan | SSR | 闇 | 下書き |
+| [dark-ssr-morgana-car-normal.md](./dark-ssr-morgana-car-normal.md) | モルガナカー / Morgana Car | SSR | 闇 | 下書き |
+| [dark-ssr-automagod-triumvirate-normal.md](./dark-ssr-automagod-triumvirate-normal.md) | 月に降り立ちし三機神 / Automagod Triumvirate | SSR | 闇 | 下書き |
+| [dark-ssr-swinger-of-the-ebony-scythe-normal.md](./dark-ssr-swinger-of-the-ebony-scythe-normal.md) | 大鎌を操りし漆黒 / Swinger of the Ebony Scythe | SSR | 闇 | 下書き |
+| [dark-ssr-rainy-day-normal.md](./dark-ssr-rainy-day-normal.md) | RAINY DAY / Rainy Day | SSR | 闇 | 下書き |
+| [dark-ssr-flamek-pact-normal.md](./dark-ssr-flamek-pact-normal.md) | フラメクの契約者 / Flamek Pact | SSR | 闇 | 下書き |
+| [dark-ssr-dragons-rage-normal.md](./dark-ssr-dragons-rage-normal.md) | 神撃の竜 / Dragon's Rage | SSR | 闇 | 下書き |
+| [dark-ssr-cerberus-normal.md](./dark-ssr-cerberus-normal.md) | ケルベロス / Cerberus | SSR | 闇 | 下書き |
+| [dark-ssr-diablo-normal.md](./dark-ssr-diablo-normal.md) | ディアボロス / Diablo | SSR | 闇 | 下書き |
+| [dark-ssr-milia-normal.md](./dark-ssr-milia-normal.md) | ミリア / Milia | SSR | 闇 | 下書き |
+| [dark-ssr-lunalu-normal.md](./dark-ssr-lunalu-normal.md) | ルナール / Lunalu | SSR | 闇 | 下書き |
+| [dark-ssr-krelkulkil-normal.md](./dark-ssr-krelkulkil-normal.md) | カラクラキル / Krelkulkil | SSR | 闇 | 下書き |
+| [dark-ssr-king-krustacea-normal.md](./dark-ssr-king-krustacea-normal.md) | 氷海の覇王 / King Krustacea | SSR | 闇 | 下書き |
+| [dark-ssr-dark-flame-scion-normal.md](./dark-ssr-dark-flame-scion-normal.md) | 闇の炎の子 / Dark Flame Scion | SSR | 闇 | 下書き |
+| [dark-ssr-sharom-normal.md](./dark-ssr-sharom-normal.md) | シャローム / Sharom | SSR | 闇 | 下書き |
+| [dark-ssr-behemoth-normal.md](./dark-ssr-behemoth-normal.md) | ベヒーモス / Behemoth | SSR | 闇 | 下書き |
+| [dark-ssr-bahamut-unchained-normal.md](./dark-ssr-bahamut-unchained-normal.md) | 拘束破りし黒銀の翼 / Bahamut Unchained | SSR | 闇 | 下書き |
+| [dark-ssr-k-b-s-n-normal.md](./dark-ssr-k-b-s-n-normal.md) | K・B・S・N / K･B･S･N | SSR | 闇 | 下書き |
+| [dark-ssr-super-cute-genius-alchemist-normal.md](./dark-ssr-super-cute-genius-alchemist-normal.md) | 美少女錬金術師 / Super Cute Genius Alchemist | SSR | 闇 | 下書き |
+| [dark-ssr-albacore-normal.md](./dark-ssr-albacore-normal.md) | アルバコア / Albacore | SSR | 闇 | 下書き |
+| [dark-ssr-ranko-kanzaki-normal.md](./dark-ssr-ranko-kanzaki-normal.md) | [覚醒魔王]神崎蘭子 / Ranko Kanzaki | SSR | 闇 | 下書き |
+| [dark-ssr-inchoate-world-normal.md](./dark-ssr-inchoate-world-normal.md) | 胎動する世界 / Inchoate World | SSR | 闇 | 下書き |
+| [dark-ssr-brunnhilde-normal.md](./dark-ssr-brunnhilde-normal.md) | ブリュンヒルデ / Brunnhilde | SSR | 闇 | 下書き |
+| [dark-ssr-jack-o-lantern-normal.md](./dark-ssr-jack-o-lantern-normal.md) | ジャック・オー・ランタン / Jack-o'-Lantern | SSR | 闇 | 下書き |
 
 ## 運用ルール
 

@@ -137,7 +137,10 @@ for (let i = 0; i < list.length; i++) {
     statsRows.push(`| Lv150(4★・最終上限解放) | ${maxHp} | ${maxAtk} |`);
   }
 
-  const hasMainSub = c.guard_effect_raw.includes("メイン効果:") && c.guard_effect_raw.includes("サブ効果:");
+  // Some summons label both メイン効果:/サブ効果: explicitly (The Sun); others
+  // (Belial) only label サブ効果: and leave the main-effect lines unlabeled —
+  // either way, any サブ効果: line present means a real main/sub split exists.
+  const hasMainSub = c.guard_effect_raw.includes("サブ効果:");
   let mainGuard, subGuard;
   if (hasMainSub) {
     // Lines look like "(3凸)メイン効果:X" / "サブ効果:Y" / "(4凸)メイン効果:X" / "サブ効果:Y" —
