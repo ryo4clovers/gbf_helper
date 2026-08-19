@@ -1018,6 +1018,7 @@
 | [wind-r-karteira-normal.md](./wind-r-karteira-normal.md) | カルテイラ(R) / Karteira | R | 風 | 下書き |
 | [wind-r-krugne-normal.md](./wind-r-krugne-normal.md) | クルーニ(R) / Krugne | R | 風 | 下書き |
 | [wind-r-leonora-normal.md](./wind-r-leonora-normal.md) | レオノーラ / Leonora | R | 風 | 下書き |
+| [wind-r-stan-normal.md](./wind-r-stan-normal.md) | スタン / Stan | R | 風 | 下書き |
 
 ## 運用ルール
 
