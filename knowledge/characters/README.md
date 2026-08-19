@@ -1006,6 +1006,7 @@
 | [earth-r-garma-normal.md](./earth-r-garma-normal.md) | ガルマ / Garma | R | 土 | 下書き |
 | [earth-r-walder-summer.md](./earth-r-walder-summer.md) | 水着ウェルダー / Walder (Summer) | R | 土 | 下書き |
 | [earth-r-walder-normal.md](./earth-r-walder-normal.md) | ウェルダー / Walder | R | 土 | 下書き |
+| [earth-r-jasmine-normal.md](./earth-r-jasmine-normal.md) | ジャスミン(R) / Jasmine | R | 土 | 下書き |
 
 ## 運用ルール
 
