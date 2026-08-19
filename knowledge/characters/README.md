@@ -1015,6 +1015,7 @@
 | [wind-r-chloe-normal.md](./wind-r-chloe-normal.md) | クロエ / Chloe | R | 風 | 下書き |
 | [wind-r-thelonim-normal.md](./wind-r-thelonim-normal.md) | セロニム / Thelonim | R | 風 | 下書き |
 | [wind-r-pavidus-normal.md](./wind-r-pavidus-normal.md) | パヴィーダ / Pavidus | R | 風 | 下書き |
+| [wind-r-karteira-normal.md](./wind-r-karteira-normal.md) | カルテイラ(R) / Karteira | R | 風 | 下書き |
 
 ## 運用ルール
 
