@@ -918,6 +918,7 @@
 | [wind-sr-sil-normal.md](./wind-sr-sil-normal.md) | スィール / Sil | SR | 風 | 下書き |
 | [wind-sr-hazen-normal.md](./wind-sr-hazen-normal.md) | ヘイゼン(SR) / Hazen (SR) | SR | 風 | 下書き |
 | [wind-sr-aster-wind.md](./wind-sr-aster-wind.md) | アステール / Aster (Event) | SR | 風 | 下書き |
+| [wind-sr-mimlemel-normal.md](./wind-sr-mimlemel-normal.md) | ミムルメモル / Mimlemel | SR | 風 | 下書き |
 
 ## 運用ルール
 
