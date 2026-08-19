@@ -915,6 +915,7 @@
 | [wind-sr-lecia-summer.md](./wind-sr-lecia-summer.md) | 水着リーシャ(SR) / Lecia (Summer) | SR | 風 | 下書き |
 | [wind-sr-lecia-normal.md](./wind-sr-lecia-normal.md) | リーシャ(SR) / Lecia | SR | 風 | 下書き |
 | [wind-sr-maekawa-miku-normal.md](./wind-sr-maekawa-miku-normal.md) | 前川みく / Miku Maekawa | SR | 風 | 下書き |
+| [wind-sr-sil-normal.md](./wind-sr-sil-normal.md) | スィール / Sil | SR | 風 | 下書き |
 
 ## 運用ルール
 
