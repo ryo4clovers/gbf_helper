@@ -921,6 +921,7 @@
 | [wind-sr-mimlemel-normal.md](./wind-sr-mimlemel-normal.md) | ミムルメモル / Mimlemel | SR | 風 | 下書き |
 | [wind-sr-feena-normal.md](./wind-sr-feena-normal.md) | フィーナ(SR) / Feena (Event) | SR | 風 | 下書き |
 | [wind-sr-helnar-summer.md](./wind-sr-helnar-summer.md) | 水着ヘルナル / Helnar (Summer) | SR | 風 | 下書き |
+| [wind-sr-selfira-normal.md](./wind-sr-selfira-normal.md) | セレフィラ(SR) / Selfira (Event) | SR | 風 | 下書き |
 
 ## 運用ルール
 
