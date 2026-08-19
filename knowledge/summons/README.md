@@ -93,6 +93,48 @@
 | [water-ssr-audumbla-normal.md](./water-ssr-audumbla-normal.md) | アウズンブラ / Audumbla | SSR | 水 | 下書き |
 | [water-ssr-manawydan-normal.md](./water-ssr-manawydan-normal.md) | マナウィダン / Manawydan | SSR | 水 | 下書き |
 | [water-ssr-branwen-normal.md](./water-ssr-branwen-normal.md) | ブランウェン / Branwen | SSR | 水 | 下書き |
+| [earth-ssr-uriel-normal.md](./earth-ssr-uriel-normal.md) | ウリエル / Uriel | SSR | 土 | 下書き |
+| [earth-ssr-titan-normal.md](./earth-ssr-titan-normal.md) | ティターン / Titan | SSR | 土 | 下書き |
+| [earth-ssr-tsuchinoko-normal.md](./earth-ssr-tsuchinoko-normal.md) | ツチノコ / Tsuchinoko | SSR | 土 | 下書き |
+| [earth-ssr-godsworn-alexiel-normal.md](./earth-ssr-godsworn-alexiel-normal.md) | ゴッドガード・ブローディア / Godsworn Alexiel | SSR | 土 | 下書き |
+| [earth-ssr-the-hanged-man-normal.md](./earth-ssr-the-hanged-man-normal.md) | ザ・ハングドマン / The Hanged Man | SSR | 土 | 下書き |
+| [earth-ssr-galleon-normal.md](./earth-ssr-galleon-normal.md) | ガレヲン / Galleon | SSR | 土 | 下書き |
+| [earth-ssr-gorilla-normal.md](./earth-ssr-gorilla-normal.md) | ゴリラ / Gorilla | SSR | 土 | 下書き |
+| [earth-ssr-marduk-battlefield-reaper-normal.md](./earth-ssr-marduk-battlefield-reaper-normal.md) | 破格の戦鬼マルドゥーク / Marduk, Battlefield Reaper | SSR | 土 | 下書き |
+| [earth-ssr-freyr-yukata.md](./earth-ssr-freyr-yukata.md) | 浴衣フレイ / Freyr (Yukata) | SSR | 土 | 下書き |
+| [earth-ssr-mandrake-summer.md](./earth-ssr-mandrake-summer.md) | 水着マンドラゴラ / Mandrake (Summer) | SSR | 土 | 下書き |
+| [earth-ssr-gilgamesh-normal.md](./earth-ssr-gilgamesh-normal.md) | ギルガメッシュ / Gilgamesh | SSR | 土 | 下書き |
+| [earth-ssr-demi-titan-normal.md](./earth-ssr-demi-titan-normal.md) | ティターン・ディヴィジョン / Demi Titan | SSR | 土 | 下書き |
+| [earth-ssr-yggdrasil-magna-normal.md](./earth-ssr-yggdrasil-magna-normal.md) | ユグドラシル・マグナ / Yggdrasil Magna | SSR | 土 | 下書き |
+| [earth-ssr-yggdrasil-summer.md](./earth-ssr-yggdrasil-summer.md) | 水着ユグドラシル / Yggdrasil (Summer) | SSR | 土 | 下書き |
+| [earth-ssr-xeno-vohu-manah-normal.md](./earth-ssr-xeno-vohu-manah-normal.md) | ゼノウォフマナフ / Xeno Vohu Manah | SSR | 土 | 下書き |
+| [earth-ssr-tezcatlipoca-normal.md](./earth-ssr-tezcatlipoca-normal.md) | テスカトリポカ / Tezcatlipoca | SSR | 土 | 下書き |
+| [earth-ssr-the-tower-normal.md](./earth-ssr-the-tower-normal.md) | ザ・タワー / The Tower | SSR | 土 | 下書き |
+| [earth-ssr-dogu-normal.md](./earth-ssr-dogu-normal.md) | ドグー / Dogu | SSR | 土 | 下書き |
+| [earth-ssr-mammoth-normal.md](./earth-ssr-mammoth-normal.md) | マンモス / Mammoth | SSR | 土 | 下書き |
+| [earth-ssr-gold-ship-and-mejiro-mcqueen-normal.md](./earth-ssr-gold-ship-and-mejiro-mcqueen-normal.md) | ゴルシ&マックイーン / Gold Ship and Mejiro McQueen | SSR | 土 | 下書き |
+| [earth-ssr-baihu-normal.md](./earth-ssr-baihu-normal.md) | 白虎 / Baihu | SSR | 土 | 下書き |
+| [earth-ssr-ankusha-normal.md](./earth-ssr-ankusha-normal.md) | アンクシャ / Ankusha | SSR | 土 | 下書き |
+| [earth-ssr-medusa-normal.md](./earth-ssr-medusa-normal.md) | メドゥーサ / Medusa | SSR | 土 | 下書き |
+| [earth-ssr-baal-normal.md](./earth-ssr-baal-normal.md) | バアル / Baal | SSR | 土 | 下書き |
+| [earth-ssr-cybele-normal.md](./earth-ssr-cybele-normal.md) | キュベレー / Cybele | SSR | 土 | 下書き |
+| [earth-ssr-vohu-manah-normal.md](./earth-ssr-vohu-manah-normal.md) | ウォフマナフ / Vohu Manah | SSR | 土 | 下書き |
+| [earth-ssr-destiny-nocturnes-normal.md](./earth-ssr-destiny-nocturnes-normal.md) | 宿命夜想曲・特攻隊 / Destiny Nocturnes | SSR | 土 | 下書き |
+| [earth-ssr-storm-and-stress-mercenary-duo-normal.md](./earth-ssr-storm-and-stress-mercenary-duo-normal.md) | 疾風怒涛の傭兵コンビ / Storm and Stress Mercenary Duo | SSR | 土 | 下書き |
+| [earth-ssr-forest-ranger-normal.md](./earth-ssr-forest-ranger-normal.md) | フォレストレンジャー / Forest Ranger | SSR | 土 | 下書き |
+| [earth-ssr-marduk-normal.md](./earth-ssr-marduk-normal.md) | マルドゥーク / Marduk | SSR | 土 | 下書き |
+| [earth-ssr-h-d-mining-excavator-normal.md](./earth-ssr-h-d-mining-excavator-normal.md) | 坑道用大型掘削機 / H.D. Mining Excavator | SSR | 土 | 下書き |
+| [earth-ssr-custos-citrullus-normal.md](./earth-ssr-custos-citrullus-normal.md) | 守畏禍 / Custos Citrullus | SSR | 土 | 下書き |
+| [earth-ssr-harvest-myconid-normal.md](./earth-ssr-harvest-myconid-normal.md) | オータム・マイコニド / Harvest Myconid | SSR | 土 | 下書き |
+| [earth-ssr-cutest-golden-statue-in-the-skies-normal.md](./earth-ssr-cutest-golden-statue-in-the-skies-normal.md) | 世界で一番カワイイ黄金像 / Cutest Golden Statue in the Skies | SSR | 土 | 下書き |
+| [earth-ssr-cat-parade-normal.md](./earth-ssr-cat-parade-normal.md) | ビッグマーチ・オブ・ネコ / Cat Parade | SSR | 土 | 下書き |
+| [earth-ssr-gorgon-sisters-normal.md](./earth-ssr-gorgon-sisters-normal.md) | ゴルゴーン三姉妹 / Gorgon Sisters | SSR | 土 | 下書き |
+| [earth-ssr-idle-sparkle-normal.md](./earth-ssr-idle-sparkle-normal.md) | ぼんやりピカピカの魔法 / Idle Sparkle | SSR | 土 | 下書き |
+| [earth-ssr-allosaurus-normal.md](./earth-ssr-allosaurus-normal.md) | アロザロウス / Allosaurus | SSR | 土 | 下書き |
+| [earth-ssr-avaritia-normal.md](./earth-ssr-avaritia-normal.md) | アワリティア / Avaritia | SSR | 土 | 下書き |
+| [earth-ssr-midgardsormr-normal.md](./earth-ssr-midgardsormr-normal.md) | ミドガルズオルム / Midgardsormr | SSR | 土 | 下書き |
+| [earth-ssr-kirari-lovely-knight-normal.md](./earth-ssr-kirari-lovely-knight-normal.md) | [ラブリーナイト]きらり / Kirari (Lovely Knight) | SSR | 土 | 下書き |
+| [earth-ssr-kirari-moroboshi-normal.md](./earth-ssr-kirari-moroboshi-normal.md) | 諸星きらり / Kirari Moroboshi | SSR | 土 | 下書き |
 | [light-ssr-lucifer-normal.md](./light-ssr-lucifer-normal.md) | ルシフェル / Lucifer | SSR | 光 | 下書き |
 
 ## 運用ルール

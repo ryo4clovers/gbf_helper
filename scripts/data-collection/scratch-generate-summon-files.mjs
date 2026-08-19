@@ -41,6 +41,8 @@ function decodeEntities(s) {
 // knowledge of the game rather than a fetched page.
 const MANUAL_NAME_OVERRIDES = {
   "コロッサス･マグナ": "Colossus Magna",
+  "疾風怒涛の傭兵コンビ": "Storm and Stress Mercenary Duo",
+  "[ラブリーナイト]きらり": "Kirari (Lovely Knight)",
 };
 
 function kebab(s) {
@@ -91,6 +93,7 @@ fs.mkdirSync(OUT_DIR, { recursive: true });
 
 const today = "2026-08-20";
 const generated = [];
+const seenIds = new Set();
 
 for (let i = 0; i < list.length; i++) {
   const c = list[i];
@@ -100,6 +103,11 @@ for (let i = 0; i < list.length; i++) {
   const slug = deriveSlug(nameEn);
   const id = `${ELEMENT_EN}-ssr-${slug}-${version}`;
   const fileName = `${id}.md`;
+  if (seenIds.has(id)) {
+    console.error(`COLLISION: id "${id}" already generated for another summon (current: ${c.name}) — add a MANUAL_NAME_OVERRIDES entry to disambiguate.`);
+    process.exit(1);
+  }
+  seenIds.add(id);
 
   const obtainClean = c.obtain.replace(/^\(|\)$/g, "");
   // GameWith sometimes doesn't display a parenthesized second value even when a
