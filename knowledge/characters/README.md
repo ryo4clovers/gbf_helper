@@ -902,6 +902,7 @@
 | [wind-sr-anthuria-normal.md](./wind-sr-anthuria-normal.md) | アンチラ(SR) / Anthuria (SR) | SR | 風 | 下書き |
 | [wind-sr-sen-christmas.md](./wind-sr-sen-christmas.md) | セン(クリスマス) / Sen (Holiday) | SR | 風 | 下書き |
 | [wind-sr-mimlemel-and-stumpeye-normal.md](./wind-sr-mimlemel-and-stumpeye-normal.md) | ミムルメモル&切り株 / Mimlemel and Stumpeye | SR | 風 | 下書き |
+| [wind-sr-jin-summer.md](./wind-sr-jin-summer.md) | ふんどしジン / Jin (Summer) | SR | 風 | 下書き |
 
 ## 運用ルール
 
