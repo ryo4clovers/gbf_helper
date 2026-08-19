@@ -900,6 +900,7 @@
 | [wind-sr-haohmaru-normal.md](./wind-sr-haohmaru-normal.md) | 覇王丸 / Haohmaru | SR | 風 | 下書き |
 | [wind-sr-myun-normal.md](./wind-sr-myun-normal.md) | ミュオン / Myun | SR | 風 | 下書き |
 | [wind-sr-anthuria-normal.md](./wind-sr-anthuria-normal.md) | アンチラ(SR) / Anthuria (SR) | SR | 風 | 下書き |
+| [wind-sr-sen-christmas.md](./wind-sr-sen-christmas.md) | セン(クリスマス) / Sen (Holiday) | SR | 風 | 下書き |
 
 ## 運用ルール
 
