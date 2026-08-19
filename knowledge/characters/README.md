@@ -943,6 +943,7 @@
 | [dark-sr-predator-normal.md](./dark-sr-predator-normal.md) | プレデター / Predator | SR | 闇 | 下書き |
 | [dark-sr-deliford-normal.md](./dark-sr-deliford-normal.md) | デリフォード(SR) / Deliford (SR) | SR | 闇 | 下書き |
 | [dark-sr-cagliostro-normal.md](./dark-sr-cagliostro-normal.md) | カリオストロ(SR) / Cagliostro (Event) | SR | 闇 | 下書き |
+| [dark-sr-ludmila-normal.md](./dark-sr-ludmila-normal.md) | ルドミリア / Ludmila | SR | 闇 | 下書き |
 
 ## 運用ルール
 
