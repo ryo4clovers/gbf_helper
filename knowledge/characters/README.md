@@ -966,6 +966,7 @@
 | [light-r-philosophia-normal.md](./light-r-philosophia-normal.md) | フィラソピラ(R) / Philosophia | R | 光 | 下書き |
 | [light-r-daetta-normal.md](./light-r-daetta-normal.md) | ダエッタ / Daetta | R | 光 | 下書き |
 | [light-r-feather-normal.md](./light-r-feather-normal.md) | フェザー(R) / Feather | R | 光 | 下書き |
+| [light-r-rosamia-normal.md](./light-r-rosamia-normal.md) | ロザミア(R) / Rosamia | R | 光 | 下書き |
 
 ## 運用ルール
 
