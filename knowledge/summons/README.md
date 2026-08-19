@@ -135,6 +135,55 @@
 | [earth-ssr-midgardsormr-normal.md](./earth-ssr-midgardsormr-normal.md) | ミドガルズオルム / Midgardsormr | SSR | 土 | 下書き |
 | [earth-ssr-kirari-lovely-knight-normal.md](./earth-ssr-kirari-lovely-knight-normal.md) | [ラブリーナイト]きらり / Kirari (Lovely Knight) | SSR | 土 | 下書き |
 | [earth-ssr-kirari-moroboshi-normal.md](./earth-ssr-kirari-moroboshi-normal.md) | 諸星きらり / Kirari Moroboshi | SSR | 土 | 下書き |
+| [wind-ssr-grimnir-normal.md](./wind-ssr-grimnir-normal.md) | グリームニル / Grimnir | SSR | 風 | 下書き |
+| [wind-ssr-raphael-normal.md](./wind-ssr-raphael-normal.md) | ラファエル / Raphael | SSR | 風 | 下書き |
+| [wind-ssr-ewiyar-normal.md](./wind-ssr-ewiyar-normal.md) | イーウィヤ / Ewiyar | SSR | 風 | 下書き |
+| [wind-ssr-judgement-normal.md](./wind-ssr-judgement-normal.md) | ジャッジメント / Judgement | SSR | 風 | 下書き |
+| [wind-ssr-zephyrus-normal.md](./wind-ssr-zephyrus-normal.md) | ゼピュロス / Zephyrus | SSR | 風 | 下書き |
+| [wind-ssr-morrigna-normal.md](./wind-ssr-morrigna-normal.md) | バイヴカハ / Morrigna | SSR | 風 | 下書き |
+| [wind-ssr-freyr-normal.md](./wind-ssr-freyr-normal.md) | フレイ / Freyr | SSR | 風 | 下書き |
+| [wind-ssr-demi-zephyrus-normal.md](./wind-ssr-demi-zephyrus-normal.md) | ゼピュロス・ディヴィジョン / Demi Zephyrus | SSR | 風 | 下書き |
+| [wind-ssr-tiamat-summer.md](./wind-ssr-tiamat-summer.md) | 水着ティアマト / Tiamat (Summer) | SSR | 風 | 下書き |
+| [wind-ssr-rose-queen-summer.md](./wind-ssr-rose-queen-summer.md) | 水着ローズ / Rose Queen (Summer) | SSR | 風 | 下書き |
+| [wind-ssr-anat-for-love-and-war-normal.md](./wind-ssr-anat-for-love-and-war-normal.md) | 愛と戦いの神アナト / Anat, for Love and War | SSR | 風 | 下書き |
+| [wind-ssr-tiamat-magna-normal.md](./wind-ssr-tiamat-magna-normal.md) | ティアマト・マグナ / Tiamat Magna | SSR | 風 | 下書き |
+| [wind-ssr-demonbream-normal.md](./wind-ssr-demonbream-normal.md) | 魔鯛 / Demonbream | SSR | 風 | 下書き |
+| [wind-ssr-hamsa-normal.md](./wind-ssr-hamsa-normal.md) | ハンサ / Hamsa | SSR | 風 | 下書き |
+| [wind-ssr-temperance-normal.md](./wind-ssr-temperance-normal.md) | テンペランス / Temperance | SSR | 風 | 下書き |
+| [wind-ssr-garuda-normal.md](./wind-ssr-garuda-normal.md) | ガルーダ / Garuda | SSR | 風 | 下書き |
+| [wind-ssr-qinglong-normal.md](./wind-ssr-qinglong-normal.md) | 青竜 / Qinglong | SSR | 風 | 下書き |
+| [wind-ssr-xeno-sagittarius-normal.md](./wind-ssr-xeno-sagittarius-normal.md) | ゼノサジタリウス / Xeno Sagittarius | SSR | 風 | 下書き |
+| [wind-ssr-garula-shining-hawk-normal.md](./wind-ssr-garula-shining-hawk-normal.md) | シャインホーク・ガルラ / Garula, Shining Hawk | SSR | 風 | 下書き |
+| [wind-ssr-setekh-normal.md](./wind-ssr-setekh-normal.md) | セト / Setekh | SSR | 風 | 下書き |
+| [wind-ssr-rose-queen-normal.md](./wind-ssr-rose-queen-normal.md) | ローズクイーン / Rose Queen | SSR | 風 | 下書き |
+| [wind-ssr-elil-normal.md](./wind-ssr-elil-normal.md) | エッリル / Elil | SSR | 風 | 下書き |
+| [wind-ssr-owlcat-normal.md](./wind-ssr-owlcat-normal.md) | オウルキャット / Owlcat | SSR | 風 | 下書き |
+| [wind-ssr-anat-normal.md](./wind-ssr-anat-normal.md) | アナト / Anat | SSR | 風 | 下書き |
+| [wind-ssr-nezha-normal.md](./wind-ssr-nezha-normal.md) | ナタク / Nezha | SSR | 風 | 下書き |
+| [wind-ssr-kotaro-katsura-and-elizabeth-normal.md](./wind-ssr-kotaro-katsura-and-elizabeth-normal.md) | 桂小太郎&エリザベス / Kotaro Katsura and Elizabeth | SSR | 風 | 下書き |
+| [wind-ssr-the-eternal-defenders-normal.md](./wind-ssr-the-eternal-defenders-normal.md) | 空の安寧を守りし十天衆 / The Eternal Defenders | SSR | 風 | 下書き |
+| [wind-ssr-proto-joya-normal.md](./wind-ssr-proto-joya-normal.md) | プロトジョヤ / Proto-Joya | SSR | 風 | 下書き |
+| [wind-ssr-guardian-ku-keoloewa-normal.md](./wind-ssr-guardian-ku-keoloewa-normal.md) | クー・ケオロエワ / Guardian Ku-Keoloewa | SSR | 風 | 下書き |
+| [wind-ssr-blue-orbit-normal.md](./wind-ssr-blue-orbit-normal.md) | ブルーオービット / Blue Orbit | SSR | 風 | 下書き |
+| [wind-ssr-team-chickadee-normal.md](./wind-ssr-team-chickadee-normal.md) | 眠れる竜と獅子 / Team Chickadee | SSR | 風 | 下書き |
+| [wind-ssr-delinquent-spirit-normal.md](./wind-ssr-delinquent-spirit-normal.md) | ツッパリ魂 / Delinquent Spirit | SSR | 風 | 下書き |
+| [wind-ssr-sagittarius-normal.md](./wind-ssr-sagittarius-normal.md) | サジタリウス / Sagittarius | SSR | 風 | 下書き |
+| [wind-ssr-dragon-knights-normal.md](./wind-ssr-dragon-knights-normal.md) | ドラゴンナイツ / Dragon Knights | SSR | 風 | 下書き |
+| [wind-ssr-quetzalcoatl-normal.md](./wind-ssr-quetzalcoatl-normal.md) | ケツァルカトル / Quetzalcoatl | SSR | 風 | 下書き |
+| [wind-ssr-siren-normal.md](./wind-ssr-siren-normal.md) | セイレーン / Siren | SSR | 風 | 下書き |
+| [wind-ssr-deirdre-normal.md](./wind-ssr-deirdre-normal.md) | ディアドラ / Deirdre | SSR | 風 | 下書き |
+| [wind-ssr-knight-of-knights-normal.md](./wind-ssr-knight-of-knights-normal.md) | 俊秀の義剣士 / Knight of Knights | SSR | 風 | 下書き |
+| [wind-ssr-gearcycle-normal.md](./wind-ssr-gearcycle-normal.md) | ケッタギア / Gearcycle | SSR | 風 | 下書き |
+| [wind-ssr-goregrinders-normal.md](./wind-ssr-goregrinders-normal.md) | ゴアグラインダー / Goregrinders | SSR | 風 | 下書き |
+| [wind-ssr-nephthys-normal.md](./wind-ssr-nephthys-normal.md) | ネフティス / Nephthys | SSR | 風 | 下書き |
+| [wind-ssr-treant-normal.md](./wind-ssr-treant-normal.md) | トレント / Treant | SSR | 風 | 下書き |
+| [wind-ssr-joya-normal.md](./wind-ssr-joya-normal.md) | ジョヤ / Joya | SSR | 風 | 下書き |
+| [wind-ssr-queen-bee-normal.md](./wind-ssr-queen-bee-normal.md) | クイーンビー / Queen Bee | SSR | 風 | 下書き |
+| [wind-ssr-wind-god-and-thunder-god-normal.md](./wind-ssr-wind-god-and-thunder-god-normal.md) | 風神・雷神 / Wind God and Thunder God | SSR | 風 | 下書き |
+| [wind-ssr-mithra-normal.md](./wind-ssr-mithra-normal.md) | ミスラ / Mithra | SSR | 風 | 下書き |
+| [wind-ssr-gugalanna-normal.md](./wind-ssr-gugalanna-normal.md) | グガランナ / Gugalanna | SSR | 風 | 下書き |
+| [wind-ssr-mammon-normal.md](./wind-ssr-mammon-normal.md) | マモーナス / Mammon | SSR | 風 | 下書き |
+| [wind-ssr-lumiel-gourmet-normal.md](./wind-ssr-lumiel-gourmet-normal.md) | リュミエールグルメ / Lumiel Gourmet | SSR | 風 | 下書き |
 | [light-ssr-lucifer-normal.md](./light-ssr-lucifer-normal.md) | ルシフェル / Lucifer | SSR | 光 | 下書き |
 
 ## 運用ルール
