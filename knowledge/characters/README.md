@@ -909,6 +909,7 @@
 | [wind-sr-robertina-normal.md](./wind-sr-robertina-normal.md) | ロベルティナ / Robertina (Promo) | SR | 風 | 下書き |
 | [wind-sr-sevilbarra-normal.md](./wind-sr-sevilbarra-normal.md) | サビルバラ / Sevilbarra | SR | 風 | 下書き |
 | [wind-sr-ryu-normal.md](./wind-sr-ryu-normal.md) | リュウ / Ryu | SR | 風 | 下書き |
+| [wind-sr-farrah-wind.md](./wind-sr-farrah-wind.md) | 風ファラ / Farrah (Wind) | SR | 風 | 下書き |
 
 ## 運用ルール
 
