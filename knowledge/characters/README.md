@@ -965,6 +965,7 @@
 | [light-r-vermeil-normal.md](./light-r-vermeil-normal.md) | ヴェリトール / Vermeil | R | 光 | 下書き |
 | [light-r-philosophia-normal.md](./light-r-philosophia-normal.md) | フィラソピラ(R) / Philosophia | R | 光 | 下書き |
 | [light-r-daetta-normal.md](./light-r-daetta-normal.md) | ダエッタ / Daetta | R | 光 | 下書き |
+| [light-r-feather-normal.md](./light-r-feather-normal.md) | フェザー(R) / Feather | R | 光 | 下書き |
 
 ## 運用ルール
 
