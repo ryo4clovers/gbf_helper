@@ -13,6 +13,8 @@
 
 | ファイル | 名前(日本語 / 英語) | レアリティ | 属性 | ステータス |
 | --- | --- | --- | --- | --- |
+| [fire-ssr-the-sun-normal.md](./fire-ssr-the-sun-normal.md) | ザ・サン / The Sun | SSR | 火 | 下書き |
+| [light-ssr-lucifer-normal.md](./light-ssr-lucifer-normal.md) | ルシフェル / Lucifer | SSR | 光 | 下書き |
 
 ## 運用ルール
 
