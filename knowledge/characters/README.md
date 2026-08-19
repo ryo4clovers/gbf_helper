@@ -957,6 +957,7 @@
 | [dark-sr-zehek-normal.md](./dark-sr-zehek-normal.md) | ゼヘク(SR) / Zehek (SR) | SR | 闇 | 下書き |
 | [dark-sr-zaja-normal.md](./dark-sr-zaja-normal.md) | ザザ / Zaja | SR | 闇 | 下書き |
 | [dark-sr-rita-normal.md](./dark-sr-rita-normal.md) | リタ / Rita | SR | 闇 | 下書き |
+| [dark-sr-jogasaki-mika-normal.md](./dark-sr-jogasaki-mika-normal.md) | 城ヶ崎美嘉 / Mika Jougasaki | SR | 闇 | 下書き |
 
 ## 運用ルール
 
