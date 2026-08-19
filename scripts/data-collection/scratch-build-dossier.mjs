@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const SCRATCH = "C:/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/earth_r";
+const SCRATCH = "C:/Users/iriwa/AppData/Local/Temp/claude/C--Users-iriwa-Desktop-00-workspace-gbf-helper/166049f5-b9fd-402f-a61d-2e002751260d/scratchpad/wind_r";
 
 function htmlToText(html) {
   html = html.replace(/<script[\s\S]*?<\/script>/gi, "");
