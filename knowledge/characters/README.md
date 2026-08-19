@@ -955,6 +955,7 @@
 | [dark-sr-tanya-summer.md](./dark-sr-tanya-summer.md) | 水着ターニャ / Tanya (Summer) | SR | 闇 | 下書き |
 | [dark-sr-yuri-lowell-normal.md](./dark-sr-yuri-lowell-normal.md) | ユーリ(テイルズ) / Yuri Lowell | SR | 闇 | 下書き |
 | [dark-sr-zehek-normal.md](./dark-sr-zehek-normal.md) | ゼヘク(SR) / Zehek (SR) | SR | 闇 | 下書き |
+| [dark-sr-zaja-normal.md](./dark-sr-zaja-normal.md) | ザザ / Zaja | SR | 闇 | 下書き |
 
 ## 運用ルール
 
