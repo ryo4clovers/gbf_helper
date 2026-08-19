@@ -1,16 +1,16 @@
 ---
-id: "light-ssr-lucifer-normal"
-name_jp: "ルシフェル"
-name_en: "Lucifer"
+id: "light-ssr-apollo-normal"
+name_jp: "アポロン"
+name_en: "Apollo"
 rarity: SSR
 element: "光"
-obtain: "ガチャ排出/サプチケ不可"
+obtain: "ガチャ排出"
 status: 下書き
 last_updated: 2026-08-20
-source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Lucifer) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
+source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Apollo) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
-# ルシフェル(Lucifer)
+# アポロン(Apollo)
 
 ## 概要
 
@@ -22,23 +22,23 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | --- | --- |
 | レアリティ | SSR |
 | 属性 | 光 |
-| 入手方法 | ガチャ排出/サプチケ不可 |
+| 入手方法 | ガチャ排出 |
 
 ## ステータス
 
 | レベル | HP | ATK |
 | --- | --- | --- |
-| Lv100(3★) | 900 | 2015 |
-| Lv150(4★・最終上限解放) | 1280 | 2850 |
+| Lv100(3★) | 780 | 2040 |
+| Lv150(4★・最終上限解放) | 940 | 2470 |
 
 ## 召喚効果
 
-- 効果: 敵全体に光属性ダメージ(特大) / 味方全体の攻撃力UP(大) / (4凸)味方全体のHP回復追加
+- 効果: 敵全体に光属性ダメージ(特大) / 味方全体の攻撃UP(大) / (4凸)弱体効果1回無効追加
 - 出典: GameWith
 
 ## 加護効果(メイン編成時)
 
-- 効果: 光属性の攻撃力100％UP / (3凸)攻撃120％UP / (4凸)攻撃130％UP
+- 効果: 光属性攻撃力50％UP / (3凸)攻撃80％UP / (4凸)HP20％UP追加
 - 出典: GameWith
 
 ## サブ加護効果(サブ編成時)

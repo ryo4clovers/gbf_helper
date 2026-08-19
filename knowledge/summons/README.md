@@ -184,7 +184,55 @@
 | [wind-ssr-gugalanna-normal.md](./wind-ssr-gugalanna-normal.md) | グガランナ / Gugalanna | SSR | 風 | 下書き |
 | [wind-ssr-mammon-normal.md](./wind-ssr-mammon-normal.md) | マモーナス / Mammon | SSR | 風 | 下書き |
 | [wind-ssr-lumiel-gourmet-normal.md](./wind-ssr-lumiel-gourmet-normal.md) | リュミエールグルメ / Lumiel Gourmet | SSR | 風 | 下書き |
+| [light-ssr-zeus-normal.md](./light-ssr-zeus-normal.md) | ゼウス / Zeus | SSR | 光 | 下書き |
+| [light-ssr-the-star-normal.md](./light-ssr-the-star-normal.md) | ザ・スター / The Star | SSR | 光 | 下書き |
 | [light-ssr-lucifer-normal.md](./light-ssr-lucifer-normal.md) | ルシフェル / Lucifer | SSR | 光 | 下書き |
+| [light-ssr-lu-woh-normal.md](./light-ssr-lu-woh-normal.md) | ル・オー / Lu Woh | SSR | 光 | 下書き |
+| [light-ssr-metatron-normal.md](./light-ssr-metatron-normal.md) | メタトロン / Metatron | SSR | 光 | 下書き |
+| [light-ssr-magus-triad-of-wisdom-normal.md](./light-ssr-magus-triad-of-wisdom-normal.md) | 三知一鎧の賢者マギ / Magus, Triad of Wisdom | SSR | 光 | 下書き |
+| [light-ssr-hector-normal.md](./light-ssr-hector-normal.md) | ヘクトル / Hector | SSR | 光 | 下書き |
+| [light-ssr-thor-normal.md](./light-ssr-thor-normal.md) | トール / Thor | SSR | 光 | 下書き |
+| [light-ssr-kaguya-summer.md](./light-ssr-kaguya-summer.md) | 水着カグヤ / Kaguya (Summer) | SSR | 光 | 下書き |
+| [light-ssr-halluel-and-malluel-normal.md](./light-ssr-halluel-and-malluel-normal.md) | ハールート・マールート / Halluel and Malluel | SSR | 光 | 下書き |
+| [light-ssr-demi-zeus-normal.md](./light-ssr-demi-zeus-normal.md) | ゼウス・ディヴィジョン / Demi Zeus | SSR | 光 | 下書き |
+| [light-ssr-chevalier-magna-normal.md](./light-ssr-chevalier-magna-normal.md) | シュヴァリエ・マグナ / Chevalier Magna | SSR | 光 | 下書き |
+| [light-ssr-adramelech-normal.md](./light-ssr-adramelech-normal.md) | アドラメレク / Adramelech | SSR | 光 | 下書き |
+| [light-ssr-artemis-normal.md](./light-ssr-artemis-normal.md) | アルテミス / Artemis | SSR | 光 | 下書き |
+| [light-ssr-huanglong-normal.md](./light-ssr-huanglong-normal.md) | 黄龍 / Huanglong | SSR | 光 | 下書き |
+| [light-ssr-xeno-corow-normal.md](./light-ssr-xeno-corow-normal.md) | ゼノ・コロゥ / Xeno Corow | SSR | 光 | 下書き |
+| [light-ssr-apollo-normal.md](./light-ssr-apollo-normal.md) | アポロン / Apollo | SSR | 光 | 下書き |
+| [light-ssr-odin-normal.md](./light-ssr-odin-normal.md) | オーディン / Odin | SSR | 光 | 下書き |
+| [light-ssr-grand-order-normal.md](./light-ssr-grand-order-normal.md) | ジ・オーダー・グランデ / Grand Order | SSR | 光 | 下書き |
+| [light-ssr-heimdallr-normal.md](./light-ssr-heimdallr-normal.md) | ヘイムダル / Heimdallr | SSR | 光 | 下書き |
+| [light-ssr-vortex-dragon-normal.md](./light-ssr-vortex-dragon-normal.md) | 雷霆公 / Vortex Dragon | SSR | 光 | 下書き |
+| [light-ssr-sandalphon-normal.md](./light-ssr-sandalphon-normal.md) | サンダルフォン / Sandalphon | SSR | 光 | 下書き |
+| [light-ssr-aphrodite-normal.md](./light-ssr-aphrodite-normal.md) | アフロディーテ / Aphrodite | SSR | 光 | 下書き |
+| [light-ssr-shizuka-gian-and-suneo-normal.md](./light-ssr-shizuka-gian-and-suneo-normal.md) | しずか&ジャイアン&スネ夫 / Shizuka, Gian, and Suneo | SSR | 光 | 下書き |
+| [light-ssr-cait-sith-normal.md](./light-ssr-cait-sith-normal.md) | ケット・シー / Cait Sith | SSR | 光 | 下書き |
+| [light-ssr-nobiyo-normal.md](./light-ssr-nobiyo-normal.md) | ノビヨ / Nobiyo | SSR | 光 | 下書き |
+| [light-ssr-golden-pin-a-normal.md](./light-ssr-golden-pin-a-normal.md) | ゴールデンぴにゃこら太 / Golden Piña | SSR | 光 | 下書き |
+| [light-ssr-princess-knight-normal.md](./light-ssr-princess-knight-normal.md) | プリンセスナイト / Princess Knight | SSR | 光 | 下書き |
+| [light-ssr-ti-icniuhtli-xolotl-normal.md](./light-ssr-ti-icniuhtli-xolotl-normal.md) | ティクニウトリ・ショロトル / Ti Icniuhtli Xolotl | SSR | 光 | 下書き |
+| [light-ssr-kero-chan-normal.md](./light-ssr-kero-chan-normal.md) | ケロちゃん / Kero-chan | SSR | 光 | 下書き |
+| [light-ssr-mepple-and-mipple-normal.md](./light-ssr-mepple-and-mipple-normal.md) | メップル&ミップル / Mepple and Mipple | SSR | 光 | 下書き |
+| [light-ssr-corow-normal.md](./light-ssr-corow-normal.md) | コロゥ / Corow | SSR | 光 | 下書き |
+| [light-ssr-robomi-rocket-normal.md](./light-ssr-robomi-rocket-normal.md) | ロボミ発進指令 / Robomi Rocket | SSR | 光 | 下書き |
+| [light-ssr-jehuty-normal.md](./light-ssr-jehuty-normal.md) | ジェフティ / JEHUTY | SSR | 光 | 下書き |
+| [light-ssr-druj-normal.md](./light-ssr-druj-normal.md) | ドゥルジ / Druj | SSR | 光 | 下書き |
+| [light-ssr-bellringer-angel-normal.md](./light-ssr-bellringer-angel-normal.md) | ベルエンジェル / Bellringer Angel | SSR | 光 | 下書き |
+| [light-ssr-gigante-blazer-normal.md](./light-ssr-gigante-blazer-normal.md) | 兄弟砲ギガントブレイザー / Gigante Blazer | SSR | 光 | 下書き |
+| [light-ssr-electric-eal-normal.md](./light-ssr-electric-eal-normal.md) | デンキンナギ / Electric Eal | SSR | 光 | 下書き |
+| [light-ssr-hekatonkheir-normal.md](./light-ssr-hekatonkheir-normal.md) | ヘカトンケイル / Hekatonkheir | SSR | 光 | 下書き |
+| [light-ssr-veselago-normal.md](./light-ssr-veselago-normal.md) | ヴェセラゴ / Veselago | SSR | 光 | 下書き |
+| [light-ssr-super-robo-gigantes-normal.md](./light-ssr-super-robo-gigantes-normal.md) | 超鋼巨人・ゴッドギガンテス / Super Robo Gigantes | SSR | 光 | 下書き |
+| [light-ssr-mahisha-normal.md](./light-ssr-mahisha-normal.md) | マヒシャ / Mahisha | SSR | 光 | 下書き |
+| [light-ssr-pierre-normal.md](./light-ssr-pierre-normal.md) | ピエール / Pierre | SSR | 光 | 下書き |
+| [light-ssr-magus-normal.md](./light-ssr-magus-normal.md) | マギ / Magus | SSR | 光 | 下書き |
+| [light-ssr-levin-sisters-normal.md](./light-ssr-levin-sisters-normal.md) | レヴィオンシスターズ / Levin Sisters | SSR | 光 | 下書き |
+| [light-ssr-heavenly-thunder-blade-wrapped-in-lightning-normal.md](./light-ssr-heavenly-thunder-blade-wrapped-in-lightning-normal.md) | 雷光を纏いし天雷剣 / Heavenly Thunder Blade Wrapped in Lightning | SSR | 光 | 下書き |
+| [light-ssr-sapphire-dance-habotan-normal.md](./light-ssr-sapphire-dance-habotan-normal.md) | 蒼紅之舞・葉牡丹 / Sapphire Dance: Habotan | SSR | 光 | 下書き |
+| [light-ssr-colossal-hermit-normal.md](./light-ssr-colossal-hermit-normal.md) | 灼弩火罹 / Colossal Hermit | SSR | 光 | 下書き |
+| [light-ssr-ultra-robo-grand-god-kaiser-normal.md](./light-ssr-ultra-robo-grand-god-kaiser-normal.md) | 極鋼巨帝グランゴッドカイザー / Ultra Robo Grand God Kaiser | SSR | 光 | 下書き |
 
 ## 運用ルール
 

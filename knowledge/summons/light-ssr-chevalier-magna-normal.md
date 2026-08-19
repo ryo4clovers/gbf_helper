@@ -1,16 +1,16 @@
 ---
-id: "light-ssr-lucifer-normal"
-name_jp: "ルシフェル"
-name_en: "Lucifer"
+id: "light-ssr-chevalier-magna-normal"
+name_jp: "シュヴァリエ・マグナ"
+name_en: "Chevalier Magna"
 rarity: SSR
 element: "光"
-obtain: "ガチャ排出/サプチケ不可"
+obtain: "ボスドロップ"
 status: 下書き
 last_updated: 2026-08-20
-source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Lucifer) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
+source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Chevalier_Magna) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
-# ルシフェル(Lucifer)
+# シュヴァリエ・マグナ(Chevalier Magna)
 
 ## 概要
 
@@ -22,23 +22,23 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | --- | --- |
 | レアリティ | SSR |
 | 属性 | 光 |
-| 入手方法 | ガチャ排出/サプチケ不可 |
+| 入手方法 | ボスドロップ |
 
 ## ステータス
 
 | レベル | HP | ATK |
 | --- | --- | --- |
-| Lv100(3★) | 900 | 2015 |
-| Lv150(4★・最終上限解放) | 1280 | 2850 |
+| Lv100(3★) | 650 | 1625 |
+| Lv150(4★・最終上限解放) | 780 | 1955 |
 
 ## 召喚効果
 
-- 効果: 敵全体に光属性ダメージ(特大) / 味方全体の攻撃力UP(大) / (4凸)味方全体のHP回復追加
+- 効果: 敵全体に光属性ダメージ(特大) / 稀に強化効果消去 / (4凸)3ターンの間、味方全体に光属性攻撃20％UPが追加
 - 出典: GameWith
 
 ## 加護効果(メイン編成時)
 
-- 効果: 光属性の攻撃力100％UP / (3凸)攻撃120％UP / (4凸)攻撃130％UP
+- 効果: 騎解方陣の効果が50％UP / (3凸)最大100％UP / (4凸)120％UP / (5凸)140％UP / (超越)170％UP
 - 出典: GameWith
 
 ## サブ加護効果(サブ編成時)

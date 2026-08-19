@@ -1,16 +1,16 @@
 ---
-id: "light-ssr-lucifer-normal"
-name_jp: "ルシフェル"
-name_en: "Lucifer"
+id: "light-ssr-halluel-and-malluel-normal"
+name_jp: "ハールート・マールート"
+name_en: "Halluel and Malluel"
 rarity: SSR
 element: "光"
 obtain: "ガチャ排出/サプチケ不可"
 status: 下書き
 last_updated: 2026-08-20
-source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Lucifer) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
+source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Halluel_and_Malluel_(Summon)) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
-# ルシフェル(Lucifer)
+# ハールート・マールート(Halluel and Malluel)
 
 ## 概要
 
@@ -28,17 +28,17 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 | レベル | HP | ATK |
 | --- | --- | --- |
-| Lv100(3★) | 900 | 2015 |
-| Lv150(4★・最終上限解放) | 1280 | 2850 |
+| Lv100(3★) | 808 | 2075 |
+| Lv150(4★・最終上限解放) | 1145 | 2938 |
 
 ## 召喚効果
 
-- 効果: 敵全体に光属性ダメージ(特大) / 味方全体の攻撃力UP(大) / (4凸)味方全体のHP回復追加
+- 効果: 敵全体に光属性ダメージ(特大) / 敵全体の攻防DOWN / 敵全体に永遠の責め苦効果 / (4凸)敵全体に光属性ダメージ(特大) / 敵全体の攻防DOWN / 敵全体に永遠の責め苦効果
 - 出典: GameWith
 
 ## 加護効果(メイン編成時)
 
-- 効果: 光属性の攻撃力100％UP / (3凸)攻撃120％UP / (4凸)攻撃130％UP
+- 効果: [メイン]全属性の攻撃力30％/DA率20％UP / [サブ]ダブルアタック確率5％ / (3凸)[メイン]全属性の攻撃力40％/DA率30％UP / [サブ]ダブルアタック確率10％UP / (4凸)[メイン]全属性の攻撃力50％/DA率50％UP / [サブ]ダブルアタック確率20％UP/トリプルアタック確率10%UP
 - 出典: GameWith
 
 ## サブ加護効果(サブ編成時)

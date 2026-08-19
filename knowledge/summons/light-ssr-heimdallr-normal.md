@@ -1,0 +1,56 @@
+---
+id: "light-ssr-heimdallr-normal"
+name_jp: "ヘイムダル"
+name_en: "Heimdallr"
+rarity: SSR
+element: "光"
+obtain: "ガチャ排出"
+status: 下書き
+last_updated: 2026-08-20
+source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Heimdallr) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
+---
+
+# ヘイムダル(Heimdallr)
+
+## 概要
+
+光属性のSSR召喚石。
+
+## 基本情報
+
+| 項目 | 内容 |
+| --- | --- |
+| レアリティ | SSR |
+| 属性 | 光 |
+| 入手方法 | ガチャ排出 |
+
+## ステータス
+
+| レベル | HP | ATK |
+| --- | --- | --- |
+| Lv100(3★) | 767 | 2269 |
+| Lv150(4★・最終上限解放) | 930 | 2740 |
+
+## 召喚効果
+
+- 効果: 敵全体に光属性5倍ダメージ / 光キャラに極光の刻印付与 / 3ターンの間、光属性攻撃25%UP / ◆参戦者が合体召喚不可 / (3凸)7倍ダメージ / 光攻撃UPが50%に強化 / (4凸)9倍ダメージ / 光攻撃60%に強化 / 味方全体の奥義ゲージ10%UP
+- 出典: GameWith
+
+## 加護効果(メイン編成時)
+
+- 効果: 光属性攻撃力50%UP / サブ加護:光属性キャラがそれぞれの極光の刻印の数応じて光属性攻撃力UP(最大15%) / (3凸)光攻撃80%UP / サブ加護:最大25%UP / (4凸)光属性攻撃力100%UP / バトル開始時に味方全体に極光の刻印を付与 / サブ加護:最大35%UP
+- 出典: GameWith
+
+## サブ加護効果(サブ編成時)
+
+- 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 関連トピック
+
+- [buffs-debuffs.md](../mechanics/buffs-debuffs.md)
+- [damage-cap-modifiers.md](../mechanics/damage-cap-modifiers.md)
+
+## 未確認・要検証事項
+
+- サブ加護効果の正確な倍率はGameWith一覧に明記されていない場合、未検証。
+- gbf.wikiでさらに上位の上限解放段階(5★/6★等)が存在する場合、本ファイルはGameWithの標準的な表記(3★/4★)までの記載としており、それ以降は未反映。

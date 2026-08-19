@@ -43,6 +43,7 @@ const MANUAL_NAME_OVERRIDES = {
   "コロッサス･マグナ": "Colossus Magna",
   "疾風怒涛の傭兵コンビ": "Storm and Stress Mercenary Duo",
   "[ラブリーナイト]きらり": "Kirari (Lovely Knight)",
+  "雷光を纏いし天雷剣": "Heavenly Thunder Blade Wrapped in Lightning",
 };
 
 function kebab(s) {
