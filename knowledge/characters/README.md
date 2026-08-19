@@ -1021,6 +1021,7 @@
 | [wind-r-stan-normal.md](./wind-r-stan-normal.md) | スタン / Stan | R | 風 | 下書き |
 | [wind-r-petra-normal.md](./wind-r-petra-normal.md) | ペトラ / Petra | R | 風 | 下書き |
 | [wind-r-hazen-normal.md](./wind-r-hazen-normal.md) | ヘイゼン(R) / Hazen | R | 風 | 下書き |
+| [wind-r-eso-normal.md](./wind-r-eso-normal.md) | エシオ / Eso | R | 風 | 下書き |
 
 ## 運用ルール
 
