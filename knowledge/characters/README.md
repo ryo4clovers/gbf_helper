@@ -894,6 +894,7 @@
 | [wind-sr-chloe-summer.md](./wind-sr-chloe-summer.md) | 水着クロエ / Chloe (Summer) | SR | 風 | 下書き |
 | [wind-sr-ichinose-shiki-normal.md](./wind-sr-ichinose-shiki-normal.md) | 一ノ瀬志希 / Shiki Ichinose | SR | 風 | 下書き |
 | [wind-sr-charlotta-wind.md](./wind-sr-charlotta-wind.md) | 風シャルロッテ / Charlotta (Wind) | SR | 風 | 下書き |
+| [wind-sr-sevastien-normal.md](./wind-sr-sevastien-normal.md) | セワスチアン / Sevastien | SR | 風 | 下書き |
 
 ## 運用ルール
 
