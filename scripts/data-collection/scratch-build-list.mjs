@@ -6,7 +6,7 @@ import path from "node:path";
 // Usage: node scratch-build-list.mjs <element-jp e.g. 火> <scratch-dir-abs-path>
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36";
-const LIST_URL = "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/20723";
+const LIST_URL = "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/20724";
 
 const element = process.argv[2];
 const scratchDir = process.argv[3];
