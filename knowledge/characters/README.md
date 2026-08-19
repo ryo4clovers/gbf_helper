@@ -1002,6 +1002,7 @@
 | [earth-r-camieux-earth.md](./earth-r-camieux-earth.md) | 土クムユ / Camieux (Earth) | R | 土 | 下書き |
 | [earth-r-vanzza-normal.md](./earth-r-vanzza-normal.md) | ヴァンツァ / Vanzza | R | 土 | 下書き |
 | [earth-r-norcel-normal.md](./earth-r-norcel-normal.md) | ノルセル / Norcel | R | 土 | 下書き |
+| [earth-r-walder-christmas.md](./earth-r-walder-christmas.md) | ウェルダー(クリスマス) / Walder (Christmas) | R | 土 | 下書き |
 
 ## 運用ルール
 
