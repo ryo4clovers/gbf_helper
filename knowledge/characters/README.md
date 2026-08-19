@@ -933,6 +933,7 @@
 | [dark-sr-richard-dark.md](./dark-sr-richard-dark.md) | 闇リチャード / Richard (Dark) | SR | 闇 | 下書き |
 | [dark-sr-skull-dark.md](./dark-sr-skull-dark.md) | 闇スカル / Skull (Dark) | SR | 闇 | 下書き |
 | [dark-sr-cassius-normal.md](./dark-sr-cassius-normal.md) | カシウス / Cassius | SR | 闇 | 下書き |
+| [dark-sr-feather-halloween.md](./dark-sr-feather-halloween.md) | フェザー(ハロウィン) / Feather (Halloween) | SR | 闇 | 下書き |
 
 ## 運用ルール
 
