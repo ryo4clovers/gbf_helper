@@ -1023,6 +1023,7 @@
 | [wind-r-hazen-normal.md](./wind-r-hazen-normal.md) | ヘイゼン(R) / Hazen | R | 風 | 下書き |
 | [wind-r-eso-normal.md](./wind-r-eso-normal.md) | エシオ / Eso | R | 風 | 下書き |
 | [dark-r-vikala-normal.md](./dark-r-vikala-normal.md) | ビカラ(R) / Vikala (R) | R | 闇 | 下書き |
+| [dark-r-bakura-normal.md](./dark-r-bakura-normal.md) | バクラ / Bakura | R | 闇 | 下書き |
 
 ## 運用ルール
 
