@@ -315,7 +315,8 @@ Claude in Chrome(実際にログイン済みのChrome、接続名 `for_gbf`)経�
 - 土属性SR収集完了(51/51体)。次は風属性SRの収集に着手(パイプラインをwind_srに再ターゲット)。
 - 風属性SR: scratch-build-list.mjsでリスト取得49体。GameWith全49体のページ取得完了、gbf.wiki検索は34/49体で候補あり(curl経由で取得)。dossier生成完了(batch_000-007.txt〜batch_048-048.txt)。
 - 風属性SR収集完了(49/49体)。gbf.wiki不一致(基本レアリティ版/別バージョン/無関係ページ/壊れたページ)は都度検出しGameWithのみで作成、水着クロエとミムルメモルはHP差異のみ記録し両出典併記で作成。次は闇属性SRの収集に着手(パイプラインをdark_srに再ターゲット)。
-- 闇属性SR: scratch-build-list.mjsでリスト取得35体。GameWith全35体のページ取得完了、gbf.wiki検索は25/35体で候補あり(curl経由で取得)。dossier生成完了(batch_000-007.txt〜batch_032-034.txt)。次はindex0から処理開始。
+- 闇属性SR: scratch-build-list.mjsでリスト取得35体。GameWith全35体のページ取得完了、gbf.wiki検索は25/35体で候補あり(curl経由で取得)。dossier生成完了(batch_000-007.txt〜batch_032-034.txt)。
+- 闇属性SR(1/35体完了)。次はindex1(メグ)から継続(batch_000-007.txt)。
   - index119 ネツァワルピリはgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index118 風メーテラ(SSR)はgbf.wiki候補なし。GameWithのみで作成。最終上限解放後の性能を採用。
   - index117 クリスティーナはgbf.wiki候補なし。GameWithのみで作成。最終解放後の性能を採用。カジノメダル7777万枚必要な最高難度入手キャラ。

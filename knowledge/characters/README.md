@@ -927,6 +927,7 @@
 | [wind-sr-sutera-normal.md](./wind-sr-sutera-normal.md) | スーテラ(風) / Sutera | SR | 風 | 下書き |
 | [wind-sr-rosetta-normal.md](./wind-sr-rosetta-normal.md) | ロゼッタ(SR) / Rosetta | SR | 風 | 下書き |
 | [wind-sr-helnar-normal.md](./wind-sr-helnar-normal.md) | ヘルナル / Helnar | SR | 風 | 下書き |
+| [dark-sr-wulf-and-renie-halloween.md](./dark-sr-wulf-and-renie-halloween.md) | ウーフとレニー(ハロウィン) / Wulf and Renie (Halloween) | SR | 闇 | 下書き |
 
 ## 運用ルール
 
