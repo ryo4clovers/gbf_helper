@@ -917,6 +917,7 @@
 | [wind-sr-maekawa-miku-normal.md](./wind-sr-maekawa-miku-normal.md) | 前川みく / Miku Maekawa | SR | 風 | 下書き |
 | [wind-sr-sil-normal.md](./wind-sr-sil-normal.md) | スィール / Sil | SR | 風 | 下書き |
 | [wind-sr-hazen-normal.md](./wind-sr-hazen-normal.md) | ヘイゼン(SR) / Hazen (SR) | SR | 風 | 下書き |
+| [wind-sr-aster-wind.md](./wind-sr-aster-wind.md) | アステール / Aster (Event) | SR | 風 | 下書き |
 
 ## 運用ルール
 
