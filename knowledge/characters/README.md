@@ -898,6 +898,7 @@
 | [wind-sr-tyre-normal.md](./wind-sr-tyre-normal.md) | タイアー / Tyre | SR | 風 | 下書き |
 | [wind-sr-alisa-normal.md](./wind-sr-alisa-normal.md) | アリサ(シャドバ) / Alisa (Shadowverse) | SR | 風 | 下書き |
 | [wind-sr-haohmaru-normal.md](./wind-sr-haohmaru-normal.md) | 覇王丸 / Haohmaru | SR | 風 | 下書き |
+| [wind-sr-myun-normal.md](./wind-sr-myun-normal.md) | ミュオン / Myun | SR | 風 | 下書き |
 
 ## 運用ルール
 
