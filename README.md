@@ -14,6 +14,7 @@ knowledge/
   characters/   キャラクター情報
   summons/      召喚石情報
   weapons/      武器情報
+  jobs/         ジョブ(主人公専用)情報
   mechanics/    ゲームシステム・仕様
   events/       イベント情報
   misc/         その他
