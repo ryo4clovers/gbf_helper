@@ -18,6 +18,8 @@ knowledge/
   mechanics/    ゲームシステム・仕様
   events/       イベント情報
   misc/         その他
+tools/
+  network-recorder/  実機プレイ中の通信を受動的に記録するChrome拡張機能(データ収集補助)
 ```
 
 各カテゴリ配下は Markdown ファイルで記述する。
@@ -26,3 +28,4 @@ knowledge/
 
 - [docs/data-collection-notes.md](docs/data-collection-notes.md) — データ収集の情報源・取得方法・優先順位などの作業メモ
 - [mcp-server/README.md](mcp-server/README.md) — ナレッジベースをMCPサーバーとして公開する仕組みのセットアップ手順
+- [tools/network-recorder/README.md](tools/network-recorder/README.md) — 実機データ収集用Chrome拡張機能の使い方

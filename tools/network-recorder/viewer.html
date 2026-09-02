@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>GBF Network Recorder — 記録データ</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 16px; color: #222; }
+  h1 { font-size: 18px; }
+  .toolbar { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
+  .toolbar input { padding: 6px 8px; font-size: 13px; flex: 1; min-width: 200px; }
+  .toolbar button { padding: 6px 12px; font-size: 13px; cursor: pointer; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 10px; }
+  .tabs button { padding: 6px 14px; font-size: 13px; cursor: pointer; border: 1px solid #ccc; background: #f7f7f7; }
+  .tabs button.active { background: #333; color: #fff; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th, td { text-align: left; padding: 4px 6px; border-bottom: 1px solid #eee; vertical-align: top; }
+  th { position: sticky; top: 0; background: #fafafa; }
+  tr.row { cursor: pointer; }
+  tr.row:hover { background: #f5f5f5; }
+  .url { word-break: break-all; max-width: 480px; }
+  .detail { display: none; background: #fafafa; }
+  .detail pre { white-space: pre-wrap; word-break: break-all; max-height: 400px; overflow: auto; font-size: 11px; }
+  .detail img { max-width: 200px; max-height: 200px; display: block; }
+  #summary { font-size: 12px; color: #555; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+  <h1>GBF Network Recorder — 記録データ</h1>
+  <div class="toolbar">
+    <input id="filter" type="text" placeholder="URLで絞り込み…" />
+    <button id="export">JSONでエクスポート</button>
+    <button id="clear">全データ削除</button>
+    <button id="reload">再読込</button>
+  </div>
+  <div id="summary"></div>
+  <div class="tabs">
+    <button id="tabApi" class="active">apiCalls</button>
+    <button id="tabAssets">assets</button>
+  </div>
+  <table>
+    <thead><tr id="theadRow"></tr></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <script type="module" src="viewer.js"></script>
+</body>
+</html>

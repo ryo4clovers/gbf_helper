@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>GBF Network Recorder</title>
+<style>
+  body { font-family: system-ui, sans-serif; width: 280px; padding: 12px; }
+  h1 { font-size: 14px; margin: 0 0 8px; }
+  #status { font-size: 13px; margin-bottom: 10px; padding: 6px 8px; border-radius: 4px; }
+  #status.on { background: #e6f4ea; color: #1e7e34; }
+  #status.off { background: #f1f1f1; color: #555; }
+  #counts { font-size: 12px; color: #444; margin-bottom: 10px; }
+  button { width: 100%; padding: 8px; font-size: 13px; margin-bottom: 6px; cursor: pointer; }
+  #error { color: #c00; font-size: 12px; margin-top: 6px; white-space: pre-wrap; }
+  #note { font-size: 11px; color: #777; margin-top: 10px; line-height: 1.4; }
+</style>
+</head>
+<body>
+  <h1>GBF Network Recorder</h1>
+  <div id="status" class="off">未記録</div>
+  <div id="counts">assets: -- / apiCalls: --</div>
+  <button id="toggle">記録開始</button>
+  <button id="openViewer">記録内容を見る / エクスポート</button>
+  <div id="error"></div>
+  <div id="note">
+    ゲームタブでの通常のプレイ操作によって発生した通信のみを記録します。この拡張機能が自ら通信を発行することはありません。
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

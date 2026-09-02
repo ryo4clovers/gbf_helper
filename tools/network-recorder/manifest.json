@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "GBF Network Recorder",
+  "version": "0.1.0",
+  "description": "Passively records network traffic (XHR/Fetch JSON responses, images, scripts) on game.granbluefantasy.jp during normal manual play, for later offline analysis. Never sends requests of its own.",
+  "permissions": ["debugger", "storage", "tabs"],
+  "host_permissions": [
+    "https://game.granbluefantasy.jp/*",
+    "https://*.akamaized.net/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "GBF Network Recorder"
+  }
+}
