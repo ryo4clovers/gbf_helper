@@ -1,5 +1,6 @@
 ---
 id: "chrysaor"
+job_id: "300301"
 name_jp: "クリュサオル"
 name_en: "Chrysaor"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # クリュサオル(Chrysaor)
+![クリュサオル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/300301_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "bishop"
+job_id: "120201"
 name_jp: "ビショップ"
 name_en: "Bishop"
 class_tier: "ClassIII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ビショップ(Bishop)
+![ビショップ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/120201_01.jpg)
 
 ## 概要
 

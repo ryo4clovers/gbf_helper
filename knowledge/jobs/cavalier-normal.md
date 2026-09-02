@@ -1,5 +1,6 @@
 ---
 id: "cavalier"
+job_id: "420301"
 name_jp: "キャバルリー"
 name_en: "Cavalier"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # キャバルリー(Cavalier)
+![キャバルリー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/420301_01.jpg)
 
 ## 概要
 

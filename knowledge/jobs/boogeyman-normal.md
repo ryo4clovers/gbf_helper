@@ -1,5 +1,6 @@
 ---
 id: "boogeyman"
+job_id: "170401"
 name_jp: "ブギーマン"
 name_en: "Boogeyman"
 class_tier: "ClassV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ブギーマン(Boogeyman)
+![ブギーマン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/170401_01.jpg)
 
 ## 概要
 

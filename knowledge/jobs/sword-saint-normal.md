@@ -1,5 +1,6 @@
 ---
 id: "sword-saint"
+job_id: "230201"
 name_jp: "剣聖"
 name_en: "Sword Saint"
 class_tier: "エクストラ"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # 剣聖(Sword Saint)
+![剣聖](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/230201_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "mariachi"
+job_id: "180401"
 name_jp: "マリアッチ"
 name_en: "Mariachi"
 class_tier: "ClassV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # マリアッチ(Mariachi)
+![マリアッチ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/180401_01.jpg)
 
 ## 概要
 

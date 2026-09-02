@@ -1,5 +1,6 @@
 ---
 id: "black-cat-sorcerer"
+job_id: "250301"
 name_jp: "黒猫道士"
 name_en: "Black Cat Sorcerer"
 class_tier: "エクストラII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # 黒猫道士(Black Cat Sorcerer)
+![黒猫道士](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/250301_01.jpg)
 
 ## 概要
 

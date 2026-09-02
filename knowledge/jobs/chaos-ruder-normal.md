@@ -1,5 +1,6 @@
 ---
 id: "chaos-ruder"
+job_id: "150301"
 name_jp: "カオスルーダー"
 name_en: "Chaos Ruder"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # カオスルーダー(Chaos Ruder)
+![カオスルーダー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/150301_01.jpg)
 
 ## 概要
 

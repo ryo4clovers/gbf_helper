@@ -1,5 +1,6 @@
 ---
 id: "sage"
+job_id: "120301"
 name_jp: "セージ"
 name_en: "Sage"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # セージ(Sage)
+![セージ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/120301_01.jpg)
 
 ## 概要
 

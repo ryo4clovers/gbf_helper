@@ -1,5 +1,6 @@
 ---
 id: "yamato"
+job_id: "460301"
 name_jp: "ヤマト"
 name_en: "Yamato"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ヤマト(Yamato)
+![ヤマト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/460301_01.jpg)
 
 ## 概要
 

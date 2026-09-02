@@ -1,5 +1,6 @@
 ---
 id: "priest"
+job_id: "120001"
 name_jp: "プリースト"
 name_en: "Priest"
 class_tier: "ClassI"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # プリースト(Priest)
+![プリースト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/120001_01.jpg)
 
 ## 概要
 

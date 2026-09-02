@@ -1,5 +1,6 @@
 ---
 id: "arcana-swordsman"
+job_id: "150101"
 name_jp: "アルカナソード"
 name_en: "Arcana Swordsman"
 class_tier: "ClassII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # アルカナソード(Arcana Swordsman)
+![アルカナソード](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/150101_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "ranger"
+job_id: "170001"
 name_jp: "レンジャー"
 name_en: "Ranger"
 class_tier: "ClassI"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # レンジャー(Ranger)
+![レンジャー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/170001_01.jpg)
 
 ## 概要
 

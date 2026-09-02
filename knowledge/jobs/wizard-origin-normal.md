@@ -1,5 +1,6 @@
 ---
 id: "wizard-origin"
+job_id: "130501"
 name_jp: "ウィザード・オリジン"
 name_en: "Wizard (Origin)"
 class_tier: "ClassI"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ウィザード・オリジン(Wizard (Origin))
+![ウィザード・オリジン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/130501_01.jpg)
 
 ## 概要
 

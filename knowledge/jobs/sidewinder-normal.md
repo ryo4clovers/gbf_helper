@@ -1,5 +1,6 @@
 ---
 id: "sidewinder"
+job_id: "170201"
 name_jp: "サイドワインダー"
 name_en: "Sidewinder"
 class_tier: "ClassIII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # サイドワインダー(Sidewinder)
+![サイドワインダー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/170201_01.jpg)
 
 ## 概要
 

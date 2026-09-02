@@ -1,5 +1,6 @@
 ---
 id: "viking"
+job_id: "100401"
 name_jp: "ヴァイキング"
 name_en: "Viking"
 class_tier: "ClassV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ヴァイキング(Viking)
+![ヴァイキング](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/100401_01.jpg)
 
 ## 概要
 

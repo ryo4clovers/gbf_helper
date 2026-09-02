@@ -1,5 +1,6 @@
 ---
 id: "lumberjack"
+job_id: "410301"
 name_jp: "ランバージャック"
 name_en: "Lumberjack"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ランバージャック(Lumberjack)
+![ランバージャック](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/410301_01.jpg)
 
 ## 概要
 

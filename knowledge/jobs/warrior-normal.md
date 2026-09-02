@@ -1,5 +1,6 @@
 ---
 id: "warrior"
+job_id: "100101"
 name_jp: "ウォーリア"
 name_en: "Warrior"
 class_tier: "ClassII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ウォーリア(Warrior)
+![ウォーリア](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/100101_01.jpg)
 
 ## 概要
 

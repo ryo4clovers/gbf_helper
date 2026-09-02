@@ -1,5 +1,6 @@
 ---
 id: "spartan"
+job_id: "110301"
 name_jp: "スパルタ"
 name_en: "Spartan"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # スパルタ(Spartan)
+![スパルタ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/110301_01.jpg)
 
 ## 概要
 

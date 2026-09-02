@@ -1,5 +1,6 @@
 ---
 id: "marksman"
+job_id: "170101"
 name_jp: "マークスマン"
 name_en: "Marksman"
 class_tier: "ClassII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # マークスマン(Marksman)
+![マークスマン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/170101_01.jpg)
 
 ## 概要
 

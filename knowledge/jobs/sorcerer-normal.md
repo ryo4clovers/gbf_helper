@@ -1,5 +1,6 @@
 ---
 id: "sorcerer"
+job_id: "130101"
 name_jp: "ソーサラー"
 name_en: "Sorcerer"
 class_tier: "ClassII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ソーサラー(Sorcerer)
+![ソーサラー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/130101_01.jpg)
 
 ## 概要
 

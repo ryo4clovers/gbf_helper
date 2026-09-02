@@ -1,5 +1,6 @@
 ---
 id: "king"
+job_id: "140401"
 name_jp: "キング"
 name_en: "King"
 class_tier: "ClassV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # キング(King)
+![キング](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/140401_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "magic-warrior"
+job_id: "210301"
 name_jp: "魔法戦士"
 name_en: "Magic Warrior"
 class_tier: "エクストラII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # 魔法戦士(Magic Warrior)
+![魔法戦士](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/210301_01.jpg)
 
 ## 概要
 

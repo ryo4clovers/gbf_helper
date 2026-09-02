@@ -1,5 +1,6 @@
 ---
 id: "shieldsworn"
+job_id: "470301"
 name_jp: "シールドスウォーン"
 name_en: "Shieldsworn"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # シールドスウォーン(Shieldsworn)
+![シールドスウォーン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/470301_01.jpg)
 
 ## 概要
 

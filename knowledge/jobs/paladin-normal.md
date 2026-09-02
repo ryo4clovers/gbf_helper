@@ -1,5 +1,6 @@
 ---
 id: "paladin"
+job_id: "110401"
 name_jp: "パラディン"
 name_en: "Paladin"
 class_tier: "ClassV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # パラディン(Paladin)
+![パラディン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/110401_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "sumahihito"
+job_id: "160401"
 name_jp: "スマヒヒト"
 name_en: "Sumahihito"
 class_tier: "ClassV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # スマヒヒト(Sumahihito)
+![スマヒヒト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/160401_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "rising-force"
+job_id: "270301"
 name_jp: "ライジングフォース"
 name_en: "Rising Force"
 class_tier: "エクストラII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ライジングフォース(Rising Force)
+![ライジングフォース](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/270301_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "onmyoji"
+job_id: "150401"
 name_jp: "陰陽師"
 name_en: "Onmyoji"
 class_tier: "ClassV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # 陰陽師(Onmyoji)
+![陰陽師](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/150401_01.jpg)
 
 ## 概要
 

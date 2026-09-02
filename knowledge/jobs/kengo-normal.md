@@ -1,5 +1,6 @@
 ---
 id: "kengo"
+job_id: "220301"
 name_jp: "剣豪"
 name_en: "Kengo"
 class_tier: "エクストラII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # 剣豪(Kengo)
+![剣豪](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/220301_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "alchemist"
+job_id: "200201"
 name_jp: "アルケミスト"
 name_en: "Alchemist"
 class_tier: "エクストラ"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # アルケミスト(Alchemist)
+![アルケミスト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/200201_01.jpg)
 
 ## 概要
 

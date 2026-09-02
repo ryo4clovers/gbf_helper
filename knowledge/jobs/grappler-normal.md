@@ -1,5 +1,6 @@
 ---
 id: "grappler"
+job_id: "160001"
 name_jp: "グラップラー"
 name_en: "Grappler"
 class_tier: "ClassI"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # グラップラー(Grappler)
+![グラップラー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/160001_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "monk"
+job_id: "430301"
 name_jp: "モンク"
 name_en: "Monk"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # モンク(Monk)
+![モンク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/430301_01.jpg)
 
 ## 概要
 

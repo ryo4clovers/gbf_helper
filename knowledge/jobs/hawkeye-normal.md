@@ -1,5 +1,6 @@
 ---
 id: "hawkeye"
+job_id: "140201"
 name_jp: "ホークアイ"
 name_en: "Hawkeye"
 class_tier: "ClassIII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ホークアイ(Hawkeye)
+![ホークアイ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/140201_01.jpg)
 
 ## 概要
 

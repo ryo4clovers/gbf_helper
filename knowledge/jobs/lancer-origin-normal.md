@@ -1,5 +1,6 @@
 ---
 id: "lancer-origin"
+job_id: "190501"
 name_jp: "ランサー・オリジン"
 name_en: "Lancer (Origin)"
 class_tier: "ClassI"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ランサー・オリジン(Lancer (Origin))
+![ランサー・オリジン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/190501_01.jpg)
 
 ## 概要
 

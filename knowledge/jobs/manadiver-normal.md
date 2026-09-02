@@ -1,5 +1,6 @@
 ---
 id: "manadiver"
+job_id: "130401"
 name_jp: "マナダイバー"
 name_en: "Manadiver"
 class_tier: "ClassV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # マナダイバー(Manadiver)
+![マナダイバー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/130401_01.jpg)
 
 ## 概要
 

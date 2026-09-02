@@ -1,5 +1,6 @@
 ---
 id: "fortress"
+job_id: "110101"
 name_jp: "フォートレス"
 name_en: "Fortress"
 class_tier: "ClassII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # フォートレス(Fortress)
+![フォートレス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/110101_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "the-glory"
+job_id: "230301"
 name_jp: "ザ・グローリー"
 name_en: "The Glory"
 class_tier: "エクストラII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ザ・グローリー(The Glory)
+![ザ・グローリー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/230301_01.jpg)
 
 ## 概要
 

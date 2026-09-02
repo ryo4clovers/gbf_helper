@@ -1,5 +1,6 @@
 ---
 id: "hound-dog"
+job_id: "170301"
 name_jp: "ハウンドドッグ"
 name_en: "Hound Dog"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ハウンドドッグ(Hound Dog)
+![ハウンドドッグ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/170301_01.jpg)
 
 ## 概要
 

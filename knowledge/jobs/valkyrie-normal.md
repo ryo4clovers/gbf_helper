@@ -1,5 +1,6 @@
 ---
 id: "valkyrie"
+job_id: "190201"
 name_jp: "ヴァルキュリア"
 name_en: "Valkyrie"
 class_tier: "ClassIII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ヴァルキュリア(Valkyrie)
+![ヴァルキュリア](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/190201_01.jpg)
 
 ## 概要
 

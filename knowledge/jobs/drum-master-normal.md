@@ -1,5 +1,6 @@
 ---
 id: "drum-master"
+job_id: "270201"
 name_jp: "ドラムマスター"
 name_en: "Drum Master"
 class_tier: "エクストラ"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ドラムマスター(Drum Master)
+![ドラムマスター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/270201_01.jpg)
 
 ## 概要
 

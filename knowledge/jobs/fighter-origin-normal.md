@@ -1,5 +1,6 @@
 ---
 id: "fighter-origin"
+job_id: "100501"
 name_jp: "ファイター・オリジン"
 name_en: "Fighter (Origin)"
 class_tier: "ClassI"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ファイター・オリジン(Fighter (Origin))
+![ファイター・オリジン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/100501_01.jpg)
 
 ## 概要
 

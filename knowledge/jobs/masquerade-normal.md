@@ -1,5 +1,6 @@
 ---
 id: "masquerade"
+job_id: "280301"
 name_jp: "マスカレード"
 name_en: "Masquerade"
 class_tier: "エクストラII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # マスカレード(Masquerade)
+![マスカレード](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/280301_01.jpg)
 
 ## 概要
 

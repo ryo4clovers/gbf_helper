@@ -1,5 +1,6 @@
 ---
 id: "panacea"
+job_id: "120401"
 name_jp: "パナケイア"
 name_en: "Panacea"
 class_tier: "ClassV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # パナケイア(Panacea)
+![パナケイア](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/120401_01.jpg)
 
 ## 概要
 

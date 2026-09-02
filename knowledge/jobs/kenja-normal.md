@@ -1,5 +1,6 @@
 ---
 id: "kenja"
+job_id: "250201"
 name_jp: "賢者"
 name_en: "Kenja"
 class_tier: "エクストラ"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # 賢者(Kenja)
+![賢者](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/250201_01.jpg)
 
 ## 概要
 

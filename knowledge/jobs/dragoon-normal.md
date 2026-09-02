@@ -1,5 +1,6 @@
 ---
 id: "dragoon"
+job_id: "190101"
 name_jp: "ドラグーン"
 name_en: "Dragoon"
 class_tier: "ClassII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ドラグーン(Dragoon)
+![ドラグーン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/190101_01.jpg)
 
 ## 概要
 

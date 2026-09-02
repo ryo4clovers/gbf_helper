@@ -1,5 +1,6 @@
 ---
 id: "raider"
+job_id: "140101"
 name_jp: "レイダー"
 name_en: "Raider"
 class_tier: "ClassII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # レイダー(Raider)
+![レイダー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/140101_01.jpg)
 
 ## 概要
 

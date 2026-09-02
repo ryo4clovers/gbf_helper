@@ -1,5 +1,6 @@
 ---
 id: "ogre"
+job_id: "160201"
 name_jp: "オーガ"
 name_en: "Ogre"
 class_tier: "ClassIII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # オーガ(Ogre)
+![オーガ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/160201_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "assassin"
+job_id: "260201"
 name_jp: "アサシン"
 name_en: "Assassin"
 class_tier: "エクストラ"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # アサシン(Assassin)
+![アサシン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/260201_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "dancer"
+job_id: "280201"
 name_jp: "ダンサー"
 name_en: "Dancer"
 class_tier: "エクストラ"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ダンサー(Dancer)
+![ダンサー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/280201_01.jpg)
 
 ## 概要
 

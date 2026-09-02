@@ -1,5 +1,6 @@
 ---
 id: "enhancer"
+job_id: "150001"
 name_jp: "エンハンサー"
 name_en: "Enhancer"
 class_tier: "ClassI"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # エンハンサー(Enhancer)
+![エンハンサー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/150001_01.jpg)
 
 ## 概要
 

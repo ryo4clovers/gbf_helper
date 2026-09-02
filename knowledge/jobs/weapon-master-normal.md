@@ -1,5 +1,6 @@
 ---
 id: "weapon-master"
+job_id: "100201"
 name_jp: "ウェポンマスター"
 name_en: "Weapon Master"
 class_tier: "ClassIII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ウェポンマスター(Weapon Master)
+![ウェポンマスター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/100201_01.jpg)
 
 ## 概要
 

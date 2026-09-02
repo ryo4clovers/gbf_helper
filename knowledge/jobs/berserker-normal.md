@@ -1,5 +1,6 @@
 ---
 id: "berserker"
+job_id: "100301"
 name_jp: "ベルセルク"
 name_en: "Berserker"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ベルセルク(Berserker)
+![ベルセルク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/100301_01.jpg)
 
 ## 概要
 

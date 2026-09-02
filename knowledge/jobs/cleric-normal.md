@@ -1,5 +1,6 @@
 ---
 id: "cleric"
+job_id: "120101"
 name_jp: "クレリック"
 name_en: "Cleric"
 class_tier: "ClassII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # クレリック(Cleric)
+![クレリック](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/120101_01.jpg)
 
 ## 概要
 

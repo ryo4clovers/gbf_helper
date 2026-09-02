@@ -1,5 +1,6 @@
 ---
 id: "elysian"
+job_id: "180301"
 name_jp: "エリュシオン"
 name_en: "Elysian"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # エリュシオン(Elysian)
+![エリュシオン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/180301_01.jpg)
 
 ## 概要
 

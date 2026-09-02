@@ -1,5 +1,6 @@
 ---
 id: "samurai"
+job_id: "220201"
 name_jp: "侍"
 name_en: "Samurai"
 class_tier: "エクストラ"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # 侍(Samurai)
+![侍](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/220201_01.jpg)
 
 ## 概要
 

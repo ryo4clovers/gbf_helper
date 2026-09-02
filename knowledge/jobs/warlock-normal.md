@@ -1,5 +1,6 @@
 ---
 id: "warlock"
+job_id: "130301"
 name_jp: "ウォーロック"
 name_en: "Warlock"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ウォーロック(Warlock)
+![ウォーロック](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/130301_01.jpg)
 
 ## 概要
 

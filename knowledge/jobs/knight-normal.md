@@ -1,5 +1,6 @@
 ---
 id: "knight"
+job_id: "110001"
 name_jp: "ナイト"
 name_en: "Knight"
 class_tier: "ClassI"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ナイト(Knight)
+![ナイト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/110001_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "relic-buster"
+job_id: "450301"
 name_jp: "レリックバスター"
 name_en: "Relic Buster"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # レリックバスター(Relic Buster)
+![レリックバスター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/450301_01.jpg)
 
 ## 概要
 

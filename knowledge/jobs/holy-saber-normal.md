@@ -1,5 +1,6 @@
 ---
 id: "holy-saber"
+job_id: "110201"
 name_jp: "ホーリーセイバー"
 name_en: "Holy Saber"
 class_tier: "ClassIII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ホーリーセイバー(Holy Saber)
+![ホーリーセイバー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/110201_01.jpg)
 
 ## 概要
 

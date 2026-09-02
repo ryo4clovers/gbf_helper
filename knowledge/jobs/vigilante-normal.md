@@ -1,5 +1,6 @@
 ---
 id: "vigilante"
+job_id: "140301"
 name_jp: "義賊"
 name_en: "Vigilante"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # 義賊(Vigilante)
+![義賊](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/140301_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "harpist"
+job_id: "180001"
 name_jp: "ハーピスト"
 name_en: "Harpist"
 class_tier: "ClassI"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ハーピスト(Harpist)
+![ハーピスト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/180001_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "superstar"
+job_id: "180201"
 name_jp: "スーパースター"
 name_en: "Superstar"
 class_tier: "ClassIII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # スーパースター(Superstar)
+![スーパースター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/180201_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "wrestler-normal"
+job_id: "160301"
 name_jp: "レスラー"
 name_en: "Wrestler"
 class_tier: "ClassIV"
@@ -14,6 +15,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 ---
 
 # レスラー(Wrestler)
+![レスラー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/160301_01.jpg)
 
 ## 概要
 

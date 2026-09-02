@@ -1,5 +1,6 @@
 ---
 id: "kung-fu"
+job_id: "160101"
 name_jp: "クンフー"
 name_en: "Kung Fu"
 class_tier: "ClassII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # クンフー(Kung Fu)
+![クンフー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/160101_01.jpg)
 
 ## 概要
 

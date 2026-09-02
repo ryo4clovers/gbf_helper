@@ -1,5 +1,6 @@
 ---
 id: "mechanic"
+job_id: "290201"
 name_jp: "メカニック"
 name_en: "Mechanic"
 class_tier: "エクストラ"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # メカニック(Mechanic)
+![メカニック](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/290201_01.jpg)
 
 ## 概要
 

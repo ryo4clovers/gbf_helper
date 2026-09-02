@@ -1,5 +1,6 @@
 ---
 id: "thief"
+job_id: "140001"
 name_jp: "シーフ"
 name_en: "Thief"
 class_tier: "ClassI"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # シーフ(Thief)
+![シーフ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/140001_01.jpg)
 
 ## 概要
 

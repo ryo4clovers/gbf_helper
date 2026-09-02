@@ -1,5 +1,6 @@
 ---
 id: "minstrel"
+job_id: "180101"
 name_jp: "ミンストレル"
 name_en: "Minstrel"
 class_tier: "ClassII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ミンストレル(Minstrel)
+![ミンストレル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/180101_01.jpg)
 
 ## 概要
 

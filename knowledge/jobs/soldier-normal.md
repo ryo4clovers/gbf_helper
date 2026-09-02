@@ -1,5 +1,6 @@
 ---
 id: "soldier"
+job_id: "240301"
 name_jp: "ソルジャー"
 name_en: "Soldier"
 class_tier: "エクストラII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ソルジャー(Soldier)
+![ソルジャー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/240301_01.jpg)
 
 ## 概要
 

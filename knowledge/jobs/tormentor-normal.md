@@ -1,5 +1,6 @@
 ---
 id: "tormentor"
+job_id: "260301"
 name_jp: "トーメンター"
 name_en: "Tormentor"
 class_tier: "エクストラII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # トーメンター(Tormentor)
+![トーメンター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/260301_01.jpg)
 
 ## 概要
 

@@ -1,5 +1,6 @@
 ---
 id: "doctor"
+job_id: "200301"
 name_jp: "ドクター"
 name_en: "Doctor"
 class_tier: "エクストラII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ドクター(Doctor)
+![ドクター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/200301_01.jpg)
 
 ## 概要
 

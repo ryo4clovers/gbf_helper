@@ -1,5 +1,6 @@
 ---
 id: ""
+job_id: ""                # ゲーム内のジョブmaster_id(実機API/画像URLで使う数値ID。例: "190301")
 name_jp: ""
 name_en: ""
 class_tier: ""          # ClassI | ClassII | ClassIII | ClassIV | ClassV | エクストラ | エクストラII | オリジン
@@ -14,6 +15,7 @@ source: "要検証"
 ---
 
 # {ジョブ名}({英名})
+![{ジョブ名}](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/{{job_id}}_01.jpg)
 
 ## 概要
 

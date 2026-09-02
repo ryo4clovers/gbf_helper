@@ -1,5 +1,6 @@
 ---
 id: "gunslinger"
+job_id: "240201"
 name_jp: "ガンスリンガー"
 name_en: "Gunslinger"
 class_tier: "エクストラ"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ガンスリンガー(Gunslinger)
+![ガンスリンガー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/240201_01.jpg)
 
 ## 概要
 

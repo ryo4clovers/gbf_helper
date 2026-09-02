@@ -1,5 +1,6 @@
 ---
 id: "dark-fencer"
+job_id: "150201"
 name_jp: "ダークフェンサー"
 name_en: "Dark Fencer"
 class_tier: "ClassIII"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ダークフェンサー(Dark Fencer)
+![ダークフェンサー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/150201_01.jpg)
 
 ## 概要
 

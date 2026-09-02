@@ -1,5 +1,6 @@
 ---
 id: "ninja"
+job_id: "210201"
 name_jp: "忍者"
 name_en: "Ninja"
 class_tier: "エクストラ"
@@ -14,6 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # 忍者(Ninja)
+![忍者](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/210201_01.jpg)
 
 ## 概要
 
