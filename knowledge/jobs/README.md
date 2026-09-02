@@ -100,7 +100,7 @@
 
 ## 全ジョブカタログ(2026-09-03時点)
 
-GameWith「ジョブ評価一覧」記事([article/show/21314](https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21314))から機械的に抽出した全ジョブの一覧。ClassI/ClassIIはこの記事では評価点(メイン評価/取得優先度)が付与されておらず、`-` はその意味。`job_id`はゲーム内のジョブ`master_id`(実機APIで確認、2026-09-03)で、[docs/data-collection-notes.md](../../docs/data-collection-notes.md)に取得方法を記載。**ClassI版のファイター/ランサー/ウィザード(未着手行)の3件のみ、実機APIで直接確認できず、同一系列の他ジョブの命名規則(`{系列domain 2桁}0001`)からの推定値**(要検証)。
+GameWith「ジョブ評価一覧」記事([article/show/21314](https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21314))から機械的に抽出した全ジョブの一覧。ClassI/ClassIIはこの記事では評価点(メイン評価/取得優先度)が付与されておらず、`-` はその意味。`job_id`はゲーム内のジョブ`master_id`(実機APIで確認、2026-09-03)で、[docs/data-collection-notes.md](../../docs/data-collection-notes.md)に取得方法を記載。ClassI版のファイター(100001)/ランサー(190001)/ウィザード(130001、いずれも未着手行)の3件は実機APIでは直接確認できなかったが、ユーザー提供のジョブDB(Googleスプレッドシート、詳細は[docs/data-collection-notes.md](../../docs/data-collection-notes.md)参照)で確認済み。
 
 対象は全クラス(ClassI〜V、エクストラ、エクストラII、オリジン)で **全80ジョブ**(旧メモ記載の「61ジョブ」はClassI/ClassIIの評価点なし20ジョブを含めていなかった集計ミスで、修正済み)。
 
