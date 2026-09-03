@@ -259,6 +259,15 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
   - **要注意な食い違いを発見**: HELP文面(id=12「上位ジョブ」)は、Class.IV/Vの自由選択枠(Freeアビリティ)を「EX・リミットアビリティをそれぞれ2つ、計3つまで」とし、ベースアビリティへの言及が無い。一方id=19「エクストラジョブ」はEX IIジョブについてのみ「EX・リミット・ベースアビリティをそれぞれ2つ」と明記しており、ベースアビリティ枠はEX II固有の可能性がある。これは[abilities.md](../knowledge/mechanics/abilities.md)に記録されている「ユーザーからの説明ではClass.IV/Vにもベースアビリティ枠がある」という記載と食い違うため、未確認・要検証事項として両ファイルに記録し、実機画面での再確認を依頼する形にした。
 - 処理済みの`プレイヤー.json`は`tools/network-recorder/captures/game-help/`へ移動。残る8カテゴリはまだ参照していないため`draft/ゲーム内HELP/`に残置。ユーザーは続けて「強化データが入っているであろうJSON」(マスターレベル/極致の証の具体的な数値データと思われる)を追加投入予定とのこと。
 
+### 極致の証のレベル別ボーナスデータを初取得(ベルセルク、2026-09-06)
+
+ユーザーがチャットに直接、ベルセルクの極致の証画面(`job/perfectionproof/index`相当)のレスポンスを貼り付けた。当初「ここには極致の証の情報は記載されていないのでは」という懸念が示されたが、確認したところ**情報は含まれていた**: マスターレベル画面と同様、専用のJSONフィールドではなく、画面内のJSポップアップテンプレート(`tpl-pop-confirm-bonus`「発動中の全ボーナス合計」、`tpl-pop-perfectionproof-info`「各段階で獲得できるボーナス」)の中に、サーバー側で実際の値が焼き込まれた状態で入っていた。
+
+- ベルセルクの段階別ボーナス(段階1〜6): 攻撃力+3500 → HP+1500 → 弱体成功率+7% → 奥義ダメージ+7% → チェインバーストダメージ上限+7% → ダメージ上限+12%。
+- これを既存の[class4-wrestler.md](../knowledge/jobs/class4-wrestler.md)のGameWith経由データ(攻撃力→HP→弱体成功率→奥義ダメ→CBダメ→奥義ダメ上限系、の順)と比較すると、**段階ごとのボーナス種別がほぼ一致**しており、6段階の構成(数値以外の「型」)がジョブ共通パターンである可能性が高いことが分かった。2ジョブ分の一致のみでの推測のため、他ジョブのデータで要検証。
+- 新規習得リミットアビリティの情報(候補一覧)は、この`index`画面のレスポンスには含まれていなかった(表示用コンテナが空、別APIで取得する仕組みと思われる)。
+- [class4-berserker.md](../knowledge/jobs/class4-berserker.md)の「極致の証」セクションを更新(`has_kokuchi`もtrueに修正)、[job-master-level-kyokuchi.md](../knowledge/mechanics/job-master-level-kyokuchi.md)に極致の証レスポンスのデータ構造(2つのポップアップテンプレートに値が焼き込まれる形)を記録した。生データは`tools/network-recorder/captures/job-master-level/2026-09-06_perfectionproof_class4-berserker.json`に、ジョブ非依存の巨大な汎用テンプレート部分を省いた抜粋形式で保存。
+
 ### マスターレベルのレベル別強化データを初取得(ベルセルク、2026-09-06)
 
 ユーザーがチャットに直接、ベルセルク(class4-berserker)のマスターレベル画面レスポンス(`job_master_level.css`を使う画面、`option.job_master_level_bonus`にLv2〜30の内訳を持つ)を貼り付けた。これにより:
