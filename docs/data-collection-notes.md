@@ -191,6 +191,15 @@ GameWith「ジョブ評価一覧」記事(`article/show/21314`)から機械的�
 
 既存の2件(アサシン関連のトーメンター候補一覧を含む、2026-09-04取得分)を`~/Downloads`から移動済み。
 
+### `draft/`フォルダの運用(2026-09-06、ユーザーが新設)
+
+リポジトリ直下に`draft/`フォルダが追加された(既存の`.gitignore`で`/draft/`は元々除外設定済み)。**ユーザーが仕様メモや取得したJSONなどを配置する作業スペース**という位置づけ。運用ルール:
+
+- `knowledge/`に反映済みの内容は、Claude側で`draft/`から削除する、または[tools/network-recorder/captures/](../tools/network-recorder/captures/)に整理・移動する。
+- 今後、実機データの受け渡しは「チャットに直接貼り付け」と「`draft/`フォルダ経由」の2パターンがある。両方ともセッション開始時や作業の合間に`draft/`の中身を確認するとよい。
+
+2026-09-06の実例: `draft/ジョブLv習得一覧/`に「ファイターオリジン.json」(内容は前述の貼り付け分と同一、重複のため削除)と「ナイト.json」(新規、[class1-knight.md](../knowledge/jobs/class1-knight.md)に反映)があり、ナイトは`limit_ability`が空配列(リミットアビリティが存在しないジョブの実例として貴重、[abilities.md](../knowledge/mechanics/abilities.md)に追記)。処理後、ナイトのJSONは`captures/`に移動、フォルダは空にして削除した。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
