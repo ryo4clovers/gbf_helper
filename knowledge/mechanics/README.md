@@ -17,6 +17,7 @@
 | [damage-calculation.md](./damage-calculation.md) | ダメージ計算式 | 未着手 |
 | [charge-attack-chain-burst.md](./charge-attack-chain-burst.md) | 奥義ゲージ・チェインバースト | 未着手 |
 | [abilities.md](./abilities.md) | アビリティ・EXアビリティ・奥義効果 | 下書き |
+| [job-master-level-kyokuchi.md](./job-master-level-kyokuchi.md) | ジョブのマスターレベル・極致の証(Class.IV/EX II限定の追加強化) | 下書き |
 | [buffs-debuffs.md](./buffs-debuffs.md) | バフ・デバフの種類と重複ルール | 未着手 |
 | [damage-cap-modifiers.md](./damage-cap-modifiers.md) | 背水・渾身などダメージ上限/係数に関わるパッシブ | 未着手 |
 | [character-growth.md](./character-growth.md) | 上限開放(凸)・覚醒・ソウルバッジ・因子などの育成要素 | 未着手 |
