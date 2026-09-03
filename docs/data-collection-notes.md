@@ -325,6 +325,17 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - 副次的な発見: ジョブ「剣聖」の「剣気」上限がLimit Bonusの能力強化対象になっているという実例を発見。ジョブ固有ゲージ(刻印・闘心Lv等)がLimit Bonusの強化対象になりうることを示す初めての具体例。
 - 比較表つきで[limit-bonus.md](../knowledge/mechanics/limit-bonus.md)(新規)にまとめ、[character-growth.md](../knowledge/mechanics/character-growth.md)のキャラクター側Limit Bonus記載から相互参照を追加した。
 
+### ジョブ側Limit Bonus画面(内部名`zenith`)の実データで具体的な数値・仕様を確認(ファイター・オリジン、2026-09-06)
+
+ユーザーがチャットに直接、ファイター・オリジンのLimit Bonus画面(URLパス`/zenith/index`相当)のレスポンスを貼り付け、「LBに関する情報はあるか、zenith関係だと思うが」と確認を求めた。確認したところ、以下の具体的な仕様・数値が判明した:
+
+- **JP→LB変換レート: 50 JP = LB 1**(`data-exchange-rate="50"`属性+変換ポップアップの文言から確定)。
+- **ジェムでLBを代用する際のレート: LB 1 相当 = ジェム20**(ジェム入手案内ポップアップの文言から確定)。ジョブ側のみ確認、キャラクター側の同レートは未確認。
+- **ジョブ側の「能力強化」は「属性強化」として整理されており、6属性の「属性攻撃力」「属性ダメージ軽減」をレーダーチャート状に可視化する画面構成**であることが判明(ファイター・オリジンの実例。他ジョブで共通かは未確認)。
+- 能力強化は複数段階をまとめて1回の取引で購入できるUI、能力強化項目ごとに個別の「Rank◯◯で強化可能」という条件が存在すること、「習得できるリミットアビリティはありません」という専用メッセージの存在(ジョブによってはLimit Bonus経由の追加リミットアビリティ候補が0件でありうる)を確認。
+- **大きな副産物**: これまで収集した3種類のデータ(ジョブLv詳細レスポンスの`limit_ability`、極致の証データ、本データ)を突き合わせ、**リミットアビリティの習得ルートには3系統ある**という仮説を導出: (1) `limit_ability`に具体的な`level`値があるものはジョブLv到達で自動習得、(2) `level`が空文字のもの(大半)はLimit Bonus(zenith)経由でLB/ジェムを消費して習得、(3) `ability`/`limit_ability`のどちらにも含まれない極致の証(段階6)由来の3アビリティは別枠でトレジャー消費により習得。[abilities.md](../knowledge/mechanics/abilities.md)のリミットアビリティの定義をこの理解に合わせて修正した。
+- [limit-bonus.md](../knowledge/mechanics/limit-bonus.md)に上記を全て反映。生データは容量削減のためジョブ固有・数値的に価値のある部分のみ抽出し`tools/network-recorder/captures/limit-bonus/2026-09-06_zenith_origin1-fighter-origin.json`に保存(汎用UI文字列辞書は`zenith`関連キーのみ保持)。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
