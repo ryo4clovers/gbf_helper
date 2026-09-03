@@ -126,7 +126,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 
 - [character-growth.md](../mechanics/character-growth.md)
 - [buffs-debuffs.md](../mechanics/buffs-debuffs.md)
-- [abilities.md](../mechanics/abilities.md) — アビリティ4枠システム、ベースアビリティの仕組み
+- [abilities.md](../mechanics/abilities.md) — アビリティ枠システム、ベースアビリティの仕組み
 - [ex1-assassin.md](./ex1-assassin.md) — 同系列の下位Ex1ジョブ(このジョブの自由選択枠で「ダブルアサシン」をベースアビリティとして使用可能、ユーザー確認・2026-09-06)
 
 ## 未確認・要検証事項
