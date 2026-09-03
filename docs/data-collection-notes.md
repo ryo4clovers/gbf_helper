@@ -336,6 +336,16 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - **大きな副産物**: これまで収集した3種類のデータ(ジョブLv詳細レスポンスの`limit_ability`、極致の証データ、本データ)を突き合わせ、**リミットアビリティの習得ルートには3系統ある**という仮説を導出: (1) `limit_ability`に具体的な`level`値があるものはジョブLv到達で自動習得、(2) `level`が空文字のもの(大半)はLimit Bonus(zenith)経由でLB/ジェムを消費して習得、(3) `ability`/`limit_ability`のどちらにも含まれない極致の証(段階6)由来の3アビリティは別枠でトレジャー消費により習得。[abilities.md](../knowledge/mechanics/abilities.md)のリミットアビリティの定義をこの理解に合わせて修正した。
 - [limit-bonus.md](../knowledge/mechanics/limit-bonus.md)に上記を全て反映。生データは容量削減のためジョブ固有・数値的に価値のある部分のみ抽出し`tools/network-recorder/captures/limit-bonus/2026-09-06_zenith_origin1-fighter-origin.json`に保存(汎用UI文字列辞書は`zenith`関連キーのみ保持)。
 
+### ジョブ側Limit Bonusの能力強化項目カタログを全77ジョブ分取得、完全共通であることを確認(2026-09-06)
+
+ユーザーが`draft/LB/`に、取得可能な全77ジョブ分のLimit Bonus画面データ(`bonus_list`、前回のHTML+テンプレート形式とは異なり、クリーンな構造化JSON)を投入。全ファイルを突き合わせたところ、**項目名・必要Rank・最大レベル・ボーナス値・LB/ジェム消費量が、ジョブの種類に関わらず全77ジョブで完全に同一**であることが判明した(=「能力強化」の項目カタログはジョブ非依存の共通システム)。
+
+- 全88項目の完全なカタログ(項目名/種別/属性/必要Rank/Lv1〜3のボーナス値)を確認。無印→II→III→IVの順で追加される上位版があり、最高は「通常攻撃ダメージ上限UP」のRank425。
+- **コストは全88項目・全レベルで均一: 1レベルあたりLB29、またはジェム580**(29×20=580で前回確認した「LB 1 = ジェム20」の換算と一致)。
+- **「強化できる回数」は全88項目で共有される1つの予算(`max_cost`)として管理されている**ことが判明。取得した全77ジョブで`max_cost`は105で完全一致しており、これは「Limit Bonus Classがジョブ非依存でプレイヤー全体に1つだけ存在する」という理解を強く裏付ける材料になった。
+- [limit-bonus.md](../knowledge/mechanics/limit-bonus.md)に全88項目の表を追加し、未確認事項を大幅に解消した。項目カタログ自体はジョブ非依存のため、個別のジョブファイル(`knowledge/jobs/`)への反映は行っていない(job-Lv詳細やマスターレベル/極致の証と異なり、ジョブ固有情報ではないため)。
+- 元JSON計77件は`tools/network-recorder/captures/limit-bonus/`へ、job_idとジョブスラッグを付与した分かりやすいファイル名で移動(`draft/LB/`は空にして削除)。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
