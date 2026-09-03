@@ -269,6 +269,15 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - [job-master-level-kyokuchi.md](../knowledge/mechanics/job-master-level-kyokuchi.md)にレスポンスのデータ構造(`job_master_level_bonus`のスキーマ)を記録し、[class4-berserker.md](../knowledge/jobs/class4-berserker.md)のマスターレベル強化セクションをレベル別の精密な内訳に更新した。ただし「Lv20=サポート新規、Lv30=アビリティ強化」という配置がジョブ共通かはベルセルク1件のみでは未確定、EXP必要量も本レスポンスには含まれず未取得。
 - 生データは`tools/network-recorder/captures/job-master-level/2026-09-06_master-level_class4-berserker.json`に保存(汎用UI文字列辞書`option.langMsg`は容量削減のため省略、ジョブ固有データの`job_master_level_bonus`のみ保持)。
 
+### マスターレベルデータをClass.IV全18+EX II全9、計27ジョブ分まとめて取得(2026-09-06)
+
+ユーザーが`draft/MasterLevel/`に、ベルセルク以外の残り26ジョブ分のマスターレベル画面レスポンスJSONを投入(ベルセルク自身のファイルは既に処理済みの内容と重複のため削除)。汎用スクリプト(`generate_master_level.mjs`)で全26ジョブを一括処理した。
+
+- **「Lv20=新規サポートアビリティ習得、Lv30=基本アビリティ強化、それ以外はステータスボーナスが交互」という型が、Class.IV全18+EX II全9、計27ジョブ全てで完全に一致することを確認**。[job-master-level-kyokuchi.md](../knowledge/mechanics/job-master-level-kyokuchi.md)の未確認事項だった「この型が全ジョブ共通か」が解消された。
+- 各ジョブのステータスボーナスの内訳(2〜4種類、ジョブの役割に応じて攻撃力/HP/防御力/ダメージ上限/アビリティダメージ/弱体成功率/弱体耐性/ダブルアタック確率/トリプルアタック確率/回復力/奥義ゲージ上昇量/奥義ダメージ上限等)は、各[knowledge/jobs/](../knowledge/jobs/README.md)の該当ファイルの「マスターレベル強化」セクションにレベル別の精密な表として反映した。
+- 初回生成時、アビリティ強化の効果文中に含まれる`<br>`タグ由来の改行がMarkdownテーブルのセル内にそのまま残り、テーブルが壊れる不具合があった。生成スクリプトを修正(`<br>`を全角スペース+「◆」に変換して1行に収める)し、再生成して解消。
+- 元JSON計26件は`tools/network-recorder/captures/job-master-level/`へ移動、`draft/MasterLevel/`フォルダは空にして削除。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
