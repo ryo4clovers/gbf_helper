@@ -268,6 +268,16 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - 新規習得リミットアビリティの情報(候補一覧)は、この`index`画面のレスポンスには含まれていなかった(表示用コンテナが空、別APIで取得する仕組みと思われる)。
 - [class4-berserker.md](../knowledge/jobs/class4-berserker.md)の「極致の証」セクションを更新(`has_kokuchi`もtrueに修正)、[job-master-level-kyokuchi.md](../knowledge/mechanics/job-master-level-kyokuchi.md)に極致の証レスポンスのデータ構造(2つのポップアップテンプレートに値が焼き込まれる形)を記録した。生データは`tools/network-recorder/captures/job-master-level/2026-09-06_perfectionproof_class4-berserker.json`に、ジョブ非依存の巨大な汎用テンプレート部分を省いた抜粋形式で保存。
 
+### 極致の証データをClass.IV/EX II全27ジョブ分まとめて取得(2026-09-06)
+
+ユーザーが`draft/極致の証_ボーナス/`(段階別ボーナス、ベルセルクと同じ`perfectionproof/index`相当のレスポンス、job_idごとのファイル)と`draft/極致の証_アビリティ/`(段階6到達で習得できる追加リミットアビリティ、job_idごとのファイル)の2フォルダに、27ジョブ全て(Class.IV全18+EX II全9)分のデータを投入。汎用スクリプト(`generate_kyokuchi.mjs`)で一括処理した。
+
+- **段階別ボーナスの型を全27ジョブで確認**: 段階1・2は必ず攻撃力・HPの2種(順序はジョブによる、合計は多くが+5000だが6ジョブ〈セージ/ドクター/トーメンター/ライジングフォース/ランバージャック/キャバルリー〉は+4500という例外あり)。**段階6は必ず「ダメージ上限」系のステータス**(通常のダメージ上限+12%、または奥義/アビリティ/通常攻撃ダメージ上限+5%のいずれか)という型が完全に一致することが判明。段階3〜5はジョブの役割に応じた個別構成。
+- **追加リミットアビリティは全ジョブで常に3つ**、各アビリティの習得には「固有アイテム×1」+「ジョブ固有トレジャー×30(3つ共通)」が必要で、3つとも同時に習得可能(択一ではない)であることが`draft/極致の証_アビリティ/`のデータ構造(`requirements`配列)から判明。
+- **大きな副産物**: [class4-berserker.md](../knowledge/jobs/class4-berserker.md)の「アビリティ6〜8(フェロシティロアー/ビーストファング/狂戦の血)」、[ex2-tormentor.md](../knowledge/jobs/ex2-tormentor.md)の「モータル・ヴェノム/サウザンド・スライス/エクセキュート・プロ」が、いずれも**極致の証で段階6到達時に習得できる専用アビリティだったことが判明**。旧来のjob_equipped API由来の一括収集データは、装備中の全アビリティをフラットに返すのみで、通常のアビリティと極致の証由来アビリティを区別できていなかったことがここで確定した。両ファイルの未確認事項を解消し、正しい位置づけを追記した。
+- [job-master-level-kyokuchi.md](../knowledge/mechanics/job-master-level-kyokuchi.md)に極致の証アビリティ習得エンドポイントのデータ構造(`ability_info`/`requirements`)を追記し、段階別ボーナスの型に関する記述を「2ジョブのみでの仮説」から「全27ジョブで確認済みの型」に更新した。
+- 生データは`tools/network-recorder/captures/job-master-level/perfectionproof/`へ、ボーナス側は段階別データのみ抽出した簡潔な形式(生HTMLは汎用テンプレートを含み巨大なため)、アビリティ側は元のJSONのまま保存。`draft/極致の証_ボーナス/`・`draft/極致の証_アビリティ/`は空にして削除。
+
 ### マスターレベルのレベル別強化データを初取得(ベルセルク、2026-09-06)
 
 ユーザーがチャットに直接、ベルセルク(class4-berserker)のマスターレベル画面レスポンス(`job_master_level.css`を使う画面、`option.job_master_level_bonus`にLv2〜30の内訳を持つ)を貼り付けた。これにより:
