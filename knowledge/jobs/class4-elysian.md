@@ -10,8 +10,8 @@ obtain: "(要確認、詳細はGameWith記事等を参照)"
 has_master_level: true
 has_kokuchi: false
 status: 下書き
-last_updated: 2026-09-03
-source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。"
+last_updated: 2026-09-06
+source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # エリュシオン(Elysian)
@@ -36,30 +36,35 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: コンクルージョン＋
+![コンクルージョン＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/386_3.png)
 
 - 効果: 参戦者の回復性能UP(累積)/自属性攻撃UP/弱体耐性UP(累積) ★メイン武器の武器種が楽器の時、性能UP
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: ソング・トゥ・ザ・デッド
+![ソング・トゥ・ザ・デッド](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/11_4.png)
 
 - 効果: 敵全体の防御DOWN/自属性防御DOWN
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: 解放の歌声
+![解放の歌声](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/387_2.png)
 
 - 効果: 味方全体に死の祝福/活性効果
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: コール・オブ・アビス
+![コール・オブ・アビス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/388_3.png)
 
 - 効果: 味方全体の連続攻撃確率UP/奥義ゲージ上昇量DOWN ★メイン武器の武器種が楽器の時、性能UP
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ5: オラトリオ
+![オラトリオ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1008_3.png)
 
 - 効果: 得意武器「楽器」のキャラに連続攻撃確率UP/自属性追撃効果
 - 使用間隔: 6ターン
@@ -112,6 +117,20 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 効果: 味方全体がそれぞれの強化効果の数に応じて連続攻撃確率UP
 - 習得: マスターレベル強化で習得(詳細Lv要確認)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | 防御力+6% |
+| 5 | 弱体耐性+10% |
+| 10 | 防御力+6% |
+| 15 | 弱体耐性+10% |
+| 20 | 防御力+6% |
 
 ## マスターレベル強化
 

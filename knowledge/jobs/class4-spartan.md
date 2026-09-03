@@ -10,8 +10,8 @@ obtain: "(要確認、詳細はGameWith記事等を参照)"
 has_master_level: true
 has_kokuchi: false
 status: 下書き
-last_updated: 2026-09-03
-source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。"
+last_updated: 2026-09-06
+source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # スパルタ(Spartan)
@@ -36,24 +36,28 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: ファランクスIII＋
+![ファランクスIII＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/37_3.png)
 
 - 効果: 参戦者の全属性ダメージカット(70%)/弱体耐性UP/味方全体にブロック効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: シールドワイア
+![シールドワイア](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/48_4.png)
 
 - 効果: 敵にスロウ効果/自分の攻撃UP/防御DOWN
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: ガーディアン
+![ガーディアン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/195_3.png)
 
 - 効果: 自分の防御UP/敵対心UP ◆奥義ゲージを30％消費
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: センチュリオンII
+![センチュリオンII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/29_3.png)
 
 - 効果: 味方単体の被ダメージ無効(1回)
 - 使用間隔: 8ターン
@@ -106,6 +110,20 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 効果: 味方全体の被ダメージを軽減
 - 習得: マスターレベル強化で習得(詳細Lv要確認)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | 防御力+10% |
+| 5 | HP+750 |
+| 10 | 防御力+10% |
+| 15 | HP+750 |
+| 20 | 防御力+10% |
 
 ## マスターレベル強化
 

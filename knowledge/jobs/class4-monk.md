@@ -10,8 +10,8 @@ obtain: "(要確認、詳細はGameWith記事等を参照)"
 has_master_level: true
 has_kokuchi: false
 status: 下書き
-last_updated: 2026-09-03
-source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。"
+last_updated: 2026-09-06
+source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # モンク(Monk)
@@ -36,24 +36,28 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: 修験の構え＋
+![修験の構え＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1197_1.png)
 
 - 効果: 自分にカウンター効果(回避・被ダメージ/3回)/武芸Lv2上昇
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: 武操術
+![武操術](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1198_1.png)
 
 - 効果: 敵に4回自属性ダメージ/強化効果を1つ無効化
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: 剛耐の型
+![剛耐の型](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1199_1.png)
 
 - 効果: 敵全体に自属性ダメージ/自分の敵対心UP/防御UP/弱体耐性UP
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: 岩崩拳
+![岩崩拳](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1200_1.png)
 
 - 効果: 敵に自属性ダメージ/自分に自属性追撃効果/ブロック効果/クリティカル確率UP
 - 使用間隔: 7ターン
@@ -106,6 +110,20 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 効果: 武芸Lvに応じて防御UP/弱体耐性UP
 - 習得: マスターレベル強化で習得(詳細Lv要確認)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | 攻撃力+1000 |
+| 5 | アビリティダメージ+15% |
+| 10 | 攻撃力+1000 |
+| 15 | アビリティダメージ+15% |
+| 20 | 攻撃力+1000 |
 
 ## マスターレベル強化
 

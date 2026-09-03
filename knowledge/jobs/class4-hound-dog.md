@@ -10,8 +10,8 @@ obtain: "(要確認、詳細はGameWith記事等を参照)"
 has_master_level: true
 has_kokuchi: false
 status: 下書き
-last_updated: 2026-09-03
-source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。"
+last_updated: 2026-09-06
+source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # ハウンドドッグ(Hound Dog)
@@ -36,36 +36,42 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: チャフリリース＋
+![チャフリリース＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/313_1.png)
 
 - 効果: 敵全体に10倍自属性ダメージ/敵の全ての攻撃を回避/攻撃UP ◆回避時：敵全体に自属性ダメージ/暗闇効果/強化効果を1つ消去/スロウ効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: タクティクスコマンド
+![タクティクスコマンド](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/98_3.png)
 
 - 効果: 任意の二人のポジションを入れ替える
 - 使用間隔: 20ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: ジャミング
+![ジャミング](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/315_3.png)
 
 - 効果: 味方全体の回避率UP/クリティカル確率UP
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: トワイライトゾーン
+![トワイライトゾーン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/316_5.png)
 
 - 効果: フィールドにトワイライトゾーン効果
 - 使用間隔: 16ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ5: レイショナルショット
+![レイショナルショット](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/577_1.png)
 
 - 効果: 敵全体に自属性ダメージ/自属性防御DOWN
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ6: タイム・オン・ターゲット
+![タイム・オン・ターゲット](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1099_4.png)
 
 - 効果: 敵に自属性ダメージ/ランダムな弱体効果 ◆パーティの得意武器「弓」「銃」のキャラの数に応じて発動回数UP(最大6回)
 - 使用間隔: 15ターン
@@ -118,6 +124,20 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 効果: チェインバースト発生時、敵全体にダメージ
 - 習得: マスターレベル強化で習得(詳細Lv要確認)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | 攻撃力+600 |
+| 5 | アビリティダメージ+10% |
+| 10 | 攻撃力+600 |
+| 15 | アビリティダメージ+10% |
+| 20 | 攻撃力+600 |
 
 ## マスターレベル強化
 

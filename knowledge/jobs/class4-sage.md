@@ -10,8 +10,8 @@ obtain: "(要確認、詳細はGameWith記事等を参照)"
 has_master_level: true
 has_kokuchi: false
 status: 下書き
-last_updated: 2026-09-03
-source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。"
+last_updated: 2026-09-06
+source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # セージ(Sage)
@@ -36,24 +36,28 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: ヒールオールIII＋
+![ヒールオールIII＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/36_2.png)
 
 - 効果: 参戦者のHPを回復(大)/味方全体の弱体効果を2ターン短縮
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: シャイニングII
+![シャイニングII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/12_1.png)
 
 - 効果: 敵全体に光属性3.5～5倍ダメージ/「ホーリースパイク」付与
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: ディスペル・シージ
+![ディスペル・シージ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/58_4.png)
 
 - 効果: 敵全体の強化効果を1つ無効化
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: キュアーフェン
+![キュアーフェン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/54_2.png)
 
 - 効果: 味方全体の弱体効果を1つ回復/バリア効果
 - 使用間隔: 5ターン
@@ -106,6 +110,20 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 効果: バトル開始時に自動復活効果
 - 習得: マスターレベル強化で習得(詳細Lv要確認)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | 回復力+8% |
+| 5 | 弱体耐性+3% |
+| 10 | 回復力+8% |
+| 15 | 弱体耐性+3% |
+| 20 | 回復力+8% |
 
 ## マスターレベル強化
 

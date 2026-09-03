@@ -10,8 +10,8 @@ obtain: "(要確認、詳細はGameWith記事等を参照)"
 has_master_level: true
 has_kokuchi: false
 status: 下書き
-last_updated: 2026-09-03
-source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。"
+last_updated: 2026-09-06
+source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # ウォーロック(Warlock)
@@ -36,30 +36,35 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: エーテルブラストIII＋
+![エーテルブラストIII＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/60_1.png)
 
 - 効果: 敵全体に6倍自属性ダメージ/味方全体に刻印を付与 ◆付与する刻印の種類は自身の属性によって変化
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: チェイサー
+![チェイサー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/95_3.png)
 
 - 効果: 味方全体に自属性追撃効果
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: エーテルフラップ
+![エーテルフラップ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/60_4.png)
 
 - 効果: 敵にエーテルフラップ効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: ブラックヘイズ
+![ブラックヘイズ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1_4.png)
 
 - 効果: 敵全体の攻撃DOWN/防御DOWN/毒効果/暗闇効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ5: レプリケーションキャスト
+![レプリケーションキャスト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1097_1.png)
 
 - 効果: 敵全体に自属性ダメージ/味方全体の奥義ゲージUP(20%) ◆パーティの得意武器「杖」のキャラの数に応じて性能UP
 - 使用間隔: 12ターン
@@ -112,6 +117,20 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 効果: ダメージアビリティの使用間隔を1ターン短縮
 - 習得: マスターレベル強化で習得(詳細Lv要確認)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | アビリティダメージ+8% |
+| 5 | 攻撃力+1000 |
+| 10 | アビリティダメージ+8% |
+| 15 | 攻撃力+1000 |
+| 20 | アビリティダメージ+8% |
 
 ## マスターレベル強化
 

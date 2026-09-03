@@ -10,8 +10,8 @@ obtain: "(要確認、詳細はGameWith記事等を参照)"
 has_master_level: true
 has_kokuchi: false
 status: 下書き
-last_updated: 2026-09-03
-source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。"
+last_updated: 2026-09-06
+source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # ロビンフッド(Robin Hood)
@@ -36,24 +36,28 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: ビギニングアロー＋
+![ビギニングアロー＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1273_1.png)
 
 - 効果: ターゲットに関わらず5回自属性ダメージ/敵全体にランダムで弱体効果を2つ付与
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: アクロバットヴォレイ
+![アクロバットヴォレイ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1274_4.png)
 
 - 効果: 敵に7回自属性ダメージ/CTを1つ吸収して自分の奥義ゲージに変換
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: エメラルドフォグ
+![エメラルドフォグ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1275_4.png)
 
 - 効果: 敵全体に攻防DOWN/致命の緑霧効果
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: フォックス・リターンズ
+![フォックス・リターンズ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1276_3.png)
 
 - 効果: 即座に自分の他のアビリティが発動可能になる/奥義ゲージUP(50%)
 - 使用間隔: 9ターン
@@ -106,6 +110,20 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 効果: 回避時にターゲットに関わらず5回自属性ダメージ
 - 習得: マスターレベル強化で習得(詳細Lv要確認)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | 弱体成功率+8% |
+| 5 | ダブルアタック確率+8% |
+| 10 | 弱体成功率+8% |
+| 15 | トリプルアタック確率+8% |
+| 20 | 弱体成功率+8% |
 
 ## マスターレベル強化
 

@@ -10,8 +10,8 @@ obtain: "(要確認、詳細はGameWith記事等を参照)"
 has_master_level: true
 has_kokuchi: false
 status: 下書き
-last_updated: 2026-09-03
-source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。"
+last_updated: 2026-09-06
+source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # ヤマト(Yamato)
@@ -36,24 +36,28 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: 岐首断剣＋
+![岐首断剣＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1964_1.png)
 
 - 効果: 敵に8倍自属性ダメージ/敵の予兆解除条件を減少/八塩折Lvが1上昇 ◆予兆解除可能時のみ使用可能
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: 見聞一刀
+![見聞一刀](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1965_1.png)
 
 - 効果: 敵に8倍自属性ダメージ/自分に見聞一刀効果 ◆回避成功時に後之閃が発動
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: 白雹乱流
+![白雹乱流](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1966_3.png)
 
 - 効果: フェイタルチェインゲージUP(30%) ◆八塩折Lvに応じて味方全体の奥義ゲージUP
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: 山隆海裂
+![山隆海裂](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1967_1.png)
 
 - 効果: 敵に3回合計40倍自属性ダメージ/解除可能な敵の予兆を中断させる ◆八塩折Lvが8の時のみ使用可能/予兆解除可能時のみ使用可能/再使用不可
 - 使用間隔: 再使用不可(1回限り等の特殊アビリティ)
@@ -106,6 +110,20 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 効果: フェイタルチェインのダメージ上限UP
 - 習得: マスターレベル強化で習得(詳細Lv要確認)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | 攻撃力+1000 |
+| 5 | HP+750 |
+| 10 | 攻撃力+1000 |
+| 15 | HP+750 |
+| 20 | アビリティダメージ+10% |
 
 ## マスターレベル強化
 

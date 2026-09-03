@@ -10,8 +10,8 @@ obtain: "(要確認、詳細はGameWith記事等を参照)"
 has_master_level: true
 has_kokuchi: false
 status: 下書き
-last_updated: 2026-09-03
-source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。"
+last_updated: 2026-09-06
+source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # 義賊(Vigilante)
@@ -36,30 +36,35 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: ブレイクアサシンIII＋
+![ブレイクアサシンIII＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/43_3.png)
 
 - 効果: 自分に追い撃ち効果(敵ブレイク時のみ/1回)/クリティカル確率UP/弱点属性追撃効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: トレジャーハントIV
+![トレジャーハントIV](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/13_1.png)
 
 - 効果: 敵に自属性ダメージ/敵のアイテムドロップ率UP(3回) ◆トレハンLvに応じてダメージ性能UP
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: ホワイトスモーク
+![ホワイトスモーク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/87_3.png)
 
 - 効果: 味方全体の弱体効果無効(1回)/幻影効果(1回)
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: ルピフリップ
+![ルピフリップ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/260_1.png)
 
 - 効果: 敵に無属性ダメージ ◆ルピを消費
 - 使用間隔: 0ターン(条件により即使用可)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ5: 楼門五三桐
+![楼門五三桐](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1098_3.png)
 
 - 効果: 敵全体に強襲効果/トレハンLvに応じて味方全体に自属性追撃効果(最大60%)
 - 使用間隔: 5ターン
@@ -112,6 +117,20 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 効果: 敵のトレハンLvが9以上の時、与ダメージ上昇
 - 習得: マスターレベル強化で習得(詳細Lv要確認)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | トレジャーハント成功確率+8% |
+| 5 | オーバードライブ抑制+3% |
+| 10 | トレジャーハント成功確率+8% |
+| 15 | オーバードライブ抑制+3% |
+| 20 | トレジャーハント成功確率+8% |
 
 ## マスターレベル強化
 

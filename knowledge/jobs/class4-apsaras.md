@@ -10,8 +10,8 @@ obtain: "(要確認、詳細はGameWith記事等を参照)"
 has_master_level: true
 has_kokuchi: false
 status: 下書き
-last_updated: 2026-09-03
-source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。"
+last_updated: 2026-09-06
+source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # アプサラス(Apsaras)
@@ -36,36 +36,42 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: 雷光水明＋
+![雷光水明＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1594_1.png)
 
 - 効果: 敵に自属性3回ダメージ/ブレイク状態を維持 ◆装備している「槍」と「斧」の数に応じて性能UP
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: 湧水の羽衣
+![湧水の羽衣](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/344_3.png)
 
 - 効果: 自分に幻影効果(2回)/湧水の羽衣効果
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: 狂信演舞
+![狂信演舞](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/346_3.png)
 
 - 効果: 自分以外の味方に攻撃UP/防御DOWN/自分に献身効果
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: 水鳥の歌詠
+![水鳥の歌詠](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/345_3.png)
 
 - 効果: 参戦者の奥義ゲージ上昇量UP槍：参戦者にクリティカル確率UP斧：味方全体にHP吸収効果/弱体成功率UP
 - 使用間隔: 9ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ5: 曼珠沙華
+![曼珠沙華](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/578_3.png)
 
 - 効果: 自分の弱体耐性UP槍：味方全体にストレングス効果斧：味方全体に逆境効果
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ6: 霹靂閃電
+![霹靂閃電](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1004_3.png)
 
 - 効果: 得意武器「槍」のキャラが必ずトリプルアタック/得意武器「斧」のキャラの通常攻撃の与ダメージUP
 - 使用間隔: 6ターン
@@ -118,6 +124,20 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 効果: 装備している「槍」と「斧」の数に応じて以下の効果を順に得る（攻撃UP/必ず連続攻撃/通常攻撃の与ダメージUP/ダメージ上限UP/自属性追撃効果)
 - 習得: マスターレベル強化で習得(詳細Lv要確認)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | 攻撃力+1000 |
+| 5 | ダブルアタック確率+5% |
+| 10 | 攻撃力+1000 |
+| 15 | トリプルアタック確率+5% |
+| 20 | ダブルアタック確率+5%、トリプルアタック確率+5% |
 
 ## マスターレベル強化
 

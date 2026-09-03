@@ -10,8 +10,8 @@ obtain: "特殊条件(グラップラー系列クエストクリア等、詳細�
 has_master_level: true
 has_kokuchi: true
 status: 下書き
-last_updated: 2026-08-20
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/45784) のみ(取得日: 2026-08-20)。"
+last_updated: 2026-09-06
+source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/45784) のみ(取得日: 2026-08-20)。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # レスラー(Wrestler)
@@ -34,6 +34,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 ## アビリティ構成
 
 ### アビリティ1: ナイフハンド・ストライク
+![ナイフハンド・ストライク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/23_1.png)
 
 - 効果: 自身に3.5倍カウンター(被ダメ/3回)×2ターン、防御30%UP×2ターン、敵対心UP(100%ではない)×2ターン。
 - 数値/スケーリング: マスターレベル30強化後は敵対心が100%(疑似かばう)になり、逆境効果(最小30%〜最大90%)×2ターンが追加される。
@@ -43,18 +44,21 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 ## リミットアビリティ
 
 ### ファイティングスピリット
+![ファイティングスピリット](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/85_3.png)
 
 - 効果: 自分にファイティングスピリット状態(毎ターンテンションが上昇、被ダメージで解除、最大テンションLv4まで上昇しその後は効果時間のみ延長)を付与する。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
 
 ### マイクパフォーマンス
+![マイクパフォーマンス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/301_3.png)
 
 - 効果: 3ターンの間、参戦者に高揚効果(10%)を付与する。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
 
 ### ツープラトン
+![ツープラトン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/302_1.png)
 
 - 効果: 味方全体がターン経過なしで通常攻撃を実行する。オーガ(下位ジョブ)で習得。
 - CT(クールタイム): 15ターン。
@@ -77,6 +81,20 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 受けの美学: 攻撃UP。一度だけ戦闘不能にならずHP1で耐える。
 - 武神の極意: 羅喉/阿修羅陣の奥義ゲージ上昇量UP、ターン短縮。
 - ストロングスタイル(マスターレベル20で習得): 強化効果が無効化されない。
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | 攻撃力+1000 |
+| 5 | HP+150 |
+| 10 | 攻撃力+1000 |
+| 15 | HP+150 |
+| 20 | ダブルアタック確率+20%、トリプルアタック確率+10% |
 
 ## マスターレベル強化
 

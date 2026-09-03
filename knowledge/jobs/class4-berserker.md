@@ -10,8 +10,8 @@ obtain: "(要確認、詳細はGameWith記事等を参照)"
 has_master_level: true
 has_kokuchi: false
 status: 下書き
-last_updated: 2026-09-03
-source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。"
+last_updated: 2026-09-06
+source: "実機(グランブルーファンタジー公式サイト、ジョブ画面API /party/job_equipped/、/party/jobs/.../all_job/)より取得(取得日: 2026-09-03)。GameWith/gbf.wikiでのクロスチェックは未実施。 加えて、実機のジョブLv詳細レスポンス(ability/limit_ability/level_up_bonus、ジョブリスト→ジョブステータス画面より取得、2026-09-06、ユーザー提供、draftフォルダ経由)でアビリティアイコン画像とレベル別ボーナス内訳を追加。"
 ---
 
 # ベルセルク(Berserker)
@@ -36,30 +36,35 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: ウェポンバーストIII＋
+![ウェポンバーストIII＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/18_3.png)
 
 - 効果: 自分が即座に奥義発動可能/攻撃UP/チェインバーストダメージUP/奥義性能UP(1回)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: レイジIV
+![レイジIV](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/14_3.png)
 
 - 効果: 参戦者の攻撃UP(大)/味方全体のダメージ上限UP ◆奥義ゲージを30％消費
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: アーマーブレイクII
+![アーマーブレイクII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/11_1.png)
 
 - 効果: 敵に自属性ダメージ/防御DOWN
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: ランページII
+![ランページII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/45_3.png)
 
 - 効果: 自分の連続攻撃確率UP(大)/防御DOWN
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ5: ウールヴヘジン
+![ウールヴヘジン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1096_3.png)
 
 - 効果: 効果中攻防UP/必ずトリプルアタック/自属性追撃効果/弱体耐性が大幅に上昇/アビリティ使用不可 ◆奥義ゲージを100%消費
 - 使用間隔: 5ターン
@@ -112,6 +117,20 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 効果: トリプルアタック発動時に与ダメージ上昇
 - 習得: マスターレベル強化で習得(詳細Lv要確認)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
+
+## ジョブLvアップボーナス(レベル別)
+
+<!-- 実機のジョブLv詳細レスポンス(2026-09-06、draft経由でユーザー提供)から機械的に追加。
+     各行はそのLvで新たに加算される内容(累積ではない)。上記「基本情報」表の
+     ジョブLvアップボーナス欄はこの合計値(GameWith記事ベース、2026-08-20取得)。 -->
+
+| Lv | 内容 |
+| --- | --- |
+| 1 | 攻撃力+2000 |
+| 5 | HP+500 |
+| 10 | 攻撃力+2000 |
+| 15 | HP+500 |
+| 20 | 攻撃力+2000 |
 
 ## マスターレベル強化
 
