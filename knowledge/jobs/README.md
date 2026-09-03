@@ -18,83 +18,83 @@
 
 | ファイル | 名前(日本語 / 英語) | クラス | ステータス |
 | --- | --- | --- | --- |
-| [enhancer-normal.md](./enhancer-normal.md) | エンハンサー / Enhancer | ClassI | 下書き |
-| [grappler-normal.md](./grappler-normal.md) | グラップラー / Grappler | ClassI | 下書き |
-| [thief-normal.md](./thief-normal.md) | シーフ / Thief | ClassI | 下書き |
-| [knight-normal.md](./knight-normal.md) | ナイト / Knight | ClassI | 下書き |
-| [harpist-normal.md](./harpist-normal.md) | ハーピスト / Harpist | ClassI | 下書き |
-| [priest-normal.md](./priest-normal.md) | プリースト / Priest | ClassI | 下書き |
-| [ranger-normal.md](./ranger-normal.md) | レンジャー / Ranger | ClassI | 下書き |
-| [arcana-swordsman-normal.md](./arcana-swordsman-normal.md) | アルカナソード / Arcana Swordsman | ClassII | 下書き |
-| [warrior-normal.md](./warrior-normal.md) | ウォーリア / Warrior | ClassII | 下書き |
-| [cleric-normal.md](./cleric-normal.md) | クレリック / Cleric | ClassII | 下書き |
-| [kung-fu-normal.md](./kung-fu-normal.md) | クンフー / Kung Fu | ClassII | 下書き |
-| [sorcerer-normal.md](./sorcerer-normal.md) | ソーサラー / Sorcerer | ClassII | 下書き |
-| [dragoon-normal.md](./dragoon-normal.md) | ドラグーン / Dragoon | ClassII | 下書き |
-| [fortress-normal.md](./fortress-normal.md) | フォートレス / Fortress | ClassII | 下書き |
-| [marksman-normal.md](./marksman-normal.md) | マークスマン / Marksman | ClassII | 下書き |
-| [minstrel-normal.md](./minstrel-normal.md) | ミンストレル / Minstrel | ClassII | 下書き |
-| [raider-normal.md](./raider-normal.md) | レイダー / Raider | ClassII | 下書き |
-| [valkyrie-normal.md](./valkyrie-normal.md) | ヴァルキュリア / Valkyrie | ClassIII | 下書き |
-| [weapon-master-normal.md](./weapon-master-normal.md) | ウェポンマスター / Weapon Master | ClassIII | 下書き |
-| [ogre-normal.md](./ogre-normal.md) | オーガ / Ogre | ClassIII | 下書き |
-| [gladiator-normal.md](./gladiator-normal.md) | グラディエーター / Gladiator | ClassIII | 下書き |
-| [sidewinder-normal.md](./sidewinder-normal.md) | サイドワインダー / Sidewinder | ClassIII | 下書き |
-| [superstar-normal.md](./superstar-normal.md) | スーパースター / Superstar | ClassIII | 下書き |
-| [dark-fencer-normal.md](./dark-fencer-normal.md) | ダークフェンサー / Dark Fencer | ClassIII | 下書き |
-| [hermit-normal.md](./hermit-normal.md) | ハーミット / Hermit | ClassIII | 下書き |
-| [bishop-normal.md](./bishop-normal.md) | ビショップ / Bishop | ClassIII | 下書き |
-| [hawkeye-normal.md](./hawkeye-normal.md) | ホークアイ / Hawkeye | ClassIII | 下書き |
-| [holy-saber-normal.md](./holy-saber-normal.md) | ホーリーセイバー / Holy Saber | ClassIII | 下書き |
-| [apsaras-normal.md](./apsaras-normal.md) | アプサラス / Apsaras | ClassIV | 下書き |
-| [warlock-normal.md](./warlock-normal.md) | ウォーロック / Warlock | ClassIV | 下書き |
-| [elysian-normal.md](./elysian-normal.md) | エリュシオン / Elysian | ClassIV | 下書き |
-| [chaos-ruder-normal.md](./chaos-ruder-normal.md) | カオスルーダー / Chaos Ruder | ClassIV | 下書き |
-| [cavalier-normal.md](./cavalier-normal.md) | キャバルリー / Cavalier | ClassIV | 下書き |
-| [chrysaor-normal.md](./chrysaor-normal.md) | クリュサオル / Chrysaor | ClassIV | 下書き |
-| [shieldsworn-normal.md](./shieldsworn-normal.md) | シールドスウォーン / Shieldsworn | ClassIV | 下書き |
-| [spartan-normal.md](./spartan-normal.md) | スパルタ / Spartan | ClassIV | 下書き |
-| [sage-normal.md](./sage-normal.md) | セージ / Sage | ClassIV | 下書き |
-| [hound-dog-normal.md](./hound-dog-normal.md) | ハウンドドッグ / Hound Dog | ClassIV | 下書き |
-| [berserker-normal.md](./berserker-normal.md) | ベルセルク / Berserker | ClassIV | 下書き |
-| [monk-normal.md](./monk-normal.md) | モンク / Monk | ClassIV | 下書き |
-| [yamato-normal.md](./yamato-normal.md) | ヤマト / Yamato | ClassIV | 下書き |
-| [lumberjack-normal.md](./lumberjack-normal.md) | ランバージャック / Lumberjack | ClassIV | 下書き |
-| [wrestler-normal.md](./wrestler-normal.md) | レスラー / Wrestler | ClassIV | 下書き |
-| [relic-buster-normal.md](./relic-buster-normal.md) | レリックバスター / Relic Buster | ClassIV | 下書き |
-| [robin-hood-normal.md](./robin-hood-normal.md) | ロビンフッド / Robin Hood | ClassIV | 下書き |
-| [vigilante-normal.md](./vigilante-normal.md) | 義賊 / Vigilante | ClassIV | 下書き |
-| [viking-normal.md](./viking-normal.md) | ヴァイキング / Viking | ClassV | 下書き |
-| [king-normal.md](./king-normal.md) | キング / King | ClassV | 下書き |
-| [sumahihito-normal.md](./sumahihito-normal.md) | スマヒヒト / Sumahihito | ClassV | 下書き |
-| [panacea-normal.md](./panacea-normal.md) | パナケイア / Panacea | ClassV | 下書き |
-| [paladin-normal.md](./paladin-normal.md) | パラディン / Paladin | ClassV | 下書き |
-| [boogeyman-normal.md](./boogeyman-normal.md) | ブギーマン / Boogeyman | ClassV | 下書き |
-| [manadiver-normal.md](./manadiver-normal.md) | マナダイバー / Manadiver | ClassV | 下書き |
-| [mariachi-normal.md](./mariachi-normal.md) | マリアッチ / Mariachi | ClassV | 下書き |
-| [onmyoji-normal.md](./onmyoji-normal.md) | 陰陽師 / Onmyoji | ClassV | 下書き |
-| [assassin-normal.md](./assassin-normal.md) | アサシン / Assassin | エクストラ | 下書き |
-| [alchemist-normal.md](./alchemist-normal.md) | アルケミスト / Alchemist | エクストラ | 下書き |
-| [gunslinger-normal.md](./gunslinger-normal.md) | ガンスリンガー / Gunslinger | エクストラ | 下書き |
-| [dancer-normal.md](./dancer-normal.md) | ダンサー / Dancer | エクストラ | 下書き |
-| [drum-master-normal.md](./drum-master-normal.md) | ドラムマスター / Drum Master | エクストラ | 下書き |
-| [mechanic-normal.md](./mechanic-normal.md) | メカニック / Mechanic | エクストラ | 下書き |
-| [sword-saint-normal.md](./sword-saint-normal.md) | 剣聖 / Sword Saint | エクストラ | 下書き |
-| [kenja-normal.md](./kenja-normal.md) | 賢者 / Kenja | エクストラ | 下書き |
-| [samurai-normal.md](./samurai-normal.md) | 侍 / Samurai | エクストラ | 下書き |
-| [ninja-normal.md](./ninja-normal.md) | 忍者 / Ninja | エクストラ | 下書き |
-| [the-glory-normal.md](./the-glory-normal.md) | ザ・グローリー / The Glory | エクストラII | 下書き |
-| [soldier-normal.md](./soldier-normal.md) | ソルジャー / Soldier | エクストラII | 下書き |
-| [tormentor-normal.md](./tormentor-normal.md) | トーメンター / Tormentor | エクストラII | 下書き |
-| [doctor-normal.md](./doctor-normal.md) | ドクター / Doctor | エクストラII | 下書き |
-| [masquerade-normal.md](./masquerade-normal.md) | マスカレード / Masquerade | エクストラII | 下書き |
-| [rising-force-normal.md](./rising-force-normal.md) | ライジングフォース / Rising Force | エクストラII | 下書き |
-| [kengo-normal.md](./kengo-normal.md) | 剣豪 / Kengo | エクストラII | 下書き |
-| [black-cat-sorcerer-normal.md](./black-cat-sorcerer-normal.md) | 黒猫道士 / Black Cat Sorcerer | エクストラII | 下書き |
-| [magic-warrior-normal.md](./magic-warrior-normal.md) | 魔法戦士 / Magic Warrior | エクストラII | 下書き |
-| [wizard-origin-normal.md](./wizard-origin-normal.md) | ウィザード・オリジン / Wizard (Origin) | オリジン | 下書き |
-| [fighter-origin-normal.md](./fighter-origin-normal.md) | ファイター・オリジン / Fighter (Origin) | オリジン | 下書き |
-| [lancer-origin-normal.md](./lancer-origin-normal.md) | ランサー・オリジン / Lancer (Origin) | オリジン | 下書き |
+| [class1-enhancer.md](./class1-enhancer.md) | エンハンサー / Enhancer | ClassI | 下書き |
+| [class1-grappler.md](./class1-grappler.md) | グラップラー / Grappler | ClassI | 下書き |
+| [class1-thief.md](./class1-thief.md) | シーフ / Thief | ClassI | 下書き |
+| [class1-knight.md](./class1-knight.md) | ナイト / Knight | ClassI | 下書き |
+| [class1-harpist.md](./class1-harpist.md) | ハーピスト / Harpist | ClassI | 下書き |
+| [class1-priest.md](./class1-priest.md) | プリースト / Priest | ClassI | 下書き |
+| [class1-ranger.md](./class1-ranger.md) | レンジャー / Ranger | ClassI | 下書き |
+| [class2-arcana-swordsman.md](./class2-arcana-swordsman.md) | アルカナソード / Arcana Swordsman | ClassII | 下書き |
+| [class2-warrior.md](./class2-warrior.md) | ウォーリア / Warrior | ClassII | 下書き |
+| [class2-cleric.md](./class2-cleric.md) | クレリック / Cleric | ClassII | 下書き |
+| [class2-kung-fu.md](./class2-kung-fu.md) | クンフー / Kung Fu | ClassII | 下書き |
+| [class2-sorcerer.md](./class2-sorcerer.md) | ソーサラー / Sorcerer | ClassII | 下書き |
+| [class2-dragoon.md](./class2-dragoon.md) | ドラグーン / Dragoon | ClassII | 下書き |
+| [class2-fortress.md](./class2-fortress.md) | フォートレス / Fortress | ClassII | 下書き |
+| [class2-marksman.md](./class2-marksman.md) | マークスマン / Marksman | ClassII | 下書き |
+| [class2-minstrel.md](./class2-minstrel.md) | ミンストレル / Minstrel | ClassII | 下書き |
+| [class2-raider.md](./class2-raider.md) | レイダー / Raider | ClassII | 下書き |
+| [class3-valkyrie.md](./class3-valkyrie.md) | ヴァルキュリア / Valkyrie | ClassIII | 下書き |
+| [class3-weapon-master.md](./class3-weapon-master.md) | ウェポンマスター / Weapon Master | ClassIII | 下書き |
+| [class3-ogre.md](./class3-ogre.md) | オーガ / Ogre | ClassIII | 下書き |
+| [class3-gladiator.md](./class3-gladiator.md) | グラディエーター / Gladiator | ClassIII | 下書き |
+| [class3-sidewinder.md](./class3-sidewinder.md) | サイドワインダー / Sidewinder | ClassIII | 下書き |
+| [class3-superstar.md](./class3-superstar.md) | スーパースター / Superstar | ClassIII | 下書き |
+| [class3-dark-fencer.md](./class3-dark-fencer.md) | ダークフェンサー / Dark Fencer | ClassIII | 下書き |
+| [class3-hermit.md](./class3-hermit.md) | ハーミット / Hermit | ClassIII | 下書き |
+| [class3-bishop.md](./class3-bishop.md) | ビショップ / Bishop | ClassIII | 下書き |
+| [class3-hawkeye.md](./class3-hawkeye.md) | ホークアイ / Hawkeye | ClassIII | 下書き |
+| [class3-holy-saber.md](./class3-holy-saber.md) | ホーリーセイバー / Holy Saber | ClassIII | 下書き |
+| [class4-apsaras.md](./class4-apsaras.md) | アプサラス / Apsaras | ClassIV | 下書き |
+| [class4-warlock.md](./class4-warlock.md) | ウォーロック / Warlock | ClassIV | 下書き |
+| [class4-elysian.md](./class4-elysian.md) | エリュシオン / Elysian | ClassIV | 下書き |
+| [class4-chaos-ruder.md](./class4-chaos-ruder.md) | カオスルーダー / Chaos Ruder | ClassIV | 下書き |
+| [class4-cavalier.md](./class4-cavalier.md) | キャバルリー / Cavalier | ClassIV | 下書き |
+| [class4-chrysaor.md](./class4-chrysaor.md) | クリュサオル / Chrysaor | ClassIV | 下書き |
+| [class4-shieldsworn.md](./class4-shieldsworn.md) | シールドスウォーン / Shieldsworn | ClassIV | 下書き |
+| [class4-spartan.md](./class4-spartan.md) | スパルタ / Spartan | ClassIV | 下書き |
+| [class4-sage.md](./class4-sage.md) | セージ / Sage | ClassIV | 下書き |
+| [class4-hound-dog.md](./class4-hound-dog.md) | ハウンドドッグ / Hound Dog | ClassIV | 下書き |
+| [class4-berserker.md](./class4-berserker.md) | ベルセルク / Berserker | ClassIV | 下書き |
+| [class4-monk.md](./class4-monk.md) | モンク / Monk | ClassIV | 下書き |
+| [class4-yamato.md](./class4-yamato.md) | ヤマト / Yamato | ClassIV | 下書き |
+| [class4-lumberjack.md](./class4-lumberjack.md) | ランバージャック / Lumberjack | ClassIV | 下書き |
+| [class4-wrestler.md](./class4-wrestler.md) | レスラー / Wrestler | ClassIV | 下書き |
+| [class4-relic-buster.md](./class4-relic-buster.md) | レリックバスター / Relic Buster | ClassIV | 下書き |
+| [class4-robin-hood.md](./class4-robin-hood.md) | ロビンフッド / Robin Hood | ClassIV | 下書き |
+| [class4-vigilante.md](./class4-vigilante.md) | 義賊 / Vigilante | ClassIV | 下書き |
+| [class5-viking.md](./class5-viking.md) | ヴァイキング / Viking | ClassV | 下書き |
+| [class5-king.md](./class5-king.md) | キング / King | ClassV | 下書き |
+| [class5-sumahihito.md](./class5-sumahihito.md) | スマヒヒト / Sumahihito | ClassV | 下書き |
+| [class5-panacea.md](./class5-panacea.md) | パナケイア / Panacea | ClassV | 下書き |
+| [class5-paladin.md](./class5-paladin.md) | パラディン / Paladin | ClassV | 下書き |
+| [class5-boogeyman.md](./class5-boogeyman.md) | ブギーマン / Boogeyman | ClassV | 下書き |
+| [class5-manadiver.md](./class5-manadiver.md) | マナダイバー / Manadiver | ClassV | 下書き |
+| [class5-mariachi.md](./class5-mariachi.md) | マリアッチ / Mariachi | ClassV | 下書き |
+| [class5-onmyoji.md](./class5-onmyoji.md) | 陰陽師 / Onmyoji | ClassV | 下書き |
+| [ex1-assassin.md](./ex1-assassin.md) | アサシン / Assassin | エクストラ | 下書き |
+| [ex1-alchemist.md](./ex1-alchemist.md) | アルケミスト / Alchemist | エクストラ | 下書き |
+| [ex1-gunslinger.md](./ex1-gunslinger.md) | ガンスリンガー / Gunslinger | エクストラ | 下書き |
+| [ex1-dancer.md](./ex1-dancer.md) | ダンサー / Dancer | エクストラ | 下書き |
+| [ex1-drum-master.md](./ex1-drum-master.md) | ドラムマスター / Drum Master | エクストラ | 下書き |
+| [ex1-mechanic.md](./ex1-mechanic.md) | メカニック / Mechanic | エクストラ | 下書き |
+| [ex1-sword-saint.md](./ex1-sword-saint.md) | 剣聖 / Sword Saint | エクストラ | 下書き |
+| [ex1-kenja.md](./ex1-kenja.md) | 賢者 / Kenja | エクストラ | 下書き |
+| [ex1-samurai.md](./ex1-samurai.md) | 侍 / Samurai | エクストラ | 下書き |
+| [ex1-ninja.md](./ex1-ninja.md) | 忍者 / Ninja | エクストラ | 下書き |
+| [ex2-the-glory.md](./ex2-the-glory.md) | ザ・グローリー / The Glory | エクストラII | 下書き |
+| [ex2-soldier.md](./ex2-soldier.md) | ソルジャー / Soldier | エクストラII | 下書き |
+| [ex2-tormentor.md](./ex2-tormentor.md) | トーメンター / Tormentor | エクストラII | 下書き |
+| [ex2-doctor.md](./ex2-doctor.md) | ドクター / Doctor | エクストラII | 下書き |
+| [ex2-masquerade.md](./ex2-masquerade.md) | マスカレード / Masquerade | エクストラII | 下書き |
+| [ex2-rising-force.md](./ex2-rising-force.md) | ライジングフォース / Rising Force | エクストラII | 下書き |
+| [ex2-kengo.md](./ex2-kengo.md) | 剣豪 / Kengo | エクストラII | 下書き |
+| [ex2-black-cat-sorcerer.md](./ex2-black-cat-sorcerer.md) | 黒猫道士 / Black Cat Sorcerer | エクストラII | 下書き |
+| [ex2-magic-warrior.md](./ex2-magic-warrior.md) | 魔法戦士 / Magic Warrior | エクストラII | 下書き |
+| [origin1-wizard-origin.md](./origin1-wizard-origin.md) | ウィザード・オリジン / Wizard (Origin) | オリジン | 下書き |
+| [origin1-fighter-origin.md](./origin1-fighter-origin.md) | ファイター・オリジン / Fighter (Origin) | オリジン | 下書き |
+| [origin1-lancer-origin.md](./origin1-lancer-origin.md) | ランサー・オリジン / Lancer (Origin) | オリジン | 下書き |
 
 </details>
 
@@ -231,7 +231,7 @@ GameWith「ジョブ評価一覧」記事([article/show/21314](https://xn--bck3a
 
 ## 運用ルール
 
-- ファイル名(および frontmatter の `id`)は `{英語名kebab-case}-{バージョン、無ければnormal}.md` とする。
+- ファイル名(および frontmatter の `id`)は `{クラス略称}-{英語名kebab-case}.md` とする(2026-09-06変更、旧`{英語名kebab-case}-normal.md`形式から移行済み)。クラス略称は `class1`〜`class5`(ClassI〜V)、`ex1`/`ex2`(エクストラ/エクストラII)、`origin1`(オリジン)。例: `class4-apsaras.md`、`ex2-masquerade.md`、`origin1-fighter-origin.md`。
 - frontmatter の `job_id` にはゲーム内のジョブ`master_id`(数値、例: `"190301"`)を記載する。実機APIのレスポンスやサムネイル画像URLの組み立てに使う値で、`knowledge/jobs/README.md`のカタログや`docs/data-collection-notes.md`にジョブ名との対応が記録されている。
 - サムネイル画像は `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/{job_id}_01.jpg` の形式で`job_id`から機械的に組み立てられる(2026-09-03確認)。見出し(`# {ジョブ名}({英名})`)の直後に `![{ジョブ名}](上記URL)` として貼る。
 - 各ファイルは `_template.md` の形式に沿う。アビリティ/EXアビリティに加え、ジョブ固有の「リミットアビリティ」「サポートスキル」を優先して記載する。マスターレベル強化・極致の証はClass4/EX2/Origin等の対象ジョブのみ記載し、無い場合はセクションごと省略してよい。

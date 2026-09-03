@@ -140,6 +140,12 @@ GameWith「ジョブ評価一覧」記事(`article/show/21314`)から機械的�
 
 `job_id`とジョブ名の対応表そのものは`job_api_master_data.tsv`(scratchpad、リポジトリ未コミットの作業ファイル)にも残っているが、正式な参照先は`knowledge/jobs/README.md`の全ジョブカタログとする。
 
+### ファイル名規則の変更(2026-09-06): `{英語名}-normal.md` → `{クラス略称}-{英語名}.md`
+
+ユーザー指示により、ジョブファイルのファイル名(および frontmatter の`id`)を `{クラス略称}-{英語名kebab-case}.md` 形式に変更した。クラス略称は `class1`〜`class5`(ClassI〜V)、`ex1`/`ex2`(エクストラ/エクストラII)、`origin1`(オリジン)。例: `apsaras-normal.md` → `class4-apsaras.md`。
+
+この際、3件のオリジンジョブ(`fighter-origin`/`lancer-origin`/`wizard-origin`)は、frontmatterの`class_tier`が実機APIの生クラスコード由来で`"ClassI"`のままだった(生成時に見落とし)ため、`"オリジン"`に修正した上で`origin1-`プレフィックスを付与した(`class1-`ではない)。`knowledge/jobs/README.md`のファイル一覧・運用ルールも合わせて更新済み。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
