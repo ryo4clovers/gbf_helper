@@ -216,6 +216,15 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 
 **残っている課題**: `class_name`は旧形式(`/party/job_equipped/`ベース)の一括収集時のデータには保存していなかった(77ジョブ中3ジョブのみジョブLv詳細レスポンスで作り直し済み)。残り74ジョブにアイコンを追加するには、ジョブLvアップボーナスの段階別内訳等と同様、ジョブLv詳細レスポンスを個別に取得し直す必要がある(規模の課題は既述の通り)。
 
+### `draft/`経由でジョブLv詳細19件をまとめて処理(2026-09-06)
+
+ユーザーが`draft/`直下に19件のジョブLv詳細JSON(ClassI残り6ジョブ、ClassII全10ジョブ、ClassIIIウェポンマスター1ジョブ、オリジン残り2ジョブ)を配置し、「draft整理してください。ジョブLv詳細です」と依頼。前述の3ジョブ(ファイター・オリジン/アサシン/ナイト)で確立した構造・生成ロジックを汎用化したNode.jsスクリプト(スクラッチパッド内、`generate_from_draft.mjs`)を書いて一括反映した。
+
+- 対象19ジョブ: class1-priest/thief/enhancer/grappler/ranger/harpist、class2-warrior/fortress/cleric/sorcerer/raider/arcana-swordsman/kung-fu/marksman/minstrel/dragoon、class3-weapon-master、origin1-wizard-origin/lancer-origin。
+- 各既存ファイルのfrontmatter(`job_id`/`weapon_type`/DA・TA基礎率等、未確認のまま残していた値)は温存しつつ、本文(アビリティ構成・リミットアビリティ・サポートスキル・ジョブLvアップボーナス・マスターレベル強化)をジョブLv詳細レスポンスから再生成する方式。アビリティ強化(例: 「エーテルブラストIV」→Lv50で「エーテルブラストIV＋」)やサポートスキルの強化・新規習得(`level_up_bonus`内の`kind_jp`が「アビリティ強化」「サポートアビリティ強化」「サポートアビリティ習得」のエントリ)も`class_name`または名前の`＋`接尾辞で対応付けて自動反映した。
+- 処理後、元のJSON 19件は`draft/`から[tools/network-recorder/captures/](../tools/network-recorder/captures/)へ`2026-09-06_job-detail_{slug}.json`の命名で移動(`draft/`は空に戻した)。
+- この19件により、[abilities.md](../knowledge/mechanics/abilities.md)の未確認事項の一つ「基本アビリティの枠数がクラス内で一律か」が解消: ClassI(計7ジョブ)は基本アビリティ2枠、ClassII(計10ジョブ全て)は基本アビリティ3枠で一律だった。また新たな発見として、**ClassIII(ウェポンマスター)には`limit_ability`が2つ存在**することを確認 — それまで自由選択枠が1つのクラス(ClassI〜III、Ex1)はリミットアビリティの選択肢が無い(ナイトの例のみ)と見えていたが、これはジョブによって有無が分かれることが分かった。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
