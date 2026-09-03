@@ -16,7 +16,7 @@
 | [elements.md](./elements.md) | 属性システム(火/水/土/風/光/闇、有利不利) | 未着手 |
 | [damage-calculation.md](./damage-calculation.md) | ダメージ計算式 | 未着手 |
 | [charge-attack-chain-burst.md](./charge-attack-chain-burst.md) | 奥義ゲージ・チェインバースト | 未着手 |
-| [abilities.md](./abilities.md) | アビリティ・EXアビリティ・奥義効果 | 未着手 |
+| [abilities.md](./abilities.md) | アビリティ・EXアビリティ・奥義効果 | 下書き |
 | [buffs-debuffs.md](./buffs-debuffs.md) | バフ・デバフの種類と重複ルール | 未着手 |
 | [damage-cap-modifiers.md](./damage-cap-modifiers.md) | 背水・渾身などダメージ上限/係数に関わるパッシブ | 未着手 |
 | [character-growth.md](./character-growth.md) | 上限開放(凸)・覚醒・ソウルバッジ・因子などの育成要素 | 未着手 |
