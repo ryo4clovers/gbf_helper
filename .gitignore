@@ -1,3 +1,8 @@
 mcp-server/node_modules/
 mcp-server/dist/
 /draft/
+
+# Network Recorder captures: local-only reference data (see captures/README.md).
+# Kept on disk for future DB-building reference, never committed.
+tools/network-recorder/captures/*
+!tools/network-recorder/captures/README.md
