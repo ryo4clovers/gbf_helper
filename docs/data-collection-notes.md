@@ -225,6 +225,8 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - 処理後、元のJSON 19件は`draft/`から[tools/network-recorder/captures/](../tools/network-recorder/captures/)へ`2026-09-06_job-detail_{slug}.json`の命名で移動(`draft/`は空に戻した)。
 - この19件により、[abilities.md](../knowledge/mechanics/abilities.md)の未確認事項の一つ「基本アビリティの枠数がクラス内で一律か」が解消: ClassI(計7ジョブ)は基本アビリティ2枠、ClassII(計10ジョブ全て)は基本アビリティ3枠で一律だった。また新たな発見として、**ClassIII(ウェポンマスター)には`limit_ability`が2つ存在**することを確認 — それまで自由選択枠が1つのクラス(ClassI〜III、Ex1)はリミットアビリティの選択肢が無い(ナイトの例のみ)と見えていたが、これはジョブによって有無が分かれることが分かった。
 
+直後に`draft/`へ残りのClassIII 10ジョブ(オーガ/グラディエーター/サイドワインダー/スーパースター/ダークフェンサー/ハーミット/ビショップ/ホークアイ/ホーリーセイバー/ヴァルキュリア)分のジョブLv詳細JSONも見つかり、同じ手順で処理。これによりClassIIIは全11ジョブが出揃い、**基本アビリティ3枠+リミットアビリティ2枠がClassIII全体で一律のパターン**であることが確定した(ウェポンマスターだけの特徴ではなかった)。これで**ClassI/ClassII/ClassIII/オリジンの4クラス、計32ジョブ**がリッチ形式に移行済み(残りはClassIV/ClassV/エクストラ/エクストラII、計約45ジョブ)。元JSON計29件は`tools/network-recorder/captures/`へ移動し、`draft/`は空に戻した。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |

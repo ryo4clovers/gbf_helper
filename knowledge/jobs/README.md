@@ -13,7 +13,7 @@
 
 77ジョブ分の本文を実機API(2026-09-03、詳細は[docs/data-collection-notes.md](../../docs/data-collection-notes.md)参照)から取得し下書き作成済み。残る3ジョブ(ClassI版のファイター/ランサー/ウィザード、下記オリジン欄参照)はこのアカウントでは既にオリジンへ進化済みで取得不可のため後回し(別アカウントのデータを参照予定)。
 
-うち22ジョブ(class1-knight、ex1-assassin、origin1-fighter-origin、および2026-09-06に処理した19ジョブ: class1×6・class2×10・class3-weapon-master・origin1×2)は、より詳細な「ジョブLv詳細」レスポンス(基本/リミットアビリティの区別、レベル別ボーナス、アビリティアイコン等を含む)を元にリッチ形式で作り直し済み。残り約55ジョブは旧来の`job_equipped`ベースの簡易形式のまま(アイコン画像やリミットアビリティの区別なし)。
+うち32ジョブ(class1-knight、ex1-assassin、origin1-fighter-origin、および2026-09-06に処理した29ジョブ: class1残り6・class2全10・class3全11・origin1残り2)は、より詳細な「ジョブLv詳細」レスポンス(基本/リミットアビリティの区別、レベル別ボーナス、アビリティアイコン等を含む)を元にリッチ形式で作り直し済み。残り約45ジョブ(ClassIV/ClassV/エクストラ/エクストラII)は旧来の`job_equipped`ベースの簡易形式のまま(アイコン画像やリミットアビリティの区別なし)。
 
 <details>
 <summary>全77ファイルの一覧を表示</summary>
