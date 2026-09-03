@@ -38,18 +38,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 <!-- Lv到達で段階的に習得する、このジョブ固有の基本アビリティ。limit_abilityとは別枠。 -->
 
 ### アビリティ1: アサシネーション(Lv1で習得)
+![アサシネーション](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/189_3.png)
 
 - 効果: 装備した秘器を使用する ◆秘器は使用した分消費される
 - 使用間隔: 1ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: バニッシュ(Lv5で習得)
+![バニッシュ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/190_3.png)
 
 - 効果: 自分の敵対心を味方になすりつける
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: ダブルアサシン(Lv15で習得)
+![ダブルアサシン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/191_3.png)
 
 - 効果: アサシネーションとエクセキュートをもう一度使用できるようにする/自分の防御力DOWN
 - 使用間隔: 8ターン
@@ -59,6 +62,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### ハイディング(習得Lv不明)
+![ハイディング](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/251_3.png)
 
 - 効果: 自分の回避率UP/連続攻撃確率UP
 - 使用間隔: 7ターン

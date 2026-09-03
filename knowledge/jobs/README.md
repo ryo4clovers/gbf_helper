@@ -234,6 +234,7 @@ GameWith「ジョブ評価一覧」記事([article/show/21314](https://xn--bck3a
 - ファイル名(および frontmatter の `id`)は `{クラス略称}-{英語名kebab-case}.md` とする(2026-09-06変更、旧`{英語名kebab-case}-normal.md`形式から移行済み)。クラス略称は `class1`〜`class5`(ClassI〜V)、`ex1`/`ex2`(エクストラ/エクストラII)、`origin1`(オリジン)。例: `class4-apsaras.md`、`ex2-masquerade.md`、`origin1-fighter-origin.md`。
 - frontmatter の `job_id` にはゲーム内のジョブ`master_id`(数値、例: `"190301"`)を記載する。実機APIのレスポンスやサムネイル画像URLの組み立てに使う値で、`knowledge/jobs/README.md`のカタログや`docs/data-collection-notes.md`にジョブ名との対応が記録されている。
 - サムネイル画像は `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/{job_id}_01.jpg` の形式で`job_id`から機械的に組み立てられる(2026-09-03確認)。見出し(`# {ジョブ名}({英名})`)の直後に `![{ジョブ名}](上記URL)` として貼る。
+- アビリティのアイコン画像は `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/{class_name}.png` の形式で、そのアビリティの`class_name`(ジョブLv詳細レスポンスの各アビリティオブジェクトに含まれる)から組み立てられる(2026-09-06確認)。**基本アビリティ・リミットアビリティのみ**貼る(各アビリティ見出しの直後に`![{スキル名}](上記URL)`)。**サポートスキルは`class_name`が複数スキルで共通値(例: `"55_3"`)になっており個別のアイコンを特定できないため、現状は貼らない**。`class_name`は`/party/job_equipped/`ベースの旧形式データには保存していなかったため、旧形式のまま残っているジョブファイルにはまだ付けられていない(ジョブLv詳細レスポンスで作り直したファイルのみ対応可能)。
 - 各ファイルは `_template.md` の形式に沿う。アビリティ/EXアビリティに加え、ジョブ固有の「リミットアビリティ」「サポートスキル」を優先して記載する。マスターレベル強化・極致の証はClass4/EX2/Origin等の対象ジョブのみ記載し、無い場合はセクションごと省略してよい。
 - 対象は全クラス(ClassI〜V、エクストラ、エクストラII、オリジン)、全80ジョブ(上記カタログ参照)。
 - 情報源や取得方法の詳細は [docs/data-collection-notes.md](../../docs/data-collection-notes.md) を参照。

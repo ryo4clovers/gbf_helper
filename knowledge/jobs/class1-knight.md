@@ -36,12 +36,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ファランクス(Lv1で習得)
+![ファランクス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/37_3.png)
 
 - 効果: 参戦者の全属性ダメージカット(50%)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: ドライブバースト(Lv10で習得)
+![ドライブバースト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/33_1.png)
 
 - 効果: オーバードライブ時の敵に3倍自属性ダメージ
 - 使用間隔: 6ターン

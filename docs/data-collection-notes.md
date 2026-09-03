@@ -200,6 +200,22 @@ GameWith「ジョブ評価一覧」記事(`article/show/21314`)から機械的�
 
 2026-09-06の実例: `draft/ジョブLv習得一覧/`に「ファイターオリジン.json」(内容は前述の貼り付け分と同一、重複のため削除)と「ナイト.json」(新規、[class1-knight.md](../knowledge/jobs/class1-knight.md)に反映)があり、ナイトは`limit_ability`が空配列(リミットアビリティが存在しないジョブの実例として貴重、[abilities.md](../knowledge/mechanics/abilities.md)に追記)。処理後、ナイトのJSONは`captures/`に移動、フォルダは空にして削除した。
 
+### アビリティアイコン画像のURLパターンが判明(2026-09-06)
+
+ユーザーが実機で見つけたURL例(`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2711_3.png`、ファイター・オリジンの「ウェポンバーストIV」)から、アビリティアイコン画像のURLパターンが判明:
+
+```
+https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/{class_name}.png
+```
+
+`{class_name}`は、ジョブLv詳細レスポンスの各アビリティオブジェクトが持つ`class_name`フィールド(例: `"2711_3"`)にそのまま対応することを、既存の3ジョブ(ファイター・オリジン/アサシン/ナイト)のデータで確認した。基本アビリティ・リミットアビリティともに一意な`class_name`を持つため、このパターンで個別のアイコンを特定できる。
+
+**サポートスキルには使えない**: サポートスキルの`class_name`は、同一ジョブ内はおろか別ジョブ間でも`"55_3"`のような共通値になっている(例: ファイター・オリジンの「ライジングハート」「プライド・オブ・ファイター」、アサシンの「キリングマシーン」「イヴェイドステップ」が全て`"55_3"`)。恐らく汎用のプレースホルダーアイコンで、個別スキルの絵柄を特定する手段としては使えない。
+
+**適用済み**: [origin1-fighter-origin.md](../knowledge/jobs/origin1-fighter-origin.md)/[ex1-assassin.md](../knowledge/jobs/ex1-assassin.md)/[class1-knight.md](../knowledge/jobs/class1-knight.md)の基本/リミットアビリティ各見出しにアイコンを追加、`_template.md`にも反映。
+
+**残っている課題**: `class_name`は旧形式(`/party/job_equipped/`ベース)の一括収集時のデータには保存していなかった(77ジョブ中3ジョブのみジョブLv詳細レスポンスで作り直し済み)。残り74ジョブにアイコンを追加するには、ジョブLvアップボーナスの段階別内訳等と同様、ジョブLv詳細レスポンスを個別に取得し直す必要がある(規模の課題は既述の通り)。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
