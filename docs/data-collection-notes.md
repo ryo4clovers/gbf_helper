@@ -259,6 +259,16 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
   - **要注意な食い違いを発見**: HELP文面(id=12「上位ジョブ」)は、Class.IV/Vの自由選択枠(Freeアビリティ)を「EX・リミットアビリティをそれぞれ2つ、計3つまで」とし、ベースアビリティへの言及が無い。一方id=19「エクストラジョブ」はEX IIジョブについてのみ「EX・リミット・ベースアビリティをそれぞれ2つ」と明記しており、ベースアビリティ枠はEX II固有の可能性がある。これは[abilities.md](../knowledge/mechanics/abilities.md)に記録されている「ユーザーからの説明ではClass.IV/Vにもベースアビリティ枠がある」という記載と食い違うため、未確認・要検証事項として両ファイルに記録し、実機画面での再確認を依頼する形にした。
 - 処理済みの`プレイヤー.json`は`tools/network-recorder/captures/game-help/`へ移動。残る8カテゴリはまだ参照していないため`draft/ゲーム内HELP/`に残置。ユーザーは続けて「強化データが入っているであろうJSON」(マスターレベル/極致の証の具体的な数値データと思われる)を追加投入予定とのこと。
 
+### マスターレベルのレベル別強化データを初取得(ベルセルク、2026-09-06)
+
+ユーザーがチャットに直接、ベルセルク(class4-berserker)のマスターレベル画面レスポンス(`job_master_level.css`を使う画面、`option.job_master_level_bonus`にLv2〜30の内訳を持つ)を貼り付けた。これにより:
+
+- **マスターレベルの上限が30であることが確定**(HELP文面には数値の明記が無かった)。
+- レベル別の型が判明: Lv2〜30の29段階(Lv1はボーナス無し)のうち26段階は「攻撃力+300」「HP+300」「ダメージ上限+1%」のいずれかが交互に付与され、Lv20でサポートアビリティ新規習得、Lv30で基本アビリティ強化。ベルセルクの合計は攻撃力+3600、HP+1500、ダメージ上限+10%。
+- HTML断片内の`<script id="tpl-pop-bonus-effect">`テンプレートに、実は該当ジョブの実際の合計値がサーバー側で埋め込まれていることに気づき(「+3600」「+1500」「+10%」という値が上記の積算と完全一致)、今後のジョブ処理での検算に使えることが分かった。
+- [job-master-level-kyokuchi.md](../knowledge/mechanics/job-master-level-kyokuchi.md)にレスポンスのデータ構造(`job_master_level_bonus`のスキーマ)を記録し、[class4-berserker.md](../knowledge/jobs/class4-berserker.md)のマスターレベル強化セクションをレベル別の精密な内訳に更新した。ただし「Lv20=サポート新規、Lv30=アビリティ強化」という配置がジョブ共通かはベルセルク1件のみでは未確定、EXP必要量も本レスポンスには含まれず未取得。
+- 生データは`tools/network-recorder/captures/job-master-level/2026-09-06_master-level_class4-berserker.json`に保存(汎用UI文字列辞書`option.langMsg`は容量削減のため省略、ジョブ固有データの`job_master_level_bonus`のみ保持)。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
