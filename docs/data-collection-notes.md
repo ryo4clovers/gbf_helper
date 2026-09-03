@@ -346,6 +346,10 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - [limit-bonus.md](../knowledge/mechanics/limit-bonus.md)に全88項目の表を追加し、未確認事項を大幅に解消した。項目カタログ自体はジョブ非依存のため、個別のジョブファイル(`knowledge/jobs/`)への反映は行っていない(job-Lv詳細やマスターレベル/極致の証と異なり、ジョブ固有情報ではないため)。
 - 元JSON計77件は`tools/network-recorder/captures/limit-bonus/`へ、job_idとジョブスラッグを付与した分かりやすいファイル名で移動(`draft/LB/`は空にして削除)。
 
+### ユーザーからの確認: 能力強化項目・強化可能回数はRankに応じて解放/増加する(2026-09-06)
+
+ユーザーから「主人公LBの強化できる項目の種類はRankによって増えていくが、どのRankで何が解放されるかは情報を持っていない。また強化できる数もRankに応じて変化する」との補足があった。確認したところ、**項目ごとのRank条件(`need_user_rank`)は前回取得済みの全88項目カタログに既に含まれており**、[limit-bonus.md](../knowledge/mechanics/limit-bonus.md)の表がそのまま「どのRankで何が解放されるか」の答えになっていた。この点をドキュメントで明示し、ユーザー確認済みという扱いに更新した。「強化できる回数(`max_cost`)がRankに応じて変化する」という点もユーザー確認により裏付けが強まったが、**具体的な「Rank→max_cost」の段階表は今回も得られておらず、引き続き未確認**として記録した。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
