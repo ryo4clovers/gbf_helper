@@ -21,6 +21,7 @@
 | [buffs-debuffs.md](./buffs-debuffs.md) | バフ・デバフの種類と重複ルール | 下書き |
 | [damage-cap-modifiers.md](./damage-cap-modifiers.md) | 背水・渾身などダメージ上限/係数に関わるパッシブ | 下書き |
 | [character-growth.md](./character-growth.md) | 上限開放(凸)・覚醒・ソウルバッジ・因子などの育成要素 | 下書き |
+| [limit-bonus.md](./limit-bonus.md) | Limit Bonus(LB) — 主人公(ジョブ)側とキャラクター側の違い | 下書き |
 | [protagonist-base-stats.md](./protagonist-base-stats.md) | 主人公のRank別基礎HP/攻撃力とステータス計算式 | 下書き |
 | [summon-aura-types.md](./summon-aura-types.md) | 召喚石の効果(通常時/EX/HELLなど)の分類 | 下書き |
 | [team-building-basics.md](./team-building-basics.md) | パーティ編成の基本(サブ限・適正編成など) | 下書き |

@@ -316,6 +316,15 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 
 処理した4カテゴリのJSONは`tools/network-recorder/captures/game-help/`へ移動。残る4カテゴリ(イベント/クエスト/ショップアイテム/共闘)は、シナリオイベントや古戦場、共闘ロビーの個別ルールなど「ゲームシステム・ダメージ計算」というより「コンテンツ機能」寄りの内容と判断し、今回は未着手のまま`draft/ゲーム内HELP/`に残置した。
 
+### Limit Bonus(LB)の仕様整理、主人公(ジョブ)側とキャラクター側の違いを比較(2026-09-06)
+
+ユーザーから「LimitBonus(LB)について整理してほしい。ゲーム内HELPにも情報があったはず。キャラクターにも同名のシステムがあるが、主人公の場合とは違う項目や効果もある」との依頼があり、既に取得済みのゲーム内HELPデータ(`captures/game-help/2026-09-06_help-player.json`・`2026-09-06_help-character-party.json`)から、Limit Bonus関連トピックを再抽出して比較した。新規のJSON取得は不要だった(既存キャプチャの再活用)。
+
+- **主人公(ジョブ)側**: ジョブLvを最大まで上げると解放(Origin Classジョブは進化元Class.Iから引き継ぎ、Lv1から解放済み)。LBはEXP蓄積またはJP→LB変換で入手。**能力強化に加えて「リミットアビリティの習得」にも使える**点がキャラクター側との最大の違い。Limit Bonus Classは**プレイヤーのRank**依存で上昇。
+- **キャラクター側**: キャラクターLvを最大(または最終上限解放前の最大)まで上げると解放。LBはEXP蓄積のみで入手(JP変換に相当する手段の記載なし)。用途は能力強化のみ。Limit Bonus Classは**そのキャラ自身のLB取得回数**に応じて上昇し、**同名キャラクター間で共通**。**LB変換**(同名キャラ間でLBを変換、キャラクター側だけの仕組み)も確認。
+- 副次的な発見: ジョブ「剣聖」の「剣気」上限がLimit Bonusの能力強化対象になっているという実例を発見。ジョブ固有ゲージ(刻印・闘心Lv等)がLimit Bonusの強化対象になりうることを示す初めての具体例。
+- 比較表つきで[limit-bonus.md](../knowledge/mechanics/limit-bonus.md)(新規)にまとめ、[character-growth.md](../knowledge/mechanics/character-growth.md)のキャラクター側Limit Bonus記載から相互参照を追加した。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
