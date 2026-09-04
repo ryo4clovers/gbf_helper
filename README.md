@@ -27,6 +27,7 @@ tools/
 
 ## 関連ドキュメント
 
+- [.codex/README.md](.codex/README.md) — Codexのプロジェクト権限設定と安全上の注意
 - [CONTRIBUTING.md](CONTRIBUTING.md) — 開発環境、検証コマンド、ナレッジ更新ルール
 - [docs/data-collection-notes.md](docs/data-collection-notes.md) — データ収集の情報源・取得方法・優先順位などの作業メモ
 - [mcp-server/README.md](mcp-server/README.md) — ナレッジベースをMCPサーバーとして公開する仕組みのセットアップ手順

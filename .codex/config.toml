@@ -1,0 +1,9 @@
+# This repository is explicitly trusted for autonomous local development.
+# WARNING: Codex can access files and the network without approval prompts.
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+
+# Keep the default protection against forwarding likely credentials to child
+# processes, even though filesystem and network access are unrestricted.
+[shell_environment_policy]
+ignore_default_excludes = false

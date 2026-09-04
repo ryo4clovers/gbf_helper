@@ -16,6 +16,7 @@
 
 ## Editing conventions
 
+- The project uses full-access Codex permissions. This removes technical sandbox limits but does not authorize work outside the user's requested scope.
 - Keep filenames and frontmatter `id` values identical.
 - Use the category template and README as the schema reference when adding knowledge files.
 - Update the category README index when adding, removing, or renaming an indexed knowledge file.
