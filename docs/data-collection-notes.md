@@ -423,6 +423,16 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - 生レスポンスは`tools/network-recorder/captures/weapons/2026-09-07_weapon-detail_fire-ssr-seraphic-weapon.json`(git管理外)。所持インスタンス固有情報(instance id・skill_feed等)を含むため。
 - MCPサーバーへの`list_weapons`/`get_weapon`ツール追加は今後(charactersと同じパターン)。
 
+**2026-09-07 追加: 2件目(リミテッド火・ベネディーア)でテンプレートを拡張**。ユーザー提供の実機レスポンスで新要素を確認しテンプレに反映:
+
+- **覚醒(アローサル)**: `param.arousal`。`is_arousal_weapon`(リミテッド等は true)、`form`/`form_name`(現在選択中の覚醒タイプ: 攻撃/防御/連撃/回復/奥義/スキルダメージ 等)、`level`/`max_level`(通常4)、`total_bonus`(各Lvで追加される内訳)、`skill[]`(現タイプ・現Lvの実効果と `effect_value`)。**レスポンスには現在のタイプしか出ない**ので全タイプを埋めるには切替後の再取得が必要。ベネディーアの例: 覚醒「攻撃」Lv4 = 攻刃+40%(味方全体)/ダメージ上限+5%。
+- **バレット**: 銃(`kind`=6)は `bullet_info.set_bullets`(6スロット、各 `slot_type`)。ガンスリンガー/ソルジャーのメイン武器時のみ実効。テンプレに「バレット(銃のみ)」セクション追加。個別バレットのデータ収集は将来課題(bullets カテゴリ未整備)。
+- **スキルの `release_level`**: `skillN.level.release_level` は「そのスキルが解放/強化される武器Lv」(ベネディーア: 攻刃III=Lv120、克己=Lv150)。テンプレのスキル項目に「解放レベル」を追加。
+- **奥義の ＋/＋＋**: `special_skill.name` の `＋` `＋＋` は上限解放での進化形(ナバルストライク→＋→＋＋で全体バフが10%→15%)。
+- **`skillN_display` は当てにならない**: 空スロットでも 1 が入る(セラフィック・ベネディーア両方で確認)。スキル有無は `skillN.skill_id` の null 判定で行う。
+- **コード確定**: `kind`=6 は銃(確認)。`series_id`: 1=セラフィック、2=リミテッド。
+- ファイル: [knowledge/weapons/fire-ssr-limited-benedia.md](../knowledge/weapons/fire-ssr-limited-benedia.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-limited-benedia.json`。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |

@@ -14,6 +14,7 @@
 | ファイル | 武器名 | 属性 | シリーズ | ステータス |
 | --- | --- | --- | --- | --- |
 | [fire-ssr-seraphic-weapon.md](./fire-ssr-seraphic-weapon.md) | 赤き熾炎の剣 / Sword of Michael | 火 | セラフィックウェポン | 下書き |
+| [fire-ssr-limited-benedia.md](./fire-ssr-limited-benedia.md) | ベネディーア / Benedia | 火 | リミテッドシリーズ | 下書き |
 
 ## 命名規則
 
@@ -42,15 +43,20 @@
 | `param.bonus_attack` / `param.bonus_hp` | + による増分 | ステータス表には含めない |
 | `param.level` / `max_level` | レベル | ステータス表 |
 | `param.evolution` | 現在の上限解放段階 | ステータス表の段階 |
-| `param.arousal` | 覚醒(is_arousal_weapon / level / form / skill) | 「覚醒」セクション |
+| `param.arousal.is_arousal_weapon` | 覚醒対応シリーズか(リミテッド等) | 「覚醒」セクション有無 |
+| `param.arousal.form` / `form_name` | 現在選択中の覚醒タイプ(攻撃/防御/連撃/回復/奥義/スキルダメージ 等) | 「覚醒」セクション |
+| `param.arousal.level` / `max_level` | 現在の覚醒Lv / 上限(通常4) | 「覚醒」セクション |
+| `param.arousal.total_bonus` | 各覚醒Lvで**追加**されるボーナスの内訳(`name` 攻刃/D上限 等、`effect_value`) | 覚醒タイプ別効果の「Lv別内訳」 |
+| `param.arousal.skill[]` | 現タイプ・現Lvでの実効果(`skill_id` / `name` / `comment` / `effect_value`) | 覚醒タイプ別効果 |
 | `param.odiant` | オーディアント/祓い(exorcision_level) | 「オーディアント」セクション |
 | `can_release_transcendence` / `transcendence_*` | 超越(Lv100→200) | 「超越」セクション |
-| `special_skill.name` / `.comment` | 奥義 | 「奥義」セクション |
-| `skill1`〜`skill4` の `skill_id` / `name` / `comment` / `level.release_level` | 武器スキル | 「武器スキル」セクション(`skill_id` は名寄せキー) |
-| `skillN_display` | そのスキルスロットを表示するか(0/1) | スキル数の判定 |
+| `special_skill.name` / `.comment` | 奥義(`＋` `＋＋` は上限解放での進化形) | 「奥義」セクション |
+| `skill1`〜`skill4` の `skill_id` / `name` / `comment` / `level.release_level` | 武器スキル(`release_level` = 解放される武器Lv) | 「武器スキル」セクション(`skill_id` は名寄せキー) |
+| `skillN_display` | 表示スロットのフラグ(0/1)。**空スロットでも 1 のことがあるのでスキル有無の判定は `skillN.skill_id` の null 判定で行う** | — |
+| `bullet_info.set_bullets` | 銃(kind=6)のバレットスロット(`max_set_count` / 各 `bullet_N.slot_type`) | 「バレット」セクション |
 | `limit` | 上限解放スキル / リミットボーナス(配列) | 「上限解放・強化要素」 |
 | `augment_skill` | エレメント/AUG | 「上限解放・強化要素」 |
-| `omega` / `moon` / `is_xeno_weapon` / `job_weapon` / `is_rusted_weapon` / `is_origin_numbers_weapon` 等 | 武器カテゴリ判定フラグ | 「編成での役割」(グリッド分類) |
+| `omega` / `moon` / `is_xeno_weapon` / `job_weapon` / `is_rusted_weapon` / `is_origin_numbers_weapon` / `series_id` | 武器カテゴリ判定フラグ | 「編成での役割」(グリッド分類) |
 
 **注意**: 武器詳細レスポンスは所持インスタンス固有情報(+値・スキルレベル・所持数・編成使用中フラグ等)を含む。ナレッジには武器定義に関わる部分だけを反映し、生レスポンスは `tools/network-recorder/captures/`(git管理外)に保存する。
 
@@ -59,7 +65,8 @@
 | 属性 `attribute` | 1 火 / 2 水 / 3 土 / 4 風 / 5 光 / 6 闇 |
 | --- | --- |
 | **レアリティ `rarity`** | 2 R / 3 SR / 4 SSR |
-| **武器種 `kind`** | 1 剣 / 2 短剣 / 3 槍 / 4 斧 / 5 杖 / 6 銃 / 7 格闘 / 8 弓 / 9 楽器 / 10 刀(ジョブの `weapon1/2` コードと同じと推定、要確認) |
+| **武器種 `kind`** | 1 剣 / 2 短剣 / 3 槍 / 4 斧 / 5 杖 / 6 銃(確認済) / 7 格闘 / 8 弓 / 9 楽器 / 10 刀(6以外はジョブの `weapon1/2` コードと同じと推定、要確認) |
+| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ(以降は実例が集まり次第追記) |
 
 ## スキル系統(damage-calc 用の軸)
 
