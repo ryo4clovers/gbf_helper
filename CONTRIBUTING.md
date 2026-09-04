@@ -49,7 +49,10 @@ git config --local commit.template .gitmessage
 
 ## セッションの引き継ぎ
 
-新しいチャット(Claude)や Codex に作業を渡すときは、`prompts/generate-handoff.mjs` で引き継ぎプロンプトを生成します。
+新しいチャット(Claude)や Codex に作業を渡すときは、引き継ぎプロンプトを生成します。
+
+- **Claude Code**: スキル `session-handoff`(「引き継ぎプロンプトを作って」等で発動、または `/session-handoff`)。
+- **Codex / 手動**: スクリプトを直接実行。
 
 ```powershell
 node prompts/generate-handoff.mjs --task "今回の依頼を1行で"

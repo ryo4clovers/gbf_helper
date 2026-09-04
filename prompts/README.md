@@ -11,8 +11,16 @@
 | --- | --- |
 | [handoff-template.md](./handoff-template.md) | 引き継ぎプロンプトの雛形。`{{...}}` プレースホルダを含む固定部分(役割・絶対ルール・作業ルーティン・検証コマンド 等) |
 | [generate-handoff.mjs](./generate-handoff.mjs) | 雛形の `{{...}}` を **リポジトリの現在状態**(ブランチ・直近コミット・ナレッジ件数・`draft/` の状況・収集メモの最新見出し)で埋め、貼り付け可能なプロンプトを標準出力に出す |
+| `../.claude/skills/session-handoff/SKILL.md` | Claude Code 用スキル。上記スクリプトを呼び出す薄いラッパ(Claude Code / Codex に「prompts 機能」が無いため) |
 
 ## 使い方
+
+### Claude Code(スキル)
+
+`.claude/skills/session-handoff/` にスキルがある。「引き継ぎプロンプトを作って」「次のセッション用に」等と
+頼むと発動し、下記スクリプトを実行して貼り付け可能なテキストを出す。`/session-handoff` でも呼べる。
+
+### スクリプトを直接実行(Codex / 手動)
 
 リポジトリのルートで:
 
@@ -24,8 +32,8 @@ node prompts/generate-handoff.mjs --task "武器の天星器シリーズを処�
 
 出力の末尾に「今回の依頼」欄がある。`--task` で渡すか、貼り付け後に手で書く。
 
-- **新しい Claude チャット**: 出力をそのまま最初のメッセージとして貼る。
-- **Codex**: 同上。Codex 向けの補足(`Assisted-by: OpenAI Codex` の付与条件など)も雛形に含まれる。
+- **新しい Claude Code チャット / Codex**: 出力をそのまま最初のメッセージとして貼る。
+- 雛形には Codex 向けの補足(`Assisted-by: OpenAI Codex` の付与条件など)も含まれる。
 
 ## メンテナンス
 

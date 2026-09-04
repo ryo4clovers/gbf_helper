@@ -23,6 +23,8 @@ tools/
   network-recorder/  実機プレイ中の通信を受動的に記録するChrome拡張機能(データ収集補助)
 prompts/
   新しいチャット/Codexへの引き継ぎプロンプトの雛形と生成スクリプト
+.claude/skills/
+  Claude Code 用スキル(session-handoff: 引き継ぎプロンプト生成)
 ```
 
 各カテゴリ配下は Markdown ファイルで記述する。

@@ -9,6 +9,7 @@
       "Bash(npm run validate:knowledge)",
       "Bash(npm test)",
       "Bash(node scripts/validate-knowledge.mjs)",
+      "Bash(node prompts/generate-handoff.mjs:*)",
       "Bash(git status:*)",
       "Bash(git diff:*)",
       "Bash(git log:*)",

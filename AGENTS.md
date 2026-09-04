@@ -23,6 +23,7 @@
 - Keep collection history in `docs/data-collection-notes.md`; keep durable development instructions in `CONTRIBUTING.md` or this file.
 - Do not overwrite unrelated user changes. Check `git status` before and after editing.
 - Codex and Claude must not edit the repository concurrently. After completing an edit, commit the resulting changes before handing work to the other agent.
+- When handing work to a fresh session, generate a handoff prompt with `node prompts/generate-handoff.mjs --task "..."` (Claude Code: the `session-handoff` skill). See `prompts/README.md`.
 
 ## Required verification
 
