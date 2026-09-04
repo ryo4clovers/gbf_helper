@@ -25,6 +25,10 @@
 # フッター:
 #   - Claude の支援を受けた場合は最終行に:
 #       Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+#   - OpenAI Codex の支援を受けた場合は最終行に:
+#       Assisted-by: OpenAI Codex
+#     この表記は支援の透明性を示すもので、共同作者やGitHub Contributorを
+#     意味しない。Codexが実際に変更・調査・レビューへ関与した場合のみ付ける
 #   - 関連 Issue / PR があれば:  Refs #123  /  Closes #123
 #
 # ─────────────────────────────────────────────────────────────────────────────
@@ -53,6 +57,7 @@
 #   - 個別 status_id の「枠」は付与元アビリティ依存のため持たない方針を明記
 #
 #   Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+#   Assisted-by: OpenAI Codex
 #
 # ─────────────────────────────────────────────────────────────────────────────
 # 運用上の注意（AGENTS.md / CONTRIBUTING.md より）

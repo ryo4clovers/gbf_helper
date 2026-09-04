@@ -22,6 +22,7 @@
 - Update the category README index when adding, removing, or renaming an indexed knowledge file.
 - Keep collection history in `docs/data-collection-notes.md`; keep durable development instructions in `CONTRIBUTING.md` or this file.
 - Do not overwrite unrelated user changes. Check `git status` before and after editing.
+- Codex and Claude must not edit the repository concurrently. After completing an edit, commit the resulting changes before handing work to the other agent.
 
 ## Required verification
 
