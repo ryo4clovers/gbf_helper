@@ -2,6 +2,10 @@ mcp-server/node_modules/
 mcp-server/dist/
 /draft/
 
+# Claude Code / エージェントのローカル設定（共有するのは .claude/settings.json のみ）
+.claude/settings.local.json
+.claude/*.lock
+
 # Network Recorder captures: local-only reference data (see captures/README.md).
 # Kept on disk for future DB-building reference, never committed.
 tools/network-recorder/captures/*
