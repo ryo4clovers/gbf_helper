@@ -48,6 +48,21 @@ const schemas = {
       source: nonEmptyString,
     })
     .passthrough(),
+  weapons: z
+    .object({
+      id: nonEmptyString,
+      name_jp: nonEmptyString,
+      name_en: z.string(),
+      weapon_id: nonEmptyString,
+      element: z.enum(["火", "水", "土", "風", "光", "闇", "無属性"]),
+      rarity: z.enum(["SSR", "SR", "R"]),
+      weapon_type: nonEmptyString,
+      series: z.string(),
+      status: statusSchema,
+      last_updated: dateSchema,
+      source: nonEmptyString,
+    })
+    .passthrough(),
 };
 
 const errors = [];

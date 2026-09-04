@@ -19,9 +19,11 @@
 
 情報源は公式サイト/公式Twitterの仕様解説記事や、GameWithの「グラブル 基本用語集」的なまとめ記事が使えそう。数値は検証難易度が高いものもあるため、`要検証`のマーキング運用を徹底する。
 
-### 優先度中: weapons/(武器)の収集(未着手、テンプレートも無し)
+### 優先度中: weapons/(武器)の収集
 
-`knowledge/weapons/`はディレクトリだけあってファイルが1つも無い。README記載の3大個別データカテゴリ(キャラ/召喚石/武器)のうち唯一手つかず。進め方はsummonsと同じ型が使えるはず:
+**2026-09-07: テンプレート作成着手**([下記の専用セクション](#weaponsテンプレートを実機武器詳細レスポンスベースで作成2026-09-07)参照)。以下は着手前のメモ:
+
+`knowledge/weapons/`はディレクトリだけあってファイルが1つも無かった。README記載の3大個別データカテゴリ(キャラ/召喚石/武器)のうち唯一手つかず。進め方はsummonsと同じ型が使えるはず:
 
 1. `_template.md`を作成(武器の場合はスキル1〜3、EXスキル、上限解放後ステータス、加護タイプ〈通常/EX/HELL〉あたりが軸になりそう)。
 2. MCPサーバーに`list_weapons`/`search_weapons`/`get_weapon`ツールを追加(charactersと同じパターン)。
@@ -401,6 +403,25 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - [abilities.md](../knowledge/mechanics/abilities.md)の「自由選択枠の候補一覧を実データで確認」節を全77ジョブ版に全面更新、未確認事項も整理。
 - 生データ(ClassII〜V・エクストラ 67ジョブ×7〜8ページ)は`tools/network-recorder/captures/ability-subaction/{slug}/page-*.json`へ移動、`draft/選択可能アビリティ/`は削除。
 - **保留のまま**: アビリティ仕様カタログ本体(倍率・効果量の外部ソース紐付け)、ステータス効果IDの名称カタログ、各ジョブ`.md`への候補一覧の個別反映(free-slot-candidates.jsonで代替できるため優先度低)。
+
+### アビリティ仕様カタログ + ステータス効果カタログを作成(2026-09-07)
+
+上記「保留」だった2件をユーザー依頼で着手。
+
+- **[knowledge/abilities/status-effects.json](../knowledge/abilities/status-effects.json)**(新規): 実機アビリティレスポンスの`ability_detail.buff/debuff`から**302種の内部ステータスコード**を抽出。`status_id`→`base_id`/buff・debuff/暫定名/ゲーム説明文/派生バリアント(`1019_4_80`=風被ダメ80%カット等)/traits(累積・Lv制・消去不可・回復不可・回数制を説明文から機械抽出)/使用アビリティ。個別コード単位の「枠(frame)」は付与元アビリティ依存のため持たない方針(`_meta.frame_note`)。
+- **[knowledge/abilities/ability-effects.json](../knowledge/abilities/ability-effects.json)**(新規): gbf.wiki『Class Skills』(全文を`_sources/`に保存、`r.jina.ai`プロキシ経由で取得。**gbf.wiki直fetchは403、jinaプロキシは通る**)から、英語スキル名↔実機`action_id`を名称・効果内容・EMP消費量/習得ジョブLvで照合。**ジョブアビリティ299/309件**を反映(EX 50/60、リミット159・極致の証80・ベース10は全件)。倍率・%・上限・効果時間・使用間隔を原文数値のまま、`match_confidence`(high 259/medium 39/low 1)付き。未特定EX10件は非ダメージ系の旧EX。
+- gbf.wiki の EMP(Extended Mastery)=リミットアビリティ、UM(Ultimate Mastery)=極致の証、Lv1〜15 base skill = EX/ベースアビリティ、という対応。
+- 保留: 未特定EX10件、medium判定の再確認、枠(frame)の付与(mechanics側と連携)、キャラクターアビリティのID化。
+
+### weapons/テンプレートを実機武器詳細レスポンスベースで作成(2026-09-07)
+
+ユーザーから「武器は編成・ダメージ検証をしながら追加していくが、テンプレートは先に作りたい」との依頼。代表例としてセラフィックウェポン火(赤き熾炎の剣、`master_id` 1040017200)の**実機の武器詳細レスポンス**をチャットで提供。
+
+- **[knowledge/weapons/_template.md](../knowledge/weapons/README.md)** + **README.md** を新規作成。テンプレの軸: 基本情報 / ステータス(段階別) / 武器スキル(skill_id・**系統/カテゴリ・枠(frame)**・スキルLv別数値・発動条件) / 奥義 / 上限解放・強化(覚醒・超越・オーディアント・AUG) / 編成での役割。README に**実機レスポンスのフィールド対応表**(`master.*` / `param.*` / `skillN` / カテゴリ判定フラグ)とコード表(属性/レアリティ/武器種)を掲載。
+- **[knowledge/weapons/fire-ssr-seraphic-weapon.md](../knowledge/weapons/fire-ssr-seraphic-weapon.md)**(初の武器ファイル): 実機レスポンスで骨格(ATK2980/HP250〈Lv150・スキル15・4凸・+0〉、スキル1「ミカエルの祝福III」skill_id 1248、スキル2「火の神威」skill_id 375、奥義「アルハンゲリスク」)を作成。倍率・効果量・スキルLv別数値・枠は**要検証**でマーク(ユーザーが検証時に埋める方針)。セラフィックは2023年に刷新されており gbf.wiki の英語版ページが旧仕様のままの可能性あり。
+- `mcp-server/scripts/validate-knowledge.mjs` に weapons の frontmatter スキーマを追加(`id`/`name_jp`/`name_en`〈空可〉/`weapon_id`/`element`/`rarity`/`weapon_type`/`series`/`status`/`last_updated`/`source`)。`npm run check` パス確認済み。
+- 生レスポンスは`tools/network-recorder/captures/weapons/2026-09-07_weapon-detail_fire-ssr-seraphic-weapon.json`(git管理外)。所持インスタンス固有情報(instance id・skill_feed等)を含むため。
+- MCPサーバーへの`list_weapons`/`get_weapon`ツール追加は今後(charactersと同じパターン)。
 
 ## 情報の種類ごとの取得元
 
