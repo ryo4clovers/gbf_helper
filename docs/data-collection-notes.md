@@ -454,6 +454,16 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - `skill3_display` も 0 のことがある(方陣版インスタンスで skill2/skill3 とも display=0 だが有効)。`skillN_display` は完全に無視してよい。
 - 生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-ultima-scythe-{normal,magna}.json`。
 
+**2026-09-07 追加: 破壊の標(ヴェルサシア武器)で「スキルレベリング無し」「発動条件付きスキル」「アンクレット変更式スキル」を確認**。ユーザー提供の万象尽滅の宝剣(火剣、`master_id` 1040028900):
+
+- **`series_id` = 44**(連番ではない)、`series_name` [破壊の標]。マルチ「ヴェルサシア」の角10個で1本作成、属性ごとに編成1本のみ。
+- **`max_weapon_skill_level` = 1**: このシリーズはスキルレベリングが無く効果は固定値。テンプレの「スキルレベル別の数値」欄は「固定値」と記載。
+- スキル構成: skill1「破壊の神刃III」(攻刃特大+**破壊属性追撃**特大、固定)、skill2「再生の神守III」(最大HP特大+**破壊属性奥義追撃**特大、固定)、skill3「闘争の神撃II」(**アンクレットで通常攻撃/奥義/アビリティの3型に変更可**、現在は通常攻撃型)。破壊属性追撃という新しい追撃カテゴリ。
+- **発動条件付きスキル**: skill3 の `comment` に `◆スキル「機炎方陣」または「終炎禁呪」または「火」「業火」「紅蓮」の効果上昇量が合計280%以上で発動` — グリッドの火攻刃合計が一定以上で有効化。テンプレのスキル「発動条件」欄にこのパターンを追記。
+- Lv200(5凸)止まり・超越非対応(`transcendence_pu_flag` = false、`max_evolution_level` = 5)。
+- 奥義「黄泉＋＋」(火ダメージ特大/ディスペル1/火属性追撃)。
+- ファイル: [knowledge/weapons/fire-ssr-versacia-sword.md](../knowledge/weapons/fire-ssr-versacia-sword.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-versacia-sword.json`。英語名は gbf.wiki 未整備のため暫定。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |

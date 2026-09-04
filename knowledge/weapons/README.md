@@ -17,6 +17,7 @@
 | [fire-ssr-limited-benedia.md](./fire-ssr-limited-benedia.md) | ベネディーア / Benedia | 火 | リミテッドシリーズ | 下書き |
 | [fire-ssr-ultima-scythe-normal.md](./fire-ssr-ultima-scythe-normal.md) | 絶対否定の大鎌 / Ultima Axe (Normal) | 火 | 終末の神器(通常攻刃) | 下書き |
 | [fire-ssr-ultima-scythe-magna.md](./fire-ssr-ultima-scythe-magna.md) | 永遠拒絶の大鎌 / Ultima Axe (Magna) | 火 | 終末の神器(方陣攻刃) | 下書き |
+| [fire-ssr-versacia-sword.md](./fire-ssr-versacia-sword.md) | 万象尽滅の宝剣 / Versacia Sword (Fire) | 火 | 破壊の標 | 下書き |
 
 ## 命名規則
 
@@ -72,7 +73,7 @@
 | --- | --- |
 | **レアリティ `rarity`** | 2 R / 3 SR / 4 SSR |
 | **武器種 `kind`** | 1 剣 / 2 短剣 / 3 槍 / 4 斧(確認済) / 5 杖 / 6 銃(確認済) / 7 格闘 / 8 弓 / 9 楽器 / 10 刀(未確認分はジョブの `weapon1/2` コードと同じと推定) |
-| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器(以降は実例が集まり次第追記) |
+| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器 / 44 破壊の標(ヴェルサシア武器)。連番ではないので実例で確認する |
 
 ## スキル系統(damage-calc 用の軸)
 
