@@ -476,6 +476,12 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - **装備制限が重なる**: 終末⇔ドラゴニック(無印)、ドラゴニックオリジン⇔ドラゴニック(無印)。終末+ドラゴニック系で合計1本と推測(要確認)。
 - ファイル: [knowledge/weapons/fire-ssr-draconic-origin-harp.md](../knowledge/weapons/fire-ssr-draconic-origin-harp.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-draconic-origin-harp.json`。
 
+**2026-09-07 訂正: 装備本数制限のルールをユーザー確認で修正**。[team-building-basics.md](../knowledge/mechanics/team-building-basics.md)の「編成本数制限のある装備」を更新:
+
+- **基本ルール = 同一シリーズは編成に1本まで**(虚ろなる神器 / バハムートウェポン / オメガウェポン / 極星器 / 破壊の標 / 終末の神器 / セラフィックウェポン、それぞれ独立に1本)。
+- **例外はドラゴニックウェポンのみ**: 強化前「ドラゴニックウェポン」と強化後「ドラゴニックウェポン・オリジン」を**合算して1本**まで。
+- **終末の神器とドラゴニックウェポンは相互排他ではない**(併用可)。2026-09-06のゲーム内HELP文面と各武器の `limit.display_comment`(「[終末の神器]と[ドラゴニックウェポン]の武器は、いずれかひとつだけ」等)は誤解を招く表記で、実際は上記。weapons/ の各ファイルの装備制限記述も訂正。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |

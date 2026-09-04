@@ -147,7 +147,7 @@ source: "要検証"       # 実機レスポンス取得日 / 参照した gbf.wi
 
 - 上限解放: (各段階の解放内容。スキル追加・奥義進化〈＋/＋＋〉・Lv上限開放など)
 - スキルレベル: (上げ方 / 上限。`master.max_weapon_skill_level`。第3スキルだけ上限が異なる場合は `max_weapon_skill_level_2` を注記)
-- 装備制限(あれば): (`limit.display_comment`。例: 終末の神器とドラゴニックは1本のみ / オメガ武器は同グリッド1本 等)
+- 装備制限(あれば): (`limit.display_comment` を引用。実際のルールは [../mechanics/team-building-basics.md](../mechanics/team-building-basics.md) 参照 — 基本は「同一シリーズは編成に1本まで」。ドラゴニックのみ強化前+オリジンで合算1本。**display_comment が他シリーズ名を併記していても相互排他ではない**)
 - オーディアント/エニアド強化(あれば): (実機 `param.odiant`)
 - エレメント/AUG(`augment_skill`、あれば)
 

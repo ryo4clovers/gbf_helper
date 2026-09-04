@@ -62,7 +62,7 @@
 | `skill1`〜`skill4` の `skill_id` / `name` / `comment` / `level.release_level` | 武器スキル(`release_level` = 解放される武器Lv、文字列/数値どちらもあり) | 「武器スキル」セクション(`skill_id` は名寄せキー) |
 | `skillN_display` | 表示スロットのフラグ(0/1)。**空スロットでも 1、逆に有効スロットでも 0 のことがある(終末の第2スキル=0)。スキル有無の判定は `skillN.skill_id` の null 判定で行う** | — |
 | `bullet_info.set_bullets` | 銃(kind=6)のバレットスロット(`max_set_count` / 各 `bullet_N.slot_type`) | 「バレット」セクション |
-| `limit` | 配列 `[]`(なし)または オブジェクト `{ display_comment }`(装備制限文。終末⇔ドラゴニックの排他等) | 「上限解放・強化要素」の装備制限 |
+| `limit` | 配列 `[]`(なし)または オブジェクト `{ display_comment }`(装備制限文)。**文言が「[A]と[B]の武器は、いずれかひとつだけ」でも A と B が相互排他とは限らない** — 実ルールは [../mechanics/team-building-basics.md](../mechanics/team-building-basics.md)(同一シリーズ1本まで、ドラゴニックのみ無印+オリジン合算1本) | 「上限解放・強化要素」の装備制限 |
 | `augment_skill` | エレメント/AUG | 「上限解放・強化要素」 |
 | `omega` / `moon` / `is_xeno_weapon` / `job_weapon` / `is_rusted_weapon` / `is_origin_numbers_weapon` / `series_id` | 武器カテゴリ判定フラグ | 「編成での役割」(グリッド分類) |
 
