@@ -7,7 +7,9 @@
 
 | ファイル | 内容 | ステータス |
 | --- | --- | --- |
-| [free-slot-candidates.json](./free-slot-candidates.json) | 主人公の自由選択枠にセット可能なアビリティ候補一覧(全77ジョブ、`action_id`で名寄せ) | 下書き(実機レスポンス由来、倍率・効果量は未収集) |
+| [free-slot-candidates.json](./free-slot-candidates.json) | 主人公の自由選択枠にセット可能なアビリティ候補一覧(全77ジョブ、`action_id`で名寄せ) | 下書き(実機レスポンス由来、倍率・効果量は外部ソースから紐付け中) |
+| [status-effects.json](./status-effects.json) | ステータス効果ID(内部コード)カタログ。302種、`status`→名称/説明/派生バリアント/使用アビリティ | 下書き(説明文は実機テキストのまま。`frame`〈枠〉は未記入) |
+| [ability-effects.json](./ability-effects.json) | 各アビリティの倍率・効果量・効果時間(gbf.wiki等の外部ソースから)。`action_id`で free-slot-candidates.json と結合 | 収集中 |
 
 ## free-slot-candidates.json の構造
 
@@ -64,8 +66,46 @@
 
 - **ベースアビリティ(kind 6)**: **エクストラII(Ex2)ジョブのみ** 候補を持つ。対になるEx1ジョブの基本アビリティ(全10種: ダブルアサシン/剣神共鳴/集気/トライン/バレットリロード/宿命陣/闘志の残響/熱烈峻厳/プリンシパル・クラシック/リンガリング・セント)。ClassI〜V・オリジンはベースアビリティ候補ゼロ。
 
+## status-effects.json の構造
+
+```
+{ "_meta": {...},
+  "status_effects": {
+    "<status_id>": {
+      "status_id", "base_id",              // base_id はサフィックスを除いた族ID
+      "type": "buff|debuff|both",
+      "name",                              // 説明文からの暫定名(要精査、curated=false)
+      "game_description",                  // 実機テキストのまま
+      "description_variants": [ ... ],     // 同一IDで文言違いがある場合
+      "durations_seen": [ "3ターン", ... ],
+      "occurrences", "seen_on_abilities": [ ... ],
+      "frame": null,                       // ダメージ計算上の枠。未記入(付与元アビリティ依存のため要検討)
+      "curated": false
+    }
+  }
+}
+```
+
+内部コードの読み方: ベースID + `_サフィックス`。例 `1019`=防御UP/ダメージカット族、`1019_0_50`=被ダメージ50%カット、`1019_4_80`=風属性被ダメージ80%カット、`7435_1`=調律Lv1。
+
+## ability-effects.json の構造(収集中)
+
+```
+{ "_meta": {...},
+  "abilities": {
+    "<action_id>": {
+      "name_jp", "name_en",                // gbf.wiki 突き合わせ用
+      "source": "gbf.wiki" 等, "source_url",
+      "effects": [ "25% ATK Up (3T)", ... ],// 記載のまま(倍率・%・ターン)
+      "multiplier", "damage_cap",           // ダメージアビリティの場合
+      "notes"
+    }
+  }
+}
+```
+
 ## 未収集・今後
 
-- 各アビリティの**倍率・効果量(小中大の実値)、ダメージ上限、多段ヒット数、バフの枠(通常/別枠/EX等)** はこのレスポンスに含まれず、GameWith/gbf.wiki/検証ブログ等の外部ソースからの紐付けが必要。
-- ステータス効果IDの名称・分類カタログ(`status` → 名称/枠/説明)は未整備。
+- ability-effects.json は収集途中。gbf.wiki(`r.jina.ai` プロキシ経由で取得可)のジョブページから、EXアビリティ→リミット→ベースの順で紐付け中。GameWith は職ジョブアビリティの数値が「小中大」止まりで精度不足のため gbf.wiki を主とする。
+- status-effects.json の `name` 精査と `frame`(枠)の付与。
 - キャラクターアビリティのID化(NPC詳細レスポンスの収集)は別タスク。

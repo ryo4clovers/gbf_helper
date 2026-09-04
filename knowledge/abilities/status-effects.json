@@ -1,0 +1,5428 @@
+{
+ "_meta": {
+  "description": "実機アビリティレスポンスの ability_detail.buff/debuff に現れたステータス効果ID(内部コード)のカタログ。説明文はゲーム側テキストのまま。",
+  "source": "tools/network-recorder/captures/{job-detail,ability-subaction,job-master-level/perfectionproof}/ (git管理外) より抽出、2026-09-07",
+  "coverage": "302種の内部コード(取得済みジョブアビリティの範囲。キャラクターアビリティ由来の効果は未収集)",
+  "id_format": "ベースID(例1019=防御UP系)+ 任意の _サフィックス でLv・割合・属性などの派生を表す(例 1019_0_50 = 被ダメージ50%カット、1019_4_80 = 風属性被ダメージ80%カット)",
+  "todo": "name は説明文からの暫定。damage_calc の「枠」(通常/別枠/EX/連撃/...)は付与元アビリティ依存のため本カタログには含めず、free-slot-candidates.json 側で扱う予定。"
+ },
+ "status_effects": {
+  "1001": {
+   "status_id": "1001",
+   "base_id": "1001",
+   "type": "buff",
+   "name": "攻撃UP",
+   "game_description": "攻撃力が上昇した状態",
+   "durations_seen": [
+    "2ターン",
+    "5ターン",
+    "1ターン",
+    "3ターン"
+   ],
+   "occurrences": 807,
+   "seen_on_abilities": [
+    "カウンター",
+    "捨身の型",
+    "ブレイクアサシン",
+    "パイルリベレーション",
+    "捨身の型II",
+    "レイジII",
+    "ブレイクアサシンII",
+    "カウンターII",
+    "ライトウェイトII",
+    "ウェポンバーストII",
+    "レイジIII",
+    "狂信演舞"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1002": {
+   "status_id": "1002",
+   "base_id": "1002",
+   "type": "buff",
+   "name": "再生",
+   "game_description": "毎ターンHPが回復する状態",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 77,
+   "seen_on_abilities": [
+    "ミンストレルソング"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1003": {
+   "status_id": "1003",
+   "base_id": "1003",
+   "type": "buff",
+   "name": "弱体耐性UP",
+   "game_description": "弱体耐性が上昇した状態",
+   "description_variants": [
+    "弱体効果を1回無効化する状態",
+    "弱体耐性が上昇した状態(消去不可)"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "2ターン",
+    "1ターン",
+    "5ターン",
+    "4ターン"
+   ],
+   "occurrences": 131,
+   "seen_on_abilities": [
+    "ベール",
+    "ソウルピルファー",
+    "曼珠沙華",
+    "安らぎの木もれ日",
+    "剛耐の型",
+    "タクティカル・シールド",
+    "ファランクスIII",
+    "ホワイトスモーク",
+    "コンチネンタル・テーラー",
+    "フルレジスト",
+    "アミティコフォス",
+    "不知火の構え"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1004": {
+   "status_id": "1004",
+   "base_id": "1004",
+   "type": "buff",
+   "name": "ダブルアタック確率UP",
+   "game_description": "2回攻撃の発生確率が上昇した状態",
+   "durations_seen": [
+    "3ターン",
+    "1ターン",
+    "4ターン",
+    "1〜6ターン"
+   ],
+   "occurrences": 815,
+   "seen_on_abilities": [
+    "クイック",
+    "デュアルインパルスII",
+    "ソング・オブ・グランデ",
+    "デュアルインパルスIII",
+    "ランページ",
+    "ランページII",
+    "アップリフト",
+    "コール・オブ・アビス",
+    "オラトリオ",
+    "ヨムスボルグ",
+    "ハイディング",
+    "アトラクト・サルサ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1007": {
+   "status_id": "1007",
+   "base_id": "1007",
+   "type": "debuff",
+   "name": "奥義封印",
+   "game_description": "奥義が使用不可になる状態",
+   "description_variants": [
+    "奥義が使用不可になる状態(回復不可/短縮不可)"
+   ],
+   "durations_seen": [
+    "1ターン",
+    "3ターン"
+   ],
+   "occurrences": 5,
+   "seen_on_abilities": [
+    "バウンス・シャッセ",
+    "アトラクト・エンミティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1008": {
+   "status_id": "1008",
+   "base_id": "1008",
+   "type": "debuff",
+   "name": "毒",
+   "game_description": "毎ターンHPが減少する状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 89,
+   "seen_on_abilities": [
+    "ヴェノム",
+    "タイム・オン・ターゲット",
+    "ブラックヘイズ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1010": {
+   "status_id": "1010",
+   "base_id": "1010",
+   "type": "debuff",
+   "name": "攻撃DOWN",
+   "game_description": "攻撃力が減少した状態",
+   "durations_seen": [
+    "1ターン",
+    "180秒"
+   ],
+   "occurrences": 343,
+   "seen_on_abilities": [
+    "センチュリオン",
+    "アローレインII",
+    "ミゼラブルミスト",
+    "アローレインIII",
+    "アンプレディクト",
+    "タイム・オン・ターゲット",
+    "エメラルドフォグ",
+    "ブラックヘイズ",
+    "セイスヘイヴン",
+    "テネブラエ",
+    "ビーストファング",
+    "ニヤグローダ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1011": {
+   "status_id": "1011",
+   "base_id": "1011",
+   "type": "debuff",
+   "name": "弱体耐性DOWN",
+   "game_description": "弱体耐性が減少した状態",
+   "description_variants": [
+    "弱体耐性が減少した状態(回復不可)"
+   ],
+   "durations_seen": [
+    "180秒",
+    "1ターン",
+    "3ターン"
+   ],
+   "occurrences": 84,
+   "seen_on_abilities": [
+    "ソウルピルファー",
+    "天眼陣",
+    "ブラックチャーム",
+    "テネブラエ",
+    "フレイム・オブ・カオス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1019": {
+   "status_id": "1019",
+   "base_id": "1019",
+   "type": "buff",
+   "name": "防御UP",
+   "game_description": "防御力が上昇した状態",
+   "description_variants": [
+    "効果中の被ダメージと弱体効果を無効化する状態"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "1ターン",
+    "2ターン"
+   ],
+   "occurrences": 407,
+   "seen_on_abilities": [
+    "オーラ",
+    "ライトウェイト",
+    "パイルリベレーション",
+    "内功",
+    "ライトウェイトII",
+    "チャフリリース",
+    "剛耐の型",
+    "ガーディアン",
+    "ナイフハンド・ストライク",
+    "不知火の構え",
+    "アトラクト・サルサ",
+    "リフューリング"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1020": {
+   "status_id": "1020",
+   "base_id": "1020",
+   "type": "debuff",
+   "name": "防御DOWN",
+   "game_description": "防御力が減少した状態",
+   "durations_seen": [
+    "180秒",
+    "3ターン"
+   ],
+   "occurrences": 213,
+   "seen_on_abilities": [
+    "アーマーブレイク",
+    "ミゼラブルミスト",
+    "ランドグリース",
+    "狂信演舞",
+    "アーマーブレイクII",
+    "アンプレディクト",
+    "ソング・トゥ・ザ・デッド",
+    "タイム・オン・ターゲット",
+    "エメラルドフォグ",
+    "ブラックヘイズ",
+    "セイスヘイヴン",
+    "バナホッグ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1021": {
+   "status_id": "1021",
+   "base_id": "1021",
+   "type": "debuff",
+   "name": "火属性の被ダメージに対する防御力が減少した状態",
+   "game_description": "火属性の被ダメージに対する防御力が減少した状態",
+   "durations_seen": [
+    "180秒",
+    "3ターン"
+   ],
+   "occurrences": 173,
+   "seen_on_abilities": [
+    "ソング・トゥ・ザ・デッド",
+    "レイショナルショット",
+    "バナホッグ",
+    "闘志の残響",
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1022": {
+   "status_id": "1022",
+   "base_id": "1022",
+   "type": "debuff",
+   "name": "水属性の被ダメージに対する防御力が減少した状態",
+   "game_description": "水属性の被ダメージに対する防御力が減少した状態",
+   "durations_seen": [
+    "180秒",
+    "3ターン"
+   ],
+   "occurrences": 173,
+   "seen_on_abilities": [
+    "ソング・トゥ・ザ・デッド",
+    "レイショナルショット",
+    "バナホッグ",
+    "闘志の残響",
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1023": {
+   "status_id": "1023",
+   "base_id": "1023",
+   "type": "debuff",
+   "name": "土属性の被ダメージに対する防御力が減少した状態",
+   "game_description": "土属性の被ダメージに対する防御力が減少した状態",
+   "durations_seen": [
+    "180秒",
+    "3ターン"
+   ],
+   "occurrences": 173,
+   "seen_on_abilities": [
+    "ソング・トゥ・ザ・デッド",
+    "レイショナルショット",
+    "バナホッグ",
+    "闘志の残響",
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1024": {
+   "status_id": "1024",
+   "base_id": "1024",
+   "type": "debuff",
+   "name": "風属性の被ダメージに対する防御力が減少した状態",
+   "game_description": "風属性の被ダメージに対する防御力が減少した状態",
+   "durations_seen": [
+    "180秒",
+    "3ターン"
+   ],
+   "occurrences": 173,
+   "seen_on_abilities": [
+    "ソング・トゥ・ザ・デッド",
+    "レイショナルショット",
+    "バナホッグ",
+    "闘志の残響",
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1025": {
+   "status_id": "1025",
+   "base_id": "1025",
+   "type": "debuff",
+   "name": "光属性の被ダメージに対する防御力が減少した状態",
+   "game_description": "光属性の被ダメージに対する防御力が減少した状態",
+   "durations_seen": [
+    "180秒",
+    "3ターン"
+   ],
+   "occurrences": 173,
+   "seen_on_abilities": [
+    "ソング・トゥ・ザ・デッド",
+    "レイショナルショット",
+    "バナホッグ",
+    "闘志の残響",
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1026": {
+   "status_id": "1026",
+   "base_id": "1026",
+   "type": "debuff",
+   "name": "闇属性の被ダメージに対する防御力が減少した状態",
+   "game_description": "闇属性の被ダメージに対する防御力が減少した状態",
+   "durations_seen": [
+    "180秒",
+    "3ターン"
+   ],
+   "occurrences": 173,
+   "seen_on_abilities": [
+    "ソング・トゥ・ザ・デッド",
+    "レイショナルショット",
+    "バナホッグ",
+    "闘志の残響",
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1027": {
+   "status_id": "1027",
+   "base_id": "1027",
+   "type": "debuff",
+   "name": "特殊技の最大CTが上昇する状態",
+   "game_description": "特殊技の最大CTが上昇する状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 79,
+   "seen_on_abilities": [
+    "グラビティ",
+    "アンバーエッジ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1028": {
+   "status_id": "1028",
+   "base_id": "1028",
+   "type": "buff",
+   "name": "次に受ける被ダメージを無効化する状態 (消去不可)",
+   "game_description": "次に受ける被ダメージを無効化する状態 (消去不可)",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ハイ・イミューニティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1032": {
+   "status_id": "1032",
+   "base_id": "1032",
+   "type": "debuff",
+   "name": "攻撃が稀にミスになる状態",
+   "game_description": "攻撃が稀にミスになる状態",
+   "description_variants": [
+    "攻撃が稀にミスになる状態(回復不可)"
+   ],
+   "durations_seen": [
+    "180秒",
+    "2ターン"
+   ],
+   "occurrences": 166,
+   "seen_on_abilities": [
+    "ブラインド",
+    "アンプレディクト",
+    "ブラックヘイズ",
+    "朧"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1034": {
+   "status_id": "1034",
+   "base_id": "1034",
+   "type": "buff",
+   "name": "アビリティダメージが上昇した状態",
+   "game_description": "アビリティダメージが上昇した状態",
+   "description_variants": [
+    "アビリティダメージが上昇した状態(累積)"
+   ],
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 157,
+   "seen_on_abilities": [
+    "フォーカス",
+    "レゾナンスサージ",
+    "雷光水明＋",
+    "シールドハール"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1036": {
+   "status_id": "1036",
+   "base_id": "1036",
+   "type": "debuff",
+   "name": "アイテムドロップ率が上昇した状態",
+   "game_description": "アイテムドロップ率が上昇した状態",
+   "durations_seen": [],
+   "occurrences": 246,
+   "seen_on_abilities": [
+    "トレジャーハント",
+    "トレジャーハントII",
+    "トレジャーハントIII",
+    "トレジャーハントIV",
+    "アペリティフ",
+    "パルフェタムール",
+    "参伍博戯"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1044": {
+   "status_id": "1044",
+   "base_id": "1044",
+   "type": "buff",
+   "name": "トリプルアタック確率UP",
+   "game_description": "3回攻撃の発生確率が上昇した状態",
+   "description_variants": [
+    "3回攻撃の発生確率が上昇した状態(1回)"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "2ターン",
+    "4ターン",
+    "1ターン",
+    "1〜6ターン"
+   ],
+   "occurrences": 469,
+   "seen_on_abilities": [
+    "クイック",
+    "チェイスブレード",
+    "デッドリーエイム",
+    "フォーススナッチ",
+    "デュアルインパルスIII",
+    "ランページ",
+    "霹靂閃電",
+    "ランページII",
+    "コール・オブ・アビス",
+    "オラトリオ",
+    "ナイフロワイヤル",
+    "ワイルドマギカ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1045": {
+   "status_id": "1045",
+   "base_id": "1045",
+   "type": "buff",
+   "name": "被ダメージをカットして反射する状態",
+   "game_description": "被ダメージをカットして反射する状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "リフレクション"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1047": {
+   "status_id": "1047",
+   "base_id": "1047",
+   "type": "buff",
+   "name": "奥義変化",
+   "game_description": "自分の死を偽装し、サブメンバーの一人と入れ替える",
+   "description_variants": [
+    "奥義「無窮の蒼剣」 自属性ダメージ(極大)/強化効果を全て無効化/自分のHPと弱体効果を全回復/無窮の蒼剣効果 ◆効果中、ターン進行時に攻撃行動を2回行う/トリプルアタック確率UP/与ダメージUP/通常攻撃時にランダムな自分のダメージアビリティが発動/弱体効果無効/強化効果が無効化されない",
+    "火遁(闘闘)：敵に火属性ダメージ/火の印を付与 ◆火の印が2つ付与されている敵に攻撃力DOWN",
+    "水遁(気気)：敵に水属性ダメージ/水の印を付与 ◆水の印が2つ付与されている敵に防御力DOWN",
+    "土遁(虎虎)：敵に土属性ダメージ/土の印を付与 ◆土の印が2つ付与されている敵にスロウ効果",
+    "風遁(龍龍)：敵に風属性ダメージ/風の印を付与 ◆風の印が2つ付与されている敵にダブルアタック確率DOWN",
+    "雷迅(闘龍)：敵に光属性ダメージ/雷の印を付与 ◆雷の印が2つ付与されている敵に麻痺効果",
+    "呪縛(気龍)：敵に闇属性ダメージ/忍の印を付与 ◆忍の印が2つ付与されている敵に暗闇効果",
+    "始計(闘気)：自分のクリティカル確率UP",
+    "縮地(闘虎)：自分のトリプルアタック確率UP",
+    "空蝉(気闘)：敵の全ての攻撃を回避",
+    "毒遁(気虎)：敵全体に自属性ダメージ/毒効果",
+    "虎眼(虎闘)：自分が暗闇状態の時に攻撃UP",
+    "活殺(虎気)：自分のHPを回復/弱体効果を全て回復 ◆奥義ゲージを50％消費",
+    "蛍火(虎龍)：味方全体の弱体効果を1つ回復",
+    "千鳥(龍闘)：敵の連続攻撃確率DOWN",
+    "哀車(龍気)：敵のモードゲージを減少",
+    "狸退(龍虎)：敵に狙われなくなる",
+    "ファイアソード(火火)：敵に火属性ダメージ/自分に魔法陣：火を1つ付与 ◆魔法陣：火を2つ消費して、魔法陣付与の代わりに味方全体の火属性攻撃UP/ブロック効果",
+    "アイスソード(水水)：敵に水属性ダメージ/自分に魔法陣：水を1つ付与 ◆魔法陣：水を2つ消費して、魔法陣付与の代わりに味方全体の水属性攻撃UP/変転効果/有利属性ダメージ軽減",
+    "アースソード(土土)：敵に土属性ダメージ/自分に魔法陣：土を1つ付与 ◆魔法陣：土を2つ消費して、魔法陣付与の代わりに味方全体の土属性攻撃UP/連続攻撃確率UP",
+    "ウィンドソード(風風)：敵に風属性ダメージ/自分に魔法陣：風を1つ付与 ◆魔法陣：風を2つ消費して、魔法陣付与の代わりに味方全体の風属性攻撃UP/アビリティ性能UP",
+    "サンダーソード(火風)：敵に光属性ダメージ/自分に魔法陣：光を1つ付与 ◆魔法陣：光を2つ消費して、魔法陣付与の代わりに味方全体の光属性攻撃UP/幻影効果(2回)",
+    "ダークソード(水土)：敵に闇属性ダメージ/自分に魔法陣：闇を1つ付与 ◆魔法陣：闇を2つ消費して、魔法陣付与の代わりに味方全体の闇属性攻撃UP/奥義性能UP(1回)",
+    "ラーヴァシールド(火土)：参戦者の弱体耐性UP",
+    "アクアヒール(水風)：参戦者のHP回復",
+    "エレメンタルブレイク(土火)：敵に自属性防御DOWN",
+    "ハイドラフト(風水)：敵に自分の不利属性攻撃DOWN",
+    "ヒートウィンド(風火)：味方全体の奥義ゲージ上昇量UP/敵が特殊技を使用時に味方全体のトリプルアタック確率UP",
+    "クリアソル(土水)：味方全体の弱体効果を1つ回復/弱体成功率UP",
+    "フレアセイバー(火水)：自分が即座に奥義発動可能 ◆魔法陣：火を1つ消費して味方全体にクリティカル確率UP追加",
+    "ブラックサンド(土風)：敵に土属性ダメージ ◆魔法陣：土を1つ消費して命中率DOWN追加",
+    "フリーズバインド(水火)：敵に水属性ダメージ ◆魔法陣：水を1つ消費して氷牢効果追加",
+    "エナジーガスト(風土)：味方全体に活性効果 ◆魔法陣：風を1つ消費して高揚効果追加"
+   ],
+   "durations_seen": [],
+   "occurrences": 40,
+   "seen_on_abilities": [
+    "マントゥ・デュ・ルワ",
+    "忍術",
+    "エレメンタルキャスト",
+    "アンリミテッド・ブースト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1053": {
+   "status_id": "1053",
+   "base_id": "1053",
+   "type": "buff",
+   "name": "チェインバーストダメージUP",
+   "game_description": "ブレイク状態の敵への攻撃力が上昇した状態(1回)",
+   "description_variants": [
+    "奥義ダメージが上昇した状態",
+    "攻撃力が大幅に上昇した状態",
+    "攻撃力が大幅に上昇した状態(1回)",
+    "チェインバーストのダメージが上昇した状態"
+   ],
+   "durations_seen": [
+    "1ターン",
+    "3ターン"
+   ],
+   "occurrences": 14,
+   "seen_on_abilities": [
+    "ブレイクアサシン",
+    "ブレイクアサシンII",
+    "ウェポンバーストIII",
+    "ブレイクアサシンIII",
+    "極点",
+    "烈刀一閃",
+    "饗宴幻惑",
+    "ヴァロラスリー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1055": {
+   "status_id": "1055",
+   "base_id": "1055",
+   "type": "debuff",
+   "name": "ブレイク時間延長",
+   "game_description": "ブレイク時間が延長している状態",
+   "durations_seen": [],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "リードドライブ",
+    "ブレイクキープ",
+    "リードドライブII",
+    "雷光水明＋"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1056": {
+   "status_id": "1056",
+   "base_id": "1056",
+   "type": "debuff",
+   "name": "通常モードへ変化するのに必要なダメージが増加している状態",
+   "game_description": "通常モードへ変化するのに必要なダメージが増加している状態",
+   "durations_seen": [],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "ブレイクキープ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1057": {
+   "status_id": "1057",
+   "base_id": "1057",
+   "type": "buff",
+   "name": "弱体成功率が上昇した状態",
+   "game_description": "弱体成功率が上昇した状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "水鳥の歌詠",
+    "ヨムスボルグ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1066": {
+   "status_id": "1066",
+   "base_id": "1066",
+   "type": "buff",
+   "name": "アビリティダメージが上昇した状態",
+   "game_description": "アビリティダメージが上昇した状態",
+   "description_variants": [
+    "アビリティダメージが上昇した状態(消去不可)"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 155,
+   "seen_on_abilities": [
+    "エレメンタルフォース",
+    "エレメンタルフォースII",
+    "エーテルブラストIV"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1067": {
+   "status_id": "1067",
+   "base_id": "1067",
+   "type": "buff",
+   "name": "火属性攻撃力が上昇した状態",
+   "game_description": "火属性攻撃力が上昇した状態",
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 13,
+   "seen_on_abilities": [
+    "コンクルージョン",
+    "ヨムスボルグ",
+    "ドゥプレクス",
+    "ハイパーヴェロシティ",
+    "清祓乃神楽"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1068": {
+   "status_id": "1068",
+   "base_id": "1068",
+   "type": "buff",
+   "name": "水属性攻撃力が上昇した状態",
+   "game_description": "水属性攻撃力が上昇した状態",
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 13,
+   "seen_on_abilities": [
+    "コンクルージョン",
+    "ヨムスボルグ",
+    "ドゥプレクス",
+    "ハイパーヴェロシティ",
+    "清祓乃神楽"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1069": {
+   "status_id": "1069",
+   "base_id": "1069",
+   "type": "buff",
+   "name": "土属性攻撃力が上昇した状態",
+   "game_description": "土属性攻撃力が上昇した状態",
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 13,
+   "seen_on_abilities": [
+    "コンクルージョン",
+    "ヨムスボルグ",
+    "ドゥプレクス",
+    "ハイパーヴェロシティ",
+    "清祓乃神楽"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1070": {
+   "status_id": "1070",
+   "base_id": "1070",
+   "type": "buff",
+   "name": "風属性攻撃力が上昇した状態",
+   "game_description": "風属性攻撃力が上昇した状態",
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 13,
+   "seen_on_abilities": [
+    "コンクルージョン",
+    "ヨムスボルグ",
+    "ドゥプレクス",
+    "ハイパーヴェロシティ",
+    "清祓乃神楽"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1071": {
+   "status_id": "1071",
+   "base_id": "1071",
+   "type": "buff",
+   "name": "光属性攻撃力が上昇した状態",
+   "game_description": "光属性攻撃力が上昇した状態",
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 13,
+   "seen_on_abilities": [
+    "コンクルージョン",
+    "ヨムスボルグ",
+    "ドゥプレクス",
+    "ハイパーヴェロシティ",
+    "清祓乃神楽"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1072": {
+   "status_id": "1072",
+   "base_id": "1072",
+   "type": "buff",
+   "name": "闇属性攻撃力が上昇した状態",
+   "game_description": "闇属性攻撃力が上昇した状態",
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 13,
+   "seen_on_abilities": [
+    "コンクルージョン",
+    "ヨムスボルグ",
+    "ドゥプレクス",
+    "ハイパーヴェロシティ",
+    "清祓乃神楽"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1073": {
+   "status_id": "1073",
+   "base_id": "1073",
+   "type": "buff",
+   "name": "致死ダメージでもHP1で耐える状態",
+   "game_description": "致死ダメージでもHP1で耐える状態",
+   "description_variants": [
+    "致死ダメージ(最大HP25%以上)でもHP1で耐える状態"
+   ],
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "斬釘截鉄",
+    "モローン・ラベ",
+    "イモータルコマンドー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1074": {
+   "status_id": "1074",
+   "base_id": "1074",
+   "type": "buff",
+   "name": "奥義ゲージ上昇量が増加した状態",
+   "game_description": "奥義ゲージ上昇量が増加した状態",
+   "description_variants": [
+    "奥義ゲージ上昇量が増加した状態(消去不可/効果終了時ショート効果)"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "2ターン"
+   ],
+   "occurrences": 170,
+   "seen_on_abilities": [
+    "羅喉阿修羅陣",
+    "水鳥の歌詠",
+    "ヴァリアシオン",
+    "熱烈峻厳",
+    "朧",
+    "アドレナリンラッシュ",
+    "ゲリーリャ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1075": {
+   "status_id": "1075",
+   "base_id": "1075",
+   "type": "buff",
+   "name": "敵の攻撃を味方の代わりに受ける状態(全体攻撃は不可)",
+   "game_description": "敵の攻撃を味方の代わりに受ける状態(全体攻撃は不可)",
+   "description_variants": [
+    "敵の攻撃を味方の代わりに受ける状態(全体攻撃含む)",
+    "敵の攻撃を味方の代わりに受ける状態(全体攻撃含む/延長不可)"
+   ],
+   "durations_seen": [
+    "1ターン",
+    "3ターン"
+   ],
+   "occurrences": 85,
+   "seen_on_abilities": [
+    "かばう",
+    "ノブレス・プロテジー",
+    "アトラクト・エンミティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1077": {
+   "status_id": "1077",
+   "base_id": "1077",
+   "type": "debuff",
+   "name": "防御DOWN(回復不可)",
+   "game_description": "防御力が減少した状態(回復不可)",
+   "durations_seen": [
+    "5ターン",
+    "1ターン",
+    "3ターン"
+   ],
+   "occurrences": 324,
+   "seen_on_abilities": [
+    "捨身の型",
+    "捨身の型II",
+    "フォーカス",
+    "ランページII",
+    "シールドワイア",
+    "ダブルアサシン",
+    "天眼陣",
+    "朧",
+    "ブラックチャーム"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1083": {
+   "status_id": "1083",
+   "base_id": "1083",
+   "type": "debuff",
+   "name": "毎ターンHPが減少する状態",
+   "game_description": "毎ターンHPが減少する状態",
+   "durations_seen": [
+    "1ターン",
+    "180秒"
+   ],
+   "occurrences": 89,
+   "seen_on_abilities": [
+    "パイルリベレーション",
+    "アンプレディクト",
+    "タイム・オン・ターゲット"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1101": {
+   "status_id": "1101",
+   "base_id": "1101",
+   "type": "debuff",
+   "name": "攻撃行動が稀に制限される状態",
+   "game_description": "攻撃行動が稀に制限される状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 160,
+   "seen_on_abilities": [
+    "チャームボイス",
+    "チャームボイスII",
+    "アンプレディクト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1103": {
+   "status_id": "1103",
+   "base_id": "1103",
+   "type": "debuff",
+   "name": "毎ターンHPが減少する状態",
+   "game_description": "毎ターンHPが減少する状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 8,
+   "seen_on_abilities": [
+    "タイム・オン・ターゲット",
+    "フレイム・オブ・カオス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1104": {
+   "status_id": "1104",
+   "base_id": "1104",
+   "type": "buff",
+   "name": "攻撃力が上昇した状態(累積)",
+   "game_description": "攻撃力が上昇した状態(累積)",
+   "description_variants": [
+    "毎ターン攻撃力が上昇する状態"
+   ],
+   "durations_seen": [
+    "5ターン",
+    "6ターン"
+   ],
+   "occurrences": 13,
+   "seen_on_abilities": [
+    "練気",
+    "エインフェリアル",
+    "トライン"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1106": {
+   "status_id": "1106",
+   "base_id": "1106",
+   "type": "debuff",
+   "name": "ダブルアタック確率DOWN",
+   "game_description": "2回攻撃の発生確率が減少した状態",
+   "description_variants": [
+    "2回攻撃の発生確率が減少した状態(回復不可)"
+   ],
+   "durations_seen": [
+    "180秒",
+    "1ターン",
+    "5ターン",
+    "3ターン"
+   ],
+   "occurrences": 329,
+   "seen_on_abilities": [
+    "デュアルインパルスII",
+    "クイックダウン",
+    "デュアルインパルスIII",
+    "アンプレディクト",
+    "天眼陣",
+    "鴉雀無声",
+    "ブラックチャーム",
+    "テネブラエ",
+    "リードドライブIII",
+    "デュアルインパルス",
+    "フレイム・オブ・カオス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1107": {
+   "status_id": "1107",
+   "base_id": "1107",
+   "type": "debuff",
+   "name": "3回攻撃の発生確率が減少した状態",
+   "game_description": "3回攻撃の発生確率が減少した状態",
+   "description_variants": [
+    "3回攻撃の発生確率が減少した状態(回復不可)"
+   ],
+   "durations_seen": [
+    "180秒",
+    "1ターン",
+    "5ターン",
+    "3ターン"
+   ],
+   "occurrences": 174,
+   "seen_on_abilities": [
+    "クイックダウン",
+    "デュアルインパルスIII",
+    "アンプレディクト",
+    "天眼陣",
+    "鴉雀無声",
+    "ブラックチャーム",
+    "テネブラエ",
+    "リードドライブIII",
+    "フレイム・オブ・カオス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1111": {
+   "status_id": "1111",
+   "base_id": "1111",
+   "type": "debuff",
+   "name": "アビリティが封印された状態(回復不可)",
+   "game_description": "アビリティが封印された状態(回復不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ヒール・タイム"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1122": {
+   "status_id": "1122",
+   "base_id": "1122",
+   "type": "debuff",
+   "name": "火属性攻撃力が減少した状態",
+   "game_description": "火属性攻撃力が減少した状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "リードドライブIII"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1123": {
+   "status_id": "1123",
+   "base_id": "1123",
+   "type": "debuff",
+   "name": "水属性攻撃力が減少した状態",
+   "game_description": "水属性攻撃力が減少した状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "リードドライブIII"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1124": {
+   "status_id": "1124",
+   "base_id": "1124",
+   "type": "debuff",
+   "name": "土属性攻撃力が減少した状態",
+   "game_description": "土属性攻撃力が減少した状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "リードドライブIII"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1125": {
+   "status_id": "1125",
+   "base_id": "1125",
+   "type": "debuff",
+   "name": "風属性攻撃力が減少した状態",
+   "game_description": "風属性攻撃力が減少した状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "リードドライブIII"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1126": {
+   "status_id": "1126",
+   "base_id": "1126",
+   "type": "debuff",
+   "name": "光属性攻撃力が減少した状態",
+   "game_description": "光属性攻撃力が減少した状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "リードドライブIII"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1127": {
+   "status_id": "1127",
+   "base_id": "1127",
+   "type": "debuff",
+   "name": "闇属性攻撃力が減少した状態",
+   "game_description": "闇属性攻撃力が減少した状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "リードドライブIII"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1162": {
+   "status_id": "1162",
+   "base_id": "1162",
+   "type": "buff",
+   "name": "防御力無視",
+   "game_description": "敵の防御力を一定割合無視する状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "ウェポンバーストIV"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1180": {
+   "status_id": "1180",
+   "base_id": "1180",
+   "type": "buff",
+   "name": "通常攻撃と奥義の与ダメージの一部を自身のHPに吸収する状態",
+   "game_description": "通常攻撃と奥義の与ダメージの一部を自身のHPに吸収する状態",
+   "description_variants": [
+    "通常攻撃と奥義の与ダメージの一部を自身のHPに吸収する状態(延長不可)"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "4ターン"
+   ],
+   "occurrences": 15,
+   "seen_on_abilities": [
+    "ブラッドソード",
+    "水鳥の歌詠",
+    "ブレイド・オブ・グローリー",
+    "アトラクト・エンミティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1181": {
+   "status_id": "1181",
+   "base_id": "1181",
+   "type": "buff",
+   "name": "自分のHPが少なくなるほど攻撃力が大きく上昇する状態",
+   "game_description": "自分のHPが少なくなるほど攻撃力が大きく上昇する状態",
+   "durations_seen": [
+    "3ターン",
+    "5ターン",
+    "8ターン"
+   ],
+   "occurrences": 16,
+   "seen_on_abilities": [
+    "曼珠沙華",
+    "風雲之志",
+    "フォーティチュード",
+    "モローン・ラベ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1221": {
+   "status_id": "1221",
+   "base_id": "1221",
+   "type": "buff",
+   "name": "攻撃力が上昇した状態",
+   "game_description": "攻撃力が上昇した状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "トレマーラウンド"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1222": {
+   "status_id": "1222",
+   "base_id": "1222",
+   "type": "buff",
+   "name": "防御力が上昇した状態",
+   "game_description": "防御力が上昇した状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "トレマーラウンド"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1240": {
+   "status_id": "1240",
+   "base_id": "1240",
+   "type": "buff",
+   "name": "自分のHPが多いほど攻撃力が大きく上昇する状態",
+   "game_description": "自分のHPが多いほど攻撃力が大きく上昇する状態",
+   "durations_seen": [
+    "3ターン",
+    "1〜6ターン",
+    "4ターン"
+   ],
+   "occurrences": 23,
+   "seen_on_abilities": [
+    "ブレイブソウル",
+    "曼珠沙華",
+    "オーグメント・マギア",
+    "アトラクト・シャウト",
+    "ニュートリエント",
+    "ホプリテス",
+    "ブレイド・オブ・グローリー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1276": {
+   "status_id": "1276",
+   "base_id": "1276",
+   "type": "buff",
+   "name": "敵全員に通常攻撃を行う状態",
+   "game_description": "敵全員に通常攻撃を行う状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "チョーク"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1277": {
+   "status_id": "1277",
+   "base_id": "1277",
+   "type": "buff",
+   "name": "被ダメージまで連続攻撃確率が上昇した状態",
+   "game_description": "被ダメージまで連続攻撃確率が上昇した状態",
+   "durations_seen": [],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "画竜点睛"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1279": {
+   "status_id": "1279",
+   "base_id": "1279",
+   "type": "buff",
+   "name": "弱点を突いた際に稀にダメージが上昇する状態",
+   "game_description": "弱点を突いた際に稀にダメージが上昇する状態",
+   "durations_seen": [
+    "3ターン",
+    "2ターン",
+    "4ターン",
+    "1ターン",
+    "5ターン"
+   ],
+   "occurrences": 189,
+   "seen_on_abilities": [
+    "パワーレイズ",
+    "水鳥の歌詠",
+    "ジャミング",
+    "大伐断",
+    "岩崩拳",
+    "ブレイクアサシンIII",
+    "風魔手裏剣",
+    "瞑想",
+    "スペシャルボム",
+    "剣禅一如",
+    "フォーティチュード",
+    "ハイチェイサー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1281": {
+   "status_id": "1281",
+   "base_id": "1281",
+   "type": "debuff",
+   "name": "攻撃力が減少した状態(回復不可)",
+   "game_description": "攻撃力が減少した状態(回復不可)",
+   "durations_seen": [
+    "1ターン",
+    "3ターン"
+   ],
+   "occurrences": 79,
+   "seen_on_abilities": [
+    "天眼陣",
+    "鴉雀無声",
+    "ブラックチャーム"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1285": {
+   "status_id": "1285",
+   "base_id": "1285",
+   "type": "buff",
+   "name": "オーバードライブを抑制する状態",
+   "game_description": "オーバードライブを抑制する状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 77,
+   "seen_on_abilities": [
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1313": {
+   "status_id": "1313",
+   "base_id": "1313",
+   "type": "buff",
+   "name": "次に受ける単体攻撃を無効化する状態(全体攻撃で効果消滅)",
+   "game_description": "次に受ける単体攻撃を無効化する状態(全体攻撃で効果消滅)",
+   "durations_seen": [],
+   "occurrences": 90,
+   "seen_on_abilities": [
+    "湧水の羽衣",
+    "ホワイトスモーク",
+    "鴉雀無声",
+    "オクルス・フェーリス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1314": {
+   "status_id": "1314",
+   "base_id": "1314",
+   "type": "buff",
+   "name": "次に受ける攻撃を一定量無効化する状態",
+   "game_description": "次に受ける攻撃を一定量無効化する状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 33,
+   "seen_on_abilities": [
+    "ホワイトウォール",
+    "タクティカル・シールド",
+    "キュアーフェン",
+    "ノブレス・プロテジー",
+    "ヨムスボルグ",
+    "テルモピュライ",
+    "モローン・ラベ",
+    "カテドラル",
+    "オクルス・フェーリス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1372": {
+   "status_id": "1372",
+   "base_id": "1372",
+   "type": "buff",
+   "name": "5ターン後にアビリティが発動",
+   "game_description": "5ターン後にアビリティが発動",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "焙烙玉"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1378": {
+   "status_id": "1378",
+   "base_id": "1378",
+   "type": "buff",
+   "name": "防御力が上昇した状態(累積)",
+   "game_description": "防御力が上昇した状態(累積)",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "テストゥド"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1380": {
+   "status_id": "1380",
+   "base_id": "1380",
+   "type": "buff",
+   "name": "3ターン後にアビリティが発動",
+   "game_description": "3ターン後にアビリティが発動",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "鬼神の丸薬"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1383": {
+   "status_id": "1383",
+   "base_id": "1383",
+   "type": "buff",
+   "name": "追加ダメージ(通常攻撃)",
+   "game_description": "通常攻撃時に追加ダメージが発生する状態",
+   "description_variants": [
+    "通常攻撃時に弱点属性の追加ダメージが発生する状態",
+    "通常攻撃時に自分の属性の追加ダメージが発生する状態(1回)"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "2ターン",
+    "4ターン",
+    "1ターン",
+    "5ターン"
+   ],
+   "occurrences": 54,
+   "seen_on_abilities": [
+    "ホースマンズデューティ",
+    "ディプティク",
+    "オラトリオ",
+    "岩崩拳",
+    "楼門五三桐",
+    "チェイサー",
+    "アペリティフ",
+    "シークレットトライアド",
+    "ノルデン・ハル",
+    "ドラゴンブレイク",
+    "ドゥプレクス",
+    "リードドライブIII"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1406": {
+   "status_id": "1406",
+   "base_id": "1406",
+   "type": "debuff",
+   "name": "奥義ゲージ上昇量が減少した状態",
+   "game_description": "奥義ゲージ上昇量が減少した状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "コール・オブ・アビス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1420": {
+   "status_id": "1420",
+   "base_id": "1420",
+   "type": "buff",
+   "name": "火属性ダメージを軽減する状態(延長不可)",
+   "game_description": "火属性ダメージを軽減する状態(延長不可)",
+   "description_variants": [
+    "火属性ダメージを軽減する状態"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "アトラクト・エンミティ",
+    "ハイパーヴェロシティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1421": {
+   "status_id": "1421",
+   "base_id": "1421",
+   "type": "buff",
+   "name": "水属性ダメージを軽減する状態(延長不可)",
+   "game_description": "水属性ダメージを軽減する状態(延長不可)",
+   "description_variants": [
+    "水属性ダメージを軽減する状態"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "アトラクト・エンミティ",
+    "ハイパーヴェロシティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1422": {
+   "status_id": "1422",
+   "base_id": "1422",
+   "type": "buff",
+   "name": "土属性ダメージを軽減する状態(延長不可)",
+   "game_description": "土属性ダメージを軽減する状態(延長不可)",
+   "description_variants": [
+    "土属性ダメージを軽減する状態"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "アトラクト・エンミティ",
+    "ハイパーヴェロシティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1423": {
+   "status_id": "1423",
+   "base_id": "1423",
+   "type": "buff",
+   "name": "風属性ダメージを軽減する状態(延長不可)",
+   "game_description": "風属性ダメージを軽減する状態(延長不可)",
+   "description_variants": [
+    "風属性ダメージを軽減する状態"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "アトラクト・エンミティ",
+    "ハイパーヴェロシティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1424": {
+   "status_id": "1424",
+   "base_id": "1424",
+   "type": "buff",
+   "name": "光属性ダメージを軽減する状態(延長不可)",
+   "game_description": "光属性ダメージを軽減する状態(延長不可)",
+   "description_variants": [
+    "光属性ダメージを軽減する状態"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "アトラクト・エンミティ",
+    "ハイパーヴェロシティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1425": {
+   "status_id": "1425",
+   "base_id": "1425",
+   "type": "buff",
+   "name": "闇属性ダメージを軽減する状態(延長不可)",
+   "game_description": "闇属性ダメージを軽減する状態(延長不可)",
+   "description_variants": [
+    "闇属性ダメージを軽減する状態"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "アトラクト・エンミティ",
+    "ハイパーヴェロシティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1427": {
+   "status_id": "1427",
+   "base_id": "1427",
+   "type": "debuff",
+   "name": "防御DOWN(累積)",
+   "game_description": "防御力が減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 12,
+   "seen_on_abilities": [
+    "式神・蛟",
+    "春宵一刻値万両",
+    "モータル・ヴェノム",
+    "アストラプシテ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1428": {
+   "status_id": "1428",
+   "base_id": "1428",
+   "type": "debuff",
+   "name": "攻撃DOWN(累積)",
+   "game_description": "攻撃力が減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 14,
+   "seen_on_abilities": [
+    "式神・蛟",
+    "春宵一刻値万両",
+    "モータル・ヴェノム",
+    "アストラプシテ",
+    "ライトニング・シュート"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1429": {
+   "status_id": "1429",
+   "base_id": "1429",
+   "type": "buff",
+   "name": "連続攻撃確率が上昇した状態(1回)",
+   "game_description": "連続攻撃確率が上昇した状態(1回)",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "トライン"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1435": {
+   "status_id": "1435",
+   "base_id": "1435",
+   "type": "buff",
+   "name": "チェインバーストダメージ上限が上昇した状態",
+   "game_description": "チェインバーストダメージ上限が上昇した状態",
+   "description_variants": [
+    "チェインバーストダメージ上限が上昇した状態(1回)"
+   ],
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "極点",
+    "ライジングフォース"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1436": {
+   "status_id": "1436",
+   "base_id": "1436",
+   "type": "debuff",
+   "name": "火属性の被ダメージに対する防御力が減少した状態(累積)",
+   "game_description": "火属性の被ダメージに対する防御力が減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "ブリークディスオーダー",
+    "ライトニング・シュート"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1437": {
+   "status_id": "1437",
+   "base_id": "1437",
+   "type": "debuff",
+   "name": "水属性の被ダメージに対する防御力が減少した状態(累積)",
+   "game_description": "水属性の被ダメージに対する防御力が減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "ブリークディスオーダー",
+    "ライトニング・シュート"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1438": {
+   "status_id": "1438",
+   "base_id": "1438",
+   "type": "debuff",
+   "name": "土属性の被ダメージに対する防御力が減少した状態(累積)",
+   "game_description": "土属性の被ダメージに対する防御力が減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "ブリークディスオーダー",
+    "ライトニング・シュート"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1439": {
+   "status_id": "1439",
+   "base_id": "1439",
+   "type": "debuff",
+   "name": "風属性の被ダメージに対する防御力が減少した状態(累積)",
+   "game_description": "風属性の被ダメージに対する防御力が減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "ブリークディスオーダー",
+    "ライトニング・シュート"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1440": {
+   "status_id": "1440",
+   "base_id": "1440",
+   "type": "debuff",
+   "name": "光属性の被ダメージに対する防御力が減少した状態(累積)",
+   "game_description": "光属性の被ダメージに対する防御力が減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "ブリークディスオーダー",
+    "ライトニング・シュート"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1441": {
+   "status_id": "1441",
+   "base_id": "1441",
+   "type": "debuff",
+   "name": "闇属性の被ダメージに対する防御力が減少した状態(累積)",
+   "game_description": "闇属性の被ダメージに対する防御力が減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "ブリークディスオーダー",
+    "ライトニング・シュート"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1463": {
+   "status_id": "1463",
+   "base_id": "1463",
+   "type": "both",
+   "name": "攻撃のターゲットになりやすい状態",
+   "game_description": "攻撃のターゲットになりやすい状態",
+   "description_variants": [
+    "攻撃のターゲットになりやすい状態(消去不可)",
+    "攻撃のターゲットになりやすい状態(回復不可)"
+   ],
+   "durations_seen": [
+    "1ターン",
+    "2ターン",
+    "3ターン"
+   ],
+   "occurrences": 111,
+   "seen_on_abilities": [
+    "一字構え",
+    "ホースマンズデューティ",
+    "剛耐の型",
+    "ガーディアン",
+    "ナイフハンド・ストライク",
+    "不知火の構え",
+    "バニッシュ",
+    "ヴァリアシオン",
+    "天眼陣",
+    "斬釘截鉄",
+    "ブラックチャーム",
+    "アトラクト・ステップ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1466": {
+   "status_id": "1466",
+   "base_id": "1466",
+   "type": "buff",
+   "name": "与えるダメージが上昇している状態",
+   "game_description": "与えるダメージが上昇している状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "チェイスブレード"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1469": {
+   "status_id": "1469",
+   "base_id": "1469",
+   "type": "buff",
+   "name": "ダメージ上限UP(スロウン系)",
+   "game_description": "一度に与えるダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態",
+   "description_variants": [
+    "一度に与えるダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(1回)",
+    "一度に与えるダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(延長不可)"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "2ターン",
+    "1〜6ターン"
+   ],
+   "occurrences": 30,
+   "seen_on_abilities": [
+    "レイジIV",
+    "大伐断",
+    "風雲之志",
+    "ヨムスボルグ",
+    "ウェポンバーストIV",
+    "ビーストファング",
+    "ホプリテス",
+    "魔紋解放",
+    "コンバットレーション"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1476": {
+   "status_id": "1476",
+   "base_id": "1476",
+   "type": "buff",
+   "name": "奥義ダメージの上限が上昇した状態(1回)",
+   "game_description": "奥義ダメージの上限が上昇した状態(1回)",
+   "description_variants": [
+    "奥義ダメージの上限が上昇した状態",
+    "奥義ダメージの上限が上昇した状態(1回/消去不可)"
+   ],
+   "durations_seen": [
+    "1ターン",
+    "3ターン"
+   ],
+   "occurrences": 15,
+   "seen_on_abilities": [
+    "アナザーブレードII",
+    "リミットバースト",
+    "ヨムスボルグ",
+    "極点",
+    "烈刀一閃",
+    "ライジングフォース",
+    "トランセンド"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1479": {
+   "status_id": "1479",
+   "base_id": "1479",
+   "type": "buff",
+   "name": "敵対心UP(累積/回復不可)",
+   "game_description": "攻撃のターゲットになりやすい状態(累積/回復不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ドーンブレイク"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1484": {
+   "status_id": "1484",
+   "base_id": "1484",
+   "type": "buff",
+   "name": "毒・灼熱・腐敗などのターンダメージを回復に変換する状態(消去不可)",
+   "game_description": "毒・灼熱・腐敗などのターンダメージを回復に変換する状態(消去不可)",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "解放の歌声"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1486": {
+   "status_id": "1486",
+   "base_id": "1486",
+   "type": "buff",
+   "name": "毎ターン奥義ゲージが上昇する状態",
+   "game_description": "毎ターン奥義ゲージが上昇する状態",
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 20,
+   "seen_on_abilities": [
+    "アップリフト",
+    "マイクパフォーマンス",
+    "天地開闢",
+    "アンバーエッジ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1488": {
+   "status_id": "1488",
+   "base_id": "1488",
+   "type": "buff",
+   "name": "MPを消費して強化効果を得る状態",
+   "game_description": "MPを消費して強化効果を得る状態",
+   "durations_seen": [],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "天眼陣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1492": {
+   "status_id": "1492",
+   "base_id": "1492",
+   "type": "buff",
+   "name": "攻撃のターゲットになりにくい状態",
+   "game_description": "攻撃のターゲットになりにくい状態",
+   "durations_seen": [
+    "1ターン",
+    "3ターン"
+   ],
+   "occurrences": 78,
+   "seen_on_abilities": [
+    "ホースマンズデューティ",
+    "バニッシュ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1502": {
+   "status_id": "1502",
+   "base_id": "1502",
+   "type": "buff",
+   "name": "攻撃力が上昇した状態",
+   "game_description": "攻撃力が上昇した状態",
+   "durations_seen": [
+    "4ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "マッドバイタリティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1509": {
+   "status_id": "1509",
+   "base_id": "1509",
+   "type": "debuff",
+   "name": "毎ターンHPが減少する状態",
+   "game_description": "毎ターンHPが減少する状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "シャイニングII"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1540": {
+   "status_id": "1540",
+   "base_id": "1540",
+   "type": "buff",
+   "name": "奥義ゲージの代わりにこの効果を消費して奥義を発動する状態",
+   "game_description": "奥義ゲージの代わりにこの効果を消費して奥義を発動する状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "バースト・リフレイン"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1541": {
+   "status_id": "1541",
+   "base_id": "1541",
+   "type": "buff",
+   "name": "ダメージを受けた際に相手に攻撃する状態",
+   "game_description": "ダメージを受けた際に相手に攻撃する状態",
+   "description_variants": [
+    "通常攻撃を無効化して相手に攻撃する状態"
+   ],
+   "durations_seen": [
+    "2ターン",
+    "4ターン"
+   ],
+   "occurrences": 11,
+   "seen_on_abilities": [
+    "カウンター",
+    "カウンターII",
+    "ナイフハンド・ストライク",
+    "不知火の構え",
+    "斬釘截鉄",
+    "マッドバイタリティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1560": {
+   "status_id": "1560",
+   "base_id": "1560",
+   "type": "debuff",
+   "name": "エーテルブラストで大きなダメージを受けるようになった状態(エーテルブラストを受けると効果UP)",
+   "game_description": "エーテルブラストで大きなダメージを受けるようになった状態(エーテルブラストを受けると効果UP)",
+   "durations_seen": [],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "エーテルフラップ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1561": {
+   "status_id": "1561",
+   "base_id": "1561",
+   "type": "buff",
+   "name": "一度に与えるアビリティダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態",
+   "game_description": "一度に与えるアビリティダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態",
+   "description_variants": [
+    "一度に与えるアビリティダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(消去不可)"
+   ],
+   "durations_seen": [
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "ヨムスボルグ",
+    "エーテルブラストIV"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1564": {
+   "status_id": "1564",
+   "base_id": "1564",
+   "type": "buff",
+   "name": "自身の回復に対する回復上限が上昇した状態",
+   "game_description": "自身の回復に対する回復上限が上昇した状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "ニュートリエント"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1566": {
+   "status_id": "1566",
+   "base_id": "1566",
+   "type": "buff",
+   "name": "効果中の被ダメージと弱体効果を一定確率で無効化する状態",
+   "game_description": "効果中の被ダメージと弱体効果を一定確率で無効化する状態",
+   "durations_seen": [
+    "2ターン",
+    "3ターン",
+    "5ターン"
+   ],
+   "occurrences": 15,
+   "seen_on_abilities": [
+    "ジャミング",
+    "ハイディング",
+    "アトラクト・ステップ",
+    "ゲリーリャ",
+    "ハイパーヴェロシティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1638": {
+   "status_id": "1638",
+   "base_id": "1638",
+   "type": "buff",
+   "name": "毎ターンHPが回復する状態。HPが回復しないときは奥義ゲージが上昇する。",
+   "game_description": "毎ターンHPが回復する状態。HPが回復しないときは奥義ゲージが上昇する。",
+   "durations_seen": [
+    "5ターン",
+    "3ターン",
+    "4ターン"
+   ],
+   "occurrences": 18,
+   "seen_on_abilities": [
+    "解放の歌声",
+    "ラス・マニャニータス",
+    "ブレイド・オブ・グローリー",
+    "コンバットレーション",
+    "ハイパーヴェロシティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1658": {
+   "status_id": "1658",
+   "base_id": "1658",
+   "type": "buff",
+   "name": "与えるアビリティダメージが上昇した状態(累積)",
+   "game_description": "与えるアビリティダメージが上昇した状態(累積)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "シールドハール"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1917": {
+   "status_id": "1917",
+   "base_id": "1917",
+   "type": "debuff",
+   "name": "防御力が減少した状態(累積/回復不可)",
+   "game_description": "防御力が減少した状態(累積/回復不可)",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "トライン"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3097": {
+   "status_id": "3097",
+   "base_id": "3097",
+   "type": "buff",
+   "name": "特殊効果(複合)",
+   "game_description": "効果中攻防UP/必ずトリプルアタック/自属性追撃効果/弱体耐性が大幅に上昇/アビリティ使用不可(消去不可)",
+   "durations_seen": [
+    "4ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "ウールヴヘジン"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3187": {
+   "status_id": "3187",
+   "base_id": "3187",
+   "type": "buff",
+   "name": "ターン終了時に惑踊Lvが1上昇するが、被ダメージでLvがリセットされる状態(消去不可)",
+   "game_description": "ターン終了時に惑踊Lvが1上昇するが、被ダメージでLvがリセットされる状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "流麗の宝冠"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3188": {
+   "status_id": "3188",
+   "base_id": "3188",
+   "type": "buff",
+   "name": "自属性追撃効果/通常攻撃時に敵に自属性ダメージ/スロウ効果が発動する状態(消去不可/延長不可)",
+   "game_description": "自属性追撃効果/通常攻撃時に敵に自属性ダメージ/スロウ効果が発動する状態(消去不可/延長不可)",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "秘剣・極一閃"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3191": {
+   "status_id": "3191",
+   "base_id": "3191",
+   "type": "buff",
+   "name": "奥義発動時に自分のHPを現在値の25％消費して、攻撃大幅UP(1回)を付与する状態(消去不可/HPが25%以下になると解除)",
+   "game_description": "奥義発動時に自分のHPを現在値の25％消費して、攻撃大幅UP(1回)を付与する状態(消去不可/HPが25%以下になると解除)",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "狂戦の血"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3194": {
+   "status_id": "3194",
+   "base_id": "3194",
+   "type": "buff",
+   "name": "通常攻撃を行わないがターン終了時に自分の奥義ゲージUP(20％)/自分以外の味方にランダムな強化効果を2つ付与し、7回毎に全ての効果を付与する状態(消去不可)",
+   "game_description": "通常攻撃を行わないがターン終了時に自分の奥義ゲージUP(20％)/自分以外の味方にランダムな強化効果を2つ付与し、7回毎に全ての効果を付与する状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ダイアトニック"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3203": {
+   "status_id": "3203",
+   "base_id": "3203",
+   "type": "buff",
+   "name": "味方がトリプルアタック時にメヌエットLvが1上昇する状態。ターン終了時にLvが10の時、全て消費して敵全体に6回自属性ダメージ/強化効果を1つ無効化(消去不可)",
+   "game_description": "味方がトリプルアタック時にメヌエットLvが1上昇する状態。ターン終了時にLvが10の時、全て消費して敵全体に6回自属性ダメージ/強化効果を1つ無効化(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "アッチェレランド"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3211": {
+   "status_id": "3211",
+   "base_id": "3211",
+   "type": "buff",
+   "name": "残弾がなくなった時にリロードを行う状態(延長不可/消去不可)",
+   "game_description": "残弾がなくなった時にリロードを行う状態(延長不可/消去不可)",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "アムニッションベルト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3213": {
+   "status_id": "3213",
+   "base_id": "3213",
+   "type": "buff",
+   "name": "効果中はトレハン成功確率大幅UP/敵のトレハンLvに応じて攻撃性能が上昇する状態(消去不可)",
+   "game_description": "効果中はトレハン成功確率大幅UP/敵のトレハンLvに応じて攻撃性能が上昇する状態(消去不可)",
+   "durations_seen": [
+    "3〜8ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "パルフェタムール"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3231": {
+   "status_id": "3231",
+   "base_id": "3231",
+   "type": "buff",
+   "name": "効果中、カウンター効果(被ダメージ/1回)/敵対心UP/カウンターの与ダメージUP/防御UP/敵が特殊技を使用時、味方全体のHPを回復/弱体効果を1ターン短縮する状態(消去不可)",
+   "game_description": "効果中、カウンター効果(被ダメージ/1回)/敵対心UP/カウンターの与ダメージUP/防御UP/敵が特殊技を使用時、味方全体のHPを回復/弱体効果を1ターン短縮する状態(消去不可)",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "孜孜忽忽"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3232": {
+   "status_id": "3232",
+   "base_id": "3232",
+   "type": "buff",
+   "name": "効果中、連続攻撃確率UP/アビリティ与ダメージ上昇/武芸百般の発動回数が4回増加/必ず発動/武芸Lvが1上昇する状態(消去不可)",
+   "game_description": "効果中、連続攻撃確率UP/アビリティ与ダメージ上昇/武芸百般の発動回数が4回増加/必ず発動/武芸Lvが1上昇する状態(消去不可)",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "闘魂演武"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3233": {
+   "status_id": "3233",
+   "base_id": "3233",
+   "type": "buff",
+   "name": "効果中、強化効果の無効化と短縮を防ぐ/クリティカル確率UP/会心効果/通常攻撃の与ダメージUP/攻撃時に追加でダメージが発生し、効果終了時に再度主人公と入れ替わる状態(消去不可)",
+   "game_description": "効果中、強化効果の無効化と短縮を防ぐ/クリティカル確率UP/会心効果/通常攻撃の与ダメージUP/攻撃時に追加でダメージが発生し、効果終了時に再度主人公と入れ替わる状態(消去不可)",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "バッキングコマンド"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3259": {
+   "status_id": "3259",
+   "base_id": "3259",
+   "type": "buff",
+   "name": "効果中、奥義が発動しないが自分の攻撃UP/必ずトリプルアタック/通常攻撃の与ダメージ上昇効果/「仮面舞踏会」発動時に敵に2回自属性ダメージ/自分の攻撃大幅UP(1回)を追加する状態(消去不可/延長不可)",
+   "game_description": "効果中、奥義が発動しないが自分の攻撃UP/必ずトリプルアタック/通常攻撃の与ダメージ上昇効果/「仮面舞踏会」発動時に敵に2回自属性ダメージ/自分の攻撃大幅UP(1回)を追加する状態(消去不可/延長不可)",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "マーシャル・コレオグラフィ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3266": {
+   "status_id": "3266",
+   "base_id": "3266",
+   "type": "buff",
+   "name": "2回攻撃の発生確率が上昇した状態(消去不可)",
+   "game_description": "2回攻撃の発生確率が上昇した状態(消去不可)",
+   "description_variants": [
+    "3回攻撃の発生確率が上昇した状態(消去不可)",
+    "アビリティ与ダメージが上昇した状態(消去不可)",
+    "通常攻撃時に追加ダメージが発生し、敵に弱体効果を付与する状態(消去不可)",
+    "奥義発動時に追加ダメージが発生し、敵の強化効果を1つ無効化する状態(消去不可)",
+    "チェインバースト発生時、味方全体に自分の有利属性ダメージカット/奥義ゲージが上昇する状態(消去不可)"
+   ],
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "百恠咒符"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3292": {
+   "status_id": "3292",
+   "base_id": "3292",
+   "type": "buff",
+   "name": "自分のステータスが大幅に上昇/奥義とアビリティが変化/ターン進行時に攻撃行動を2回行う/アイテム使用不可/敵に2000万ダメージを与えるごとに、自分の優勢Lvが1上昇/自分が大ダメージを受けたターン終了時、自分の優勢Lvが1減少/効果終了時に戦闘不能になる状態(消去不可)",
+   "game_description": "自分のステータスが大幅に上昇/奥義とアビリティが変化/ターン進行時に攻撃行動を2回行う/アイテム使用不可/敵に2000万ダメージを与えるごとに、自分の優勢Lvが1上昇/自分が大ダメージを受けたターン終了時、自分の優勢Lvが1減少/効果終了時に戦闘不能になる状態(消去不可)",
+   "durations_seen": [
+    "4ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "捔力節会"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3336": {
+   "status_id": "3336",
+   "base_id": "3336",
+   "type": "buff",
+   "name": "毎ターンフェイタルチェインゲージUP(20%)/攻撃開始時に自分の奥義ゲージを30%消費して味方全体の攻防UP/連続攻撃確率UP/通常攻撃の与ダメージUPする状態(消去不可)",
+   "game_description": "毎ターンフェイタルチェインゲージUP(20%)/攻撃開始時に自分の奥義ゲージを30%消費して味方全体の攻防UP/連続攻撃確率UP/通常攻撃の与ダメージUPする状態(消去不可)",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エンペサル・トカル"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3360": {
+   "status_id": "3360",
+   "base_id": "3360",
+   "type": "buff",
+   "name": "奥義が「無窮の蒼剣」に変化/奥義ゲージの代わりにアンリミテッド・ブースト効果を消費して奥義を発動/奥義を温存していても発動/奥義によって敵に与えることのできる最大ダメージに達した時、さらに大きなダメージを与えられるようになった状態(消去不可)",
+   "game_description": "奥義が「無窮の蒼剣」に変化/奥義ゲージの代わりにアンリミテッド・ブースト効果を消費して奥義を発動/奥義を温存していても発動/奥義によって敵に与えることのできる最大ダメージに達した時、さらに大きなダメージを与えられるようになった状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "アンリミテッド・ブースト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3383": {
+   "status_id": "3383",
+   "base_id": "3383",
+   "type": "buff",
+   "name": "通常攻撃のヒット数が1ヒット増加し、通常攻撃時に自属性の追加ダメージが発生する状態(1回/消去不可)",
+   "game_description": "通常攻撃のヒット数が1ヒット増加し、通常攻撃時に自属性の追加ダメージが発生する状態(1回/消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "インフィニット・インパルス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3384": {
+   "status_id": "3384",
+   "base_id": "3384",
+   "type": "buff",
+   "name": "通常攻撃で弱点を突いた際に稀にダメージが上昇し、通常攻撃でクリティカル発動時一度に与えるダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(1回/消去不可)",
+   "game_description": "通常攻撃で弱点を突いた際に稀にダメージが上昇し、通常攻撃でクリティカル発動時一度に与えるダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(1回/消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "インフィニット・インパルス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3410": {
+   "status_id": "3410",
+   "base_id": "3410",
+   "type": "buff",
+   "name": "与えるダメージが上昇して被ダメージが一定値減少し、敵に属性アビリティダメージを与えた時に追加ダメージが1回発生する状態(消去不可)",
+   "game_description": "与えるダメージが上昇して被ダメージが一定値減少し、敵に属性アビリティダメージを与えた時に追加ダメージが1回発生する状態(消去不可)",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "エーテル・ゼノグロシア"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "4002": {
+   "status_id": "4002",
+   "base_id": "4002",
+   "type": "debuff",
+   "name": "アビリティの標的になった状態",
+   "game_description": "アビリティの標的になった状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "スタディエイム"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6007": {
+   "status_id": "6007",
+   "base_id": "6007",
+   "type": "buff",
+   "name": "回避に成功すると敵全体を暗闇状態にする状態",
+   "game_description": "回避に成功すると敵全体を暗闇状態にする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "チャフリリース"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6021": {
+   "status_id": "6021",
+   "base_id": "6021",
+   "type": "buff",
+   "name": "単体攻撃の対象になった際、残HPの高いキャラが自分をかばう状態",
+   "game_description": "単体攻撃の対象になった際、残HPの高いキャラが自分をかばう状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 5,
+   "seen_on_abilities": [
+    "狂信演舞"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6022": {
+   "status_id": "6022",
+   "base_id": "6022",
+   "type": "buff",
+   "name": "アビリティの槍と斧の効果が両方発動する状態(1回)",
+   "game_description": "アビリティの槍と斧の効果が両方発動する状態(1回)",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 5,
+   "seen_on_abilities": [
+    "湧水の羽衣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6031": {
+   "status_id": "6031",
+   "base_id": "6031",
+   "type": "buff",
+   "name": "2回攻撃の発生確率が上昇した状態(累積)",
+   "game_description": "2回攻撃の発生確率が上昇した状態(累積)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "薪割り"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6082": {
+   "status_id": "6082",
+   "base_id": "6082",
+   "type": "buff",
+   "name": "奥義ダメージが上昇した状態(1回)",
+   "game_description": "奥義ダメージが上昇した状態(1回)",
+   "description_variants": [
+    "奥義ダメージが上昇した状態(1回/消去不可)"
+   ],
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 12,
+   "seen_on_abilities": [
+    "アナザーブレード",
+    "アナザーブレードII",
+    "リミットバースト",
+    "ヨムスボルグ",
+    "ライジングフォース",
+    "トランセンド"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6083": {
+   "status_id": "6083",
+   "base_id": "6083",
+   "type": "buff",
+   "name": "確率で被ダメージを減少する状態",
+   "game_description": "確率で被ダメージを減少する状態",
+   "durations_seen": [
+    "1ターン",
+    "3ターン",
+    "4ターン"
+   ],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "クロスガード",
+    "ホースマンズデューティ",
+    "岩崩拳",
+    "タクティカル・シールド",
+    "オクルス・フェーリス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6106": {
+   "status_id": "6106",
+   "base_id": "6106",
+   "type": "buff",
+   "name": "自分より後に行動するメンバーが自分と同じ攻撃行動を行う状態",
+   "game_description": "自分より後に行動するメンバーが自分と同じ攻撃行動を行う状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "プリンシパル・クラシック"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6107": {
+   "status_id": "6107",
+   "base_id": "6107",
+   "type": "buff",
+   "name": "連続行動(2回)",
+   "game_description": "ターン進行時に攻撃行動を2回行う状態",
+   "description_variants": [
+    "ターン進行時に攻撃行動を3回行う状態"
+   ],
+   "durations_seen": [
+    "2ターン",
+    "1ターン",
+    "4ターン"
+   ],
+   "occurrences": 24,
+   "seen_on_abilities": [
+    "ディプティク",
+    "レイン・オブ・パラベラム",
+    "ワイルドマギカ",
+    "百恠咒符",
+    "リンガリング・セント",
+    "無明斬",
+    "バウンス・シャッセ",
+    "ハイチェイサー",
+    "極煌剣",
+    "緑の旋律"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6108": {
+   "status_id": "6108",
+   "base_id": "6108",
+   "type": "buff",
+   "name": "一度に与えるアビリティダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(累積)",
+   "game_description": "一度に与えるアビリティダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(累積)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "シールドハール"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6110": {
+   "status_id": "6110",
+   "base_id": "6110",
+   "type": "debuff",
+   "name": "2回攻撃の発生確率が減少した状態(累積)",
+   "game_description": "2回攻撃の発生確率が減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "式神・蛟",
+    "ブリークディスオーダー",
+    "天十握剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6111": {
+   "status_id": "6111",
+   "base_id": "6111",
+   "type": "debuff",
+   "name": "3回攻撃の発生確率が減少した状態(累積)",
+   "game_description": "3回攻撃の発生確率が減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "式神・蛟",
+    "ブリークディスオーダー",
+    "天十握剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6117": {
+   "status_id": "6117",
+   "base_id": "6117",
+   "type": "buff",
+   "name": "効果中、回避率が上昇した状態(累積)",
+   "game_description": "効果中、回避率が上昇した状態(累積)",
+   "durations_seen": [],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "ラス・マニャニータス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6120": {
+   "status_id": "6120",
+   "base_id": "6120",
+   "type": "debuff",
+   "name": "最大HPが減少した状態(累積/回復不可)",
+   "game_description": "最大HPが減少した状態(累積/回復不可)",
+   "durations_seen": [],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "アトラクト・サルサ",
+    "マッドバイタリティ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6138": {
+   "status_id": "6138",
+   "base_id": "6138",
+   "type": "buff",
+   "name": "コンパニオンの動力。コンパニオン稼働中は毎ターン消費し、足りない場合は稼働停止する。",
+   "game_description": "コンパニオンの動力。コンパニオン稼働中は毎ターン消費し、足りない場合は稼働停止する。",
+   "durations_seen": [],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "アクティベート"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6208": {
+   "status_id": "6208",
+   "base_id": "6208",
+   "type": "buff",
+   "name": "通常攻撃時の剣気消費効果の発動率が上昇した状態",
+   "game_description": "通常攻撃時の剣気消費効果の発動率が上昇した状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "ドゥプレクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6211": {
+   "status_id": "6211",
+   "base_id": "6211",
+   "type": "buff",
+   "name": "攻撃力が上昇した状態(消去不可)",
+   "game_description": "攻撃力が上昇した状態(消去不可)",
+   "description_variants": [
+    "2回攻撃の発生確率が上昇した状態(消去不可)",
+    "弱点を突いた際に稀にダメージが上昇する状態(消去不可)",
+    "被ダメージ時に剣気消費効果が発動しない状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 12,
+   "seen_on_abilities": [
+    "コルミロス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6242": {
+   "status_id": "6242",
+   "base_id": "6242",
+   "type": "buff",
+   "name": "2回攻撃の発生確率が上昇した状態(消去不可)",
+   "game_description": "2回攻撃の発生確率が上昇した状態(消去不可)",
+   "description_variants": [
+    "3回攻撃の発生確率が上昇した状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "剣禅一如"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6310": {
+   "status_id": "6310",
+   "base_id": "6310",
+   "type": "buff",
+   "name": "次のターンに攻撃力大幅UPする状態",
+   "game_description": "次のターンに攻撃力大幅UPする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "ブリッツバースト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6358": {
+   "status_id": "6358",
+   "base_id": "6358",
+   "type": "buff",
+   "name": "ターン終了時、自分の弱体効果を全て回復する状態(消去不可)",
+   "game_description": "ターン終了時、自分の弱体効果を全て回復する状態(消去不可)",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "ポーションリファイン"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6410": {
+   "status_id": "6410",
+   "base_id": "6410",
+   "type": "buff",
+   "name": "奥義が追加で発動する状態(1回)",
+   "game_description": "奥義が追加で発動する状態(1回)",
+   "description_variants": [
+    "奥義が追加で発動する状態",
+    "奥義が追加で発動する状態(1回/消去不可)"
+   ],
+   "durations_seen": [
+    "2ターン",
+    "1ターン"
+   ],
+   "occurrences": 15,
+   "seen_on_abilities": [
+    "デュアルアーツ",
+    "天地開闢",
+    "バースト・リフレイン",
+    "トランセンド",
+    "大蛇之息吹"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6464": {
+   "status_id": "6464",
+   "base_id": "6464",
+   "type": "buff",
+   "name": "奥義がコンパニオンウェポンの奥義に変化する状態(消去不可)",
+   "game_description": "奥義がコンパニオンウェポンの奥義に変化する状態(消去不可)",
+   "description_variants": [
+    "奥義がコンパニオンウェポンの奥義に変化する状態(1回/消去不可)"
+   ],
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "アナザーブレード",
+    "アナザーブレードII"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6484": {
+   "status_id": "6484",
+   "base_id": "6484",
+   "type": "buff",
+   "name": "チャージ・コンバージョン",
+   "game_description": "攻撃開始時に奥義ゲージが100%の時、奥義ゲージを全て消費して自分に自属性追撃効果(1回)を付与する状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "チャージ・コンバージョン"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6549": {
+   "status_id": "6549",
+   "base_id": "6549",
+   "type": "buff",
+   "name": "強化効果の無効化と短縮を1回防ぐ状態",
+   "game_description": "強化効果の無効化と短縮を1回防ぐ状態",
+   "description_variants": [
+    "強化効果の無効化と短縮を防ぐ状態",
+    "強化効果の無効化と短縮を防ぐ状態(消去不可)"
+   ],
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 16,
+   "seen_on_abilities": [
+    "コンチネンタル・テーラー",
+    "フルレジスト",
+    "ハイ・イミューニティ",
+    "ブレイド・オブ・グローリー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6568": {
+   "status_id": "6568",
+   "base_id": "6568",
+   "type": "buff",
+   "name": "通常攻撃、カウンターで与えるダメージが上昇した状態",
+   "game_description": "通常攻撃、カウンターで与えるダメージが上昇した状態",
+   "durations_seen": [
+    "3ターン",
+    "5ターン",
+    "1ターン",
+    "1〜6ターン"
+   ],
+   "occurrences": 26,
+   "seen_on_abilities": [
+    "霹靂閃電",
+    "風雲之志",
+    "ノルデン・ハル",
+    "フォーティチュード",
+    "アンバインドチャージ",
+    "ハイチェイサー",
+    "ホプリテス",
+    "魔紋解放",
+    "緑の旋律"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6569": {
+   "status_id": "6569",
+   "base_id": "6569",
+   "type": "buff",
+   "name": "回避成功時にターゲットに関わらず4回弱点属性ダメージを与える状態",
+   "game_description": "回避成功時にターゲットに関わらず4回弱点属性ダメージを与える状態",
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "ゲリーリャ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6585": {
+   "status_id": "6585",
+   "base_id": "6585",
+   "type": "buff",
+   "name": "チェインバーストダメージ上限が上昇した状態(累積)",
+   "game_description": "チェインバーストダメージ上限が上昇した状態(累積)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ドラグラクト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6622": {
+   "status_id": "6622",
+   "base_id": "6622",
+   "type": "buff",
+   "name": "クリティカル発動時に与ダメージが上昇する状態",
+   "game_description": "クリティカル発動時に与ダメージが上昇する状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "大伐断"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6667": {
+   "status_id": "6667",
+   "base_id": "6667",
+   "type": "buff",
+   "name": "執行Lvに応じて攻撃性能が上昇した状態(最大10/消去不可)",
+   "game_description": "執行Lvに応じて攻撃性能が上昇した状態(最大10/消去不可)",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "エクセキュート",
+    "エクセキュート・プロ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6709": {
+   "status_id": "6709",
+   "base_id": "6709",
+   "type": "buff",
+   "name": "効果中必ず連続攻撃を行い、ターン終了時に味方全体の奥義ゲージを吸収して自分の奥義ゲージに変換する状態(消去不可)",
+   "game_description": "効果中必ず連続攻撃を行い、ターン終了時に味方全体の奥義ゲージを吸収して自分の奥義ゲージに変換する状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "ジェット・トゥ・ジェット"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6811": {
+   "status_id": "6811",
+   "base_id": "6811",
+   "type": "buff",
+   "name": "味方が累計で3回アビリティを使用する度に森のなかまが助けてくれる状態(消去不可)",
+   "game_description": "味方が累計で3回アビリティを使用する度に森のなかまが助けてくれる状態(消去不可)",
+   "description_variants": [
+    "自分が奥義を発動した時に森のなかまが助けてくれる状態(消去不可)",
+    "自分がダメージを受けた時に森のなかまが助けてくれる状態(消去不可)",
+    "敵が特殊技を発動時に森のなかまが助けてくれる状態(消去不可)"
+   ],
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "木こりのうた"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6812": {
+   "status_id": "6812",
+   "base_id": "6812",
+   "type": "buff",
+   "name": "展開中毎ターン味方全体の攻防UP(累積)/奥義ゲージが上昇する状態(消去不可/耐久値が無くなると解除)",
+   "game_description": "展開中毎ターン味方全体の攻防UP(累積)/奥義ゲージが上昇する状態(消去不可/耐久値が無くなると解除)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "落葉焚き"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6813": {
+   "status_id": "6813",
+   "base_id": "6813",
+   "type": "buff",
+   "name": "重騎兵の勲のカウンター回数が増加し、効果中は必ず最大回数でカウンターを行う状態(消去不可/2回被ダメージで解除)",
+   "game_description": "重騎兵の勲のカウンター回数が増加し、効果中は必ず最大回数でカウンターを行う状態(消去不可/2回被ダメージで解除)",
+   "description_variants": [
+    "味方全体の連続攻撃確率が上昇した状態(消去不可/2回被ダメージで解除)"
+   ],
+   "durations_seen": [],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "ハイ・コマンド"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6818": {
+   "status_id": "6818",
+   "base_id": "6818",
+   "type": "debuff",
+   "name": "敵の特殊技のダメージが減少した状態(累積/回復不可)",
+   "game_description": "敵の特殊技のダメージが減少した状態(累積/回復不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "スパイラルターン"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7081": {
+   "status_id": "7081",
+   "base_id": "7081",
+   "type": "buff",
+   "name": "次に発動するシールド・オブ・ヴァラーに全力カウンター効果/カウンターが発動したターン終了時に敵に自属性ダメージ/強化効果を1つ無効化(カウンター回数に応じて発動回数増加/最大6回)を追加する状態(消去不可)",
+   "game_description": "次に発動するシールド・オブ・ヴァラーに全力カウンター効果/カウンターが発動したターン終了時に敵に自属性ダメージ/強化効果を1つ無効化(カウンター回数に応じて発動回数増加/最大6回)を追加する状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "コンバット・シールド"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7082": {
+   "status_id": "7082",
+   "base_id": "7082",
+   "type": "buff",
+   "name": "通常攻撃時に自属性の追加ダメージが発生し、「不動の勇武」発動時、自分に乱撃(3ヒット)効果/三回攻撃効果を付与する状態(消去不可)",
+   "game_description": "通常攻撃時に自属性の追加ダメージが発生し、「不動の勇武」発動時、自分に乱撃(3ヒット)効果/三回攻撃効果を付与する状態(消去不可)",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ディファイアンス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7084": {
+   "status_id": "7084",
+   "base_id": "7084",
+   "type": "buff",
+   "name": "回避成功時、味方全体の舞踏Lvを1上昇(消去不可)",
+   "game_description": "回避成功時、味方全体の舞踏Lvを1上昇(消去不可)",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "アトラクト・ステップ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7151": {
+   "status_id": "7151",
+   "base_id": "7151",
+   "type": "buff",
+   "name": "通常攻撃1回毎にランダムターゲットで2ヒットする状態(消去不可)",
+   "game_description": "通常攻撃1回毎にランダムターゲットで2ヒットする状態(消去不可)",
+   "description_variants": [
+    "通常攻撃後に敵に自属性3回ダメージを与える状態(消去不可)"
+   ],
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "レイン・オブ・パラベラム"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7225": {
+   "status_id": "7225",
+   "base_id": "7225",
+   "type": "buff",
+   "name": "ダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(累積)",
+   "game_description": "ダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(累積)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "薪割り"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7239": {
+   "status_id": "7239",
+   "base_id": "7239",
+   "type": "buff",
+   "name": "通常攻撃を行わないが確率でカウンター効果(回避/3回)/カウンターの与ダメージが上昇し、カウンター発動時に自分の奥義ゲージが10％UPする状態(消去不可)",
+   "game_description": "通常攻撃を行わないが確率でカウンター効果(回避/3回)/カウンターの与ダメージが上昇し、カウンター発動時に自分の奥義ゲージが10％UPする状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "達眼"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7343": {
+   "status_id": "7343",
+   "base_id": "7343",
+   "type": "buff",
+   "name": "被ダメージが一定値減少する状態",
+   "game_description": "被ダメージが一定値減少する状態",
+   "durations_seen": [
+    "1ターン",
+    "4ターン"
+   ],
+   "occurrences": 8,
+   "seen_on_abilities": [
+    "セイクリッド・プロテクション",
+    "ブレイド・オブ・グローリー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7431": {
+   "status_id": "7431",
+   "base_id": "7431",
+   "type": "buff",
+   "name": "攻撃力が上昇した状態(消去不可)",
+   "game_description": "攻撃力が上昇した状態(消去不可)",
+   "description_variants": [
+    "防御力が上昇した状態(消去不可)",
+    "2回攻撃の発生確率が上昇した状態(消去不可)",
+    "3回攻撃の発生確率が上昇した状態(消去不可)",
+    "自身の回復に対する回復上限が上昇した状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 30,
+   "seen_on_abilities": [
+    "プネウマ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7523": {
+   "status_id": "7523",
+   "base_id": "7523",
+   "type": "buff",
+   "name": "奥義ゲージ消費なし",
+   "game_description": "奥義やアビリティの発動に奥義ゲージを消費しない状態(消去不可/延長不可)",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 5,
+   "seen_on_abilities": [
+    "オーバートランス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7541": {
+   "status_id": "7541",
+   "base_id": "7541",
+   "type": "buff",
+   "name": "効果中敵対心が高いが、敵の全ての攻撃を回避する状態(回避成功時に後之閃が発動/消去不可)",
+   "game_description": "効果中敵対心が高いが、敵の全ての攻撃を回避する状態(回避成功時に後之閃が発動/消去不可)",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "見聞一刀"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7552": {
+   "status_id": "7552",
+   "base_id": "7552",
+   "type": "buff",
+   "name": "ターン終了時に奥義ゲージが50%以上の時、30%消費してMPを5回復/自属性追撃効果/味方全体のHP回復する状態(消去不可)",
+   "game_description": "ターン終了時に奥義ゲージが50%以上の時、30%消費してMPを5回復/自属性追撃効果/味方全体のHP回復する状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "木天蓼"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7566": {
+   "status_id": "7566",
+   "base_id": "7566",
+   "type": "buff",
+   "name": "魔法陣：火がある場合、攻撃力が上昇する状態(消去不可)",
+   "game_description": "魔法陣：火がある場合、攻撃力が上昇する状態(消去不可)",
+   "description_variants": [
+    "魔法陣：水がある場合、防御力が上昇する状態(消去不可)",
+    "魔法陣：土がある場合、奥義ダメージ/奥義ダメージ上限が上昇する状態(消去不可)",
+    "魔法陣：風がある場合、通常攻撃時に弱点属性の追加ダメージが発生する状態(消去不可)",
+    "魔法陣：光がある場合、一度に与えるダメージが一定以上に達した時、さらに大きなダメージを与えられるようになる状態(消去不可)",
+    "魔法陣：闇がある場合、与えるダメージが上昇する状態(消去不可)",
+    "全属性の魔法陣が1つ以上の時、必ずトリプルアタック/通常攻撃1回毎にランダムターゲットで3ヒットする状態(消去不可)",
+    "ターン終了時にランダムな属性の魔法陣を1つ追加し、7回毎に全属性を1つずつ追加する状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 16,
+   "seen_on_abilities": [
+    "スウェルマジック"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7568": {
+   "status_id": "7568",
+   "base_id": "7568",
+   "type": "buff",
+   "name": "自動復活時に一度だけ自分にルヴニールラパン効果を付与する状態(消去不可)",
+   "game_description": "自動復活時に一度だけ自分にルヴニールラパン効果を付与する状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ブランシュラパン"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7571": {
+   "status_id": "7571",
+   "base_id": "7571",
+   "type": "buff",
+   "name": "攻撃力が上昇した状態(消去不可)",
+   "game_description": "攻撃力が上昇した状態(消去不可)",
+   "description_variants": [
+    "防御力が上昇した状態(消去不可)",
+    "2回攻撃の発生確率が上昇した状態(消去不可)",
+    "弱点を突いた際に稀にダメージが上昇する状態(消去不可)",
+    "一度に与えるダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "白の盟約"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7590": {
+   "status_id": "7590",
+   "base_id": "7590",
+   "type": "buff",
+   "name": "3回攻撃の発生確率が上昇した状態(消去不可)",
+   "game_description": "3回攻撃の発生確率が上昇した状態(消去不可)",
+   "description_variants": [
+    "トリプルアタック時にエキサイトマッチLvが1上昇する状態(消去不可)",
+    "ターン終了時にエキサイトマッチLvが7の時、Lvをリセットし自分のダメージアビリティが即時使用可能/攻撃力が大幅に上昇する状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "ファイティングソング"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7592": {
+   "status_id": "7592",
+   "base_id": "7592",
+   "type": "buff",
+   "name": "奥義ゲージ100％時、奥義を温存していても発動する状態(消去不可)",
+   "game_description": "奥義ゲージ100％時、奥義を温存していても発動する状態(消去不可)",
+   "description_variants": [
+    "ダメージを受けた際に相手に攻撃する状態(消去不可)",
+    "通常攻撃後に敵に3回自属性ダメージ/攻防DOWN(累積)を与える状態(消去不可)",
+    "奥義発動時に敵に自属性ダメージ/自分に自属性追撃効果を付与する状態(消去不可)",
+    "敵が特殊技を使用した時に敵に2回自属性ダメージ/劇毒Lvが1上昇/暗闇効果を与える状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "ヒール・タイム"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7608": {
+   "status_id": "7608",
+   "base_id": "7608",
+   "type": "buff",
+   "name": "通常攻撃1回毎にランダムターゲットで3ヒットする状態",
+   "game_description": "通常攻撃1回毎にランダムターゲットで3ヒットする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "参伍博戯"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7615": {
+   "status_id": "7615",
+   "base_id": "7615",
+   "type": "buff",
+   "name": "攻撃力が上昇した状態(消去不可)",
+   "game_description": "攻撃力が上昇した状態(消去不可)",
+   "description_variants": [
+    "防御力が上昇した状態(消去不可)",
+    "2回攻撃の発生確率が上昇した状態(消去不可)",
+    "3回攻撃の発生確率が上昇した状態(消去不可)",
+    "攻撃のターゲットになりやすい状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 30,
+   "seen_on_abilities": [
+    "マントゥ・デュ・ルワ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7646": {
+   "status_id": "7646",
+   "base_id": "7646",
+   "type": "buff",
+   "name": "主人公の属性に応じた属性攻撃力が上昇した状態(消去不可)",
+   "game_description": "主人公の属性に応じた属性攻撃力が上昇した状態(消去不可)",
+   "description_variants": [
+    "防御力が上昇した状態(消去不可)",
+    "2回攻撃の発生確率が上昇した状態(消去不可)",
+    "一度に与えるダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(消去不可)",
+    "奥義ゲージ上昇量が増加した状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "プライマリ・ケア"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7647": {
+   "status_id": "7647",
+   "base_id": "7647",
+   "type": "debuff",
+   "name": "毎ターンHPが減少する状態(回復不可)",
+   "game_description": "毎ターンHPが減少する状態(回復不可)",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "トランセンド"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7664": {
+   "status_id": "7664",
+   "base_id": "7664",
+   "type": "buff",
+   "name": "コンパニオンウェポンの奥義発動時、自分が必ずトリプルアタック/攻撃大幅UP/再攻撃効果を付与する状態(消去不可)",
+   "game_description": "コンパニオンウェポンの奥義発動時、自分が必ずトリプルアタック/攻撃大幅UP/再攻撃効果を付与する状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ディス・クシフォス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7677": {
+   "status_id": "7677",
+   "base_id": "7677",
+   "type": "buff",
+   "name": "ターン終了時に味方全体のHPを回復する状態(消去不可)",
+   "game_description": "ターン終了時に味方全体のHPを回復する状態(消去不可)",
+   "description_variants": [
+    "5ターン毎にディスペルガード効果(1回)を付与する状態(消去不可)",
+    "敵が特殊技を使用時、味方全体の弱体効果を1つ回復する状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "薫風とさえずり"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7713": {
+   "status_id": "7713",
+   "base_id": "7713",
+   "type": "buff",
+   "name": "毎ターン奥義ゲージが上昇する状態(消去不可)",
+   "game_description": "毎ターン奥義ゲージが上昇する状態(消去不可)",
+   "description_variants": [
+    "被ダメージが一定値減少する状態(消去不可)",
+    "弱体耐性が上昇した状態(消去不可)",
+    "毎ターンHPが回復する状態(消去不可)"
+   ],
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 8,
+   "seen_on_abilities": [
+    "インスージアズム"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7714": {
+   "status_id": "7714",
+   "base_id": "7714",
+   "type": "buff",
+   "name": "3回攻撃の発生確率が上昇した状態(消去不可)",
+   "game_description": "3回攻撃の発生確率が上昇した状態(消去不可)",
+   "description_variants": [
+    "奥義ダメージが上昇した状態(消去不可)",
+    "奥義ダメージ上限が上昇した状態(消去不可)",
+    "一度に与えるダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 8,
+   "seen_on_abilities": [
+    "エヴァーラスティングタイズ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7719": {
+   "status_id": "7719",
+   "base_id": "7719",
+   "type": "buff",
+   "name": "通常攻撃後に敵に4回自属性ダメージを与える状態(消去不可)",
+   "game_description": "通常攻撃後に敵に4回自属性ダメージを与える状態(消去不可)",
+   "description_variants": [
+    "ターン終了時に自分が瀕死状態の時、回生の極意効果を消費して弱体効果とHPを全回復/ダメージアビリティが即時使用可能になる/即座に奥義発動可能になる状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "回生の極意"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7721": {
+   "status_id": "7721",
+   "base_id": "7721",
+   "type": "debuff",
+   "name": "効果中、3ターン毎に敵の現HPに応じた5回無属性ダメージ/強化効果を1つ無効化/弱体耐性DOWN(累積)が発生する状態(消去不可)",
+   "game_description": "効果中、3ターン毎に敵の現HPに応じた5回無属性ダメージ/強化効果を1つ無効化/弱体耐性DOWN(累積)が発生する状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ホーミングマーク"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7722": {
+   "status_id": "7722",
+   "base_id": "7722",
+   "type": "buff",
+   "name": "通常攻撃を行わない状態(消去不可)",
+   "game_description": "通常攻撃を行わない状態(消去不可)",
+   "description_variants": [
+    "攻撃のターゲットになりにくい状態(消去不可)",
+    "奥義発動時、自分の次に配置されたキャラに攻撃大幅UP(1回)を付与する状態(消去不可)",
+    "ダメージを受けなかったターン終了時、敵に10倍自属性ダメージ/被ダメージ上昇効果/自分の奥義ゲージUP(50％)を付与する状態(消去不可)"
+   ],
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 8,
+   "seen_on_abilities": [
+    "スニーキングタイプ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7724": {
+   "status_id": "7724",
+   "base_id": "7724",
+   "type": "buff",
+   "name": "2回攻撃の発生確率が上昇した状態(消去不可)",
+   "game_description": "2回攻撃の発生確率が上昇した状態(消去不可)",
+   "description_variants": [
+    "3回攻撃の発生確率が上昇した状態(消去不可)",
+    "与える通常攻撃ダメージが上昇している状態(消去不可)",
+    "トリプルアタック時に敵のHPを奪って味方全体のHPを回復する状態(消去不可)"
+   ],
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 8,
+   "seen_on_abilities": [
+    "義侠の神髄"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7818": {
+   "status_id": "7818",
+   "base_id": "7818",
+   "type": "buff",
+   "name": "ダメージを受けなかったターン終了時に敵に3回自属性ダメージ/攻防DOWN(累積)/弱体耐性DOWN(累積)を与える状態(消去不可)",
+   "game_description": "ダメージを受けなかったターン終了時に敵に3回自属性ダメージ/攻防DOWN(累積)/弱体耐性DOWN(累積)を与える状態(消去不可)",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "フィールドコマンダー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7819": {
+   "status_id": "7819",
+   "base_id": "7819",
+   "type": "buff",
+   "name": "主人公の属性に応じた属性攻撃力が上昇した状態(消去不可)",
+   "game_description": "主人公の属性に応じた属性攻撃力が上昇した状態(消去不可)",
+   "description_variants": [
+    "2回攻撃の発生確率が上昇した状態(消去不可)",
+    "3回攻撃の発生確率が上昇した状態(消去不可)",
+    "弱点を突いた際に稀にダメージが上昇する状態(消去不可)",
+    "一度に与えるダメージが一定以上に達した時、さらに大きなダメージを与えられるようになった状態(消去不可)"
+   ],
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "フィールドコマンダー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7821": {
+   "status_id": "7821",
+   "base_id": "7821",
+   "type": "buff",
+   "name": "効果中、ターン終了時に奥義ゲージが50%以上の時、30%消費して味方全体の舞踏Lvを3上昇/自属性攻撃UP(累積)/ダメージ上限UP(累積)を付与する状態(消去不可)",
+   "game_description": "効果中、ターン終了時に奥義ゲージが50%以上の時、30%消費して味方全体の舞踏Lvを3上昇/自属性攻撃UP(累積)/ダメージ上限UP(累積)を付与する状態(消去不可)",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ヴェニーズワルツ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7924": {
+   "status_id": "7924",
+   "base_id": "7924",
+   "type": "buff",
+   "name": "防御力が上昇した状態(消去不可)",
+   "game_description": "防御力が上昇した状態(消去不可)",
+   "description_variants": [
+    "弱体耐性が上昇した状態(消去不可)",
+    "強化効果の無効化と短縮を防ぐ状態(消去不可)"
+   ],
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "レジメント・ウォール"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7925": {
+   "status_id": "7925",
+   "base_id": "7925",
+   "type": "buff",
+   "name": "敵の攻撃を味方の代わりに受ける状態(全体攻撃含む/消去不可)",
+   "game_description": "敵の攻撃を味方の代わりに受ける状態(全体攻撃含む/消去不可)",
+   "description_variants": [
+    "防御力が上昇した状態(消去不可)",
+    "敵から受けるダメージの最大値を5000に固定する状態(消去不可)",
+    "ダメージを受けた際に相手に攻撃する状態(消去不可)",
+    "ターン終了時に敵全体に11倍自属性ダメージ/被ダメージUP(20回)を発動する状態(消去不可)",
+    "通常攻撃と奥義を行わない状態(消去不可)"
+   ],
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "シールド・オブ・ヴァラー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7973": {
+   "status_id": "7973",
+   "base_id": "7973",
+   "type": "buff",
+   "name": "攻撃力が上昇した状態(消去不可)",
+   "game_description": "攻撃力が上昇した状態(消去不可)",
+   "description_variants": [
+    "必ずトリプルアタックする状態(消去不可)",
+    "敵が特殊技を使用時に自属性12倍ダメージを与え、強化効果を1つ無効化する状態(消去不可)",
+    "ターン終了時に自分のHPを回復/弱体効果を1つ回復する状態(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 24,
+   "seen_on_abilities": [
+    "捔力節会"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "8021": {
+   "status_id": "8021",
+   "base_id": "8021",
+   "type": "debuff",
+   "name": "火の印・弐が掛かった状態",
+   "game_description": "火の印・弐が掛かった状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 77,
+   "seen_on_abilities": [
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "8022": {
+   "status_id": "8022",
+   "base_id": "8022",
+   "type": "debuff",
+   "name": "水の印・弐が掛かった状態",
+   "game_description": "水の印・弐が掛かった状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 77,
+   "seen_on_abilities": [
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "8023": {
+   "status_id": "8023",
+   "base_id": "8023",
+   "type": "debuff",
+   "name": "土の印・弐が掛かった状態",
+   "game_description": "土の印・弐が掛かった状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 77,
+   "seen_on_abilities": [
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "8024": {
+   "status_id": "8024",
+   "base_id": "8024",
+   "type": "debuff",
+   "name": "風の印・弐が掛かった状態",
+   "game_description": "風の印・弐が掛かった状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 77,
+   "seen_on_abilities": [
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "8025": {
+   "status_id": "8025",
+   "base_id": "8025",
+   "type": "debuff",
+   "name": "雷の印・弐が掛かった状態",
+   "game_description": "雷の印・弐が掛かった状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 77,
+   "seen_on_abilities": [
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "8026": {
+   "status_id": "8026",
+   "base_id": "8026",
+   "type": "debuff",
+   "name": "忍の印・弐が掛かった状態",
+   "game_description": "忍の印・弐が掛かった状態",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 77,
+   "seen_on_abilities": [
+    "風魔手裏剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "10281": {
+   "status_id": "10281",
+   "base_id": "10281",
+   "type": "buff",
+   "name": "次に受ける被ダメージを無効化する状態",
+   "game_description": "次に受ける被ダメージを無効化する状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 84,
+   "seen_on_abilities": [
+    "センチュリオン",
+    "ホースマンズデューティ",
+    "センチュリオンII"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "10282": {
+   "status_id": "10282",
+   "base_id": "10282",
+   "type": "buff",
+   "name": "次に受ける被ダメージを無効化する状態",
+   "game_description": "次に受ける被ダメージを無効化する状態",
+   "durations_seen": [],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "コンチネンタル・テーラー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "11022": {
+   "status_id": "11022",
+   "base_id": "11022",
+   "type": "debuff",
+   "name": "戦闘行動を封じられた状態",
+   "game_description": "戦闘行動を封じられた状態",
+   "durations_seen": [
+    "60秒"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "アンプレディクト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "13742": {
+   "status_id": "13742",
+   "base_id": "13742",
+   "type": "debuff",
+   "name": "CTが溜まらなくなる状態",
+   "game_description": "CTが溜まらなくなる状態",
+   "durations_seen": [
+    "60秒"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "アンプレディクト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "15731": {
+   "status_id": "15731",
+   "base_id": "15731",
+   "type": "buff",
+   "name": "毎ターンテンションが上昇する状態(被ダメージで解除/最大でテンションLv4まで上昇し、その後は効果時間のみ延長される)",
+   "game_description": "毎ターンテンションが上昇する状態(被ダメージで解除/最大でテンションLv4まで上昇し、その後は効果時間のみ延長される)",
+   "durations_seen": [],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "ファイティングスピリット"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "61385": {
+   "status_id": "61385",
+   "base_id": "61385",
+   "type": "buff",
+   "name": "コンパニオンの動力。コンパニオン稼働中は毎ターン消費し、足りない場合は稼働停止する。",
+   "game_description": "コンパニオンの動力。コンパニオン稼働中は毎ターン消費し、足りない場合は稼働停止する。",
+   "durations_seen": [],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "リフューリング"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "62931": {
+   "status_id": "62931",
+   "base_id": "62931",
+   "type": "buff",
+   "name": "火属性の力を込めた魔法陣(最大2/消去不可)",
+   "game_description": "火属性の力を込めた魔法陣(最大2/消去不可)",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "スペルブースト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "62941": {
+   "status_id": "62941",
+   "base_id": "62941",
+   "type": "buff",
+   "name": "水属性の力を込めた魔法陣(最大2/消去不可)",
+   "game_description": "水属性の力を込めた魔法陣(最大2/消去不可)",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "スペルブースト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "62951": {
+   "status_id": "62951",
+   "base_id": "62951",
+   "type": "buff",
+   "name": "土属性の力を込めた魔法陣(最大2/消去不可)",
+   "game_description": "土属性の力を込めた魔法陣(最大2/消去不可)",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "スペルブースト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "62961": {
+   "status_id": "62961",
+   "base_id": "62961",
+   "type": "buff",
+   "name": "風属性の力を込めた魔法陣(最大2/消去不可)",
+   "game_description": "風属性の力を込めた魔法陣(最大2/消去不可)",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "スペルブースト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "62971": {
+   "status_id": "62971",
+   "base_id": "62971",
+   "type": "buff",
+   "name": "光属性の力を込めた魔法陣(最大2/消去不可)",
+   "game_description": "光属性の力を込めた魔法陣(最大2/消去不可)",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "スペルブースト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "62981": {
+   "status_id": "62981",
+   "base_id": "62981",
+   "type": "buff",
+   "name": "闇属性の力を込めた魔法陣(最大2/消去不可)",
+   "game_description": "闇属性の力を込めた魔法陣(最大2/消去不可)",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "スペルブースト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "63353": {
+   "status_id": "63353",
+   "base_id": "63353",
+   "type": "debuff",
+   "name": "ブレイク状態の敵に対して発動する効果を受ける状態",
+   "game_description": "ブレイク状態の敵に対して発動する効果を受ける状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "楼門五三桐"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "65271": {
+   "status_id": "65271",
+   "base_id": "65271",
+   "type": "buff",
+   "name": "火の魔力が増幅している状態(最大5/消去不可)",
+   "game_description": "火の魔力が増幅している状態(最大5/消去不可)",
+   "durations_seen": [],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "エーテルサクション",
+    "シークレットトライアド",
+    "エーテルブラストIV"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "65281": {
+   "status_id": "65281",
+   "base_id": "65281",
+   "type": "buff",
+   "name": "水の魔力が増幅している状態(最大5/消去不可)",
+   "game_description": "水の魔力が増幅している状態(最大5/消去不可)",
+   "durations_seen": [],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "エーテルサクション",
+    "シークレットトライアド",
+    "エーテルブラストIV"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "65291": {
+   "status_id": "65291",
+   "base_id": "65291",
+   "type": "buff",
+   "name": "土の魔力が増幅している状態(最大5/消去不可)",
+   "game_description": "土の魔力が増幅している状態(最大5/消去不可)",
+   "durations_seen": [],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "エーテルサクション",
+    "シークレットトライアド",
+    "エーテルブラストIV"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "65301": {
+   "status_id": "65301",
+   "base_id": "65301",
+   "type": "buff",
+   "name": "風の魔力が増幅している状態(最大5/消去不可)",
+   "game_description": "風の魔力が増幅している状態(最大5/消去不可)",
+   "durations_seen": [],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "エーテルサクション",
+    "シークレットトライアド",
+    "エーテルブラストIV"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "65311": {
+   "status_id": "65311",
+   "base_id": "65311",
+   "type": "buff",
+   "name": "光の魔力が増幅している状態(最大5/消去不可)",
+   "game_description": "光の魔力が増幅している状態(最大5/消去不可)",
+   "durations_seen": [],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "エーテルサクション",
+    "シークレットトライアド",
+    "エーテルブラストIV"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "65321": {
+   "status_id": "65321",
+   "base_id": "65321",
+   "type": "buff",
+   "name": "闇の魔力が増幅している状態(最大5/消去不可)",
+   "game_description": "闇の魔力が増幅している状態(最大5/消去不可)",
+   "durations_seen": [],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "エーテルサクション",
+    "シークレットトライアド",
+    "エーテルブラストIV"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "72971": {
+   "status_id": "72971",
+   "base_id": "72971",
+   "type": "debuff",
+   "name": "Lvに応じて連続攻撃確率が減少した状態(最大Lv10/回復不可)",
+   "game_description": "Lvに応じて連続攻撃確率が減少した状態(最大Lv10/回復不可)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "フレイム・オブ・カオス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "75421": {
+   "status_id": "75421",
+   "base_id": "75421",
+   "type": "buff",
+   "name": "フェイタルチェイン発動時と敵の予兆を中断時に八塩折Lvが上昇し、Lvに応じて攻撃力が上昇した状態(消去不可/最大8)",
+   "game_description": "フェイタルチェイン発動時と敵の予兆を中断時に八塩折Lvが上昇し、Lvに応じて攻撃力が上昇した状態(消去不可/最大8)",
+   "durations_seen": [],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "岐首断剣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "143315": {
+   "status_id": "143315",
+   "base_id": "143315",
+   "type": "buff",
+   "name": "剣神解放により武器の性能を引き上げた状態。攻撃や被ダメージによる防御効果、剣神共鳴で消費する。(消去不可)",
+   "game_description": "剣神解放により武器の性能を引き上げた状態。攻撃や被ダメージによる防御効果、剣神共鳴で消費する。(消去不可)",
+   "description_variants": [
+    "グロリアス・アーツにより武器の性能を引き上げた状態。攻撃や被ダメージによる防御効果、剣神共鳴で消費する。(消去不可)"
+   ],
+   "durations_seen": [],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "剣神解放",
+    "集気",
+    "グロリアス・アーツ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "148710": {
+   "status_id": "148710",
+   "base_id": "148710",
+   "type": "buff",
+   "name": "魔力が増幅した状態",
+   "game_description": "魔力が増幅した状態",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "宿命陣"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "148715": {
+   "status_id": "148715",
+   "base_id": "148715",
+   "type": "buff",
+   "name": "魔力が増幅した状態",
+   "game_description": "魔力が増幅した状態",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "ムーンライト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1010_16": {
+   "status_id": "1010_16",
+   "base_id": "1010",
+   "type": "debuff",
+   "name": "攻撃DOWN",
+   "game_description": "攻撃力が減少した状態",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "デモンズフレア"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1011_16": {
+   "status_id": "1011_16",
+   "base_id": "1011",
+   "type": "debuff",
+   "name": "弱体耐性DOWN",
+   "game_description": "弱体耐性が減少した状態",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "デモンズフレア"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1019_0_40": {
+   "status_id": "1019_0_40",
+   "base_id": "1019",
+   "type": "buff",
+   "name": "防御UP",
+   "game_description": "被ダメージを40%カットする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "クロスガード"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1019_0_50": {
+   "status_id": "1019_0_50",
+   "base_id": "1019",
+   "type": "buff",
+   "name": "防御UP",
+   "game_description": "被ダメージを50%カットする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1019_0_70": {
+   "status_id": "1019_0_70",
+   "base_id": "1019",
+   "type": "buff",
+   "name": "防御UP",
+   "game_description": "被ダメージを70%カットする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ファランクスII",
+    "ファランクスIII"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1019_0_80": {
+   "status_id": "1019_0_80",
+   "base_id": "1019",
+   "type": "buff",
+   "name": "防御UP",
+   "game_description": "被ダメージを80%カットする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1019_1_80": {
+   "status_id": "1019_1_80",
+   "base_id": "1019",
+   "type": "buff",
+   "name": "防御UP",
+   "game_description": "火属性の被ダメージを80%カットする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1019_2_80": {
+   "status_id": "1019_2_80",
+   "base_id": "1019",
+   "type": "buff",
+   "name": "防御UP",
+   "game_description": "水属性の被ダメージを80%カットする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1019_3_80": {
+   "status_id": "1019_3_80",
+   "base_id": "1019",
+   "type": "buff",
+   "name": "防御UP",
+   "game_description": "土属性の被ダメージを80%カットする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1019_4_80": {
+   "status_id": "1019_4_80",
+   "base_id": "1019",
+   "type": "buff",
+   "name": "防御UP",
+   "game_description": "風属性の被ダメージを80%カットする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1019_5_80": {
+   "status_id": "1019_5_80",
+   "base_id": "1019",
+   "type": "buff",
+   "name": "防御UP",
+   "game_description": "光属性の被ダメージを80%カットする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1019_6_80": {
+   "status_id": "1019_6_80",
+   "base_id": "1019",
+   "type": "buff",
+   "name": "防御UP",
+   "game_description": "闇属性の被ダメージを80%カットする状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1020_12": {
+   "status_id": "1020_12",
+   "base_id": "1020",
+   "type": "debuff",
+   "name": "防御DOWN",
+   "game_description": "防御力が減少した状態",
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 8,
+   "seen_on_abilities": [
+    "無双張手",
+    "バースト・リフレイン"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1020_16": {
+   "status_id": "1020_16",
+   "base_id": "1020",
+   "type": "debuff",
+   "name": "防御DOWN",
+   "game_description": "防御力が減少した状態",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "デモンズフレア"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1032_33": {
+   "status_id": "1032_33",
+   "base_id": "1032",
+   "type": "debuff",
+   "name": "攻撃が稀にミスになる状態",
+   "game_description": "攻撃が稀にミスになる状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "タイム・オン・ターゲット",
+    "ビギニングアロー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1032_36": {
+   "status_id": "1032_36",
+   "base_id": "1032",
+   "type": "debuff",
+   "name": "攻撃が稀にミスになる状態",
+   "game_description": "攻撃が稀にミスになる状態",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "フレイム・オブ・カオス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1032_42": {
+   "status_id": "1032_42",
+   "base_id": "1032",
+   "type": "debuff",
+   "name": "通常攻撃/特殊技/特殊行動が確率でミスになる状態",
+   "game_description": "通常攻撃/特殊技/特殊行動が確率でミスになる状態",
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "タイム・オン・ターゲット",
+    "バースト・リフレイン",
+    "サウザンド・スライス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1032_45": {
+   "status_id": "1032_45",
+   "base_id": "1032",
+   "type": "debuff",
+   "name": "通常攻撃/特殊技/特殊行動が確率でミスになる状態",
+   "game_description": "通常攻撃/特殊技/特殊行動が確率でミスになる状態",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "サウザンドアロー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1032_46": {
+   "status_id": "1032_46",
+   "base_id": "1032",
+   "type": "debuff",
+   "name": "通常攻撃/特殊技/特殊行動が確率でミスになる状態",
+   "game_description": "通常攻撃/特殊技/特殊行動が確率でミスになる状態",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "フレイム・オブ・カオス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1062_3": {
+   "status_id": "1062_3",
+   "base_id": "1062",
+   "type": "buff",
+   "name": "通常攻撃を無効化または、ダメージを受けた際に相手に攻撃する状態",
+   "game_description": "通常攻撃を無効化または、ダメージを受けた際に相手に攻撃する状態",
+   "durations_seen": [
+    "2ターン",
+    "1ターン"
+   ],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "修験の構え",
+    "大鷲返し",
+    "饗宴幻惑"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1073_1": {
+   "status_id": "1073_1",
+   "base_id": "1073",
+   "type": "buff",
+   "name": "致死ダメージを一定回数HP1で耐える状態(消去不可)",
+   "game_description": "致死ダメージを一定回数HP1で耐える状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "回生の極意"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1102_31": {
+   "status_id": "1102_31",
+   "base_id": "1102",
+   "type": "debuff",
+   "name": "戦闘行動を封じられた状態",
+   "game_description": "戦闘行動を封じられた状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "タイム・オン・ターゲット"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1102_32": {
+   "status_id": "1102_32",
+   "base_id": "1102",
+   "type": "debuff",
+   "name": "戦闘行動を封じられた状態",
+   "game_description": "戦闘行動を封じられた状態",
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "タイム・オン・ターゲット"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1102_33": {
+   "status_id": "1102_33",
+   "base_id": "1102",
+   "type": "debuff",
+   "name": "戦闘行動を封じられた状態",
+   "game_description": "戦闘行動を封じられた状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "ビギニングアロー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1106_13": {
+   "status_id": "1106_13",
+   "base_id": "1106",
+   "type": "debuff",
+   "name": "ダブルアタック確率DOWN",
+   "game_description": "2回攻撃の発生確率が減少した状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "タイム・オン・ターゲット",
+    "ビギニングアロー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1106_15": {
+   "status_id": "1106_15",
+   "base_id": "1106",
+   "type": "debuff",
+   "name": "ダブルアタック確率DOWN",
+   "game_description": "2回攻撃の発生確率が減少した状態",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "サウザンドアロー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1106_16": {
+   "status_id": "1106_16",
+   "base_id": "1106",
+   "type": "debuff",
+   "name": "ダブルアタック確率DOWN",
+   "game_description": "2回攻撃の発生確率が減少した状態",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "デモンズフレア"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1107_13": {
+   "status_id": "1107_13",
+   "base_id": "1107",
+   "type": "debuff",
+   "name": "3回攻撃の発生確率が減少した状態",
+   "game_description": "3回攻撃の発生確率が減少した状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "タイム・オン・ターゲット",
+    "ビギニングアロー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1107_15": {
+   "status_id": "1107_15",
+   "base_id": "1107",
+   "type": "debuff",
+   "name": "3回攻撃の発生確率が減少した状態",
+   "game_description": "3回攻撃の発生確率が減少した状態",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "サウザンドアロー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1107_16": {
+   "status_id": "1107_16",
+   "base_id": "1107",
+   "type": "debuff",
+   "name": "3回攻撃の発生確率が減少した状態",
+   "game_description": "3回攻撃の発生確率が減少した状態",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "デモンズフレア"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1111_3": {
+   "status_id": "1111_3",
+   "base_id": "1111",
+   "type": "debuff",
+   "name": "アビリティが封印された状態(回復不可/短縮不可)",
+   "game_description": "アビリティが封印された状態(回復不可/短縮不可)",
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "イノーミティー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1158_2": {
+   "status_id": "1158_2",
+   "base_id": "1158",
+   "type": "buff",
+   "name": "回復アビリティの回復量が上昇した状態(累積)",
+   "game_description": "回復アビリティの回復量が上昇した状態(累積)",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "オーヴァチュア",
+    "オーヴァチュアII",
+    "コンクルージョン",
+    "ラス・マニャニータス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1160_2": {
+   "status_id": "1160_2",
+   "base_id": "1160",
+   "type": "buff",
+   "name": "回復アビリティの回復上限が上昇した状態(累積)",
+   "game_description": "回復アビリティの回復上限が上昇した状態(累積)",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 10,
+   "seen_on_abilities": [
+    "オーヴァチュア",
+    "オーヴァチュアII",
+    "コンクルージョン",
+    "ラス・マニャニータス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1188_1": {
+   "status_id": "1188_1",
+   "base_id": "1188",
+   "type": "buff",
+   "name": "被ダメージ属性を火属性に変換する状態",
+   "game_description": "被ダメージ属性を火属性に変換する状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1188_2": {
+   "status_id": "1188_2",
+   "base_id": "1188",
+   "type": "buff",
+   "name": "被ダメージ属性を水属性に変換する状態",
+   "game_description": "被ダメージ属性を水属性に変換する状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1188_3": {
+   "status_id": "1188_3",
+   "base_id": "1188",
+   "type": "buff",
+   "name": "被ダメージ属性を土属性に変換する状態",
+   "game_description": "被ダメージ属性を土属性に変換する状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1188_4": {
+   "status_id": "1188_4",
+   "base_id": "1188",
+   "type": "buff",
+   "name": "被ダメージ属性を風属性に変換する状態",
+   "game_description": "被ダメージ属性を風属性に変換する状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1188_5": {
+   "status_id": "1188_5",
+   "base_id": "1188",
+   "type": "buff",
+   "name": "被ダメージ属性を光属性に変換する状態",
+   "game_description": "被ダメージ属性を光属性に変換する状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1188_6": {
+   "status_id": "1188_6",
+   "base_id": "1188",
+   "type": "buff",
+   "name": "被ダメージ属性を闇属性に変換する状態",
+   "game_description": "被ダメージ属性を闇属性に変換する状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "エレメンタル・ファランクス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1263_13": {
+   "status_id": "1263_13",
+   "base_id": "1263",
+   "type": "debuff",
+   "name": "戦闘行動を封じられ、大ダメージを受ける状態（ダメージを受けた時解除）",
+   "game_description": "戦闘行動を封じられ、大ダメージを受ける状態（ダメージを受けた時解除）",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 12,
+   "seen_on_abilities": [
+    "ひつじのうた",
+    "アンプレディクト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1302_1": {
+   "status_id": "1302_1",
+   "base_id": "1302",
+   "type": "debuff",
+   "name": "毎ターンHPが減少する状態(最大Lv10/回復不可)",
+   "game_description": "毎ターンHPが減少する状態(最大Lv10/回復不可)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 8,
+   "seen_on_abilities": [
+    "ピッツィカート",
+    "フラジオレット"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1374_13": {
+   "status_id": "1374_13",
+   "base_id": "1374",
+   "type": "debuff",
+   "name": "CTが溜まらなくなる状態",
+   "game_description": "CTが溜まらなくなる状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "ビギニングアロー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1405_21": {
+   "status_id": "1405_21",
+   "base_id": "1405",
+   "type": "buff",
+   "name": "効果中に回数分、被ダメージと弱体効果を無効化する状態",
+   "game_description": "効果中に回数分、被ダメージと弱体効果を無効化する状態",
+   "durations_seen": [],
+   "occurrences": 7,
+   "seen_on_abilities": [
+    "セイスヘイヴン",
+    "アトラクト・ステップ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1413_5": {
+   "status_id": "1413_5",
+   "base_id": "1413",
+   "type": "buff",
+   "name": "ターン終了時に奥義ゲージ100%UPする状態(消去不可)",
+   "game_description": "ターン終了時に奥義ゲージ100%UPする状態(消去不可)",
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 5,
+   "seen_on_abilities": [
+    "ヴィンランド"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1413_9": {
+   "status_id": "1413_9",
+   "base_id": "1413",
+   "type": "buff",
+   "name": "自分が瀕死状態の場合、ターン終了時に再攻撃効果を付与する状態",
+   "game_description": "自分が瀕死状態の場合、ターン終了時に再攻撃効果を付与する状態",
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "イモータルコマンドー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1445_1": {
+   "status_id": "1445_1",
+   "base_id": "1445",
+   "type": "buff",
+   "name": "チェインバーストのダメージが上昇した状態(累積)",
+   "game_description": "チェインバーストのダメージが上昇した状態(累積)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ドラグラクト"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1488_2": {
+   "status_id": "1488_2",
+   "base_id": "1488",
+   "type": "buff",
+   "name": "MPを消費して強化効果を得る状態",
+   "game_description": "MPを消費して強化効果を得る状態",
+   "durations_seen": [],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "ブラックチャーム"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1511_90": {
+   "status_id": "1511_90",
+   "base_id": "1511",
+   "type": "buff",
+   "name": "3回攻撃の発生確率が上昇した状態(累積)",
+   "game_description": "3回攻撃の発生確率が上昇した状態(累積)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "薪割り"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "1524_2": {
+   "status_id": "1524_2",
+   "base_id": "1524",
+   "type": "debuff",
+   "name": "弱体耐性が減少した状態(累積)",
+   "game_description": "弱体耐性が減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 12,
+   "seen_on_abilities": [
+    "ピッツィカート",
+    "式神・蛟"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3195_2": {
+   "status_id": "3195_2",
+   "base_id": "3195",
+   "type": "buff",
+   "name": "強化効果の無効化と短縮を防ぐ/被ダメージの属性を主人公の有利属性に変換/主人公の有利属性の属性ダメージ軽減する状態(消去不可/2回被ダメージで解除)",
+   "game_description": "強化効果の無効化と短縮を防ぐ/被ダメージの属性を主人公の有利属性に変換/主人公の有利属性の属性ダメージ軽減する状態(消去不可/2回被ダメージで解除)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "カテドラル"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "3382_5": {
+   "status_id": "3382_5",
+   "base_id": "3382",
+   "type": "debuff",
+   "name": "80回攻撃を与えるごとに、無属性ダメージ/強化効果を1つ無効化する。攻撃力と防御力が減少し、被ダメージが上昇している状態(回復不可/延長不可)",
+   "game_description": "80回攻撃を与えるごとに、無属性ダメージ/強化効果を1つ無効化する。攻撃力と防御力が減少し、被ダメージが上昇している状態(回復不可/延長不可)",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ラウンドインペイラー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "4045_1": {
+   "status_id": "4045_1",
+   "base_id": "4045",
+   "type": "debuff",
+   "name": "Lvに応じてアビリティが変化する状態(最大2/消去不可)",
+   "game_description": "Lvに応じてアビリティが変化する状態(最大2/消去不可)",
+   "durations_seen": [],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "呪々相乗"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6030_2": {
+   "status_id": "6030_2",
+   "base_id": "6030",
+   "type": "buff",
+   "name": "被ダメージの一部を吸収してHPを回復する状態",
+   "game_description": "被ダメージの一部を吸収してHPを回復する状態",
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "アブソーブ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6156_3": {
+   "status_id": "6156_3",
+   "base_id": "6156",
+   "type": "debuff",
+   "name": "攻撃行動が稀に制限される状態",
+   "game_description": "攻撃行動が稀に制限される状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "ビギニングアロー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6268_3": {
+   "status_id": "6268_3",
+   "base_id": "6268",
+   "type": "buff",
+   "name": "毎ターン奥義ゲージが上昇する状態。ターン終了時に奥義性能UP(累積)を付与し、5ターン毎に自分が奥義即時発動可能/奥義再発動(1回)効果(消去不可)",
+   "game_description": "毎ターン奥義ゲージが上昇する状態。ターン終了時に奥義性能UP(累積)を付与し、5ターン毎に自分が奥義即時発動可能/奥義再発動(1回)効果(消去不可)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "タッグチーム"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6268_5": {
+   "status_id": "6268_5",
+   "base_id": "6268",
+   "type": "buff",
+   "name": "トリプルアタック確率とアビリティ性能が上昇し、奥義発動時に自属性追加ダメージが発動するが、防御力が低下した状態(消去不可/主人公がバトルメンバーから離れた時、消去)",
+   "game_description": "トリプルアタック確率とアビリティ性能が上昇し、奥義発動時に自属性追加ダメージが発動するが、防御力が低下した状態(消去不可/主人公がバトルメンバーから離れた時、消去)",
+   "durations_seen": [],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "ブラッド・オウス・マーカー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6669_5": {
+   "status_id": "6669_5",
+   "base_id": "6669",
+   "type": "debuff",
+   "name": "ターン終了時にダメージを受ける状態/攻撃行動が確率で制限される状態",
+   "game_description": "ターン終了時にダメージを受ける状態/攻撃行動が確率で制限される状態",
+   "durations_seen": [
+    "5ターン"
+   ],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "バーブド・ワイヤー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6700_1_6": {
+   "status_id": "6700_1_6",
+   "base_id": "6700",
+   "type": "debuff",
+   "name": "敵の特殊技のダメージが減少した状態",
+   "game_description": "敵の特殊技のダメージが減少した状態",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "フレイム・オブ・カオス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6802_1_1": {
+   "status_id": "6802_1_1",
+   "base_id": "6802",
+   "type": "debuff",
+   "name": "敵が与える属性ダメージを0にする状態(回復不可/延長不可)",
+   "game_description": "敵が与える属性ダメージを0にする状態(回復不可/延長不可)",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "イノーミティー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6818_1": {
+   "status_id": "6818_1",
+   "base_id": "6818",
+   "type": "debuff",
+   "name": "敵の特殊技のダメージが減少した状態(累積)",
+   "game_description": "敵の特殊技のダメージが減少した状態(累積)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "式神・蛟"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6911_1": {
+   "status_id": "6911_1",
+   "base_id": "6911",
+   "type": "buff",
+   "name": "Lvに応じて攻撃性能とアビリティ性能が上昇し、確率でターン終了時にターゲットに関わらず4回自属性ダメージを与える状態(最大10/消去不可)",
+   "game_description": "Lvに応じて攻撃性能とアビリティ性能が上昇し、確率でターン終了時にターゲットに関わらず4回自属性ダメージを与える状態(最大10/消去不可)",
+   "durations_seen": [],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "修験の構え"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "6958_4": {
+   "status_id": "6958_4",
+   "base_id": "6958",
+   "type": "debuff",
+   "name": "付与されている弱体効果の数に応じて被ダメージが上昇している状態",
+   "game_description": "付与されている弱体効果の数に応じて被ダメージが上昇している状態",
+   "durations_seen": [
+    "4ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "エメラルドフォグ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7083_1": {
+   "status_id": "7083_1",
+   "base_id": "7083",
+   "type": "buff",
+   "name": "舞踏Lvに応じて連続攻撃確率が上昇した状態(消去不可)",
+   "game_description": "舞踏Lvに応じて連続攻撃確率が上昇した状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "アトラクト・ステップ",
+    "ノン・シークエンス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7086_5": {
+   "status_id": "7086_5",
+   "base_id": "7086",
+   "type": "buff",
+   "name": "レリックバスターの通常攻撃やアビリティ使用で消費する(消去不可/最大5)",
+   "game_description": "レリックバスターの通常攻撃やアビリティ使用で消費する(消去不可/最大5)",
+   "durations_seen": [],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "オーグメント・マギア"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7129_1": {
+   "status_id": "7129_1",
+   "base_id": "7129",
+   "type": "debuff",
+   "name": "Lvに応じて連続攻撃確率が減少した状態(最大Lv10/回復不可)",
+   "game_description": "Lvに応じて連続攻撃確率が減少した状態(最大Lv10/回復不可)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "フレイム・オブ・カオス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7368_1": {
+   "status_id": "7368_1",
+   "base_id": "7368",
+   "type": "debuff",
+   "name": "受けるダメージが上昇している状態(6回/回復不可/延長不可)",
+   "game_description": "受けるダメージが上昇している状態(6回/回復不可/延長不可)",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 12,
+   "seen_on_abilities": [
+    "呪々相乗",
+    "無双張手"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7368_1_2": {
+   "status_id": "7368_1_2",
+   "base_id": "7368",
+   "type": "debuff",
+   "name": "受けるダメージが上昇している状態(20回/回復不可/延長不可)",
+   "game_description": "受けるダメージが上昇している状態(20回/回復不可/延長不可)",
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "サウザンド・スライス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7392_1": {
+   "status_id": "7392_1",
+   "base_id": "7392",
+   "type": "debuff",
+   "name": "毎ターンHPが減少する状態(最大Lv10/回復不可)",
+   "game_description": "毎ターンHPが減少する状態(最大Lv10/回復不可)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "フレイム・オブ・カオス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7430_2": {
+   "status_id": "7430_2",
+   "base_id": "7430",
+   "type": "buff",
+   "name": "敵が特殊技を使用した時、ジョブの1番目のアビリティを発動する状態(消去不可)",
+   "game_description": "敵が特殊技を使用した時、ジョブの1番目のアビリティを発動する状態(消去不可)",
+   "durations_seen": [],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "アミティコフォス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7435_1": {
+   "status_id": "7435_1",
+   "base_id": "7435",
+   "type": "debuff",
+   "name": "調律(毎ターンHP減少/Lv制)",
+   "game_description": "毎ターンHPが減少する状態(最大Lv10/回復不可)",
+   "durations_seen": [
+    "180秒"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "フレイム・オブ・カオス",
+    "モータル・ヴェノム"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7485_1": {
+   "status_id": "7485_1",
+   "base_id": "7485",
+   "type": "buff",
+   "name": "効果中は必ず最大回数でカウンターを行う状態",
+   "game_description": "効果中は必ず最大回数でカウンターを行う状態",
+   "durations_seen": [
+    "2ターン",
+    "1ターン"
+   ],
+   "occurrences": 4,
+   "seen_on_abilities": [
+    "不知火の構え",
+    "饗宴幻惑"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7564_1": {
+   "status_id": "7564_1",
+   "base_id": "7564",
+   "type": "debuff",
+   "name": "被ダメージ上昇",
+   "game_description": "受けるダメージが上昇している状態",
+   "durations_seen": [
+    "1ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "レイン・オブ・パラベラム"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7564_3": {
+   "status_id": "7564_3",
+   "base_id": "7564",
+   "type": "debuff",
+   "name": "被ダメージ上昇",
+   "game_description": "受けるダメージが上昇している状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ドーンブレイク"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7564_6": {
+   "status_id": "7564_6",
+   "base_id": "7564",
+   "type": "debuff",
+   "name": "被ダメージ上昇",
+   "game_description": "受けるダメージが上昇している状態",
+   "durations_seen": [
+    "6ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "フレイム・オブ・カオス"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7614_2": {
+   "status_id": "7614_2",
+   "base_id": "7614",
+   "type": "buff",
+   "name": "2ターン後敵に強襲効果を付与/自分の攻撃大幅UP(敵ブレイク時のみ/1回)/ダメージアビリティを即時使用可能にする状態(消去不可)",
+   "game_description": "2ターン後敵に強襲効果を付与/自分の攻撃大幅UP(敵ブレイク時のみ/1回)/ダメージアビリティを即時使用可能にする状態(消去不可)",
+   "durations_seen": [
+    "2ターン"
+   ],
+   "occurrences": 1,
+   "seen_on_abilities": [
+    "アペリティフ"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7648_1": {
+   "status_id": "7648_1",
+   "base_id": "7648",
+   "type": "buff",
+   "name": "味方全体の攻防UP/連続攻撃確率UP/クリティカル確率UP/弱体耐性UP/ターン終了時、敵全体にLvに応じた回数の自属性ダメージが発生する状態。奥義ゲージの不足、Lv7で魔術結界が消滅し敵全体にLvに応じた自属性ダメージを与える(消去不可)",
+   "game_description": "味方全体の攻防UP/連続攻撃確率UP/クリティカル確率UP/弱体耐性UP/ターン終了時、敵全体にLvに応じた回数の自属性ダメージが発生する状態。奥義ゲージの不足、Lv7で魔術結界が消滅し敵全体にLvに応じた自属性ダメージを与える(消去不可)",
+   "durations_seen": [],
+   "occurrences": 3,
+   "seen_on_abilities": [
+    "魔術結界"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7769_1": {
+   "status_id": "7769_1",
+   "base_id": "7769",
+   "type": "buff",
+   "name": "与える通常攻撃ダメージが上昇している状態",
+   "game_description": "与える通常攻撃ダメージが上昇している状態",
+   "durations_seen": [
+    "3ターン"
+   ],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ヴァロラスリー"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7820_1": {
+   "status_id": "7820_1",
+   "base_id": "7820",
+   "type": "buff",
+   "name": "レリックバスターのアビリティで消費する(消去不可/最大9)",
+   "game_description": "レリックバスターのアビリティで消費する(消去不可/最大9)",
+   "durations_seen": [],
+   "occurrences": 2,
+   "seen_on_abilities": [
+    "ブルータルセル"
+   ],
+   "frame": null,
+   "curated": false
+  },
+  "7972_1": {
+   "status_id": "7972_1",
+   "base_id": "7972",
+   "type": "buff",
+   "name": "Lvが5になったターン終了時、取組効果を解除し自分に白星効果を付与する状態(最大5/消去不可)",
+   "game_description": "Lvが5になったターン終了時、取組効果を解除し自分に白星効果を付与する状態(最大5/消去不可)",
+   "durations_seen": [],
+   "occurrences": 6,
+   "seen_on_abilities": [
+    "捔力節会"
+   ],
+   "frame": null,
+   "curated": false
+  }
+ }
+}
