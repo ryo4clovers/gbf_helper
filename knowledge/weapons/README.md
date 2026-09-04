@@ -21,6 +21,7 @@
 | [fire-ssr-draconic-origin-harp.md](./fire-ssr-draconic-origin-harp.md) | 雄渾と灼熱の調べ / Draconic Harp (Origin) | 火 | ドラゴニックウェポン・オリジン | 下書き |
 | [omega-ssr-sword.md](./omega-ssr-sword.md) | オメガスウォード / Ultima Sword | 作成時選択(例: 火) | オメガウェポン | 下書き |
 | [fire-ssr-magna-colossus-cane.md](./fire-ssr-magna-colossus-cane.md) | コロッサスケーン・マグナ / Colossus Cane Omega | 火 | マグナシリーズ | 下書き |
+| [fire-ssr-verboten-spear.md](./fire-ssr-verboten-spear.md) | 禁栄の禍槍 / Verboten Spear (Fire) | 火 | 禁禍武器 | 下書き |
 
 ## 命名規則
 
@@ -54,7 +55,7 @@
 | `param.arousal.level` / `max_level` | 現在の覚醒Lv / 上限(通常4) | 「覚醒」セクション |
 | `param.arousal.total_bonus` | 各覚醒Lvで**追加**されるボーナスの内訳(`name` 攻刃/D上限 等、`effect_value`) | 覚醒タイプ別効果の「Lv別内訳」 |
 | `param.arousal.skill[]` | 現タイプ・現Lvでの実効果(`skill_id` / `name` / `comment` / `effect_value`) | 覚醒タイプ別効果 |
-| `param.odiant` | オーディアント/祓い(exorcision_level) | 「オーディアント」セクション |
+| `param.odiant` | **退魔(オーディアント)** — `is_odiant_weapon` = true は禁禍武器。`exorcision_level` / `max_exorcision_level`(退魔Lv)、`reduction_effect_value`(デメリット軽減値)。禁禍武器のデメリットスキルを軽減する | 「退魔」セクション |
 | `param.level` / `max_level` | 最大150 / 200 / 250。200・250 は超越 | 「超越」セクション |
 | `param.phase` | 超越段階(0〜5) | 「超越」セクション |
 | `master.max_evolution_level` / `param.evolution` | 上限解放段階数 / 現在段階(超越込みで 5〜6 になる) | 「基本情報」「超越」 |
@@ -65,7 +66,7 @@
 | `skillN_display` | 表示スロットのフラグ(0/1)。**空スロットでも 1、逆に有効スロットでも 0 のことがある(終末の第2スキル=0)。スキル有無の判定は `skillN.skill_id` の null 判定で行う** | — |
 | `bullet_info.set_bullets` | 銃(kind=6)のバレットスロット(`max_set_count` / 各 `bullet_N.slot_type`) | 「バレット」セクション |
 | `limit` | 配列 `[]`(なし)または オブジェクト `{ display_comment }`(装備制限文)。**文言が「[A]と[B]の武器は、いずれかひとつだけ」でも A と B が相互排他とは限らない** — 実ルールは [../mechanics/team-building-basics.md](../mechanics/team-building-basics.md)(同一シリーズ1本まで、ドラゴニックのみ無印+オリジン合算1本) | 「上限解放・強化要素」の装備制限 |
-| `augment_id_list`(例 "44:84")/ `augment_skill`(2次元配列)/ `param.augment_image` | **AUG(エレメント)** — プレイヤーがエレメント素材で付与する追加効果。`augment_skill[0][]` の各要素に `skill_id` / `name`(奥義ダメージ・渾身・攻撃力・連撃 等)/ `comment` / `level` / `effect_value`(例 "+7%")。マグナ/アンセスタル/プライマル等が対象 | 「AUG」セクション |
+| `augment_id_list`(例 "44:84")/ `augment_skill`(2次元配列)/ `param.augment_image` | `augment_skill[0][]` の各要素に `skill_id` / `name` / `comment` / `level` / `effect_value`(例 "+7%")/ `depth`。**通常AUG(エレメント)**= プレイヤー付与の追加効果(奥義ダメージ・渾身・攻撃力・連撃 等、マグナ/アンセスタル/プライマル対象)。**禁禍武器のデメリットスキル**= ドロップ時ランダム付与の不利効果(毎ターンダメージ等、`depth` を持ち退魔Lvで軽減) | 「AUG / デメリットスキル」セクション |
 | `omega`(=オメガウェポン/Ultima)/ `moon` / `is_xeno_weapon` / `job_weapon` / `is_rusted_weapon` / `is_origin_numbers_weapon` / `series_id` | 武器カテゴリ判定フラグ | 「編成での役割」(グリッド分類) |
 
 **注意**: 武器詳細レスポンスは所持インスタンス固有情報(+値・スキルレベル・所持数・編成使用中フラグ等)を含む。ナレッジには武器定義に関わる部分だけを反映し、生レスポンスは `tools/network-recorder/captures/`(git管理外)に保存する。
@@ -75,8 +76,8 @@
 | 属性 `attribute` | 1 火 / 2 水 / 3 土 / 4 風 / 5 光 / 6 闇 |
 | --- | --- |
 | **レアリティ `rarity`** | 2 R / 3 SR / 4 SSR |
-| **武器種 `kind`** | 1 剣(確認済) / 2 短剣 / 3 槍 / 4 斧(確認済) / 5 杖(確認済) / 6 銃(確認済) / 7 格闘 / 8 弓 / 9 楽器(確認済) / 10 刀(未確認分はジョブの `weapon1/2` コードと同じと推定) |
-| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器(gbf.wiki: Dark Opus)/ 8 マグナシリーズ(gbf.wiki: Omega)/ 13 オメガウェポン(gbf.wiki: Ultima)/ 40 ドラゴニックウェポン・オリジン / 44 破壊の標(ヴェルサシア武器)。連番ではないので実例で確認する |
+| **武器種 `kind`** | 1 剣(確認済) / 2 短剣 / 3 槍(確認済) / 4 斧(確認済) / 5 杖(確認済) / 6 銃(確認済) / 7 格闘 / 8 弓 / 9 楽器(確認済) / 10 刀(未確認分はジョブの `weapon1/2` コードと同じと推定) |
+| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器(gbf.wiki: Dark Opus)/ 8 マグナシリーズ(gbf.wiki: Omega)/ 13 オメガウェポン(gbf.wiki: Ultima)/ 40 ドラゴニックウェポン・オリジン / 44 破壊の標(ヴェルサシア武器)/ 45 禁禍武器(gbf.wiki: Verboten)。連番ではないので実例で確認する |
 | **`master.archaic`** | "1" = 刷新/進化後の形態のマーカー(セラフィック刷新版・ドラゴニックオリジンで確認)。進化前は取得不可のことがある |
 | **`omega`(真偽値)** | true = **オメガウェポン(gbf.wiki『Ultima Weapons』)シリーズ**のフラグ。「マグナグリッド全般」の意味ではない |
 | **`master.attribute`(オメガ)** | オメガウェポンは作成時に属性を選択(実質属性変更可能)。`attribute` はその選択結果。ファイルは武器種単位(`omega-ssr-{type}`)、`element` は代表個体のもの |

@@ -144,18 +144,28 @@ source: "要検証"       # 実機レスポンス取得日 / 参照した gbf.wi
 - 段階: (例: Lv200 で第3スキル解放、Lv200→250 は超越5段階で各スキルの数値強化・奥義に＋)
 - 現在の取得状況(提供インスタンス): Lv{level} / evolution {evolution} / phase {phase}
 
-## AUG(エレメント / `augment_skill`)
+## AUG / デメリットスキル(`augment_skill`)
 
-<!-- プレイヤーがエレメント素材で付与する追加効果。マグナ/アンセスタル/プライマル等が対象。
-     実機 `param.augment_id_list`(例 "44:84")と `augment_skill`(配列)。
-     augment_skill[0] が付与済みAUG群で、各要素に skill_id / name / comment / level / effect_value。
-     Exスキル(ドロップ時ランダム抽選)とは別物。 -->
+<!-- `param.augment_id_list`(例 "44:84")と `augment_skill[0][]`。各要素に
+     skill_id / name / comment / level / effect_value / depth。
+     ・通常の AUG(エレメント): プレイヤーが素材で付与する追加効果(奥義ダメージ/渾身/攻撃力/連撃 等)。
+     ・禁禍武器のデメリットスキル: ドロップ時にランダム付与される不利効果(毎ターンダメージ等)。
+       `depth` を持ち、退魔Lv(下記)で軽減される。
+     Exスキル(マグナ等が skill2 に持つランダム追加スキル)とは別物。 -->
 
 - 付与状況(この個体): あり / なし
-- AUG効果:
-  - {name}(`skill_id` {id}、Lv{level}、{effect_value})— {comment}
-  - {name}(`skill_id` {id}、Lv{level}、{effect_value})— {comment}
-- 枠(frame): AUGの効果は基本的に別枠(EX/AUG枠)で乗る(要検証)
+- 効果:
+  - {name}(`skill_id` {id}、Lv{level}、{effect_value}、depth {depth})— {comment}(通常AUG / **デメリット**)
+- 枠(frame): 通常AUGは別枠(EX/AUG枠)で乗る(要検証)
+
+## 退魔(オーディアント)
+
+<!-- `param.odiant.is_odiant_weapon` = true のシリーズ(禁禍武器)のみ。無い武器はセクション省略。
+     禁禍武器のデメリットスキルを軽減するシステム。 -->
+
+- 対応: あり / なし(`param.odiant.is_odiant_weapon`)
+- 退魔Lv(この個体): {exorcision_level} / {max_exorcision_level}
+- デメリット軽減値(`reduction_effect_value`): {値}(軽減量はランダム。デメリットスキルの `depth` が深いほど軽減量が多くなる傾向 — ユーザー談、要検証)
 
 ## 上限解放・強化要素
 
@@ -163,8 +173,7 @@ source: "要検証"       # 実機レスポンス取得日 / 参照した gbf.wi
 
 - 上限解放: (各段階の解放内容。スキル追加・奥義進化〈＋/＋＋〉・Lv上限開放など)
 - スキルレベル: (上げ方 / 上限。`master.max_weapon_skill_level`。第3スキルだけ上限が異なる場合は `max_weapon_skill_level_2` を注記)
-- 装備制限(あれば): (`limit.display_comment` を引用。実際のルールは [../mechanics/team-building-basics.md](../mechanics/team-building-basics.md) 参照 — 基本は「同一シリーズは編成に1本まで」。ドラゴニックのみ強化前+オリジンで合算1本。マグナ/プライマル等の通常グリッド武器は `limit: []` で制限なし。**display_comment が他シリーズ名を併記していても相互排他ではない**)
-- オーディアント/エニアド強化(あれば): (実機 `param.odiant`)
+- 装備制限(あれば): (`limit.display_comment` を引用。実際のルールは [../mechanics/team-building-basics.md](../mechanics/team-building-basics.md) 参照 — 基本は「同一シリーズは編成に1本まで」。ドラゴニックのみ強化前+オリジンで合算1本。マグナ/プライマル/禁禍等の通常グリッド武器は `limit: []` で制限なし。**display_comment が他シリーズ名を併記していても相互排他ではない**)
 
 ## 編成での役割
 

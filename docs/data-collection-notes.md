@@ -501,6 +501,15 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - 奥義「次元断＋＋」(火ダメージ特大/防御DOWN)。Lv200(5凸)。
 - ファイル: [knowledge/weapons/fire-ssr-magna-colossus-cane.md](../knowledge/weapons/fire-ssr-magna-colossus-cane.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-magna-colossus-cane.json`。
 
+**2026-09-07 追加: 禁禍武器で「退魔(オーディアント)」「デメリットスキル」を確認**。ユーザー提供の禁栄の禍槍(火槍、`master_id` 1040220800、Lv1・凸0・退魔Lv1 のドロップ直後個体):
+
+- **`series_id` = 45** [禁禍武器](gbf.wiki: Verboten Weapons、「Demon〇〇 of 〇〇 Verboten」形式)。`kind` = 3 は槍(確認)。`omega` = false。`limit` = `[]`。**`can_sell`/`can_decompose`/`can_enhancement_material` = true**(特殊枠武器と違い量産・厳選前提)。
+- **`param.odiant` = 退魔(オーディアント)システム**を初確認。`is_odiant_weapon` = true(禁禍武器のみ)、`exorcision_level` / `max_exorcision_level`(退魔Lv 1/5)、`reduction_effect_value`(デメリット軽減値、現在0)。テンプレの「オーディアント」項を独立セクション「退魔(オーディアント)」に格上げ。
+- **デメリットスキル**: `augment_skill[0][]` に、通常AUGと同じ形式で不利効果が入る。この個体は「ターンダメージ」(`skill_id` 2881、Lv5、`8%`、**`depth` 2**、味方全体が毎ターンダメージ)。ドロップ時ランダム付与。退魔Lvで軽減され、`depth` が深いほど1回の軽減量が多い傾向(ユーザー談)。テンプレのAUGセクションを「AUG / デメリットスキル」に拡張。
+- スキル構成: skill1「終炎禁呪・神威IV」(EX攻刃+守護、image `skill_god_k_1_4` の `_k_` = 禁禍)、skill2「終炎禁呪・衝刃III」(与ダメージ上昇、image `skill_rise_k_1_3`)。ともに固定。
+- `max_weapon_skill_level` = 10(他シリーズより低い)。奥義「フルニヴァルラ」(火ダメージ特大/灼熱/火属性攻撃UP累積)。
+- ファイル: [knowledge/weapons/fire-ssr-verboten-spear.md](../knowledge/weapons/fire-ssr-verboten-spear.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-verboten-spear.json`。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
