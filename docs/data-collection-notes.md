@@ -464,6 +464,18 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - 奥義「黄泉＋＋」(火ダメージ特大/ディスペル1/火属性追撃)。
 - ファイル: [knowledge/weapons/fire-ssr-versacia-sword.md](../knowledge/weapons/fire-ssr-versacia-sword.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-versacia-sword.json`。英語名は gbf.wiki 未整備のため暫定。
 
+**2026-09-07 追加: ドラゴニックウェポン・オリジン(ドラポン)で「進境スキル」「神威スキル」「archaic マーカー」を確認**。ユーザー提供の雄渾と灼熱の調べ(火楽器、`master_id` 1040815900):
+
+- **`series_id` = 40**、`series_name` [ドラゴニックウェポン・オリジン]。強化前は「ドラゴニックウェポン」(別シリーズ・別id)だが**既に強化済みのため強化前形態は取得不可**。
+- **`master.archaic` = "1"**: 刷新/進化後形態のマーカー(セラフィック刷新版でも "1" だった)。README のコード表に追記。
+- **`kind` = 9 は楽器**(確認)。
+- スキル構成: skill1「ウィルナスの炎威」(**進境/プログレッション** = 経過ターンで攻撃力UP、六竜「ウィルナス」由来、固定)、skill2「朱の威烈」(属性別の与ダメージUP、**変更式**、現在は対無属性)、skill3「紅蓮の神威」(**神威** = EX攻刃+守護、image `skill_god_1_3`、**変更式**)。
+- **選択式スキルの変更手段が武器シリーズごとに違う**: 終末=ゴーフ・キー、破壊=アンクレット、ドラゴニック=(名称要確認)。テンプレの「選択式」欄は手段名を含めて記載する運用。
+- Lv200(5凸)止まり・超越非対応。スキルLv上限は第1・第2=20 / 第3=15。
+- 奥義「フュリアス・ブレイズ＋＋」(火ダメージ特大/全体幻影1回/再生/発動ターン弱体無効)。
+- **装備制限が重なる**: 終末⇔ドラゴニック(無印)、ドラゴニックオリジン⇔ドラゴニック(無印)。終末+ドラゴニック系で合計1本と推測(要確認)。
+- ファイル: [knowledge/weapons/fire-ssr-draconic-origin-harp.md](../knowledge/weapons/fire-ssr-draconic-origin-harp.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-draconic-origin-harp.json`。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
