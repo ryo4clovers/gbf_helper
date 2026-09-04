@@ -2,64 +2,1551 @@
  "_meta": {
   "description": "各アビリティの倍率・効果量・効果時間を外部ソース(主にgbf.wiki)から紐付けたもの。action_id で free-slot-candidates.json と結合する。",
   "primary_source": "gbf.wiki『Class Skills』(r.jina.ai プロキシ経由で取得、2026-09-07)。全文は knowledge/abilities/_sources/gbfwiki-class-skills-2026-09-07.md",
-  "status": "収集中。まずEXアビリティ(kind 1-4)から。リミットアビリティ(kind 5、239件)は系列ごとに順次追加予定。",
-  "coverage": "EXアビリティ 60件中 42件。リミット/ベースは未着手。",
+  "status": "収集中。EXアビリティ(kind 1-4)44件、標準系列(10-19)のリミット/極致の証125件を反映。残: 系列20-29(エクストラ)・30/41-47の約114件、ベース10件。",
+  "coverage": "EX 60件中44件 / リミット・極致 239件中125件(系列10〜19) / ベース 0件",
   "fields": {
    "name_jp": "free-slot-candidates.json の名称",
    "name_en": "gbf.wiki の英語名(照合キー)",
-   "unlock": "習得元ジョブとジョブLv(EXアビリティ)",
+   "unlock": "EX=習得元ジョブとジョブLv / リミット=『リミット(EMP消費量)』 / 極致の証=『極致の証』",
    "effect": "gbf.wiki 記載の効果(倍率・%・ターン・上限を原文数値のまま)",
    "duration": "効果時間",
    "cooldown": "使用間隔",
    "match_confidence": "high=名称・効果・習得Lvが一致 / medium=効果内容から推定 / low=要再確認",
    "notes": "補足・不一致点"
   },
-  "todo": "オーラ(20)/フォーカス(160)/デッドリーエイム(190)/クイック(220)/羅喉阿修羅陣(270)/かばう(302)/チャームボイス系/ミンストレルソング(152)/メディク(3120)/士気向上(3130)/闘気(4100)/トレジャーハント系(6000-6002)/ディストリーム(200501) は gbf.wiki 該当箇所の特定が未了。リミットアビリティ239件、ベースアビリティ10件も未着手。"
+  "todo": "未特定EX: オーラ(20)/フォーカス(160)/デッドリーエイム(190)/クイック(220)/羅喉阿修羅陣(270)/かばう(302)/チャームボイス系(1701,1702)/ソウルピルファー要精査(1900)/ミンストレルソング(152)/メディク(3120)/士気向上(3130)/闘気(4100)/トレジャーハント系(6000-6002)/ディストリーム(200501)。未着手: リミット系列20-29・30・41-47、ベースアビリティ10件、status-effects.json の frame(枠)。グラップラー系のツープラトン(7228)は gbf.wiki 該当未特定。"
  },
  "abilities": {
-  "10":  { "name_jp": "レイジ",          "name_en": "Rage",            "unlock": "ファイター Lv10",       "effect": "参戦者にATK Up",                                   "duration": "3T", "cooldown": "5T", "match_confidence": "high",   "notes": "base版は効果値の記載なし(II=20%, III=30%)" },
-  "11":  { "name_jp": "レイジII",        "name_en": "Rage II",         "unlock": "ウォーリア Lv5",         "effect": "参戦者に20% ATK Up",                               "duration": "3T", "cooldown": "5T", "match_confidence": "high" },
-  "15":  { "name_jp": "レイジIII",       "name_en": "Rage III",        "unlock": "ウェポンマスター Lv15", "effect": "参戦者に30% ATK Up",                               "duration": "3T", "cooldown": "5T", "match_confidence": "high" },
-  "40":  { "name_jp": "捨身の型",        "name_en": "Taking Chances",  "unlock": "グラップラー Lv10",     "effect": "自分にATK Up / DEF Down",                          "duration": "5T", "cooldown": "6T", "match_confidence": "high" },
-  "41":  { "name_jp": "捨身の型II",      "name_en": "Taking Chances II","unlock": "クンフー Lv5",          "effect": "自分に60% ATK Up / 20% DEF Down",                  "duration": "5T", "cooldown": "6T", "match_confidence": "high" },
-  "50":  { "name_jp": "ランページ",      "name_en": "Rampage",         "unlock": "ウェポンマスター Lv5",  "effect": "自分に20% DA Up / 10% TA Up",                      "duration": "3T", "cooldown": "6T", "match_confidence": "high" },
-  "120": { "name_jp": "センチュリオン",  "name_en": "Centurion",       "unlock": "フォートレス Lv15",     "effect": "自分に被ダメージ無効(1回) / 20% ATK Down(自身)",   "duration": "3T", "cooldown": "8T", "match_confidence": "high", "notes": "gbf.wiki上はSentinel(フォートレス)Lv15" },
-  "200": { "name_jp": "エレメンタルフォース",   "name_en": "Elemental Focus",    "unlock": "エンハンサー Lv10",     "effect": "参戦者に40% Skill DMG Up",                    "duration": "3T", "cooldown": "5T", "match_confidence": "high" },
-  "201": { "name_jp": "エレメンタルフォースII", "name_en": "Elemental Focus II", "unlock": "アルカナソード Lv5",    "effect": "参戦者に60% Skill DMG Up",                    "duration": "3T", "cooldown": "5T", "match_confidence": "high" },
-  "221": { "name_jp": "デュアルインパルス",     "name_en": "Double Trouble",     "unlock": "ランサー Lv10",         "effect": "自分に100% DA Up / 槍:参戦者DA Up / 斧:敵DA Down","duration": "1T", "cooldown": "5T", "match_confidence": "medium", "notes": "実機コメントは『効果中必ず連続攻撃』寄り。要精査" },
-  "222": { "name_jp": "デュアルインパルスIII",  "name_en": "Double Trouble III", "unlock": "ヴァルキュリア Lv5",    "effect": "自分にGuaranteedTA / 槍:参戦者10% DA Up・5〜10% TA Up / 斧:敵DA Down・TA Down", "duration": "1T/3T/180s", "cooldown": "5T", "match_confidence": "medium" },
-  "223": { "name_jp": "デュアルインパルスII",   "name_en": "Double Trouble II",  "unlock": "ドラグーン Lv5",        "effect": "自分に100% DA Up / 槍:参戦者DA Up / 斧:敵DA Down","duration": "1T", "cooldown": "5T", "match_confidence": "medium" },
-  "266": { "name_jp": "ソング・オブ・グランデ",  "name_en": "Sky Realm Song",     "unlock": "スーパースター Lv15",   "effect": "楽器:味方全体に60% DA Up / その他:20% DA Up",  "duration": "3T", "cooldown": "6T", "match_confidence": "medium" },
-  "1000":{ "name_jp": "アーマーブレイク",  "name_en": "Armor Break",     "unlock": "ウォーリア Lv15",       "effect": "敵に100%自属性ダメージ / 20% DEF Down",            "duration": "180s","cooldown": "5T", "match_confidence": "high" },
-  "1300":{ "name_jp": "ヴェノム",         "name_en": "Venom",           "unlock": "ハーミット Lv5",        "effect": "敵に200〜250%自属性ダメージ(上限約42万) / 毒(4000)","duration": "180s","cooldown": "5T", "match_confidence": "medium", "notes": "gbf.wikiではハーミット(ClassIII)由来。EX解放Lvは実機L5" },
-  "1410":{ "name_jp": "ブラインド",       "name_en": "Blind",           "unlock": "ソーサラー Lv15",       "effect": "敵に暗闇",                                         "duration": "180s","cooldown": "5T", "match_confidence": "high" },
-  "1500":{ "name_jp": "グラビティ",       "name_en": "Gravity Wave",    "unlock": "ダークフェンサー Lv15", "effect": "敵に最大CT増加(グラビティ)",                       "duration": "180s","cooldown": "9T", "match_confidence": "high" },
-  "1600":{ "name_jp": "ミゼラブルミスト", "name_en": "Miserable Mist",  "unlock": "ダークフェンサー Lv5",  "effect": "敵全体に25% ATK Down / 25% DEF Down",              "duration": "180s","cooldown": "5T", "match_confidence": "high" },
-  "1900":{ "name_jp": "ソウルピルファー", "name_en": "Soul Soloist",    "unlock": "スーパースター Lv5",    "effect": "楽器:敵全体30% 弱体耐性Down・味方全体30% 弱体耐性Up(武器種で変動)", "duration": "3T", "cooldown": "5T", "match_confidence": "medium" },
-  "2040":{ "name_jp": "ドライブバースト",   "name_en": "Overdrive Surge",     "unlock": "ナイト Lv10",       "effect": "OD中の敵に300%自属性ダメージ",                 "duration": "-",  "cooldown": "6T", "match_confidence": "high" },
-  "2041":{ "name_jp": "ドライブバーストII", "name_en": "Overdrive Surge II",  "unlock": "フォートレス Lv5",  "effect": "OD中の敵に400%自属性ダメージ",                 "duration": "-",  "cooldown": "6T", "match_confidence": "high" },
-  "2043":{ "name_jp": "ドライブバーストIII","name_en": "Overdrive Surge III", "unlock": "ホーリーセイバー Lv5","effect": "OD中の敵に500%(非OD時200%)自属性ダメージ",  "duration": "-",  "cooldown": "6T", "match_confidence": "high" },
-  "2070":{ "name_jp": "ハードライン",     "name_en": "Hard Line",       "unlock": "マークスマン Lv15",     "effect": "弱体状態の敵に大ダメージ",                         "duration": "-",  "cooldown": "7T", "match_confidence": "high", "notes": "gbf.wikiではArcher(マークスマン)Lv15" },
-  "2080":{ "name_jp": "キルストリーク",   "name_en": "Bullseye Run",    "unlock": "サイドワインダー Lv15", "effect": "敵の弱体数に応じて100%自属性ダメージ(上限約58万) / 弱体1つ毎に+100%", "duration": "-", "cooldown": "7T", "match_confidence": "medium" },
-  "3021":{ "name_jp": "クリアオール",     "name_en": "Clarity",         "unlock": "クレリック Lv5",        "effect": "参戦者の弱体効果を1つ回復",                        "duration": "-",  "cooldown": "4T", "match_confidence": "high" },
-  "3030":{ "name_jp": "リヴァイヴ",       "name_en": "Revive",          "unlock": "ビショップ Lv15",       "effect": "味方単体を25% HPで復活",                           "duration": "-",  "cooldown": "12T","match_confidence": "high" },
-  "3040":{ "name_jp": "ディスペル",       "name_en": "Dispel",          "unlock": "ビショップ Lv5",        "effect": "敵の強化効果を1つ無効化",                          "duration": "-",  "cooldown": "5T", "match_confidence": "high" },
-  "3050":{ "name_jp": "内功",             "name_en": "Chi Channeler",   "unlock": "クンフー Lv15",         "effect": "自分のHP回復(上限1500) / DEF Up",                  "duration": "3T", "cooldown": "5T", "match_confidence": "high" },
-  "4000":{ "name_jp": "シャイニング",     "name_en": "Blessing",        "unlock": "クレリック Lv15",       "effect": "敵全体に200〜300%光属性ダメージ",                  "duration": "-",  "cooldown": "5T", "match_confidence": "high" },
-  "4010":{ "name_jp": "ファイア",         "name_en": "Fire",            "unlock": "ウィザード Lv10",       "effect": "敵全体に200〜250%火属性ダメージ",                  "duration": "-",  "cooldown": "5T", "match_confidence": "high" },
-  "4020":{ "name_jp": "アイス",           "name_en": "Freeze",          "unlock": "ソーサラー Lv5",        "effect": "敵全体に200〜250%水属性ダメージ",                  "duration": "-",  "cooldown": "5T", "match_confidence": "medium" },
-  "4120":{ "name_jp": "アローレイン",     "name_en": "Rain of Arrows",  "unlock": "レンジャー Lv10",       "effect": "敵全体に150〜300%自属性ダメージ",                  "duration": "-",  "cooldown": "5T", "match_confidence": "high" },
-  "4121":{ "name_jp": "アローレインII",   "name_en": "Rain of Arrows II","unlock": "マークスマン Lv5",      "effect": "敵全体に自属性ダメージ / ATK Down",                "duration": "180s","cooldown": "5T", "match_confidence": "high" },
-  "4122":{ "name_jp": "アローレインIII",  "name_en": "Rain of Arrows III","unlock": "サイドワインダー Lv5", "effect": "敵全体に300%自属性ダメージ / 25% ATK Down",       "duration": "180s","cooldown": "5T", "match_confidence": "high" },
-  "4500":{ "name_jp": "パイルリベレーション","name_en": "Battle Scar",   "unlock": "ドラグーン Lv15",       "effect": "奥義ゲージに応じて自属性ダメージ / 自分にATK Up・DEF Up・オーバーヒート", "duration": "3T", "cooldown": "6T", "match_confidence": "medium" },
-  "4512":{ "name_jp": "レゾナンスサージ", "name_en": "Resonating Surge","unlock": "ヴァルキュリア Lv15",   "effect": "敵に自属性ダメージ / 自分に25% Skill DMG Up(累積/最大200%)", "duration": "-", "cooldown": "5T", "match_confidence": "high" },
-  "5010":{ "name_jp": "トリックステップ", "name_en": "Tricky Moves",    "unlock": "レイダー Lv15",         "effect": "OD中の敵にモードゲージ減少",                       "duration": "-",  "cooldown": "5T", "match_confidence": "high" },
-  "7010":{ "name_jp": "瞑想",             "name_en": "Self Reflection", "unlock": "侍 Lv5",                "effect": "自分に60% ATK Up / クリティカル確率Up / 弱体全回復 ◆奥義ゲージ30%消費", "duration": "1T", "cooldown": "1T", "match_confidence": "medium" },
-  "7020":{ "name_jp": "鴉雀無声",         "name_en": "Quiet Strategy",  "unlock": "侍 Lv15",               "effect": "自分にDEF Up / 刀:幻影(1回)・自身ATK Down / 弓:自身ATK Up・自身DA/TA Down ◆奥義ゲージ30%消費", "duration": "2T", "cooldown": "7T", "match_confidence": "medium" },
-  "7070":{ "name_jp": "風魔手裏剣",       "name_en": "Fuma Shuriken",   "unlock": "忍者 Lv5",              "effect": "敵に100%自属性ダメージ / 印コンボで追加効果 / 刀:忍術CT短縮 / 格闘:50% ATK Up・DA Up", "duration": "-", "cooldown": "8T", "match_confidence": "medium" },
-  "7100":{ "name_jp": "朧",               "name_en": "Haze",            "unlock": "忍者 Lv15",             "effect": "敵に自属性ダメージ / 刀:自身50%暗闇・50% DA Up / 格闘:自身DEF Down・60% ATK Up・10%奥義ゲージ上昇量Up", "duration": "3T", "cooldown": "6T", "match_confidence": "medium" },
-  "7233":{ "name_jp": "他心陣",           "name_en": "Splitting Spirit","unlock": "賢者 Lv15",             "effect": "自分のHPを奥義ゲージに変換(現在HPの最大50%消費)", "duration": "-", "cooldown": "8T", "match_confidence": "medium", "notes": "gbf.wikiではMystic(賢者)Lv15" },
-  "7242":{ "name_jp": "バニッシュ",       "name_en": "Out of Sight",    "unlock": "アサシン Lv5",          "effect": "自分に敵対心Down / 対象の味方に敵対心Up",          "duration": "3T", "cooldown": "8T", "match_confidence": "medium" },
-  "200491":{ "name_jp": "ツインサーキュラー","name_en": "Twin Coil",     "unlock": "グラディエーター Lv5",  "effect": "敵全体に2回200%自属性ダメージ(1発上限40.5万)",   "duration": "-",  "cooldown": "6T", "match_confidence": "medium" }
+  "10": {
+   "name_jp": "レイジ",
+   "name_en": "Rage",
+   "unlock": "ファイター Lv10",
+   "effect": "参戦者にATK Up",
+   "duration": "3T",
+   "cooldown": "5T",
+   "match_confidence": "high",
+   "notes": "base版は効果値の記載なし(II=20%, III=30%)"
+  },
+  "11": {
+   "name_jp": "レイジII",
+   "name_en": "Rage II",
+   "unlock": "ウォーリア Lv5",
+   "effect": "参戦者に20% ATK Up",
+   "duration": "3T",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "15": {
+   "name_jp": "レイジIII",
+   "name_en": "Rage III",
+   "unlock": "ウェポンマスター Lv15",
+   "effect": "参戦者に30% ATK Up",
+   "duration": "3T",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "40": {
+   "name_jp": "捨身の型",
+   "name_en": "Taking Chances",
+   "unlock": "グラップラー Lv10",
+   "effect": "自分にATK Up / DEF Down",
+   "duration": "5T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "41": {
+   "name_jp": "捨身の型II",
+   "name_en": "Taking Chances II",
+   "unlock": "クンフー Lv5",
+   "effect": "自分に60% ATK Up / 20% DEF Down",
+   "duration": "5T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "50": {
+   "name_jp": "ランページ",
+   "name_en": "Rampage",
+   "unlock": "ウェポンマスター Lv5",
+   "effect": "自分に20% DA Up / 10% TA Up",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "51": {
+   "name_jp": "ランページII",
+   "name_en": "Rampage II",
+   "unlock": "リミット(EMP15)",
+   "effect": "自分に100%DA UP/50%TA UP/自身30%防御DOWN",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "90": {
+   "name_jp": "リフレクション",
+   "name_en": "Reflection",
+   "unlock": "リミット(EMP3)",
+   "effect": "3回・25%の被ダメージ反射",
+   "duration": "1T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "120": {
+   "name_jp": "センチュリオン",
+   "name_en": "Centurion",
+   "unlock": "フォートレス Lv15",
+   "effect": "自分に被ダメージ無効(1回) / 20% ATK Down(自身)",
+   "duration": "3T",
+   "cooldown": "8T",
+   "match_confidence": "high",
+   "notes": "gbf.wiki上はSentinel(フォートレス)Lv15"
+  },
+  "130": {
+   "name_jp": "ベール",
+   "name_en": "Veil",
+   "unlock": "リミット(EMP10)",
+   "effect": "味方全体に弱体効果無効(1回)",
+   "duration": "6T",
+   "cooldown": null,
+   "match_confidence": "high"
+  },
+  "200": {
+   "name_jp": "エレメンタルフォース",
+   "name_en": "Elemental Focus",
+   "unlock": "エンハンサー Lv10",
+   "effect": "参戦者に40% Skill DMG Up",
+   "duration": "3T",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "201": {
+   "name_jp": "エレメンタルフォースII",
+   "name_en": "Elemental Focus II",
+   "unlock": "アルカナソード Lv5",
+   "effect": "参戦者に60% Skill DMG Up",
+   "duration": "3T",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "221": {
+   "name_jp": "デュアルインパルス",
+   "name_en": "Double Trouble",
+   "unlock": "ランサー Lv10",
+   "effect": "自分に100% DA Up / 槍:参戦者DA Up / 斧:敵DA Down",
+   "duration": "1T",
+   "cooldown": "5T",
+   "match_confidence": "medium",
+   "notes": "実機コメントは『効果中必ず連続攻撃』寄り。要精査"
+  },
+  "222": {
+   "name_jp": "デュアルインパルスIII",
+   "name_en": "Double Trouble III",
+   "unlock": "ヴァルキュリア Lv5",
+   "effect": "自分にGuaranteedTA / 槍:参戦者10% DA Up・5〜10% TA Up / 斧:敵DA Down・TA Down",
+   "duration": "1T/3T/180s",
+   "cooldown": "5T",
+   "match_confidence": "medium"
+  },
+  "223": {
+   "name_jp": "デュアルインパルスII",
+   "name_en": "Double Trouble II",
+   "unlock": "ドラグーン Lv5",
+   "effect": "自分に100% DA Up / 槍:参戦者DA Up / 斧:敵DA Down",
+   "duration": "1T",
+   "cooldown": "5T",
+   "match_confidence": "medium"
+  },
+  "243": {
+   "name_jp": "練気",
+   "name_en": "Spirit of Training",
+   "unlock": "リミット(EMP8)",
+   "effect": "自分に10%攻撃UP(累積/最大50%)",
+   "duration": "5T",
+   "cooldown": "2T",
+   "match_confidence": "high"
+  },
+  "249": {
+   "name_jp": "エインフェリアル",
+   "name_en": "Einherjar",
+   "unlock": "リミット(EMP8)",
+   "effect": "自分に20%攻撃UP(累積/最大100%) ◆被ダメージで解除",
+   "duration": "4T",
+   "cooldown": null,
+   "match_confidence": "high"
+  },
+  "266": {
+   "name_jp": "ソング・オブ・グランデ",
+   "name_en": "Sky Realm Song",
+   "unlock": "スーパースター Lv15",
+   "effect": "楽器:味方全体に60% DA Up / その他:20% DA Up",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "medium"
+  },
+  "390": {
+   "name_jp": "一字構え",
+   "name_en": "Horizontal Solace",
+   "unlock": "リミット(EMP5)",
+   "effect": "自分に敵対心UP/カウンター効果中は反撃回数+2",
+   "duration": "1T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "420": {
+   "name_jp": "チョーク",
+   "name_en": "Choke",
+   "unlock": "リミット(EMP5)",
+   "effect": "味方全体の通常攻撃を全体化",
+   "duration": "3T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "462": {
+   "name_jp": "パワーレイズ",
+   "name_en": "Power Raise",
+   "unlock": "リミット(EMP8)",
+   "effect": "自分に50%/50%クリティカル確率UP",
+   "duration": "3T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "467": {
+   "name_jp": "チェイサー",
+   "name_en": "Chaser",
+   "unlock": "リミット(EMP25)",
+   "effect": "味方全体に20%与ダメージ上昇",
+   "duration": "3T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "608": {
+   "name_jp": "湧水の羽衣",
+   "name_en": "Springwater Robe",
+   "unlock": "リミット(EMP10)",
+   "effect": "自分に幻影(2回)/湧水の羽衣効果",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "610": {
+   "name_jp": "テストゥド",
+   "name_en": "Testudo",
+   "unlock": "リミット(EMP10)",
+   "effect": "自分に防御UP(累積)",
+   "duration": "5T",
+   "cooldown": "2T",
+   "match_confidence": "high"
+  },
+  "612": {
+   "name_jp": "ガーディアン",
+   "name_en": "Guardian",
+   "unlock": "リミット(EMP15)",
+   "effect": "自分に防御UP/敵対心UP ◆奥義ゲージ30%消費",
+   "duration": "3T",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "613": {
+   "name_jp": "センチュリオンII",
+   "name_en": "Centurion II",
+   "unlock": "リミット(EMP10)",
+   "effect": "味方単体に被ダメージ無効(1回)",
+   "duration": "3T",
+   "cooldown": "8T",
+   "match_confidence": "high"
+  },
+  "702": {
+   "name_jp": "トレマーラウンド",
+   "name_en": "Tremor Round",
+   "unlock": "リミット(EMP5)",
+   "effect": "味方全体にハイボルテージ(攻撃UP)/ハイボルテージ(防御UP)",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "716": {
+   "name_jp": "ホワイトスモーク",
+   "name_en": "White Smoke",
+   "unlock": "リミット(EMP30)",
+   "effect": "味方全体に弱体無効(1回)/幻影(1回)",
+   "duration": null,
+   "cooldown": "8T",
+   "match_confidence": "high"
+  },
+  "752": {
+   "name_jp": "ホワイトウォール",
+   "name_en": "White Wall",
+   "unlock": "リミット(EMP12)",
+   "effect": "味方全体にバリア1500",
+   "duration": "3T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "852": {
+   "name_jp": "エーテルフラップ",
+   "name_en": "Aether Bane",
+   "unlock": "リミット(EMP10)",
+   "effect": "敵にエーテルフラップ(Aether Bane)Lv1",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "medium",
+   "notes": "gbf.wiki英名\"Aether Bane\"想定"
+  },
+  "977": {
+   "name_jp": "アップリフト",
+   "name_en": "Uprising",
+   "unlock": "リミット(EMP30)",
+   "effect": "味方単体に50%攻撃UP/30〜35%DA UP/20%高揚",
+   "duration": "3T",
+   "cooldown": "8T",
+   "match_confidence": "high"
+  },
+  "987": {
+   "name_jp": "マイクパフォーマンス",
+   "name_en": "Mic Hype",
+   "unlock": "リミット(EMP25)",
+   "effect": "参戦者に10%高揚",
+   "duration": "3T",
+   "cooldown": "8T",
+   "match_confidence": "high"
+  },
+  "1000": {
+   "name_jp": "アーマーブレイク",
+   "name_en": "Armor Break",
+   "unlock": "ウォーリア Lv15",
+   "effect": "敵に100%自属性ダメージ / 20% DEF Down",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "1096": {
+   "name_jp": "アーマーブレイクII",
+   "name_en": "Armor Break II",
+   "unlock": "リミット(EMP30)",
+   "effect": "敵に300%自属性ダメージ/25%防御DOWN",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "1143": {
+   "name_jp": "カオス",
+   "name_en": "Chaos",
+   "unlock": "リミット(EMP20)",
+   "effect": "フィールドにカオス効果",
+   "duration": "180s",
+   "cooldown": "16T",
+   "match_confidence": "high"
+  },
+  "1148": {
+   "name_jp": "トワイライトゾーン",
+   "name_en": "Twilight Zone",
+   "unlock": "リミット(EMP30)",
+   "effect": "フィールドにトワイライトゾーン効果",
+   "duration": "180s",
+   "cooldown": "16T",
+   "match_confidence": "high"
+  },
+  "1300": {
+   "name_jp": "ヴェノム",
+   "name_en": "Venom",
+   "unlock": "ハーミット Lv5",
+   "effect": "敵に200〜250%自属性ダメージ(上限約42万) / 毒(4000)",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "medium",
+   "notes": "gbf.wikiではハーミット(ClassIII)由来。EX解放Lvは実機L5"
+  },
+  "1410": {
+   "name_jp": "ブラインド",
+   "name_en": "Blind",
+   "unlock": "ソーサラー Lv15",
+   "effect": "敵に暗闇",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "1422": {
+   "name_jp": "ブラックヘイズ",
+   "name_en": "Dark Haze",
+   "unlock": "リミット(EMP30)",
+   "effect": "敵全体に25%攻撃DOWN/25%防御DOWN/暗闇/毒(9999)",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "1500": {
+   "name_jp": "グラビティ",
+   "name_en": "Gravity Wave",
+   "unlock": "ダークフェンサー Lv15",
+   "effect": "敵に最大CT増加(グラビティ)",
+   "duration": "180s",
+   "cooldown": "9T",
+   "match_confidence": "high"
+  },
+  "1520": {
+   "name_jp": "クイックダウン",
+   "name_en": "Quick Down",
+   "unlock": "リミット(EMP3)",
+   "effect": "敵にDA DOWN/TA DOWN",
+   "duration": "180s",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "1530": {
+   "name_jp": "スタディエイム",
+   "name_en": "Steady Aim",
+   "unlock": "リミット(EMP5)",
+   "effect": "敵にスタディエイム付与/自分に奥義ゲージ+20%",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "1600": {
+   "name_jp": "ミゼラブルミスト",
+   "name_en": "Miserable Mist",
+   "unlock": "ダークフェンサー Lv5",
+   "effect": "敵全体に25% ATK Down / 25% DEF Down",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "1900": {
+   "name_jp": "ソウルピルファー",
+   "name_en": "Soul Soloist",
+   "unlock": "スーパースター Lv5",
+   "effect": "楽器:敵全体30% 弱体耐性Down・味方全体30% 弱体耐性Up(武器種で変動)",
+   "duration": "3T",
+   "cooldown": "5T",
+   "match_confidence": "medium"
+  },
+  "1910": {
+   "name_jp": "ひつじのうた",
+   "name_en": "Sheep Song",
+   "unlock": "リミット(EMP8)",
+   "effect": "敵に睡眠/スロウ(楽器メインで性能UP)",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "2040": {
+   "name_jp": "ドライブバースト",
+   "name_en": "Overdrive Surge",
+   "unlock": "ナイト Lv10",
+   "effect": "OD中の敵に300%自属性ダメージ",
+   "duration": "-",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "2041": {
+   "name_jp": "ドライブバーストII",
+   "name_en": "Overdrive Surge II",
+   "unlock": "フォートレス Lv5",
+   "effect": "OD中の敵に400%自属性ダメージ",
+   "duration": "-",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "2043": {
+   "name_jp": "ドライブバーストIII",
+   "name_en": "Overdrive Surge III",
+   "unlock": "ホーリーセイバー Lv5",
+   "effect": "OD中の敵に500%(非OD時200%)自属性ダメージ",
+   "duration": "-",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "2070": {
+   "name_jp": "ハードライン",
+   "name_en": "Hard Line",
+   "unlock": "マークスマン Lv15",
+   "effect": "弱体状態の敵に大ダメージ",
+   "duration": "-",
+   "cooldown": "7T",
+   "match_confidence": "high",
+   "notes": "gbf.wikiではArcher(マークスマン)Lv15"
+  },
+  "2080": {
+   "name_jp": "キルストリーク",
+   "name_en": "Bullseye Run",
+   "unlock": "サイドワインダー Lv15",
+   "effect": "敵の弱体数に応じて100%自属性ダメージ(上限約58万) / 弱体1つ毎に+100%",
+   "duration": "-",
+   "cooldown": "7T",
+   "match_confidence": "medium"
+  },
+  "2081": {
+   "name_jp": "バウンス",
+   "name_en": "Bounce",
+   "unlock": "リミット(EMP8)",
+   "effect": "敵の強化/弱体効果の数に応じて大ダメージ(上限約58万)",
+   "duration": null,
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "3021": {
+   "name_jp": "クリアオール",
+   "name_en": "Clarity",
+   "unlock": "クレリック Lv5",
+   "effect": "参戦者の弱体効果を1つ回復",
+   "duration": "-",
+   "cooldown": "4T",
+   "match_confidence": "high"
+  },
+  "3030": {
+   "name_jp": "リヴァイヴ",
+   "name_en": "Revive",
+   "unlock": "ビショップ Lv15",
+   "effect": "味方単体を25% HPで復活",
+   "duration": "-",
+   "cooldown": "12T",
+   "match_confidence": "high"
+  },
+  "3040": {
+   "name_jp": "ディスペル",
+   "name_en": "Dispel",
+   "unlock": "ビショップ Lv5",
+   "effect": "敵の強化効果を1つ無効化",
+   "duration": "-",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "3048": {
+   "name_jp": "ディスペル・シージ",
+   "name_en": "Dispel Deluge",
+   "unlock": "リミット(EMP25)",
+   "effect": "敵全体の強化効果を1つ無効化",
+   "duration": null,
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "3050": {
+   "name_jp": "内功",
+   "name_en": "Chi Channeler",
+   "unlock": "クンフー Lv15",
+   "effect": "自分のHP回復(上限1500) / DEF Up",
+   "duration": "3T",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "3219": {
+   "name_jp": "キュアーフェン",
+   "name_en": "Peace of Mind",
+   "unlock": "リミット(EMP15)",
+   "effect": "味方全体の弱体1つ回復/バリア500",
+   "duration": "3T",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "3327": {
+   "name_jp": "ソング・トゥ・ザ・デッド",
+   "name_en": "Dirge for the Dead",
+   "unlock": "リミット(EMP20)",
+   "effect": "敵に15%防御DOWN/20%自属性防御DOWN",
+   "duration": "180s",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "3334": {
+   "name_jp": "解放の歌声",
+   "name_en": "Voice Unveiled",
+   "unlock": "リミット(EMP10)",
+   "effect": "味方全体に死の祝福/活性効果",
+   "duration": "5T",
+   "cooldown": "8T",
+   "match_confidence": "high"
+  },
+  "3335": {
+   "name_jp": "コール・オブ・アビス",
+   "name_en": "Call of the Abyss",
+   "unlock": "リミット(EMP14)",
+   "effect": "楽器:味方全体に80%DA UP/30%TA UP/35%奥義ゲージ上昇量DOWN(短剣時は半減)",
+   "duration": "3T",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "3570": {
+   "name_jp": "ジャミング",
+   "name_en": "Frequency Jam",
+   "unlock": "リミット(EMP20)",
+   "effect": "味方全体に約35%回避率UP/40%/40%クリティカル確率UP",
+   "duration": "2T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "4000": {
+   "name_jp": "シャイニング",
+   "name_en": "Blessing",
+   "unlock": "クレリック Lv15",
+   "effect": "敵全体に200〜300%光属性ダメージ",
+   "duration": "-",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "4001": {
+   "name_jp": "シャイニングII",
+   "name_en": "Blessing II",
+   "unlock": "リミット(EMP10)",
+   "effect": "敵全体に350〜500%光属性ダメージ/ホーリースパイク付与",
+   "duration": "180s",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "4010": {
+   "name_jp": "ファイア",
+   "name_en": "Fire",
+   "unlock": "ウィザード Lv10",
+   "effect": "敵全体に200〜250%火属性ダメージ",
+   "duration": "-",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "4020": {
+   "name_jp": "アイス",
+   "name_en": "Freeze",
+   "unlock": "ソーサラー Lv5",
+   "effect": "敵全体に200〜250%水属性ダメージ",
+   "duration": "-",
+   "cooldown": "5T",
+   "match_confidence": "medium"
+  },
+  "4120": {
+   "name_jp": "アローレイン",
+   "name_en": "Rain of Arrows",
+   "unlock": "レンジャー Lv10",
+   "effect": "敵全体に150〜300%自属性ダメージ",
+   "duration": "-",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "4121": {
+   "name_jp": "アローレインII",
+   "name_en": "Rain of Arrows II",
+   "unlock": "マークスマン Lv5",
+   "effect": "敵全体に自属性ダメージ / ATK Down",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "4122": {
+   "name_jp": "アローレインIII",
+   "name_en": "Rain of Arrows III",
+   "unlock": "サイドワインダー Lv5",
+   "effect": "敵全体に300%自属性ダメージ / 25% ATK Down",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "4500": {
+   "name_jp": "パイルリベレーション",
+   "name_en": "Battle Scar",
+   "unlock": "ドラグーン Lv15",
+   "effect": "奥義ゲージに応じて自属性ダメージ / 自分にATK Up・DEF Up・オーバーヒート",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "medium"
+  },
+  "4512": {
+   "name_jp": "レゾナンスサージ",
+   "name_en": "Resonating Surge",
+   "unlock": "ヴァルキュリア Lv15",
+   "effect": "敵に自属性ダメージ / 自分に25% Skill DMG Up(累積/最大200%)",
+   "duration": "-",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "4594": {
+   "name_jp": "シールドワイア",
+   "name_en": "Hardened Shield",
+   "unlock": "リミット(EMP20)",
+   "effect": "自分に50%攻撃UP/自身防御DOWN/敵にスロウ",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "5010": {
+   "name_jp": "トリックステップ",
+   "name_en": "Tricky Moves",
+   "unlock": "レイダー Lv15",
+   "effect": "OD中の敵にモードゲージ減少",
+   "duration": "-",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "5020": {
+   "name_jp": "ブレイクキープ",
+   "name_en": "Extend Break",
+   "unlock": "リミット(EMP5)",
+   "effect": "敵にブレイク延長(時間)/ブレイク延長(ダメージ)",
+   "duration": "変動",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "5061": {
+   "name_jp": "ランドグリース",
+   "name_en": "Randgrith",
+   "unlock": "リミット(EMP10)",
+   "effect": "敵に25%防御DOWN",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "5070": {
+   "name_jp": "フォーススナッチ",
+   "name_en": "Force Snatch",
+   "unlock": "リミット(EMP15)",
+   "effect": "敵の強化効果を1つ無効化/自分に確定TA",
+   "duration": "1T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "6009": {
+   "name_jp": "トレジャーハントIV",
+   "name_en": "Bounty Hunter IV",
+   "unlock": "リミット(EMP25)",
+   "effect": "敵に200%自属性ダメージ(上限約42万)/トレハン(Bounty)Lv+3 ◆Lvに応じてダメージUP",
+   "duration": null,
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "6131": {
+   "name_jp": "ファイティングスピリット",
+   "name_en": "Ring Ruler",
+   "unlock": "リミット(EMP5)",
+   "effect": "リング・ルーラー効果 ◆被ダメージで解除",
+   "duration": null,
+   "cooldown": "8T",
+   "match_confidence": "medium",
+   "notes": "レスラー(Luchador)固有。効果「被ダメージで解除」が一致"
+  },
+  "6184": {
+   "name_jp": "ブレイブソウル",
+   "name_en": "Brave Soul",
+   "unlock": "リミット(EMP10)",
+   "effect": "自分にストレングス効果(最大HPに応じてATK上昇)",
+   "duration": "3T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "6200": {
+   "name_jp": "チェンジ",
+   "name_en": "Change",
+   "unlock": "リミット(EMP8)",
+   "effect": "主人公とサブメンバーの一人を入替",
+   "duration": null,
+   "cooldown": "2T",
+   "match_confidence": "high"
+  },
+  "6205": {
+   "name_jp": "タクティクスコマンド",
+   "name_en": "Tactical Relocation",
+   "unlock": "リミット(EMP30)",
+   "effect": "任意の二人のポジションを入替",
+   "duration": null,
+   "cooldown": "20T",
+   "match_confidence": "high"
+  },
+  "6220": {
+   "name_jp": "ブラッドソード",
+   "name_en": "Blood Sword",
+   "unlock": "リミット(EMP10)",
+   "effect": "自分にドレイン効果",
+   "duration": "3T",
+   "cooldown": "9T",
+   "match_confidence": "high"
+  },
+  "7010": {
+   "name_jp": "瞑想",
+   "name_en": "Self Reflection",
+   "unlock": "侍 Lv5",
+   "effect": "自分に60% ATK Up / クリティカル確率Up / 弱体全回復 ◆奥義ゲージ30%消費",
+   "duration": "1T",
+   "cooldown": "1T",
+   "match_confidence": "medium"
+  },
+  "7020": {
+   "name_jp": "鴉雀無声",
+   "name_en": "Quiet Strategy",
+   "unlock": "侍 Lv15",
+   "effect": "自分にDEF Up / 刀:幻影(1回)・自身ATK Down / 弓:自身ATK Up・自身DA/TA Down ◆奥義ゲージ30%消費",
+   "duration": "2T",
+   "cooldown": "7T",
+   "match_confidence": "medium"
+  },
+  "7070": {
+   "name_jp": "風魔手裏剣",
+   "name_en": "Fuma Shuriken",
+   "unlock": "忍者 Lv5",
+   "effect": "敵に100%自属性ダメージ / 印コンボで追加効果 / 刀:忍術CT短縮 / 格闘:50% ATK Up・DA Up",
+   "duration": "-",
+   "cooldown": "8T",
+   "match_confidence": "medium"
+  },
+  "7100": {
+   "name_jp": "朧",
+   "name_en": "Haze",
+   "unlock": "忍者 Lv15",
+   "effect": "敵に自属性ダメージ / 刀:自身50%暗闇・50% DA Up / 格闘:自身DEF Down・60% ATK Up・10%奥義ゲージ上昇量Up",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "medium"
+  },
+  "7228": {
+   "name_jp": "ツープラトン",
+   "name_en": "Two-Platoon",
+   "unlock": "リミット",
+   "effect": "味方全体がターン経過なしで通常攻撃を実行",
+   "duration": null,
+   "cooldown": null,
+   "match_confidence": "low",
+   "notes": "レスラー固有。gbf.wiki該当箇所未特定"
+  },
+  "7233": {
+   "name_jp": "他心陣",
+   "name_en": "Splitting Spirit",
+   "unlock": "賢者 Lv15",
+   "effect": "自分のHPを奥義ゲージに変換(現在HPの最大50%消費)",
+   "duration": "-",
+   "cooldown": "8T",
+   "match_confidence": "medium",
+   "notes": "gbf.wikiではMystic(賢者)Lv15"
+  },
+  "7242": {
+   "name_jp": "バニッシュ",
+   "name_en": "Out of Sight",
+   "unlock": "アサシン Lv5",
+   "effect": "自分に敵対心Down / 対象の味方に敵対心Up",
+   "duration": "3T",
+   "cooldown": "8T",
+   "match_confidence": "medium"
+  },
+  "7290": {
+   "name_jp": "アンプレディクト",
+   "name_en": "Unpredictable",
+   "unlock": "リミット(EMP15)",
+   "effect": "敵全体に25%攻撃DOWN/25%防御DOWN/ランダムな弱体1つ",
+   "duration": "180s",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "7500": {
+   "name_jp": "ルピフリップ",
+   "name_en": "Rupie Flip",
+   "unlock": "リミット(EMP10)",
+   "effect": "敵に無属性ダメージ ◆ルピ消費",
+   "duration": null,
+   "cooldown": "0T",
+   "match_confidence": "high"
+  },
+  "9292": {
+   "name_jp": "レイジIV",
+   "name_en": "Rage IV",
+   "unlock": "リミット(EMP25)",
+   "effect": "参戦者に40%攻撃UP/味方全体に5%ダメージ上限UP ◆奥義ゲージ30%消費",
+   "duration": "3T",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "9531": {
+   "name_jp": "狂信演舞",
+   "name_en": "Dance of Zeal",
+   "unlock": "リミット(EMP5)",
+   "effect": "自分に献身/自分以外の味方に50%攻撃UP/20%防御DOWN",
+   "duration": "3T",
+   "cooldown": "8T",
+   "match_confidence": "high"
+  },
+  "9532": {
+   "name_jp": "水鳥の歌詠",
+   "name_en": "Swan Song",
+   "unlock": "リミット(EMP20)",
+   "effect": "味方全体に10%奥義ゲージ上昇量UP/槍:80%/20%クリティカル確率UP 斧:ドレイン+10%弱体成功率UP",
+   "duration": "3T",
+   "cooldown": "9T",
+   "match_confidence": "high"
+  },
+  "200091": {
+   "name_jp": "アブソーブ",
+   "name_en": "Absorption",
+   "unlock": "リミット(EMP20)",
+   "effect": "味方全体に30%被ダメージ吸収",
+   "duration": "2T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "200101": {
+   "name_jp": "レイショナルショット",
+   "name_en": "Judicious Shot",
+   "unlock": "リミット(EMP25)",
+   "effect": "敵全体に300%自属性ダメージ(上限約66万)/25%自属性防御DOWN",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "200111": {
+   "name_jp": "曼珠沙華",
+   "name_en": "Crestfallen Flower",
+   "unlock": "リミット(EMP30)",
+   "effect": "自分に50%弱体耐性UP/槍:味方全体にストレングス 斧:味方全体にジャマー",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "200491": {
+   "name_jp": "ツインサーキュラー",
+   "name_en": "Twin Coil",
+   "unlock": "グラディエーター Lv5",
+   "effect": "敵全体に2回200%自属性ダメージ(1発上限40.5万)",
+   "duration": "-",
+   "cooldown": "6T",
+   "match_confidence": "medium"
+  },
+  "200721": {
+   "name_jp": "ウールヴヘジン",
+   "name_en": "Ulfhedinn",
+   "unlock": "リミット(EMP50)",
+   "effect": "ウールヴヘジン効果 ◆奥義ゲージ100%消費",
+   "duration": "4T",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "200741": {
+   "name_jp": "楼門五三桐",
+   "name_en": "Spring's Gate",
+   "unlock": "リミット(EMP50)",
+   "effect": "敵全体に強襲/トレハンLvに応じ味方全体に自属性追撃(最大60%)",
+   "duration": "3T/1T",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "200761": {
+   "name_jp": "タイム・オン・ターゲット",
+   "name_en": "Time On Target",
+   "unlock": "リミット(EMP50)",
+   "effect": "敵に300%自属性ダメージ(上限約44万)/ランダム弱体 ◆弓・銃キャラ数でヒット数・弱体数UP(最大6)",
+   "duration": null,
+   "cooldown": "15T",
+   "match_confidence": "high"
+  },
+  "200791": {
+   "name_jp": "オラトリオ",
+   "name_en": "Oratorio",
+   "unlock": "リミット(EMP50)",
+   "effect": "得意武器「楽器」のキャラに30%DA UP/30%TA UP/20%与ダメージ上昇",
+   "duration": "4T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "200801": {
+   "name_jp": "霹靂閃電",
+   "name_en": "Lightning Strike",
+   "unlock": "リミット(EMP50)",
+   "effect": "槍得意キャラに確定TA/斧得意キャラに15%DMG Amplified",
+   "duration": "1T/3T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "200811": {
+   "name_jp": "レプリケーションキャスト",
+   "name_en": "Resounding Chant",
+   "unlock": "リミット(EMP50)",
+   "effect": "敵全体に300%自属性ダメージ(上限約40万)/味方全体に奥義ゲージ+20% ◆杖キャラ数で性能UP",
+   "duration": null,
+   "cooldown": "3〜12ターンで使用可",
+   "match_confidence": "medium",
+   "notes": "実機名レプリケーションキャスト。効果一致"
+  },
+  "201631": {
+   "name_jp": "ヴィンランド",
+   "name_en": "Vinland",
+   "unlock": "リミット(EMP30)",
+   "effect": "自分の奥義ゲージ+100%/ヴィンランド効果(ターン終了時に奥義ゲージ+100%)",
+   "duration": "2T",
+   "cooldown": "10T",
+   "match_confidence": "high"
+  },
+  "201641": {
+   "name_jp": "ヨムスボルグ",
+   "name_en": "Jomsborg",
+   "unlock": "リミット(EMP50)",
+   "effect": "味方全体の強化効果を1ターン延長(1ターン効果除く)/ランダムな強化2つ付与",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "201661": {
+   "name_jp": "バナホッグ",
+   "name_en": "Banahogg",
+   "unlock": "リミット(EMP40)",
+   "effect": "敵に2回弱点属性ダメージ(1発上限約37万)/25%防御DOWN ◆剣:ヒット数UP(2回) 斧:25%自属性防御DOWN追加",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "201701": {
+   "name_jp": "ノブレス・プロテジー",
+   "name_en": "Noblesse Proteger",
+   "unlock": "リミット(EMP50)",
+   "effect": "自分にかばう(全体)/バリア10000",
+   "duration": "1T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "201711": {
+   "name_jp": "フルレジスト",
+   "name_en": "Boosted Resistance",
+   "unlock": "リミット(EMP40)",
+   "effect": "味方全体に200%弱体耐性UP/ディスペルガード",
+   "duration": "5T",
+   "cooldown": "10T",
+   "match_confidence": "high"
+  },
+  "201721": {
+   "name_jp": "セイクリッド・プロテクション",
+   "name_en": "Sacred Protection",
+   "unlock": "リミット(EMP30)",
+   "effect": "味方全体に被ダメージ減少10000",
+   "duration": "1T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "201741": {
+   "name_jp": "アミティコフォス",
+   "name_en": "Amyntiko Fos",
+   "unlock": "リミット(EMP40)",
+   "effect": "味方全体に弱体無効(1回)/確定TA(1回)/自分にセラプティク・スタンス(2回)",
+   "duration": null,
+   "cooldown": "10T",
+   "match_confidence": "high"
+  },
+  "201751": {
+   "name_jp": "プネウマ",
+   "name_en": "Pneuma",
+   "unlock": "リミット(EMP30)",
+   "effect": "味方単体にプネウマ",
+   "duration": null,
+   "cooldown": "8T",
+   "match_confidence": "high"
+  },
+  "201761": {
+   "name_jp": "メガリフォーティア",
+   "name_en": "Megali Fotia",
+   "unlock": "リミット(EMP50)",
+   "effect": "敵全体に1000%自属性ダメージ(上限約190万)/味方全体HP・弱体全回復 ◆再使用不可",
+   "duration": null,
+   "cooldown": "10ターンで使用可",
+   "match_confidence": "high"
+  },
+  "201851": {
+   "name_jp": "ワイルドマギカ",
+   "name_en": "Wild Magica",
+   "unlock": "リミット(EMP50)",
+   "effect": "敵に400%自属性ダメージ(上限約63.5万)/確定TA ◆奥義ゲージ50%消費でダブルストライク",
+   "duration": "2T",
+   "cooldown": "9T",
+   "match_confidence": "high"
+  },
+  "201861": {
+   "name_jp": "シークレットトライアド",
+   "name_en": "Secret Triad",
+   "unlock": "リミット(EMP40)",
+   "effect": "敵全体のCT+3/味方全体に自属性追撃/奥義ゲージ+30%/自属性刻印1",
+   "duration": "3T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "201871": {
+   "name_jp": "オーバートランス",
+   "name_en": "Overtrance",
+   "unlock": "リミット(EMP30)",
+   "effect": "即座に奥義発動可能/オーバートランス効果 ◆再使用不可",
+   "duration": "6T",
+   "cooldown": "3ターンで使用可",
+   "match_confidence": "high"
+  },
+  "202061": {
+   "name_jp": "フェロシティロアー",
+   "name_en": "Ferocious Roar",
+   "unlock": "極致の証",
+   "effect": "得意武器「斧」「剣」のキャラに30%DA UP/30%TA UP/20%与ダメージ上昇",
+   "duration": "4T",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "202071": {
+   "name_jp": "ビーストファング",
+   "name_en": "Beast Fang",
+   "unlock": "極致の証",
+   "effect": "敵に400%自属性ダメージ(上限約63.5万)/25%攻撃DOWN/25%防御DOWN/自分に50%ダメージ上限UP ◆ウールヴヘジン中は通常攻撃時に自動発動",
+   "duration": "180s/2T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "202091": {
+   "name_jp": "狂戦の血",
+   "name_en": "Bloodzerker",
+   "unlock": "極致の証",
+   "effect": "狂戦の血効果(HP25%以下or再使用で解除。奥義使用時に現HP25%消費で50%特殊攻撃UP〈1回〉)",
+   "duration": null,
+   "cooldown": "0T",
+   "match_confidence": "high"
+  },
+  "202171": {
+   "name_jp": "ニヤグローダ",
+   "name_en": "Nyagrodha",
+   "unlock": "極致の証",
+   "effect": "敵全体に5回100%自属性ダメージ(1発上限約6.8万)/25%攻撃DOWN/25%防御DOWN ◆槍・斧の装備数でヒット数UP(最大15)",
+   "duration": "180s",
+   "cooldown": "8T",
+   "match_confidence": "high"
+  },
+  "202191": {
+   "name_jp": "流麗の宝冠",
+   "name_en": "Crowning Fluidity",
+   "unlock": "極致の証",
+   "effect": "流麗の宝冠効果(ターン終了時に惑踊Lv+1最大5/被ダメージでリセット) ◆再使用不可",
+   "duration": null,
+   "cooldown": null,
+   "match_confidence": "high"
+  },
+  "202201": {
+   "name_jp": "饗宴幻惑",
+   "name_en": "Showstopper",
+   "unlock": "極致の証",
+   "effect": "自分に完全敵対心/回避・被ダメージカウンター(5回)/槍:50%特殊攻撃UP 斧:全力でカウンター ◆再使用不可",
+   "duration": "1T",
+   "cooldown": "6ターンで使用可",
+   "match_confidence": "high"
+  },
+  "202291": {
+   "name_jp": "ブリークディスオーダー",
+   "name_en": "Bleak Disorder",
+   "unlock": "極致の証",
+   "effect": "敵に2回150%自属性ダメージ(1発上限約18万)/10%自属性防御DOWN(累積/最大40%)/DA DOWN(累積)/TA DOWN(累積) ◆敵の弱体12個以上で通常攻撃後に発動",
+   "duration": "180s",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "202301": {
+   "name_jp": "フレイム・オブ・カオス",
+   "name_en": "Flames of Chaos",
+   "unlock": "極致の証",
+   "effect": "敵全体にさまざまな弱体効果",
+   "duration": "180s/6T",
+   "cooldown": "14T",
+   "match_confidence": "high"
+  },
+  "202311": {
+   "name_jp": "イノーミティー",
+   "name_en": "Malignity",
+   "unlock": "極致の証",
+   "effect": "敵全体にイノーミティー(与属性ダメージ0)/自分にイノーミティー(アビリティ使用不可)",
+   "duration": "1T/2T",
+   "cooldown": "12T",
+   "match_confidence": "high"
+  },
+  "202321": {
+   "name_jp": "フラジオレット",
+   "name_en": "Flageolet",
+   "unlock": "極致の証",
+   "effect": "敵全体に自属性ダメージ/調律Lv+1(最大10) ◆調律Lvでヒット数UP(最大11)",
+   "duration": "180s",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "202341": {
+   "name_jp": "ダイアトニック",
+   "name_en": "Diatonic Harmony",
+   "unlock": "極致の証",
+   "effect": "ダイアトニック効果 ◆再使用で解除",
+   "duration": "1T",
+   "cooldown": "再使用0T",
+   "match_confidence": "high"
+  },
+  "202361": {
+   "name_jp": "アッチェレランド",
+   "name_en": "Accelerando",
+   "unlock": "極致の証",
+   "effect": "アッチェレランド効果 ◆再使用不可",
+   "duration": null,
+   "cooldown": null,
+   "match_confidence": "high"
+  },
+  "202371": {
+   "name_jp": "イルミネイトパス",
+   "name_en": "Path Illuminated",
+   "unlock": "極致の証",
+   "effect": "敵全体に250%自属性ダメージ(上限約63万)/味方全体HP回復(上限1000)/奥義ゲージ+10%",
+   "duration": null,
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "202381": {
+   "name_jp": "ブランシュラパン",
+   "name_en": "Lapin Blanc",
+   "unlock": "極致の証",
+   "effect": "ブランシュラパン効果 ◆再使用不可",
+   "duration": null,
+   "cooldown": null,
+   "match_confidence": "high"
+  },
+  "202391": {
+   "name_jp": "カテドラル",
+   "name_en": "Cathedral's Benison",
+   "unlock": "極致の証",
+   "effect": "味方全体にバリア10000/カテドラル効果 ◆2回被ダメージで解除",
+   "duration": null,
+   "cooldown": "16T",
+   "match_confidence": "high"
+  },
+  "202491": {
+   "name_jp": "タッグチーム",
+   "name_en": "Tag Team",
+   "unlock": "リミット(EMP40)",
+   "effect": "味方全体がターン経過なしで通常攻撃を実行",
+   "duration": null,
+   "cooldown": "15T",
+   "match_confidence": "high"
+  },
+  "202501": {
+   "name_jp": "ファイティングソング",
+   "name_en": "Fight Song",
+   "unlock": "極致の証",
+   "effect": "ファイトソング効果 ◆再使用不可",
+   "duration": null,
+   "cooldown": null,
+   "match_confidence": "high"
+  },
+  "202511": {
+   "name_jp": "ヒール・タイム",
+   "name_en": "Vez de Rudo",
+   "unlock": "極致の証",
+   "effect": "ヒール(悪役)に転向しルード効果/自身スキル封印 ◆バトル開始時に自動発動/アビリティ使用不可/再使用不可",
+   "duration": null,
+   "cooldown": null,
+   "match_confidence": "high"
+  },
+  "202531": {
+   "name_jp": "テルモピュライ",
+   "name_en": "Thermopylae",
+   "unlock": "極致の証",
+   "effect": "ターゲットに関わらず5回・100%自属性ダメージ(1発上限約10万)/バリア2000/弱体1つ回復 ◆瀕死時はターン終了時に発動",
+   "duration": null,
+   "cooldown": "5T",
+   "match_confidence": "high"
+  },
+  "202551": {
+   "name_jp": "ホプリテス",
+   "name_en": "Hoplite",
+   "unlock": "極致の証",
+   "effect": "味方全体にストレングス/100%DA UP/50%TA UP/10%ダメージ上限UP/10%与ダメージ上昇 ◆剣・槍キャラ数で効果時間延長",
+   "duration": "1〜6T",
+   "cooldown": "12T",
+   "match_confidence": "high"
+  },
+  "202561": {
+   "name_jp": "モローン・ラベ",
+   "name_en": "Molon Labe",
+   "unlock": "極致の証",
+   "effect": "味方全体に20%与ダメージ上昇/ジャマー/ガッツ(1回)/バリア3000 ◆各味方の現HP40%消費",
+   "duration": "3T/8T",
+   "cooldown": "10T",
+   "match_confidence": "high"
+  },
+  "202731": {
+   "name_jp": "ナイフロワイヤル",
+   "name_en": "Couteau Royal",
+   "unlock": "リミット(EMP30)",
+   "effect": "ターゲットに関わらず8回自属性ダメージ/自分に確定TA ◆敵トレハンLvで追加ヒット(最大5)",
+   "duration": "1T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "202741": {
+   "name_jp": "パルフェタムール",
+   "name_en": "Parfait d'Amour",
+   "unlock": "リミット(EMP40)",
+   "effect": "味方全体にパルフェタムール効果 ◆コンパニオンウェポン時:効果延長/敵にドロップ率UP(2回)",
+   "duration": "3〜8T",
+   "cooldown": "12T",
+   "match_confidence": "high"
+  },
+  "202751": {
+   "name_jp": "マントゥ・デュ・ルワ",
+   "name_en": "Le Manteau du Roi",
+   "unlock": "リミット(EMP50)",
+   "effect": "死を偽装しサブと入替(入替先は仮初めの継承者/主人公復帰時に真の継承者) ◆再使用不可",
+   "duration": null,
+   "cooldown": null,
+   "match_confidence": "high"
+  },
+  "202881": {
+   "name_jp": "デモンズフレア",
+   "name_en": "Demonic Flare",
+   "unlock": "極致の証",
+   "effect": "敵全体に1000%自属性ダメージ(上限約112万)/強化1つ無効化/40%攻撃DOWN/40%防御DOWN/50%DA DOWN/50%TA DOWN/弱体耐性DOWN",
+   "duration": "6T",
+   "cooldown": "3〜15ターンで使用可",
+   "match_confidence": "high"
+  },
+  "202891": {
+   "name_jp": "魔術結界",
+   "name_en": "Arcane Field",
+   "unlock": "極致の証",
+   "effect": "魔術結界効果(結界Lv7or奥義ゲージ不足で解除)",
+   "duration": null,
+   "cooldown": "10T",
+   "match_confidence": "high"
+  },
+  "202941": {
+   "name_jp": "魔紋解放",
+   "name_en": "Crest Discharge",
+   "unlock": "極致の証",
+   "effect": "味方全体に確定TA/20%有利属性与ダメージ上昇/15%ダメージ上限UP/20%DMG Amplified ◆自属性刻印5以上で使用可",
+   "duration": "1T/3T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "203091": {
+   "name_jp": "ホーミングマーク",
+   "name_en": "Homing Beacon",
+   "unlock": "極致の証",
+   "effect": "敵にホーミングマーク(3ターン毎に敵現HP依存の5回無属性ダメージ/強化1つ無効化/弱体耐性DOWN累積) ◆再使用不可",
+   "duration": null,
+   "cooldown": null,
+   "match_confidence": "high"
+  },
+  "203101": {
+   "name_jp": "スニーキングタイプ",
+   "name_en": "Stealth Protocol",
+   "unlock": "極致の証",
+   "effect": "スニーキングタイプ効果(通常攻撃せず狙われにくい/奥義発動時に次配置キャラに攻撃大幅UP1回)",
+   "duration": "5T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "203111": {
+   "name_jp": "バッキングコマンド",
+   "name_en": "Rearguard Relocation",
+   "unlock": "極致の証",
+   "effect": "サブと5ターン入替し後方支援(入替先に強化転移/他味方に強化転移〈他〉)",
+   "duration": "5T",
+   "cooldown": "3〜10ターンで使用可",
+   "match_confidence": "high"
+  },
+  "203131": {
+   "name_jp": "参伍博戯",
+   "name_en": "Roll of the Dice",
+   "unlock": "極致の証",
+   "effect": "敵全体のドロップ率UP(3〜5回)/自分に乱撃(3ヒット)",
+   "duration": "1T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "203141": {
+   "name_jp": "春宵一刻値万両",
+   "name_en": "Sublime Springscape",
+   "unlock": "極致の証",
+   "effect": "ターゲットに関わらず100%自属性ダメージ(上限約6.3万)/トレハンLvでヒット数UP(最大8)/10%攻撃DOWN(累積/最大40%)/10%防御DOWN(累積/最大40%) ◆トレハンLv5以上で通常攻撃後に発動",
+   "duration": "180s",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "203161": {
+   "name_jp": "義侠の神髄",
+   "name_en": "Heart of Chivalry",
+   "unlock": "極致の証",
+   "effect": "義侠の神髄効果(連続攻撃確率UP/通常攻撃の与ダメージ上昇/TA時に敵HPを奪い味方全体回復)",
+   "duration": "5T",
+   "cooldown": "10T",
+   "match_confidence": "high"
+  },
+  "203435": {
+   "name_jp": "式神・蛟",
+   "name_en": "Shikigami: Mizuchi",
+   "unlock": "リミット(EMP30)",
+   "effect": "ターゲットに関わらず3回100%自属性ダメージ(1発上限約20万)/敵全体に10%攻撃DOWN(累積/最大40%)/10%防御DOWN(累積/最大40%)/ランダム弱体 ◆霊符3消費でCT終了",
+   "duration": "180s",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "203440": {
+   "name_jp": "天地開闢",
+   "name_en": "Celestial Genesis",
+   "unlock": "リミット(EMP40)",
+   "effect": "味方全体に奥義ゲージ+30%/10%高揚 ◆霊符7消費で自分が即座に奥義発動可能/奥義再発動(1回)",
+   "duration": "3T",
+   "cooldown": "9T",
+   "match_confidence": "high"
+  },
+  "203443": {
+   "name_jp": "呪々相乗",
+   "name_en": "Execration / Five-Phase Seal",
+   "unlock": "リミット(EMP50)",
+   "effect": "敵全体に2回800%自属性ダメージ(1発上限約83万)/30%被ダメージUP(6回)/スロウ/強化1つ無効化/霊域Lv+1 ◆霊符7消費。霊域Lv2で「呪々相乗(6ヒット版)」に変化",
+   "duration": "1T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "203521": {
+   "name_jp": "無双張手",
+   "name_en": "Ultimate Palm Strike",
+   "unlock": "リミット(EMP30)",
+   "effect": "敵に700%自属性ダメージ(上限約63.5万)/25%防御DOWN/30%被ダメージUP(6回)",
+   "duration": "180s/2T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "203531": {
+   "name_jp": "風雲之志",
+   "name_en": "In the Face of Adversity",
+   "unlock": "リミット(EMP40)",
+   "effect": "自分にジャマー/20%DMG Amplified/20%ダメージ上限UP ◆最大HP25%消費",
+   "duration": "3T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "203541": {
+   "name_jp": "捔力節会",
+   "name_en": "Sumai Meet",
+   "unlock": "リミット(EMP50)",
+   "effect": "バウトモードに移行/全スキルCT終了 ◆同属性の格闘得意キャラの通常攻撃でスタンバイ-1T/他メンバー戦闘不可/アイテム使用不可/再使用不可",
+   "duration": "4T",
+   "cooldown": "10ターンで使用可",
+   "match_confidence": "high"
+  },
+  "203621": {
+   "name_jp": "セイスヘイヴン",
+   "name_en": "Sei Colpi",
+   "unlock": "リミット(EMP50)",
+   "effect": "敵全体に6回100%自属性ダメージ(1発上限約13.5万)/25%攻撃DOWN/25%防御DOWN/強化1つ無効化/自分に回避(1回) ◆敵の特殊技でCT終了",
+   "duration": "180s",
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "203631": {
+   "name_jp": "コンチネンタル・テーラー",
+   "name_en": "Bespoke Tailoring",
+   "unlock": "リミット(EMP40)",
+   "effect": "自分に被ダメージ無効(2回)/弱体無効(1回)/ディスペルガード(1回) ◆闇の名声5で全体化",
+   "duration": null,
+   "cooldown": "9T",
+   "match_confidence": "high"
+  },
+  "203651": {
+   "name_jp": "ブラッド・オウス・マーカー",
+   "name_en": "Blood Oath",
+   "unlock": "リミット(EMP30)",
+   "effect": "同属性キャラと自分のHPを最大10%消費し血の誓印/2人以上と結ぶとターン終了時に全解除・自分に現HP50%の無属性ダメージ",
+   "duration": null,
+   "cooldown": "6T",
+   "match_confidence": "high"
+  },
+  "203871": {
+   "name_jp": "ピッツィカート",
+   "name_en": "Pizzicato",
+   "unlock": "リミット(EMP30)",
+   "effect": "敵に400%自属性ダメージ(上限約63.5万)/10%弱体耐性DOWN(累積/最大30%)/調律Lv+1(最大10) ◆ソンブレロ中は通常攻撃後に発動",
+   "duration": "180s",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "203881": {
+   "name_jp": "ラス・マニャニータス",
+   "name_en": "Despierta, Mi Bien",
+   "unlock": "リミット(EMP40)",
+   "effect": "味方全体に活性/6%回復性能UP(累積/最大30%)/6%被回復上限UP(累積/最大30%)/回避率UP(累積/最大30%)",
+   "duration": "3T",
+   "cooldown": "3T",
+   "match_confidence": "high"
+  },
+  "203891": {
+   "name_jp": "至高のアンサンブル",
+   "name_en": "Ultimate Ensemble",
+   "unlock": "リミット(EMP50)",
+   "effect": "アルパ3消費で至高のアンサンブル(選曲で効果変化/フェイタルチェイン発動でアルパ+1最大3)",
+   "duration": null,
+   "cooldown": "15T",
+   "match_confidence": "high"
+  },
+  "203941": {
+   "name_jp": "チャージ・コンバージョン",
+   "name_en": "Charge Conversion",
+   "unlock": "リミット(EMP100)",
+   "effect": "自分にチャージ・コンバージョン効果(効果中、攻撃開始時に奥義ゲージ100%の時、全消費して自属性追撃1回)",
+   "duration": "再使用まで",
+   "cooldown": "2T/再使用0T",
+   "match_confidence": "high"
+  },
+  "203951": {
+   "name_jp": "ドーンブレイク",
+   "name_en": "Dawnbreak",
+   "unlock": "リミット(EMP300)",
+   "effect": "敵に400%自属性ダメージ(上限約63.5万)/固定追加ダメージ30000/敵対心UP(累積)/奥義ゲージ+20% ◆被ダメージ時に発動",
+   "duration": "3T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "203961": {
+   "name_jp": "アンリミテッド・ブースト",
+   "name_en": "Unlimited Boost",
+   "unlock": "リミット(EMP500)",
+   "effect": "アンリミテッド・ブースト効果(闘心Lv5でのみ使用可/再使用不可)",
+   "duration": null,
+   "cooldown": null,
+   "match_confidence": "high"
+  },
+  "204061": {
+   "name_jp": "ラウンドインペイラー",
+   "name_en": "Spiral Impaler",
+   "unlock": "リミット(EMP100)",
+   "effect": "敵に10回自属性ダメージ(1発上限約7万)/螺旋創効果",
+   "duration": "5T",
+   "cooldown": "8T",
+   "match_confidence": "high"
+  },
+  "204071": {
+   "name_jp": "アンバインドチャージ",
+   "name_en": "Unbound Charge",
+   "unlock": "リミット(EMP300)",
+   "effect": "ターン経過なしで通常攻撃を実行 ◆神伝の槍手Lv5で通常攻撃前に30%DMG Amplified",
+   "duration": "1T",
+   "cooldown": "7T",
+   "match_confidence": "high"
+  },
+  "204081": {
+   "name_jp": "インフィニット・インパルス",
+   "name_en": "Infinite Trouble",
+   "unlock": "リミット(EMP500)",
+   "effect": "槍:味方全体に無限の蒼槍(1回) 斧:無限の蒼斧(1回) ◆神伝の槍手Lv5でのみ使用可",
+   "duration": null,
+   "cooldown": "12T",
+   "match_confidence": "high"
+  },
+  "204210": {
+   "name_jp": "バースト・リフレイン",
+   "name_en": "Burst Refrain",
+   "unlock": "リミット(EMP100)",
+   "effect": "敵全体に10回自属性ダメージ(1発上限約42万)/50%防御DOWN/50%命中率DOWN/強化3つ無効化/奥義煥発/奥義再発動",
+   "duration": "2T/1T",
+   "cooldown": "5〜12ターンで使用可",
+   "match_confidence": "high"
+  },
+  "204220": {
+   "name_jp": "ハイチェイサー",
+   "name_en": "High Chaser",
+   "unlock": "リミット(EMP300)",
+   "effect": "味方全体に20%与ダメージ上昇/10%DMG Amplified/100%/20%クリティカル確率UP ◆自属性刻印10でダブルストライク",
+   "duration": "5T/1T",
+   "cooldown": "14T",
+   "match_confidence": "high"
+  },
+  "204230": {
+   "name_jp": "エーテル・ゼノグロシア",
+   "name_en": "Aether Xenoglossia",
+   "unlock": "リミット(EMP500)",
+   "effect": "味方全体のダメージアビリティのCT終了/無尽の蒼杖効果 ◆自属性刻印10でのみ使用可/再使用不可",
+   "duration": "1T",
+   "cooldown": null,
+   "match_confidence": "high"
+  }
  }
 }
