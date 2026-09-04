@@ -11,14 +11,51 @@
 
 ## ファイル一覧
 
+全44ファイル。同一シリーズで全属性版があるものはシリーズごとにまとめている。
+
 | ファイル | 武器名 | 属性 | シリーズ | ステータス |
 | --- | --- | --- | --- | --- |
 | [fire-ssr-seraphic-weapon.md](./fire-ssr-seraphic-weapon.md) | 赤き熾炎の剣 / Sword of Michael | 火 | セラフィックウェポン | 下書き |
+| [water-ssr-seraphic-weapon.md](./water-ssr-seraphic-weapon.md) | 美と慈愛の杖 / Wand of Gabriel | 水 | セラフィックウェポン | 下書き |
+| [earth-ssr-seraphic-weapon.md](./earth-ssr-seraphic-weapon.md) | 揺るがぬ大地の拳 / Gauntlet of Uriel | 土 | セラフィックウェポン | 下書き |
+| [wind-ssr-seraphic-weapon.md](./wind-ssr-seraphic-weapon.md) | 果てぬ風呼の魔弓 / Ring of Raphael | 風 | セラフィックウェポン | 下書き |
+| [light-ssr-seraphic-weapon.md](./light-ssr-seraphic-weapon.md) | 永遠の知識求る竪琴 / Harp of the Teachers | 光 | セラフィックウェポン | 下書き |
+| [dark-ssr-seraphic-weapon.md](./dark-ssr-seraphic-weapon.md) | 闇の子の歯牙 / Scythe of Belial | 闇 | セラフィックウェポン | 下書き |
 | [fire-ssr-limited-benedia.md](./fire-ssr-limited-benedia.md) | ベネディーア / Benedia | 火 | リミテッドシリーズ | 下書き |
-| [fire-ssr-dark-opus-scythe-normal.md](./fire-ssr-dark-opus-scythe-normal.md) | 絶対否定の大鎌 / Dark Opus Axe (Normal ATK) | 火 | 終末の神器(通常攻刃) | 下書き |
-| [fire-ssr-dark-opus-scythe-magna.md](./fire-ssr-dark-opus-scythe-magna.md) | 永遠拒絶の大鎌 / Dark Opus Axe (Magna) | 火 | 終末の神器(方陣攻刃) | 下書き |
+| [fire-ssr-dark-opus-scythe-normal.md](./fire-ssr-dark-opus-scythe-normal.md) | 絶対否定の大鎌 / Dark Opus Axe (Normal ATK) | 火 | 終末の神器 | 下書き |
+| [fire-ssr-dark-opus-scythe-magna.md](./fire-ssr-dark-opus-scythe-magna.md) | 永遠拒絶の大鎌 / Dark Opus Axe (Magna) | 火 | 終末の神器 | 下書き |
+| [water-ssr-dark-opus-cane-normal.md](./water-ssr-dark-opus-cane-normal.md) | 絶対否定の杖 / Dark Opus Cane (Normal ATK) | 水 | 終末の神器(通常攻刃) | 下書き |
+| [water-ssr-dark-opus-cane-magna.md](./water-ssr-dark-opus-cane-magna.md) | 永遠拒絶の杖 / Dark Opus Cane (Magna) | 水 | 終末の神器(方陣攻刃) | 下書き |
+| [earth-ssr-dark-opus-harp-normal.md](./earth-ssr-dark-opus-harp-normal.md) | 絶対否定の竪琴 / Dark Opus Harp (Normal ATK) | 土 | 終末の神器(通常攻刃) | 下書き |
+| [earth-ssr-dark-opus-harp-magna.md](./earth-ssr-dark-opus-harp-magna.md) | 永遠拒絶の竪琴 / Dark Opus Harp (Magna) | 土 | 終末の神器(方陣攻刃) | 下書き |
+| [wind-ssr-dark-opus-spear-normal.md](./wind-ssr-dark-opus-spear-normal.md) | 絶対否定の槍 / Dark Opus Spear (Normal ATK) | 風 | 終末の神器(通常攻刃) | 下書き |
+| [wind-ssr-dark-opus-spear-magna.md](./wind-ssr-dark-opus-spear-magna.md) | 永遠拒絶の槍 / Dark Opus Spear (Magna) | 風 | 終末の神器(方陣攻刃) | 下書き |
+| [light-ssr-dark-opus-sword-normal.md](./light-ssr-dark-opus-sword-normal.md) | 絶対否定の剣 / Dark Opus Sword (Normal ATK) | 光 | 終末の神器(通常攻刃) | 下書き |
+| [light-ssr-dark-opus-sword-magna.md](./light-ssr-dark-opus-sword-magna.md) | 永遠拒絶の剣 / Dark Opus Sword (Magna) | 光 | 終末の神器(方陣攻刃) | 下書き |
+| [dark-ssr-dark-opus-katana-normal.md](./dark-ssr-dark-opus-katana-normal.md) | 絶対否定の太刀 / Dark Opus Katana (Normal ATK) | 闇 | 終末の神器(通常攻刃) | 下書き |
+| [dark-ssr-dark-opus-katana-magna.md](./dark-ssr-dark-opus-katana-magna.md) | 永遠拒絶の太刀 / Dark Opus Katana (Magna) | 闇 | 終末の神器(方陣攻刃) | 下書き |
 | [fire-ssr-versacia-sword.md](./fire-ssr-versacia-sword.md) | 万象尽滅の宝剣 / Versacia Sword (Fire) | 火 | 破壊の標 | 下書き |
+| [water-ssr-versacia-dagger.md](./water-ssr-versacia-dagger.md) | 万象尽滅の鋭刃 / Versacia Dagger (Water) | 水 | 破壊の標 | 下書き |
+| [earth-ssr-versacia-spear.md](./earth-ssr-versacia-spear.md) | 万象尽滅の三又槍 / Versacia Spear (Earth) | 土 | 破壊の標 | 下書き |
+| [wind-ssr-versacia-fist.md](./wind-ssr-versacia-fist.md) | 万象尽滅の鎧腕 / Versacia Fist (Wind) | 風 | 破壊の標 | 下書き |
+| [light-ssr-versacia-bow.md](./light-ssr-versacia-bow.md) | 万象尽滅の貫弓 / Versacia Bow (Light) | 光 | 破壊の標 | 下書き |
+| [dark-ssr-versacia-harp.md](./dark-ssr-versacia-harp.md) | 万象尽滅の楽弦 / Versacia Harp (Dark) | 闇 | 破壊の標 | 下書き |
 | [fire-ssr-draconic-origin-harp.md](./fire-ssr-draconic-origin-harp.md) | 雄渾と灼熱の調べ / Draconic Harp (Origin) | 火 | ドラゴニックウェポン・オリジン | 下書き |
+| [water-ssr-draconic-origin-axe.md](./water-ssr-draconic-origin-axe.md) | 溟渤と激流の裁き / Draconic Axe (Origin) | 水 | ドラゴニックウェポン・オリジン | 下書き |
+| [earth-ssr-draconic-origin-bow.md](./earth-ssr-draconic-origin-bow.md) | 豊穣と恩愛の寿ぎ / Draconic Bow (Origin) | 土 | ドラゴニックウェポン・オリジン | 下書き |
+| [wind-ssr-draconic-origin-cane.md](./wind-ssr-draconic-origin-cane.md) | 狂飆と至高の祈り / Draconic Cane (Origin) | 風 | ドラゴニックウェポン・オリジン | 下書き |
+| [light-ssr-draconic-origin-katana.md](./light-ssr-draconic-origin-katana.md) | 叡智と廻生の煌き / Draconic Katana (Origin) | 光 | ドラゴニックウェポン・オリジン | 下書き |
+| [dark-ssr-draconic-origin-gun.md](./dark-ssr-draconic-origin-gun.md) | 暁闇と葬送の蝕み / Draconic Gun (Origin) | 闇 | ドラゴニックウェポン・オリジン | 下書き |
+| [fire-ssr-nwf-heat-of-the-sun.md](./fire-ssr-nwf-heat-of-the-sun.md) | ヒート・オブ・ザ・サン / Heat of The Sun | 火 | 新世界の礎 | 下書き |
+| [fire-ssr-nwf-kiss-of-the-devil.md](./fire-ssr-nwf-kiss-of-the-devil.md) | キス・オブ・ザ・デビル / Kiss of The Devil | 火 | 新世界の礎 | 下書き |
+| [water-ssr-nwf-rise-of-justice.md](./water-ssr-nwf-rise-of-justice.md) | ライズ・オブ・ジャスティス / Rise of Justice | 水 | 新世界の礎 | 下書き |
+| [water-ssr-nwf-reflection-of-the-moon.md](./water-ssr-nwf-reflection-of-the-moon.md) | リフレクト・オブ・ザ・ムーン / Reflection of The Moon | 水 | 新世界の礎 | 下書き |
+| [earth-ssr-nwf-binds-of-the-hanged-man.md](./earth-ssr-nwf-binds-of-the-hanged-man.md) | タイ・オブ・ザ・ハングドマン / Binds of The Hanged Man | 土 | 新世界の礎 | 下書き |
+| [earth-ssr-nwf-collapse-of-the-tower.md](./earth-ssr-nwf-collapse-of-the-tower.md) | クラッシュ・オブ・ザ・タワー / Collapse of The Tower | 土 | 新世界の礎 | 下書き |
+| [wind-ssr-nwf-theater-of-temperance.md](./wind-ssr-nwf-theater-of-temperance.md) | プレイ・オブ・テンペランス / Theater of Temperance | 風 | 新世界の礎 | 下書き |
+| [wind-ssr-nwf-melody-of-judgement.md](./wind-ssr-nwf-melody-of-judgement.md) | メロディ・オブ・ジャッジメント / Melody of Judgement | 風 | 新世界の礎 | 下書き |
+| [light-ssr-nwf-shooting-of-the-star.md](./light-ssr-nwf-shooting-of-the-star.md) | ショット・オブ・ザ・スター / Shooting of The Star | 光 | 新世界の礎 | 下書き |
+| [dark-ssr-nwf-pain-of-death.md](./dark-ssr-nwf-pain-of-death.md) | ペイン・オブ・デス / Pain of Death | 闇 | 新世界の礎 | 下書き |
 | [omega-ssr-sword.md](./omega-ssr-sword.md) | オメガスウォード / Ultima Sword | 作成時選択(例: 火) | オメガウェポン | 下書き |
 | [fire-ssr-magna-colossus-cane.md](./fire-ssr-magna-colossus-cane.md) | コロッサスケーン・マグナ / Colossus Cane Omega | 火 | マグナシリーズ | 下書き |
 | [fire-ssr-verboten-spear.md](./fire-ssr-verboten-spear.md) | 禁栄の禍槍 / Verboten Spear (Fire) | 火 | 禁禍武器 | 下書き |
@@ -82,7 +119,7 @@
 | --- | --- |
 | **レアリティ `rarity`** | 2 R / 3 SR / 4 SSR |
 | **武器種 `kind`** | 1 剣(確認済) / 2 短剣 / 3 槍(確認済) / 4 斧(確認済) / 5 杖(確認済) / 6 銃(確認済) / 7 格闘 / 8 弓 / 9 楽器(確認済) / 10 刀(未確認分はジョブの `weapon1/2` コードと同じと推定) |
-| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器(gbf.wiki: Dark Opus)/ 8 マグナシリーズ(gbf.wiki: Omega)/ 13 オメガウェポン(gbf.wiki: Ultima)/ 19 英雄武器(ジョブ専用。gbf.wiki: Class Champion Weapons)/ 40 ドラゴニックウェポン・オリジン / 44 破壊の標(ヴェルサシア武器)/ 45 禁禍武器(gbf.wiki: Verboten)。連番ではないので実例で確認する |
+| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器(gbf.wiki: Dark Opus)/ 8 マグナシリーズ(gbf.wiki: Omega)/ 13 オメガウェポン(gbf.wiki: Ultima)/ 19 英雄武器(ジョブ専用。gbf.wiki: Class Champion Weapons)/ 30 新世界の礎(賢者/Evoker武器。gbf.wiki: New World Foundation Weapons)/ 40 ドラゴニックウェポン・オリジン / 44 破壊の標(ヴェルサシア武器)/ 45 禁禍武器(gbf.wiki: Verboten)。連番ではないので実例で確認する |
 | **`master.archaic`** | "1" = 刷新/進化後の形態のマーカー(セラフィック刷新版・ドラゴニックオリジンで確認)。進化前は取得不可のことがある |
 | **`omega`(真偽値)** | true = **オメガウェポン(gbf.wiki『Ultima Weapons』)シリーズ**のフラグ。「マグナグリッド全般」の意味ではない |
 | **`master.attribute`(オメガ)** | オメガウェポンは作成時に属性を選択(実質属性変更可能)。`attribute` はその選択結果。ファイルは武器種単位(`omega-ssr-{type}`)、`element` は代表個体のもの |

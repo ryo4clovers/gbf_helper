@@ -523,6 +523,21 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - 生レスポンス: `captures/weapons/2026-09-08_weapon-detail_{fire-ssr-job-chrysaor,water-ssr-job-boogeyman,earth-ssr-job-monk}.json`(git管理外)。
 - **未処理**: 「クラス4ジョブおよびEx2専用装備」とユーザーが言及した EX2 ジョブの英雄武器の実例は未取得。属性ごとに `weapon_id` が分かれるかも未確認。各スキル・奥義・覚醒の数値は全て要検証。
 
+### draft/武器/ 経由で5シリーズ40武器を一括処理(2026-09-08)
+
+ユーザーが Network Recorder で武器詳細レスポンスを収集し `draft/武器/{シリーズ名}/` に配置(ファイル名は recorder 由来で `-1 (N).json`、中身で判別)。「セラフィックウェポン・終末の神器・破壊の標・ドラゴニックウェポンオリジン・新世界の礎の5シリーズが揃った」との連絡を受け一括処理。
+
+- **処理方法**: scratchpad の Node スクリプトで40 JSON を正規化 → シリーズ別ジェネレータで `knowledge/weapons/` に Markdown を35ファイル生成(火の5武器は既存のため скип)。ジョブ一括生成と同じ方式。全数値は「要検証」でマーク(実機レスポンスで取れるのはスキルID・効果文・ステータス実測値・構成のみ)。
+- **セラフィックウェポン(全6属性)**: Lv150・4凸。skill1 = 天司の祝福III(有利属性の敵への与ダメージUP)、skill2 = 属性の神威(小)。`series_id` = 1。`archaic` = "1"(刷新後)。武器種が刷新で変わった属性あり(風: リング→弓、闇: サイズ→斧)。gbf.wiki の英名は刷新前の可能性。
+- **終末の神器(全6属性×通常/方陣 = 12)**: Lv250・超越6/phase5。`絶対否定の{武器種}` = 通常攻刃版、`永遠拒絶の{武器種}` = 方陣版(skill1 image の `_m_`)。skill1「神醒III」は超越Lv230で解放(`release_level` = 230)。skill2(α/βリベレイション)・skill3(渾身/虚偽と詐術/神{属性}の極技・極破)はゴーフ・キーで選択式。`image_id` は `{weapon_id}_03`。属性別武器種: 火大鎌/水杖/土竪琴/風槍/光剣/闇太刀。
+- **破壊の標(全6属性)**: `series_id` = 44。`max_weapon_skill_level` = 1(固定値)。skill1「破壊の神刃」(攻刃+破壊属性追撃)、skill2「再生の神守」(最大HP+破壊属性奥義追撃)、skill3「闘争」(アンクレット変更式、発動条件「効果上昇量合計280%以上」)。**風(鎧腕)・光(貫弓)は4凸Lv150止まりの未完成個体**(スキル「II」、skill3 = 闘争の輪廻 = アンクレット未選択 `skill_blank`)。属性別: 火剣/水短剣/土槍/風格闘/光弓/闇楽器。
+- **ドラゴニックウェポン・オリジン(全6属性)**: `series_id` = 40、`archaic` = "1"。skill1 = 六竜の進境スキル(経過ターンで攻撃UP、固定)、skill2「{色}の威烈」(属性別与ダメUP、変更式。光のみ「黒の結界」= 闇ダメ軽減)、skill3 = 属性の神威(大、変更式)。属性別: 火楽器/水斧/土弓/風杖/光刀/闇銃。**闇(蝕み)は銃で `bullet_info` あり**(slot_type [3,1,2,4,4,3])。
+- **新世界の礎(10種、`series_id` 30、新規シリーズ)**: gbf.wiki「New World Foundation Weapons」= 賢者(Evoker)武器。火2/水2/土2/風2/光1/闇1。skill1 = 賢者固有(攻刃特大+条件付き、image `skill_evoker_{属性}`)、skill2「セフィラマキシ・{属性}」(ダメージ上限UP + **アーカルムの転世でさらに上限UP**、image `skill_limit_arcarum_{属性}`)、skill3 = 属性神威(小)。Lv200/5凸・超越なし。`limit` = 空だが**1本しか入手不可**。光(ショット・オブ・ザ・スター)は銃で `bullet_info` あり(slot_type [3,4,4,1,1,1])。README のコード表に `series_id` 30 を追加。
+- **英語名**: gbf.wiki から取得(セラフィック=Seraphic Weapons、終末=Dark Opus Weapons、破壊=暫定、ドラオリ=Draconic Weapons、新世界の礎=New World Foundation Weapons)。破壊の標は gbf.wiki 未整備で `Versacia {type} ({element})` の暫定表記。
+- README のファイル一覧を全44ファイルの表に刷新。
+- 生レスポンスは `captures/weapons/2026-09-08_weapon-detail_{id}.json`(40件、git管理外)。処理済みの draft/武器/ 5フォルダは空にした。
+- **未処理**: 各武器の倍率・スキルLv別数値・枠(frame)は全て要検証。終末のゴーフ・キー全選択肢、破壊のアンクレット全型、進境の増分/上限、セフィラマキシの転世スケーリング。draft/武器/ の残りシリーズ(アンセスタル/プライマル/天星器/六道/虚ろなる神器/バハムート等、多数)は未収集。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
