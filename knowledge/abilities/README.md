@@ -8,7 +8,7 @@
 | ファイル | 内容 | ステータス |
 | --- | --- | --- |
 | [free-slot-candidates.json](./free-slot-candidates.json) | 主人公の自由選択枠にセット可能なアビリティ候補一覧(全77ジョブ、`action_id`で名寄せ) | 下書き(実機レスポンス由来、倍率・効果量は外部ソースから紐付け中) |
-| [status-effects.json](./status-effects.json) | ステータス効果ID(内部コード)カタログ。302種、`status`→名称/説明/派生バリアント/使用アビリティ | 下書き(説明文は実機テキストのまま。`frame`〈枠〉は未記入) |
+| [status-effects.json](./status-effects.json) | ステータス効果ID(内部コード)カタログ。302種、`status`→名称/説明/派生バリアント/traits/使用アビリティ | 下書き(説明文は実機テキストのまま) |
 | [ability-effects.json](./ability-effects.json) | 各アビリティの倍率・効果量・効果時間(gbf.wiki等の外部ソースから)。`action_id`で free-slot-candidates.json と結合 | 下書き(ジョブアビリティ 293/309件。リミット239・極致・ベース10は全件、EXは60中44件) |
 | [_sources/gbfwiki-class-skills-2026-09-07.md](./_sources/gbfwiki-class-skills-2026-09-07.md) | gbf.wiki『Class Skills』の全文抜粋(ジョブアビリティ400件超の効果量・倍率・CT)。ability-effects.json の一次資料 | 参考資料 |
 
@@ -80,14 +80,15 @@
       "description_variants": [ ... ],     // 同一IDで文言違いがある場合
       "durations_seen": [ "3ターン", ... ],
       "occurrences", "seen_on_abilities": [ ... ],
-      "frame": null,                       // ダメージ計算上の枠。未記入(付与元アビリティ依存のため要検討)
-      "curated": false
+      "traits": [ "累積(stackable)", "Lv制", "消去不可", "回復不可", "回数制" ]  // 説明文から機械抽出
     }
   }
 }
 ```
 
 内部コードの読み方: ベースID + `_サフィックス`。例 `1019`=防御UP/ダメージカット族、`1019_0_50`=被ダメージ50%カット、`1019_4_80`=風属性被ダメージ80%カット、`7435_1`=調律Lv1。
+
+**枠(frame)について**: 攻撃UP/防御DOWN等のダメージ計算上の枠(通常/別枠/EX/背水/渾身…)は付与元アビリティに依存するため、status_id 単位では持たない。ability-effects.json 側および [../mechanics/buffs-debuffs.md](../mechanics/buffs-debuffs.md)・[../mechanics/damage-cap-modifiers.md](../mechanics/damage-cap-modifiers.md) で扱う。
 
 ## ability-effects.json の構造(収集中)
 
@@ -114,7 +115,8 @@
 
 ## 未収集・今後
 
-- ability-effects.json の未特定EXアビリティ16件(`_meta.todo`)。
-- status-effects.json の `name` 精査と `frame`(枠: 通常/別枠/EX/連撃/...)の付与。枠はダメージ計算に必須。
-- medium 判定33件・low 1件(ツープラトン)の再確認。
+- ability-effects.json の未特定EXアビリティ10件(オーラ/羅喉阿修羅陣/かばう/ミンストレルソング/メディク/士気向上/闘気/トレジャーハント×3。多くは非ダメージ系の旧EX)。
+- status-effects.json の `name` 精査(説明文からの暫定名が多い)。
+- medium 判定39件・low 1件(ツープラトン)の再確認。
+- 各アビリティ・バフの「枠」の付与(mechanics 側と連携)。
 - キャラクターアビリティのID化(NPC詳細レスポンスの収集)は別タスク。

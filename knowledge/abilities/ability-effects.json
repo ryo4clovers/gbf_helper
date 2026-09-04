@@ -2,8 +2,8 @@
  "_meta": {
   "description": "各アビリティの倍率・効果量・効果時間を外部ソース(主にgbf.wiki)から紐付けたもの。action_id で free-slot-candidates.json と結合する。",
   "primary_source": "gbf.wiki『Class Skills』(r.jina.ai プロキシ経由で取得、2026-09-07)。全文は knowledge/abilities/_sources/gbfwiki-class-skills-2026-09-07.md",
-  "status": "ジョブアビリティ293/309件を反映(EX44/リミット159/極致の証80/ベース10)。残: 未特定EX16件、status-effects.json の frame(枠)。",
-  "coverage": "EX 60件中44件 / リミット・極致 239件すべて / ベース 10件すべて。全77系列(Fighter〜Mechanic)照合済み。",
+  "status": "ジョブアビリティ299/309件を反映(EX50/リミット159/極致の証80/ベース10)。残10件は非ダメージ系の旧EX。",
+  "coverage": "EX 60件中50件 / リミット・極致 239件すべて / ベース 10件すべて。",
   "fields": {
    "name_jp": "free-slot-candidates.json の名称",
    "name_en": "gbf.wiki の英語名(照合キー)",
@@ -14,8 +14,8 @@
    "match_confidence": "high=名称・効果・習得Lvが一致 / medium=効果内容から推定 / low=要再確認",
    "notes": "補足・不一致点"
   },
-  "todo": "未特定EX16件: オーラ(20)/フォーカス(160)/デッドリーエイム(190)/クイック(220)/ソング・オブ・グランデ要精査(266)/羅喉阿修羅陣(270)/かばう(302)/チャームボイス(1701,1702)/ソウルピルファー要精査(1900)/ミンストレルソング(152)/メディク(3120)/士気向上(3130)/闘気(4100)/トレジャーハント(6000-6002)/ディストリーム(200501)。これらは gbf.wiki の該当ジョブLv10/15基本スキルの特定が未了。status-effects.json の frame(枠)付与も未着手。",
-  "confidence_note": "high 259 / medium 33(英名と実機名が大きく異なるが効果一致、EMP消費量等で照合) / low 1(ツープラトン7228=gbf.wiki該当未特定)。"
+  "todo": "未特定EX10件: オーラ(20)/羅喉阿修羅陣(270)/かばう(302)/ミンストレルソング(152)/メディク(3120)/士気向上(3130)/闘気(4100)/トレジャーハント(6000-6002)。medium判定の再確認、枠(frame)の付与も今後。",
+  "confidence_note": "high 259 / medium 39 / low 1"
  },
  "abilities": {
   "10": {
@@ -110,6 +110,26 @@
    "cooldown": null,
    "match_confidence": "high"
   },
+  "160": {
+   "name_jp": "フォーカス",
+   "name_en": "Laser Focus",
+   "unlock": "ハーミット Lv15",
+   "effect": "自分に80%アビリティダメージUP(累積/最大300%)(1回)/自身10%防御DOWN",
+   "duration": "1T",
+   "cooldown": "3T",
+   "match_confidence": "medium",
+   "notes": "実機名フォーカス"
+  },
+  "190": {
+   "name_jp": "デッドリーエイム",
+   "name_en": "Lethal Aim",
+   "unlock": "ホークアイ Lv15",
+   "effect": "自分に25%TA UP",
+   "duration": "4T",
+   "cooldown": "12T",
+   "match_confidence": "medium",
+   "notes": "実機名デッドリーエイム"
+  },
   "200": {
    "name_jp": "エレメンタルフォース",
    "name_en": "Elemental Focus",
@@ -127,6 +147,16 @@
    "duration": "3T",
    "cooldown": "5T",
    "match_confidence": "high"
+  },
+  "220": {
+   "name_jp": "クイック",
+   "name_en": "Quick Strike",
+   "unlock": "アルカナソード Lv15",
+   "effect": "味方全体に5%DA UP/5%TA UP",
+   "duration": "3T",
+   "cooldown": "7T",
+   "match_confidence": "medium",
+   "notes": "実機名クイック"
   },
   "221": {
    "name_jp": "デュアルインパルス",
@@ -409,6 +439,26 @@
    "duration": "180s",
    "cooldown": "5T",
    "match_confidence": "high"
+  },
+  "1701": {
+   "name_jp": "チャームボイス",
+   "name_en": "Angelic Voice",
+   "unlock": "ハーピスト Lv10",
+   "effect": "敵に魅了(楽器メインで性能UP)",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "medium",
+   "notes": "実機名チャームボイス"
+  },
+  "1702": {
+   "name_jp": "チャームボイスII",
+   "name_en": "Angelic Voice II",
+   "unlock": "スーパースター Lv5",
+   "effect": "敵に魅了(楽器メインで性能UP)",
+   "duration": "180s",
+   "cooldown": "5T",
+   "match_confidence": "medium",
+   "notes": "実機名チャームボイスII"
   },
   "1900": {
    "name_jp": "ソウルピルファー",
@@ -1229,6 +1279,16 @@
    "duration": "-",
    "cooldown": "6T",
    "match_confidence": "medium"
+  },
+  "200501": {
+   "name_jp": "ディストリーム",
+   "name_en": "Decimate",
+   "unlock": "グラディエーター Lv15",
+   "effect": "敵に5回100%有利属性ダメージ(1発上限81,000)◆コンパニオンウェポン装備時ヒット数2倍(10回)",
+   "duration": null,
+   "cooldown": "6T",
+   "match_confidence": "medium",
+   "notes": "実機名ディストリーム"
   },
   "200511": {
    "name_jp": "クロスガード",
