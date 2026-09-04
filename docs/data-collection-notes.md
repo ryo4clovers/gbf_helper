@@ -365,6 +365,21 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - [knowledge/jobs/](../knowledge/jobs/README.md)に`class1-fighter.md`/`class1-wizard.md`/`class1-lancer.md`を新規作成、READMEのファイル一覧(全77→全80)・カタログのステータス欄・冒頭の説明文を更新。元JSON6件は`tools/network-recorder/captures/`へ`2026-09-07_job-detail_class1-{slug}.json`・`2026-09-07_job-overview_class1-{slug}.json`の命名で移動、`draft/`のサブフォルダ2つは削除(`draft/`直下は`ゲーム内HELP/`の未処理4カテゴリのみ残置)。
 - これで**取得可能な全80ジョブ(ClassI 10・ClassII 10・ClassIII 11・ClassIV 18・ClassV 9・エクストラ 10・エクストラII 9・オリジン 3)がジョブLv詳細ベースの情報で揃った**。
 
+### 自由選択枠の「選択可能アビリティ候補一覧」を初取得(ClassI 7 + オリジン3、2026-09-07)
+
+前回の議論(「どのアビリティがどのジョブでFree枠として選択可能か特定するには情報が不足」)を受け、ユーザーが`draft/選択可能アビリティ情報/`に、ClassI 7ジョブ(エンハンサー/グラップラー/シーフ/ナイト/ハーピスト/プリースト/レンジャー)+オリジン3ジョブ分の、アビリティ選択画面の候補一覧レスポンス(エンドポイント`/party_ability_subaction/all/...`、Network Recorderで捕捉)を投入。ClassI版ファイター/ランサー/ウィザードは進化済みのため取得不可。
+
+- **形式**: ページ送り(`list`/`first`/`last`/`prev`/`next`/`count`/`current`)。1ページ10件、ClassIは7ページ、オリジンは8ページ。`0.json`=1ページ目(`list`が配列)、`0 (1).json`=2ページ目(`list`が連番キーのオブジェクト)…。全ページ連結で1ジョブ67〜73件の候補。各エントリはジョブLv詳細の`ability`と同じスキーマ(`action_id`/`class_name`/`comment`/`ability_detail`のstatusコード/`recast`)+ `is_set`(現在セット中か)。トップレベルに`ex_ability_count`/`zenith_ability_count`/`base_ability_count`(現在のセット数)と`max_ex_ability_count`/`max_base_ability_count`/`max_zenith_ability_count`(枠上限、ClassI=2/2/2、オリジン=2/2/3)。
+- **種別判別は`kind`フィールド(ユーザー提供の対応表)**: 1=EXダメージ、2=EX強化、3=EX弱体、4=EX回復、5=リミットアビリティ(**極致の証由来のアビリティもここ**)、6=ベースアビリティ。kind 1〜4は`level`が数値(習得に必要なジョブLv)、kind 5/6は`level`空。これで前回「明示的な種別フィールドが無い」としていた課題が解消。
+- **確認できたこと**:
+  - **EXアビリティのプールはアカウント共通・ジョブ非依存**。今回のアカウントでClassI=59件・オリジン=60件がどのジョブでも一律。
+  - **リミットアビリティ候補(kind=5)= 同系列(`job_id`接頭辞が同じ)の特定クラスのリミットアビリティの和集合**。ClassIは「同系列のClassIII+IV+V」(極致の証由来は含まない)、オリジンは「同系列のClassIII+IV+IVの極致の証由来+そのオリジン自身」(ClassV含まない)。例: ナイト→ホーリーセイバー(2)+スパルタ(3)+パラディン(3)=8個。ファイター・オリジン→ウェポンマスター(2)+ベルセルク(4)+ベルセルクの極致(3)+自身(3)=12個。
+  - **これによりabilities.mdの誤りを訂正**: 「ナイト(ClassI)の自由選択枠はEXアビリティでしか埋められない」は誤り。ClassIも同系列上位のリミットアビリティを最大2個セット可能。オリジンがClassVを含まない点は既存HELP読解と整合(実データで裏付け)。
+  - **ベースアビリティ(kind=6)は10ジョブとも候補0件**。ClassIは系列内下位ジョブが無いため妥当。オリジンで0件なのは要検証(別カテゴリのレスポンスに分かれる可能性、またはアカウントの習得状況)。
+- **新規アビリティ(action_id)は9件のみ**追加(既存の80ジョブ分ジョブLv詳細で300件把握済み、候補一覧の158件中149件は既知)。つまりアビリティカタログの母集団はほぼ出揃っており、あとは倍率・効果量の外部ソース紐付けが主。
+- **保留の判断**: アビリティカタログ本体の構築、および各ジョブ`.md`への「選択可能アビリティ一覧」節の追加は、ClassII〜V・エクストラ・特殊系列(300xxx・2xxxxx)の候補一覧が揃ってからまとめて行う。今回は[abilities.md](../knowledge/mechanics/abilities.md)のメカニクス訂正のみ反映。
+- 生データ73ファイル(ClassI 7ジョブ×7ページ + オリジン3ジョブ×8ページ)は`tools/network-recorder/captures/ability-subaction/{job-slug}/`へ移動(ページファイル名は`page-0.json`〜`page-7.json`にリネーム)、`draft/選択可能アビリティ情報/`は削除。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
