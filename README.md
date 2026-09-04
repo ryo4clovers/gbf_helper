@@ -15,6 +15,7 @@ knowledge/
   summons/      召喚石情報
   weapons/      武器情報
   jobs/         ジョブ(主人公専用)情報
+  abilities/    アビリティ情報(内部IDで名寄せ、ダメージ計算用)
   mechanics/    ゲームシステム・仕様
   events/       イベント情報
   misc/         その他

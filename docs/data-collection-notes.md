@@ -377,8 +377,30 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
   - **これによりabilities.mdの誤りを訂正**: 「ナイト(ClassI)の自由選択枠はEXアビリティでしか埋められない」は誤り。ClassIも同系列上位のリミットアビリティを最大2個セット可能。オリジンがClassVを含まない点は既存HELP読解と整合(実データで裏付け)。
   - **ベースアビリティ(kind=6)は10ジョブとも候補0件**。ClassIは系列内下位ジョブが無いため妥当。オリジンで0件なのは要検証(別カテゴリのレスポンスに分かれる可能性、またはアカウントの習得状況)。
 - **新規アビリティ(action_id)は9件のみ**追加(既存の80ジョブ分ジョブLv詳細で300件把握済み、候補一覧の158件中149件は既知)。つまりアビリティカタログの母集団はほぼ出揃っており、あとは倍率・効果量の外部ソース紐付けが主。
-- **保留の判断**: アビリティカタログ本体の構築、および各ジョブ`.md`への「選択可能アビリティ一覧」節の追加は、ClassII〜V・エクストラ・特殊系列(300xxx・2xxxxx)の候補一覧が揃ってからまとめて行う。今回は[abilities.md](../knowledge/mechanics/abilities.md)のメカニクス訂正のみ反映。
 - 生データ73ファイル(ClassI 7ジョブ×7ページ + オリジン3ジョブ×8ページ)は`tools/network-recorder/captures/ability-subaction/{job-slug}/`へ移動(ページファイル名は`page-0.json`〜`page-7.json`にリネーム)、`draft/選択可能アビリティ情報/`は削除。
+
+### 残りの67ジョブの候補一覧を追加取得、全77ジョブ完了+構造化データ化(2026-09-07)
+
+ユーザーが`draft/選択可能アビリティ/`に、ClassII〜V・エクストラ・エクストラIIの全67ジョブ分の候補一覧レスポンス(前回と同じページ送り形式)を投入。前回の10ジョブと合わせて**取得可能な全77ジョブが揃った**(ClassI版ファイター/ランサー/ウィザードは進化済みで取得不可)。全ジョブ横断で解析し、`kind`分類・系列継承ルールを確定した。
+
+- **リミットアビリティ(kind=5)候補の系列継承ルール(全77ジョブで確認)**:
+
+  | ジョブ種別 | 候補 = 同系列(`job_id`接頭2桁が共通)の… |
+  | --- | --- |
+  | ClassI / II / III / V | ClassIII + ClassIV + ClassV の`limit_ability`(極致の証由来は含まない)。**同系列なら4クラスとも候補セットが完全一致** |
+  | ClassIV(標準系列 10〜19) | ClassIII + ClassIV + ClassV + 自身の極致の証 |
+  | ClassIV(単独系列 30/41〜47) | (あれば)ClassIII + ClassIV + 自身の極致の証 |
+  | オリジン | ClassIII + ClassIV + ClassIVの極致の証 + 自身(ClassV は含まない) |
+  | エクストラ(Ex1) | 自身 + 対のEx2 |
+  | エクストラII(Ex2) | 自身 + 自身の極致の証 + 対のEx1 |
+
+- **ベースアビリティ(kind=6)を候補に持つのはエクストラIIジョブのみ**(対のEx1の基本アビリティ、全10種)。ClassI〜V・オリジンは候補0。以前「ベースアビリティの習得元は系列内下位ジョブ全般」としていた理解を訂正 — ClassI〜III/Vが下位ジョブから引き継ぐのはリミットアビリティ(kind=5)であって基本アビリティ(kind=6)ではない。
+- **EXアビリティ(kind 1-4)はアカウント共通プールで全60種**。各ジョブの候補数58〜60(自ジョブの基本アビリティ相当分などが数個除外)。**この60種はこの取得アカウントの習得状況固有**で、別アカウントでは変わる。
+- **枠上限**(`max_ex`/`max_base`/`max_zenith_ability_count`): オリジン以外の全ジョブ一律2/2/2、オリジンのみ2/2/3。
+- **構造化データを新設**: [knowledge/abilities/free-slot-candidates.json](../knowledge/abilities/free-slot-candidates.json)(`action_id`で名寄せ、309アビリティ〈EX60/リミット239/ベース10〉+ 77ジョブの候補IDリスト、285KB)。[knowledge/abilities/README.md](../knowledge/abilities/README.md)も新設。生アビリティの倍率・効果量は未収集(このレスポンスに含まれない)。
+- [abilities.md](../knowledge/mechanics/abilities.md)の「自由選択枠の候補一覧を実データで確認」節を全77ジョブ版に全面更新、未確認事項も整理。
+- 生データ(ClassII〜V・エクストラ 67ジョブ×7〜8ページ)は`tools/network-recorder/captures/ability-subaction/{slug}/page-*.json`へ移動、`draft/選択可能アビリティ/`は削除。
+- **保留のまま**: アビリティ仕様カタログ本体(倍率・効果量の外部ソース紐付け)、ステータス効果IDの名称カタログ、各ジョブ`.md`への候補一覧の個別反映(free-slot-candidates.jsonで代替できるため優先度低)。
 
 ## 情報の種類ごとの取得元
 
