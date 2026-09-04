@@ -11,7 +11,7 @@
 
 ## ファイル一覧
 
-全124ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証)。
+全166ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証)。
 
 ### セラフィックウェポン
 
@@ -109,6 +109,73 @@
 | [dark-ssr-bahamut-spear.md](./dark-ssr-bahamut-spear.md) | バハムートスピア・フツルス / Spear of Bahamut Fyutlus | 闇 |
 | [dark-ssr-bahamut-staff.md](./dark-ssr-bahamut-staff.md) | バハムートスタッフ・フツルス / Staff of Bahamut Fyutlus | 闇 |
 | [dark-ssr-bahamut-sword.md](./dark-ssr-bahamut-sword.md) | バハムートソード・フツルス / Sword of Bahamut Fyutlus | 闇 |
+
+### アンセスタルシリーズ
+
+| ファイル | 武器名 | 属性 |
+| --- | --- | --- |
+| [fire-ssr-ancestral-wilnas-finger.md](./fire-ssr-ancestral-wilnas-finger.md) | ウィルナス・フィンガー / Wilnas' Finger | 火 |
+| [water-ssr-ancestral-wamdus-naidaria.md](./water-ssr-ancestral-wamdus-naidaria.md) | ワムデュス・ナイダリア / Wamdus' Naiaderia | 水 |
+| [earth-ssr-ancestral-galleon-jaw.md](./earth-ssr-ancestral-galleon-jaw.md) | ガレヲン・ジョー / Galleon's Jaw | 土 |
+| [wind-ssr-ancestral-ewiyar-beak.md](./wind-ssr-ancestral-ewiyar-beak.md) | イーウィヤ・ビーク / Ewiyar's Beak | 風 |
+| [light-ssr-ancestral-lu-woh-horn.md](./light-ssr-ancestral-lu-woh-horn.md) | ル・オー・ホーン / Lu Woh's Horn | 光 |
+| [dark-ssr-ancestral-fediel-spine.md](./dark-ssr-ancestral-fediel-spine.md) | フェディエル・スパイン / Fediel's Spine | 闇 |
+
+### エニアドシリーズ
+
+| ファイル | 武器名 | 属性 |
+| --- | --- | --- |
+| [fire-ssr-ennead-benbenet.md](./fire-ssr-ennead-benbenet.md) | ベンベネト | 火 |
+| [fire-ssr-ennead-lelabad.md](./fire-ssr-ennead-lelabad.md) | レルアバド | 火 |
+| [water-ssr-ennead-esna.md](./water-ssr-ennead-esna.md) | エスナ | 水 |
+| [water-ssr-ennead-uraeus.md](./water-ssr-ennead-uraeus.md) | ウラエウス | 水 |
+| [earth-ssr-ennead-ished.md](./earth-ssr-ennead-ished.md) | イシェド | 土 |
+| [earth-ssr-ennead-ta-senen.md](./earth-ssr-ennead-ta-senen.md) | タァ・セネン | 土 |
+| [wind-ssr-ennead-abu-simbel.md](./wind-ssr-ennead-abu-simbel.md) | アブシンベル | 風 |
+| [wind-ssr-ennead-mandet.md](./wind-ssr-ennead-mandet.md) | マンデト | 風 |
+| [light-ssr-ennead-harsiesis.md](./light-ssr-ennead-harsiesis.md) | ハルシエシス | 光 |
+| [light-ssr-ennead-horakhty.md](./light-ssr-ennead-horakhty.md) | ホルアクティ | 光 |
+| [dark-ssr-ennead-abydos.md](./dark-ssr-ennead-abydos.md) | アビュドス | 闇 |
+| [dark-ssr-ennead-bigeh-edfu.md](./dark-ssr-ennead-bigeh-edfu.md) | ビガ・エドフ | 闇 |
+
+### マリスシリーズ
+
+| ファイル | 武器名 | 属性 |
+| --- | --- | --- |
+| [fire-ssr-malice-karadanda.md](./fire-ssr-malice-karadanda.md) | カラダンダ | 火 |
+| [water-ssr-malice-columba.md](./water-ssr-malice-columba.md) | コロンバ | 水 |
+| [water-ssr-malice-hypnos-kris.md](./water-ssr-malice-hypnos-kris.md) | ヒュプノスクリス | 水 |
+| [wind-ssr-malice-hatsuoi-ilhal.md](./wind-ssr-malice-hatsuoi-ilhal.md) | ハツオイイルハル | 風 |
+| [light-ssr-malice-seyfert.md](./light-ssr-malice-seyfert.md) | セイファート | 光 |
+| [dark-ssr-malice-majestas.md](./dark-ssr-malice-majestas.md) | マジェスタス | 闇 |
+
+### メナスシリーズ
+
+| ファイル | 武器名 | 属性 |
+| --- | --- | --- |
+| [fire-ssr-menace-magma-stream.md](./fire-ssr-menace-magma-stream.md) | マグマストリーム | 火 |
+| [water-ssr-menace-ougi-nuki.md](./water-ssr-menace-ougi-nuki.md) | 扇抜 | 水 |
+| [earth-ssr-menace-kensei-fukuro-shinai.md](./earth-ssr-menace-kensei-fukuro-shinai.md) | 剣聖の袋竹刀 | 土 |
+| [earth-ssr-menace-no-face.md](./earth-ssr-menace-no-face.md) | ノーフェイス | 土 |
+| [wind-ssr-menace-black-whirlwind.md](./wind-ssr-menace-black-whirlwind.md) | 黒旋風 | 風 |
+| [dark-ssr-menace-agonize.md](./dark-ssr-menace-agonize.md) | アゴナイズ | 闇 |
+
+### レヴァンスウェポン
+
+| ファイル | 武器名 | 属性 |
+| --- | --- | --- |
+| [fire-ssr-revans-hitsumetsu-yumi-saidan.md](./fire-ssr-revans-hitsumetsu-yumi-saidan.md) | 必滅弓・再誕 | 火 |
+| [fire-ssr-revans-messhin-ken-saidan.md](./fire-ssr-revans-messhin-ken-saidan.md) | 滅尽剣・再誕 | 火 |
+| [water-ssr-revans-lagrange-rebuild.md](./water-ssr-revans-lagrange-rebuild.md) | ラグランジュ・リビルド | 水 |
+| [water-ssr-revans-schrodinger-rebuild.md](./water-ssr-revans-schrodinger-rebuild.md) | シュレディンガー・リビルド | 水 |
+| [earth-ssr-revans-ryubatsu-gekiso-saidan.md](./earth-ssr-revans-ryubatsu-gekiso-saidan.md) | 竜伐の撃爪・再誕 | 土 |
+| [earth-ssr-revans-ryubatsu-goga-saidan.md](./earth-ssr-revans-ryubatsu-goga-saidan.md) | 竜伐の剛牙・再誕 | 土 |
+| [wind-ssr-revans-sette-di-spada-rebuild.md](./wind-ssr-revans-sette-di-spada-rebuild.md) | セッテ・ディ・スパーダ・リビルド | 風 |
+| [wind-ssr-revans-viento-di-spada-rebuild.md](./wind-ssr-revans-viento-di-spada-rebuild.md) | ビエント・ディ・スパーダ・リビルド | 風 |
+| [light-ssr-revans-concordia-rebuild.md](./light-ssr-revans-concordia-rebuild.md) | コンコルディア・リビルド | 光 |
+| [light-ssr-revans-simmetria-rebuild.md](./light-ssr-revans-simmetria-rebuild.md) | シンメトリア・リビルド | 光 |
+| [dark-ssr-revans-forbidden-agastia-rebuild.md](./dark-ssr-revans-forbidden-agastia-rebuild.md) | フォービドゥンアガスティ・リビルド | 闇 |
+| [dark-ssr-revans-forsaken-agastia-rebuild.md](./dark-ssr-revans-forsaken-agastia-rebuild.md) | フォーセイクンアガスティ・リビルド | 闇 |
 
 ### オメガウェポン
 
@@ -263,7 +330,7 @@
 | --- | --- |
 | **レアリティ `rarity`** | 2 R / 3 SR / 4 SSR |
 | **武器種 `kind`** | 1 剣(確認済) / 2 短剣 / 3 槍(確認済) / 4 斧(確認済) / 5 杖(確認済) / 6 銃(確認済) / 7 格闘 / 8 弓 / 9 楽器(確認済) / 10 刀(未確認分はジョブの `weapon1/2` コードと同じと推定) |
-| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器(gbf.wiki: Dark Opus)/ 7 レガリアシリーズ(マグナII)/ 8 マグナシリーズ(旧マグナ。gbf.wiki: Omega)/ 13 オメガウェポン(gbf.wiki: Ultima)/ 14 バハムートウェポン / 19 英雄武器(ジョブ専用。gbf.wiki: Class Champion Weapons)/ 26 アストラルウェポン / 30 新世界の礎(賢者/Evoker武器。gbf.wiki: New World Foundation Weapons)/ 40 ドラゴニックウェポン・オリジン / 42 マグナ・リバースシリーズ(マグナIII)/ 44 破壊の標(ヴェルサシア武器)/ 45 禁禍武器(gbf.wiki: Verboten)。連番ではないので実例で確認する |
+| **シリーズ `series_id`** | 1 セラフィック / 2 リミテッド / 3 終末の神器(Dark Opus)/ 7 レガリア(マグナII)/ 8 マグナ(旧マグナ。Omega)/ 13 オメガウェポン(Ultima)/ 14 バハムート / 19 英雄武器(ジョブ専用。Class Champion)/ 26 アストラル / 29 アンセスタル(六竜武器)/ 30 新世界の礎(賢者武器。NWF)/ 31 エニアド / 33 マリス / 34 メナス / 37 レヴァンス / 40 ドラゴニック・オリジン / 42 マグナ・リバース(マグナIII)/ 44 破壊の標(ヴェルサシア)/ 45 禁禍武器(Verboten)。連番ではないので実例で確認する |
 | **`master.archaic`** | "1" = 刷新/進化後の形態のマーカー(セラフィック刷新版・ドラゴニックオリジンで確認)。進化前は取得不可のことがある |
 | **`omega`(真偽値)** | true = **オメガウェポン(gbf.wiki『Ultima Weapons』)シリーズ**のフラグ。「マグナグリッド全般」の意味ではない |
 | **`master.attribute`(オメガ)** | オメガウェポンは作成時に属性を選択(実質属性変更可能)。`attribute` はその選択結果。ファイルは武器種単位(`omega-ssr-{type}`)、`element` は代表個体のもの |
