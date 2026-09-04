@@ -47,6 +47,18 @@ git config --local commit.template .gitmessage
 
 - 形式は `<スコープ>: <日本語の要約>`（句点なし）。本文は 72 文字前後で折り返し、出典・カバレッジ・保留事項・生データ保存先を箇条書きで残します。
 
+## セッションの引き継ぎ
+
+新しいチャット(Claude)や Codex に作業を渡すときは、`prompts/generate-handoff.mjs` で引き継ぎプロンプトを生成します。
+
+```powershell
+node prompts/generate-handoff.mjs --task "今回の依頼を1行で"
+```
+
+役割・絶対ルール(実機APIへの直接アクセス禁止など)・作業ルーティン・検証コマンドの固定部分に、リポジトリの現在状態(ブランチ・直近コミット・ナレッジ件数・`draft/` の状況・収集メモの最新見出し)を差し込んだテキストが出力されます。詳細は [prompts/README.md](prompts/README.md)。
+
+運用ルールを変えたら `prompts/handoff-template.md` の固定部分も更新してください(正本は `AGENTS.md` / `CONTRIBUTING.md`)。
+
 ## MCP開発
 
 - MCPのstdoutはJSON-RPC専用です。ログはstderrへ出力します。

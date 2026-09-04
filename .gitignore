@@ -10,3 +10,8 @@ mcp-server/dist/
 # Kept on disk for future DB-building reference, never committed.
 tools/network-recorder/captures/*
 !tools/network-recorder/captures/README.md
+
+# 引き継ぎプロンプトの生成結果(prompts/generate-handoff.mjs の出力)。雛形と
+# スクリプトはコミットするが、生成された貼り付け用テキストはコミットしない。
+/handoff.txt
+/handoff*.txt
