@@ -492,6 +492,15 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - Lv200(5凸)止まり・超越非対応。編成に1本のみ。
 - ファイル: [knowledge/weapons/omega-ssr-sword.md](../knowledge/weapons/omega-ssr-sword.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_omega-ssr-sword.json`。
 
+**2026-09-07 追加: マグナシリーズ武器で「AUG(エレメント)」「Exスキル」を確認**。ユーザー提供のコロッサスケーン・マグナ(火杖、`master_id` 1040401500):
+
+- **`series_id` = 8** [マグナシリーズ](gbf.wiki: Omega Weapons)。**`omega` = false**(前回の推測どおり、`omega` フラグはオメガウェポン〈Ultima〉専用でマグナ武器には付かない)。`kind` = 5 は杖(確認)。`limit` = `[]`(本数制限なし、複数積み可)。
+- **AUG(エレメント)= `augment_skill`**: プレイヤーがエレメント素材で付与する追加効果。`param.augment_id_list`(例 "44:84")と `augment_skill[0][]` の各要素(`skill_id` / `name` / `comment` / `level` / `effect_value`)。この個体は「奥義ダメージ Lv8 +7%」「渾身 Lv3 +3」。テンプレに「AUG」セクションを新設。
+- **Exスキル**: ユーザー説明 — マグナ/アンセスタル(六竜)/プライマル/オールドプライマルの武器は、**ドロップ時に skill2 として追加スキルがランダム抽選される**(方陣HP・方陣三手・方陣背水・無属性攻刃 等)。この個体は無し。付いている個体は skill2 に skill_id が入る。テンプレのスキル節に注記。
+- スキル1つのみの武器の実例(skill2〜4 が null、`skill_id` null で判定)。
+- 奥義「次元断＋＋」(火ダメージ特大/防御DOWN)。Lv200(5凸)。
+- ファイル: [knowledge/weapons/fire-ssr-magna-colossus-cane.md](../knowledge/weapons/fire-ssr-magna-colossus-cane.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-magna-colossus-cane.json`。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |

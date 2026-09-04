@@ -58,7 +58,10 @@ source: "要検証"       # 実機レスポンス取得日 / 参照した gbf.wi
      comment は効果の「種類」しか分からないことが多く、倍率・スキルレベル別の数値は
      gbf.wiki / GameWith から補完する。skill_id は名寄せキーとして必ず控える。
      終末の神器/ドラゴニックのように第2・第3スキルがプレイヤー選択式(ゴーフ・キー等)の武器は、
-     レスポンスに「現在の選択」しか出ないので「選択式」と選択肢を明記する。 -->
+     レスポンスに「現在の選択」しか出ないので「選択式」と選択肢を明記する。
+     マグナ/アンセスタル(六竜)/プライマル/オールドプライマルは、skill2 以降がドロップ時に
+     ランダム抽選される「Exスキル」のことがある(方陣HP・方陣三手・方陣背水・無属性攻刃 等)。
+     個体差なので「この個体のExスキル」と明記し、抽選プールが分かれば併記する。 -->
 
 ### スキル1: {スキル名}
 
@@ -141,15 +144,27 @@ source: "要検証"       # 実機レスポンス取得日 / 参照した gbf.wi
 - 段階: (例: Lv200 で第3スキル解放、Lv200→250 は超越5段階で各スキルの数値強化・奥義に＋)
 - 現在の取得状況(提供インスタンス): Lv{level} / evolution {evolution} / phase {phase}
 
+## AUG(エレメント / `augment_skill`)
+
+<!-- プレイヤーがエレメント素材で付与する追加効果。マグナ/アンセスタル/プライマル等が対象。
+     実機 `param.augment_id_list`(例 "44:84")と `augment_skill`(配列)。
+     augment_skill[0] が付与済みAUG群で、各要素に skill_id / name / comment / level / effect_value。
+     Exスキル(ドロップ時ランダム抽選)とは別物。 -->
+
+- 付与状況(この個体): あり / なし
+- AUG効果:
+  - {name}(`skill_id` {id}、Lv{level}、{effect_value})— {comment}
+  - {name}(`skill_id` {id}、Lv{level}、{effect_value})— {comment}
+- 枠(frame): AUGの効果は基本的に別枠(EX/AUG枠)で乗る(要検証)
+
 ## 上限解放・強化要素
 
 <!-- 該当しない項目はセクションごと省略してよい -->
 
 - 上限解放: (各段階の解放内容。スキル追加・奥義進化〈＋/＋＋〉・Lv上限開放など)
 - スキルレベル: (上げ方 / 上限。`master.max_weapon_skill_level`。第3スキルだけ上限が異なる場合は `max_weapon_skill_level_2` を注記)
-- 装備制限(あれば): (`limit.display_comment` を引用。実際のルールは [../mechanics/team-building-basics.md](../mechanics/team-building-basics.md) 参照 — 基本は「同一シリーズは編成に1本まで」。ドラゴニックのみ強化前+オリジンで合算1本。**display_comment が他シリーズ名を併記していても相互排他ではない**)
+- 装備制限(あれば): (`limit.display_comment` を引用。実際のルールは [../mechanics/team-building-basics.md](../mechanics/team-building-basics.md) 参照 — 基本は「同一シリーズは編成に1本まで」。ドラゴニックのみ強化前+オリジンで合算1本。マグナ/プライマル等の通常グリッド武器は `limit: []` で制限なし。**display_comment が他シリーズ名を併記していても相互排他ではない**)
 - オーディアント/エニアド強化(あれば): (実機 `param.odiant`)
-- エレメント/AUG(`augment_skill`、あれば)
 
 ## 編成での役割
 
