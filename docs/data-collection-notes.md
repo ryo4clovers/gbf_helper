@@ -442,7 +442,17 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - **スキルLv上限が2種**: `max_weapon_skill_level`(第1・第2、終末は25)と `max_weapon_skill_level_2`(第3、15)。
 - **`skill2_display` = 0 でも有効スキルあり**(終末の第2スキル)。`skillN_display` は完全に当てにならないと確定。
 - **確定**: `kind`=4 は斧。`series_id`=3 は終末の神器。`param.image_id` は超越後 `{weapon_id}_03` のように接尾辞付き(サムネは接尾辞なしでも可)。
-- ファイル: [knowledge/weapons/fire-ssr-ultima-scythe.md](../knowledge/weapons/fire-ssr-ultima-scythe.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-ultima-scythe.json`。
+- ファイル: `knowledge/weapons/fire-ssr-ultima-scythe-normal.md`(下記で -normal にリネーム)。
+
+**2026-09-07 追加: 終末の神器の「方陣(マグナ)版」で通常/方陣2バージョン制を確認**。ユーザーが同じ火終末斧の方陣版(永遠拒絶の大鎌 / `master_id` 1040310700)を提供:
+
+- **終末の神器・ドラゴニック等は、第1スキルの攻刃が「通常攻刃」か「方陣攻刃」かで別の武器(別 `weapon_id`・別名)**。効果文・奥義・第2/第3スキルの選択システムは共通で、違いは skill1 のみ:
+  - 通常版「絶対否定の大鎌」skill1 = `2192`「紅蓮の神醒」(通常攻刃、image `skill_atk_hp_rise_1_3`)→ 神石グリッド向け
+  - 方陣版「永遠拒絶の大鎌」skill1 = `2198`「機炎方陣・神醒III」(方陣攻刃、image `skill_atk_hp_rise_m_1_3` の `_m_`)→ マグナグリッド向け
+- ファイルを [fire-ssr-ultima-scythe-normal.md](../knowledge/weapons/fire-ssr-ultima-scythe-normal.md) / [fire-ssr-ultima-scythe-magna.md](../knowledge/weapons/fire-ssr-ultima-scythe-magna.md) に分割。README のスキル系統解説に「通常版/方陣版」の項を追加、テンプレの概要に注記。
+- **第3スキルのゴーフ・キー選択肢に「虚偽と詐術」(追撃、`skill_id` 1726、image `skill_job_weapon`)**: 自属性追撃効果 + 奥義ゲージ上昇量大幅DOWN(デメリット付き)。通常版の個体では「紅蓮の渾身」を選択しており、同じ第3スキル枠で別のキーを選んだ実例。
+- `skill3_display` も 0 のことがある(方陣版インスタンスで skill2/skill3 とも display=0 だが有効)。`skillN_display` は完全に無視してよい。
+- 生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-ultima-scythe-{normal,magna}.json`。
 
 ## 情報の種類ごとの取得元
 

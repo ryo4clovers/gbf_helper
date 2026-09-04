@@ -15,7 +15,8 @@
 | --- | --- | --- | --- | --- |
 | [fire-ssr-seraphic-weapon.md](./fire-ssr-seraphic-weapon.md) | 赤き熾炎の剣 / Sword of Michael | 火 | セラフィックウェポン | 下書き |
 | [fire-ssr-limited-benedia.md](./fire-ssr-limited-benedia.md) | ベネディーア / Benedia | 火 | リミテッドシリーズ | 下書き |
-| [fire-ssr-ultima-scythe.md](./fire-ssr-ultima-scythe.md) | 絶対否定の大鎌 / Ultima Scythe | 火 | 終末の神器 | 下書き |
+| [fire-ssr-ultima-scythe-normal.md](./fire-ssr-ultima-scythe-normal.md) | 絶対否定の大鎌 / Ultima Axe (Normal) | 火 | 終末の神器(通常攻刃) | 下書き |
+| [fire-ssr-ultima-scythe-magna.md](./fire-ssr-ultima-scythe-magna.md) | 永遠拒絶の大鎌 / Ultima Axe (Magna) | 火 | 終末の神器(方陣攻刃) | 下書き |
 
 ## 命名規則
 
@@ -77,9 +78,10 @@
 
 武器スキルはダメージ計算上、系統(表示名)と枠(乗算グループ)で分類する。代表例:
 
-- **攻刃系**: 通常攻刃(通常乗算枠)、方陣攻刃(オメガ/マグナ枠)、神威(EX枠)、覚醒(神石で強化される枠)…
-- **特殊補正**: 背水(HPが低いほどUP)、渾身(HPが高いほどUP)、克己、真価、progression …
-- **守護・治癒・連撃・ダメージ上限・クリティカル・与ダメージ上昇** など。
+- **攻刃系**: 通常攻刃(通常乗算枠 / 神石グリッドで乗る)、方陣攻刃(オメガ/マグナ枠 / マグナグリッドで乗る)、神威(EX枠)、覚醒(神石で強化される枠)…
+- **特殊補正**: 背水(HPが低いほどUP)、渾身(HPが高いほどUP)、克己、技巧、真価、progression …
+- **守護・治癒・連撃・追撃・ダメージ上限(通常/アビ/奥義/CB)・クリティカル・与ダメージ上昇** など。
+- **同一武器の「通常版」と「方陣(マグナ)版」**: 終末の神器・ドラゴニックウェポン等は、第1スキルの攻刃が通常攻刃か方陣攻刃かで**別の武器(別 `weapon_id`・別名)**として存在する。skill1 の image 接尾辞 `_m_` が方陣版の目印。ファイルは `-normal` / `-magna` で分ける。
 
 正確な枠の対応は [../mechanics/damage-calculation.md](../mechanics/damage-calculation.md)・[../mechanics/damage-cap-modifiers.md](../mechanics/damage-cap-modifiers.md) を参照。各武器ファイルではスキルごとに「系統/カテゴリ」「枠」を明記する。
 
