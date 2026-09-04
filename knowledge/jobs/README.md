@@ -11,22 +11,25 @@
 
 ## ファイル一覧
 
-77ジョブ分の本文を実機API(2026-09-03、詳細は[docs/data-collection-notes.md](../../docs/data-collection-notes.md)参照)から取得し下書き作成済み。残る3ジョブ(ClassI版のファイター/ランサー/ウィザード、下記オリジン欄参照)はこのアカウントでは既にオリジンへ進化済みで取得不可のため後回し(別アカウントのデータを参照予定)。
+全80ジョブ分の本文を実機API(2026-09-03、詳細は[docs/data-collection-notes.md](../../docs/data-collection-notes.md)参照)から取得し下書き作成済み。
 
-**2026-09-06時点で77ジョブ全て(取得可能な全ジョブ)がより詳細な「ジョブLv詳細」レスポンス(基本/リミットアビリティの区別、レベル別ボーナス、アビリティアイコン等を含む)を元に更新済み**。ClassI/II/III/V/エクストラ/エクストラII/オリジンは全面的に作り直し。**ClassIV全18ジョブのみ、元々GameWith記事ベースの詳細な記述(概要・極致の証・マスターレベル30強化等、ジョブLv詳細レスポンスの範囲外の情報)を持っていたためそれらは温存し、アビリティアイコンとレベル別ボーナス内訳をマージ追記する方式**で更新(全面作り直しではない)。残る3ジョブ(ClassI版のファイター/ランサー/ウィザード)は上記の通りこのアカウントでは取得不可のため未着手。
+**2026-09-06時点で77ジョブ(2026-09-07にClassI版ファイター/ランサー/ウィザードの3ジョブを追加し全80ジョブ)がより詳細な「ジョブLv詳細」レスポンス(基本/リミットアビリティの区別、レベル別ボーナス、アビリティアイコン等を含む)を元に更新済み**。ClassI/II/III/V/エクストラ/エクストラII/オリジンは全面的に作り直し。**ClassIV全18ジョブのみ、元々GameWith記事ベースの詳細な記述(概要・極致の証・マスターレベル30強化等、ジョブLv詳細レスポンスの範囲外の情報)を持っていたためそれらは温存し、アビリティアイコンとレベル別ボーナス内訳をマージ追記する方式**で更新(全面作り直しではない)。ClassI版ファイター/ランサー/ウィザードの3ジョブは「このアカウントでは既にオリジンへ進化済みで取得不可」と長らく後回しにしていたが、2026-09-07に進化元ClassIジョブのジョブステータス画面が引き続き参照可能と判明し、ユーザーがジョブLv詳細・ジョブ概要の両レスポンスをdraft経由で提供、これで**取得可能な全ジョブが揃った**。
 
 <details>
-<summary>全77ファイルの一覧を表示</summary>
+<summary>全80ファイルの一覧を表示</summary>
 
 | ファイル | 名前(日本語 / 英語) | クラス | ステータス |
 | --- | --- | --- | --- |
+| [class1-fighter.md](./class1-fighter.md) | ファイター / Fighter | ClassI | 下書き |
 | [class1-enhancer.md](./class1-enhancer.md) | エンハンサー / Enhancer | ClassI | 下書き |
 | [class1-grappler.md](./class1-grappler.md) | グラップラー / Grappler | ClassI | 下書き |
 | [class1-thief.md](./class1-thief.md) | シーフ / Thief | ClassI | 下書き |
 | [class1-knight.md](./class1-knight.md) | ナイト / Knight | ClassI | 下書き |
 | [class1-harpist.md](./class1-harpist.md) | ハーピスト / Harpist | ClassI | 下書き |
 | [class1-priest.md](./class1-priest.md) | プリースト / Priest | ClassI | 下書き |
+| [class1-lancer.md](./class1-lancer.md) | ランサー / Lancer | ClassI | 下書き |
 | [class1-ranger.md](./class1-ranger.md) | レンジャー / Ranger | ClassI | 下書き |
+| [class1-wizard.md](./class1-wizard.md) | ウィザード / Wizard | ClassI | 下書き |
 | [class2-arcana-swordsman.md](./class2-arcana-swordsman.md) | アルカナソード / Arcana Swordsman | ClassII | 下書き |
 | [class2-warrior.md](./class2-warrior.md) | ウォーリア / Warrior | ClassII | 下書き |
 | [class2-cleric.md](./class2-cleric.md) | クレリック / Cleric | ClassII | 下書き |
@@ -102,7 +105,7 @@
 
 ## 全ジョブカタログ(2026-09-03時点)
 
-GameWith「ジョブ評価一覧」記事([article/show/21314](https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21314))から機械的に抽出した全ジョブの一覧。ClassI/ClassIIはこの記事では評価点(メイン評価/取得優先度)が付与されておらず、`-` はその意味。`job_id`はゲーム内のジョブ`master_id`(実機APIで確認、2026-09-03)で、[docs/data-collection-notes.md](../../docs/data-collection-notes.md)に取得方法を記載。ClassI版のファイター(100001)/ランサー(190001)/ウィザード(130001、いずれも未着手行)の3件は実機APIでは直接確認できなかったが、ユーザー提供のジョブDB(Googleスプレッドシート、詳細は[docs/data-collection-notes.md](../../docs/data-collection-notes.md)参照)で確認済み。
+GameWith「ジョブ評価一覧」記事([article/show/21314](https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21314))から機械的に抽出した全ジョブの一覧。ClassI/ClassIIはこの記事では評価点(メイン評価/取得優先度)が付与されておらず、`-` はその意味。`job_id`はゲーム内のジョブ`master_id`(実機APIで確認、2026-09-03)で、[docs/data-collection-notes.md](../../docs/data-collection-notes.md)に取得方法を記載。ClassI版のファイター(100001)/ランサー(190001)/ウィザード(130001)の3件は2026-09-03の一括収集時点では実機APIで直接確認できずユーザー提供のジョブDB(Googleスプレッドシート)で補完していたが、2026-09-07に進化元ClassIジョブのジョブステータス画面が参照可能と判明し、実機のジョブLv詳細・ジョブ概要レスポンスで確認済みとなった。
 
 対象は全クラス(ClassI〜V、エクストラ、エクストラII、オリジン)で **全80ジョブ**(旧メモ記載の「61ジョブ」はClassI/ClassIIの評価点なし20ジョブを含めていなかった集計ミスで、修正済み)。
 
@@ -113,16 +116,16 @@ GameWith「ジョブ評価一覧」記事([article/show/21314](https://xn--bck3a
 
 | ジョブ名 | job_id | 得意武器 | メイン評価 | 取得優先度 | ステータス |
 | --- | --- | --- | --- | --- | --- |
-| ファイター | 100001 | 剣/斧 | - | - | 未着手(オリジン進化済みのため後回し) |
+| ファイター | 100001 | 剣/斧 | - | - | 下書き |
 | ナイト | 110001 | 剣/槍 | - | - | 下書き |
 | プリースト | 120001 | 杖/槍 | - | - | 下書き |
-| ウィザード | 130001 | 杖/短剣 | - | - | 未着手(オリジン進化済みのため後回し) |
+| ウィザード | 130001 | 杖/短剣 | - | - | 下書き |
 | シーフ | 140001 | 短剣/銃 | - | - | 下書き |
 | エンハンサー | 150001 | 剣/短剣 | - | - | 下書き |
 | グラップラー | 160001 | 格闘/格闘 | - | - | 下書き |
 | レンジャー | 170001 | 弓/銃 | - | - | 下書き |
 | ハーピスト | 180001 | 楽器/短剣 | - | - | 下書き |
-| ランサー | 190001 | 槍/斧 | - | - | 未着手(オリジン進化済みのため後回し) |
+| ランサー | 190001 | 槍/斧 | - | - | 下書き |
 
 ### ClassII(10ジョブ)
 

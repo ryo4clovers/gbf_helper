@@ -350,6 +350,21 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 
 ユーザーから「主人公LBの強化できる項目の種類はRankによって増えていくが、どのRankで何が解放されるかは情報を持っていない。また強化できる数もRankに応じて変化する」との補足があった。確認したところ、**項目ごとのRank条件(`need_user_rank`)は前回取得済みの全88項目カタログに既に含まれており**、[limit-bonus.md](../knowledge/mechanics/limit-bonus.md)の表がそのまま「どのRankで何が解放されるか」の答えになっていた。この点をドキュメントで明示し、ユーザー確認済みという扱いに更新した。「強化できる回数(`max_cost`)がRankに応じて変化する」という点もユーザー確認により裏付けが強まったが、**具体的な「Rank→max_cost」の段階表は今回も得られておらず、引き続き未確認**として記録した。
 
+### 欠損していたClassI版ファイター/ランサー/ウィザードの3ジョブを取得、全80ジョブが揃った(2026-09-07)
+
+長らく「このアカウントでは既にオリジンへ進化済みで取得不可」として後回しにしていたClassI版のファイター(100001)/ランサー(190001)/ウィザード(130001)について、**進化後もオリジンとは別に進化元ClassIジョブのジョブステータス画面を参照できる**ことがユーザーの操作で判明。`draft/ジョブLv詳細/`と`draft/ジョブ概要/`の2フォルダに3ジョブ分ずつ、計6ファイルが投入された。
+
+- **ジョブ概要レスポンス(`/job/index`相当)は今回初めて扱う種類のデータ**。トップに`job`(その中の`master`にジョブ基本情報、`da_odds`/`ta_odds`/`comment`/`proudly_weapons`/`master_bonus_of_job`等)、`pc`/`deck`等を持つ。ジョブLv詳細レスポンスに無い情報として **①ジョブの説明文(`master.comment`)、②DA/TA基礎率(`da_odds`/`ta_odds`、直値パーセント)、③`is_open_master_level`/`is_released_perfection_proof`等のフラグ、④`master_bonus_of_job`(ジョブ固有のジョブマスターボーナス、ジョブLv詳細の`master_bonus`と一致)** が得られた。`job.ability`は「現在セット中のアビリティ構成」であり、ジョブ固有アビリティの列挙にはジョブLv詳細の`ability`を使うべき点は従来通り。
+- **DA/TA基礎率**: ファイター10%/5%、ウィザード7%/3%、ランサー10%/5%。既存のClassIジョブファイル群は暫定値「7%/3%」を一律で記載しているものがあり、ジョブ概要レスポンスの実値と食い違う。3新規ファイルは実値を採用し未確認事項に食い違いを明記。既存7ファイルの是正は今後の課題。
+- **マスターレベルに関する用語の食い違いを再確認**: 3ジョブとも`is_open_master_level: false`・`is_released_perfection_proof: false`。既存のClassI〜IIIジョブファイルは、ジョブLv詳細の`master_bonus`(ジョブLv最大到達で得られる小さなステータス%ボーナス)を「マスターレベル強化」セクション・`has_master_level: true`として記載しているが、これはClass.IV/EX IIの「マスターレベル」システム([job-master-level-kyokuchi.md](../knowledge/mechanics/job-master-level-kyokuchi.md))とは別物(いわゆる「ジョブマスターボーナス」)である可能性が高い。3新規ファイルは既存siblingとの整合を優先して同じ書き方にしつつ、この点を注記した。**ClassI〜III全体での用語整理(セクション名変更・`has_master_level`の意味の明確化)は今後の課題**。
+- 各ジョブの実データ要点:
+  - **ファイター(剣/斧)**: 基本アビリティ2(ウェポンバースト Lv1 / レイジ Lv10)、`limit_ability`空、サポート「アサルトステップ」(DA確率UP)、ジョブLvボーナス 攻撃力+300×5、ジョブマスターボーナス 攻撃力+1%。
+  - **ウィザード(杖/短剣)**: 基本アビリティ2(エーテルブラスト Lv1 / ファイア Lv10 ※レスポンス上「火属性ダメージ」表記、要検証)、`limit_ability`空、サポート「精霊の加護」(アビリティダメージUP)、ジョブLvボーナス アビリティダメージ+2%×5、ジョブマスターボーナス アビリティダメージ+3%。
+  - **ランサー(槍/斧)**: 基本アビリティ2(リードドライブ Lv1 / デュアルインパルス Lv10、いずれもメイン武器種で効果分岐)、`limit_ability`空、サポート「ヴォリショナル」(槍:攻撃UP / 斧:防御UP)、ジョブLvボーナス 攻撃力+100・DA確率+1%×5、ジョブマスターボーナス HP+1%。
+- 3ジョブとも`limit_ability`が空。ClassIでリミットアビリティを持たないのはナイト以外にもこの3ジョブが該当し、ClassIは「リミットアビリティ有り」が少数派である傾向が強まった。
+- [knowledge/jobs/](../knowledge/jobs/README.md)に`class1-fighter.md`/`class1-wizard.md`/`class1-lancer.md`を新規作成、READMEのファイル一覧(全77→全80)・カタログのステータス欄・冒頭の説明文を更新。元JSON6件は`tools/network-recorder/captures/`へ`2026-09-07_job-detail_class1-{slug}.json`・`2026-09-07_job-overview_class1-{slug}.json`の命名で移動、`draft/`のサブフォルダ2つは削除(`draft/`直下は`ゲーム内HELP/`の未処理4カテゴリのみ残置)。
+- これで**取得可能な全80ジョブ(ClassI 10・ClassII 10・ClassIII 11・ClassIV 18・ClassV 9・エクストラ 10・エクストラII 9・オリジン 3)がジョブLv詳細ベースの情報で揃った**。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |
