@@ -22,11 +22,15 @@
 | [omega-ssr-sword.md](./omega-ssr-sword.md) | オメガスウォード / Ultima Sword | 作成時選択(例: 火) | オメガウェポン | 下書き |
 | [fire-ssr-magna-colossus-cane.md](./fire-ssr-magna-colossus-cane.md) | コロッサスケーン・マグナ / Colossus Cane Omega | 火 | マグナシリーズ | 下書き |
 | [fire-ssr-verboten-spear.md](./fire-ssr-verboten-spear.md) | 禁栄の禍槍 / Verboten Spear (Fire) | 火 | 禁禍武器 | 下書き |
+| [fire-ssr-job-chrysaor.md](./fire-ssr-job-chrysaor.md) | ヴァッサーシュパイアー / Wasserspeier | 作成時選択(例: 火) | 英雄武器(クリュサオル専用) | 下書き |
+| [water-ssr-job-boogeyman.md](./water-ssr-job-boogeyman.md) | ルクス・イン・デネブリス / Lux in Tenebris | 作成時選択・変更可(例: 水) | 英雄武器(ブギーマン専用) | 下書き |
+| [earth-ssr-job-monk.md](./earth-ssr-job-monk.md) | 金砕棒 / Kanabo | 作成時選択(例: 土) | 英雄武器(モンク専用) | 下書き |
 
 ## 命名規則
 
 - ファイル名(= frontmatter `id`)は `{属性}-{レアリティ}-{識別名}` の kebab-case。例: `fire-ssr-seraphic-weapon`、`wind-ssr-tenseiki-katana`。
 - 同シリーズで全属性版がある武器(セラフィック等)は属性で区別できるため識別名にシリーズ名を使う。個体名で区別が必要な場合は識別名にローマ字名を使う。
+- ジョブ専用の英雄武器(`job_weapon` = true)は識別名を `job-{ジョブ英名kebab}` とする。例: `fire-ssr-job-chrysaor`。属性は作成時選択のため代表個体のものを `element` に置く。
 - frontmatter `weapon_id` にはゲーム内の武器 `master_id`(実機レスポンス `master.id`。数値文字列)。
 - サムネイル画像は `weapon_id` から機械的に組み立てる。見出し(`# {武器名}({英名})`)の直後に貼る:
   - 低解像度(既定): `https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/{weapon_id}.jpg`
@@ -52,7 +56,7 @@
 | `param.evolution` | 現在の上限解放段階 | ステータス表の段階 |
 | `param.arousal.is_arousal_weapon` | 覚醒対応シリーズか(リミテッド等) | 「覚醒」セクション有無 |
 | `param.arousal.form` / `form_name` | 現在選択中の覚醒タイプ(攻撃/防御/連撃/回復/奥義/スキルダメージ 等) | 「覚醒」セクション |
-| `param.arousal.level` / `max_level` | 現在の覚醒Lv / 上限(通常4) | 「覚醒」セクション |
+| `param.arousal.level` / `max_level` | 現在の覚醒Lv / 上限(リミテッド等は通常4、ClassV英雄武器は15)。ClassV英雄武器は最大Lvで固有スキルを習得(`arousal.skill[].acquired_awakening_level`)、`release_conditions` に武器Lv200 等の条件 | 「覚醒」セクション |
 | `param.arousal.total_bonus` | 各覚醒Lvで**追加**されるボーナスの内訳(`name` 攻刃/D上限 等、`effect_value`) | 覚醒タイプ別効果の「Lv別内訳」 |
 | `param.arousal.skill[]` | 現タイプ・現Lvでの実効果(`skill_id` / `name` / `comment` / `effect_value`) | 覚醒タイプ別効果 |
 | `param.odiant` | **退魔(オーディアント)** — `is_odiant_weapon` = true は禁禍武器。`exorcision_level` / `max_exorcision_level`(退魔Lv)、`reduction_effect_value`(デメリット軽減値)。禁禍武器のデメリットスキルを軽減する | 「退魔」セクション |
@@ -68,6 +72,7 @@
 | `limit` | 配列 `[]`(なし)または オブジェクト `{ display_comment }`(装備制限文)。**文言が「[A]と[B]の武器は、いずれかひとつだけ」でも A と B が相互排他とは限らない** — 実ルールは [../mechanics/team-building-basics.md](../mechanics/team-building-basics.md)(同一シリーズ1本まで、ドラゴニックのみ無印+オリジン合算1本) | 「上限解放・強化要素」の装備制限 |
 | `augment_id_list`(例 "44:84")/ `augment_skill`(2次元配列)/ `param.augment_image` | `augment_skill[0][]` の各要素に `skill_id` / `name` / `comment` / `level` / `effect_value`(例 "+7%")/ `depth`。**通常AUG(エレメント)**= プレイヤー付与の追加効果(奥義ダメージ・渾身・攻撃力・連撃 等、マグナ/アンセスタル/プライマル対象)。**禁禍武器のデメリットスキル**= ドロップ時ランダム付与の不利効果(毎ターンダメージ等、`depth` を持ち退魔Lvで軽減) | 「AUG / デメリットスキル」セクション |
 | `omega`(=オメガウェポン/Ultima)/ `moon` / `is_xeno_weapon` / `job_weapon` / `is_rusted_weapon` / `is_origin_numbers_weapon` / `series_id` | 武器カテゴリ判定フラグ | 「編成での役割」(グリッド分類) |
+| `job_weapon` / `job_weapon_category` / `unique_weapon[]` / `master.change_attribute` | **英雄武器(ジョブ専用、`series_id` 19)**。`job_weapon` = true。`job_weapon_category`(例 "104")はコンパニオンウェポン系のみ入り、多くは空配列。`unique_weapon[]` = `{name, image}` はこの武器の特殊形態名(例: コンパニオンウェポン「クリュサオル」/ ジョブ名そのまま)。`change_attribute` = "1" は作成後も属性変更可(ClassV系で確認)、"" は不可。`master.archaic` = "1"(刷新後)。スキルレベルは固定(`max_weapon_skill_level` 1)。売却・分解不可 | 「ジョブ専用武器」セクション |
 
 **注意**: 武器詳細レスポンスは所持インスタンス固有情報(+値・スキルレベル・所持数・編成使用中フラグ等)を含む。ナレッジには武器定義に関わる部分だけを反映し、生レスポンスは `tools/network-recorder/captures/`(git管理外)に保存する。
 
@@ -77,7 +82,7 @@
 | --- | --- |
 | **レアリティ `rarity`** | 2 R / 3 SR / 4 SSR |
 | **武器種 `kind`** | 1 剣(確認済) / 2 短剣 / 3 槍(確認済) / 4 斧(確認済) / 5 杖(確認済) / 6 銃(確認済) / 7 格闘 / 8 弓 / 9 楽器(確認済) / 10 刀(未確認分はジョブの `weapon1/2` コードと同じと推定) |
-| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器(gbf.wiki: Dark Opus)/ 8 マグナシリーズ(gbf.wiki: Omega)/ 13 オメガウェポン(gbf.wiki: Ultima)/ 40 ドラゴニックウェポン・オリジン / 44 破壊の標(ヴェルサシア武器)/ 45 禁禍武器(gbf.wiki: Verboten)。連番ではないので実例で確認する |
+| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器(gbf.wiki: Dark Opus)/ 8 マグナシリーズ(gbf.wiki: Omega)/ 13 オメガウェポン(gbf.wiki: Ultima)/ 19 英雄武器(ジョブ専用。gbf.wiki: Class Champion Weapons)/ 40 ドラゴニックウェポン・オリジン / 44 破壊の標(ヴェルサシア武器)/ 45 禁禍武器(gbf.wiki: Verboten)。連番ではないので実例で確認する |
 | **`master.archaic`** | "1" = 刷新/進化後の形態のマーカー(セラフィック刷新版・ドラゴニックオリジンで確認)。進化前は取得不可のことがある |
 | **`omega`(真偽値)** | true = **オメガウェポン(gbf.wiki『Ultima Weapons』)シリーズ**のフラグ。「マグナグリッド全般」の意味ではない |
 | **`master.attribute`(オメガ)** | オメガウェポンは作成時に属性を選択(実質属性変更可能)。`attribute` はその選択結果。ファイルは武器種単位(`omega-ssr-{type}`)、`element` は代表個体のもの |

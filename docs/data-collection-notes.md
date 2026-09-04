@@ -510,6 +510,19 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - `max_weapon_skill_level` = 10(他シリーズより低い)。奥義「フルニヴァルラ」(火ダメージ特大/灼熱/火属性攻撃UP累積)。
 - ファイル: [knowledge/weapons/fire-ssr-verboten-spear.md](../knowledge/weapons/fire-ssr-verboten-spear.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-verboten-spear.json`。
 
+**2026-09-08 追加: 英雄武器(ジョブ専用武器、`series_id` 19)を3パターン確認**。gbf.wiki 英名は「Class Champion Weapons」。ユーザー提供の3個体:
+
+- **共通事項**: `job_weapon` = true、`series_id` = 19、`master.archaic` = "1"(刷新後)、`max_weapon_skill_level` = 1(スキルレベリング不可・固定値)、`can_sell`/`can_decompose` = false。Lv200(5凸)。`limit` = `[]` だが主人公メイン専用のため実質1本。`unique_weapon[]` = `{name, image}` にこの武器の特殊形態名(コンパニオンウェポン名 or ジョブ名そのまま。image 接頭辞がジョブ `job_id`)。skill は全て image `skill_job_weapon`、`◆メイン装備時` 条件付きでジョブアビリティを強化。`skillN_display` は例によって当てにならない(全部 0 でも有効)。
+- **`job_weapon_category`**: コンパニオンウェポン系(クリュサオル)のみ `["104"]` が入り、他2件は空配列。
+- **`master.change_attribute`**: "1" = 作成後も属性変更可(ブギーマン〈ClassV〉で確認)、"" = 変更不可の可能性(クリュサオル・モンク)。要検証。
+- **パターン1: 変更式スキル枠あり(コンパニオンウェポン / クリュサオル)** — ヴァッサーシュパイアー(火剣、`master_id` 1040018100、`job_weapon_category` ["104"])。skill1「双剣の賦性」(アナザーブレードII強化、固定)、skill2「双剣の資質」= **エンブレム枠**(image `skill_blank` = 未適用、`comment` は「エンブレムによって力を得る」プレースホルダー)。推奨エンブレム「魔獄」= 奥義追加ダメージ。テンプレに「ジョブ専用武器(英雄武器 / コンパニオンウェポン)」セクション新設。奥義「金碧輝煌」。→ [knowledge/weapons/fire-ssr-job-chrysaor.md](../knowledge/weapons/fire-ssr-job-chrysaor.md)
+- **パターン2: 覚醒枠あり(ClassV 英雄武器)** — ルクス・イン・デネブリス(水銃、`master_id` 1040517500、ブギーマン専用)。skill1〜3 すべて固定のジョブアビリティ強化(変更枠なし)。代わりに **`param.arousal.is_arousal_weapon` = true で `max_level` = 15**(リミテッドの4と別)。`release_conditions` = 武器Lv200。覚醒「攻撃」の内訳: Lv2〜7 攻刃+2%/Lv8〜13 +3%/Lv14 +5%(累積+35%)、**Lv15 で固有スキル「闇冥の復讐者」習得**(`arousal.skill[].acquired_awakening_level` = 15)。他タイプ(防御/連撃等)の Lv15 スキルが同じか別かは要検証。`message` = 「特殊な最終上限解放のため育成アイテム使用不可」、`can_not_upgrade_at_item` = 1。奥義「ヴェンジェンス・ローゼズ＋」。テンプレの覚醒セクションに Lv15・解放条件・最大Lv習得スキルの項を追加。→ [knowledge/weapons/water-ssr-job-boogeyman.md](../knowledge/weapons/water-ssr-job-boogeyman.md)
+- **パターン3: 全スキル固定(変更枠なし)** — 金砕棒(土杖、`master_id` 1040417400、モンク専用)。skill1「修めし僧兵の賦性」(修験の構え強化)、skill2「修めし僧兵の極み」(武芸百般のダメージ回数UP)。**どちらも固定**で、ユーザー曰く「第2スキルが変更可能なものもあれば変更しないものもある」。覚醒・エンブレム枠なし。奥義「涓滴岩穿」。→ [knowledge/weapons/earth-ssr-job-monk.md](../knowledge/weapons/earth-ssr-job-monk.md)
+- **コード確定**: `series_id` = 19 は英雄武器。`kind` = 1 剣 / 5 杖 / 6 銃(いずれも既確認)。
+- README のフィールド対応表・コード表(`series_id` 19、`job_weapon`/`job_weapon_category`/`unique_weapon`/`change_attribute`、覚醒 Lv15)を更新。
+- 生レスポンス: `captures/weapons/2026-09-08_weapon-detail_{fire-ssr-job-chrysaor,water-ssr-job-boogeyman,earth-ssr-job-monk}.json`(git管理外)。
+- **未処理**: 「クラス4ジョブおよびEx2専用装備」とユーザーが言及した EX2 ジョブの英雄武器の実例は未取得。属性ごとに `weapon_id` が分かれるかも未確認。各スキル・奥義・覚醒の数値は全て要検証。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |

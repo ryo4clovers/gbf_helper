@@ -6,7 +6,7 @@ weapon_id: ""          # ゲーム内の武器 master_id(数値文字列、例: 
 element: ""             # 火 | 水 | 土 | 風 | 光 | 闇 | 無属性
 rarity: SSR            # SSR | SR | R
 weapon_type: ""        # 剣 | 短剣 | 槍 | 斧 | 杖 | 銃 | 格闘 | 弓 | 楽器 | 刀
-series: ""             # シリーズ名(例: セラフィックウェポン / ドラゴニックウェポン / 天星器 / オメガ〈マグナ〉/ 神石 / リミテッド / 十賢者 等)
+series: ""             # シリーズ名(例: セラフィックウェポン / ドラゴニックウェポン / 天星器 / オメガ〈マグナ〉/ 神石 / リミテッド / 十賢者 / 英雄武器〈ジョブ専用〉等)
 obtain: ""             # 入手方法(ショップ交換 / 恒常ガチャ / リミテッドガチャ / マルチバトル / イベント 等)
 status: 未着手         # 未着手 | 下書き | 検証済み
 last_updated: YYYY-MM-DD
@@ -102,15 +102,40 @@ source: "要検証"       # 実機レスポンス取得日 / 参照した gbf.wi
 - 出典:
 - ステータス: 未検証
 
+## ジョブ専用武器(英雄武器 / コンパニオンウェポン)
+
+<!-- `job_weapon` = true / `series_id` = 19([英雄武器])のシリーズのみ。無い武器はセクション省略。
+     各 ClassIV / エクストラII 等のジョブに1種、作成時に属性を選択する(実質属性変更可、属性ごとに別 weapon_id の可能性)。
+     ・`job_weapon_category`: どのジョブの武器かを示すコード(例 "104")。ジョブ側 `job_id` とは別体系。
+     ・`unique_weapon[]`: `{ name, image }`。この武器の「真の姿」名(例: クリュサオル)。コンパニオンウェポン等の特殊形態。
+     ・`master.archaic` = "1": エンブレム適用後 / 刷新後の形態。
+     ・スキルレベルは `max_weapon_skill_level` = 1 で固定(レベリング不可)。スキル強化は上限解放・エンブレム・ジョブ側の育成による。
+     ・skill1 は「◆メイン装備時/主人公のみ」条件付きで、ジョブ固有アビリティの性能を強化することが多い。
+     ・skill2 は「資質」= エンブレム枠。エンブレム未適用だと image `skill_blank`・効果文がプレースホルダー。適用でいずれかの発展形になる。
+     ・`can_sell` / `can_decompose` = false(売却・分解不可)。`container.name` = "ジョブ武器"。 -->
+
+- 対応: あり / なし(`job_weapon`)
+- 対象ジョブ: (`job_weapon_category` = {コード} → ジョブ名。[../jobs/](../jobs/) の該当ファイルにリンク)
+- 真の姿 / 特殊形態: (`unique_weapon[].name` / `image`。例: コンパニオンウェポン「クリュサオル」)
+- 属性選択: 作成時に選択(`master.attribute` はその結果)
+- エンブレム(`skill2` = 資質枠): (適用中のエンブレム名と効果。未適用なら「未適用」。推奨エンブレムがあれば注記)
+- ジョブ側との連動: (skill1 が強化するジョブアビリティ名。`◆メイン装備時/主人公のみ` 等の条件)
+
 ## 覚醒(アローサル)
 
 <!-- param.arousal.is_arousal_weapon = true のシリーズ(リミテッド等。無い武器はこのセクションごと省略)。
      覚醒タイプは武器ごとに選択・変更でき、レスポンスには「現在選択中のタイプ」しか出ない。
-     全タイプを埋めるには各タイプに切り替えたレスポンスが必要。 -->
+     全タイプを埋めるには各タイプに切り替えたレスポンスが必要。
+     ・リミテッド等: max_level 4 前後。
+     ・ClassV の英雄武器(job_weapon): max_level 15。Lv15 で固有スキル(`arousal.skill` の
+       `acquired_awakening_level` = 15 のもの)を習得する。解放条件は `arousal.release_conditions`
+       (例 condition_type "1" / value "200" = 武器Lv200 必須)。 -->
 
 - 対応: あり / なし(`param.arousal.is_arousal_weapon`)
-- 最大Lv: (`param.arousal.max_level`、例: 4)
+- 最大Lv: (`param.arousal.max_level`、例: 4 / ClassV英雄武器は 15)
+- 解放条件: (`param.arousal.release_conditions`。例: 武器Lv200)
 - 現在の取得状況(このインスタンス): タイプ「{form_name}」Lv{level}
+- 最大Lv習得スキル(あれば): (`arousal.skill` で `acquired_awakening_level` が最大Lvのもの。`skill_id` / `name` / `comment`)
 
 ### 覚醒タイプ別効果
 
