@@ -433,6 +433,17 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - **コード確定**: `kind`=6 は銃(確認)。`series_id`: 1=セラフィック、2=リミテッド。
 - ファイル: [knowledge/weapons/fire-ssr-limited-benedia.md](../knowledge/weapons/fire-ssr-limited-benedia.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-limited-benedia.json`。
 
+**2026-09-07 追加: 3件目(終末の神器・絶対否定の大鎌、超越Lv250)でテンプレートをさらに拡張**:
+
+- **超越(トランセンデンス)**を独立セクション化: `param.level`(200/250)、`param.phase`(超越段階0〜5)、`param.evolution`/`master.max_evolution_level`(超越込みで5〜6)、`transcendence_pu_flag`、`master.awakening_phase`。天星器/終末/ドラゴニック等が対象。
+- **選択式スキル(ゴーフ・キー)**: 終末の第2・第3スキルはプレイヤー選択式で、レスポンスには**現在の選択しか出ない**。スキル項目に「選択式: はい/いいえ」+ 選択肢一覧 + 現在の選択、を持たせた。第2スキル(α通常ダメ上限/βアビダメ上限/γ奥義ダメ上限/Δ CBダメ上限)、第3スキル(渾身/背水/技巧/連撃/エナ・ディオ・トリア・テッセラ系 等)。
+- **`limit` がオブジェクト**になるケース: `{ display_comment: "..." }` で装備制限文(終末⇔ドラゴニックは1本のみ)。従来の武器は `limit: []`。
+- **奥義の選択スキル連動**: `special_skill.comment` の「スキルに応じた追加効果」= 第2スキルの選択で奥義追加効果が変わる。
+- **スキルLv上限が2種**: `max_weapon_skill_level`(第1・第2、終末は25)と `max_weapon_skill_level_2`(第3、15)。
+- **`skill2_display` = 0 でも有効スキルあり**(終末の第2スキル)。`skillN_display` は完全に当てにならないと確定。
+- **確定**: `kind`=4 は斧。`series_id`=3 は終末の神器。`param.image_id` は超越後 `{weapon_id}_03` のように接尾辞付き(サムネは接尾辞なしでも可)。
+- ファイル: [knowledge/weapons/fire-ssr-ultima-scythe.md](../knowledge/weapons/fire-ssr-ultima-scythe.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-ultima-scythe.json`。
+
 ## 情報の種類ごとの取得元
 
 | データ種別 | 取得元 | 備考 |

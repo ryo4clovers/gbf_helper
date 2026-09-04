@@ -15,6 +15,7 @@
 | --- | --- | --- | --- | --- |
 | [fire-ssr-seraphic-weapon.md](./fire-ssr-seraphic-weapon.md) | 赤き熾炎の剣 / Sword of Michael | 火 | セラフィックウェポン | 下書き |
 | [fire-ssr-limited-benedia.md](./fire-ssr-limited-benedia.md) | ベネディーア / Benedia | 火 | リミテッドシリーズ | 下書き |
+| [fire-ssr-ultima-scythe.md](./fire-ssr-ultima-scythe.md) | 絶対否定の大鎌 / Ultima Scythe | 火 | 終末の神器 | 下書き |
 
 ## 命名規則
 
@@ -49,12 +50,16 @@
 | `param.arousal.total_bonus` | 各覚醒Lvで**追加**されるボーナスの内訳(`name` 攻刃/D上限 等、`effect_value`) | 覚醒タイプ別効果の「Lv別内訳」 |
 | `param.arousal.skill[]` | 現タイプ・現Lvでの実効果(`skill_id` / `name` / `comment` / `effect_value`) | 覚醒タイプ別効果 |
 | `param.odiant` | オーディアント/祓い(exorcision_level) | 「オーディアント」セクション |
-| `can_release_transcendence` / `transcendence_*` | 超越(Lv100→200) | 「超越」セクション |
-| `special_skill.name` / `.comment` | 奥義(`＋` `＋＋` は上限解放での進化形) | 「奥義」セクション |
-| `skill1`〜`skill4` の `skill_id` / `name` / `comment` / `level.release_level` | 武器スキル(`release_level` = 解放される武器Lv) | 「武器スキル」セクション(`skill_id` は名寄せキー) |
-| `skillN_display` | 表示スロットのフラグ(0/1)。**空スロットでも 1 のことがあるのでスキル有無の判定は `skillN.skill_id` の null 判定で行う** | — |
+| `param.level` / `max_level` | 最大150 / 200 / 250。200・250 は超越 | 「超越」セクション |
+| `param.phase` | 超越段階(0〜5) | 「超越」セクション |
+| `master.max_evolution_level` / `param.evolution` | 上限解放段階数 / 現在段階(超越込みで 5〜6 になる) | 「基本情報」「超越」 |
+| `master.over_evolution_type` / `awakening_phase` | 5★以上・特殊上限解放のマーカー | 「超越」「上限解放」 |
+| `can_release_transcendence` / `transcendence_pu_flag` | さらに超越解放できるか / 超越強化を持つか | 「超越」セクション |
+| `special_skill.name` / `.comment` | 奥義(`＋` `＋＋` は上限解放での進化形。「スキルに応じた追加効果」は選択スキル連動) | 「奥義」セクション |
+| `skill1`〜`skill4` の `skill_id` / `name` / `comment` / `level.release_level` | 武器スキル(`release_level` = 解放される武器Lv、文字列/数値どちらもあり) | 「武器スキル」セクション(`skill_id` は名寄せキー) |
+| `skillN_display` | 表示スロットのフラグ(0/1)。**空スロットでも 1、逆に有効スロットでも 0 のことがある(終末の第2スキル=0)。スキル有無の判定は `skillN.skill_id` の null 判定で行う** | — |
 | `bullet_info.set_bullets` | 銃(kind=6)のバレットスロット(`max_set_count` / 各 `bullet_N.slot_type`) | 「バレット」セクション |
-| `limit` | 上限解放スキル / リミットボーナス(配列) | 「上限解放・強化要素」 |
+| `limit` | 配列 `[]`(なし)または オブジェクト `{ display_comment }`(装備制限文。終末⇔ドラゴニックの排他等) | 「上限解放・強化要素」の装備制限 |
 | `augment_skill` | エレメント/AUG | 「上限解放・強化要素」 |
 | `omega` / `moon` / `is_xeno_weapon` / `job_weapon` / `is_rusted_weapon` / `is_origin_numbers_weapon` / `series_id` | 武器カテゴリ判定フラグ | 「編成での役割」(グリッド分類) |
 
@@ -65,8 +70,8 @@
 | 属性 `attribute` | 1 火 / 2 水 / 3 土 / 4 風 / 5 光 / 6 闇 |
 | --- | --- |
 | **レアリティ `rarity`** | 2 R / 3 SR / 4 SSR |
-| **武器種 `kind`** | 1 剣 / 2 短剣 / 3 槍 / 4 斧 / 5 杖 / 6 銃(確認済) / 7 格闘 / 8 弓 / 9 楽器 / 10 刀(6以外はジョブの `weapon1/2` コードと同じと推定、要確認) |
-| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ(以降は実例が集まり次第追記) |
+| **武器種 `kind`** | 1 剣 / 2 短剣 / 3 槍 / 4 斧(確認済) / 5 杖 / 6 銃(確認済) / 7 格闘 / 8 弓 / 9 楽器 / 10 刀(未確認分はジョブの `weapon1/2` コードと同じと推定) |
+| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器(以降は実例が集まり次第追記) |
 
 ## スキル系統(damage-calc 用の軸)
 
