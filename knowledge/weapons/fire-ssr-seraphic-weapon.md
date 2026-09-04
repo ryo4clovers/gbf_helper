@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)�
 ---
 
 # 赤き熾炎の剣(Sword of Michael)
-![赤き熾炎の剣](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/weapon/m/1040017200.jpg)
+![赤き熾炎の剣](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040017200.jpg)
 
 ## 概要
 

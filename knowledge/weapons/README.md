@@ -19,7 +19,10 @@
 
 - ファイル名(= frontmatter `id`)は `{属性}-{レアリティ}-{識別名}` の kebab-case。例: `fire-ssr-seraphic-weapon`、`wind-ssr-tenseiki-katana`。
 - 同シリーズで全属性版がある武器(セラフィック等)は属性で区別できるため識別名にシリーズ名を使う。個体名で区別が必要な場合は識別名にローマ字名を使う。
-- frontmatter `weapon_id` にはゲーム内の武器 `master_id`(実機レスポンス `master.id`、サムネイル画像URL `.../weapon/m/{weapon_id}.jpg` の組み立てにも使う)。
+- frontmatter `weapon_id` にはゲーム内の武器 `master_id`(実機レスポンス `master.id`。数値文字列)。
+- サムネイル画像は `weapon_id` から機械的に組み立てる。見出し(`# {武器名}({英名})`)の直後に貼る:
+  - 低解像度(既定): `https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/{weapon_id}.jpg`
+  - 中解像度: 上の `img_low` を `img` に置換 / 大サイズ: さらに `weapon/m/` を `weapon/ls/` に置換
 
 ## 実機「武器詳細」レスポンスのフィールド対応
 
