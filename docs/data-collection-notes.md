@@ -442,17 +442,17 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - **スキルLv上限が2種**: `max_weapon_skill_level`(第1・第2、終末は25)と `max_weapon_skill_level_2`(第3、15)。
 - **`skill2_display` = 0 でも有効スキルあり**(終末の第2スキル)。`skillN_display` は完全に当てにならないと確定。
 - **確定**: `kind`=4 は斧。`series_id`=3 は終末の神器。`param.image_id` は超越後 `{weapon_id}_03` のように接尾辞付き(サムネは接尾辞なしでも可)。
-- ファイル: `knowledge/weapons/fire-ssr-ultima-scythe-normal.md`(下記で -normal にリネーム)。
+- ファイル: `knowledge/weapons/fire-ssr-dark-opus-scythe-normal.md`(下記で -normal にリネーム)。
 
 **2026-09-07 追加: 終末の神器の「方陣(マグナ)版」で通常/方陣2バージョン制を確認**。ユーザーが同じ火終末斧の方陣版(永遠拒絶の大鎌 / `master_id` 1040310700)を提供:
 
 - **終末の神器・ドラゴニック等は、第1スキルの攻刃が「通常攻刃」か「方陣攻刃」かで別の武器(別 `weapon_id`・別名)**。効果文・奥義・第2/第3スキルの選択システムは共通で、違いは skill1 のみ:
   - 通常版「絶対否定の大鎌」skill1 = `2192`「紅蓮の神醒」(通常攻刃、image `skill_atk_hp_rise_1_3`)→ 神石グリッド向け
   - 方陣版「永遠拒絶の大鎌」skill1 = `2198`「機炎方陣・神醒III」(方陣攻刃、image `skill_atk_hp_rise_m_1_3` の `_m_`)→ マグナグリッド向け
-- ファイルを [fire-ssr-ultima-scythe-normal.md](../knowledge/weapons/fire-ssr-ultima-scythe-normal.md) / [fire-ssr-ultima-scythe-magna.md](../knowledge/weapons/fire-ssr-ultima-scythe-magna.md) に分割。README のスキル系統解説に「通常版/方陣版」の項を追加、テンプレの概要に注記。
+- ファイルを [fire-ssr-dark-opus-scythe-normal.md](../knowledge/weapons/fire-ssr-dark-opus-scythe-normal.md) / [fire-ssr-dark-opus-scythe-magna.md](../knowledge/weapons/fire-ssr-dark-opus-scythe-magna.md) に分割。README のスキル系統解説に「通常版/方陣版」の項を追加、テンプレの概要に注記。
 - **第3スキルのゴーフ・キー選択肢に「虚偽と詐術」(追撃、`skill_id` 1726、image `skill_job_weapon`)**: 自属性追撃効果 + 奥義ゲージ上昇量大幅DOWN(デメリット付き)。通常版の個体では「紅蓮の渾身」を選択しており、同じ第3スキル枠で別のキーを選んだ実例。
 - `skill3_display` も 0 のことがある(方陣版インスタンスで skill2/skill3 とも display=0 だが有効)。`skillN_display` は完全に無視してよい。
-- 生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-ultima-scythe-{normal,magna}.json`。
+- 生レスポンスは `captures/weapons/2026-09-07_weapon-detail_fire-ssr-dark-opus-scythe-{normal,magna}.json`。
 
 **2026-09-07 追加: 破壊の標(ヴェルサシア武器)で「スキルレベリング無し」「発動条件付きスキル」「アンクレット変更式スキル」を確認**。ユーザー提供の万象尽滅の宝剣(火剣、`master_id` 1040028900):
 
@@ -481,6 +481,16 @@ https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m
 - **基本ルール = 同一シリーズは編成に1本まで**(虚ろなる神器 / バハムートウェポン / オメガウェポン / 極星器 / 破壊の標 / 終末の神器 / セラフィックウェポン、それぞれ独立に1本)。
 - **例外はドラゴニックウェポンのみ**: 強化前「ドラゴニックウェポン」と強化後「ドラゴニックウェポン・オリジン」を**合算して1本**まで。
 - **終末の神器とドラゴニックウェポンは相互排他ではない**(併用可)。2026-09-06のゲーム内HELP文面と各武器の `limit.display_comment`(「[終末の神器]と[ドラゴニックウェポン]の武器は、いずれかひとつだけ」等)は誤解を招く表記で、実際は上記。weapons/ の各ファイルの装備制限記述も訂正。
+
+**2026-09-07 追加: オメガウェポンで `omega` フラグ・属性選択制・3スキル全選択式を確認。gbf.wiki 英語名の対応も判明**:
+
+- **gbf.wiki の英語名対応**: 終末の神器 = **Dark Opus Weapons**、オメガウェポン(オメガスウォード等) = **Ultima Weapons**、マグナ武器(コロマグ剣等) = Omega Weapons。→ 終末のファイルを `fire-ssr-ultima-scythe-*` から **`fire-ssr-dark-opus-scythe-{normal,magna}`** にリネーム、`name_en` も "Dark Opus Axe" に訂正(以前 "Ultima Axe" としていたのは誤り)。
+- オメガスウォード(`master_id` 1040011900): **`omega` = true**(= オメガウェポン/Ultima シリーズのフラグ。「マグナグリッド全般」ではない)。`series_id` = 13。
+- **作成時に属性を選択**(実質属性変更可能)。`master.attribute` はその結果。ファイルは武器種単位(`omega-ssr-sword`)、`element` は代表個体(この提供データは火)のもの。
+- **第1・第2・第3スキルすべて選択式**: skill1「グラディウス・プレナム」(得意武器種指定の攻刃+守護+渾身)、skill2「スカンデレ・アルカヌム」(各種ダメージ上限、現在は奥義上限)、skill3「フルゴル・エーラーティオ」(奥義ゲージ上昇量UP等)。オメガのスキルは `skillN.attribute` が全て空文字(属性非依存)。
+- **奥義「神撃＋＋＋」= 3段階＋**(無印→＋→＋＋→＋＋＋)。これまでの武器は ＋＋ 止まりだった。
+- Lv200(5凸)止まり・超越非対応。編成に1本のみ。
+- ファイル: [knowledge/weapons/omega-ssr-sword.md](../knowledge/weapons/omega-ssr-sword.md)。生レスポンスは `captures/weapons/2026-09-07_weapon-detail_omega-ssr-sword.json`。
 
 ## 情報の種類ごとの取得元
 

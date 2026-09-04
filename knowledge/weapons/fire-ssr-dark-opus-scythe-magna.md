@@ -1,7 +1,7 @@
 ---
-id: "fire-ssr-ultima-scythe-magna"
+id: "fire-ssr-dark-opus-scythe-magna"
 name_jp: "永遠拒絶の大鎌"
-name_en: "Ultima Axe (Magna)"
+name_en: "Dark Opus Axe (Magna)"
 weapon_id: "1040310700"
 element: "火"
 rarity: SSR
@@ -10,17 +10,17 @@ series: "終末の神器"
 obtain: "ショップ(ヒヒイロカネ等での作成)。ゴーフ・キーで第2・第3スキルを選択、Lv200・超越で強化"
 status: 下書き
 last_updated: 2026-09-07
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)。英語名・スキル選択肢・数値は gbf.wiki『Ultima Weapons』(2026-09-07 参照)で補完。終末武器の全選択肢・超越の数値変化は未検証。"
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)。英語名・スキル選択肢・数値は gbf.wiki『Dark Opus Weapons』(2026-09-07 参照)で補完。終末武器の全選択肢・超越の数値変化は未検証。"
 ---
 
-# 永遠拒絶の大鎌(Ultima Axe / Magna)
+# 永遠拒絶の大鎌(Dark Opus Axe / Magna)
 ![永遠拒絶の大鎌](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040310700.jpg)
 
 <!-- 超越済みインスタンスの `param.image_id` は "1040310700_03"。基本サムネは接尾辞なし。 -->
 
 ## 概要
 
-火属性の終末の神器(斧)の**方陣(マグナ)攻刃版**。第1スキル「機炎方陣・神醒III」= **方陣攻刃**(マグナ/オメガグリッド向け)。通常攻刃版は [fire-ssr-ultima-scythe-normal.md](./fire-ssr-ultima-scythe-normal.md)(絶対否定の大鎌)。効果文・奥義・第2/第3スキルの選択システムは通常版と共通で、違いは第1スキルの攻刃が乗るグリッドのみ。終末の神器は編成に1本まで(通常版「絶対否定の大鎌」と方陣版もあわせて1本)。ドラゴニックウェポンとは併用可([team-building-basics.md](../mechanics/team-building-basics.md))。
+火属性の終末の神器(斧)の**方陣(マグナ)攻刃版**。第1スキル「機炎方陣・神醒III」= **方陣攻刃**(マグナ/オメガグリッド向け)。通常攻刃版は [fire-ssr-dark-opus-scythe-normal.md](./fire-ssr-dark-opus-scythe-normal.md)(絶対否定の大鎌)。効果文・奥義・第2/第3スキルの選択システムは通常版と共通で、違いは第1スキルの攻刃が乗るグリッドのみ。終末の神器は編成に1本まで(通常版「絶対否定の大鎌」と方陣版もあわせて1本)。ドラゴニックウェポンとは併用可([team-building-basics.md](../mechanics/team-building-basics.md))。
 
 ## 基本情報
 
@@ -29,7 +29,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)�
 | レアリティ | SSR |
 | 属性 | 火 |
 | 武器種 | 斧 |
-| シリーズ | 終末の神器(Ultima Weapons)・方陣版 |
+| シリーズ | 終末の神器(gbf.wiki: Dark Opus Weapons)・方陣版 |
 | 入手方法 | ショップ作成(ヒヒイロカネ等)。第2/第3スキルはゴーフ・キーで選択 |
 | 最大レベル | 250(Lv150 → Lv200 → 超越で Lv250) |
 | スキルレベル上限 | 25(第1・第2スキル。第3スキルは `max_weapon_skill_level_2` = 15) |
@@ -79,7 +79,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)�
 
 - skill_id: `1726`
 - 解放レベル: 武器Lv1(表示上。第3スキル枠は5凸/Lv200帯で解放、選択はゴーフ・キー)
-- 選択式: **はい**(ゴーフ・キー〈第3スキル枠〉。[通常版](./fire-ssr-ultima-scythe-normal.md)では「紅蓮の渾身」を選択している)
+- 選択式: **はい**(ゴーフ・キー〈第3スキル枠〉。[通常版](./fire-ssr-dark-opus-scythe-normal.md)では「紅蓮の渾身」を選択している)
   - この選択 = **追撃タイプ**(自属性追撃効果。デメリットとして奥義ゲージ上昇量DOWN が付く)。他の選択肢は渾身 / 背水 / 技巧 / 味方全体ダメージ上限 / 回復上限 等。完全な一覧は要検証
 - 系統/カテゴリ: 追撃(自属性追撃)+ 奥義ゲージ上昇量DOWN(デメリット)。image `skill_job_weapon`
 - 枠(frame): 追撃枠(通常攻撃・奥義に上乗せ。攻刃枠とは別。要検証)

@@ -15,10 +15,11 @@
 | --- | --- | --- | --- | --- |
 | [fire-ssr-seraphic-weapon.md](./fire-ssr-seraphic-weapon.md) | 赤き熾炎の剣 / Sword of Michael | 火 | セラフィックウェポン | 下書き |
 | [fire-ssr-limited-benedia.md](./fire-ssr-limited-benedia.md) | ベネディーア / Benedia | 火 | リミテッドシリーズ | 下書き |
-| [fire-ssr-ultima-scythe-normal.md](./fire-ssr-ultima-scythe-normal.md) | 絶対否定の大鎌 / Ultima Axe (Normal) | 火 | 終末の神器(通常攻刃) | 下書き |
-| [fire-ssr-ultima-scythe-magna.md](./fire-ssr-ultima-scythe-magna.md) | 永遠拒絶の大鎌 / Ultima Axe (Magna) | 火 | 終末の神器(方陣攻刃) | 下書き |
+| [fire-ssr-dark-opus-scythe-normal.md](./fire-ssr-dark-opus-scythe-normal.md) | 絶対否定の大鎌 / Dark Opus Axe (Normal ATK) | 火 | 終末の神器(通常攻刃) | 下書き |
+| [fire-ssr-dark-opus-scythe-magna.md](./fire-ssr-dark-opus-scythe-magna.md) | 永遠拒絶の大鎌 / Dark Opus Axe (Magna) | 火 | 終末の神器(方陣攻刃) | 下書き |
 | [fire-ssr-versacia-sword.md](./fire-ssr-versacia-sword.md) | 万象尽滅の宝剣 / Versacia Sword (Fire) | 火 | 破壊の標 | 下書き |
 | [fire-ssr-draconic-origin-harp.md](./fire-ssr-draconic-origin-harp.md) | 雄渾と灼熱の調べ / Draconic Harp (Origin) | 火 | ドラゴニックウェポン・オリジン | 下書き |
+| [omega-ssr-sword.md](./omega-ssr-sword.md) | オメガスウォード / Ultima Sword | 作成時選択(例: 火) | オメガウェポン | 下書き |
 
 ## 命名規則
 
@@ -64,7 +65,7 @@
 | `bullet_info.set_bullets` | 銃(kind=6)のバレットスロット(`max_set_count` / 各 `bullet_N.slot_type`) | 「バレット」セクション |
 | `limit` | 配列 `[]`(なし)または オブジェクト `{ display_comment }`(装備制限文)。**文言が「[A]と[B]の武器は、いずれかひとつだけ」でも A と B が相互排他とは限らない** — 実ルールは [../mechanics/team-building-basics.md](../mechanics/team-building-basics.md)(同一シリーズ1本まで、ドラゴニックのみ無印+オリジン合算1本) | 「上限解放・強化要素」の装備制限 |
 | `augment_skill` | エレメント/AUG | 「上限解放・強化要素」 |
-| `omega` / `moon` / `is_xeno_weapon` / `job_weapon` / `is_rusted_weapon` / `is_origin_numbers_weapon` / `series_id` | 武器カテゴリ判定フラグ | 「編成での役割」(グリッド分類) |
+| `omega`(=オメガウェポン/Ultima)/ `moon` / `is_xeno_weapon` / `job_weapon` / `is_rusted_weapon` / `is_origin_numbers_weapon` / `series_id` | 武器カテゴリ判定フラグ | 「編成での役割」(グリッド分類) |
 
 **注意**: 武器詳細レスポンスは所持インスタンス固有情報(+値・スキルレベル・所持数・編成使用中フラグ等)を含む。ナレッジには武器定義に関わる部分だけを反映し、生レスポンスは `tools/network-recorder/captures/`(git管理外)に保存する。
 
@@ -74,8 +75,10 @@
 | --- | --- |
 | **レアリティ `rarity`** | 2 R / 3 SR / 4 SSR |
 | **武器種 `kind`** | 1 剣(確認済) / 2 短剣 / 3 槍 / 4 斧(確認済) / 5 杖 / 6 銃(確認済) / 7 格闘 / 8 弓 / 9 楽器(確認済) / 10 刀(未確認分はジョブの `weapon1/2` コードと同じと推定) |
-| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器 / 40 ドラゴニックウェポン・オリジン / 44 破壊の標(ヴェルサシア武器)。連番ではないので実例で確認する |
+| **シリーズ `series_id`** | 1 セラフィックウェポン / 2 リミテッドシリーズ / 3 終末の神器(gbf.wiki: Dark Opus)/ 13 オメガウェポン(gbf.wiki: Ultima)/ 40 ドラゴニックウェポン・オリジン / 44 破壊の標(ヴェルサシア武器)。連番ではないので実例で確認する |
 | **`master.archaic`** | "1" = 刷新/進化後の形態のマーカー(セラフィック刷新版・ドラゴニックオリジンで確認)。進化前は取得不可のことがある |
+| **`omega`(真偽値)** | true = **オメガウェポン(gbf.wiki『Ultima Weapons』)シリーズ**のフラグ。「マグナグリッド全般」の意味ではない |
+| **`master.attribute`(オメガ)** | オメガウェポンは作成時に属性を選択(実質属性変更可能)。`attribute` はその選択結果。ファイルは武器種単位(`omega-ssr-{type}`)、`element` は代表個体のもの |
 
 ## スキル系統(damage-calc 用の軸)
 

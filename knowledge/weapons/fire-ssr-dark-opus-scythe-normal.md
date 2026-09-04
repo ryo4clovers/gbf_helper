@@ -1,7 +1,7 @@
 ---
-id: "fire-ssr-ultima-scythe-normal"
+id: "fire-ssr-dark-opus-scythe-normal"
 name_jp: "絶対否定の大鎌"
-name_en: "Ultima Axe (Normal)"
+name_en: "Dark Opus Axe (Normal ATK)"
 weapon_id: "1040310600"
 element: "火"
 rarity: SSR
@@ -10,17 +10,17 @@ series: "終末の神器"
 obtain: "ショップ(ヒヒイロカネ等での作成)。ゴーフ・キーで第2・第3スキルを選択、Lv200・超越で強化"
 status: 下書き
 last_updated: 2026-09-07
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)。英語名・スキル選択肢・数値は gbf.wiki『Ultima Weapons』(2026-09-07 参照)で補完。終末武器の全選択肢・超越の数値変化は未検証。"
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)。英語名・スキル選択肢・数値は gbf.wiki『Dark Opus Weapons』(2026-09-07 参照)で補完。終末武器の全選択肢・超越の数値変化は未検証。"
 ---
 
-# 絶対否定の大鎌(Ultima Axe / Normal)
+# 絶対否定の大鎌(Dark Opus Axe / Normal ATK)
 ![絶対否定の大鎌](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040310600.jpg)
 
 <!-- 提供インスタンスは超越済みのため `param.image_id` は "1040310600_03"(超越後の見た目)。基本サムネは接尾辞なし。 -->
 
 ## 概要
 
-火属性の終末の神器(斧)の**通常攻刃版**。終末の神器は第1スキルの攻刃種別で「通常版」と「方陣(マグナ)版」に分かれ、この「絶対否定の大鎌」は第1スキル「紅蓮の神醒」= **通常攻刃**(神石グリッド向け)。方陣版は [fire-ssr-ultima-scythe-magna.md](./fire-ssr-ultima-scythe-magna.md)(永遠拒絶の大鎌)。第2・第3スキルはゴーフ・キーでプレイヤーが選択する。終末の神器は編成に1本まで(通常版・方陣版あわせて)。ドラゴニックウェポンとは相互排他ではなく併用可([team-building-basics.md](../mechanics/team-building-basics.md))。
+火属性の終末の神器(斧)の**通常攻刃版**。終末の神器は第1スキルの攻刃種別で「通常版」と「方陣(マグナ)版」に分かれ、この「絶対否定の大鎌」は第1スキル「紅蓮の神醒」= **通常攻刃**(神石グリッド向け)。方陣版は [fire-ssr-dark-opus-scythe-magna.md](./fire-ssr-dark-opus-scythe-magna.md)(永遠拒絶の大鎌)。第2・第3スキルはゴーフ・キーでプレイヤーが選択する。終末の神器は編成に1本まで(通常版・方陣版あわせて)。ドラゴニックウェポンとは相互排他ではなく併用可([team-building-basics.md](../mechanics/team-building-basics.md))。
 
 ## 基本情報
 
@@ -29,7 +29,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)�
 | レアリティ | SSR |
 | 属性 | 火 |
 | 武器種 | 斧 |
-| シリーズ | 終末の神器(Ultima Weapons) |
+| シリーズ | 終末の神器(gbf.wiki: Dark Opus Weapons) |
 | 入手方法 | ショップ作成(ヒヒイロカネ等)。第2/第3スキルはゴーフ・キーで選択 |
 | 最大レベル | 250(Lv150 → Lv200 → 超越で Lv250) |
 | スキルレベル上限 | 25(第1・第2スキル。第3スキルは `max_weapon_skill_level_2` = 15) |
@@ -50,7 +50,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)�
 
 - skill_id: `2192`
 - 解放レベル: 武器Lv230(それ以前は「紅蓮の攻刃/神威」系。神醒への強化は超越帯)
-- 選択式: いいえ(固定。ただし通常版/方陣版は武器そのものが別 → [方陣版](./fire-ssr-ultima-scythe-magna.md)の skill_id は `2198`「機炎方陣・神醒III」)
+- 選択式: いいえ(固定。ただし通常版/方陣版は武器そのものが別 → [方陣版](./fire-ssr-dark-opus-scythe-magna.md)の skill_id は `2198`「機炎方陣・神醒III」)
 - 系統/カテゴリ: 神醒(**通常攻刃** + 守護 + 与ダメージ上昇 の複合)
 - 枠(frame): 攻刃部分 = **通常攻刃枠**(神石グリッドで乗る) / 与ダメージ上昇部分 = 与ダメージ上昇枠(要検証)
 - 効果: 火属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)
@@ -129,7 +129,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)�
 
 ## 未確認・要検証事項
 
-- 英語名(`Ultima Axe` は暫定。gbf.wiki に「絶対否定の大鎌」の個別ページがあるか、正式名を要確認)。
+- 英語名(`Dark Opus Axe` は暫定。gbf.wiki に「絶対否定の大鎌」の個別ページがあるか、正式名を要確認)。
 - Lv1 / Lv150 / Lv200 のステータス。
 - スキル1「紅蓮の神醒」スキルLv25 時の攻刃・守護・与ダメージUP の各%。
 - 第2スキル ゴーフ・キー α/β/γ/Δ の正確な効果量、第3スキル枠の完全な選択肢一覧と各効果量。
