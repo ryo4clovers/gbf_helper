@@ -9,7 +9,8 @@
 | --- | --- | --- |
 | [free-slot-candidates.json](./free-slot-candidates.json) | 主人公の自由選択枠にセット可能なアビリティ候補一覧(全77ジョブ、`action_id`で名寄せ) | 下書き(実機レスポンス由来、倍率・効果量は外部ソースから紐付け中) |
 | [status-effects.json](./status-effects.json) | ステータス効果ID(内部コード)カタログ。302種、`status`→名称/説明/派生バリアント/使用アビリティ | 下書き(説明文は実機テキストのまま。`frame`〈枠〉は未記入) |
-| [ability-effects.json](./ability-effects.json) | 各アビリティの倍率・効果量・効果時間(gbf.wiki等の外部ソースから)。`action_id`で free-slot-candidates.json と結合 | 収集中 |
+| [ability-effects.json](./ability-effects.json) | 各アビリティの倍率・効果量・効果時間(gbf.wiki等の外部ソースから)。`action_id`で free-slot-candidates.json と結合 | 収集中(EXアビリティ 60件中44件。リミット/ベースは未着手) |
+| [_sources/gbfwiki-class-skills-2026-09-07.md](./_sources/gbfwiki-class-skills-2026-09-07.md) | gbf.wiki『Class Skills』の全文抜粋(ジョブアビリティ400件超の効果量・倍率・CT)。ability-effects.json の一次資料 | 参考資料 |
 
 ## free-slot-candidates.json の構造
 
@@ -104,8 +105,15 @@
 }
 ```
 
+## ability-effects.json の紐付け方法・進捗
+
+- 一次資料: gbf.wiki『Class Skills』(`_sources/` に全文)。英語スキル名 ↔ 実機の日本語 `action_id` を、名称・効果内容・習得ジョブLvで照合する。GameWith はジョブアビリティの数値が「小中大」止まりで精度不足のため使わない。
+- `match_confidence`: high=名称/効果/習得Lv一致、medium=効果内容から推定、low=要再確認。
+- **進捗**: EXアビリティ(kind 1-4)60件中44件。次はリミットアビリティ(kind 5)を系列(Fighter/Knight/…)ごとに追加。gbf.wiki の EMP(Extended Mastery)= リミットアビリティ、UM(Ultimate Mastery)= 極致の証。
+- 未特定のEXアビリティ(オーラ/フォーカス/デッドリーエイム/クイック/羅喉阿修羅陣/かばう/チャームボイス/ミンストレルソング/メディク/士気向上/闘気/トレジャーハント系/ディストリーム)は `_meta.todo` に記載。
+
 ## 未収集・今後
 
-- ability-effects.json は収集途中。gbf.wiki(`r.jina.ai` プロキシ経由で取得可)のジョブページから、EXアビリティ→リミット→ベースの順で紐付け中。GameWith は職ジョブアビリティの数値が「小中大」止まりで精度不足のため gbf.wiki を主とする。
-- status-effects.json の `name` 精査と `frame`(枠)の付与。
+- ability-effects.json のリミット(239件)・ベース(10件)アビリティ。
+- status-effects.json の `name` 精査と `frame`(枠: 通常/別枠/EX/連撃/...)の付与。枠はダメージ計算に必須。
 - キャラクターアビリティのID化(NPC詳細レスポンスの収集)は別タスク。
