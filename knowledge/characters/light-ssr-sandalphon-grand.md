@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-sandalphon-grand"
 name_jp: "サンダルフォン(リミテッド)"
-name_en: ""
+name_en: "Sandalphon (Grand)"
 rarity: SSR
 element: "光"
 race: "星晶獣"

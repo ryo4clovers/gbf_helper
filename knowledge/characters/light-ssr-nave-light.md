@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-nave-light"
 name_jp: "ナーヴェ(光)"
-name_en: ""
+name_en: "Nave (Light)"
 rarity: SSR
 element: "光"
 race: "ヒューマン"

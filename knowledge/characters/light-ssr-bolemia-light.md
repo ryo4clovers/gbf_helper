@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-bolemia-light"
 name_jp: "ボレミア(光)"
-name_en: ""
+name_en: "Bolemia (Light)"
 rarity: SSR
 element: "光"
 race: "ヒューマン"

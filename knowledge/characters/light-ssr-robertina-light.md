@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-robertina-light"
 name_jp: "ロベルティナ(光)"
-name_en: ""
+name_en: "Robertina (Light)"
 rarity: SSR
 element: "光"
 race: "ハーヴィン"

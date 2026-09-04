@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-mini-goblin-light"
 name_jp: "ミニゴブ(光)"
-name_en: ""
+name_en: "Mini Goblin (Light)"
 rarity: SSR
 element: "光"
 race: "その他(ゴブリン)"

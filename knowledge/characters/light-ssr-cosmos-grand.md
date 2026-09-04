@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-cosmos-grand"
 name_jp: "コスモス(リミテッド)"
-name_en: ""
+name_en: "Cosmos (Grand)"
 rarity: SSR
 element: "光"
 race: "星晶獣"

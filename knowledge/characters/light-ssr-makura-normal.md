@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-makura-normal"
 name_jp: "マコラ(十二神将)"
-name_en: ""
+name_en: "Makura"
 rarity: SSR
 element: "光"
 race: "エルーン"

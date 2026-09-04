@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-lu-oh-grand"
 name_jp: "ルオー(リミテッド)"
-name_en: ""
+name_en: "Lu Oh (Grand)"
 rarity: SSR
 element: "光"
 race: "エルーン"

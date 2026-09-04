@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-siegfried-another-light"
 name_jp: "ジークフリート(光/アナザー)"
-name_en: ""
+name_en: "Siegfried (Another, Light)"
 rarity: SSR
 element: "光"
 race: "ヒューマン"

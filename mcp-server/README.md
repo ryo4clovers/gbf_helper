@@ -11,6 +11,9 @@
 | `list_characters` | キャラクター一覧を取得(属性・レアリティで絞り込み可) |
 | `search_characters` | キャラ名・スキル名・効果キーワードで検索(部分一致) |
 | `get_character` | id または名前を指定してキャラクター全文を取得 |
+| `list_summons` | 召喚石一覧を取得(属性・レアリティで絞り込み可) |
+| `search_summons` | 召喚石名・召喚効果・加護効果で検索(部分一致) |
+| `get_summon` | id または名前を指定して召喚石全文を取得 |
 | `search_mechanics` | ゲームシステム用語(背水・渾身など)を検索 |
 | `get_mechanics_topic` | ゲームシステムのトピック全文を取得 |
 
@@ -22,7 +25,7 @@
 
 ```bash
 cd mcp-server
-npm install
+npm ci
 npm run build
 ```
 
@@ -50,12 +53,15 @@ npx @modelcontextprotocol/inspector --cli node dist/index.js --method tools/call
 
 ## Codex app への登録
 
-Codex のMCP設定(通常 `%USERPROFILE%\.codex\config.toml`)に以下を追記する。**設定ファイルの場所・キー名はCodex appのバージョンによって変わる可能性があるため、現行のCodexドキュメントで最新の書式を確認すること。**
+Codex のMCP設定(通常 `%USERPROFILE%\.codex\config.toml`)に以下を追記する。`cwd`を指定すると、起動場所に依存せず同じサーバーを利用できる。
 
 ```toml
 [mcp_servers.gbf-knowledge]
 command = "node"
-args = ["C:\\path\\to\\gbf_helper\\mcp-server\\dist\\index.js"]
+args = ["dist/index.js"]
+cwd = "C:\\path\\to\\gbf_helper\\mcp-server"
+enabled = true
+required = false
 ```
 
 ## 知識ベースの場所を変える場合
@@ -78,6 +84,7 @@ args = ["C:\\path\\to\\gbf_helper\\mcp-server\\dist\\index.js"]
 
 ```bash
 npm run dev         # tsx watchでホットリロード起動(stdioなので単体では動作確認しづらい。Inspectorのweb UIと併用推奨)
+npm run check       # 実ナレッジ検証 + 型チェック + ユニットテスト
 npm run typecheck   # 型チェックのみ
 npm test            # ユニットテスト(test/fixtures配下のダミーデータを使用、knowledge/の実データには依存しない)
 ```

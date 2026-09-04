@@ -9,10 +9,12 @@
   },
   "scripts": {
     "build": "tsc",
+    "check": "npm run validate:knowledge && npm run typecheck && npm test",
     "dev": "tsx watch src/index.ts",
     "start": "node dist/index.js",
     "test": "tsx --test test/**/*.test.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "validate:knowledge": "node scripts/validate-knowledge.mjs"
   },
   "engines": {
     "node": ">=18"

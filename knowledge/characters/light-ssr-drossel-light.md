@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-drossel-light"
 name_jp: "ドロッセル(光)"
-name_en: ""
+name_en: "Drossel (Light)"
 rarity: SSR
 element: "光"
 race: "ハーヴィン"

@@ -1,0 +1,63 @@
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# コミットメッセージ規約（このリポジトリの過去コミットに準拠）
+#
+# 1行目（件名）:  <スコープ>: <日本語の要約>
+#   - 末尾に句点（。）を付けない
+#   - 目安 50〜72 文字。何を・どれだけ変えたかを具体的に
+#   - 件数・範囲を数値で入れる  例: 「6件追加」「(302種)」「全77ジョブ」
+#   - 複数スコープにまたがる場合はカンマ区切り  例: knowledge/summons, mcp-server
+#
+# 2行目:  空行（件名と本文は必ず空行で区切る）
+#
+# 本文（任意だが、データ更新・仕様変更では推奨）:
+#   - 1行 72 文字前後で折り返す
+#   - 箇条書きは "- " で始める
+#   - 次の観点を書く:
+#       * 出典 / 情報源（gbf.wiki, ゲーム内HELP, 実機レスポンス, ユーザー提供 など）
+#       * カバレッジ（例: 293/309件, 10/80ジョブ, match_confidence の内訳）
+#       * 確定した仕様・訂正した誤り
+#       * 保留・未着手事項（次に何が残っているか）
+#       * 生データの保存先（例: captures/ability-subaction/<slug>/ ※git管理外）
+#   - status を変更した場合は変更前後を明記（未着手→下書き→検証済み）
+#
+# フッター:
+#   - Claude の支援を受けた場合は最終行に:
+#       Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+#   - 関連 Issue / PR があれば:  Refs #123  /  Closes #123
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# スコープ一覧（`git log` 実績順）
+#   knowledge/characters   キャラクターデータ
+#   knowledge/summons      召喚石データ
+#   knowledge/jobs         ジョブ（主人公）データ
+#   knowledge/mechanics    ゲームシステム・計算式などの仕様
+#   knowledge/abilities    アビリティ / ステータス効果カタログ・効果量
+#   knowledge/weapons      武器データ
+#   knowledge/events       イベント関連
+#   knowledge/misc         その他ナレッジ
+#   knowledge              複数カテゴリ横断・カテゴリ共通の変更
+#   docs                   docs/ 配下（収集メモ・方針・調査記録）
+#   mcp-server             MCP サーバー実行コード・テスト
+#   tools/network-recorder 実機データ収集用 Chrome 拡張
+#   scripts/data-collection 収集・整形スクリプト
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# 記入例（過去コミットより）
+#
+#   knowledge/abilities: EXアビリティ6件追加、status-effects.json に traits 付与
+#
+#   - ability-effects.json: フォーカス/デッドリーエイム 等を gbf.wiki と照合(EX 50/60)
+#   - status-effects.json: 説明文から traits を機械抽出し171件に付与
+#   - 個別 status_id の「枠」は付与元アビリティ依存のため持たない方針を明記
+#
+#   Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# 運用上の注意（AGENTS.md / CONTRIBUTING.md より）
+#   - draft/ と tools/network-recorder/captures/ はコミットしない（ローカル専用）
+#   - knowledge/ か mcp-server/ を変更したら mcp-server/ で `npm run check` `npm run build`
+#   - カテゴリ README の索引を更新したか確認する
+#   - 小さくレビューしやすい単位でコミットする
+# ─────────────────────────────────────────────────────────────────────────────
