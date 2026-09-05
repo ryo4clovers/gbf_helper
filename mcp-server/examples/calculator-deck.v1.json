@@ -5,6 +5,7 @@
   "protagonist": {
     "elementCode": "1",
     "jobId": "110001",
+    "jobNameHint": "ナイト",
     "jobLevel": 20,
     "masterLevel": 1,
     "perfectionProofLevel": 0,

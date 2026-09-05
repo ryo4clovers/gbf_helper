@@ -291,6 +291,7 @@ export interface DeckSnapshot {
 export interface CalculatorDeckProtagonistConfig {
   elementCode?: string;
   jobId?: string;
+  jobNameHint?: string;
   jobLevel?: number;
   masterLevel?: number;
   perfectionProofLevel?: number;

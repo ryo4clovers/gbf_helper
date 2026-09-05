@@ -38,6 +38,14 @@
             <button id="json-tab" class="editor-tab" type="button" role="tab" aria-selected="false" aria-controls="json-editor">JSON</button>
           </div>
           <div id="visual-editor" class="visual-editor" role="tabpanel" aria-labelledby="visual-tab">
+            <div class="weapon-editor-heading job-editor-heading">
+              <div>
+                <span class="field-label">主人公ジョブ</span>
+              </div>
+              <span class="supporting-text">ジョブと育成Lvを設定</span>
+            </div>
+            <div id="job-editor" class="job-editor"></div>
+            <div class="equipment-divider"></div>
             <div class="weapon-editor-heading">
               <div>
                 <span class="field-label">武器編成</span>
@@ -74,7 +82,7 @@
             <textarea id="deck-config" class="code-field" spellcheck="false" rows="13"></textarea>
           </div>
           <div class="field-footer">
-            <span id="deck-state" class="supporting-text">登録済み武器のスキルを自動解決します</span>
+            <span id="deck-state" class="supporting-text">登録済みジョブ・武器・召喚石を自動解決します</span>
             <button id="save-config" class="text-button" type="button">設定を保存</button>
           </div>
         </section>
@@ -195,6 +203,25 @@
       <div class="picker-footer">
         <button id="remove-weapon" class="danger-tonal-button" type="button">この枠から外す</button>
         <span id="catalog-count" class="supporting-text"></span>
+      </div>
+    </dialog>
+    <dialog id="job-picker" class="weapon-picker job-picker" aria-labelledby="job-picker-title">
+      <div class="picker-header">
+        <div>
+          <p class="eyebrow">JOB CATALOG</p>
+          <h2 id="job-picker-title">主人公ジョブを選択</h2>
+          <p class="supporting-text">名前・クラス・得意武器から検索できます</p>
+        </div>
+        <button id="close-job-picker" class="icon-button" type="button" aria-label="閉じる">×</button>
+      </div>
+      <label class="search-field" for="job-search">
+        <span aria-hidden="true">⌕</span>
+        <input id="job-search" type="search" placeholder="ジョブ名・クラス・得意武器・IDで検索" autocomplete="off" />
+      </label>
+      <div id="job-results" class="weapon-results job-results"></div>
+      <div class="picker-footer">
+        <button id="remove-job" class="danger-tonal-button" type="button">ジョブ設定を外す</button>
+        <span id="job-catalog-count" class="supporting-text"></span>
       </div>
     </dialog>
     <dialog id="summon-picker" class="weapon-picker summon-picker" aria-labelledby="summon-picker-title">

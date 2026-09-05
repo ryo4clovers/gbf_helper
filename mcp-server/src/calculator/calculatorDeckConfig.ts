@@ -41,6 +41,7 @@ const protagonistSchema = z
   .object({
     elementCode: idSchema.optional(),
     jobId: idSchema.optional(),
+    jobNameHint: nameHintSchema,
     jobLevel: nonNegativeIntegerSchema.optional(),
     masterLevel: nonNegativeIntegerSchema.optional(),
     perfectionProofLevel: nonNegativeIntegerSchema.optional(),
@@ -185,6 +186,7 @@ export function convertDeckResponseToCalculatorDeckConfig(input: unknown): Calcu
     protagonist: {
       elementCode: snapshot.protagonist.elementCode,
       jobId: snapshot.protagonist.job?.masterId,
+      jobNameHint: snapshot.protagonist.job?.name,
       jobLevel: snapshot.protagonist.job?.level,
       masterLevel: snapshot.protagonist.job?.masterLevel,
       perfectionProofLevel: snapshot.protagonist.job?.perfectionProofLevel,

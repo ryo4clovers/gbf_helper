@@ -1,6 +1,7 @@
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { calculateNormalAttackFromRequest } from "../calculator/normalAttackCalculationRequest.js";
+import { createSelectableJobCatalog } from "../calculator/jobCatalogView.js";
 import { createSelectableWeaponCatalog } from "../calculator/weaponCatalogView.js";
 import { createSelectableSummonCatalog } from "../calculator/summonCatalogView.js";
 
@@ -12,6 +13,25 @@ const READ_ONLY_ANNOTATIONS = {
 };
 
 export function registerCalculatorTools(server: McpServer): void {
+  server.registerTool(
+    "list_calculator_jobs",
+    {
+      title: "計算機対応ジョブ一覧",
+      description:
+        "主人公ジョブ選択式エディタで利用できるジョブ名、クラス、得意武器、検証状態の一覧を取得する。編成JSONを作る前に利用する。",
+      inputSchema: {},
+      annotations: READ_ONLY_ANNOTATIONS,
+    },
+    async () => {
+      const response = createSelectableJobCatalog();
+      const structuredContent: Record<string, unknown> = { ...response };
+      return {
+        content: [{ type: "text", text: JSON.stringify(response, null, 2) }],
+        structuredContent,
+      };
+    },
+  );
+
   server.registerTool(
     "list_calculator_summons",
     {

@@ -57,6 +57,21 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .editor-tabs { width: fit-content; display: flex; gap: 4px; margin: -4px 0 20px; padding: 4px; border-radius: 999px; background: var(--surface-container); }
 .editor-tab { min-height: 40px; padding: 0 18px; border: 0; border-radius: 999px; color: var(--ink-soft); background: transparent; font-weight: 750; }
 .editor-tab.selected { color: var(--on-primary); background: var(--primary); box-shadow: 0 5px 14px rgba(91,67,214,.22); }
+.job-editor-heading { margin-bottom: 12px; }
+.job-card { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; border: 1px solid var(--outline-soft); border-radius: 26px 16px 26px 16px; overflow: hidden; background: var(--surface); }
+.job-choice { min-width: 0; padding: 12px; border: 0; display: flex; align-items: center; gap: 14px; color: inherit; background: transparent; text-align: left; }
+.job-choice:hover { background: var(--surface-container); }
+.job-symbol { flex: 0 0 64px; height: 64px; border-radius: 22px 14px 22px 14px; display: grid; place-items: center; color: var(--on-primary); background: linear-gradient(145deg, var(--primary), var(--secondary)); font-size: 1.8rem; font-weight: 900; }
+.job-card.empty .job-symbol { color: var(--primary); background: var(--surface-high); }
+.job-details { min-width: 0; }
+.job-name, .job-meta { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.job-name { font-size: 1rem; font-weight: 850; }
+.job-meta { margin-top: 4px; color: var(--ink-soft); font-size: .82rem; }
+.job-level-controls { padding: 11px 13px; display: grid; grid-template-columns: repeat(3, 62px); align-items: center; gap: 8px; border-left: 1px solid var(--outline-soft); background: white; }
+.job-level-controls label { color: var(--ink-soft); font-size: .75rem; font-weight: 800; }
+.job-level-controls input { min-height: 34px; margin-top: 3px; padding: 5px 7px; border-radius: 10px; font-size: .82rem; }
+.job-catalog-art { min-height: 68px; color: var(--on-primary); background: linear-gradient(145deg, var(--primary), var(--secondary)); font-size: 1.65rem; font-weight: 900; }
+.catalog-job-card .catalog-skill-list { color: var(--secondary); }
 .weapon-editor-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 13px; }
 .weapon-editor-heading > div { display: flex; align-items: baseline; gap: 10px; }
 .weapon-editor-heading .field-label { margin: 0; }
@@ -210,6 +225,8 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
   .tonal-button { padding: 8px 10px; font-size: .74rem; }
   .metric-card { min-height: 145px; padding: 18px; }
   .metric-card strong { font-size: 1.6rem; }
+  .job-card { grid-template-columns: 1fr; }
+  .job-level-controls { border-top: 1px solid var(--outline-soft); border-left: 0; }
   .weapon-layout { grid-template-columns: 1fr; }
   .summon-layout { grid-template-columns: 1fr; }
   .sub-summon-grid { max-width: none; }
@@ -224,6 +241,7 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
 }
 @media (max-width: 420px) {
   .three-columns, .modifier-grid, .metric-grid { grid-template-columns: 1fr; }
+  .job-level-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .summon-grid, .sub-summon-grid { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {

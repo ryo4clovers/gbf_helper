@@ -91,6 +91,7 @@ test("converts a game response without retaining instance IDs or displayed calcu
     protagonist: {
       elementCode: "1",
       jobId: "110001",
+      jobNameHint: "ナイト",
       jobLevel: 20,
       masterLevel: 1,
       perfectionProofLevel: 0,
@@ -149,6 +150,10 @@ test("marks a zero-instance main weapon as a job fallback", () => {
       npc: {},
       pc: {
         param: { attack: 1000, hp: 100, attribute: 1 },
+        job: {
+          master: { id: "100501", name: "ファイター・オリジン", weapon1: "1", weapon2: "4" },
+          param: { level: 50, master_level: 1, perfection_proof_level: 0 },
+        },
         weapons: {
           1: {
             master: { id: "1010000400", name: "ブロンズソード", attribute: "1", kind: "1" },
@@ -162,6 +167,9 @@ test("marks a zero-instance main weapon as a job fallback", () => {
   });
 
   assert.equal(result.weapons[0].isJobFallback, true);
+  assert.equal(result.protagonist.jobId, "100501");
+  assert.equal(result.protagonist.jobNameHint, "ファイター・オリジン");
+  assert.equal(result.protagonist.jobLevel, 50);
   assert.equal(result.weapons[0].weaponId, "1010000400");
   assert.equal(result.weapons[0].attackOverride, 70);
   assert.equal(JSON.stringify(result).includes('"instanceId"'), false);

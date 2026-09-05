@@ -14,13 +14,16 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     await Promise.all([server.connect(serverTransport), client.connect(clientTransport)]);
     const tools = await client.listTools();
     const calculator = tools.tools.find((tool) => tool.name === "calculate_normal_attack_damage");
+    const jobCatalog = tools.tools.find((tool) => tool.name === "list_calculator_jobs");
     const weaponCatalog = tools.tools.find((tool) => tool.name === "list_calculator_weapons");
     const summonCatalog = tools.tools.find((tool) => tool.name === "list_calculator_summons");
 
     assert.ok(calculator !== undefined);
+    assert.ok(jobCatalog !== undefined);
     assert.ok(weaponCatalog !== undefined);
     assert.ok(summonCatalog !== undefined);
     assert.equal(weaponCatalog.annotations?.readOnlyHint, true);
+    assert.equal(jobCatalog.annotations?.readOnlyHint, true);
     assert.equal(calculator.annotations?.readOnlyHint, true);
     assert.equal(calculator.annotations?.destructiveHint, false);
     assert.equal(calculator.annotations?.openWorldHint, false);
@@ -52,6 +55,14 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     };
     assert.equal(catalogResponse.weapons?.length, 3);
     assert.ok(catalogResponse.weapons?.some((weapon) => weapon.weaponId === "1040218900"));
+
+    const jobResult = await client.callTool({ name: "list_calculator_jobs", arguments: {} });
+    const jobText = jobResult.content.find((item) => item.type === "text");
+    const jobResponse = JSON.parse(jobText?.type === "text" ? jobText.text : "{}") as {
+      jobs?: Array<{ jobId?: string }>;
+    };
+    assert.equal(jobResponse.jobs?.length, 80);
+    assert.ok(jobResponse.jobs?.some((job) => job.jobId === "100501"));
 
     const summonResult = await client.callTool({ name: "list_calculator_summons", arguments: {} });
     const summonText = summonResult.content.find((item) => item.type === "text");

@@ -2,7 +2,16 @@ const defaultDeck = {
   schemaVersion: 1,
   format: "gbf-helper-calculator-deck",
   name: "火属性・攻刃39%検証編成",
-  protagonist: { elementCode: "1", attackOverride: 19484, hpOverride: 3851 },
+  protagonist: {
+    elementCode: "1",
+    jobId: "110001",
+    jobNameHint: "ナイト",
+    jobLevel: 20,
+    masterLevel: 1,
+    perfectionProofLevel: 0,
+    attackOverride: 19484,
+    hpOverride: 3851,
+  },
   weapons: [
     { slot: 1, position: "main", weaponId: "1040201400", nameHint: "イフリートハルベルト", skillLevel: 15, attackOverride: 2170, hpOverride: 241 },
     { slot: 2, position: "grid", weaponId: "1040218900", nameHint: "オーバーライド", skillLevel: 15, attackOverride: 3609, hpOverride: 430 },
@@ -26,6 +35,7 @@ const elementMeta = {
   "6": { name: "闇", className: "dark" },
 };
 const weaponKindSymbols = { "1": "⚔", "2": "⌁", "3": "♜", "4": "⌁", "5": "✣", "6": "⌖", "7": "◈", "8": "✧", "9": "♩", "10": "◒" };
+let jobCatalog = [];
 let weaponCatalog = [];
 let editingWeaponSlot = null;
 let summonCatalog = [];
@@ -51,6 +61,144 @@ function createText(className, text) {
   element.className = className;
   element.textContent = text;
   return element;
+}
+
+function catalogJob(jobId) {
+  return jobCatalog.find((job) => job.jobId === jobId);
+}
+
+function createJobLevelField(config, key, label, maximum) {
+  const field = document.createElement("label");
+  field.textContent = label;
+  const input = document.createElement("input");
+  input.type = "number";
+  input.min = "0";
+  input.max = String(maximum);
+  input.step = "1";
+  input.placeholder = "—";
+  input.value = config.protagonist[key] == null ? "" : String(config.protagonist[key]);
+  input.setAttribute("aria-label", `${label}を変更`);
+  input.addEventListener("change", () => {
+    const value = Number(input.value);
+    if (input.value === "") delete config.protagonist[key];
+    else if (Number.isInteger(value) && value >= 0 && value <= maximum) config.protagonist[key] = value;
+    else return;
+    writeDeckConfig(config);
+    void calculate();
+  });
+  field.append(input);
+  return field;
+}
+
+function renderJobEditor(config) {
+  const jobId = config.protagonist.jobId;
+  const job = jobId ? catalogJob(jobId) : undefined;
+  const card = document.createElement("article");
+  card.className = `job-card ${jobId ? "occupied" : "empty"}`;
+  const choice = document.createElement("button");
+  choice.type = "button";
+  choice.className = "job-choice";
+  choice.addEventListener("click", openJobPicker);
+  choice.setAttribute("aria-label", "主人公ジョブを選択");
+  const icon = createText("job-symbol", jobId ? "◆" : "+");
+  const details = document.createElement("span");
+  details.className = "job-details";
+  details.append(
+    createText("job-name", job?.name ?? config.protagonist.jobNameHint ?? (jobId ? `ジョブ ${jobId}` : "ジョブを選択")),
+    createText(
+      "job-meta",
+      job
+        ? `${job.classTier}・得意武器 ${job.weaponKinds.map((weapon) => weapon.name).join(" / ")}`
+        : jobId
+          ? "未登録ジョブ"
+          : "主人公のジョブを設定",
+    ),
+  );
+  choice.append(icon, details);
+  card.append(choice);
+  if (jobId) {
+    const controls = document.createElement("div");
+    controls.className = "job-level-controls";
+    controls.append(
+      createJobLevelField(config, "jobLevel", "Lv", 999),
+      createJobLevelField(config, "masterLevel", "ML", 999),
+      createJobLevelField(config, "perfectionProofLevel", "極致", 999),
+    );
+    card.append(controls);
+  }
+  $("job-editor").replaceChildren(card);
+}
+
+function renderJobResults(query = "") {
+  const normalizeJobSearch = (value) => value.toLocaleLowerCase("ja").replace(/[\s・･._-]/g, "");
+  const normalized = normalizeJobSearch(query.trim());
+  const matches = jobCatalog.filter((job) =>
+    normalizeJobSearch(
+      [job.name, job.nameEn, job.jobId, job.classTier, ...job.weaponKinds.map((weapon) => weapon.name)].join(" "),
+    ).includes(normalized),
+  );
+  const results = $("job-results");
+  results.replaceChildren();
+  for (const job of matches) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "catalog-weapon-card catalog-job-card";
+    button.addEventListener("click", () => selectJob(job));
+    const icon = createText("catalog-art job-catalog-art", "◆");
+    const details = document.createElement("span");
+    details.className = "catalog-weapon-details";
+    details.append(
+      createText("catalog-weapon-name", job.name),
+      createText("catalog-weapon-meta", `${job.nameEn} ・ ${job.jobId}`),
+      createText("catalog-skill-list", `${job.classTier} ・ ${job.weaponKinds.map((weapon) => weapon.name).join(" / ")}`),
+    );
+    const status = createText(`verification-chip ${job.verificationStatus === "検証済み" ? "verified" : "draft"}`, job.verificationStatus);
+    button.append(icon, details, status);
+    results.append(button);
+  }
+  if (matches.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "picker-empty";
+    empty.textContent = "一致するジョブがありません。未登録ジョブはJSONから指定できます。";
+    results.append(empty);
+  }
+  $("job-catalog-count").textContent = `${matches.length} / ${jobCatalog.length}件`;
+}
+
+function openJobPicker() {
+  $("job-search").value = "";
+  $("remove-job").disabled = !readDeckConfig().protagonist.jobId;
+  renderJobResults();
+  $("job-picker").showModal();
+  $("job-search").focus();
+}
+
+function selectJob(job) {
+  const config = readDeckConfig();
+  if (config.protagonist.jobId !== job.jobId) {
+    delete config.protagonist.jobLevel;
+    delete config.protagonist.masterLevel;
+    delete config.protagonist.perfectionProofLevel;
+  }
+  config.protagonist.jobId = job.jobId;
+  config.protagonist.jobNameHint = job.name;
+  writeDeckConfig(config);
+  renderJobEditor(config);
+  $("job-picker").close();
+  void calculate();
+}
+
+function removeSelectedJob() {
+  const config = readDeckConfig();
+  delete config.protagonist.jobId;
+  delete config.protagonist.jobNameHint;
+  delete config.protagonist.jobLevel;
+  delete config.protagonist.masterLevel;
+  delete config.protagonist.perfectionProofLevel;
+  writeDeckConfig(config);
+  renderJobEditor(config);
+  $("job-picker").close();
+  void calculate();
 }
 
 function catalogWeapon(weaponId) {
@@ -141,6 +289,7 @@ function createWeaponSlot(config, slot) {
 function renderWeaponEditor() {
   try {
     const config = readDeckConfig();
+    renderJobEditor(config);
     const mainSlot = $("main-weapon-slot");
     const grid = $("weapon-grid");
     mainSlot.replaceChildren(createWeaponSlot(config, 1));
@@ -686,6 +835,12 @@ $("save-config").addEventListener("click", () => {
 
 $("visual-tab").addEventListener("click", () => setEditorMode("visual"));
 $("json-tab").addEventListener("click", () => setEditorMode("json"));
+$("close-job-picker").addEventListener("click", () => $("job-picker").close());
+$("remove-job").addEventListener("click", removeSelectedJob);
+$("job-search").addEventListener("input", (event) => renderJobResults(event.target.value));
+$("job-picker").addEventListener("click", (event) => {
+  if (event.target === $("job-picker")) $("job-picker").close();
+});
 $("close-picker").addEventListener("click", () => $("weapon-picker").close());
 $("remove-weapon").addEventListener("click", removeSelectedWeapon);
 $("weapon-search").addEventListener("input", (event) => renderWeaponResults(event.target.value));
@@ -701,15 +856,17 @@ $("summon-picker").addEventListener("click", (event) => {
 
 async function initialize() {
   try {
-    const [weaponResponse, summonResponse] = await Promise.all([
+    const [jobResponse, weaponResponse, summonResponse] = await Promise.all([
+      fetch("/api/catalog/jobs"),
       fetch("/api/catalog/weapons"),
       fetch("/api/catalog/summons"),
     ]);
-    if (!weaponResponse.ok || !summonResponse.ok) throw new Error("装備カタログを読み込めませんでした");
+    if (!jobResponse.ok || !weaponResponse.ok || !summonResponse.ok) throw new Error("編成カタログを読み込めませんでした");
+    jobCatalog = (await jobResponse.json()).jobs;
     weaponCatalog = (await weaponResponse.json()).weapons;
     summonCatalog = (await summonResponse.json()).summons;
   } catch (error) {
-    $("deck-state").textContent = error instanceof Error ? error.message : "装備カタログを読み込めませんでした";
+    $("deck-state").textContent = error instanceof Error ? error.message : "編成カタログを読み込めませんでした";
     $("deck-state").classList.add("error-text");
   }
   renderWeaponEditor();
