@@ -19,6 +19,7 @@ npm run start:web
 
 - `CalculatorDeckConfig v1`のJSONを編集・読込・保存する
 - 本家`deck.json`相当レスポンスを、個人・装備インスタンスIDを保持しない設定へ変換する
+- メイン1枠と通常9枠の選択式エディタで、登録済み武器の検索・配置・削除・SLv変更を行う
 - 敵属性、防御値、船、炉、大事なもの相当倍率、ジョブ通常攻撃与ダメージを入力する
 - 通常攻撃本体、追撃、合計の最小・最大・期待値と計算段階を確認する
 
@@ -249,6 +250,7 @@ createDamageCalculationInput(deckJson, startJson, 1, {
 | `get_summon` | id または名前を指定して召喚石全文を取得 |
 | `search_mechanics` | ゲームシステム用語(背水・渾身など)を検索 |
 | `get_mechanics_topic` | ゲームシステムのトピック全文を取得 |
+| `list_calculator_weapons` | 選択式エディタと計算機が解決できる武器・スキル一覧を取得 |
 | `calculate_normal_attack_damage` | 編成・敵・環境倍率から通常攻撃本体、追撃、合計の101乱数分布を計算 |
 
 すべて副作用のない読み取り専用ツールで、外部通信やファイル更新は行いません。

@@ -14,8 +14,11 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     await Promise.all([server.connect(serverTransport), client.connect(clientTransport)]);
     const tools = await client.listTools();
     const calculator = tools.tools.find((tool) => tool.name === "calculate_normal_attack_damage");
+    const weaponCatalog = tools.tools.find((tool) => tool.name === "list_calculator_weapons");
 
     assert.ok(calculator !== undefined);
+    assert.ok(weaponCatalog !== undefined);
+    assert.equal(weaponCatalog.annotations?.readOnlyHint, true);
     assert.equal(calculator.annotations?.readOnlyHint, true);
     assert.equal(calculator.annotations?.destructiveHint, false);
     assert.equal(calculator.annotations?.openWorldHint, false);
@@ -39,6 +42,14 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     };
     assert.equal(response.result?.totalDamageDistribution?.minimumDamage, 3974);
     assert.equal(response.result?.totalDamageDistribution?.maximumDamage, 4392);
+
+    const catalogResult = await client.callTool({ name: "list_calculator_weapons", arguments: {} });
+    const catalogText = catalogResult.content.find((item) => item.type === "text");
+    const catalogResponse = JSON.parse(catalogText?.type === "text" ? catalogText.text : "{}") as {
+      weapons?: Array<{ weaponId?: string }>;
+    };
+    assert.equal(catalogResponse.weapons?.length, 3);
+    assert.ok(catalogResponse.weapons?.some((weapon) => weapon.weaponId === "1040218900"));
   } finally {
     await clientTransport.close();
     await serverTransport.close();

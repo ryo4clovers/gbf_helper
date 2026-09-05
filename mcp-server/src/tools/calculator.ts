@@ -1,6 +1,7 @@
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { calculateNormalAttackFromRequest } from "../calculator/normalAttackCalculationRequest.js";
+import { createSelectableWeaponCatalog } from "../calculator/weaponCatalogView.js";
 
 const READ_ONLY_ANNOTATIONS = {
   readOnlyHint: true,
@@ -10,6 +11,25 @@ const READ_ONLY_ANNOTATIONS = {
 };
 
 export function registerCalculatorTools(server: McpServer): void {
+  server.registerTool(
+    "list_calculator_weapons",
+    {
+      title: "計算機対応武器一覧",
+      description:
+        "選択式編成エディタとダメージ計算機が現在マスターデータを解決できる武器・スキルの一覧を取得する。編成JSONを作る前に利用する。",
+      inputSchema: {},
+      annotations: READ_ONLY_ANNOTATIONS,
+    },
+    async () => {
+      const response = createSelectableWeaponCatalog();
+      const structuredContent: Record<string, unknown> = { ...response };
+      return {
+        content: [{ type: "text", text: JSON.stringify(response, null, 2) }],
+        structuredContent,
+      };
+    },
+  );
+
   server.registerTool(
     "calculate_normal_attack_damage",
     {

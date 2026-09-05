@@ -15,8 +15,206 @@ const $ = (id) => document.getElementById(id);
 const form = $("calculator-form");
 const deckField = $("deck-config");
 const numberFormat = new Intl.NumberFormat("ja-JP", { maximumFractionDigits: 3 });
+const elementMeta = {
+  "1": { name: "火", className: "fire" },
+  "2": { name: "水", className: "water" },
+  "3": { name: "土", className: "earth" },
+  "4": { name: "風", className: "wind" },
+  "5": { name: "光", className: "light" },
+  "6": { name: "闇", className: "dark" },
+};
+const weaponKindSymbols = { "1": "⚔", "2": "⌁", "3": "♜", "4": "⌁", "5": "✣", "6": "⌖", "7": "◈", "8": "✧", "9": "♩", "10": "◒" };
+let weaponCatalog = [];
+let editingWeaponSlot = null;
 
 deckField.value = JSON.stringify(defaultDeck, null, 2);
+
+function readDeckConfig() {
+  return JSON.parse(deckField.value);
+}
+
+function writeDeckConfig(config) {
+  config.weapons.sort((left, right) => left.slot - right.slot);
+  deckField.value = JSON.stringify(config, null, 2);
+}
+
+function createText(className, text) {
+  const element = document.createElement("span");
+  element.className = className;
+  element.textContent = text;
+  return element;
+}
+
+function catalogWeapon(weaponId) {
+  return weaponCatalog.find((weapon) => weapon.weaponId === weaponId);
+}
+
+function weaponForSlot(config, slot) {
+  if (slot === 1) return config.weapons.find((weapon) => weapon.position === "main");
+  return config.weapons.find((weapon) => weapon.position === "grid" && weapon.slot === slot);
+}
+
+function createWeaponSlot(config, slot) {
+  const weapon = weaponForSlot(config, slot);
+  const master = weapon ? catalogWeapon(weapon.weaponId) : undefined;
+  const element = master ? elementMeta[master.elementCode] : undefined;
+  const article = document.createElement("article");
+  article.className = `weapon-slot ${slot === 1 ? "main-slot" : "grid-slot"} ${weapon ? "occupied" : "empty"}`;
+
+  const choice = document.createElement("button");
+  choice.type = "button";
+  choice.className = "weapon-choice";
+  choice.setAttribute("aria-label", `${slot === 1 ? "メイン武器" : `武器${slot}`}を選択`);
+  choice.addEventListener("click", () => openWeaponPicker(slot));
+
+  const art = document.createElement("span");
+  art.className = `weapon-art ${element?.className ?? "unknown"}`;
+  art.append(
+    createText("slot-badge", slot === 1 ? "MAIN" : String(slot)),
+    createText("rarity-badge", master?.rarityCode === "4" ? "SSR" : master?.rarityCode === "3" ? "SR" : master?.rarityCode === "2" ? "R" : "—"),
+    createText("weapon-symbol", master ? (weaponKindSymbols[master.weaponKindCode] ?? "◆") : "+"),
+  );
+  choice.append(art);
+
+  const info = document.createElement("span");
+  info.className = "weapon-slot-info";
+  info.append(
+    createText("weapon-slot-name", weapon ? (master?.name ?? weapon.nameHint ?? weapon.weaponId) : "武器を選択"),
+    createText("weapon-slot-meta", weapon ? `${element?.name ?? "属性不明"}・${master ? "登録済み" : "未登録"}` : slot === 1 ? "メイン武器" : `武器枠 ${slot}`),
+  );
+  choice.append(info);
+  article.append(choice);
+
+  if (weapon) {
+    const controls = document.createElement("div");
+    controls.className = "weapon-slot-controls";
+    const skillLabel = document.createElement("label");
+    skillLabel.textContent = "SLv";
+    const skillInput = document.createElement("input");
+    skillInput.type = "number";
+    skillInput.min = "1";
+    skillInput.max = "20";
+    skillInput.step = "1";
+    skillInput.value = String(weapon.skillLevel ?? 15);
+    skillInput.setAttribute("aria-label", `${master?.name ?? weapon.weaponId}のスキルレベル`);
+    skillInput.addEventListener("change", () => {
+      const value = Number(skillInput.value);
+      if (!Number.isInteger(value) || value < 1 || value > 20) return;
+      weapon.skillLevel = value;
+      writeDeckConfig(config);
+      void calculate();
+    });
+    skillLabel.append(skillInput);
+    const attack = createText("weapon-attack", `ATK ${weapon.attackOverride == null ? "—" : numberFormat.format(weapon.attackOverride)}`);
+    controls.append(skillLabel, attack);
+    article.append(controls);
+  }
+  return article;
+}
+
+function renderWeaponEditor() {
+  try {
+    const config = readDeckConfig();
+    const mainSlot = $("main-weapon-slot");
+    const grid = $("weapon-grid");
+    mainSlot.replaceChildren(createWeaponSlot(config, 1));
+    grid.replaceChildren(...Array.from({ length: 9 }, (_, index) => createWeaponSlot(config, index + 2)));
+    $("weapon-count").textContent = `${config.weapons.length} / 10`;
+    $("deck-state").classList.remove("error-text");
+  } catch (error) {
+    $("deck-state").textContent = error instanceof Error ? error.message : "編成JSONを読み込めません";
+    $("deck-state").classList.add("error-text");
+  }
+}
+
+function renderWeaponResults(query = "") {
+  const normalized = query.trim().toLocaleLowerCase("ja");
+  const matches = weaponCatalog.filter((weapon) => {
+    const searchable = [weapon.name, weapon.weaponId, ...weapon.skills.map((skill) => skill.name)].join(" ").toLocaleLowerCase("ja");
+    return searchable.includes(normalized);
+  });
+  const results = $("weapon-results");
+  results.replaceChildren();
+  for (const weapon of matches) {
+    const element = elementMeta[weapon.elementCode];
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "catalog-weapon-card";
+    button.addEventListener("click", () => selectWeapon(weapon));
+    const art = document.createElement("span");
+    art.className = `catalog-art ${element?.className ?? "unknown"}`;
+    art.append(createText("weapon-symbol", weaponKindSymbols[weapon.weaponKindCode] ?? "◆"));
+    const details = document.createElement("span");
+    details.className = "catalog-weapon-details";
+    details.append(
+      createText("catalog-weapon-name", weapon.name),
+      createText("catalog-weapon-meta", `${element?.name ?? "属性不明"} ・ ${weapon.rarityCode === "4" ? "SSR" : weapon.rarityCode === "3" ? "SR" : "R"} ・ ${weapon.weaponId}`),
+      createText("catalog-skill-list", weapon.skills.length ? weapon.skills.map((skill) => skill.name).join(" / ") : "武器スキルなし"),
+    );
+    const status = createText(`verification-chip ${weapon.verificationStatus === "検証済み" ? "verified" : "draft"}`, weapon.verificationStatus);
+    button.append(art, details, status);
+    results.append(button);
+  }
+  if (matches.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "picker-empty";
+    empty.textContent = "一致する登録武器がありません。未登録武器はJSONから追加できます。";
+    results.append(empty);
+  }
+  $("catalog-count").textContent = `${matches.length} / ${weaponCatalog.length}件`;
+}
+
+function openWeaponPicker(slot) {
+  editingWeaponSlot = slot;
+  $("picker-slot-label").textContent = slot === 1 ? "メイン武器を変更" : `武器枠 ${slot}を変更`;
+  $("weapon-search").value = "";
+  $("remove-weapon").disabled = !weaponForSlot(readDeckConfig(), slot);
+  renderWeaponResults();
+  $("weapon-picker").showModal();
+  $("weapon-search").focus();
+}
+
+function selectWeapon(master) {
+  if (editingWeaponSlot == null) return;
+  const config = readDeckConfig();
+  config.weapons = config.weapons.filter((weapon) =>
+    editingWeaponSlot === 1 ? weapon.position !== "main" && weapon.slot !== 1 : weapon.slot !== editingWeaponSlot,
+  );
+  config.weapons.push({
+    slot: editingWeaponSlot,
+    position: editingWeaponSlot === 1 ? "main" : "grid",
+    weaponId: master.weaponId,
+    nameHint: master.name,
+    skillLevel: master.skills.length ? 15 : undefined,
+  });
+  writeDeckConfig(config);
+  renderWeaponEditor();
+  $("weapon-picker").close();
+  void calculate();
+}
+
+function removeSelectedWeapon() {
+  if (editingWeaponSlot == null) return;
+  const config = readDeckConfig();
+  config.weapons = config.weapons.filter((weapon) =>
+    editingWeaponSlot === 1 ? weapon.position !== "main" : weapon.slot !== editingWeaponSlot,
+  );
+  writeDeckConfig(config);
+  renderWeaponEditor();
+  $("weapon-picker").close();
+  void calculate();
+}
+
+function setEditorMode(mode) {
+  if (mode === "visual") renderWeaponEditor();
+  const visual = mode === "visual";
+  $("visual-editor").hidden = !visual;
+  $("json-editor").hidden = visual;
+  $("visual-tab").classList.toggle("selected", visual);
+  $("json-tab").classList.toggle("selected", !visual);
+  $("visual-tab").setAttribute("aria-selected", String(visual));
+  $("json-tab").setAttribute("aria-selected", String(!visual));
+}
 
 function numberValue(id) {
   const value = Number($(id).value);
@@ -140,6 +338,7 @@ function render(response) {
 
 function applyRequestToForm(request) {
   deckField.value = JSON.stringify(request.deckConfig, null, 2);
+  renderWeaponEditor();
   $("enemy-element").value = request.enemy.elementCode;
   $("enemy-defense").value = String(request.enemy.defense);
   $("enemy-name").value = request.enemy.name || "";
@@ -259,6 +458,7 @@ $("config-file").addEventListener("change", async (event) => {
   const file = event.target.files?.[0];
   if (!file) return;
   deckField.value = JSON.stringify(JSON.parse(await file.text()), null, 2);
+  renderWeaponEditor();
   void calculate();
 });
 
@@ -268,6 +468,7 @@ $("game-deck-file").addEventListener("change", async (event) => {
   try {
     const converted = await postJson("/api/convert-deck", JSON.parse(await file.text()));
     deckField.value = JSON.stringify(converted, null, 2);
+    renderWeaponEditor();
     $("deck-state").textContent = "deck.jsonを個人IDを含まない設定へ変換しました";
     $("deck-state").classList.remove("error-text");
     void calculate();
@@ -291,5 +492,27 @@ $("save-config").addEventListener("click", () => {
   }
 });
 
-registerWebMcpTool();
-void calculate();
+$("visual-tab").addEventListener("click", () => setEditorMode("visual"));
+$("json-tab").addEventListener("click", () => setEditorMode("json"));
+$("close-picker").addEventListener("click", () => $("weapon-picker").close());
+$("remove-weapon").addEventListener("click", removeSelectedWeapon);
+$("weapon-search").addEventListener("input", (event) => renderWeaponResults(event.target.value));
+$("weapon-picker").addEventListener("click", (event) => {
+  if (event.target === $("weapon-picker")) $("weapon-picker").close();
+});
+
+async function initialize() {
+  try {
+    const response = await fetch("/api/catalog/weapons");
+    if (!response.ok) throw new Error("武器カタログを読み込めませんでした");
+    weaponCatalog = (await response.json()).weapons;
+  } catch (error) {
+    $("deck-state").textContent = error instanceof Error ? error.message : "武器カタログを読み込めませんでした";
+    $("deck-state").classList.add("error-text");
+  }
+  renderWeaponEditor();
+  registerWebMcpTool();
+  await calculate();
+}
+
+void initialize();

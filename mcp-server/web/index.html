@@ -33,8 +33,27 @@
               <input id="game-deck-file" type="file" accept="application/json,.json" hidden />
             </div>
           </div>
-          <label class="field-label" for="deck-config">CalculatorDeckConfig v1</label>
-          <textarea id="deck-config" class="code-field" spellcheck="false" rows="13"></textarea>
+          <div class="editor-tabs" role="tablist" aria-label="編成の編集方法">
+            <button id="visual-tab" class="editor-tab selected" type="button" role="tab" aria-selected="true" aria-controls="visual-editor">ビジュアル</button>
+            <button id="json-tab" class="editor-tab" type="button" role="tab" aria-selected="false" aria-controls="json-editor">JSON</button>
+          </div>
+          <div id="visual-editor" class="visual-editor" role="tabpanel" aria-labelledby="visual-tab">
+            <div class="weapon-editor-heading">
+              <div>
+                <span class="field-label">武器編成</span>
+                <strong id="weapon-count">0 / 10</strong>
+              </div>
+              <span class="supporting-text">枠を選択して武器を変更</span>
+            </div>
+            <div class="weapon-layout">
+              <div id="main-weapon-slot" class="main-weapon-slot"></div>
+              <div id="weapon-grid" class="weapon-grid"></div>
+            </div>
+          </div>
+          <div id="json-editor" role="tabpanel" aria-labelledby="json-tab" hidden>
+            <label class="field-label" for="deck-config">CalculatorDeckConfig v1</label>
+            <textarea id="deck-config" class="code-field" spellcheck="false" rows="13"></textarea>
+          </div>
           <div class="field-footer">
             <span id="deck-state" class="supporting-text">登録済み武器のスキルを自動解決します</span>
             <button id="save-config" class="text-button" type="button">設定を保存</button>
@@ -140,6 +159,25 @@
         </section>
       </aside>
     </main>
+    <dialog id="weapon-picker" class="weapon-picker" aria-labelledby="weapon-picker-title">
+      <div class="picker-header">
+        <div>
+          <p class="eyebrow">WEAPON CATALOG</p>
+          <h2 id="weapon-picker-title">武器を選択</h2>
+          <p id="picker-slot-label" class="supporting-text"></p>
+        </div>
+        <button id="close-picker" class="icon-button" type="button" aria-label="閉じる">×</button>
+      </div>
+      <label class="search-field" for="weapon-search">
+        <span aria-hidden="true">⌕</span>
+        <input id="weapon-search" type="search" placeholder="武器名・スキル名・IDで検索" autocomplete="off" />
+      </label>
+      <div id="weapon-results" class="weapon-results"></div>
+      <div class="picker-footer">
+        <button id="remove-weapon" class="danger-tonal-button" type="button">この枠から外す</button>
+        <span id="catalog-count" class="supporting-text"></span>
+      </div>
+    </dialog>
     <footer>計算結果は検証中の暫定モデルです。ダメージ上限と厳密な途中丸めは未適用です。</footer>
   </body>
 </html>
