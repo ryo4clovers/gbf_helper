@@ -155,6 +155,7 @@ function normalizeWeapon(value: z.infer<typeof slotSchema>, slot: number): DeckW
     slot,
     position: slot === 1 ? "main" : "grid",
     ...ids,
+    isJobFallback: slot === 1 && ids.instanceId === "0" ? true : undefined,
     name: optionalString(master?.name),
     elementCode: optionalString(master?.attribute),
     weaponKindCode: optionalString(master?.kind),

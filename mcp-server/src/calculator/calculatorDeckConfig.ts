@@ -54,6 +54,7 @@ const weaponSchema = z
     slot: positiveSlotSchema,
     position: z.enum(["main", "grid"]),
     weaponId: idSchema,
+    isJobFallback: z.boolean().optional(),
     nameHint: nameHintSchema,
     level: nonNegativeIntegerSchema.optional(),
     skillLevel: nonNegativeIntegerSchema.optional(),
@@ -142,6 +143,15 @@ const calculatorDeckConfigSchema = z
     if (config.weapons.filter((weapon) => weapon.position === "main").length > 1) {
       context.addIssue({ code: z.ZodIssueCode.custom, message: "only one main weapon is allowed", path: ["weapons"] });
     }
+    config.weapons.forEach((weapon, index) => {
+      if (weapon.isJobFallback === true && (weapon.position !== "main" || weapon.slot !== 1)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "a job fallback weapon is only allowed in main slot 1",
+          path: ["weapons", index, "isJobFallback"],
+        });
+      }
+    });
     if (config.summons.filter((summon) => summon.position === "main").length > 1) {
       context.addIssue({ code: z.ZodIssueCode.custom, message: "only one main summon is allowed", path: ["summons"] });
     }
@@ -185,6 +195,7 @@ export function convertDeckResponseToCalculatorDeckConfig(input: unknown): Calcu
       slot: weapon.slot,
       position: weapon.position,
       weaponId: weapon.masterId,
+      isJobFallback: weapon.isJobFallback,
       nameHint: weapon.name,
       level: weapon.level,
       skillLevel: weapon.skillLevel,

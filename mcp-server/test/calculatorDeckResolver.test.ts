@@ -19,6 +19,7 @@ test("resolves an override-backed calculator config without inventing instance I
         slot: 1,
         position: "main",
         weaponId: "1010000400",
+        isJobFallback: true,
         nameHint: "ブロンズソード",
         level: 1,
         attackOverride: 70,
@@ -53,6 +54,7 @@ test("resolves an override-backed calculator config without inventing instance I
   assert.equal(result.deck.protagonist.attack, 16255);
   assert.equal(result.deck.protagonist.job?.masterId, "110001");
   assert.deepEqual(result.deck.protagonist.job?.weaponKindCodes, []);
+  assert.equal(result.deck.weapons[0].isJobFallback, true);
   assert.equal(result.deck.weapons[1].masterId, "1040218900");
   assert.equal(result.deck.weapons[1].skillLevel, 15);
   assert.equal(result.deck.weapons[1].attack, 3609);

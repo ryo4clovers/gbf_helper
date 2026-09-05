@@ -56,6 +56,8 @@ Web画面とMCPツールは共通の`calculateNormalAttackFromRequest`を呼ぶ�
 - `schemaVersion: 1` と `format: "gbf-helper-calculator-deck"` で形式を識別する
 - 武器・召喚石・キャラクターはマスターID、枠、Lv、上限解放、プラス値等を保持する
 - `nameHint` は人間向け表示だけに使い、計算上の識別は各マスターIDを正とする
+- 本家レスポンスでメイン武器の `param.id` が `0` の場合は、ジョブが補う仮武器として
+  `isJobFallback: true` を設定する。攻撃力・HPは計算に含め、画面ではメイン未選択として表示する
 - 本家のユーザー／インスタンスID、編成グループ番号、UI制御情報、`damage_info` は保存しない
 - 未知フィールドは入力ミス検出のため拒否し、形式拡張時は `schemaVersion` を更新する
 - 同じ枠の重複、メイン武器・メイン召喚石の複数指定を拒否する

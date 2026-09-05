@@ -165,6 +165,16 @@ test("parseDeckResponse normalizes numeric strings and removes empty slots", () 
   });
 });
 
+test("identifies a zero-instance main weapon as the job fallback", () => {
+  const input = makeDeckResponse();
+  Reflect.set(input.deck.pc.weapons[1].param, "id", 0);
+
+  const result = parseDeckResponse(input);
+
+  assert.equal(result.weapons[0].instanceId, "0");
+  assert.equal(result.weapons[0].isJobFallback, true);
+});
+
 test("parseDeckResponse rejects a response without the deck shape", () => {
   assert.throws(() => parseDeckResponse({ deck: {} }), ZodError);
 });

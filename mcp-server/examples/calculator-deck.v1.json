@@ -16,6 +16,7 @@
       "slot": 1,
       "position": "main",
       "weaponId": "1010000400",
+      "isJobFallback": true,
       "nameHint": "ブロンズソード",
       "level": 1,
       "plusMark": 0,

@@ -64,10 +64,11 @@ function weaponForSlot(config, slot) {
 
 function createWeaponSlot(config, slot) {
   const weapon = weaponForSlot(config, slot);
+  const isJobFallback = slot === 1 && weapon?.isJobFallback === true;
   const master = weapon ? catalogWeapon(weapon.weaponId) : undefined;
   const element = master ? elementMeta[master.elementCode] : undefined;
   const article = document.createElement("article");
-  article.className = `weapon-slot ${slot === 1 ? "main-slot" : "grid-slot"} ${weapon ? "occupied" : "empty"}`;
+  article.className = `weapon-slot ${slot === 1 ? "main-slot" : "grid-slot"} ${weapon && !isJobFallback ? "occupied" : "empty"} ${isJobFallback ? "job-fallback" : ""}`;
 
   const choice = document.createElement("button");
   choice.type = "button";
@@ -76,24 +77,33 @@ function createWeaponSlot(config, slot) {
   choice.addEventListener("click", () => openWeaponPicker(slot));
 
   const art = document.createElement("span");
-  art.className = `weapon-art ${element?.className ?? "unknown"}`;
+  art.className = `weapon-art ${isJobFallback ? "unknown" : (element?.className ?? "unknown")}`;
   art.append(
     createText("slot-badge", slot === 1 ? "MAIN" : String(slot)),
-    createText("rarity-badge", master?.rarityCode === "4" ? "SSR" : master?.rarityCode === "3" ? "SR" : master?.rarityCode === "2" ? "R" : "—"),
-    createText("weapon-symbol", master ? (weaponKindSymbols[master.weaponKindCode] ?? "◆") : "+"),
+    createText("rarity-badge", isJobFallback ? "未選択" : master?.rarityCode === "4" ? "SSR" : master?.rarityCode === "3" ? "SR" : master?.rarityCode === "2" ? "R" : "—"),
+    createText("weapon-symbol", weapon && !isJobFallback ? (weaponKindSymbols[master?.weaponKindCode] ?? "◆") : "+"),
   );
   choice.append(art);
 
   const info = document.createElement("span");
   info.className = "weapon-slot-info";
   info.append(
-    createText("weapon-slot-name", weapon ? (master?.name ?? weapon.nameHint ?? weapon.weaponId) : "武器を選択"),
-    createText("weapon-slot-meta", weapon ? `${element?.name ?? "属性不明"}・${master ? "登録済み" : "未登録"}` : slot === 1 ? "メイン武器" : `武器枠 ${slot}`),
+    createText("weapon-slot-name", weapon && !isJobFallback ? (master?.name ?? weapon.nameHint ?? weapon.weaponId) : "武器を選択"),
+    createText(
+      "weapon-slot-meta",
+      isJobFallback
+        ? `仮メイン: ${master?.name ?? weapon.nameHint ?? weapon.weaponId}`
+        : weapon
+          ? `${element?.name ?? "属性不明"}・${master ? "登録済み" : "未登録"}`
+          : slot === 1
+            ? "メイン武器"
+            : `武器枠 ${slot}`,
+    ),
   );
   choice.append(info);
   article.append(choice);
 
-  if (weapon) {
+  if (weapon && !isJobFallback) {
     const controls = document.createElement("div");
     controls.className = "weapon-slot-controls";
     const skillLabel = document.createElement("label");
@@ -116,6 +126,14 @@ function createWeaponSlot(config, slot) {
     const attack = createText("weapon-attack", `ATK ${weapon.attackOverride == null ? "—" : numberFormat.format(weapon.attackOverride)}`);
     controls.append(skillLabel, attack);
     article.append(controls);
+  } else if (isJobFallback) {
+    const fallback = document.createElement("div");
+    fallback.className = "weapon-slot-controls fallback-summary";
+    fallback.append(
+      createText("fallback-label", "仮武器を計算に反映"),
+      createText("weapon-attack", `HP ${weapon.hpOverride == null ? "—" : numberFormat.format(weapon.hpOverride)} / ATK ${weapon.attackOverride == null ? "—" : numberFormat.format(weapon.attackOverride)}`),
+    );
+    article.append(fallback);
   }
   return article;
 }
@@ -127,7 +145,8 @@ function renderWeaponEditor() {
     const grid = $("weapon-grid");
     mainSlot.replaceChildren(createWeaponSlot(config, 1));
     grid.replaceChildren(...Array.from({ length: 9 }, (_, index) => createWeaponSlot(config, index + 2)));
-    $("weapon-count").textContent = `${config.weapons.length} / 10`;
+    const equippedWeaponCount = config.weapons.filter((weapon) => weapon.isJobFallback !== true).length;
+    $("weapon-count").textContent = `${equippedWeaponCount} / 10`;
     renderSummonEditor();
     $("deck-state").classList.remove("error-text");
   } catch (error) {
@@ -177,7 +196,8 @@ function openWeaponPicker(slot) {
   editingWeaponSlot = slot;
   $("picker-slot-label").textContent = slot === 1 ? "メイン武器を変更" : `武器枠 ${slot}を変更`;
   $("weapon-search").value = "";
-  $("remove-weapon").disabled = !weaponForSlot(readDeckConfig(), slot);
+  const currentWeapon = weaponForSlot(readDeckConfig(), slot);
+  $("remove-weapon").disabled = !currentWeapon || currentWeapon.isJobFallback === true;
   renderWeaponResults();
   $("weapon-picker").showModal();
   $("weapon-search").focus();

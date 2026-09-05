@@ -171,6 +171,7 @@ export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResol
         slot: weapon.slot,
         position: weapon.position,
         masterId: weapon.weaponId,
+        isJobFallback: weapon.isJobFallback,
         name: master?.name ?? weapon.nameHint,
         elementCode: master?.elementCode,
         weaponKindCode: master?.weaponKindCode,

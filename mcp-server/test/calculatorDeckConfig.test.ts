@@ -143,6 +143,45 @@ test("converts a game response without retaining instance IDs or displayed calcu
   assert.equal("displayedDamageInfo" in result, false);
 });
 
+test("marks a zero-instance main weapon as a job fallback", () => {
+  const result = convertDeckResponseToCalculatorDeckConfig({
+    deck: {
+      npc: {},
+      pc: {
+        param: { attack: 1000, hp: 100, attribute: 1 },
+        weapons: {
+          1: {
+            master: { id: "1010000400", name: "ブロンズソード", attribute: "1", kind: "1" },
+            param: { id: 0, level: 1, attack: 70, hp: 6 },
+          },
+        },
+        summons: {},
+        sub_summons: {},
+      },
+    },
+  });
+
+  assert.equal(result.weapons[0].isJobFallback, true);
+  assert.equal(result.weapons[0].weaponId, "1010000400");
+  assert.equal(result.weapons[0].attackOverride, 70);
+  assert.equal(JSON.stringify(result).includes('"instanceId"'), false);
+});
+
+test("rejects a job fallback outside main slot 1", () => {
+  assert.throws(
+    () =>
+      parseCalculatorDeckConfig({
+        schemaVersion: 1,
+        format: "gbf-helper-calculator-deck",
+        protagonist: {},
+        weapons: [{ slot: 2, position: "grid", weaponId: "1010000400", isJobFallback: true }],
+        summons: [],
+        characters: [],
+      }),
+    /job fallback weapon is only allowed in main slot 1/,
+  );
+});
+
 test("rejects duplicate slots and multiple main weapons", () => {
   assert.throws(
     () =>

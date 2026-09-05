@@ -181,6 +181,8 @@ export interface DeckWeapon extends DeckStats {
   position: "main" | "grid";
   /** Present for imported game snapshots; omitted for user-authored configurations. */
   instanceId?: string;
+  /** The game-generated weapon used for stats while the visible main slot is empty. */
+  isJobFallback?: boolean;
   masterId: string;
   name?: string;
   elementCode?: string;
@@ -300,6 +302,8 @@ export interface CalculatorDeckWeaponConfig {
   slot: number;
   position: "main" | "grid";
   weaponId: string;
+  /** Keeps a game-generated main weapon in calculations without presenting it as equipped. */
+  isJobFallback?: boolean;
   nameHint?: string;
   level?: number;
   skillLevel?: number;
