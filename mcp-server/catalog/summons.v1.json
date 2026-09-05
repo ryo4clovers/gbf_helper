@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "summons": [
+    {
+      "summonId": "2030051000",
+      "name": "シルフィードベル",
+      "elementCode": "4",
+      "rarityCode": "3",
+      "auraName": "シルフィードベルの加護",
+      "auraDescription": "レアモンスターの出現確率UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "レアモンスターの出現確率UP。攻撃力計算には影響しない"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deckレスポンスの主召喚石と加護説明で確認",
+      "confirmedAt": "2026-09-05"
+    },
+    {
+      "summonId": "2040090000",
+      "name": "ハデス",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "ハデスの加護",
+      "auraDescription": "スキル「闇」「憎悪」「奈落」の効果が170%UP。メイン召喚石に装備時、闇属性攻撃力が30%UP",
+      "auraEffects": [
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "6",
+          "amountPercent": 170,
+          "targetSkillNamePrefixes": ["闇", "憎悪", "奈落"],
+          "activation": "always",
+          "description": "スキル「闇」「憎悪」「奈落」の効果が170%UP"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "6",
+          "amountPercent": 30,
+          "activation": "main-only",
+          "description": "メイン召喚石に装備時、闇属性攻撃力が30%UP"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内startレスポンスの支援召喚石と加護説明で確認",
+      "confirmedAt": "2026-09-05"
+    }
+  ]
+}

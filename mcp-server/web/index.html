@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GBF通常攻撃ダメージのローカル計算画面" />
+    <title>GBF Damage Lab</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <header class="top-app-bar">
+      <div class="brand-mark" aria-hidden="true">Δ</div>
+      <div>
+        <p class="eyebrow">LOCAL CALCULATOR</p>
+        <h1>GBF Damage Lab</h1>
+      </div>
+      <span class="privacy-chip"><span aria-hidden="true">●</span> 端末内で処理</span>
+    </header>
+
+    <main class="workspace">
+      <form id="calculator-form" class="input-pane">
+        <section class="surface deck-surface">
+          <div class="section-heading">
+            <div>
+              <span class="step">01</span>
+              <h2>編成</h2>
+            </div>
+            <div class="file-actions">
+              <label class="tonal-button" for="config-file">設定を開く</label>
+              <input id="config-file" type="file" accept="application/json,.json" hidden />
+              <label class="tonal-button" for="game-deck-file">deck.jsonを変換</label>
+              <input id="game-deck-file" type="file" accept="application/json,.json" hidden />
+            </div>
+          </div>
+          <label class="field-label" for="deck-config">CalculatorDeckConfig v1</label>
+          <textarea id="deck-config" class="code-field" spellcheck="false" rows="13"></textarea>
+          <div class="field-footer">
+            <span id="deck-state" class="supporting-text">登録済み武器のスキルを自動解決します</span>
+            <button id="save-config" class="text-button" type="button">設定を保存</button>
+          </div>
+        </section>
+
+        <section class="surface settings-surface">
+          <div class="section-heading">
+            <div>
+              <span class="step">02</span>
+              <h2>戦闘条件</h2>
+            </div>
+          </div>
+          <div class="field-grid three-columns">
+            <label class="select-field">
+              <span>敵属性</span>
+              <select id="enemy-element">
+                <option value="1">火</option>
+                <option value="2">水</option>
+                <option value="3">土</option>
+                <option value="4">風</option>
+                <option value="5">光</option>
+                <option value="6">闇</option>
+              </select>
+            </label>
+            <label class="number-field">
+              <span>敵防御値</span>
+              <input id="enemy-defense" type="number" value="10" min="0.001" step="0.001" required />
+            </label>
+            <label class="text-field">
+              <span>敵名（任意）</span>
+              <input id="enemy-name" type="text" value="オールド・木人" maxlength="100" />
+            </label>
+          </div>
+
+          <h3>環境倍率</h3>
+          <div class="field-grid modifier-grid">
+            <label class="number-field"><span>全属性攻撃</span><input id="all-element" type="number" value="3" min="0" step="0.1" /><em>%</em></label>
+            <label class="number-field"><span>属性攻撃</span><input id="element-attack" type="number" value="10" min="0" step="0.1" /><em>%</em></label>
+            <label class="number-field"><span>船</span><input id="ship" type="number" value="10" min="0" step="0.1" /><em>%</em></label>
+            <label class="number-field"><span>炉</span><input id="furnace" type="number" value="10" min="0" step="0.1" /><em>%</em></label>
+            <label class="number-field"><span>ジョブ通常与ダメ</span><input id="job-damage" type="number" value="3" min="0" step="0.1" /><em>%</em></label>
+            <label class="number-field"><span>与ダメージ</span><input id="damage-dealt" type="number" value="3.6" min="0" step="0.1" /><em>%</em></label>
+            <label class="number-field"><span>対属性与ダメ</span><input id="target-damage" type="number" value="0" min="0" step="0.1" /><em>%</em></label>
+          </div>
+
+          <details class="advanced-settings">
+            <summary>乱数の詳細設定</summary>
+            <div class="field-grid three-columns">
+              <label class="number-field"><span>最小倍率</span><input id="random-min" type="number" value="0.95" min="0.001" step="0.001" /></label>
+              <label class="number-field"><span>最大倍率</span><input id="random-max" type="number" value="1.05" min="0.001" step="0.001" /></label>
+              <label class="number-field"><span>刻み</span><input id="random-step" type="number" value="0.001" min="0.001" step="0.001" /></label>
+            </div>
+          </details>
+        </section>
+
+        <button class="calculate-button" type="submit">
+          <span aria-hidden="true">✦</span>
+          ダメージを計算
+        </button>
+      </form>
+
+      <aside class="result-pane" aria-live="polite">
+        <section class="result-hero">
+          <p class="eyebrow">EXPECTED TOTAL</p>
+          <div id="total-expected" class="hero-number">—</div>
+          <p class="hero-caption">通常攻撃1ヒット＋追撃の期待値</p>
+          <div class="range-track" aria-hidden="true"><span></span></div>
+          <div class="range-labels"><span id="total-min">最小 —</span><span id="total-max">最大 —</span></div>
+        </section>
+
+        <div class="metric-grid">
+          <article class="metric-card body-card">
+            <div class="metric-icon" aria-hidden="true">◇</div>
+            <p>通常攻撃本体</p>
+            <strong id="body-expected">—</strong>
+            <small id="body-range">—</small>
+          </article>
+          <article class="metric-card pursuit-card">
+            <div class="metric-icon" aria-hidden="true">✦</div>
+            <p id="pursuit-label">追撃</p>
+            <strong id="pursuit-expected">—</strong>
+            <small id="pursuit-range">—</small>
+          </article>
+        </div>
+
+        <section class="surface breakdown-surface">
+          <div class="section-heading compact">
+            <div><span class="step">03</span><h2>計算内訳</h2></div>
+            <span id="pattern-count" class="count-chip">— patterns</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>段階</th><th>倍率</th><th>適用後</th></tr></thead>
+              <tbody id="stage-rows"><tr><td colspan="3" class="empty-cell">計算すると内訳を表示します</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="notice-panel" class="notice-panel" hidden>
+          <div class="notice-icon" aria-hidden="true">!</div>
+          <div><h2>確認事項</h2><ul id="notice-list"></ul></div>
+        </section>
+      </aside>
+    </main>
+    <footer>計算結果は検証中の暫定モデルです。ダメージ上限と厳密な途中丸めは未適用です。</footer>
+  </body>
+</html>

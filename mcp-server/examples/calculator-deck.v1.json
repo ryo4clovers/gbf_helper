@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "format": "gbf-helper-calculator-deck",
+  "name": "火属性追撃テスト",
+  "protagonist": {
+    "elementCode": "1",
+    "jobId": "110001",
+    "jobLevel": 20,
+    "masterLevel": 1,
+    "perfectionProofLevel": 0,
+    "attackOverride": 16255,
+    "hpOverride": 3504
+  },
+  "weapons": [
+    {
+      "slot": 1,
+      "position": "main",
+      "weaponId": "1010000400",
+      "nameHint": "ブロンズソード",
+      "level": 1,
+      "plusMark": 0,
+      "attackOverride": 70,
+      "hpOverride": 6
+    },
+    {
+      "slot": 2,
+      "position": "grid",
+      "weaponId": "1040218900",
+      "nameHint": "オーバーライド",
+      "level": 150,
+      "skillLevel": 15,
+      "plusMark": 99,
+      "attackOverride": 3609,
+      "hpOverride": 430
+    }
+  ],
+  "summons": [
+    {
+      "slot": 1,
+      "position": "main",
+      "summonId": "2030051000",
+      "nameHint": "シルフィードベル",
+      "level": 75,
+      "uncapLevel": 3,
+      "plusMark": 0,
+      "attackOverride": 865,
+      "hpOverride": 433
+    }
+  ],
+  "characters": []
+}

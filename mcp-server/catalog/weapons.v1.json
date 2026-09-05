@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "weapons": [
+    {
+      "weaponId": "1010000400",
+      "name": "ブロンズソード",
+      "elementCode": "1",
+      "weaponKindCode": "1",
+      "rarityCode": "1",
+      "skillSlots": [],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deckレスポンスで確認",
+      "confirmedAt": "2026-09-05"
+    },
+    {
+      "weaponId": "1040201400",
+      "name": "イフリートハルベルト",
+      "elementCode": "1",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "25" },
+        { "sourceKey": "skill2", "skillId": "74" }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deckレスポンスで単体編成とオーバーライド同時編成を確認",
+      "confirmedAt": "2026-09-05"
+    },
+    {
+      "weaponId": "1040218900",
+      "name": "オーバーライド",
+      "elementCode": "1",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "2",
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "2025" },
+        { "sourceKey": "skill2", "skillId": "845" },
+        { "sourceKey": "skill3", "skillId": "2174" }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deckレスポンスで確認",
+      "confirmedAt": "2026-09-05"
+    }
+  ]
+}

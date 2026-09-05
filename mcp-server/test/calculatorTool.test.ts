@@ -1,0 +1,46 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
+import { createGbfMcpServer } from "../src/server.ts";
+
+test("lists and calls the normal attack calculator as a read-only MCP tool", async () => {
+  const [clientTransport, serverTransport] = InMemoryTransport.createLinkedPair();
+  const server = createGbfMcpServer();
+  const client = new Client({ name: "calculator-test", version: "1.0.0" });
+
+  try {
+    await Promise.all([server.connect(serverTransport), client.connect(clientTransport)]);
+    const tools = await client.listTools();
+    const calculator = tools.tools.find((tool) => tool.name === "calculate_normal_attack_damage");
+
+    assert.ok(calculator !== undefined);
+    assert.equal(calculator.annotations?.readOnlyHint, true);
+    assert.equal(calculator.annotations?.destructiveHint, false);
+    assert.equal(calculator.annotations?.openWorldHint, false);
+    assert.deepEqual(calculator.inputSchema.required, [
+      "schemaVersion",
+      "deckConfig",
+      "enemy",
+    ]);
+
+    const request = JSON.parse(
+      readFileSync(new URL("../examples/normal-attack-request.v1.json", import.meta.url), "utf8"),
+    ) as Record<string, unknown>;
+    const callResult = await client.callTool({
+      name: "calculate_normal_attack_damage",
+      arguments: request,
+    });
+    const text = callResult.content.find((item) => item.type === "text");
+    assert.equal(text?.type, "text");
+    const response = JSON.parse(text?.type === "text" ? text.text : "{}") as {
+      result?: { totalDamageDistribution?: { minimumDamage?: number; maximumDamage?: number } };
+    };
+    assert.equal(response.result?.totalDamageDistribution?.minimumDamage, 3974);
+    assert.equal(response.result?.totalDamageDistribution?.maximumDamage, 4392);
+  } finally {
+    await clientTransport.close();
+    await serverTransport.close();
+  }
+});

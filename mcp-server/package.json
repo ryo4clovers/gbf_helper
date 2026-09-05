@@ -9,9 +9,11 @@
   },
   "scripts": {
     "build": "tsc",
+    "dev:web": "tsx watch src/webServer.ts",
     "check": "npm run validate:knowledge && npm run typecheck && npm test",
     "dev": "tsx watch src/index.ts",
     "start": "node dist/index.js",
+    "start:web": "node dist/webServer.js",
     "test": "tsx --test test/**/*.test.ts",
     "typecheck": "tsc --noEmit",
     "validate:knowledge": "node scripts/validate-knowledge.mjs"

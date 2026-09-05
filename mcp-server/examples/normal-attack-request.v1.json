@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "deckConfig": {
+    "schemaVersion": 1,
+    "format": "gbf-helper-calculator-deck",
+    "name": "火属性・攻刃39%検証編成",
+    "protagonist": {
+      "elementCode": "1",
+      "attackOverride": 19484,
+      "hpOverride": 3851
+    },
+    "weapons": [
+      {
+        "slot": 1,
+        "position": "main",
+        "weaponId": "1040201400",
+        "nameHint": "イフリートハルベルト",
+        "skillLevel": 15,
+        "attackOverride": 2170,
+        "hpOverride": 241
+      },
+      {
+        "slot": 2,
+        "position": "grid",
+        "weaponId": "1040218900",
+        "nameHint": "オーバーライド",
+        "skillLevel": 15,
+        "attackOverride": 3609,
+        "hpOverride": 430
+      }
+    ],
+    "summons": [],
+    "characters": []
+  },
+  "enemy": {
+    "name": "オールド・木人",
+    "elementCode": "1",
+    "defense": 10
+  },
+  "modifiers": {
+    "allElementAttackPercent": 3,
+    "elementAttackPercent": 10,
+    "shipAttackPercent": 10,
+    "furnaceAttackPercent": 10,
+    "jobNormalAttackDamagePercent": 3,
+    "damageDealtPercent": 3.6,
+    "targetElementDamagePercent": 0
+  },
+  "random": {
+    "minimum": 0.95,
+    "maximum": 1.05,
+    "step": 0.001
+  }
+}

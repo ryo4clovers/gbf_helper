@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "skills": [
+    {
+      "skillId": "25",
+      "name": "紅蓮の攻刃",
+      "description": "火属性キャラの攻撃力上昇(大)",
+      "effects": [
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 18,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "イフリートハルベルト単体編成の表示18%で確認"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deck.damage_infoの単体編成表示で確認",
+      "confirmedAt": "2026-09-05"
+    },
+    {
+      "skillId": "74",
+      "name": "火の技巧",
+      "description": "火属性キャラのクリティカル確率上昇(小)",
+      "effects": [
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 3,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "イフリートハルベルト単体編成の表示3%で確認"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deck.damage_infoの単体編成表示で確認",
+      "confirmedAt": "2026-09-05"
+    },
+    {
+      "skillId": "2025",
+      "name": "オプティマスブースト・ファイア",
+      "description": "スキル「火」「業火」「紅蓮」の効果が30%UP",
+      "effects": [
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "1",
+          "amountPercent": 30,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "targetSkillNamePrefixes": ["火", "業火", "紅蓮"],
+          "note": "今回のSLv15編成で表示された30%を記録"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内スキル説明とdeck.damage_infoで確認",
+      "confirmedAt": "2026-09-05"
+    },
+    {
+      "skillId": "845",
+      "name": "火の刹那",
+      "description": "火属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
+      "effects": [
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 12,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "単体18%と同時編成39%から (39 / 1.30) - 18 = 12% を確認"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 3,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "単体3%と同時編成7.8%から (7.8 / 1.30) - 3 = 3% を確認"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deck.damage_infoでイフリートハルベルト単体編成とオーバーライド同時編成を比較",
+      "confirmedAt": "2026-09-05"
+    },
+    {
+      "skillId": "2174",
+      "name": "紅蓮の襲刃",
+      "description": "火属性キャラに火属性追撃効果(大)",
+      "effects": [
+        {
+          "kind": "elemental-pursuit",
+          "elementCode": "1",
+          "amountPercent": 4.5,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "表示5.85%をオプティマスブースト30%で除して推定"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内表示値と実測追撃からの逆算。基礎効果量は要追加検証"
+    }
+  ]
+}

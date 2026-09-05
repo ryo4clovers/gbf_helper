@@ -6,6 +6,7 @@
 
 - グラブルに関する知識(キャラクター、召喚石、武器、イベント、ゲームシステムなど)を構造化して蓄積する
 - 蓄積したデータを生成AI(Claude等)のコンテキスト/RAGソースとして利用し、グラブルに特化した回答を可能にする
+- 同じ計算コアをローカルWeb画面と生成AI向けMCPツールから利用できるようにする
 
 ## ディレクトリ構成
 
@@ -23,11 +24,24 @@ tools/
   network-recorder/  実機プレイ中の通信を受動的に記録するChrome拡張機能(データ収集補助)
 prompts/
   新しいチャット/Codexへの引き継ぎプロンプトの雛形と生成スクリプト
+mcp-server/
+  ナレッジ検索MCP、通常攻撃計算MCP、ローカルWeb計算画面
 .claude/skills/
   Claude Code 用スキル(session-handoff: 引き継ぎプロンプト生成)
 ```
 
 各カテゴリ配下は Markdown ファイルで記述する。
+
+## ローカル計算画面
+
+```powershell
+cd mcp-server
+npm run build
+npm run start:web
+```
+
+起動後に `http://127.0.0.1:4173` を開く。詳しい入力形式とAI向けMCP設定は
+`mcp-server/README.md`を参照する。
 
 ## 関連ドキュメント
 
