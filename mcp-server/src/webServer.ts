@@ -6,6 +6,7 @@ import { ZodError } from "zod";
 import { convertDeckResponseToCalculatorDeckConfig } from "./calculator/calculatorDeckConfig.js";
 import { calculateNormalAttackFromRequest } from "./calculator/normalAttackCalculationRequest.js";
 import { createSelectableWeaponCatalog } from "./calculator/weaponCatalogView.js";
+import { createSelectableSummonCatalog } from "./calculator/summonCatalogView.js";
 
 const HOST = "127.0.0.1";
 const requestedPort = Number.parseInt(process.env.GBF_CALCULATOR_PORT ?? "4173", 10);
@@ -60,6 +61,10 @@ const server = createServer(async (request, response) => {
     const url = new URL(request.url ?? "/", `http://${HOST}:${PORT}`);
     if (request.method === "GET" && url.pathname === "/api/catalog/weapons") {
       json(response, 200, createSelectableWeaponCatalog());
+      return;
+    }
+    if (request.method === "GET" && url.pathname === "/api/catalog/summons") {
+      json(response, 200, createSelectableSummonCatalog());
       return;
     }
     if (request.method === "POST" && url.pathname === "/api/calculate") {

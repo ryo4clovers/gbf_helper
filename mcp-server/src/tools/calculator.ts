@@ -2,6 +2,7 @@ import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { calculateNormalAttackFromRequest } from "../calculator/normalAttackCalculationRequest.js";
 import { createSelectableWeaponCatalog } from "../calculator/weaponCatalogView.js";
+import { createSelectableSummonCatalog } from "../calculator/summonCatalogView.js";
 
 const READ_ONLY_ANNOTATIONS = {
   readOnlyHint: true,
@@ -11,6 +12,25 @@ const READ_ONLY_ANNOTATIONS = {
 };
 
 export function registerCalculatorTools(server: McpServer): void {
+  server.registerTool(
+    "list_calculator_summons",
+    {
+      title: "計算機対応召喚石一覧",
+      description:
+        "選択式編成エディタとダメージ計算機が現在マスターデータを解決できる召喚石・加護の一覧を取得する。編成JSONを作る前に利用する。",
+      inputSchema: {},
+      annotations: READ_ONLY_ANNOTATIONS,
+    },
+    async () => {
+      const response = createSelectableSummonCatalog();
+      const structuredContent: Record<string, unknown> = { ...response };
+      return {
+        content: [{ type: "text", text: JSON.stringify(response, null, 2) }],
+        structuredContent,
+      };
+    },
+  );
+
   server.registerTool(
     "list_calculator_weapons",
     {

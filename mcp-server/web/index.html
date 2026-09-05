@@ -49,6 +49,25 @@
               <div id="main-weapon-slot" class="main-weapon-slot"></div>
               <div id="weapon-grid" class="weapon-grid"></div>
             </div>
+            <div class="equipment-divider"></div>
+            <div class="weapon-editor-heading summon-editor-heading">
+              <div>
+                <span class="field-label">召喚石編成</span>
+                <strong id="summon-count">0 / 7</strong>
+              </div>
+              <span class="supporting-text">メイン1・通常4・サブ加護2枠</span>
+            </div>
+            <div class="summon-layout">
+              <div id="main-summon-slot" class="main-summon-slot"></div>
+              <div>
+                <span class="equipment-group-label">通常召喚石</span>
+                <div id="summon-grid" class="summon-grid"></div>
+              </div>
+            </div>
+            <div class="sub-summon-section">
+              <span class="equipment-group-label">サブ加護召喚石</span>
+              <div id="sub-summon-grid" class="sub-summon-grid"></div>
+            </div>
           </div>
           <div id="json-editor" role="tabpanel" aria-labelledby="json-tab" hidden>
             <label class="field-label" for="deck-config">CalculatorDeckConfig v1</label>
@@ -176,6 +195,25 @@
       <div class="picker-footer">
         <button id="remove-weapon" class="danger-tonal-button" type="button">この枠から外す</button>
         <span id="catalog-count" class="supporting-text"></span>
+      </div>
+    </dialog>
+    <dialog id="summon-picker" class="weapon-picker summon-picker" aria-labelledby="summon-picker-title">
+      <div class="picker-header">
+        <div>
+          <p class="eyebrow">SUMMON CATALOG</p>
+          <h2 id="summon-picker-title">召喚石を選択</h2>
+          <p id="summon-picker-slot-label" class="supporting-text"></p>
+        </div>
+        <button id="close-summon-picker" class="icon-button" type="button" aria-label="閉じる">×</button>
+      </div>
+      <label class="search-field" for="summon-search">
+        <span aria-hidden="true">⌕</span>
+        <input id="summon-search" type="search" placeholder="召喚石名・加護名・IDで検索" autocomplete="off" />
+      </label>
+      <div id="summon-results" class="weapon-results summon-results"></div>
+      <div class="picker-footer">
+        <button id="remove-summon" class="danger-tonal-button" type="button">この枠から外す</button>
+        <span id="summon-catalog-count" class="supporting-text"></span>
       </div>
     </dialog>
     <footer>計算結果は検証中の暫定モデルです。ダメージ上限と厳密な途中丸めは未適用です。</footer>

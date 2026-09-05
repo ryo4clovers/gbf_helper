@@ -7,7 +7,9 @@ const defaultDeck = {
     { slot: 1, position: "main", weaponId: "1040201400", nameHint: "イフリートハルベルト", skillLevel: 15, attackOverride: 2170, hpOverride: 241 },
     { slot: 2, position: "grid", weaponId: "1040218900", nameHint: "オーバーライド", skillLevel: 15, attackOverride: 3609, hpOverride: 430 },
   ],
-  summons: [],
+  summons: [
+    { slot: 1, position: "main", summonId: "2030051000", nameHint: "シルフィードベル", level: 75, uncapLevel: 3, attackOverride: 865, hpOverride: 433 },
+  ],
   characters: [],
 };
 
@@ -26,6 +28,8 @@ const elementMeta = {
 const weaponKindSymbols = { "1": "⚔", "2": "⌁", "3": "♜", "4": "⌁", "5": "✣", "6": "⌖", "7": "◈", "8": "✧", "9": "♩", "10": "◒" };
 let weaponCatalog = [];
 let editingWeaponSlot = null;
+let summonCatalog = [];
+let editingSummonSlot = null;
 
 deckField.value = JSON.stringify(defaultDeck, null, 2);
 
@@ -35,6 +39,10 @@ function readDeckConfig() {
 
 function writeDeckConfig(config) {
   config.weapons.sort((left, right) => left.slot - right.slot);
+  const summonPositionOrder = { main: 0, grid: 1, sub: 2 };
+  config.summons.sort((left, right) =>
+    summonPositionOrder[left.position] - summonPositionOrder[right.position] || left.slot - right.slot,
+  );
   deckField.value = JSON.stringify(config, null, 2);
 }
 
@@ -120,6 +128,7 @@ function renderWeaponEditor() {
     mainSlot.replaceChildren(createWeaponSlot(config, 1));
     grid.replaceChildren(...Array.from({ length: 9 }, (_, index) => createWeaponSlot(config, index + 2)));
     $("weapon-count").textContent = `${config.weapons.length} / 10`;
+    renderSummonEditor();
     $("deck-state").classList.remove("error-text");
   } catch (error) {
     $("deck-state").textContent = error instanceof Error ? error.message : "編成JSONを読み込めません";
@@ -214,6 +223,169 @@ function setEditorMode(mode) {
   $("json-tab").classList.toggle("selected", !visual);
   $("visual-tab").setAttribute("aria-selected", String(visual));
   $("json-tab").setAttribute("aria-selected", String(!visual));
+}
+
+function catalogSummon(summonId) {
+  return summonCatalog.find((summon) => summon.summonId === summonId);
+}
+
+function summonForSlot(config, position, slot) {
+  return config.summons.find((summon) => summon.position === position && summon.slot === slot);
+}
+
+function summonSlotLabel(position, slot) {
+  if (position === "main") return "メイン召喚石";
+  if (position === "sub") return `サブ加護 ${slot}`;
+  return `召喚石 ${slot}`;
+}
+
+function createSummonSlot(config, position, slot) {
+  const summon = summonForSlot(config, position, slot);
+  const master = summon ? catalogSummon(summon.summonId) : undefined;
+  const element = master ? elementMeta[master.elementCode] : undefined;
+  const article = document.createElement("article");
+  article.className = `weapon-slot summon-slot ${position === "main" ? "main-slot" : position === "sub" ? "sub-slot" : "grid-slot"} ${summon ? "occupied" : "empty"}`;
+
+  const choice = document.createElement("button");
+  choice.type = "button";
+  choice.className = "weapon-choice";
+  choice.setAttribute("aria-label", `${summonSlotLabel(position, slot)}を選択`);
+  choice.addEventListener("click", () => openSummonPicker(position, slot));
+  const art = document.createElement("span");
+  art.className = `weapon-art summon-art ${element?.className ?? "unknown"}`;
+  art.append(
+    createText("slot-badge", position === "main" ? "MAIN" : position === "sub" ? `SUB ${slot}` : String(slot)),
+    createText("rarity-badge", master?.rarityCode === "4" ? "SSR" : master?.rarityCode === "3" ? "SR" : master?.rarityCode === "2" ? "R" : "—"),
+    createText("weapon-symbol", summon ? "✦" : "+"),
+  );
+  const info = document.createElement("span");
+  info.className = "weapon-slot-info";
+  info.append(
+    createText("weapon-slot-name", summon ? (master?.name ?? summon.nameHint ?? summon.summonId) : "召喚石を選択"),
+    createText("weapon-slot-meta", summon ? `${element?.name ?? "属性不明"}・${master ? "登録済み" : "未登録"}` : summonSlotLabel(position, slot)),
+  );
+  choice.append(art, info);
+  article.append(choice);
+
+  if (summon) {
+    const controls = document.createElement("div");
+    controls.className = "weapon-slot-controls";
+    const levelLabel = document.createElement("label");
+    levelLabel.textContent = "Lv";
+    const levelInput = document.createElement("input");
+    levelInput.type = "number";
+    levelInput.min = "1";
+    levelInput.max = "250";
+    levelInput.step = "1";
+    levelInput.placeholder = "—";
+    levelInput.value = summon.level == null ? "" : String(summon.level);
+    levelInput.setAttribute("aria-label", `${master?.name ?? summon.summonId}のレベル`);
+    levelInput.addEventListener("change", () => {
+      const value = Number(levelInput.value);
+      if (levelInput.value === "") delete summon.level;
+      else if (Number.isInteger(value) && value >= 1 && value <= 250) summon.level = value;
+      else return;
+      writeDeckConfig(config);
+      void calculate();
+    });
+    levelLabel.append(levelInput);
+    const stats = createText("weapon-attack", `HP ${summon.hpOverride == null ? "—" : numberFormat.format(summon.hpOverride)} / ATK ${summon.attackOverride == null ? "—" : numberFormat.format(summon.attackOverride)}`);
+    controls.append(levelLabel, stats);
+    article.append(controls);
+  }
+  return article;
+}
+
+function renderSummonEditor() {
+  try {
+    const config = readDeckConfig();
+    $("main-summon-slot").replaceChildren(createSummonSlot(config, "main", 1));
+    $("summon-grid").replaceChildren(...Array.from({ length: 4 }, (_, index) => createSummonSlot(config, "grid", index + 2)));
+    $("sub-summon-grid").replaceChildren(...Array.from({ length: 2 }, (_, index) => createSummonSlot(config, "sub", index + 1)));
+    $("summon-count").textContent = `${config.summons.length} / 7`;
+  } catch (error) {
+    $("deck-state").textContent = error instanceof Error ? error.message : "召喚石編成を読み込めません";
+    $("deck-state").classList.add("error-text");
+  }
+}
+
+function renderSummonResults(query = "") {
+  const normalized = query.trim().toLocaleLowerCase("ja");
+  const matches = summonCatalog.filter((summon) =>
+    [summon.name, summon.summonId, summon.auraName, summon.auraDescription]
+      .join(" ")
+      .toLocaleLowerCase("ja")
+      .includes(normalized),
+  );
+  const results = $("summon-results");
+  results.replaceChildren();
+  for (const summon of matches) {
+    const element = elementMeta[summon.elementCode];
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "catalog-weapon-card catalog-summon-card";
+    button.addEventListener("click", () => selectSummon(summon));
+    const art = document.createElement("span");
+    art.className = `catalog-art summon-catalog-art ${element?.className ?? "unknown"}`;
+    art.append(createText("weapon-symbol", "✦"));
+    const details = document.createElement("span");
+    details.className = "catalog-weapon-details";
+    details.append(
+      createText("catalog-weapon-name", summon.name),
+      createText("catalog-weapon-meta", `${element?.name ?? "属性不明"} ・ ${summon.rarityCode === "4" ? "SSR" : summon.rarityCode === "3" ? "SR" : "R"} ・ ${summon.summonId}`),
+      createText("catalog-skill-list", `${summon.auraName}：${summon.auraDescription}`),
+    );
+    const status = createText(`verification-chip ${summon.verificationStatus === "検証済み" ? "verified" : "draft"}`, summon.verificationStatus);
+    button.append(art, details, status);
+    results.append(button);
+  }
+  if (matches.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "picker-empty";
+    empty.textContent = "一致する登録召喚石がありません。未登録召喚石はJSONから追加できます。";
+    results.append(empty);
+  }
+  $("summon-catalog-count").textContent = `${matches.length} / ${summonCatalog.length}件`;
+}
+
+function openSummonPicker(position, slot) {
+  editingSummonSlot = { position, slot };
+  $("summon-picker-slot-label").textContent = `${summonSlotLabel(position, slot)}を変更`;
+  $("summon-search").value = "";
+  $("remove-summon").disabled = !summonForSlot(readDeckConfig(), position, slot);
+  renderSummonResults();
+  $("summon-picker").showModal();
+  $("summon-search").focus();
+}
+
+function selectSummon(master) {
+  if (editingSummonSlot == null) return;
+  const { position, slot } = editingSummonSlot;
+  const config = readDeckConfig();
+  config.summons = config.summons.filter((summon) =>
+    position === "main" ? summon.position !== "main" : summon.position !== position || summon.slot !== slot,
+  );
+  config.summons.push({
+    slot,
+    position,
+    summonId: master.summonId,
+    nameHint: master.name,
+  });
+  writeDeckConfig(config);
+  renderSummonEditor();
+  $("summon-picker").close();
+  void calculate();
+}
+
+function removeSelectedSummon() {
+  if (editingSummonSlot == null) return;
+  const { position, slot } = editingSummonSlot;
+  const config = readDeckConfig();
+  config.summons = config.summons.filter((summon) => summon.position !== position || summon.slot !== slot);
+  writeDeckConfig(config);
+  renderSummonEditor();
+  $("summon-picker").close();
+  void calculate();
 }
 
 function numberValue(id) {
@@ -500,14 +672,24 @@ $("weapon-search").addEventListener("input", (event) => renderWeaponResults(even
 $("weapon-picker").addEventListener("click", (event) => {
   if (event.target === $("weapon-picker")) $("weapon-picker").close();
 });
+$("close-summon-picker").addEventListener("click", () => $("summon-picker").close());
+$("remove-summon").addEventListener("click", removeSelectedSummon);
+$("summon-search").addEventListener("input", (event) => renderSummonResults(event.target.value));
+$("summon-picker").addEventListener("click", (event) => {
+  if (event.target === $("summon-picker")) $("summon-picker").close();
+});
 
 async function initialize() {
   try {
-    const response = await fetch("/api/catalog/weapons");
-    if (!response.ok) throw new Error("武器カタログを読み込めませんでした");
-    weaponCatalog = (await response.json()).weapons;
+    const [weaponResponse, summonResponse] = await Promise.all([
+      fetch("/api/catalog/weapons"),
+      fetch("/api/catalog/summons"),
+    ]);
+    if (!weaponResponse.ok || !summonResponse.ok) throw new Error("装備カタログを読み込めませんでした");
+    weaponCatalog = (await weaponResponse.json()).weapons;
+    summonCatalog = (await summonResponse.json()).summons;
   } catch (error) {
-    $("deck-state").textContent = error instanceof Error ? error.message : "武器カタログを読み込めませんでした";
+    $("deck-state").textContent = error instanceof Error ? error.message : "装備カタログを読み込めませんでした";
     $("deck-state").classList.add("error-text");
   }
   renderWeaponEditor();
