@@ -20,6 +20,8 @@ export interface DeckSkill {
 export type WeaponSkillEffectKind =
   | "normal-attack-up"
   | "critical-rate-up"
+  | "double-attack-rate-up"
+  | "triple-attack-rate-up"
   | "elemental-pursuit"
   | "normal-skill-boost";
 
@@ -258,10 +260,19 @@ export interface DeckJob {
   weaponKindCodes: string[];
   baseDoubleAttackRate?: number;
   baseTripleAttackRate?: number;
+  multiattackRateBonuses?: DeckJobMultiattackRateBonus[];
   level?: number;
   masterLevel?: number;
   perfectionProofLevel?: number;
   damageModifiers?: DamageModifier[];
+}
+
+export interface DeckJobMultiattackRateBonus {
+  sourceType: "job-level" | "master-level" | "perfection-proof";
+  level: number;
+  doubleAttackRatePercent: number;
+  tripleAttackRatePercent: number;
+  verificationStatus: "検証済み" | "下書き";
 }
 
 export interface Protagonist extends DeckStats {
@@ -317,6 +328,8 @@ export interface CalculatorDeckProtagonistConfig {
   jobLevel?: number;
   masterLevel?: number;
   perfectionProofLevel?: number;
+  baseDoubleAttackRate?: number;
+  baseTripleAttackRate?: number;
   attackOverride?: number;
   hpOverride?: number;
 }

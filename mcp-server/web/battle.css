@@ -46,11 +46,11 @@
 .mode-segment { display: flex; padding: 3px; border-radius: 999px; background: rgba(9,7,18,.45); }
 .mode-button { min-width: 86px; min-height: 38px; padding: 7px 14px; border: 0; border-radius: 999px; color: #d6cfeb; background: transparent; font-weight: 850; }
 .mode-button.selected { color: #21173f; background: #d9cdff; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
-.multiattack-inputs { display: flex; gap: 9px; }
-.multiattack-inputs label { display: grid; gap: 5px; color: #d6cfeb; font-size: .67rem; font-weight: 850; }
-.rate-field { min-height: 38px; padding: 0 10px; display: flex; align-items: center; border: 1px solid rgba(255,255,255,.18); border-radius: 13px; background: rgba(9,7,18,.34); }
-.rate-field input { width: 60px; border: 0; outline: 0; color: white; background: transparent; font: inherit; font-size: .82rem; }
-.rate-field b { color: #aaa2bd; }
+.multiattack-summary { display: grid; grid-template-columns: repeat(2, minmax(82px, 1fr)); gap: 6px 9px; }
+.multiattack-summary > div { min-height: 44px; padding: 6px 11px; display: grid; grid-template-columns: auto auto; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.18); border-radius: 13px; background: rgba(9,7,18,.34); }
+.multiattack-summary span { color: #bdb5d1; font-size: .67rem; font-weight: 850; }
+.multiattack-summary strong { color: white; text-align: right; font-size: .92rem; font-variant-numeric: tabular-nums; }
+.multiattack-summary small { grid-column: 1 / -1; color: #aaa2bd; text-align: center; font-size: .62rem; }
 .action-guidance { margin: 0; padding: 0 22px 22px; color: #cfc7df; text-align: center; font-size: .78rem; }
 .battle-columns { display: grid; grid-template-columns: minmax(320px, .95fr) minmax(300px, .82fr) minmax(350px, 1.1fr); gap: 20px; align-items: start; }
 .party-surface, .command-surface, .timeline-surface { min-width: 0; }
@@ -98,4 +98,4 @@
 .log-copy { margin-top: 3px; font-size: .75rem; }
 .log-note { margin-top: 3px; color: var(--ink-soft); font-size: .67rem; }
 @media (max-width: 1120px) { .battle-columns { grid-template-columns: 1fr 1fr; } .timeline-surface { grid-column: 1 / -1; } }
-@media (max-width: 720px) { .battle-workspace { width: min(100% - 20px, 1580px); } .turn-strip { grid-template-columns: 1fr auto; } .battle-status { display: none; } .enemy-card { grid-template-columns: 1fr; } .enemy-emblem { width: 58px; height: 58px; } .battle-columns { grid-template-columns: 1fr; } .timeline-surface { grid-column: auto; } .attack-button { min-width: 0; flex: 1; padding-inline: 16px; } .header-actions .privacy-chip { display: none; } .simulation-controls { align-items: stretch; flex-direction: column; } .mode-segment { width: 100%; } .mode-button { min-width: 0; flex: 1; } .multiattack-inputs label { flex: 1; } .rate-field input { width: 100%; } }
+@media (max-width: 720px) { .battle-workspace { width: min(100% - 20px, 1580px); } .turn-strip { grid-template-columns: 1fr auto; } .battle-status { display: none; } .enemy-card { grid-template-columns: 1fr; } .enemy-emblem { width: 58px; height: 58px; } .battle-columns { grid-template-columns: 1fr; } .timeline-surface { grid-column: auto; } .attack-button { min-width: 0; flex: 1; padding-inline: 16px; } .header-actions .privacy-chip { display: none; } .simulation-controls { align-items: stretch; flex-direction: column; } .mode-segment { width: 100%; } .mode-button { min-width: 0; flex: 1; } }

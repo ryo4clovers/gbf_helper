@@ -27,6 +27,7 @@ const finiteNumberSchema = z
 
 const nonNegativeNumberSchema = finiteNumberSchema.pipe(z.number().nonnegative());
 const nonNegativeIntegerSchema = finiteNumberSchema.pipe(z.number().int().nonnegative());
+const ratePercentSchema = finiteNumberSchema.pipe(z.number().min(0).max(100));
 const equipmentPlusMarkSchema = finiteNumberSchema.pipe(z.number().int().min(0).max(99));
 const positiveSlotSchema = finiteNumberSchema.pipe(z.number().int().positive());
 const nameHintSchema = z.string().trim().min(1).optional();
@@ -46,6 +47,8 @@ const protagonistSchema = z
     jobLevel: nonNegativeIntegerSchema.optional(),
     masterLevel: nonNegativeIntegerSchema.optional(),
     perfectionProofLevel: nonNegativeIntegerSchema.optional(),
+    baseDoubleAttackRate: ratePercentSchema.optional(),
+    baseTripleAttackRate: ratePercentSchema.optional(),
     attackOverride: nonNegativeNumberSchema.optional(),
     hpOverride: nonNegativeNumberSchema.optional(),
   })
@@ -191,6 +194,8 @@ export function convertDeckResponseToCalculatorDeckConfig(input: unknown): Calcu
       jobLevel: snapshot.protagonist.job?.level,
       masterLevel: snapshot.protagonist.job?.masterLevel,
       perfectionProofLevel: snapshot.protagonist.job?.perfectionProofLevel,
+      baseDoubleAttackRate: snapshot.protagonist.job?.baseDoubleAttackRate,
+      baseTripleAttackRate: snapshot.protagonist.job?.baseTripleAttackRate,
       attackOverride: snapshot.protagonist.attack,
       hpOverride: snapshot.protagonist.hp,
     },

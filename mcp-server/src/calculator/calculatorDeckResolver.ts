@@ -5,7 +5,12 @@ import { loadJobFallbackWeaponCatalog } from "./jobFallbackWeaponCatalog.js";
 import { loadIncrementalSummonCatalog } from "./summonCatalog.js";
 import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 import { resolveEffectiveWeaponSkillEffects } from "./weaponEffectResolver.js";
-import type { CalculatorDeckConfig, DeckSnapshot, ResolvedSupportSummon } from "./types.js";
+import type {
+  CalculatorDeckConfig,
+  DeckJobMultiattackRateBonus,
+  DeckSnapshot,
+  ResolvedSupportSummon,
+} from "./types.js";
 
 export type CalculatorDeckResolutionIssueCode =
   | "missing-stat-override"
@@ -79,6 +84,21 @@ export function resolveCalculatorDeckConfig(
   const summonCatalog = loadIncrementalSummonCatalog();
   const issues: CalculatorDeckResolutionIssue[] = [];
   const selectedJob = jobCatalog.jobs.find((job) => job.jobId === config.protagonist.jobId);
+  const jobVerificationStatus: "検証済み" | "下書き" =
+    selectedJob?.verificationStatus === "検証済み" ? "検証済み" : "下書き";
+  const multiattackRateBonuses: DeckJobMultiattackRateBonus[] = selectedJob === undefined
+    ? []
+    : [
+        ...selectedJob.jobLevelMultiattackBonuses
+          .filter((bonus) => bonus.level <= (config.protagonist.jobLevel ?? 0))
+          .map((bonus) => ({ ...bonus, sourceType: "job-level" as const, verificationStatus: jobVerificationStatus })),
+        ...selectedJob.masterLevelMultiattackBonuses
+          .filter((bonus) => bonus.level <= (config.protagonist.masterLevel ?? 0))
+          .map((bonus) => ({ ...bonus, sourceType: "master-level" as const, verificationStatus: jobVerificationStatus })),
+        ...selectedJob.perfectionProofMultiattackBonuses
+          .filter((bonus) => bonus.level <= (config.protagonist.perfectionProofLevel ?? 0))
+          .map((bonus) => ({ ...bonus, sourceType: "perfection-proof" as const, verificationStatus: jobVerificationStatus })),
+      ];
 
   appendMissingStatIssues(
     issues,
@@ -91,7 +111,7 @@ export function resolveCalculatorDeckConfig(
       severity: "warning",
       code: "job-master-data-unresolved",
       path: "protagonist.jobId",
-      message: `ジョブ ${selectedJob?.name ?? config.protagonist.jobId} の得意武器は解決済みですが、戦闘用マスターデータは未解決です。`,
+      message: `ジョブ ${selectedJob?.name ?? config.protagonist.jobId} の得意武器と登録済み連続攻撃率は解決済みですが、その他の戦闘用マスターデータは未解決です。`,
     });
   }
 
@@ -189,6 +209,11 @@ export function resolveCalculatorDeckConfig(
               masterId: config.protagonist.jobId,
               name: selectedJob?.name ?? config.protagonist.jobNameHint,
               weaponKindCodes: selectedJob?.weaponKinds.map((weaponKind) => weaponKind.code) ?? [],
+              baseDoubleAttackRate:
+                config.protagonist.baseDoubleAttackRate ?? selectedJob?.baseDoubleAttackRate,
+              baseTripleAttackRate:
+                config.protagonist.baseTripleAttackRate ?? selectedJob?.baseTripleAttackRate,
+              multiattackRateBonuses,
               level: config.protagonist.jobLevel,
               masterLevel: config.protagonist.masterLevel,
               perfectionProofLevel: config.protagonist.perfectionProofLevel,

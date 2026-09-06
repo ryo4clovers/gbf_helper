@@ -47,7 +47,7 @@ test("converts a game response without retaining instance IDs or displayed calcu
       pc: {
         param: { id: "private-protagonist", attack: "16255", hp: 3504, attribute: 1 },
         job: {
-          master: { id: "110001", name: "ナイト", weapon1: "1", weapon2: "3" },
+          master: { id: "110001", name: "ナイト", weapon1: "1", weapon2: "3", da_odds: "7", ta_odds: 3 },
           param: { level: "20", master_level: 1, perfection_proof_level: "0" },
         },
         weapons: {
@@ -95,6 +95,8 @@ test("converts a game response without retaining instance IDs or displayed calcu
       jobLevel: 20,
       masterLevel: 1,
       perfectionProofLevel: 0,
+      baseDoubleAttackRate: 7,
+      baseTripleAttackRate: 3,
       attackOverride: 16255,
       hpOverride: 3504,
     },

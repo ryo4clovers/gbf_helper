@@ -131,6 +131,8 @@ let state = structuredClone(initialState);
 let history = [];
 let actionPending = false;
 let simulationMode = SIMULATION_MODES.normal;
+let calculationPromise = null;
+let calculatedMultiattackRates = null;
 
 const modeGuidance = {
   normal: "通常：乱数・クリティカル・連続攻撃を発生率に従って抽選します。",
@@ -138,9 +140,38 @@ const modeGuidance = {
   upside: "上振れ：最高乱数。発生率が正のクリティカルとDA/TAは必ず発動します。",
 };
 
-function enteredRate(id) {
-  const value = Number($(id).value);
-  return Number.isFinite(value) ? Math.min(100, Math.max(0, value)) : 0;
+async function getCalculationResult() {
+  calculationPromise ??= postCalculation(setup.request).catch((error) => {
+    calculationPromise = null;
+    throw error;
+  });
+  return calculationPromise;
+}
+
+function acceptCalculatedRates(result) {
+  calculatedMultiattackRates = result.multiattackRates;
+}
+
+function renderMultiattackRates() {
+  const rates = calculatedMultiattackRates;
+  if (rates === null) {
+    $("double-attack-rate").textContent = "計算中";
+    $("triple-attack-rate").textContent = "計算中";
+    return;
+  }
+  $("double-attack-rate").textContent = `${numberFormat.format(rates.doubleAttackRatePercent)}%`;
+  $("triple-attack-rate").textContent = `${numberFormat.format(rates.tripleAttackRatePercent)}%`;
+  const unresolved = rates.issues.includes("job-base-rate-unresolved");
+  const characterEffects = rates.issues.includes("character-effects-unresolved");
+  $("multiattack-scope").textContent = unresolved
+    ? "ジョブ基礎率が未登録のため一部未反映"
+    : characterEffects
+      ? "ジョブ・武器から自動計算（キャラ効果未反映）"
+      : "ジョブ・武器から自動計算";
+  const breakdown = rates.contributions
+    .map((contribution) => `${contribution.sourceName}: DA ${contribution.doubleAttackRatePercent}% / TA ${contribution.tripleAttackRatePercent}%`)
+    .join("\n");
+  $("multiattack-scope").title = breakdown;
 }
 
 function percent(current, maximum) {
@@ -275,6 +306,7 @@ function render() {
     button.classList.toggle("selected", selected);
     button.setAttribute("aria-pressed", String(selected));
   }
+  renderMultiattackRates();
   renderEnemy();
   renderParty();
   renderSummons();
@@ -289,17 +321,16 @@ async function attack(ougiEnabled) {
     return;
   }
   const selectedMode = simulationMode;
-  const doubleAttackRate = enteredRate("double-attack-rate");
-  const tripleAttackRate = enteredRate("triple-attack-rate");
   actionPending = true;
   render();
   try {
-    const result = await postCalculation(setup.request);
+    const result = await getCalculationResult();
+    acceptCalculatedRates(result);
     const note = ougiEnabled ? "奥義ゲージ不足のため通常攻撃" : "通常攻撃";
     const attackCount = resolveAttackCount(
       selectedMode,
-      doubleAttackRate,
-      tripleAttackRate,
+      result.multiattackRates.doubleAttackRatePercent,
+      result.multiattackRates.tripleAttackRatePercent,
     );
     commit(applyAttack(state, damagePackets(result, setup.request, selectedMode, attackCount, note)));
   } catch (error) {
@@ -318,9 +349,6 @@ for (const button of document.querySelectorAll("[data-simulation-mode]")) {
     render();
   });
 }
-for (const input of [$("double-attack-rate"), $("triple-attack-rate")]) {
-  input.addEventListener("change", () => { input.value = String(enteredRate(input.id)); });
-}
 $("undo-action").addEventListener("click", () => {
   const previous = history.pop();
   if (!previous) return;
@@ -337,3 +365,11 @@ for (const button of document.querySelectorAll("[data-item]")) {
 }
 
 render();
+void getCalculationResult()
+  .then((result) => {
+    acceptCalculatedRates(result);
+    render();
+  })
+  .catch((error) => {
+    $("multiattack-scope").textContent = error instanceof Error ? error.message : "連続攻撃率を計算できませんでした";
+  });

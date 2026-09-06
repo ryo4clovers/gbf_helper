@@ -24,6 +24,10 @@ import {
   type NominalDamagePreparation,
 } from "./randomMultiplierInference.js";
 import type { DamageCalculationInput } from "./types.js";
+import {
+  calculateProtagonistMultiattackRates,
+  type ProtagonistMultiattackRateResult,
+} from "./multiattackRateCalculator.js";
 
 export interface NormalAttackDamageOptions {
   baseDamageModel?: BaseDamageCalculationModel;
@@ -57,6 +61,7 @@ export interface NormalAttackDamageResult {
   bodyDamageDistribution: DamageDistributionSummary;
   criticalBodyDamage?: CriticalBodyDamageResult;
   pursuitDamage?: EffectivePursuitDamageResult;
+  multiattackRates: ProtagonistMultiattackRateResult;
   totalDamageDistribution: CombinedNormalAttackDistribution;
   issues: Array<
     | "damage-cap-unresolved"
@@ -138,6 +143,7 @@ export function calculateNormalAttackDamage(
     bodyDamageDistribution,
     criticalBodyDamage,
     pursuitDamage,
+    multiattackRates: calculateProtagonistMultiattackRates(input.deck),
     totalDamageDistribution: {
       schemaVersion: 1,
       model: "independent-discrete-components",

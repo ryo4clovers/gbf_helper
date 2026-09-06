@@ -5,7 +5,14 @@ import type { WeaponMasterCatalogEntry, WeaponSkillCatalogEntry } from "./types.
 const statusSchema = z.enum(["検証済み", "下書き"]);
 const effectSchema = z
   .object({
-    kind: z.enum(["normal-attack-up", "critical-rate-up", "elemental-pursuit", "normal-skill-boost"]),
+    kind: z.enum([
+      "normal-attack-up",
+      "critical-rate-up",
+      "double-attack-rate-up",
+      "triple-attack-rate-up",
+      "elemental-pursuit",
+      "normal-skill-boost",
+    ]),
     elementCode: z.string().min(1).optional(),
     amountPercent: z.number().finite(),
     skillLevel: z.number().int().nonnegative().optional(),

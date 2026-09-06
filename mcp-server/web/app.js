@@ -251,6 +251,8 @@ function selectJob(job) {
     delete config.protagonist.jobLevel;
     delete config.protagonist.masterLevel;
     delete config.protagonist.perfectionProofLevel;
+    delete config.protagonist.baseDoubleAttackRate;
+    delete config.protagonist.baseTripleAttackRate;
   }
   config.protagonist.jobId = job.jobId;
   config.protagonist.jobNameHint = job.name;
@@ -267,6 +269,8 @@ function removeSelectedJob() {
   delete config.protagonist.jobLevel;
   delete config.protagonist.masterLevel;
   delete config.protagonist.perfectionProofLevel;
+  delete config.protagonist.baseDoubleAttackRate;
+  delete config.protagonist.baseTripleAttackRate;
   writeDeckConfig(config);
   renderWeaponEditor();
   $("job-picker").close();

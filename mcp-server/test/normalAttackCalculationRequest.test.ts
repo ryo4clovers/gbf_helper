@@ -109,6 +109,14 @@ function agniRequest() {
   };
 }
 
+test("resolves protagonist DA and TA rates from the selected job", () => {
+  const response = calculateNormalAttackFromRequest(agniRequest());
+
+  assert.equal(response.result.multiattackRates.doubleAttackRatePercent, 7);
+  assert.equal(response.result.multiattackRates.tripleAttackRatePercent, 3);
+  assert.equal(response.result.multiattackRates.contributions[0]?.sourceName, "ナイト 基礎率");
+});
+
 test("serves the same normal attack calculation to Web and MCP callers", () => {
   const response = calculateNormalAttackFromRequest(request());
 
