@@ -53,7 +53,7 @@ test("resolves an override-backed calculator config without inventing instance I
   assert.equal(result.mode, "catalog-with-overrides");
   assert.equal(result.deck.protagonist.attack, 16255);
   assert.equal(result.deck.protagonist.job?.masterId, "110001");
-  assert.deepEqual(result.deck.protagonist.job?.weaponKindCodes, []);
+  assert.deepEqual(result.deck.protagonist.job?.weaponKindCodes, ["1", "3"]);
   assert.equal(result.deck.weapons[0].isJobFallback, true);
   assert.equal(result.deck.weapons[1].masterId, "1040218900");
   assert.equal(result.deck.weapons[1].skillLevel, 15);
@@ -104,6 +104,88 @@ test("resolves an override-backed calculator config without inventing instance I
       "job-master-data-unresolved",
       "unverified-weapon-skill",
     ],
+  );
+});
+
+test("warns without removing a main weapon that the selected job cannot equip", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: {
+      jobId: "100501",
+      attackOverride: 1,
+      hpOverride: 1,
+    },
+    weapons: [
+      {
+        slot: 1,
+        position: "main",
+        weaponId: "1040201400",
+        nameHint: "イフリートハルベルト",
+        attackOverride: 1,
+        hpOverride: 1,
+      },
+    ],
+  });
+
+  const compatibilityIssue = result.issues.find(
+    (issue) => issue.code === "main-weapon-incompatible-with-job",
+  );
+  assert.deepEqual(result.deck.protagonist.job?.weaponKindCodes, ["1", "4"]);
+  assert.equal(result.deck.weapons[0].masterId, "1040201400");
+  assert.equal(compatibilityIssue?.path, "weapons.0.weaponId");
+  assert.match(compatibilityIssue?.message ?? "", /ファイター・オリジン.*剣 \/ 斧.*イフリートハルベルト.*槍/);
+});
+
+test("accepts a compatible main weapon without a compatibility warning", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { jobId: "100501", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 1,
+        position: "main",
+        weaponId: "1010000400",
+        isJobFallback: true,
+        attackOverride: 70,
+        hpOverride: 6,
+      },
+    ],
+  });
+
+  assert.equal(
+    result.issues.some((issue) => issue.code === "main-weapon-incompatible-with-job"),
+    false,
+  );
+});
+
+test("checks a fallback main weapon through the dedicated fallback catalog", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { jobId: "100501", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 1,
+        position: "main",
+        weaponId: "1010200500",
+        isJobFallback: true,
+        attackOverride: 65,
+        hpOverride: 7,
+      },
+    ],
+  });
+
+  assert.equal(result.deck.weapons[0].name, "ブロンズスピア");
+  assert.equal(result.deck.weapons[0].weaponKindCode, "3");
+  assert.equal(
+    result.issues.some((issue) => issue.code === "weapon-master-data-unresolved"),
+    false,
+  );
+  assert.equal(
+    result.issues.some((issue) => issue.code === "main-weapon-incompatible-with-job"),
+    true,
   );
 });
 

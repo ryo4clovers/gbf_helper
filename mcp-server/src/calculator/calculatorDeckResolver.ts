@@ -1,4 +1,6 @@
 import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
+import { createSelectableJobCatalog } from "./jobCatalogView.js";
+import { loadJobFallbackWeaponCatalog } from "./jobFallbackWeaponCatalog.js";
 import { loadIncrementalSummonCatalog } from "./summonCatalog.js";
 import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 import { resolveEffectiveWeaponSkillEffects } from "./weaponEffectResolver.js";
@@ -7,6 +9,7 @@ import type { CalculatorDeckConfig, DeckSnapshot } from "./types.js";
 export type CalculatorDeckResolutionIssueCode =
   | "missing-stat-override"
   | "job-master-data-unresolved"
+  | "main-weapon-incompatible-with-job"
   | "weapon-master-data-unresolved"
   | "weapon-skill-data-unresolved"
   | "unverified-weapon-skill"
@@ -60,8 +63,11 @@ function appendMissingStatIssues(
 export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResolution {
   const config: CalculatorDeckConfig = parseCalculatorDeckConfig(input);
   const catalog = loadIncrementalWeaponCatalog();
+  const fallbackWeaponCatalog = loadJobFallbackWeaponCatalog();
+  const jobCatalog = createSelectableJobCatalog();
   const summonCatalog = loadIncrementalSummonCatalog();
   const issues: CalculatorDeckResolutionIssue[] = [];
+  const selectedJob = jobCatalog.jobs.find((job) => job.jobId === config.protagonist.jobId);
 
   appendMissingStatIssues(
     issues,
@@ -74,14 +80,17 @@ export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResol
       severity: "warning",
       code: "job-master-data-unresolved",
       path: "protagonist.jobId",
-      message: `Job ${config.protagonist.jobId} is identified, but its master data is not resolved yet.`,
+      message: `ジョブ ${selectedJob?.name ?? config.protagonist.jobId} の得意武器は解決済みですが、戦闘用マスターデータは未解決です。`,
     });
   }
 
   config.weapons.forEach((weapon, index) => {
     appendMissingStatIssues(issues, `weapons.${index}`, weapon.attackOverride, weapon.hpOverride);
     const master = catalog.weapons.get(weapon.weaponId);
-    if (master === undefined) {
+    const fallbackMaster = weapon.isJobFallback
+      ? fallbackWeaponCatalog.byWeaponId.get(weapon.weaponId)
+      : undefined;
+    if (master === undefined && fallbackMaster === undefined) {
       issues.push({
         severity: "warning",
         code: "weapon-master-data-unresolved",
@@ -90,7 +99,7 @@ export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResol
       });
       return;
     }
-    master.skillSlots.forEach((slot) => {
+    master?.skillSlots.forEach((slot) => {
       const skill = catalog.skills.get(slot.skillId);
       if (skill === undefined) {
         issues.push({
@@ -109,6 +118,31 @@ export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResol
       }
     });
   });
+
+  const mainWeaponIndex = config.weapons.findIndex((weapon) => weapon.position === "main");
+  const mainWeapon = config.weapons[mainWeaponIndex];
+  if (selectedJob !== undefined && mainWeapon !== undefined) {
+    const regularMaster = catalog.weapons.get(mainWeapon.weaponId);
+    const fallbackMaster = mainWeapon.isJobFallback
+      ? fallbackWeaponCatalog.byWeaponId.get(mainWeapon.weaponId)
+      : undefined;
+    const weaponKindCode = regularMaster?.weaponKindCode ?? fallbackMaster?.weaponKindCode;
+    if (
+      weaponKindCode !== undefined &&
+      !selectedJob.weaponKinds.some((weaponKind) => weaponKind.code === weaponKindCode)
+    ) {
+      const allowedNames = selectedJob.weaponKinds.map((weaponKind) => weaponKind.name).join(" / ");
+      const selectedKindName = jobCatalog.jobs
+        .flatMap((job) => job.weaponKinds)
+        .find((weaponKind) => weaponKind.code === weaponKindCode)?.name;
+      issues.push({
+        severity: "warning",
+        code: "main-weapon-incompatible-with-job",
+        path: `weapons.${mainWeaponIndex}.weaponId`,
+        message: `${selectedJob.name}の得意武器は${allowedNames}です。メイン武器「${regularMaster?.name ?? fallbackMaster?.name ?? mainWeapon.nameHint ?? mainWeapon.weaponId}」${selectedKindName === undefined ? "" : `（${selectedKindName}）`}は装備できません。設定は自動削除していません。`,
+      });
+    }
+  }
   config.summons.forEach((summon, index) => {
     appendMissingStatIssues(issues, `summons.${index}`, summon.attackOverride, summon.hpOverride);
     if (!summonCatalog.summons.has(summon.summonId)) {
@@ -142,7 +176,8 @@ export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResol
           ? undefined
           : {
               masterId: config.protagonist.jobId,
-              weaponKindCodes: [],
+              name: selectedJob?.name ?? config.protagonist.jobNameHint,
+              weaponKindCodes: selectedJob?.weaponKinds.map((weaponKind) => weaponKind.code) ?? [],
               level: config.protagonist.jobLevel,
               masterLevel: config.protagonist.masterLevel,
               perfectionProofLevel: config.protagonist.perfectionProofLevel,
@@ -150,6 +185,9 @@ export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResol
     },
     weapons: config.weapons.map((weapon) => {
       const master = catalog.weapons.get(weapon.weaponId);
+      const fallbackMaster = weapon.isJobFallback
+        ? fallbackWeaponCatalog.byWeaponId.get(weapon.weaponId)
+        : undefined;
       const skills =
         master?.skillSlots.flatMap((slot) => {
           const skill = catalog.skills.get(slot.skillId);
@@ -172,10 +210,10 @@ export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResol
         position: weapon.position,
         masterId: weapon.weaponId,
         isJobFallback: weapon.isJobFallback,
-        name: master?.name ?? weapon.nameHint,
-        elementCode: master?.elementCode,
-        weaponKindCode: master?.weaponKindCode,
-        rarityCode: master?.rarityCode,
+        name: master?.name ?? fallbackMaster?.name ?? weapon.nameHint,
+        elementCode: master?.elementCode ?? fallbackMaster?.elementCode,
+        weaponKindCode: master?.weaponKindCode ?? fallbackMaster?.weaponKindCode,
+        rarityCode: master?.rarityCode ?? fallbackMaster?.rarityCode,
         seriesId: master?.seriesId,
         level: weapon.level,
         skillLevel: weapon.skillLevel,

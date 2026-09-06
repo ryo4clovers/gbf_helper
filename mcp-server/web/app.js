@@ -37,6 +37,7 @@ const elementMeta = {
 const weaponKindSymbols = { "1": "⚔", "2": "⌁", "3": "♜", "4": "⌁", "5": "✣", "6": "⌖", "7": "◈", "8": "✧", "9": "♩", "10": "◒" };
 let jobCatalog = [];
 let weaponCatalog = [];
+let fallbackWeaponCatalog = [];
 let editingWeaponSlot = null;
 let summonCatalog = [];
 let editingSummonSlot = null;
@@ -183,7 +184,7 @@ function selectJob(job) {
   config.protagonist.jobId = job.jobId;
   config.protagonist.jobNameHint = job.name;
   writeDeckConfig(config);
-  renderJobEditor(config);
+  renderWeaponEditor();
   $("job-picker").close();
   void calculate();
 }
@@ -196,13 +197,39 @@ function removeSelectedJob() {
   delete config.protagonist.masterLevel;
   delete config.protagonist.perfectionProofLevel;
   writeDeckConfig(config);
-  renderJobEditor(config);
+  renderWeaponEditor();
   $("job-picker").close();
   void calculate();
 }
 
 function catalogWeapon(weaponId) {
   return weaponCatalog.find((weapon) => weapon.weaponId === weaponId);
+}
+
+function catalogFallbackWeapon(weaponId) {
+  return fallbackWeaponCatalog.find((weapon) => weapon.weaponId === weaponId);
+}
+
+function renderMainWeaponCompatibility(config) {
+  const warning = $("weapon-compatibility-warning");
+  const job = config.protagonist.jobId ? catalogJob(config.protagonist.jobId) : undefined;
+  const mainWeapon = config.weapons.find((weapon) => weapon.position === "main");
+  const master = mainWeapon
+    ? mainWeapon.isJobFallback === true
+      ? catalogFallbackWeapon(mainWeapon.weaponId)
+      : catalogWeapon(mainWeapon.weaponId)
+    : undefined;
+  if (!job || !mainWeapon || !master || job.weaponKinds.some((kind) => kind.code === master.weaponKindCode)) {
+    warning.hidden = true;
+    warning.textContent = "";
+    return;
+  }
+  const allowedNames = job.weaponKinds.map((kind) => kind.name).join(" / ");
+  const selectedKindName = jobCatalog
+    .flatMap((entry) => entry.weaponKinds)
+    .find((kind) => kind.code === master.weaponKindCode)?.name ?? `武器種${master.weaponKindCode}`;
+  warning.textContent = `⚠ ${job.name}の得意武器は${allowedNames}です。メイン武器「${master.name}」（${selectedKindName}）は装備できません。計算用設定は保持しています。`;
+  warning.hidden = false;
 }
 
 function weaponForSlot(config, slot) {
@@ -213,7 +240,11 @@ function weaponForSlot(config, slot) {
 function createWeaponSlot(config, slot) {
   const weapon = weaponForSlot(config, slot);
   const isJobFallback = slot === 1 && weapon?.isJobFallback === true;
-  const master = weapon ? catalogWeapon(weapon.weaponId) : undefined;
+  const master = weapon
+    ? isJobFallback
+      ? catalogFallbackWeapon(weapon.weaponId)
+      : catalogWeapon(weapon.weaponId)
+    : undefined;
   const element = master ? elementMeta[master.elementCode] : undefined;
   const article = document.createElement("article");
   article.className = `weapon-slot ${slot === 1 ? "main-slot" : "grid-slot"} ${weapon && !isJobFallback ? "occupied" : "empty"} ${isJobFallback ? "job-fallback" : ""}`;
@@ -290,6 +321,7 @@ function renderWeaponEditor() {
   try {
     const config = readDeckConfig();
     renderJobEditor(config);
+    renderMainWeaponCompatibility(config);
     const mainSlot = $("main-weapon-slot");
     const grid = $("weapon-grid");
     mainSlot.replaceChildren(createWeaponSlot(config, 1));
@@ -856,14 +888,16 @@ $("summon-picker").addEventListener("click", (event) => {
 
 async function initialize() {
   try {
-    const [jobResponse, weaponResponse, summonResponse] = await Promise.all([
+    const [jobResponse, weaponResponse, fallbackWeaponResponse, summonResponse] = await Promise.all([
       fetch("/api/catalog/jobs"),
       fetch("/api/catalog/weapons"),
+      fetch("/api/catalog/job-fallback-weapons"),
       fetch("/api/catalog/summons"),
     ]);
-    if (!jobResponse.ok || !weaponResponse.ok || !summonResponse.ok) throw new Error("編成カタログを読み込めませんでした");
+    if (!jobResponse.ok || !weaponResponse.ok || !fallbackWeaponResponse.ok || !summonResponse.ok) throw new Error("編成カタログを読み込めませんでした");
     jobCatalog = (await jobResponse.json()).jobs;
     weaponCatalog = (await weaponResponse.json()).weapons;
+    fallbackWeaponCatalog = (await fallbackWeaponResponse.json()).weapons;
     summonCatalog = (await summonResponse.json()).summons;
   } catch (error) {
     $("deck-state").textContent = error instanceof Error ? error.message : "編成カタログを読み込めませんでした";

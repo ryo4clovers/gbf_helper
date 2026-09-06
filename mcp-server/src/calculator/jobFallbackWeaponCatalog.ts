@@ -34,6 +34,7 @@ export interface JobFallbackWeaponCatalog {
   schemaVersion: 1;
   weapons: JobFallbackWeapon[];
   byWeaponKindCode: Map<string, JobFallbackWeapon>;
+  byWeaponId: Map<string, JobFallbackWeapon>;
 }
 
 export interface JobFallbackWeaponCatalogView {
@@ -46,18 +47,18 @@ export function loadJobFallbackWeaponCatalog(): JobFallbackWeaponCatalog {
   const path = new URL("../../catalog/job-fallback-weapons.v1.json", import.meta.url);
   const file = fallbackCatalogSchema.parse(JSON.parse(readFileSync(path, "utf8")));
   const byWeaponKindCode = new Map<string, JobFallbackWeapon>();
-  const weaponIds = new Set<string>();
+  const byWeaponId = new Map<string, JobFallbackWeapon>();
   for (const weapon of file.weapons) {
     if (byWeaponKindCode.has(weapon.weaponKindCode)) {
       throw new Error(`duplicate fallback weapon kind: ${weapon.weaponKindCode}`);
     }
-    if (weaponIds.has(weapon.weaponId)) {
+    if (byWeaponId.has(weapon.weaponId)) {
       throw new Error(`duplicate fallback weapon ID: ${weapon.weaponId}`);
     }
     byWeaponKindCode.set(weapon.weaponKindCode, weapon);
-    weaponIds.add(weapon.weaponId);
+    byWeaponId.set(weapon.weaponId, weapon);
   }
-  return { schemaVersion: 1, weapons: file.weapons, byWeaponKindCode };
+  return { schemaVersion: 1, weapons: file.weapons, byWeaponKindCode, byWeaponId };
 }
 
 export function resolveJobFallbackWeapon(
