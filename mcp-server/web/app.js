@@ -14,7 +14,7 @@ const defaultDeck = {
   },
   weapons: [
     { slot: 1, position: "main", weaponId: "1040201400", nameHint: "イフリートハルベルト", skillLevel: 15, attackOverride: 2170, hpOverride: 241 },
-    { slot: 2, position: "grid", weaponId: "1040218900", nameHint: "オーバーライド", skillLevel: 15, attackOverride: 3609, hpOverride: 430 },
+    { slot: 2, position: "grid", weaponId: "1040218900", nameHint: "オーバーライド", skillLevel: 15, plusMark: 99, attackOverride: 3609, hpOverride: 430 },
   ],
   summons: [
     { slot: 1, position: "main", summonId: "2030051000", nameHint: "シルフィードベル", level: 75, uncapLevel: 3, attackOverride: 865, hpOverride: 433 },

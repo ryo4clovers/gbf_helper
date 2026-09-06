@@ -25,6 +25,7 @@
         "weaponId": "1040218900",
         "nameHint": "オーバーライド",
         "skillLevel": 15,
+        "plusMark": 99,
         "attackOverride": 3609,
         "hpOverride": 430
       }
