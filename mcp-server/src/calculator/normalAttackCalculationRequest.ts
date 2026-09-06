@@ -17,6 +17,9 @@ const optionalPercent = z.number().finite().min(0).max(1000).optional();
 const requestSchema = z
   .object({
     schemaVersion: z.literal(1),
+    calculationModel: z
+      .enum(["defense-first-provisional", "article-2026-07-experimental"])
+      .optional(),
     deckConfig: z.unknown(),
     supportSummon: z
       .object({
@@ -191,6 +194,7 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
     schemaVersion: 1,
     deckResolutionIssues: resolution.issues,
     result: calculateNormalAttackDamage(calculationInput, {
+      baseDamageModel: request.calculationModel,
       multiplierMin: request.random?.minimum,
       multiplierMax: request.random?.maximum,
       multiplierStep: request.random?.step,

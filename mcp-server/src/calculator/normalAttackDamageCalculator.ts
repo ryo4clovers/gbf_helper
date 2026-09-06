@@ -1,8 +1,10 @@
 import {
   calculateDefenseAdjustedBaseDamage,
   elementalSuperiorityPercent,
+  type BaseDamageCalculationModel,
   type DefenseAdjustedBaseDamageResult,
 } from "./baseDamageCalculator.js";
+import { calculateArticleBaseDamage } from "./articleBaseDamageCalculator.js";
 import {
   calculateBattleNormalAttackPower,
   type NormalAttackPowerResult,
@@ -24,12 +26,15 @@ import {
 import type { DamageCalculationInput } from "./types.js";
 
 export interface NormalAttackDamageOptions {
+  baseDamageModel?: BaseDamageCalculationModel;
   multiplierMin?: number;
   multiplierMax?: number;
   multiplierStep?: number;
   bodyNominalPreparation?: NominalDamagePreparation;
   pursuitNominalPreparation?: NominalDamagePreparation;
   finalRounding?: FinalDamageRounding;
+  bodyFinalRounding?: FinalDamageRounding;
+  pursuitFinalRounding?: FinalDamageRounding;
   pursuitSourceSkillId?: string;
 }
 
@@ -80,7 +85,11 @@ export function calculateNormalAttackDamage(
   options: NormalAttackDamageOptions = {},
 ): NormalAttackDamageResult {
   const attackPower = calculateBattleNormalAttackPower(input.deck, input.battle);
-  const baseDamage = calculateDefenseAdjustedBaseDamage(input, attackPower);
+  const baseDamageModel = options.baseDamageModel ?? "defense-first-provisional";
+  const baseDamage =
+    baseDamageModel === "article-2026-07-experimental"
+      ? calculateArticleBaseDamage(input, attackPower)
+      : calculateDefenseAdjustedBaseDamage(input, attackPower);
   const sharedRandomOptions = {
     multiplierMin: options.multiplierMin,
     multiplierMax: options.multiplierMax,
@@ -89,14 +98,17 @@ export function calculateNormalAttackDamage(
   const bodyDamageDistribution = summarizeDamageDistribution(baseDamage.unroundedDamageBeforeRandomAndCap, {
     ...sharedRandomOptions,
     nominalPreparation: options.bodyNominalPreparation ?? "none",
-    finalRounding: options.finalRounding ?? "floor",
+    finalRounding:
+      options.bodyFinalRounding ??
+      options.finalRounding ??
+      (baseDamageModel === "article-2026-07-experimental" ? "ceil" : "floor"),
   });
   const pursuitDamage = hasSelectedPursuit(input, options.pursuitSourceSkillId)
     ? calculateEffectivePursuitDamage(input.deck, baseDamage.damageBeforeRandomAndCap, {
         ...sharedRandomOptions,
         sourceSkillId: options.pursuitSourceSkillId,
         nominalPreparation: options.pursuitNominalPreparation ?? "none",
-        finalRounding: options.finalRounding ?? "floor",
+        finalRounding: options.pursuitFinalRounding ?? options.finalRounding ?? "floor",
       })
     : undefined;
   const target = input.battle.enemies.find((enemy) => enemy.slot === input.targetEnemySlot);

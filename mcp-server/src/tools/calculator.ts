@@ -98,6 +98,10 @@ export function registerCalculatorTools(server: McpServer): void {
         "CalculatorDeckConfig v1、敵属性・防御値、船炉や大事なもの等の倍率から、通常攻撃本体・追撃・合計の101乱数パターンにおける最小、最大、期待値を計算する。結果は暫定式で、上限処理は未実装。",
       inputSchema: {
         schemaVersion: z.literal(1).describe("計算リクエスト形式。現在は1のみ"),
+        calculationModel: z
+          .enum(["defense-first-provisional", "article-2026-07-experimental"])
+          .optional()
+          .describe("省略時は既定モデル。記事モデルは低ダメージ帯の比較実験専用"),
         deckConfig: z.record(z.unknown()).describe("CalculatorDeckConfig v1"),
         enemy: z
           .object({

@@ -8,7 +8,27 @@ import type {
 } from "./types.js";
 
 export type BaseDamageStage = DamageModifierStage | "normal-weapon-skill";
-export type StageRounding = "none" | "floor";
+export type StageRounding = "none" | "floor" | "ceil";
+export type BaseDamageCalculationModel =
+  | "defense-first-provisional"
+  | "article-2026-07-experimental";
+
+export interface ArticleBaseDamageTrace {
+  sourceUrl: "https://gbf-dmg-calc.hatenablog.com/entry/2026/07/30/184000";
+  bulletPowerMultiplier: 1;
+  displayedAttack: number;
+  precisionStepRaw: number;
+  precisionStep: number;
+  shipStepRaw: number;
+  shipStep: number;
+  furnaceStepRaw: number;
+  furnaceStep: number;
+  crewAdjustedAttack: number;
+  prePostCapDamage: number;
+  postCapDamagePercent: number;
+  finalRawDamage: number;
+  finalRounding: "ceil";
+}
 
 export interface AppliedDamageStage {
   stage: BaseDamageStage;
@@ -26,19 +46,20 @@ export interface AppliedDamageStage {
 export interface DefenseAdjustedBaseDamageResult {
   schemaVersion: 1;
   status: "partial";
-  model: "staged-normal-attack-base";
+  model: "staged-normal-attack-base" | "article-2026-07-experimental";
   targetEnemySlot: number;
   enemyId: string;
   defenseAdjustedBaseAttack: number;
-  defenseRounding: "ceil";
+  defenseRounding: "ceil" | "none";
   attackBeforeDefense: number;
   enemyDefense: number;
   enemyDefenseSource?: EnemyTarget["defenseSource"];
   /** Unrounded value used as the normal-attack body's random-damage base. */
   unroundedDamageBeforeRandomAndCap: number;
-  /** Floored value shown as the representative damage in the party screen. */
+  /** Rounded value shown as the representative damage in the party screen. */
   damageBeforeRandomAndCap: number;
   stages: AppliedDamageStage[];
+  articleTrace?: ArticleBaseDamageTrace;
   deferredCapModifiers: DamageModifier[];
   unresolvedStages: Array<"rounding" | "damage-cap">;
 }
