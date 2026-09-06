@@ -14,6 +14,8 @@ export interface AppliedDamageStage {
   stage: BaseDamageStage;
   inputDamage: number;
   totalPercent: number;
+  /** Earlier percentage points in the same additive frame, when this stage adds to an existing frame. */
+  additiveBasePercent?: number;
   multiplier: number;
   rawOutputDamage: number;
   outputDamage: number;
@@ -87,6 +89,7 @@ function applyStage(
   contributions: Array<DamageModifier | EffectiveWeaponSkillEffect>,
   rounding: StageRounding = "none",
   totalPercentOverride?: number,
+  additiveBasePercent?: number,
 ): AppliedDamageStage {
   const totalPercent = roundCalculation(
     totalPercentOverride ??
@@ -96,12 +99,17 @@ function applyStage(
         0,
       ),
   );
-  const multiplier = roundCalculation(1 + totalPercent / 100);
+  const multiplier = roundCalculation(
+    additiveBasePercent === undefined
+      ? 1 + totalPercent / 100
+      : (1 + (additiveBasePercent + totalPercent) / 100) / (1 + additiveBasePercent / 100),
+  );
   const rawOutputDamage = roundCalculation(inputDamage * multiplier);
   return {
     stage,
     inputDamage,
     totalPercent,
+    ...(additiveBasePercent === undefined ? {} : { additiveBasePercent }),
     multiplier,
     rawOutputDamage,
     outputDamage: rounding === "floor" ? Math.floor(rawOutputDamage) : rawOutputDamage,
@@ -154,6 +162,19 @@ export function calculateDefenseAdjustedBaseDamage(
   const jobModifiers = (input.deck.protagonist.job?.damageModifiers ?? []).filter((modifier) =>
     appliesToTarget(modifier, protagonistElementCode, target.elementCode, jobClassCode),
   );
+  const damageDealtContributions = accountModifiers.filter((modifier) => modifier.stage === "damage-dealt");
+  const normalAttackDamageContributions = jobModifiers.filter(
+    (modifier) => modifier.stage === "normal-attack-damage",
+  );
+  const targetElementDamageContributions = accountModifiers.filter(
+    (modifier) => modifier.stage === "target-element-damage",
+  );
+  const previouslyAppliedDamagePercent = roundCalculation(
+    [...damageDealtContributions, ...normalAttackDamageContributions].reduce(
+      (sum, modifier) => sum + modifier.amountPercent,
+      0,
+    ),
+  );
   const superiorityPercent = elementalSuperiorityPercent(protagonistElementCode, target.elementCode);
   const elementalContributions: DamageModifier[] = [
     ...attackPower.elementalSummonAuraContributions.map(
@@ -185,10 +206,11 @@ export function calculateDefenseAdjustedBaseDamage(
     contributions: Array<DamageModifier | EffectiveWeaponSkillEffect>;
     rounding?: StageRounding;
     totalPercentOverride?: number;
+    additiveBasePercent?: number;
   }> = [
     {
       stage: "damage-dealt",
-      contributions: accountModifiers.filter((modifier) => modifier.stage === "damage-dealt"),
+      contributions: damageDealtContributions,
     },
     {
       stage: "crew-ship",
@@ -197,7 +219,7 @@ export function calculateDefenseAdjustedBaseDamage(
     },
     {
       stage: "normal-attack-damage",
-      contributions: jobModifiers.filter((modifier) => modifier.stage === "normal-attack-damage"),
+      contributions: normalAttackDamageContributions,
       rounding: "floor",
     },
     { stage: "elemental-attack", contributions: elementalContributions },
@@ -212,7 +234,11 @@ export function calculateDefenseAdjustedBaseDamage(
     },
     {
       stage: "target-element-damage",
-      contributions: accountModifiers.filter((modifier) => modifier.stage === "target-element-damage"),
+      contributions: targetElementDamageContributions,
+      // These effects are observed to add to the already-applied damage-dealt
+      // and normal-attack-damage percentages instead of multiplying them again.
+      additiveBasePercent:
+        targetElementDamageContributions.length === 0 ? undefined : previouslyAppliedDamagePercent,
     },
   ];
   const stages: AppliedDamageStage[] = [];
@@ -225,6 +251,7 @@ export function calculateDefenseAdjustedBaseDamage(
       definition.contributions,
       definition.rounding,
       definition.totalPercentOverride,
+      definition.additiveBasePercent,
     );
     stages.push(applied);
     stagedDamage = applied.outputDamage;

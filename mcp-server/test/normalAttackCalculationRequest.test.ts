@@ -182,6 +182,23 @@ test("reproduces all eight observed Agni battle body hits from the unrounded bas
   );
 });
 
+test("reproduces the observed 11,300 advantageous-element display with additive damage bonuses", () => {
+  const input = agniRequest();
+  input.enemy.elementCode = "4";
+  input.modifiers.targetElementDamagePercent = 5;
+
+  const response = calculateNormalAttackFromRequest(input);
+  const targetElementStage = response.result.baseDamage.stages.find(
+    (stage) => stage.stage === "target-element-damage",
+  );
+
+  assert.equal(targetElementStage?.totalPercent, 5);
+  assert.equal(targetElementStage?.additiveBasePercent, 6.6);
+  assert.equal(targetElementStage?.multiplier, 1.046904);
+  assert.equal(response.result.baseDamage.unroundedDamageBeforeRandomAndCap, 11300.471475);
+  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 11300);
+});
+
 test("rejects unknown request fields and invalid enemy defense", () => {
   assert.throws(
     () => calculateNormalAttackFromRequest({ ...request(), unexpected: true }),
