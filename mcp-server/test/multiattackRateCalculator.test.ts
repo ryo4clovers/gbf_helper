@@ -78,3 +78,34 @@ test("caps displayed probabilities while retaining uncapped totals", () => {
   assert.equal(result.doubleAttackRatePercent, 100);
   assert.equal(result.uncappedDoubleAttackRatePercent, 118);
 });
+
+test("adds matching account-item rates and ignores another element", () => {
+  const result = calculateProtagonistMultiattackRates(deck(), {
+    schemaVersion: 1,
+    issues: [],
+    modifiers: [
+      {
+        stage: "double-attack-rate",
+        amountPercent: 7,
+        sourceType: "account-item",
+        sourceId: "important-item",
+        sourceName: "大事なもの",
+        elementCode: "1",
+        verificationStatus: "下書き",
+      },
+      {
+        stage: "triple-attack-rate",
+        amountPercent: 50,
+        sourceType: "account-item",
+        sourceId: "wrong-element",
+        sourceName: "別属性の大事なもの",
+        elementCode: "2",
+        verificationStatus: "下書き",
+      },
+    ],
+  });
+
+  assert.equal(result.doubleAttackRatePercent, 37);
+  assert.equal(result.tripleAttackRatePercent, 8);
+  assert.equal(result.contributions.at(-1)?.sourceType, "account-item");
+});

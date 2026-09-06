@@ -120,6 +120,8 @@ export function registerCalculatorTools(server: McpServer): void {
             jobNormalAttackDamagePercent: z.number().finite().min(0).max(1000).optional(),
             damageDealtPercent: z.number().finite().min(0).max(1000).optional(),
             targetElementDamagePercent: z.number().finite().min(0).max(1000).optional(),
+            accountDoubleAttackRatePercent: z.number().finite().min(0).max(1000).optional(),
+            accountTripleAttackRatePercent: z.number().finite().min(0).max(1000).optional(),
           })
           .strict()
           .default({}),

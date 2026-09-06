@@ -158,6 +158,8 @@ export interface DeckAwakening {
 
 export type DamageModifierStage =
   | "elemental-attack"
+  | "double-attack-rate"
+  | "triple-attack-rate"
   | "crew-ship"
   | "crew-furnace"
   | "normal-attack-damage"

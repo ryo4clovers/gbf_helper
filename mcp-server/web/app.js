@@ -1020,6 +1020,8 @@ function buildRequest() {
       jobNormalAttackDamagePercent: numberValue("job-damage"),
       damageDealtPercent: numberValue("damage-dealt"),
       targetElementDamagePercent: numberValue("target-damage"),
+      accountDoubleAttackRatePercent: numberValue("account-da"),
+      accountTripleAttackRatePercent: numberValue("account-ta"),
     },
     random: {
       minimum: numberValue("random-min"),
@@ -1265,6 +1267,8 @@ function applyRequestToForm(request) {
     jobNormalAttackDamagePercent: "job-damage",
     damageDealtPercent: "damage-dealt",
     targetElementDamagePercent: "target-damage",
+    accountDoubleAttackRatePercent: "account-da",
+    accountTripleAttackRatePercent: "account-ta",
   };
   for (const [property, fieldId] of Object.entries(modifierFields)) {
     $(fieldId).value = String(request.modifiers?.[property] ?? 0);
@@ -1328,6 +1332,8 @@ function registerWebMcpTool() {
               jobNormalAttackDamagePercent: { type: "number", minimum: 0, maximum: 1000 },
               damageDealtPercent: { type: "number", minimum: 0, maximum: 1000 },
               targetElementDamagePercent: { type: "number", minimum: 0, maximum: 1000 },
+              accountDoubleAttackRatePercent: { type: "number", minimum: 0, maximum: 1000 },
+              accountTripleAttackRatePercent: { type: "number", minimum: 0, maximum: 1000 },
             },
             additionalProperties: false,
           },

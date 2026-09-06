@@ -105,6 +105,8 @@ function agniRequest() {
       jobNormalAttackDamagePercent: 3,
       damageDealtPercent: 3.6,
       targetElementDamagePercent: 0,
+      accountDoubleAttackRatePercent: 7,
+      accountTripleAttackRatePercent: 5,
     },
   };
 }
@@ -112,9 +114,13 @@ function agniRequest() {
 test("resolves protagonist DA and TA rates from the selected job", () => {
   const response = calculateNormalAttackFromRequest(agniRequest());
 
-  assert.equal(response.result.multiattackRates.doubleAttackRatePercent, 7);
-  assert.equal(response.result.multiattackRates.tripleAttackRatePercent, 3);
+  assert.equal(response.result.multiattackRates.doubleAttackRatePercent, 14);
+  assert.equal(response.result.multiattackRates.tripleAttackRatePercent, 8);
   assert.equal(response.result.multiattackRates.contributions[0]?.sourceName, "ナイト 基礎率");
+  assert.deepEqual(
+    response.result.multiattackRates.contributions.map((contribution) => contribution.sourceType),
+    ["job-base", "user-input", "user-input"],
+  );
 });
 
 test("serves the same normal attack calculation to Web and MCP callers", () => {
