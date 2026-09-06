@@ -104,4 +104,9 @@ test("normal mode follows its random source for damage, critical, TA and DA", ()
   assert.equal(resolveAttackCount(SIMULATION_MODES.normal, 20, 10, () => 0.09), 3);
   const rolls = [0.5, 0.19];
   assert.equal(resolveAttackCount(SIMULATION_MODES.normal, 20, 10, () => rolls.shift()), 2);
+  const singleRolls = [0.4, 0.46];
+  assert.equal(resolveAttackCount(SIMULATION_MODES.normal, 46, 40, () => singleRolls.shift()), 1);
+  const doubleRolls = [0.4, 0.459];
+  assert.equal(resolveAttackCount(SIMULATION_MODES.normal, 46, 40, () => doubleRolls.shift()), 2);
+  assert.equal(resolveAttackCount(SIMULATION_MODES.normal, 46, 40, () => 0.399), 3);
 });

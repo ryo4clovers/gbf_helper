@@ -142,8 +142,10 @@ test("adds boosted Solomon Accel trium rates to job and completion bonuses", () 
     supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
   });
 
-  assert.equal(response.result.multiattackRates.doubleAttackRatePercent, 46.9);
-  assert.equal(response.result.multiattackRates.tripleAttackRatePercent, 40.9);
+  assert.equal(response.result.multiattackRates.doubleAttackRatePercent, 46);
+  assert.equal(response.result.multiattackRates.tripleAttackRatePercent, 40);
+  assert.equal(response.result.multiattackRates.uncappedDoubleAttackRatePercent, 46.9);
+  assert.equal(response.result.multiattackRates.uncappedTripleAttackRatePercent, 40.9);
   assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 14852);
   const trium = response.result.multiattackRates.contributions.find(
     (contribution) => contribution.sourceName === "紅蓮の三手",

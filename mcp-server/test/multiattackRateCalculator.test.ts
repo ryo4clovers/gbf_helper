@@ -88,3 +88,40 @@ test("adds acquired job completion bonuses independently of the selected job", (
   assert.equal(result.contributions[1]?.sourceType, "job-completion");
   assert.equal(result.contributions[1]?.sourceName, "取得済みジョブのコンプリートボーナス合計");
 });
+
+test("floors final DA and TA rates after summing fractional contributions", () => {
+  const input = deck();
+  input.protagonist.job.multiattackRateBonuses = [];
+  input.effectiveWeaponSkillEffects = [
+    {
+      sourceWeaponSlot: 1,
+      sourceWeaponId: "fractional-weapon",
+      sourceSkillId: "trium",
+      sourceSkillName: "三手",
+      kind: "double-attack-rate-up",
+      elementCode: "1",
+      baseAmountPercent: 7,
+      effectiveAmountPercent: 32.9,
+      verificationStatus: "検証済み",
+      appliedModifiers: [],
+    },
+    {
+      sourceWeaponSlot: 1,
+      sourceWeaponId: "fractional-weapon",
+      sourceSkillId: "trium",
+      sourceSkillName: "三手",
+      kind: "triple-attack-rate-up",
+      elementCode: "1",
+      baseAmountPercent: 7,
+      effectiveAmountPercent: 32.9,
+      verificationStatus: "検証済み",
+      appliedModifiers: [],
+    },
+  ];
+
+  const result = calculateProtagonistMultiattackRates(input);
+  assert.equal(result.uncappedDoubleAttackRatePercent, 46.9);
+  assert.equal(result.uncappedTripleAttackRatePercent, 40.9);
+  assert.equal(result.doubleAttackRatePercent, 46);
+  assert.equal(result.tripleAttackRatePercent, 40);
+});

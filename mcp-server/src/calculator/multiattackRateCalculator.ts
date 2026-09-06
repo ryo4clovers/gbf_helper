@@ -101,12 +101,15 @@ export function calculateProtagonistMultiattackRates(
   const uncappedTripleAttackRatePercent = roundPercentage(
     contributions.reduce((sum, contribution) => sum + contribution.tripleAttackRatePercent, 0),
   );
+  const cappedDoubleAttackRatePercent = Math.min(100, Math.max(0, uncappedDoubleAttackRatePercent));
+  const cappedTripleAttackRatePercent = Math.min(100, Math.max(0, uncappedTripleAttackRatePercent));
   return {
     schemaVersion: 1,
     status: "provisional",
     scope: "job-and-weapon-skills",
-    doubleAttackRatePercent: Math.min(100, Math.max(0, uncappedDoubleAttackRatePercent)),
-    tripleAttackRatePercent: Math.min(100, Math.max(0, uncappedTripleAttackRatePercent)),
+    // The game truncates the final summed DA/TA values before displaying and rolling them.
+    doubleAttackRatePercent: Math.floor(cappedDoubleAttackRatePercent),
+    tripleAttackRatePercent: Math.floor(cappedTripleAttackRatePercent),
     uncappedDoubleAttackRatePercent,
     uncappedTripleAttackRatePercent,
     contributions,
