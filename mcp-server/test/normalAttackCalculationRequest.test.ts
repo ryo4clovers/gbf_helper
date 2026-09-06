@@ -168,12 +168,11 @@ test("applies support Agni's normal aura without stats or main-only elemental at
   });
 
   assert.equal(withSupport.result.attackPower.baseAttack, withoutSupport.result.attackPower.baseAttack);
+  assert.equal(withSupport.result.attackPower.totalEffectiveNormalAttackPercent, 141);
   assert.equal(withSupport.result.attackPower.totalElementalSummonAuraPercent, 30);
   assert.equal(withSupport.result.attackPower.elementalSummonAuraContributions.length, 1);
-  assert.ok(
-    withSupport.result.attackPower.totalEffectiveNormalAttackPercent >
-      withoutSupport.result.attackPower.totalEffectiveNormalAttackPercent,
-  );
+  assert.equal(withSupport.result.baseDamage.damageBeforeRandomAndCap, 10144);
+  assert.equal(withSupport.result.pursuitDamage?.effectivePursuitPercentage, 21.15);
   assert.deepEqual(withSupport.supportSummon, {
     summonId: "2040094000",
     name: "アグニス",
@@ -188,6 +187,21 @@ test("applies support Agni's normal aura without stats or main-only elemental at
     ),
     false,
   );
+
+  const advantageInput = structuredClone(input);
+  advantageInput.enemy.elementCode = "4";
+  advantageInput.modifiers.targetElementDamagePercent = 5;
+  const advantage = calculateNormalAttackFromRequest({
+    ...advantageInput,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+  });
+  const officialAdvantageDamage = 14332;
+  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 14333);
+  assert.equal(
+    advantage.result.baseDamage.damageBeforeRandomAndCap - officialAdvantageDamage,
+    1,
+  );
+  assert.equal(advantage.result.criticalBodyDamage?.weaponSkillCriticalRatePercent, 28.2);
 });
 
 test("rejects support summon stats so they cannot enter deck attack or HP", () => {
