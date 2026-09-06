@@ -1049,6 +1049,21 @@ const advantageTargetByAttacker = {
   "6": "5",
 };
 
+function currentTargetRequest(request) {
+  const attackerElement = request.deckConfig.protagonist?.elementCode;
+  const advantageTarget = advantageTargetByAttacker[attackerElement];
+  const appliesTargetDamage = request.enemy.elementCode === advantageTarget;
+  return {
+    ...request,
+    modifiers: {
+      ...request.modifiers,
+      targetElementDamagePercent: appliesTargetDamage
+        ? request.modifiers.targetElementDamagePercent
+        : 0,
+    },
+  };
+}
+
 function predictionRequests(request) {
   const attackerElement = request.deckConfig.protagonist?.elementCode;
   const advantageTarget = advantageTargetByAttacker[attackerElement];
@@ -1352,7 +1367,7 @@ async function calculate() {
     const request = buildRequest();
     const comparisonRequests = predictionRequests(request);
     const [response, normalPrediction, advantagePrediction] = await Promise.all([
-      postJson("/api/calculate", request),
+      postJson("/api/calculate", currentTargetRequest(request)),
       postJson("/api/calculate", comparisonRequests.normal),
       postJson("/api/calculate", comparisonRequests.advantage),
     ]);
