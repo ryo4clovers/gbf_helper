@@ -778,12 +778,15 @@ const issueNames = {
   "damage-cap-unresolved": "ダメージ上限は未適用です",
   "rounding-order-unresolved": "厳密な途中丸めは未確定です",
   "independent-component-randomness-provisional": "本体と追撃は独立乱数として計算しています",
+  "critical-probability-unresolved": "クリティカル発生率の抽選規則は未確定のため、合計期待値には含めていません",
 };
 
 function render(response) {
   const result = response.result;
   const body = result.bodyDamageDistribution;
   const pursuit = result.pursuitDamage?.damageDistribution;
+  const critical = result.criticalBodyDamage;
+  const criticalDistribution = critical?.damageDistribution;
   const total = result.totalDamageDistribution;
 
   $("total-expected").textContent = formatDamage(total.expectedDamage);
@@ -798,6 +801,13 @@ function render(response) {
   $("pursuit-range").textContent = pursuit
     ? `${formatDamage(pursuit.minimumDamage)} — ${formatDamage(pursuit.maximumDamage)}`
     : "—";
+  $("critical-card").hidden = criticalDistribution === undefined;
+  if (criticalDistribution !== undefined) {
+    $("critical-label").textContent = `クリティカル時 ×${numberFormat.format(critical.criticalDamageMultiplier)}`;
+    $("critical-expected").textContent = formatDamage(criticalDistribution.expectedDamage);
+    $("critical-range").textContent = `${formatDamage(criticalDistribution.minimumDamage)} — ${formatDamage(criticalDistribution.maximumDamage)}`;
+    $("critical-note").textContent = `武器スキル発生率 ${numberFormat.format(critical.weaponSkillCriticalRatePercent)}%・合計期待値には未反映`;
+  }
   $("pattern-count").textContent = `${numberFormat.format(total.combinationCount)} patterns`;
 
   const rows = [
@@ -870,6 +880,7 @@ function conciseResult(response) {
   return {
     status: result.status,
     body: result.bodyDamageDistribution,
+    critical: result.criticalBodyDamage,
     pursuit: result.pursuitDamage?.damageDistribution,
     total: result.totalDamageDistribution,
     issues: result.issues,
