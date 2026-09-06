@@ -20,6 +20,10 @@ export interface ProtagonistMultiattackRateResult {
   scope: "job-and-weapon-skills";
   doubleAttackRatePercent: number;
   tripleAttackRatePercent: number;
+  weaponSkillDoubleAttackRatePercent: number;
+  weaponSkillTripleAttackRatePercent: number;
+  uncappedWeaponSkillDoubleAttackRatePercent: number;
+  uncappedWeaponSkillTripleAttackRatePercent: number;
   uncappedDoubleAttackRatePercent: number;
   uncappedTripleAttackRatePercent: number;
   contributions: MultiattackRateContribution[];
@@ -95,11 +99,23 @@ export function calculateProtagonistMultiattackRates(
     weaponEffects.set(key, contribution);
   }
   contributions.push(...weaponEffects.values());
+  const nonWeaponContributions = contributions.filter((contribution) => contribution.sourceType !== "weapon-skill");
+  const weaponContributions = contributions.filter((contribution) => contribution.sourceType === "weapon-skill");
+  const uncappedWeaponSkillDoubleAttackRatePercent = roundPercentage(
+    weaponContributions.reduce((sum, contribution) => sum + contribution.doubleAttackRatePercent, 0),
+  );
+  const uncappedWeaponSkillTripleAttackRatePercent = roundPercentage(
+    weaponContributions.reduce((sum, contribution) => sum + contribution.tripleAttackRatePercent, 0),
+  );
+  const weaponSkillDoubleAttackRatePercent = Math.min(75, Math.max(0, uncappedWeaponSkillDoubleAttackRatePercent));
+  const weaponSkillTripleAttackRatePercent = Math.min(75, Math.max(0, uncappedWeaponSkillTripleAttackRatePercent));
   const uncappedDoubleAttackRatePercent = roundPercentage(
-    contributions.reduce((sum, contribution) => sum + contribution.doubleAttackRatePercent, 0),
+    nonWeaponContributions.reduce((sum, contribution) => sum + contribution.doubleAttackRatePercent, 0) +
+      weaponSkillDoubleAttackRatePercent,
   );
   const uncappedTripleAttackRatePercent = roundPercentage(
-    contributions.reduce((sum, contribution) => sum + contribution.tripleAttackRatePercent, 0),
+    nonWeaponContributions.reduce((sum, contribution) => sum + contribution.tripleAttackRatePercent, 0) +
+      weaponSkillTripleAttackRatePercent,
   );
   const cappedDoubleAttackRatePercent = Math.min(100, Math.max(0, uncappedDoubleAttackRatePercent));
   const cappedTripleAttackRatePercent = Math.min(100, Math.max(0, uncappedTripleAttackRatePercent));
@@ -110,6 +126,10 @@ export function calculateProtagonistMultiattackRates(
     // The game truncates the final summed DA/TA values before displaying and rolling them.
     doubleAttackRatePercent: Math.floor(cappedDoubleAttackRatePercent),
     tripleAttackRatePercent: Math.floor(cappedTripleAttackRatePercent),
+    weaponSkillDoubleAttackRatePercent,
+    weaponSkillTripleAttackRatePercent,
+    uncappedWeaponSkillDoubleAttackRatePercent,
+    uncappedWeaponSkillTripleAttackRatePercent,
     uncappedDoubleAttackRatePercent,
     uncappedTripleAttackRatePercent,
     contributions,

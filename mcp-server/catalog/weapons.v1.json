@@ -56,6 +56,35 @@
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のゲーム内deckレスポンスで武器・スキル・表示効果量を確認",
       "confirmedAt": "2026-09-07"
+    },
+    {
+      "weaponId": "1040206800",
+      "name": "エリクトニオス",
+      "elementCode": "1",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "5",
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "335" },
+        { "sourceKey": "skill2", "skillId": "396" }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内deckレスポンスで武器・スキル・表示効果量を確認",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "weaponId": "1040812900",
+      "name": "ミムメモ人形",
+      "elementCode": "1",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "1506" },
+        { "sourceKey": "skill2", "skillId": "639" }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内deckレスポンスで武器・スキル構成を確認",
+      "confirmedAt": "2026-09-07"
     }
   ]
 }

@@ -11,7 +11,7 @@
 
 ## ファイル一覧
 
-全167ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証)。
+全169ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証)。
 
 ### セラフィックウェポン
 
@@ -35,6 +35,18 @@
 | ファイル | 武器名 | 属性 |
 | --- | --- | --- |
 | [fire-ssr-solomons-accelerator.md](./fire-ssr-solomons-accelerator.md) | ソロモンアクセル / Solomon's Accelerator | 火 |
+
+### プライマルシリーズ
+
+| ファイル | 武器名 | 属性 |
+| --- | --- | --- |
+| [fire-ssr-erichthonius.md](./fire-ssr-erichthonius.md) | エリクトニオス / Erichthonius | 火 |
+
+### シリーズ未確認
+
+| ファイル | 武器名 | 属性 |
+| --- | --- | --- |
+| [fire-ssr-mimlemel-doll.md](./fire-ssr-mimlemel-doll.md) | ミムメモ人形 / Mimlemel Doll | 火 |
 
 ### 終末の神器
 

@@ -107,6 +107,22 @@
         {
           "kind": "double-attack-rate-up",
           "elementCode": "1",
+          "amountPercent": 1.2,
+          "skillLevel": 1,
+          "boostGroup": "normal",
+          "note": "SLv1の標準効果量として暫定採用。上限到達編成のDA表示71.44%と一致"
+        },
+        {
+          "kind": "triple-attack-rate-up",
+          "elementCode": "1",
+          "amountPercent": 1.2,
+          "skillLevel": 1,
+          "boostGroup": "normal",
+          "note": "SLv1の標準効果量として暫定採用。上限到達前の既知寄与へ加算"
+        },
+        {
+          "kind": "double-attack-rate-up",
+          "elementCode": "1",
           "amountPercent": 7,
           "skillLevel": 15,
           "boostGroup": "normal",
@@ -123,6 +139,67 @@
       ],
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoのDA/TA表示と通常スキル強化合計から確認",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "skillId": "335",
+      "name": "紅蓮の暴君",
+      "description": "火属性キャラの攻撃力上昇(大)/火属性キャラの最大HP-10%",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内deckレスポンスでスキル名・説明を確認。攻撃力とHPの計算効果は未登録",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "skillId": "396",
+      "name": "紅蓮の三手",
+      "description": "火属性キャラの連続攻撃確率上昇(大)",
+      "effects": [
+        {
+          "kind": "double-attack-rate-up",
+          "elementCode": "1",
+          "amountPercent": 7,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "上限到達編成のDA表示71.44%から、三手(大)SLv15の既知効果量と一致"
+        },
+        {
+          "kind": "triple-attack-rate-up",
+          "elementCode": "1",
+          "amountPercent": 7,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "三手(大)SLv15の既知効果量を適用"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deck.damage_infoのDA表示と通常スキル強化合計から確認",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "skillId": "1506",
+      "name": "業火の乱舞",
+      "description": "火属性キャラの攻撃力上昇(中)/トリプルアタック確率上昇(中)",
+      "effects": [
+        {
+          "kind": "triple-attack-rate-up",
+          "elementCode": "1",
+          "amountPercent": 1.2,
+          "skillLevel": 1,
+          "boostGroup": "normal",
+          "note": "SLv1の標準効果量として暫定採用。今回の編成では武器TA率が75%上限へ到達"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内deckレスポンスでスキル名・説明・75%上限到達を確認。基礎1.2%は要追加検証"
+    },
+    {
+      "skillId": "639",
+      "name": "火の秘奥",
+      "description": "火属性キャラの奥義ダメージUP(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内deckレスポンスでスキル名・説明を確認。奥義ダメージ効果は未登録",
       "confirmedAt": "2026-09-07"
     },
     {

@@ -125,3 +125,58 @@ test("floors final DA and TA rates after summing fractional contributions", () =
   assert.equal(result.doubleAttackRatePercent, 46);
   assert.equal(result.tripleAttackRatePercent, 40);
 });
+
+test("caps the normal weapon-skill DA and TA frames at 75% before adding job rates", () => {
+  const input = deck();
+  input.protagonist.job.multiattackRateBonuses = [];
+  input.effectiveWeaponSkillEffects = [
+    ...[32.9, 32.9, 5.64].flatMap((rate, index) => [
+      {
+        sourceWeaponSlot: index + 1,
+        sourceWeaponId: `trium-${index + 1}`,
+        sourceSkillId: `trium-${index + 1}`,
+        sourceSkillName: "紅蓮の三手",
+        kind: "double-attack-rate-up" as const,
+        elementCode: "1",
+        baseAmountPercent: rate,
+        effectiveAmountPercent: rate,
+        verificationStatus: "検証済み" as const,
+        appliedModifiers: [],
+      },
+      {
+        sourceWeaponSlot: index + 1,
+        sourceWeaponId: `trium-${index + 1}`,
+        sourceSkillId: `trium-${index + 1}`,
+        sourceSkillName: "紅蓮の三手",
+        kind: "triple-attack-rate-up" as const,
+        elementCode: "1",
+        baseAmountPercent: rate,
+        effectiveAmountPercent: rate,
+        verificationStatus: "検証済み" as const,
+        appliedModifiers: [],
+      },
+    ]),
+    {
+      sourceWeaponSlot: 4,
+      sourceWeaponId: "dance",
+      sourceSkillId: "dance",
+      sourceSkillName: "業火の乱舞",
+      kind: "triple-attack-rate-up",
+      elementCode: "1",
+      baseAmountPercent: 5.64,
+      effectiveAmountPercent: 5.64,
+      verificationStatus: "下書き",
+      appliedModifiers: [],
+    },
+  ];
+
+  const result = calculateProtagonistMultiattackRates(input);
+  assert.equal(result.uncappedWeaponSkillDoubleAttackRatePercent, 71.44);
+  assert.equal(result.weaponSkillDoubleAttackRatePercent, 71.44);
+  assert.equal(result.uncappedWeaponSkillTripleAttackRatePercent, 77.08);
+  assert.equal(result.weaponSkillTripleAttackRatePercent, 75);
+  assert.equal(result.uncappedDoubleAttackRatePercent, 85.44);
+  assert.equal(result.uncappedTripleAttackRatePercent, 83);
+  assert.equal(result.doubleAttackRatePercent, 85);
+  assert.equal(result.tripleAttackRatePercent, 83);
+});

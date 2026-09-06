@@ -162,6 +162,67 @@ test("adds boosted Solomon Accel trium rates to job and completion bonuses", () 
   assert.equal(advantageResponse.result.baseDamage.damageBeforeRandomAndCap, 20985);
 });
 
+test("caps the observed normal weapon-skill TA frame at 75% before adding job rates", () => {
+  const input = agniRequest();
+  input.deckConfig.weapons.push(
+    {
+      slot: 3,
+      position: "grid",
+      weaponId: "1040915300",
+      level: 150,
+      skillLevel: 15,
+      attackOverride: 3441,
+      hpOverride: 182,
+    },
+    {
+      slot: 4,
+      position: "grid",
+      weaponId: "1040206800",
+      level: 150,
+      skillLevel: 15,
+      attackOverride: 2500,
+      hpOverride: 278,
+    },
+    {
+      slot: 5,
+      position: "grid",
+      weaponId: "1040812900",
+      level: 1,
+      skillLevel: 1,
+      attackOverride: 384,
+      hpOverride: 43,
+    },
+    {
+      slot: 6,
+      position: "grid",
+      weaponId: "1040915300",
+      level: 1,
+      skillLevel: 1,
+      attackOverride: 485,
+      hpOverride: 24,
+    },
+  );
+
+  const response = calculateNormalAttackFromRequest({
+    ...input,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+  });
+  const rates = response.result.multiattackRates;
+
+  assert.equal(rates.uncappedWeaponSkillDoubleAttackRatePercent, 71.44);
+  assert.equal(rates.weaponSkillDoubleAttackRatePercent, 71.44);
+  assert.equal(rates.uncappedWeaponSkillTripleAttackRatePercent, 77.08);
+  assert.equal(rates.weaponSkillTripleAttackRatePercent, 75);
+  assert.equal(rates.doubleAttackRatePercent, 85);
+  assert.equal(rates.tripleAttackRatePercent, 83);
+  assert.equal(
+    response.deckResolutionIssues.some(
+      (issue) => issue.code === "weapon-skill-level-unresolved" && issue.message.includes("Skill 510"),
+    ),
+    false,
+  );
+});
+
 test("serves the same normal attack calculation to Web and MCP callers", () => {
   const response = calculateNormalAttackFromRequest(request());
 

@@ -123,7 +123,15 @@ export function resolveEffectiveWeaponSkillEffects(
   }
   const applicableSources = sources.filter((source) => {
     if (effectAppliesAtConfiguredLevel(source)) return true;
-    const issueKey = `${source.weaponIndex}:${source.skill.id}:${source.effect.skillLevel}`;
+    const hasApplicableAlternative = sources.some(
+      (candidate) =>
+        candidate.weaponIndex === source.weaponIndex &&
+        candidate.skill === source.skill &&
+        candidate.effect.kind === source.effect.kind &&
+        effectAppliesAtConfiguredLevel(candidate),
+    );
+    if (hasApplicableAlternative) return false;
+    const issueKey = `${source.weaponIndex}:${source.skill.id}`;
     if (!reportedLevelIssues.has(issueKey)) {
       reportedLevelIssues.add(issueKey);
       issues.push({
