@@ -213,6 +213,8 @@ export function resolveCalculatorDeckConfig(
                 config.protagonist.baseDoubleAttackRate ?? selectedJob?.baseDoubleAttackRate,
               baseTripleAttackRate:
                 config.protagonist.baseTripleAttackRate ?? selectedJob?.baseTripleAttackRate,
+              jobCompletionDoubleAttackRate: config.protagonist.jobCompletionDoubleAttackRate,
+              jobCompletionTripleAttackRate: config.protagonist.jobCompletionTripleAttackRate,
               multiattackRateBonuses,
               level: config.protagonist.jobLevel,
               masterLevel: config.protagonist.masterLevel,

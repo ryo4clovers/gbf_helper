@@ -57,6 +57,8 @@ function agniRequest() {
         jobLevel: 20,
         masterLevel: 1,
         perfectionProofLevel: 0,
+        jobCompletionDoubleAttackRate: 7,
+        jobCompletionTripleAttackRate: 5,
         attackOverride: 22801,
         hpOverride: 4877,
       },
@@ -105,8 +107,6 @@ function agniRequest() {
       jobNormalAttackDamagePercent: 3,
       damageDealtPercent: 3.6,
       targetElementDamagePercent: 0,
-      accountDoubleAttackRatePercent: 7,
-      accountTripleAttackRatePercent: 5,
     },
   };
 }
@@ -119,7 +119,7 @@ test("resolves protagonist DA and TA rates from the selected job", () => {
   assert.equal(response.result.multiattackRates.contributions[0]?.sourceName, "ナイト 基礎率");
   assert.deepEqual(
     response.result.multiattackRates.contributions.map((contribution) => contribution.sourceType),
-    ["job-base", "user-input", "user-input"],
+    ["job-base", "job-completion"],
   );
 });
 

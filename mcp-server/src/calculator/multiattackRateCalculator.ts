@@ -1,4 +1,4 @@
-import type { AccountBonusSnapshot, DeckSnapshot, EffectiveWeaponSkillEffect } from "./types.js";
+import type { DeckSnapshot, EffectiveWeaponSkillEffect } from "./types.js";
 
 export interface MultiattackRateContribution {
   sourceType:
@@ -6,9 +6,8 @@ export interface MultiattackRateContribution {
     | "job-level"
     | "master-level"
     | "perfection-proof"
-    | "weapon-skill"
-    | "account-item"
-    | "user-input";
+    | "job-completion"
+    | "weapon-skill";
   sourceName: string;
   doubleAttackRatePercent: number;
   tripleAttackRatePercent: number;
@@ -46,7 +45,6 @@ function matchingWeaponRateEffects(
 /** Resolves static protagonist rates. Dynamic character effects and battle buffs remain outside this scope. */
 export function calculateProtagonistMultiattackRates(
   deck: DeckSnapshot,
-  accountBonuses?: AccountBonusSnapshot,
 ): ProtagonistMultiattackRateResult {
   const job = deck.protagonist.job;
   const contributions: MultiattackRateContribution[] = [];
@@ -57,6 +55,18 @@ export function calculateProtagonistMultiattackRates(
       doubleAttackRatePercent: job.baseDoubleAttackRate ?? 0,
       tripleAttackRatePercent: job.baseTripleAttackRate ?? 0,
       verificationStatus: "下書き",
+    });
+  }
+  if (
+    job?.jobCompletionDoubleAttackRate !== undefined ||
+    job?.jobCompletionTripleAttackRate !== undefined
+  ) {
+    contributions.push({
+      sourceType: "job-completion",
+      sourceName: "取得済みジョブのコンプリートボーナス合計",
+      doubleAttackRatePercent: job.jobCompletionDoubleAttackRate ?? 0,
+      tripleAttackRatePercent: job.jobCompletionTripleAttackRate ?? 0,
+      verificationStatus: "検証済み",
     });
   }
   for (const bonus of job?.multiattackRateBonuses ?? []) {
@@ -85,19 +95,6 @@ export function calculateProtagonistMultiattackRates(
     weaponEffects.set(key, contribution);
   }
   contributions.push(...weaponEffects.values());
-  const protagonistElementCode = deck.protagonist.elementCode;
-  for (const modifier of accountBonuses?.modifiers ?? []) {
-    if (modifier.stage !== "double-attack-rate" && modifier.stage !== "triple-attack-rate") continue;
-    if (modifier.elementCode !== undefined && modifier.elementCode !== protagonistElementCode) continue;
-    contributions.push({
-      sourceType: modifier.sourceType === "account-item" ? "account-item" : "user-input",
-      sourceName: modifier.sourceName,
-      doubleAttackRatePercent: modifier.stage === "double-attack-rate" ? modifier.amountPercent : 0,
-      tripleAttackRatePercent: modifier.stage === "triple-attack-rate" ? modifier.amountPercent : 0,
-      verificationStatus: modifier.verificationStatus,
-    });
-  }
-
   const uncappedDoubleAttackRatePercent = roundPercentage(
     contributions.reduce((sum, contribution) => sum + contribution.doubleAttackRatePercent, 0),
   );

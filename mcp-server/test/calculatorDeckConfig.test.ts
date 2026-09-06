@@ -49,6 +49,12 @@ test("converts a game response without retaining instance IDs or displayed calcu
         job: {
           master: { id: "110001", name: "ナイト", weapon1: "1", weapon2: "3", da_odds: "7", ta_odds: 3 },
           param: { level: "20", master_level: 1, perfection_proof_level: "0" },
+          bonue: {
+            master_bonus: [
+              { type: "double_attack_rate_up", param: "7" },
+              { type: "triple_attack_rate_up", param: 5 },
+            ],
+          },
         },
         weapons: {
           1: {
@@ -97,6 +103,8 @@ test("converts a game response without retaining instance IDs or displayed calcu
       perfectionProofLevel: 0,
       baseDoubleAttackRate: 7,
       baseTripleAttackRate: 3,
+      jobCompletionDoubleAttackRate: 7,
+      jobCompletionTripleAttackRate: 5,
       attackOverride: 16255,
       hpOverride: 3504,
     },

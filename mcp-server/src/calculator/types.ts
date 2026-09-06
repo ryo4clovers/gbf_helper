@@ -158,8 +158,6 @@ export interface DeckAwakening {
 
 export type DamageModifierStage =
   | "elemental-attack"
-  | "double-attack-rate"
-  | "triple-attack-rate"
   | "crew-ship"
   | "crew-furnace"
   | "normal-attack-damage"
@@ -262,6 +260,8 @@ export interface DeckJob {
   weaponKindCodes: string[];
   baseDoubleAttackRate?: number;
   baseTripleAttackRate?: number;
+  jobCompletionDoubleAttackRate?: number;
+  jobCompletionTripleAttackRate?: number;
   multiattackRateBonuses?: DeckJobMultiattackRateBonus[];
   level?: number;
   masterLevel?: number;
@@ -332,6 +332,8 @@ export interface CalculatorDeckProtagonistConfig {
   perfectionProofLevel?: number;
   baseDoubleAttackRate?: number;
   baseTripleAttackRate?: number;
+  jobCompletionDoubleAttackRate?: number;
+  jobCompletionTripleAttackRate?: number;
   attackOverride?: number;
   hpOverride?: number;
 }

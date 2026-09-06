@@ -166,8 +166,8 @@ function renderMultiattackRates() {
   $("multiattack-scope").textContent = unresolved
     ? "ジョブ基礎率が未登録のため一部未反映"
     : characterEffects
-      ? "ジョブ・武器から自動計算（キャラ効果未反映）"
-      : "ジョブ・武器から自動計算";
+      ? "ジョブ基礎・コンプリート・育成・武器から自動計算（キャラ効果未反映）"
+      : "ジョブ基礎・コンプリート・育成・武器から自動計算";
   const breakdown = rates.contributions
     .map((contribution) => `${contribution.sourceName}: DA ${contribution.doubleAttackRatePercent}% / TA ${contribution.tripleAttackRatePercent}%`)
     .join("\n");

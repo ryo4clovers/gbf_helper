@@ -45,8 +45,6 @@ const requestSchema = z
         jobNormalAttackDamagePercent: optionalPercent,
         damageDealtPercent: optionalPercent,
         targetElementDamagePercent: optionalPercent,
-        accountDoubleAttackRatePercent: optionalPercent,
-        accountTripleAttackRatePercent: optionalPercent,
       })
       .strict()
       .default({}),
@@ -156,20 +154,6 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
       "対属性与ダメージ（手入力）",
       protagonistElementCode,
       request.enemy.elementCode,
-    ),
-    ...modifier(
-      "double-attack-rate",
-      request.modifiers.accountDoubleAttackRatePercent,
-      "manual-account-double-attack-rate",
-      "大事なもの等のDA率（手入力）",
-      protagonistElementCode,
-    ),
-    ...modifier(
-      "triple-attack-rate",
-      request.modifiers.accountTripleAttackRatePercent,
-      "manual-account-triple-attack-rate",
-      "大事なもの等のTA率（手入力）",
-      protagonistElementCode,
     ),
   ];
   const accountBonuses: AccountBonusSnapshot | undefined =

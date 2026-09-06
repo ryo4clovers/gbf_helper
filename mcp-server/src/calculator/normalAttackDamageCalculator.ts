@@ -143,7 +143,7 @@ export function calculateNormalAttackDamage(
     bodyDamageDistribution,
     criticalBodyDamage,
     pursuitDamage,
-    multiattackRates: calculateProtagonistMultiattackRates(input.deck, input.accountBonuses),
+    multiattackRates: calculateProtagonistMultiattackRates(input.deck),
     totalDamageDistribution: {
       schemaVersion: 1,
       model: "independent-discrete-components",

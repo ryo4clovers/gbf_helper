@@ -49,6 +49,8 @@ const protagonistSchema = z
     perfectionProofLevel: nonNegativeIntegerSchema.optional(),
     baseDoubleAttackRate: ratePercentSchema.optional(),
     baseTripleAttackRate: ratePercentSchema.optional(),
+    jobCompletionDoubleAttackRate: ratePercentSchema.optional(),
+    jobCompletionTripleAttackRate: ratePercentSchema.optional(),
     attackOverride: nonNegativeNumberSchema.optional(),
     hpOverride: nonNegativeNumberSchema.optional(),
   })
@@ -196,6 +198,8 @@ export function convertDeckResponseToCalculatorDeckConfig(input: unknown): Calcu
       perfectionProofLevel: snapshot.protagonist.job?.perfectionProofLevel,
       baseDoubleAttackRate: snapshot.protagonist.job?.baseDoubleAttackRate,
       baseTripleAttackRate: snapshot.protagonist.job?.baseTripleAttackRate,
+      jobCompletionDoubleAttackRate: snapshot.protagonist.job?.jobCompletionDoubleAttackRate,
+      jobCompletionTripleAttackRate: snapshot.protagonist.job?.jobCompletionTripleAttackRate,
       attackOverride: snapshot.protagonist.attack,
       hpOverride: snapshot.protagonist.hp,
     },

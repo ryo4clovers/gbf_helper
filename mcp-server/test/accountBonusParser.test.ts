@@ -42,8 +42,6 @@ const response = [
           { name: "火属性攻撃力", detail: "＋10％" },
           { name: "対風属性与ダメージ", detail: "＋5％" },
           { name: "通常攻撃ダメージ上限", detail: "＋5％" },
-          { name: "ダブルアタック確率", detail: "＋7％" },
-          { name: "トリプルアタック確率", detail: "＋5％" },
           { name: "防御力", detail: "＋10％" },
         ],
       },
@@ -69,8 +67,6 @@ test("normalizes supported acquired-item damage modifiers without inventory data
       ["1001", "elemental-attack", 10, "1", undefined],
       ["1001", "target-element-damage", 5, "1", "4"],
       ["1001", "normal-attack-damage-cap", 5, "1", undefined],
-      ["1001", "double-attack-rate", 7, "1", undefined],
-      ["1001", "triple-attack-rate", 5, "1", undefined],
     ],
   );
   assert.equal(JSON.stringify(result).includes("possession"), false);

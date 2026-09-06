@@ -107,16 +107,6 @@ function parseDetailedBonus(
       elementCode: itemElementCode,
     });
   }
-  if (name === "ダブルアタック確率" || name === "DA率") {
-    return makeModifier(itemId, itemName, "double-attack-rate", amountPercent, {
-      elementCode: itemElementCode,
-    });
-  }
-  if (name === "トリプルアタック確率" || name === "TA率") {
-    return makeModifier(itemId, itemName, "triple-attack-rate", amountPercent, {
-      elementCode: itemElementCode,
-    });
-  }
   return undefined;
 }
 

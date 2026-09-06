@@ -9,6 +9,8 @@ const defaultDeck = {
     jobLevel: 20,
     masterLevel: 1,
     perfectionProofLevel: 0,
+    jobCompletionDoubleAttackRate: 7,
+    jobCompletionTripleAttackRate: 5,
     attackOverride: 22801,
     hpOverride: 4877,
   },
@@ -195,6 +197,8 @@ function renderJobEditor(config) {
       createJobLevelField(config, "jobLevel", "Lv", 999),
       createJobLevelField(config, "masterLevel", "ML", 999),
       createJobLevelField(config, "perfectionProofLevel", "極致", 999),
+      createJobLevelField(config, "jobCompletionDoubleAttackRate", "コンプDA%", 100),
+      createJobLevelField(config, "jobCompletionTripleAttackRate", "コンプTA%", 100),
     );
     card.append(controls);
   }
@@ -1020,8 +1024,6 @@ function buildRequest() {
       jobNormalAttackDamagePercent: numberValue("job-damage"),
       damageDealtPercent: numberValue("damage-dealt"),
       targetElementDamagePercent: numberValue("target-damage"),
-      accountDoubleAttackRatePercent: numberValue("account-da"),
-      accountTripleAttackRatePercent: numberValue("account-ta"),
     },
     random: {
       minimum: numberValue("random-min"),
@@ -1267,8 +1269,6 @@ function applyRequestToForm(request) {
     jobNormalAttackDamagePercent: "job-damage",
     damageDealtPercent: "damage-dealt",
     targetElementDamagePercent: "target-damage",
-    accountDoubleAttackRatePercent: "account-da",
-    accountTripleAttackRatePercent: "account-ta",
   };
   for (const [property, fieldId] of Object.entries(modifierFields)) {
     $(fieldId).value = String(request.modifiers?.[property] ?? 0);
@@ -1332,8 +1332,6 @@ function registerWebMcpTool() {
               jobNormalAttackDamagePercent: { type: "number", minimum: 0, maximum: 1000 },
               damageDealtPercent: { type: "number", minimum: 0, maximum: 1000 },
               targetElementDamagePercent: { type: "number", minimum: 0, maximum: 1000 },
-              accountDoubleAttackRatePercent: { type: "number", minimum: 0, maximum: 1000 },
-              accountTripleAttackRatePercent: { type: "number", minimum: 0, maximum: 1000 },
             },
             additionalProperties: false,
           },

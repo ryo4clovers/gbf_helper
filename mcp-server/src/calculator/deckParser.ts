@@ -242,6 +242,15 @@ function normalizeJob(value: unknown): DeckJob | undefined {
 
   const bonus = asRecord(job?.bonue);
   const masterBonuses = Array.isArray(bonus?.master_bonus) ? bonus.master_bonus : [];
+  const masterBonusRate = (type: "double_attack_rate_up" | "triple_attack_rate_up"): number | undefined => {
+    const values = masterBonuses.flatMap((rawBonus): number[] => {
+      const entry = asRecord(rawBonus);
+      if (entry === undefined || optionalString(entry.type) !== type) return [];
+      const value = optionalNumber(entry.param, `deck.pc.job.bonue.master_bonus[${type}].param`);
+      return value === undefined ? [] : [value];
+    });
+    return values.length === 0 ? undefined : values.reduce((sum, value) => sum + value, 0);
+  };
   const damageModifiers = masterBonuses.flatMap((rawBonus): DamageModifier[] => {
     const entry = asRecord(rawBonus);
     if (entry === undefined || optionalString(entry.type) !== "my_job_class_if:final_attack_rise_plus") {
@@ -270,6 +279,8 @@ function normalizeJob(value: unknown): DeckJob | undefined {
     weaponKindCodes,
     baseDoubleAttackRate: optionalNumber(master.da_odds, "deck.pc.job.master.da_odds"),
     baseTripleAttackRate: optionalNumber(master.ta_odds, "deck.pc.job.master.ta_odds"),
+    jobCompletionDoubleAttackRate: masterBonusRate("double_attack_rate_up"),
+    jobCompletionTripleAttackRate: masterBonusRate("triple_attack_rate_up"),
     level: optionalNumber(param?.level, "deck.pc.job.param.level"),
     masterLevel: optionalNumber(param?.master_level, "deck.pc.job.param.master_level"),
     perfectionProofLevel: optionalNumber(

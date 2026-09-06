@@ -14,6 +14,8 @@ function deck(): DeckSnapshot {
         weaponKindCodes: [],
         baseDoubleAttackRate: 7,
         baseTripleAttackRate: 3,
+        jobCompletionDoubleAttackRate: 7,
+        jobCompletionTripleAttackRate: 5,
         multiattackRateBonuses: [
           {
             sourceType: "job-level",
@@ -60,11 +62,12 @@ function deck(): DeckSnapshot {
 test("combines job base, acquired level bonuses and matching weapon skills", () => {
   const result = calculateProtagonistMultiattackRates(deck());
 
-  assert.equal(result.doubleAttackRatePercent, 30);
-  assert.equal(result.tripleAttackRatePercent, 8);
+  assert.equal(result.doubleAttackRatePercent, 37);
+  assert.equal(result.tripleAttackRatePercent, 13);
   assert.deepEqual(result.issues, ["battle-buffs-unresolved"]);
   assert.deepEqual(result.contributions.map((contribution) => contribution.sourceType), [
     "job-base",
+    "job-completion",
     "job-level",
     "weapon-skill",
   ]);
@@ -76,36 +79,12 @@ test("caps displayed probabilities while retaining uncapped totals", () => {
   const result = calculateProtagonistMultiattackRates(input);
 
   assert.equal(result.doubleAttackRatePercent, 100);
-  assert.equal(result.uncappedDoubleAttackRatePercent, 118);
+  assert.equal(result.uncappedDoubleAttackRatePercent, 125);
 });
 
-test("adds matching account-item rates and ignores another element", () => {
-  const result = calculateProtagonistMultiattackRates(deck(), {
-    schemaVersion: 1,
-    issues: [],
-    modifiers: [
-      {
-        stage: "double-attack-rate",
-        amountPercent: 7,
-        sourceType: "account-item",
-        sourceId: "important-item",
-        sourceName: "大事なもの",
-        elementCode: "1",
-        verificationStatus: "下書き",
-      },
-      {
-        stage: "triple-attack-rate",
-        amountPercent: 50,
-        sourceType: "account-item",
-        sourceId: "wrong-element",
-        sourceName: "別属性の大事なもの",
-        elementCode: "2",
-        verificationStatus: "下書き",
-      },
-    ],
-  });
+test("adds acquired job completion bonuses independently of the selected job", () => {
+  const result = calculateProtagonistMultiattackRates(deck());
 
-  assert.equal(result.doubleAttackRatePercent, 37);
-  assert.equal(result.tripleAttackRatePercent, 8);
-  assert.equal(result.contributions.at(-1)?.sourceType, "account-item");
+  assert.equal(result.contributions[1]?.sourceType, "job-completion");
+  assert.equal(result.contributions[1]?.sourceName, "取得済みジョブのコンプリートボーナス合計");
 });
