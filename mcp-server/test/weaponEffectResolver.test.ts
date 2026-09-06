@@ -1,7 +1,11 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { resolveEffectiveWeaponSkillEffects } from "../src/calculator/weaponEffectResolver.ts";
-import type { DeckWeapon, WeaponSkillEffectDefinition } from "../src/calculator/types.ts";
+import type {
+  DeckWeapon,
+  ResolvedSupportSummon,
+  WeaponSkillEffectDefinition,
+} from "../src/calculator/types.ts";
 
 function weaponWithSkill(options: {
   slot: number;
@@ -156,4 +160,71 @@ test("reports the provisional additive assumption when multiple boosts match", (
     result.issues.map((issue) => issue.code),
     ["multiple-weapon-skill-boosts-assumed-additive"],
   );
+});
+
+test("applies only always-active support aura boosts and records support provenance", () => {
+  const supportSummon = {
+    masterId: "support-agni",
+    name: "サポートアグニス",
+    elementCode: "1",
+    aura: {
+      name: "テスト加護",
+      description: "通常加護とメイン限定加護",
+      effects: [
+        {
+          kind: "normal-skill-boost",
+          elementCode: "1",
+          amountPercent: 170,
+          targetSkillNamePrefixes: ["紅蓮"],
+          activation: "always",
+          description: "通常加護",
+        },
+        {
+          kind: "normal-skill-boost",
+          elementCode: "1",
+          amountPercent: 999,
+          targetSkillNamePrefixes: ["紅蓮"],
+          activation: "main-only",
+          description: "メイン限定",
+        },
+      ],
+      verificationStatus: "検証済み",
+      source: "test",
+    },
+  } satisfies ResolvedSupportSummon;
+  const result = resolveEffectiveWeaponSkillEffects(
+    [
+      weaponWithSkill({
+        slot: 1,
+        skillLevel: 15,
+        skillId: "target",
+        skillName: "紅蓮の攻刃",
+        effects: [
+          {
+            kind: "normal-attack-up",
+            amountPercent: 18,
+            skillLevel: 15,
+            boostGroup: "normal",
+          },
+        ],
+      }),
+    ],
+    [],
+    supportSummon,
+  );
+
+  assert.equal(result.effects[0]?.effectiveAmountPercent, 48.6);
+  assert.deepEqual(result.effects[0]?.appliedModifiers, [
+    {
+      kind: "normal-skill-boost",
+      sourceType: "summon-aura",
+      sourceSummonSlot: 0,
+      sourcePosition: "support",
+      sourceSummonId: "support-agni",
+      sourceSummonName: "サポートアグニス",
+      sourceAuraName: "テスト加護",
+      amountPercent: 170,
+      verificationStatus: "検証済み",
+    },
+  ]);
 });

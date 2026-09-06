@@ -159,6 +159,48 @@ test("reproduces the verified +0 through +5 Agni weapon-plus displays", () => {
   }
 });
 
+test("applies support Agni's normal aura without stats or main-only elemental attack", () => {
+  const withoutSupport = calculateNormalAttackFromRequest(agniRequest());
+  const input = agniRequest();
+  const withSupport = calculateNormalAttackFromRequest({
+    ...input,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+  });
+
+  assert.equal(withSupport.result.attackPower.baseAttack, withoutSupport.result.attackPower.baseAttack);
+  assert.equal(withSupport.result.attackPower.totalElementalSummonAuraPercent, 30);
+  assert.equal(withSupport.result.attackPower.elementalSummonAuraContributions.length, 1);
+  assert.ok(
+    withSupport.result.attackPower.totalEffectiveNormalAttackPercent >
+      withoutSupport.result.attackPower.totalEffectiveNormalAttackPercent,
+  );
+  assert.deepEqual(withSupport.supportSummon, {
+    summonId: "2040094000",
+    name: "アグニス",
+    callableFromTurn: 1,
+    statsIncluded: false,
+    subAuraIncluded: false,
+    mainOnlyAuraEffectsIncluded: false,
+  });
+  assert.equal(
+    withSupport.deckResolutionIssues.some(
+      (issue) => issue.code === "multiple-weapon-skill-boosts-assumed-additive",
+    ),
+    false,
+  );
+});
+
+test("rejects support summon stats so they cannot enter deck attack or HP", () => {
+  assert.throws(
+    () =>
+      calculateNormalAttackFromRequest({
+        ...agniRequest(),
+        supportSummon: { summonId: "2040094000", attackOverride: 999999 },
+      }),
+    /unrecognized key/i,
+  );
+});
+
 test("reproduces all eight observed Agni battle body hits from the unrounded base", () => {
   const response = calculateNormalAttackFromRequest(agniRequest());
   const observedBodyDamage = [7725, 7685, 7629, 8229, 7693, 7901, 7685, 8245];

@@ -276,6 +276,7 @@ test("reproduces Agni's observed 170% boost and main-only elemental attack aura"
       kind: "normal-skill-boost",
       sourceType: "summon-aura",
       sourceSummonSlot: 1,
+      sourcePosition: "main",
       sourceSummonId: "2040094000",
       sourceSummonName: "アグニス",
       sourceAuraName: "アグニスの加護",

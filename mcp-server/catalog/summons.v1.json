@@ -15,6 +15,7 @@
         }
       ],
       "verificationStatus": "検証済み",
+      "supportSelectable": true,
       "source": "ゲーム内deckレスポンスの主召喚石と加護説明で確認",
       "confirmedAt": "2026-09-05"
     },
@@ -43,6 +44,7 @@
         }
       ],
       "verificationStatus": "検証済み",
+      "supportSelectable": true,
       "source": "ゲーム内startレスポンスの支援召喚石と加護説明で確認",
       "confirmedAt": "2026-09-05"
     },
@@ -71,6 +73,7 @@
         }
       ],
       "verificationStatus": "検証済み",
+      "supportSelectable": true,
       "source": "ユーザー提供のゲーム内deckレスポンスで主召喚石・加護説明・武器スキル表示値を確認",
       "confirmedAt": "2026-09-06",
       "selectionDefaults": {

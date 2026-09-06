@@ -50,6 +50,7 @@ const summonCatalogSchema = z
           verificationStatus: z.enum(["検証済み", "下書き"]),
           source: z.string().min(1),
           confirmedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+          supportSelectable: z.boolean(),
           selectionDefaults: z
             .object({
               level: z.number().int().positive(),
@@ -91,7 +92,7 @@ export function resolveBattleSupportSummon(
   const masterId = battle.supportSummon?.masterId;
   if (masterId === undefined) return undefined;
   const master = catalog.summons.get(masterId);
-  if (master === undefined) return undefined;
+  if (master === undefined || !master.supportSelectable) return undefined;
   return {
     masterId,
     name: master.name,

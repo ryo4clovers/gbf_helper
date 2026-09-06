@@ -140,6 +140,11 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .summon-slot .weapon-attack { font-size: .69rem; }
 .summon-catalog-art { border-radius: 50% 45% 52% 40%; }
 .catalog-summon-card .catalog-skill-list { color: var(--secondary); }
+.support-summon-section { margin-bottom: 22px; padding: 16px; border-radius: 24px 15px 24px 15px; background: var(--surface-container); }
+.support-summon-slot { max-width: 420px; }
+.support-summon-card { display: grid; grid-template-columns: minmax(0, 1fr); }
+.support-summon-card .weapon-choice { min-height: 94px; }
+.support-summon-notes { padding: 8px 12px 11px; border-top: 1px solid var(--outline-soft); display: flex; flex-wrap: wrap; gap: 6px 12px; color: var(--ink-soft); background: white; font-size: .72rem; font-weight: 750; }
 
 .weapon-picker { width: min(680px, calc(100% - 28px)); max-height: min(760px, calc(100vh - 40px)); padding: 0; border: 0; border-radius: 36px 22px 36px 22px; color: var(--ink); background: var(--surface); box-shadow: 0 30px 90px rgba(20,15,45,.35); overflow: hidden; }
 .weapon-picker::backdrop { background: rgba(23,19,33,.56); backdrop-filter: blur(5px); }

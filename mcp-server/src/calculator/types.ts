@@ -93,6 +93,8 @@ export interface SummonMasterCatalogEntry {
   verificationStatus: "検証済み" | "下書き";
   source: string;
   confirmedAt?: string;
+  /** Whether this summon may be chosen in the pre-quest support summon slot. */
+  supportSelectable: boolean;
   selectionDefaults?: {
     level: number;
     uncapLevel: number;
@@ -125,6 +127,7 @@ export type AppliedWeaponSkillModifier =
       kind: "normal-skill-boost";
       sourceType: "summon-aura";
       sourceSummonSlot: number;
+      sourcePosition: "main" | "support";
       sourceSummonId: string;
       sourceSummonName?: string;
       sourceAuraName: string;

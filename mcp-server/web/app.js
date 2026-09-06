@@ -42,6 +42,7 @@ let fallbackWeaponCatalog = [];
 let editingWeaponSlot = null;
 let summonCatalog = [];
 let editingSummonSlot = null;
+let selectedSupportSummon = null;
 let latestDamageResult = null;
 let weaponCriticalManuallySelected = false;
 
@@ -633,9 +634,52 @@ function renderSummonEditor() {
   }
 }
 
+function renderSupportSummonEditor() {
+  const master = selectedSupportSummon
+    ? catalogSummon(selectedSupportSummon.summonId)
+    : undefined;
+  const element = master ? elementMeta[master.elementCode] : undefined;
+  const article = document.createElement("article");
+  article.className = `weapon-slot summon-slot support-summon-card ${master ? "occupied" : "empty"}`;
+  const choice = document.createElement("button");
+  choice.type = "button";
+  choice.className = "weapon-choice";
+  choice.setAttribute("aria-label", "サポート召喚石を選択");
+  choice.addEventListener("click", openSupportSummonPicker);
+  const art = document.createElement("span");
+  art.className = `weapon-art summon-art ${element?.className ?? "unknown"}`;
+  art.append(
+    createText("slot-badge", "SUPPORT"),
+    createText("rarity-badge", master?.rarityCode === "4" ? "SSR" : master?.rarityCode === "3" ? "SR" : master?.rarityCode === "2" ? "R" : "—"),
+    createText("weapon-symbol", master ? "✦" : "+"),
+  );
+  const info = document.createElement("span");
+  info.className = "weapon-slot-info";
+  info.append(
+    createText("weapon-slot-name", master?.name ?? "サポート召喚石を選択"),
+    createText("weapon-slot-meta", master ? `${element?.name ?? "属性不明"}・${master.auraName}` : "クエスト開始前の選択枠"),
+  );
+  choice.append(art, info);
+  article.append(choice);
+  if (master) {
+    const notes = document.createElement("div");
+    notes.className = "support-summon-notes";
+    notes.append(
+      createText("", "1ターン目から召喚可能"),
+      createText("", "ステータス・サブ効果なし"),
+      createText("", "メイン装備時のみの効果なし"),
+    );
+    article.append(notes);
+  }
+  $("support-summon-slot").replaceChildren(article);
+}
+
 function renderSummonResults(query = "") {
   const normalized = query.trim().toLocaleLowerCase("ja");
-  const matches = summonCatalog.filter((summon) =>
+  const availableSummons = editingSummonSlot?.kind === "support"
+    ? summonCatalog.filter((summon) => summon.supportSelectable)
+    : summonCatalog;
+  const matches = availableSummons.filter((summon) =>
     [summon.name, summon.summonId, summon.auraName, summon.auraDescription]
       .join(" ")
       .toLocaleLowerCase("ja")
@@ -669,11 +713,11 @@ function renderSummonResults(query = "") {
     empty.textContent = "一致する登録召喚石がありません。未登録召喚石はJSONから追加できます。";
     results.append(empty);
   }
-  $("summon-catalog-count").textContent = `${matches.length} / ${summonCatalog.length}件`;
+  $("summon-catalog-count").textContent = `${matches.length} / ${availableSummons.length}件`;
 }
 
 function openSummonPicker(position, slot) {
-  editingSummonSlot = { position, slot };
+  editingSummonSlot = { kind: "deck", position, slot };
   $("summon-picker-slot-label").textContent = `${summonSlotLabel(position, slot)}を変更`;
   $("summon-search").value = "";
   $("remove-summon").disabled = !summonForSlot(readDeckConfig(), position, slot);
@@ -682,8 +726,26 @@ function openSummonPicker(position, slot) {
   $("summon-search").focus();
 }
 
+function openSupportSummonPicker() {
+  editingSummonSlot = { kind: "support" };
+  $("summon-picker-slot-label").textContent = "クエスト開始前に選ぶサポート召喚石を変更";
+  $("summon-search").value = "";
+  $("remove-summon").disabled = selectedSupportSummon === null;
+  renderSummonResults();
+  $("summon-picker").showModal();
+  $("summon-search").focus();
+}
+
 function selectSummon(master) {
   if (editingSummonSlot == null) return;
+  if (editingSummonSlot.kind === "support") {
+    if (!master.supportSelectable) return;
+    selectedSupportSummon = { summonId: master.summonId, nameHint: master.name };
+    renderSupportSummonEditor();
+    $("summon-picker").close();
+    void calculate();
+    return;
+  }
   const { position, slot } = editingSummonSlot;
   const config = readDeckConfig();
   config.summons = config.summons.filter((summon) =>
@@ -708,6 +770,13 @@ function selectSummon(master) {
 
 function removeSelectedSummon() {
   if (editingSummonSlot == null) return;
+  if (editingSummonSlot.kind === "support") {
+    selectedSupportSummon = null;
+    renderSupportSummonEditor();
+    $("summon-picker").close();
+    void calculate();
+    return;
+  }
   const { position, slot } = editingSummonSlot;
   const config = readDeckConfig();
   config.summons = config.summons.filter((summon) => summon.position !== position || summon.slot !== slot);
@@ -729,6 +798,7 @@ function buildRequest() {
   return {
     schemaVersion: 1,
     deckConfig,
+    supportSummon: selectedSupportSummon ?? undefined,
     enemy: {
       name: $("enemy-name").value.trim() || undefined,
       elementCode: $("enemy-element").value,
@@ -916,7 +986,9 @@ function render(response, predictions) {
 
 function applyRequestToForm(request) {
   deckField.value = JSON.stringify(request.deckConfig, null, 2);
+  selectedSupportSummon = request.supportSummon ?? null;
   renderWeaponEditor();
+  renderSupportSummonEditor();
   $("enemy-element").value = request.enemy.elementCode;
   $("enemy-defense").value = String(request.enemy.defense);
   $("enemy-name").value = request.enemy.name || "";
@@ -964,6 +1036,14 @@ function registerWebMcpTool() {
         properties: {
           schemaVersion: { const: 1 },
           deckConfig: { type: "object" },
+          supportSummon: {
+            type: "object",
+            properties: {
+              summonId: { type: "string", minLength: 1 },
+              nameHint: { type: "string", minLength: 1, maxLength: 100 },
+            },
+            required: ["summonId"], additionalProperties: false,
+          },
           enemy: {
             type: "object",
             properties: {
@@ -1123,6 +1203,7 @@ async function initialize() {
     $("deck-state").classList.add("error-text");
   }
   renderWeaponEditor();
+  renderSupportSummonEditor();
   registerWebMcpTool();
   await calculate();
 }

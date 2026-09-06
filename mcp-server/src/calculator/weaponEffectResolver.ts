@@ -4,6 +4,7 @@ import type {
   DeckWeapon,
   EffectiveWeaponSkillEffect,
   SummonAuraEffectDefinition,
+  ResolvedSupportSummon,
   WeaponSkillEffectDefinition,
 } from "./types.js";
 
@@ -30,7 +31,10 @@ interface EffectSource {
 }
 
 interface SummonBoostSource {
-  summon: DeckSummon;
+  summonId: string;
+  summonName?: string;
+  summonSlot: number;
+  position: "main" | "support";
   auraName: string;
   verificationStatus: "検証済み" | "下書き";
   effect: Extract<SummonAuraEffectDefinition, { kind: "normal-skill-boost" }>;
@@ -74,6 +78,7 @@ function matchesSummonBoost(target: EffectSource, boost: SummonBoostSource): boo
 export function resolveEffectiveWeaponSkillEffects(
   weapons: DeckWeapon[],
   summons: DeckSummon[] = [],
+  supportSummon?: ResolvedSupportSummon,
 ): WeaponEffectResolution {
   const issues: WeaponEffectResolutionIssue[] = [];
   const reportedLevelIssues = new Set<string>();
@@ -87,10 +92,35 @@ export function resolveEffectiveWeaponSkillEffects(
     const aura = summon.aura;
     return aura.effects.flatMap((effect): SummonBoostSource[] =>
       effect.kind === "normal-skill-boost"
-        ? [{ summon, auraName: aura.name, verificationStatus: aura.verificationStatus, effect }]
+        ? [{
+            summonId: summon.masterId,
+            summonName: summon.name,
+            summonSlot: summon.slot,
+            position: "main",
+            auraName: aura.name,
+            verificationStatus: aura.verificationStatus,
+            effect,
+          }]
         : [],
     );
   });
+  if (supportSummon !== undefined) {
+    summonBoosts.push(
+      ...supportSummon.aura.effects.flatMap((effect): SummonBoostSource[] =>
+        effect.kind === "normal-skill-boost" && effect.activation === "always"
+          ? [{
+              summonId: supportSummon.masterId,
+              summonName: supportSummon.name,
+              summonSlot: 0,
+              position: "support",
+              auraName: supportSummon.aura.name,
+              verificationStatus: supportSummon.aura.verificationStatus,
+              effect,
+            }]
+          : [],
+      ),
+    );
+  }
   const applicableSources = sources.filter((source) => {
     if (effectAppliesAtConfiguredLevel(source)) return true;
     const issueKey = `${source.weaponIndex}:${source.skill.id}:${source.effect.skillLevel}`;
@@ -109,7 +139,7 @@ export function resolveEffectiveWeaponSkillEffects(
   const effects = applicableSources.map((source): EffectiveWeaponSkillEffect => {
     const matchingBoosts = boosts.filter((boost) => matchesBoost(source, boost));
     const matchingSummonBoosts = summonBoosts.filter((boost) => matchesSummonBoost(source, boost));
-    if (matchingBoosts.length > 1 || matchingSummonBoosts.length > 1) {
+    if (matchingBoosts.length > 1) {
       issues.push({
         code: "multiple-weapon-skill-boosts-assumed-additive",
         path: `weapons.${source.weaponIndex}.skills`,
@@ -132,9 +162,10 @@ export function resolveEffectiveWeaponSkillEffects(
         (boost): AppliedWeaponSkillModifier => ({
           kind: "normal-skill-boost",
           sourceType: "summon-aura",
-          sourceSummonSlot: boost.summon.slot,
-          sourceSummonId: boost.summon.masterId,
-          sourceSummonName: boost.summon.name,
+          sourceSummonSlot: boost.summonSlot,
+          sourcePosition: boost.position,
+          sourceSummonId: boost.summonId,
+          sourceSummonName: boost.summonName,
           sourceAuraName: boost.auraName,
           amountPercent: boost.effect.amountPercent,
           verificationStatus: boost.verificationStatus,

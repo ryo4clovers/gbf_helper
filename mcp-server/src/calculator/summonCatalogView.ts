@@ -10,6 +10,7 @@ export interface SelectableSummonCatalogEntry {
   auraDescription: string;
   auraEffects: SummonAuraEffectDefinition[];
   verificationStatus: "検証済み" | "下書き";
+  supportSelectable: boolean;
   selectionDefaults?: {
     level: number;
     uncapLevel: number;
@@ -38,6 +39,7 @@ export function createSelectableSummonCatalog(): SelectableSummonCatalog {
         auraDescription: summon.auraDescription,
         auraEffects: summon.auraEffects,
         verificationStatus: summon.verificationStatus,
+        supportSelectable: summon.supportSelectable,
         selectionDefaults: summon.selectionDefaults,
       }),
     )

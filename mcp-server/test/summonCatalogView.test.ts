@@ -14,6 +14,7 @@ test("creates a deterministic browser-safe summon catalog", () => {
   const agni = catalog.summons.find((summon) => summon.summonId === "2040094000");
   assert.equal(hades?.auraEffects.length, 2);
   assert.equal(hades?.auraEffects[0]?.kind, "normal-skill-boost");
+  assert.equal(hades?.supportSelectable, true);
   assert.deepEqual(agni?.selectionDefaults, {
     level: 250,
     uncapLevel: 6,

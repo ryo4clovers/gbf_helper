@@ -13,6 +13,7 @@ test("loads the initial non-damage summon aura", () => {
   assert.equal(catalog.summons.size, 3);
   assert.equal(summon?.name, "シルフィードベル");
   assert.equal(summon?.verificationStatus, "検証済み");
+  assert.equal(summon?.supportSelectable, true);
   assert.deepEqual(summon?.auraEffects, [
     {
       kind: "utility",

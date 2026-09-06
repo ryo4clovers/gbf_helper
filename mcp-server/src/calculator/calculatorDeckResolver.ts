@@ -5,7 +5,7 @@ import { loadJobFallbackWeaponCatalog } from "./jobFallbackWeaponCatalog.js";
 import { loadIncrementalSummonCatalog } from "./summonCatalog.js";
 import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 import { resolveEffectiveWeaponSkillEffects } from "./weaponEffectResolver.js";
-import type { CalculatorDeckConfig, DeckSnapshot } from "./types.js";
+import type { CalculatorDeckConfig, DeckSnapshot, ResolvedSupportSummon } from "./types.js";
 
 export type CalculatorDeckResolutionIssueCode =
   | "missing-stat-override"
@@ -61,7 +61,10 @@ function appendMissingStatIssues(
  * Resolves the stable user-editable config without inventing unavailable master
  * data. Overrides become observed stats; unresolved mechanics are reported.
  */
-export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResolution {
+export function resolveCalculatorDeckConfig(
+  input: unknown,
+  supportSummon?: ResolvedSupportSummon,
+): CalculatorDeckResolution {
   const catalog = loadIncrementalWeaponCatalog();
   const fallbackWeaponCatalog = loadJobFallbackWeaponCatalog();
   const jobCatalog = createSelectableJobCatalog();
@@ -273,7 +276,11 @@ export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResol
     })),
   };
 
-  const effectResolution = resolveEffectiveWeaponSkillEffects(deck.weapons, deck.summons);
+  const effectResolution = resolveEffectiveWeaponSkillEffects(
+    deck.weapons,
+    deck.summons,
+    supportSummon,
+  );
   deck.effectiveWeaponSkillEffects = effectResolution.effects;
   issues.push(
     ...effectResolution.issues.map((issue) => ({

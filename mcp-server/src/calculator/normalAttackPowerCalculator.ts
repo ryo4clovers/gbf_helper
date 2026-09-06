@@ -16,7 +16,6 @@ export interface NormalAttackPowerIssue {
   code:
     | "unverified-normal-attack-up"
     | "unverified-summon-aura"
-    | "normal-skill-summon-boost-not-applied"
     | "support-summon-aura-unresolved";
   message: string;
 }
@@ -140,22 +139,6 @@ export function calculateNormalAttackPower(
       message: "Elemental attack calculation contains draft summon aura data.",
     });
   }
-  const unsupportedNormalSkillBoost = [
-    ...(supportSummon?.aura.effects ?? []).filter(
-      (effect) => "activation" in effect && effect.activation === "always",
-    ),
-  ].some(
-    (effect) =>
-      effect.kind === "normal-skill-boost" &&
-      (elementCode === undefined || effect.elementCode === elementCode),
-  );
-  if (unsupportedNormalSkillBoost) {
-    issues.push({
-      code: "normal-skill-summon-boost-not-applied",
-      message: "A matching summon aura boosts normal weapon skills, but that boost is not implemented yet.",
-    });
-  }
-
   return {
     schemaVersion: 1,
     stage: "normal-weapon-skill-frame",

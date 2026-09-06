@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { resolveCalculatorDeckConfig } from "./calculatorDeckResolver.js";
+import { resolveBattleSupportSummon } from "./summonCatalog.js";
 import {
   calculateNormalAttackDamage,
   type NormalAttackDamageResult,
@@ -17,6 +18,13 @@ const requestSchema = z
   .object({
     schemaVersion: z.literal(1),
     deckConfig: z.unknown(),
+    supportSummon: z
+      .object({
+        summonId: z.string().min(1),
+        nameHint: z.string().min(1).max(100).optional(),
+      })
+      .strict()
+      .optional(),
     enemy: z
       .object({
         id: z.string().min(1).max(100).optional(),
@@ -54,6 +62,14 @@ export interface NormalAttackCalculationResponse {
   schemaVersion: 1;
   deckResolutionIssues: ReturnType<typeof resolveCalculatorDeckConfig>["issues"];
   result: NormalAttackDamageResult;
+  supportSummon?: {
+    summonId: string;
+    name: string;
+    callableFromTurn: 1;
+    statsIncluded: false;
+    subAuraIncluded: false;
+    mainOnlyAuraEffectsIncluded: false;
+  };
 }
 
 function modifier(
@@ -82,7 +98,30 @@ function modifier(
 /** Shared, side-effect-free facade used by the local Web UI and the MCP tool. */
 export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCalculationResponse {
   const request = requestSchema.parse(input);
-  const resolution = resolveCalculatorDeckConfig(request.deckConfig);
+  const battle: BattleSnapshot = {
+    schemaVersion: 1,
+    enemies: [
+      {
+        slot: 1,
+        enemyId: request.enemy.id ?? "manual-enemy",
+        nameJp: request.enemy.name,
+        elementCode: request.enemy.elementCode,
+        defense: request.enemy.defense,
+        defenseSource: "user-override",
+      },
+    ],
+    enemyPassiveEffectCount: 0,
+    fieldEffectCount: 0,
+    supportSummon:
+      request.supportSummon === undefined
+        ? undefined
+        : {
+            masterId: request.supportSummon.summonId,
+            name: request.supportSummon.nameHint,
+          },
+  };
+  const supportSummon = resolveBattleSupportSummon(battle);
+  const resolution = resolveCalculatorDeckConfig(request.deckConfig, supportSummon);
   const protagonistElementCode = resolution.deck.protagonist.elementCode;
   const accountModifiers: DamageModifier[] = [
     ...modifier(
@@ -136,21 +175,6 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
     );
   }
 
-  const battle: BattleSnapshot = {
-    schemaVersion: 1,
-    enemies: [
-      {
-        slot: 1,
-        enemyId: request.enemy.id ?? "manual-enemy",
-        nameJp: request.enemy.name,
-        elementCode: request.enemy.elementCode,
-        defense: request.enemy.defense,
-        defenseSource: "user-override",
-      },
-    ],
-    enemyPassiveEffectCount: 0,
-    fieldEffectCount: 0,
-  };
   const calculationInput: DamageCalculationInput = {
     schemaVersion: 1,
     deck: resolution.deck,
@@ -171,6 +195,17 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
       multiplierMax: request.random?.maximum,
       multiplierStep: request.random?.step,
     }),
+    supportSummon:
+      supportSummon === undefined
+        ? undefined
+        : {
+            summonId: supportSummon.masterId,
+            name: supportSummon.name,
+            callableFromTurn: 1,
+            statsIncluded: false,
+            subAuraIncluded: false,
+            mainOnlyAuraEffectsIncluded: false,
+          },
   };
 }
 
