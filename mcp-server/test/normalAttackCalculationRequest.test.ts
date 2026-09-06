@@ -254,6 +254,7 @@ test("reproduces all four observed critical body hits with the two-floor model",
   assert.equal(critical.probabilityModel, "damage-only");
   assert.equal(critical.weaponSkillCriticalRatePercent, 18);
   assert.equal(critical.criticalDamageMultiplier, 1.5);
+  assert.equal(critical.nominalDamage, 16949);
   assert.equal(critical.targetElementMultiplierSource, "displayed-damage-calibration");
 
   const cases = [

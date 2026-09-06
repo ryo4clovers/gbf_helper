@@ -153,25 +153,24 @@
           <div class="range-labels"><span id="total-min">最小 —</span><span id="total-max">最大 —</span></div>
         </section>
 
+        <div id="damage-mode-toggle" class="damage-mode-toggle" role="group" aria-label="予測ダメージの表示切替" hidden>
+          <button id="normal-damage-mode" class="selected" type="button" aria-pressed="true">通常</button>
+          <button id="critical-damage-mode" type="button" aria-pressed="false">クリティカル</button>
+        </div>
+
         <div class="metric-grid">
-          <article class="metric-card body-card">
-            <div class="metric-icon" aria-hidden="true">◇</div>
-            <p>想定通常ダメージ</p>
+          <article id="body-card" class="metric-card body-card">
+            <div id="body-icon" class="metric-icon" aria-hidden="true">◇</div>
+            <p id="body-label">想定通常ダメージ</p>
             <strong id="body-expected">—</strong>
             <small id="body-range">—</small>
+            <small id="body-note" class="metric-note" hidden>—</small>
           </article>
           <article class="metric-card pursuit-card">
             <div class="metric-icon" aria-hidden="true">✦</div>
             <p id="pursuit-label">追撃</p>
             <strong id="pursuit-expected">—</strong>
             <small id="pursuit-range">—</small>
-          </article>
-          <article id="critical-card" class="metric-card critical-card" hidden>
-            <div class="metric-icon" aria-hidden="true">×1.5</div>
-            <p id="critical-label">クリティカル時</p>
-            <strong id="critical-expected">—</strong>
-            <small id="critical-range">—</small>
-            <small id="critical-note" class="metric-note">—</small>
           </article>
         </div>
 

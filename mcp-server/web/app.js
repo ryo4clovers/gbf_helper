@@ -42,6 +42,9 @@ let fallbackWeaponCatalog = [];
 let editingWeaponSlot = null;
 let summonCatalog = [];
 let editingSummonSlot = null;
+let latestDamageResult = null;
+let damageDisplayMode = "normal";
+let damageDisplayManuallySelected = false;
 
 deckField.value = JSON.stringify(defaultDeck, null, 2);
 
@@ -781,19 +784,60 @@ const issueNames = {
   "critical-probability-unresolved": "クリティカル発生率の抽選規則は未確定のため、合計期待値には含めていません",
 };
 
+function renderDamagePrediction(result) {
+  const body = result.bodyDamageDistribution;
+  const critical = result.criticalBodyDamage;
+  const useCritical = damageDisplayMode === "critical" && critical !== undefined;
+  const distribution = useCritical ? critical.damageDistribution : body;
+
+  $("body-card").classList.toggle("critical-mode", useCritical);
+  $("body-icon").textContent = useCritical ? `×${numberFormat.format(critical.criticalDamageMultiplier)}` : "◇";
+  $("body-label").textContent = useCritical ? "想定通常ダメージ（クリティカル）" : "想定通常ダメージ";
+  $("body-expected").textContent = formatDamage(
+    useCritical ? critical.nominalDamage : result.baseDamage.damageBeforeRandomAndCap,
+  );
+  $("body-range").textContent = `${formatDamage(distribution.minimumDamage)} — ${formatDamage(distribution.maximumDamage)}`;
+  $("body-note").hidden = !useCritical;
+  if (useCritical) {
+    $("body-note").textContent = `武器スキル発生率 ${numberFormat.format(critical.weaponSkillCriticalRatePercent)}%`;
+  }
+
+  $("normal-damage-mode").classList.toggle("selected", !useCritical);
+  $("normal-damage-mode").setAttribute("aria-pressed", String(!useCritical));
+  $("critical-damage-mode").classList.toggle("selected", useCritical);
+  $("critical-damage-mode").setAttribute("aria-pressed", String(useCritical));
+}
+
+function selectDamageDisplayMode(mode) {
+  if (latestDamageResult === null) return;
+  if (mode === "critical" && latestDamageResult.criticalBodyDamage === undefined) return;
+  damageDisplayMode = mode;
+  damageDisplayManuallySelected = true;
+  renderDamagePrediction(latestDamageResult);
+}
+
 function render(response) {
   const result = response.result;
-  const body = result.bodyDamageDistribution;
   const pursuit = result.pursuitDamage?.damageDistribution;
   const critical = result.criticalBodyDamage;
-  const criticalDistribution = critical?.damageDistribution;
   const total = result.totalDamageDistribution;
+
+  latestDamageResult = result;
+  $("damage-mode-toggle").hidden = critical === undefined;
+  if (critical === undefined) {
+    damageDisplayMode = "normal";
+    damageDisplayManuallySelected = false;
+  } else if (critical.weaponSkillCriticalRatePercent >= 100) {
+    damageDisplayMode = "critical";
+    damageDisplayManuallySelected = false;
+  } else if (!damageDisplayManuallySelected) {
+    damageDisplayMode = "normal";
+  }
 
   $("total-expected").textContent = formatDamage(total.expectedDamage);
   $("total-min").textContent = `最小 ${formatDamage(total.minimumDamage)}`;
   $("total-max").textContent = `最大 ${formatDamage(total.maximumDamage)}`;
-  $("body-expected").textContent = formatDamage(result.baseDamage.damageBeforeRandomAndCap);
-  $("body-range").textContent = `${formatDamage(body.minimumDamage)} — ${formatDamage(body.maximumDamage)}`;
+  renderDamagePrediction(result);
   $("pursuit-label").textContent = result.pursuitDamage
     ? `追撃 ${numberFormat.format(result.pursuitDamage.effectivePursuitPercentage)}%`
     : "追撃なし";
@@ -801,13 +845,6 @@ function render(response) {
   $("pursuit-range").textContent = pursuit
     ? `${formatDamage(pursuit.minimumDamage)} — ${formatDamage(pursuit.maximumDamage)}`
     : "—";
-  $("critical-card").hidden = criticalDistribution === undefined;
-  if (criticalDistribution !== undefined) {
-    $("critical-label").textContent = `クリティカル時 ×${numberFormat.format(critical.criticalDamageMultiplier)}`;
-    $("critical-expected").textContent = formatDamage(criticalDistribution.expectedDamage);
-    $("critical-range").textContent = `${formatDamage(criticalDistribution.minimumDamage)} — ${formatDamage(criticalDistribution.maximumDamage)}`;
-    $("critical-note").textContent = `武器スキル発生率 ${numberFormat.format(critical.weaponSkillCriticalRatePercent)}%・合計期待値には未反映`;
-  }
   $("pattern-count").textContent = `${numberFormat.format(total.combinationCount)} patterns`;
 
   const rows = [
@@ -1011,6 +1048,8 @@ $("save-config").addEventListener("click", () => {
 
 $("visual-tab").addEventListener("click", () => setEditorMode("visual"));
 $("json-tab").addEventListener("click", () => setEditorMode("json"));
+$("normal-damage-mode").addEventListener("click", () => selectDamageDisplayMode("normal"));
+$("critical-damage-mode").addEventListener("click", () => selectDamageDisplayMode("critical"));
 $("close-job-picker").addEventListener("click", () => $("job-picker").close());
 $("remove-job").addEventListener("click", removeSelectedJob);
 $("job-search").addEventListener("input", (event) => renderJobResults(event.target.value));

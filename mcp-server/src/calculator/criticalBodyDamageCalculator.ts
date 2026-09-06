@@ -25,6 +25,7 @@ export interface CriticalBodyDamageResult {
   weaponSkillCriticalRatePercent: number;
   criticalRateEffects: EffectiveWeaponSkillEffect[];
   criticalDamageMultiplier: number;
+  nominalDamage: number;
   targetElementMultiplierSource: "displayed-damage-calibration" | "not-applicable";
   damageDistribution: {
     schemaVersion: 1;
@@ -144,6 +145,7 @@ export function calculateCriticalBodyDamage(
     ),
     criticalRateEffects,
     criticalDamageMultiplier,
+    nominalDamage: calculateCriticalBodyDamageAtMultiplier(baseDamage, 1, criticalDamageMultiplier).finalDamage,
     targetElementMultiplierSource: target.source,
     damageDistribution: {
       schemaVersion: 1,
