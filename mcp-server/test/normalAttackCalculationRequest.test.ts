@@ -294,6 +294,7 @@ test("records the support-Agni +0 through +10 prediction drift", () => {
     { plusMark: 4, weaponAttack: 2190, protagonistAttack: 22832, officialNormal: 10158, localNormal: 10159, officialAdvantage: 14353, localAdvantage: 14355 },
     { plusMark: 5, weaponAttack: 2195, protagonistAttack: 22840, officialNormal: 10158, localNormal: 10159, officialAdvantage: 14353, localAdvantage: 14355 },
     { plusMark: 6, weaponAttack: 2200, protagonistAttack: 22847, officialNormal: 10162, localNormal: 10163, officialAdvantage: 14358, localAdvantage: 14360 },
+    { plusMark: 7, weaponAttack: 2205, protagonistAttack: 22854, officialNormal: 10166, localNormal: 10171, officialAdvantage: 14364, localAdvantage: 14371 },
     { plusMark: 8, weaponAttack: 2210, protagonistAttack: 22862, officialNormal: 10169, localNormal: 10174, officialAdvantage: 14369, localAdvantage: 14376 },
     { plusMark: 9, weaponAttack: 2215, protagonistAttack: 22869, officialNormal: 10169, localNormal: 10174, officialAdvantage: 14369, localAdvantage: 14376 },
     { plusMark: 10, weaponAttack: 2220, protagonistAttack: 22878, officialNormal: 10173, localNormal: 10178, officialAdvantage: 14374, localAdvantage: 14381 },
@@ -321,7 +322,7 @@ test("records the support-Agni +0 through +10 prediction drift", () => {
   }
   assert.deepEqual(differences, [
     [0, 1], [0, 1], [1, 1], [0, 1], [1, 2],
-    [1, 2], [1, 2], [5, 7], [5, 7], [5, 7],
+    [1, 2], [1, 2], [5, 7], [5, 7], [5, 7], [5, 7],
   ]);
 });
 
