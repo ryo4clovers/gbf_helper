@@ -132,6 +132,7 @@ test("warns without removing a main weapon that the selected job cannot equip", 
     (issue) => issue.code === "main-weapon-incompatible-with-job",
   );
   assert.deepEqual(result.deck.protagonist.job?.weaponKindCodes, ["1", "4"]);
+  assert.equal(result.deck.protagonist.elementCode, "1");
   assert.equal(result.deck.weapons[0].masterId, "1040201400");
   assert.equal(compatibilityIssue?.path, "weapons.0.weaponId");
   assert.match(compatibilityIssue?.message ?? "", /ファイター・オリジン.*剣 \/ 斧.*イフリートハルベルト.*槍/);
@@ -160,7 +161,7 @@ test("accepts a compatible main weapon without a compatibility warning", () => {
   );
 });
 
-test("checks a fallback main weapon through the dedicated fallback catalog", () => {
+test("updates a stale fallback to the job's first proficient weapon", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,
     format: "gbf-helper-calculator-deck",
@@ -177,15 +178,16 @@ test("checks a fallback main weapon through the dedicated fallback catalog", () 
     ],
   });
 
-  assert.equal(result.deck.weapons[0].name, "ブロンズスピア");
-  assert.equal(result.deck.weapons[0].weaponKindCode, "3");
+  assert.equal(result.deck.weapons[0].name, "ブロンズソード");
+  assert.equal(result.deck.weapons[0].weaponKindCode, "1");
+  assert.equal(result.deck.protagonist.elementCode, "1");
   assert.equal(
     result.issues.some((issue) => issue.code === "weapon-master-data-unresolved"),
     false,
   );
   assert.equal(
     result.issues.some((issue) => issue.code === "main-weapon-incompatible-with-job"),
-    true,
+    false,
   );
 });
 

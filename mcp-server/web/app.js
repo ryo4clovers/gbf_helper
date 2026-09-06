@@ -210,6 +210,45 @@ function catalogFallbackWeapon(weaponId) {
   return fallbackWeaponCatalog.find((weapon) => weapon.weaponId === weaponId);
 }
 
+function applyEquipmentRules(config) {
+  const job = config.protagonist.jobId ? catalogJob(config.protagonist.jobId) : undefined;
+  let mainWeapon = config.weapons.find((weapon) => weapon.position === "main");
+  if (job && (!mainWeapon || mainWeapon.isJobFallback === true)) {
+    const fallback = fallbackWeaponCatalog.find(
+      (weapon) => weapon.weaponKindCode === job.weaponKinds[0]?.code,
+    );
+    if (fallback) {
+      config.weapons = config.weapons.filter(
+        (weapon) => weapon.position !== "main" && weapon.slot !== 1,
+      );
+      config.weapons.push({
+        slot: 1,
+        position: "main",
+        weaponId: fallback.weaponId,
+        isJobFallback: true,
+        nameHint: fallback.name,
+        level: fallback.level,
+        uncapLevel: 0,
+        plusMark: 0,
+        attackOverride: fallback.attack,
+        hpOverride: fallback.hp,
+      });
+      mainWeapon = config.weapons.find((weapon) => weapon.position === "main");
+    }
+  } else if (!config.protagonist.jobId && mainWeapon?.isJobFallback === true) {
+    config.weapons = config.weapons.filter((weapon) => weapon !== mainWeapon);
+    delete config.protagonist.elementCode;
+    mainWeapon = undefined;
+  }
+
+  const master = mainWeapon
+    ? mainWeapon.isJobFallback === true
+      ? catalogFallbackWeapon(mainWeapon.weaponId)
+      : catalogWeapon(mainWeapon.weaponId)
+    : undefined;
+  if (master?.elementCode) config.protagonist.elementCode = master.elementCode;
+}
+
 function renderMainWeaponCompatibility(config) {
   const warning = $("weapon-compatibility-warning");
   const job = config.protagonist.jobId ? catalogJob(config.protagonist.jobId) : undefined;
@@ -320,6 +359,8 @@ function createWeaponSlot(config, slot) {
 function renderWeaponEditor() {
   try {
     const config = readDeckConfig();
+    applyEquipmentRules(config);
+    writeDeckConfig(config);
     renderJobEditor(config);
     renderMainWeaponCompatibility(config);
     const mainSlot = $("main-weapon-slot");
@@ -595,9 +636,12 @@ function numberValue(id) {
 }
 
 function buildRequest() {
+  const deckConfig = readDeckConfig();
+  applyEquipmentRules(deckConfig);
+  writeDeckConfig(deckConfig);
   return {
     schemaVersion: 1,
-    deckConfig: JSON.parse(deckField.value),
+    deckConfig,
     enemy: {
       name: $("enemy-name").value.trim() || undefined,
       elementCode: $("enemy-element").value,

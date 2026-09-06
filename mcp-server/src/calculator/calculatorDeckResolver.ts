@@ -1,4 +1,5 @@
 import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
+import { applyCalculatorDeckEquipmentRules } from "./calculatorDeckEquipmentRules.js";
 import { createSelectableJobCatalog } from "./jobCatalogView.js";
 import { loadJobFallbackWeaponCatalog } from "./jobFallbackWeaponCatalog.js";
 import { loadIncrementalSummonCatalog } from "./summonCatalog.js";
@@ -61,10 +62,17 @@ function appendMissingStatIssues(
  * data. Overrides become observed stats; unresolved mechanics are reported.
  */
 export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResolution {
-  const config: CalculatorDeckConfig = parseCalculatorDeckConfig(input);
   const catalog = loadIncrementalWeaponCatalog();
   const fallbackWeaponCatalog = loadJobFallbackWeaponCatalog();
   const jobCatalog = createSelectableJobCatalog();
+  const config: CalculatorDeckConfig = applyCalculatorDeckEquipmentRules(
+    parseCalculatorDeckConfig(input),
+    {
+      jobs: jobCatalog,
+      fallbackWeapons: fallbackWeaponCatalog,
+      weapons: catalog,
+    },
+  );
   const summonCatalog = loadIncrementalSummonCatalog();
   const issues: CalculatorDeckResolutionIssue[] = [];
   const selectedJob = jobCatalog.jobs.find((job) => job.jobId === config.protagonist.jobId);
