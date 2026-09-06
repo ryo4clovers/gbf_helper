@@ -43,8 +43,7 @@ let editingWeaponSlot = null;
 let summonCatalog = [];
 let editingSummonSlot = null;
 let latestDamageResult = null;
-let damageDisplayMode = "normal";
-let damageDisplayManuallySelected = false;
+let weaponCriticalManuallySelected = false;
 
 deckField.value = JSON.stringify(defaultDeck, null, 2);
 
@@ -767,6 +766,32 @@ function formatDamage(value) {
   return Number.isFinite(value) ? numberFormat.format(value) : "—";
 }
 
+const advantageTargetByAttacker = {
+  "1": "4",
+  "2": "1",
+  "3": "2",
+  "4": "3",
+  "5": "6",
+  "6": "5",
+};
+
+function predictionRequests(request) {
+  const attackerElement = request.deckConfig.protagonist?.elementCode;
+  const advantageTarget = advantageTargetByAttacker[attackerElement];
+  if (advantageTarget === undefined) throw new Error("主人公属性から有利属性を解決できません");
+  return {
+    normal: {
+      ...request,
+      enemy: { ...request.enemy, elementCode: attackerElement },
+      modifiers: { ...request.modifiers, targetElementDamagePercent: 0 },
+    },
+    advantage: {
+      ...request,
+      enemy: { ...request.enemy, elementCode: advantageTarget },
+    },
+  };
+}
+
 const stageNames = {
   "normal-weapon-skill": "通常攻刃",
   "elemental-attack": "属性攻撃",
@@ -784,15 +809,15 @@ const issueNames = {
   "critical-probability-unresolved": "クリティカル発生率の抽選規則は未確定のため、合計期待値には含めていません",
 };
 
-function renderDamagePrediction(result) {
+function renderLocalResult(result) {
   const body = result.bodyDamageDistribution;
   const critical = result.criticalBodyDamage;
-  const useCritical = damageDisplayMode === "critical" && critical !== undefined;
+  const criticalToggle = $("weapon-critical-toggle");
+  const useCritical = criticalToggle.checked && critical !== undefined;
   const distribution = useCritical ? critical.damageDistribution : body;
 
   $("body-card").classList.toggle("critical-mode", useCritical);
   $("body-icon").textContent = useCritical ? `×${numberFormat.format(critical.criticalDamageMultiplier)}` : "◇";
-  $("body-label").textContent = useCritical ? "想定通常ダメージ（クリティカル）" : "想定通常ダメージ";
   $("body-expected").textContent = formatDamage(
     useCritical ? critical.nominalDamage : result.baseDamage.damageBeforeRandomAndCap,
   );
@@ -801,51 +826,51 @@ function renderDamagePrediction(result) {
   if (useCritical) {
     $("body-note").textContent = `武器スキル発生率 ${numberFormat.format(critical.weaponSkillCriticalRatePercent)}%`;
   }
-
-  $("normal-damage-mode").classList.toggle("selected", !useCritical);
-  $("normal-damage-mode").setAttribute("aria-pressed", String(!useCritical));
-  $("critical-damage-mode").classList.toggle("selected", useCritical);
-  $("critical-damage-mode").setAttribute("aria-pressed", String(useCritical));
 }
 
-function selectDamageDisplayMode(mode) {
+function selectWeaponCritical() {
   if (latestDamageResult === null) return;
-  if (mode === "critical" && latestDamageResult.criticalBodyDamage === undefined) return;
-  damageDisplayMode = mode;
-  damageDisplayManuallySelected = true;
-  renderDamagePrediction(latestDamageResult);
+  weaponCriticalManuallySelected = true;
+  renderLocalResult(latestDamageResult);
 }
 
-function render(response) {
+function render(response, predictions) {
   const result = response.result;
-  const pursuit = result.pursuitDamage?.damageDistribution;
   const critical = result.criticalBodyDamage;
-  const total = result.totalDamageDistribution;
+  const criticalToggle = $("weapon-critical-toggle");
+  const advantageCritical = predictions.advantage.result.criticalBodyDamage;
+  const advantageUsesCritical =
+    advantageCritical !== undefined && advantageCritical.weaponSkillCriticalRatePercent >= 100;
 
   latestDamageResult = result;
-  $("damage-mode-toggle").hidden = critical === undefined;
+  $("game-normal-prediction").textContent = formatDamage(
+    predictions.normal.result.baseDamage.damageBeforeRandomAndCap,
+  );
+  $("game-advantage-prediction").textContent = formatDamage(
+    advantageUsesCritical
+      ? advantageCritical.nominalDamage
+      : predictions.advantage.result.baseDamage.damageBeforeRandomAndCap,
+  );
+  $("game-advantage-note").textContent = advantageUsesCritical
+    ? `武器クリティカル ${numberFormat.format(advantageCritical.weaponSkillCriticalRatePercent)}%を反映`
+    : "武器クリティカル未反映";
+
+  criticalToggle.disabled = critical === undefined;
   if (critical === undefined) {
-    damageDisplayMode = "normal";
-    damageDisplayManuallySelected = false;
+    criticalToggle.checked = false;
+    weaponCriticalManuallySelected = false;
+    $("critical-switch-note").textContent = "有利属性かつ対象スキルがある場合に利用できます";
   } else if (critical.weaponSkillCriticalRatePercent >= 100) {
-    damageDisplayMode = "critical";
-    damageDisplayManuallySelected = false;
-  } else if (!damageDisplayManuallySelected) {
-    damageDisplayMode = "normal";
+    criticalToggle.checked = true;
+    weaponCriticalManuallySelected = false;
+    $("critical-switch-note").textContent = `発生率 ${numberFormat.format(critical.weaponSkillCriticalRatePercent)}%・自動有効`;
+  } else {
+    if (!weaponCriticalManuallySelected) criticalToggle.checked = false;
+    $("critical-switch-note").textContent = `発生率 ${numberFormat.format(critical.weaponSkillCriticalRatePercent)}%`;
   }
 
-  $("total-expected").textContent = formatDamage(total.expectedDamage);
-  $("total-min").textContent = `最小 ${formatDamage(total.minimumDamage)}`;
-  $("total-max").textContent = `最大 ${formatDamage(total.maximumDamage)}`;
-  renderDamagePrediction(result);
-  $("pursuit-label").textContent = result.pursuitDamage
-    ? `追撃 ${numberFormat.format(result.pursuitDamage.effectivePursuitPercentage)}%`
-    : "追撃なし";
-  $("pursuit-expected").textContent = pursuit ? formatDamage(pursuit.expectedDamage) : "0";
-  $("pursuit-range").textContent = pursuit
-    ? `${formatDamage(pursuit.minimumDamage)} — ${formatDamage(pursuit.maximumDamage)}`
-    : "—";
-  $("pattern-count").textContent = `${numberFormat.format(total.combinationCount)} patterns`;
+  renderLocalResult(result);
+  $("pattern-count").textContent = `${numberFormat.format(result.bodyDamageDistribution.patternCount)} patterns`;
 
   const rows = [
     {
@@ -976,9 +1001,14 @@ function registerWebMcpTool() {
       },
       annotations: { readOnlyHint: true, untrustedContentHint: false },
       async execute(input) {
-        const response = await postJson("/api/calculate", input);
+        const comparisonRequests = predictionRequests(input);
+        const [response, normalPrediction, advantagePrediction] = await Promise.all([
+          postJson("/api/calculate", input),
+          postJson("/api/calculate", comparisonRequests.normal),
+          postJson("/api/calculate", comparisonRequests.advantage),
+        ]);
         applyRequestToForm(input);
-        render(response);
+        render(response, { normal: normalPrediction, advantage: advantagePrediction });
         return conciseResult(response);
       },
     },
@@ -993,7 +1023,14 @@ async function calculate() {
   button.disabled = true;
   button.classList.add("loading");
   try {
-    render(await postJson("/api/calculate", buildRequest()));
+    const request = buildRequest();
+    const comparisonRequests = predictionRequests(request);
+    const [response, normalPrediction, advantagePrediction] = await Promise.all([
+      postJson("/api/calculate", request),
+      postJson("/api/calculate", comparisonRequests.normal),
+      postJson("/api/calculate", comparisonRequests.advantage),
+    ]);
+    render(response, { normal: normalPrediction, advantage: advantagePrediction });
   } catch (error) {
     $("deck-state").textContent = error instanceof Error ? error.message : "計算に失敗しました";
     $("deck-state").classList.add("error-text");
@@ -1048,8 +1085,7 @@ $("save-config").addEventListener("click", () => {
 
 $("visual-tab").addEventListener("click", () => setEditorMode("visual"));
 $("json-tab").addEventListener("click", () => setEditorMode("json"));
-$("normal-damage-mode").addEventListener("click", () => selectDamageDisplayMode("normal"));
-$("critical-damage-mode").addEventListener("click", () => selectDamageDisplayMode("critical"));
+$("weapon-critical-toggle").addEventListener("change", selectWeaponCritical);
 $("close-job-picker").addEventListener("click", () => $("job-picker").close());
 $("remove-job").addEventListener("click", removeSelectedJob);
 $("job-search").addEventListener("input", (event) => renderJobResults(event.target.value));

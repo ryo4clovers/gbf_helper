@@ -145,34 +145,61 @@
       </form>
 
       <aside class="result-pane" aria-live="polite">
-        <section class="result-hero">
-          <p class="eyebrow">EXPECTED TOTAL</p>
-          <div id="total-expected" class="hero-number">—</div>
-          <p class="hero-caption">通常攻撃1ヒット＋追撃の期待値</p>
-          <div class="range-track" aria-hidden="true"><span></span></div>
-          <div class="range-labels"><span id="total-min">最小 —</span><span id="total-max">最大 —</span></div>
+        <section class="surface result-group prediction-group">
+          <div class="section-heading compact">
+            <div><span class="step">A</span><h2>本家予測ダメージ表示（推定）</h2></div>
+          </div>
+          <p class="result-group-description">本家の編成画面と照合するための、乱数を含まない代表値です。</p>
+          <div class="metric-grid prediction-grid">
+            <article class="metric-card prediction-card">
+              <div class="metric-icon" aria-hidden="true">◇</div>
+              <p>予測ダメージ</p>
+              <strong id="game-normal-prediction">—</strong>
+              <small>等倍条件</small>
+            </article>
+            <article class="metric-card advantage-card">
+              <div class="metric-icon" aria-hidden="true">▲</div>
+              <p>対有利予測ダメージ</p>
+              <strong id="game-advantage-prediction">—</strong>
+              <small id="game-advantage-note">—</small>
+            </article>
+          </div>
         </section>
 
-        <div id="damage-mode-toggle" class="damage-mode-toggle" role="group" aria-label="予測ダメージの表示切替" hidden>
-          <button id="normal-damage-mode" class="selected" type="button" aria-pressed="true">通常</button>
-          <button id="critical-damage-mode" type="button" aria-pressed="false">クリティカル</button>
-        </div>
-
-        <div class="metric-grid">
-          <article id="body-card" class="metric-card body-card">
-            <div id="body-icon" class="metric-icon" aria-hidden="true">◇</div>
-            <p id="body-label">想定通常ダメージ</p>
-            <strong id="body-expected">—</strong>
-            <small id="body-range">—</small>
-            <small id="body-note" class="metric-note" hidden>—</small>
-          </article>
-          <article class="metric-card pursuit-card">
-            <div class="metric-icon" aria-hidden="true">✦</div>
-            <p id="pursuit-label">追撃</p>
-            <strong id="pursuit-expected">—</strong>
-            <small id="pursuit-range">—</small>
-          </article>
-        </div>
+        <section class="surface result-group local-result-group">
+          <div class="section-heading compact">
+            <div><span class="step">B</span><h2>ローカル計算機結果表示</h2></div>
+          </div>
+          <label class="critical-switch" for="weapon-critical-toggle">
+            <span class="switch-copy">
+              <strong>武器クリティカル</strong>
+              <small id="critical-switch-note">現在の条件では利用できません</small>
+            </span>
+            <input id="weapon-critical-toggle" type="checkbox" role="switch" disabled />
+            <span class="switch-track" aria-hidden="true"><span></span></span>
+          </label>
+          <div class="metric-grid local-result-grid">
+            <article id="body-card" class="metric-card body-card">
+              <div id="body-icon" class="metric-icon" aria-hidden="true">◇</div>
+              <p>通常ダメージ</p>
+              <strong id="body-expected">—</strong>
+              <small id="body-range">—</small>
+              <small id="body-note" class="metric-note" hidden>—</small>
+            </article>
+            <article class="metric-card future-card">
+              <div class="metric-icon" aria-hidden="true">✦</div>
+              <p>アビリティダメージ</p>
+              <strong>未実装</strong>
+              <small>等倍アビリティとして将来対応予定</small>
+            </article>
+            <article class="metric-card future-card ougi-card">
+              <div class="metric-icon" aria-hidden="true">◆</div>
+              <p>奥義ダメージ</p>
+              <strong>未実装</strong>
+              <small>メイン武器の奥義効果に将来対応予定</small>
+            </article>
+          </div>
+        </section>
 
         <section class="surface breakdown-surface">
           <div class="section-heading compact">
