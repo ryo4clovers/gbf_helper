@@ -6,8 +6,8 @@ rarity: SSR
 element: "火"
 obtain: "ガチャ排出"
 status: 下書き
-last_updated: 2026-08-20
-source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Agni) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
+last_updated: 2026-09-06
+source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Agni) の両方で確認(取得日: 2026-08-20)。Lv250のステータスと加護はユーザー提供のゲーム内deckレスポンスで確認(確認日: 2026-09-06)。"
 ---
 
 # アグニス(Agni)
@@ -30,6 +30,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | --- | --- | --- |
 | Lv100(3★) | 770 | 2270 |
 | Lv150(4★・最終上限解放) | 1092 | 3213 |
+| Lv250(6★) | 1414 | 4157 |
 
 ## 召喚効果
 
@@ -38,8 +39,9 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 ## 加護効果(メイン編成時)
 
-- 効果: 武器スキル(火/業火/紅蓮/赤星)の効果が80%UP / (3凸)スキル効果120％ / (4凸)スキル効果140%
-- 出典: GameWith
+- 効果: 武器スキル(火/業火/紅蓮/赤星)の効果が80%UP / (3凸)スキル効果120% / (4凸)スキル効果140% / (6★)スキル「火」「業火」「紅蓮」の効果が170%UP、メイン召喚石に装備時は火属性攻撃力30%UP
+- 出典: GameWith。6★部分はユーザー提供のゲーム内deckレスポンス
+- ステータス: 6★部分は検証済み(2026-09-06)
 
 ## サブ加護効果(サブ編成時)
 
@@ -54,4 +56,5 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 - サブ加護効果の正確な倍率はGameWith一覧に明記されていない場合、未検証。
 - 召喚ターン(初回召喚/使用間隔/再召喚可否)はGameWith個別ページから抽出できなかったため未記載。個別ページを直接確認する必要がある。
-- gbf.wikiでさらに上位の上限解放段階(5★/6★等)が存在する場合、本ファイルはGameWithの標準的な表記(3★/4★)までの記載としており、それ以降は未反映。
+- 5★段階のステータスと加護効果は未確認。
+- 6★加護の対象に「赤星」が含まれない理由、および段階による対象系列の変化は要検証。

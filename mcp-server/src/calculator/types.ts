@@ -104,14 +104,26 @@ export interface DeckSummonAura {
   confirmedAt?: string;
 }
 
-export interface AppliedWeaponSkillModifier {
-  kind: "normal-skill-boost";
-  sourceWeaponSlot: number;
-  sourceSkillId: string;
-  sourceSkillName: string;
-  amountPercent: number;
-  verificationStatus: "検証済み" | "下書き";
-}
+export type AppliedWeaponSkillModifier =
+  | {
+      kind: "normal-skill-boost";
+      sourceType: "weapon-skill";
+      sourceWeaponSlot: number;
+      sourceSkillId: string;
+      sourceSkillName: string;
+      amountPercent: number;
+      verificationStatus: "検証済み" | "下書き";
+    }
+  | {
+      kind: "normal-skill-boost";
+      sourceType: "summon-aura";
+      sourceSummonSlot: number;
+      sourceSummonId: string;
+      sourceSummonName?: string;
+      sourceAuraName: string;
+      amountPercent: number;
+      verificationStatus: "検証済み" | "下書き";
+    };
 
 export interface EffectiveWeaponSkillEffect {
   sourceWeaponSlot: number;

@@ -8,7 +8,7 @@ test("creates a deterministic browser-safe summon catalog", () => {
   assert.equal(catalog.schemaVersion, 1);
   assert.deepEqual(
     catalog.summons.map((summon) => summon.name),
-    ["シルフィードベル", "ハデス"],
+    ["アグニス", "シルフィードベル", "ハデス"],
   );
   const hades = catalog.summons.find((summon) => summon.summonId === "2040090000");
   assert.equal(hades?.auraEffects.length, 2);

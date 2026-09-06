@@ -141,9 +141,6 @@ export function calculateNormalAttackPower(
     });
   }
   const unsupportedNormalSkillBoost = [
-    ...deck.summons.flatMap((summon) =>
-      summon.position === "main" && summon.aura !== undefined ? summon.aura.effects : [],
-    ),
     ...(supportSummon?.aura.effects ?? []).filter(
       (effect) => "activation" in effect && effect.activation === "always",
     ),

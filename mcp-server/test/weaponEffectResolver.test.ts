@@ -69,6 +69,7 @@ test("calculates boosted effects while preserving the base value and modifier pr
   assert.deepEqual(result.effects[1].appliedModifiers, [
     {
       kind: "normal-skill-boost",
+      sourceType: "weapon-skill",
       sourceWeaponSlot: 1,
       sourceSkillId: "boost",
       sourceSkillName: "オプティマスブースト・ファイア",

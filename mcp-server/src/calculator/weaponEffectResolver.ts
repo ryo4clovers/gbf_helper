@@ -1,7 +1,9 @@
 import type {
   AppliedWeaponSkillModifier,
+  DeckSummon,
   DeckWeapon,
   EffectiveWeaponSkillEffect,
+  SummonAuraEffectDefinition,
   WeaponSkillEffectDefinition,
 } from "./types.js";
 
@@ -27,6 +29,13 @@ interface EffectSource {
   effect: WeaponSkillEffectDefinition;
 }
 
+interface SummonBoostSource {
+  summon: DeckSummon;
+  auraName: string;
+  verificationStatus: "検証済み" | "下書き";
+  effect: Extract<SummonAuraEffectDefinition, { kind: "normal-skill-boost" }>;
+}
+
 function roundPercentage(value: number): number {
   return Math.round(value * 1_000_000) / 1_000_000;
 }
@@ -50,8 +59,22 @@ function matchesBoost(target: EffectSource, boost: EffectSource): boolean {
   return prefixes.some((prefix) => target.skill.name?.startsWith(prefix));
 }
 
+function matchesSummonBoost(target: EffectSource, boost: SummonBoostSource): boolean {
+  if (target.effect.kind === "normal-skill-boost" || target.effect.boostGroup !== "normal") return false;
+  if (
+    target.effect.elementCode !== undefined &&
+    target.effect.elementCode !== boost.effect.elementCode
+  ) {
+    return false;
+  }
+  return boost.effect.targetSkillNamePrefixes.some((prefix) => target.skill.name?.startsWith(prefix));
+}
+
 /** Resolves catalogued base effects and records every modifier used to boost them. */
-export function resolveEffectiveWeaponSkillEffects(weapons: DeckWeapon[]): WeaponEffectResolution {
+export function resolveEffectiveWeaponSkillEffects(
+  weapons: DeckWeapon[],
+  summons: DeckSummon[] = [],
+): WeaponEffectResolution {
   const issues: WeaponEffectResolutionIssue[] = [];
   const reportedLevelIssues = new Set<string>();
   const sources: EffectSource[] = weapons.flatMap((weapon, weaponIndex) =>
@@ -59,6 +82,15 @@ export function resolveEffectiveWeaponSkillEffects(weapons: DeckWeapon[]): Weapo
       (skill.effects ?? []).map((effect) => ({ weaponIndex, weapon, skill, effect })),
     ),
   );
+  const summonBoosts: SummonBoostSource[] = summons.flatMap((summon) => {
+    if (summon.position !== "main" || summon.aura === undefined) return [];
+    const aura = summon.aura;
+    return aura.effects.flatMap((effect): SummonBoostSource[] =>
+      effect.kind === "normal-skill-boost"
+        ? [{ summon, auraName: aura.name, verificationStatus: aura.verificationStatus, effect }]
+        : [],
+    );
+  });
   const applicableSources = sources.filter((source) => {
     if (effectAppliesAtConfiguredLevel(source)) return true;
     const issueKey = `${source.weaponIndex}:${source.skill.id}:${source.effect.skillLevel}`;
@@ -76,21 +108,39 @@ export function resolveEffectiveWeaponSkillEffects(weapons: DeckWeapon[]): Weapo
 
   const effects = applicableSources.map((source): EffectiveWeaponSkillEffect => {
     const matchingBoosts = boosts.filter((boost) => matchesBoost(source, boost));
-    if (matchingBoosts.length > 1) {
+    const matchingSummonBoosts = summonBoosts.filter((boost) => matchesSummonBoost(source, boost));
+    if (matchingBoosts.length + matchingSummonBoosts.length > 1) {
       issues.push({
         code: "multiple-weapon-skill-boosts-assumed-additive",
         path: `weapons.${source.weaponIndex}.skills`,
-        message: `Multiple boosts match skill ${source.skill.id ?? "unknown"}; their percentages are provisionally added.`,
+        message: `Multiple normal-skill boosts match skill ${source.skill.id ?? "unknown"}; their percentages are provisionally added.`,
       });
     }
-    const appliedModifiers: AppliedWeaponSkillModifier[] = matchingBoosts.map((boost) => ({
-      kind: "normal-skill-boost",
-      sourceWeaponSlot: boost.weapon.slot,
-      sourceSkillId: boost.skill.id ?? "unknown",
-      sourceSkillName: boost.skill.name ?? "unknown",
-      amountPercent: boost.effect.amountPercent,
-      verificationStatus: boost.skill.verificationStatus ?? "下書き",
-    }));
+    const appliedModifiers: AppliedWeaponSkillModifier[] = [
+      ...matchingBoosts.map(
+        (boost): AppliedWeaponSkillModifier => ({
+          kind: "normal-skill-boost",
+          sourceType: "weapon-skill",
+          sourceWeaponSlot: boost.weapon.slot,
+          sourceSkillId: boost.skill.id ?? "unknown",
+          sourceSkillName: boost.skill.name ?? "unknown",
+          amountPercent: boost.effect.amountPercent,
+          verificationStatus: boost.skill.verificationStatus ?? "下書き",
+        }),
+      ),
+      ...matchingSummonBoosts.map(
+        (boost): AppliedWeaponSkillModifier => ({
+          kind: "normal-skill-boost",
+          sourceType: "summon-aura",
+          sourceSummonSlot: boost.summon.slot,
+          sourceSummonId: boost.summon.masterId,
+          sourceSummonName: boost.summon.name,
+          sourceAuraName: boost.auraName,
+          amountPercent: boost.effect.amountPercent,
+          verificationStatus: boost.verificationStatus,
+        }),
+      ),
+    ];
     const boostPercent = appliedModifiers.reduce((sum, modifier) => sum + modifier.amountPercent, 0);
 
     return {

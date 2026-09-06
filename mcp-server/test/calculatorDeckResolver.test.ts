@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { resolveCalculatorDeckConfig } from "../src/calculator/calculatorDeckResolver.ts";
+import { calculateNormalAttackPower } from "../src/calculator/normalAttackPowerCalculator.ts";
 
 test("resolves an override-backed calculator config without inventing instance IDs", () => {
   const result = resolveCalculatorDeckConfig({
@@ -85,7 +86,7 @@ test("resolves an override-backed calculator config without inventing instance I
       base: effect.baseAmountPercent,
       effective: effect.effectiveAmountPercent,
       modifiers: effect.appliedModifiers.map((modifier) => [
-        modifier.sourceSkillId,
+        modifier.sourceType === "weapon-skill" ? modifier.sourceSkillId : modifier.sourceSummonId,
         modifier.amountPercent,
       ]),
     })),
@@ -232,6 +233,63 @@ test("reproduces the combined displayed attack and critical values after a 30% b
       ["74", 3, 3.9],
     ],
   );
+});
+
+test("reproduces Agni's observed 170% boost and main-only elemental attack aura", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 1,
+        position: "main",
+        weaponId: "1040201400",
+        skillLevel: 15,
+        attackOverride: 2170,
+        hpOverride: 241,
+      },
+    ],
+    summons: [
+      {
+        slot: 1,
+        position: "main",
+        summonId: "2040094000",
+        level: 250,
+        uncapLevel: 6,
+        attackOverride: 4157,
+        hpOverride: 1414,
+      },
+    ],
+  });
+  const effects = result.deck.effectiveWeaponSkillEffects ?? [];
+
+  assert.deepEqual(
+    effects.map((effect) => [effect.sourceSkillId, effect.effectiveAmountPercent]),
+    [
+      ["25", 48.6],
+      ["74", 8.1],
+    ],
+  );
+  assert.deepEqual(effects[0]?.appliedModifiers, [
+    {
+      kind: "normal-skill-boost",
+      sourceType: "summon-aura",
+      sourceSummonSlot: 1,
+      sourceSummonId: "2040094000",
+      sourceSummonName: "アグニス",
+      sourceAuraName: "アグニスの加護",
+      amountPercent: 170,
+      verificationStatus: "検証済み",
+    },
+  ]);
+  assert.equal(result.deck.summons[0]?.aura?.effects[1]?.kind, "elemental-attack-up");
+  assert.equal(result.issues.some((issue) => issue.code === "summon-aura-unresolved"), false);
+  const attackPower = calculateNormalAttackPower(result.deck);
+  assert.equal(attackPower.totalEffectiveNormalAttackPercent, 48.6);
+  assert.equal(attackPower.totalElementalSummonAuraPercent, 30);
+  assert.equal(attackPower.summonAuraAdjustedAttack, 1.9318);
+  assert.deepEqual(attackPower.issues, []);
 });
 
 test("reports missing stat overrides with precise config paths", () => {

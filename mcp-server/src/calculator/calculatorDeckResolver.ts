@@ -273,7 +273,7 @@ export function resolveCalculatorDeckConfig(input: unknown): CalculatorDeckResol
     })),
   };
 
-  const effectResolution = resolveEffectiveWeaponSkillEffects(deck.weapons);
+  const effectResolution = resolveEffectiveWeaponSkillEffects(deck.weapons, deck.summons);
   deck.effectiveWeaponSkillEffects = effectResolution.effects;
   issues.push(
     ...effectResolution.issues.map((issue) => ({

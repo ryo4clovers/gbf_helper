@@ -45,6 +45,34 @@
       "verificationStatus": "検証済み",
       "source": "ゲーム内startレスポンスの支援召喚石と加護説明で確認",
       "confirmedAt": "2026-09-05"
+    },
+    {
+      "summonId": "2040094000",
+      "name": "アグニス",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "アグニスの加護",
+      "auraDescription": "スキル「火」「業火」「紅蓮」の効果が170%UP。メイン召喚石に装備時、火属性攻撃力が30%UP",
+      "auraEffects": [
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "1",
+          "amountPercent": 170,
+          "targetSkillNamePrefixes": ["火", "業火", "紅蓮"],
+          "activation": "always",
+          "description": "スキル「火」「業火」「紅蓮」の効果が170%UP"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "1",
+          "amountPercent": 30,
+          "activation": "main-only",
+          "description": "メイン召喚石に装備時、火属性攻撃力が30%UP"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内deckレスポンスで主召喚石・加護説明・武器スキル表示値を確認",
+      "confirmedAt": "2026-09-06"
     }
   ]
 }

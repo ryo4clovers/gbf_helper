@@ -10,7 +10,7 @@ test("loads the initial non-damage summon aura", () => {
   const catalog = loadIncrementalSummonCatalog();
   const summon = catalog.summons.get("2030051000");
 
-  assert.equal(catalog.summons.size, 2);
+  assert.equal(catalog.summons.size, 3);
   assert.equal(summon?.name, "シルフィードベル");
   assert.equal(summon?.verificationStatus, "検証済み");
   assert.deepEqual(summon?.auraEffects, [
@@ -19,6 +19,23 @@ test("loads the initial non-damage summon aura", () => {
       description: "レアモンスターの出現確率UP。攻撃力計算には影響しない",
     },
   ]);
+});
+
+test("loads the verified Agni main aura", () => {
+  const summon = loadIncrementalSummonCatalog().summons.get("2040094000");
+
+  assert.equal(summon?.name, "アグニス");
+  assert.deepEqual(
+    summon?.auraEffects.map((effect) => [
+      effect.kind,
+      "amountPercent" in effect ? effect.amountPercent : undefined,
+    ]),
+    [
+      ["normal-skill-boost", 170],
+      ["elemental-attack-up", 30],
+    ],
+  );
+  assert.equal(summon?.verificationStatus, "検証済み");
 });
 
 test("resolves the sanitized Hades support summon from battle state", () => {
