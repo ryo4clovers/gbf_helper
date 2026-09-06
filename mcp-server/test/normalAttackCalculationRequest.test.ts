@@ -54,6 +54,84 @@ test("serves the same normal attack calculation to Web and MCP callers", () => {
   assert.equal(response.result.totalDamageDistribution.maximumDamage, 4392);
 });
 
+test("closely reproduces the verified +0 Agni and Optimus Boost deck display", () => {
+  const response = calculateNormalAttackFromRequest({
+    schemaVersion: 1,
+    deckConfig: {
+      schemaVersion: 1,
+      format: "gbf-helper-calculator-deck",
+      protagonist: {
+        elementCode: "1",
+        jobId: "110001",
+        jobNameHint: "ナイト",
+        jobLevel: 20,
+        masterLevel: 1,
+        perfectionProofLevel: 0,
+        attackOverride: 22801,
+        hpOverride: 4877,
+      },
+      weapons: [
+        {
+          slot: 1,
+          position: "main",
+          weaponId: "1040201400",
+          level: 150,
+          skillLevel: 15,
+          plusMark: 0,
+          attackOverride: 2170,
+          hpOverride: 241,
+        },
+        {
+          slot: 2,
+          position: "grid",
+          weaponId: "1040218900",
+          level: 150,
+          skillLevel: 15,
+          plusMark: 0,
+          attackOverride: 3114,
+          hpOverride: 331,
+        },
+      ],
+      summons: [
+        {
+          slot: 1,
+          position: "main",
+          summonId: "2040094000",
+          level: 250,
+          uncapLevel: 6,
+          plusMark: 0,
+          attackOverride: 4157,
+          hpOverride: 1414,
+        },
+      ],
+      characters: [],
+    },
+    enemy: { elementCode: "1", defense: 10 },
+    modifiers: {
+      allElementAttackPercent: 3,
+      elementAttackPercent: 10,
+      shipAttackPercent: 10,
+      furnaceAttackPercent: 10,
+      jobNormalAttackDamagePercent: 3,
+      damageDealtPercent: 3.6,
+      targetElementDamagePercent: 0,
+    },
+  });
+
+  assert.equal(response.result.attackPower.totalEffectiveNormalAttackPercent, 90);
+  assert.equal(response.result.attackPower.normalAttackSkillMultiplier, 1.9);
+  assert.equal(response.result.pursuitDamage?.effectivePursuitPercentage, 13.5);
+  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 7998.819256);
+  assert.equal(response.result.bodyDamageDistribution.expectedDamage, 7999);
+  assert.ok(Math.abs(response.result.baseDamage.damageBeforeRandomAndCap - 7997) < 2);
+  assert.equal(
+    response.deckResolutionIssues.some(
+      (issue) => issue.code === "multiple-weapon-skill-boosts-assumed-additive",
+    ),
+    false,
+  );
+});
+
 test("rejects unknown request fields and invalid enemy defense", () => {
   assert.throws(
     () => calculateNormalAttackFromRequest({ ...request(), unexpected: true }),

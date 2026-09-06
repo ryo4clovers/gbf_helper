@@ -1,7 +1,7 @@
 const defaultDeck = {
   schemaVersion: 1,
   format: "gbf-helper-calculator-deck",
-  name: "火属性・攻刃39%検証編成",
+  name: "火属性・アグニス検証編成",
   protagonist: {
     elementCode: "1",
     jobId: "110001",
@@ -9,15 +9,15 @@ const defaultDeck = {
     jobLevel: 20,
     masterLevel: 1,
     perfectionProofLevel: 0,
-    attackOverride: 19484,
-    hpOverride: 3851,
+    attackOverride: 22801,
+    hpOverride: 4877,
   },
   weapons: [
-    { slot: 1, position: "main", weaponId: "1040201400", nameHint: "イフリートハルベルト", skillLevel: 15, attackOverride: 2170, hpOverride: 241 },
-    { slot: 2, position: "grid", weaponId: "1040218900", nameHint: "オーバーライド", skillLevel: 15, plusMark: 99, attackOverride: 3609, hpOverride: 430 },
+    { slot: 1, position: "main", weaponId: "1040201400", nameHint: "イフリートハルベルト", level: 150, skillLevel: 15, plusMark: 0, attackOverride: 2170, hpOverride: 241 },
+    { slot: 2, position: "grid", weaponId: "1040218900", nameHint: "オーバーライド", level: 150, skillLevel: 15, plusMark: 0, attackOverride: 3114, hpOverride: 331 },
   ],
   summons: [
-    { slot: 1, position: "main", summonId: "2030051000", nameHint: "シルフィードベル", level: 75, uncapLevel: 3, attackOverride: 865, hpOverride: 433 },
+    { slot: 1, position: "main", summonId: "2040094000", nameHint: "アグニス", level: 250, uncapLevel: 6, plusMark: 0, attackOverride: 4157, hpOverride: 1414 },
   ],
   characters: [],
 };

@@ -109,7 +109,7 @@ export function resolveEffectiveWeaponSkillEffects(
   const effects = applicableSources.map((source): EffectiveWeaponSkillEffect => {
     const matchingBoosts = boosts.filter((boost) => matchesBoost(source, boost));
     const matchingSummonBoosts = summonBoosts.filter((boost) => matchesSummonBoost(source, boost));
-    if (matchingBoosts.length + matchingSummonBoosts.length > 1) {
+    if (matchingBoosts.length > 1 || matchingSummonBoosts.length > 1) {
       issues.push({
         code: "multiple-weapon-skill-boosts-assumed-additive",
         path: `weapons.${source.weaponIndex}.skills`,
