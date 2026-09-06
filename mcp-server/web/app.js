@@ -94,6 +94,7 @@ function createJobLevelField(config, key, label, maximum) {
 function renderJobEditor(config) {
   const jobId = config.protagonist.jobId;
   const job = jobId ? catalogJob(jobId) : undefined;
+  const protagonistElement = elementMeta[config.protagonist.elementCode];
   const card = document.createElement("article");
   card.className = `job-card ${jobId ? "occupied" : "empty"}`;
   const choice = document.createElement("button");
@@ -104,8 +105,22 @@ function renderJobEditor(config) {
   const icon = createText("job-symbol", jobId ? "◆" : "+");
   const details = document.createElement("span");
   details.className = "job-details";
-  details.append(
+  const heading = document.createElement("span");
+  heading.className = "job-heading-row";
+  const elementChip = createText(
+    `protagonist-element-chip ${protagonistElement?.className ?? "unknown"}`,
+    protagonistElement ? `${protagonistElement.name}属性` : "属性不明",
+  );
+  elementChip.setAttribute(
+    "aria-label",
+    `現在の主人公属性: ${protagonistElement?.name ?? "不明"}`,
+  );
+  heading.append(
     createText("job-name", job?.name ?? config.protagonist.jobNameHint ?? (jobId ? `ジョブ ${jobId}` : "ジョブを選択")),
+    elementChip,
+  );
+  details.append(
+    heading,
     createText(
       "job-meta",
       job
