@@ -1,11 +1,15 @@
 import {
   BATTLE_SETUP_STORAGE_KEY,
+  SIMULATION_MODES,
   appendSystemEvent,
   applyAbility,
   applyAttack,
   applyItem,
   applySummon,
   createInitialBattleState,
+  resolveAttackCount,
+  resolveCritical,
+  resolveDamageMultiplier,
   selectPartyMember,
 } from "/battle-state.js";
 
@@ -57,22 +61,52 @@ async function postCalculation(request) {
   return payload.result;
 }
 
-function randomMultiplier(request) {
+function randomMultiplier(request, mode) {
   const minimum = request.random?.minimum ?? 0.95;
   const maximum = request.random?.maximum ?? 1.05;
   const step = request.random?.step ?? 0.001;
-  const count = Math.round((maximum - minimum) / step);
-  return minimum + Math.floor(Math.random() * (count + 1)) * step;
+  return resolveDamageMultiplier(mode, minimum, maximum, step);
 }
 
-function damagePackets(result, request, note) {
-  const bodyMultiplier = randomMultiplier(request);
+function roundCalculation(value) {
+  return Math.round(value * 1_000_000) / 1_000_000;
+}
+
+function criticalBodyDamage(result, multiplier) {
+  const critical = result.criticalBodyDamage;
+  const targetStage = result.baseDamage.stages.find(
+    (stage) => stage.stage === "target-element-damage" && stage.totalPercent !== 0,
+  );
+  const preTargetDamage = targetStage?.inputDamage ?? result.baseDamage.unroundedDamageBeforeRandomAndCap;
+  const targetMultiplier = targetStage && targetStage.inputDamage > 0
+    ? result.baseDamage.damageBeforeRandomAndCap / targetStage.inputDamage
+    : 1;
+  const afterCriticalFloor = Math.floor(
+    roundCalculation(preTargetDamage * multiplier * critical.criticalDamageMultiplier),
+  );
+  return Math.floor(roundCalculation(afterCriticalFloor * targetMultiplier));
+}
+
+function damagePacketsForHit(result, request, mode, note) {
+  const bodyMultiplier = randomMultiplier(request, mode);
   const bodyRounding = result.bodyDamageDistribution.finalRounding;
+  const critical = result.criticalBodyDamage;
+  const criticalTriggered = critical !== undefined
+    && resolveCritical(mode, critical.weaponSkillCriticalRatePercent);
   const bodyRaw = result.baseDamage.unroundedDamageBeforeRandomAndCap * bodyMultiplier;
-  const bodyDamage = bodyRounding === "ceil" ? Math.ceil(bodyRaw) : Math.floor(bodyRaw);
-  const packets = [{ kind: "damage", damage: bodyDamage, note: `${note}・乱数 ${bodyMultiplier.toFixed(3)}` }];
+  const bodyDamage = criticalTriggered
+    ? criticalBodyDamage(result, bodyMultiplier)
+    : bodyRounding === "ceil" ? Math.ceil(bodyRaw) : Math.floor(bodyRaw);
+  const criticalNote = criticalTriggered
+    ? `・クリティカル ×${critical.criticalDamageMultiplier}`
+    : "";
+  const packets = [{
+    kind: "damage",
+    damage: bodyDamage,
+    note: `${note}・乱数 ${bodyMultiplier.toFixed(3)}${criticalNote}`,
+  }];
   if (result.pursuitDamage) {
-    const pursuitMultiplier = randomMultiplier(request);
+    const pursuitMultiplier = randomMultiplier(request, mode);
     packets.push({
       kind: "pursuit",
       damage: Math.floor(result.pursuitDamage.nominalPursuitDamage * pursuitMultiplier),
@@ -82,11 +116,32 @@ function damagePackets(result, request, note) {
   return packets;
 }
 
+function damagePackets(result, request, mode, attackCount, note) {
+  const packets = [];
+  for (let hit = 1; hit <= attackCount; hit += 1) {
+    const hitNote = attackCount === 1 ? note : `${note} ${hit}/${attackCount}hit`;
+    packets.push(...damagePacketsForHit(result, request, mode, hitNote));
+  }
+  return packets;
+}
+
 const setup = loadSetup();
 const initialState = createInitialBattleState(setup);
 let state = structuredClone(initialState);
 let history = [];
 let actionPending = false;
+let simulationMode = SIMULATION_MODES.normal;
+
+const modeGuidance = {
+  normal: "通常：乱数・クリティカル・連続攻撃を発生率に従って抽選します。",
+  downside: "下振れ：最低乱数。100%未満のクリティカルとDA/TAは発動しません。",
+  upside: "上振れ：最高乱数。発生率が正のクリティカルとDA/TAは必ず発動します。",
+};
+
+function enteredRate(id) {
+  const value = Number($(id).value);
+  return Number.isFinite(value) ? Math.min(100, Math.max(0, value)) : 0;
+}
 
 function percent(current, maximum) {
   return maximum <= 0 ? 0 : Math.max(0, Math.min(100, (current / maximum) * 100));
@@ -214,6 +269,12 @@ function render() {
   $("battle-status").textContent = state.enemy.hp === 0 ? "BATTLE FINISHED" : "BATTLE IN PROGRESS";
   $("attack-ougi-off").disabled = state.enemy.hp === 0 || actionPending;
   $("attack-ougi-on").disabled = state.enemy.hp === 0 || actionPending;
+  $("action-guidance").textContent = modeGuidance[simulationMode];
+  for (const button of document.querySelectorAll("[data-simulation-mode]")) {
+    const selected = button.dataset.simulationMode === simulationMode;
+    button.classList.toggle("selected", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  }
   renderEnemy();
   renderParty();
   renderSummons();
@@ -227,12 +288,20 @@ async function attack(ougiEnabled) {
     commit(appendSystemEvent(state, "奥義ダメージ計算は未実装のため、行動を確定していません"));
     return;
   }
+  const selectedMode = simulationMode;
+  const doubleAttackRate = enteredRate("double-attack-rate");
+  const tripleAttackRate = enteredRate("triple-attack-rate");
   actionPending = true;
   render();
   try {
     const result = await postCalculation(setup.request);
     const note = ougiEnabled ? "奥義ゲージ不足のため通常攻撃" : "通常攻撃";
-    commit(applyAttack(state, damagePackets(result, setup.request, note)));
+    const attackCount = resolveAttackCount(
+      selectedMode,
+      doubleAttackRate,
+      tripleAttackRate,
+    );
+    commit(applyAttack(state, damagePackets(result, setup.request, selectedMode, attackCount, note)));
   } catch (error) {
     commit(appendSystemEvent(state, error instanceof Error ? error.message : "攻撃計算に失敗しました"));
   } finally {
@@ -243,6 +312,15 @@ async function attack(ougiEnabled) {
 
 $("attack-ougi-off").addEventListener("click", () => void attack(false));
 $("attack-ougi-on").addEventListener("click", () => void attack(true));
+for (const button of document.querySelectorAll("[data-simulation-mode]")) {
+  button.addEventListener("click", () => {
+    simulationMode = button.dataset.simulationMode;
+    render();
+  });
+}
+for (const input of [$("double-attack-rate"), $("triple-attack-rate")]) {
+  input.addEventListener("change", () => { input.value = String(enteredRate(input.id)); });
+}
 $("undo-action").addEventListener("click", () => {
   const previous = history.pop();
   if (!previous) return;

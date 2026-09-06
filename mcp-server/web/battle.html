@@ -53,7 +53,21 @@
           <button id="attack-ougi-off" class="attack-button off" type="button"><span>奥義 OFF</span><strong>攻撃</strong></button>
           <button id="attack-ougi-on" class="attack-button on" type="button"><span>奥義 ON</span><strong>攻撃</strong></button>
         </div>
-        <p id="action-guidance" class="action-guidance">通常攻撃は記事モデルの乱数1点を抽選します。</p>
+        <div class="simulation-controls" aria-label="シミュレート条件">
+          <div class="mode-control">
+            <span class="control-label">シミュレートモード</span>
+            <div class="mode-segment" role="group" aria-label="シミュレートモード">
+              <button class="mode-button selected" data-simulation-mode="normal" type="button" aria-pressed="true">通常</button>
+              <button class="mode-button" data-simulation-mode="downside" type="button" aria-pressed="false">下振れ</button>
+              <button class="mode-button" data-simulation-mode="upside" type="button" aria-pressed="false">上振れ</button>
+            </div>
+          </div>
+          <div class="multiattack-inputs">
+            <label><span>DA率</span><span class="rate-field"><input id="double-attack-rate" type="number" min="0" max="100" step="0.1" value="0" inputmode="decimal"><b>%</b></span></label>
+            <label><span>TA率</span><span class="rate-field"><input id="triple-attack-rate" type="number" min="0" max="100" step="0.1" value="0" inputmode="decimal"><b>%</b></span></label>
+          </div>
+        </div>
+        <p id="action-guidance" class="action-guidance">通常：乱数・クリティカル・連続攻撃を発生率に従って抽選します。</p>
       </section>
 
       <div class="battle-columns">

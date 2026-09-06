@@ -1,4 +1,9 @@
 export const BATTLE_SETUP_STORAGE_KEY = "gbf-helper-battle-setup-v1";
+export const SIMULATION_MODES = Object.freeze({
+  normal: "normal",
+  downside: "downside",
+  upside: "upside",
+});
 
 function copy(value) {
   return structuredClone(value);
@@ -6,6 +11,44 @@ function copy(value) {
 
 function clamp(value, minimum, maximum) {
   return Math.min(maximum, Math.max(minimum, value));
+}
+
+function normalizedRate(value) {
+  return Number.isFinite(value) ? clamp(value, 0, 100) : 0;
+}
+
+export function resolveDamageMultiplier(mode, minimum, maximum, step, randomSource = Math.random) {
+  if (mode === SIMULATION_MODES.downside) return minimum;
+  if (mode === SIMULATION_MODES.upside) return maximum;
+  const count = Math.round((maximum - minimum) / step);
+  return minimum + Math.floor(randomSource() * (count + 1)) * step;
+}
+
+export function resolveCritical(mode, ratePercent, randomSource = Math.random) {
+  const rate = normalizedRate(ratePercent);
+  if (mode === SIMULATION_MODES.downside) return rate >= 100;
+  if (mode === SIMULATION_MODES.upside) return rate > 0;
+  if (rate <= 0) return false;
+  if (rate >= 100) return true;
+  return randomSource() * 100 < rate;
+}
+
+export function resolveAttackCount(mode, doubleAttackRatePercent, tripleAttackRatePercent, randomSource = Math.random) {
+  const doubleRate = normalizedRate(doubleAttackRatePercent);
+  const tripleRate = normalizedRate(tripleAttackRatePercent);
+  if (mode === SIMULATION_MODES.downside) {
+    if (tripleRate >= 100) return 3;
+    if (doubleRate >= 100) return 2;
+    return 1;
+  }
+  if (mode === SIMULATION_MODES.upside) {
+    if (tripleRate > 0) return 3;
+    if (doubleRate > 0) return 2;
+    return 1;
+  }
+  if (tripleRate > 0 && randomSource() * 100 < tripleRate) return 3;
+  if (doubleRate > 0 && randomSource() * 100 < doubleRate) return 2;
+  return 1;
 }
 
 function combatantFromDeck(entry, fallbackName, fallbackElement) {
