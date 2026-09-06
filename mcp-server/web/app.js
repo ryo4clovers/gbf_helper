@@ -800,7 +800,7 @@ function render(response) {
   $("pattern-count").textContent = `${numberFormat.format(total.combinationCount)} patterns`;
 
   const rows = [
-    { name: "通常攻刃", multiplier: result.attackPower.normalAttackMultiplier, output: result.attackPower.normalSkillAdjustedAttack },
+    { name: "通常攻刃", multiplier: result.attackPower.normalAttackSkillMultiplier, output: result.attackPower.normalSkillAdjustedAttack },
     ...result.baseDamage.stages.map((stage) => ({
       name: stageNames[stage.stage] || stage.stage,
       multiplier: stage.multiplier,
