@@ -22,6 +22,7 @@ npm run start:web
 - メイン1枠と通常9枠の選択式エディタで、登録済み武器の検索・配置・削除・SLv変更を行う
 - メイン1枠・通常4枠・サブ加護2枠の選択式エディタで、登録済み召喚石の検索・配置・削除・Lv変更を行う
 - 既存ナレッジの全80ジョブを名前・クラス・得意武器で検索し、主人公へ設定する
+- メイン武器未選択時に使われる全10武器種のLv1仮メイン武器を専用カタログから参照する
 - 敵属性、防御値、船、炉、大事なもの相当倍率、ジョブ通常攻撃与ダメージを入力する
 - 通常攻撃本体、追撃、合計の最小・最大・期待値と計算段階を確認する
 
@@ -53,6 +54,11 @@ Web画面とMCPツールは共通の`calculateNormalAttackFromRequest`を呼ぶ�
 `src/calculator/calculatorDeckConfig.ts` は、実利用時に保存・編集する正式な編成形式
 `CalculatorDeckConfig v1` を検証します。また、本家 `deck.json` 相当のレスポンスを同形式へ
 変換できます。サンプルは `examples/calculator-deck.v1.json` です。
+
+メイン武器の `param.id === 0` は、所持武器ではなくジョブ由来の仮メイン武器として扱います。
+全10武器種の確認済みデータは `catalog/job-fallback-weapons.v1.json` に分離しており、
+`src/calculator/jobFallbackWeaponCatalog.ts` から武器種コードで解決できます。Web APIは
+`GET /api/catalog/job-fallback-weapons`、MCPは `list_job_fallback_weapons` で同じ一覧を返します。
 
 - `schemaVersion: 1` と `format: "gbf-helper-calculator-deck"` で形式を識別する
 - 武器・召喚石・キャラクターはマスターID、枠、Lv、上限解放、プラス値等を保持する
@@ -255,6 +261,7 @@ createDamageCalculationInput(deckJson, startJson, 1, {
 | `search_mechanics` | ゲームシステム用語(背水・渾身など)を検索 |
 | `get_mechanics_topic` | ゲームシステムのトピック全文を取得 |
 | `list_calculator_jobs` | 主人公エディタで選択できるジョブ・クラス・得意武器一覧を取得 |
+| `list_job_fallback_weapons` | メイン未選択時に使われる全10武器種のLv1仮メイン武器一覧を取得 |
 | `list_calculator_weapons` | 選択式エディタと計算機が解決できる武器・スキル一覧を取得 |
 | `list_calculator_summons` | 選択式エディタと計算機が解決できる召喚石・加護一覧を取得 |
 | `calculate_normal_attack_damage` | 編成・敵・環境倍率から通常攻撃本体、追撃、合計の101乱数分布を計算 |

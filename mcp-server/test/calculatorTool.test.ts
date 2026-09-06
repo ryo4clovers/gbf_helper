@@ -15,15 +15,20 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     const tools = await client.listTools();
     const calculator = tools.tools.find((tool) => tool.name === "calculate_normal_attack_damage");
     const jobCatalog = tools.tools.find((tool) => tool.name === "list_calculator_jobs");
+    const fallbackWeaponCatalog = tools.tools.find(
+      (tool) => tool.name === "list_job_fallback_weapons",
+    );
     const weaponCatalog = tools.tools.find((tool) => tool.name === "list_calculator_weapons");
     const summonCatalog = tools.tools.find((tool) => tool.name === "list_calculator_summons");
 
     assert.ok(calculator !== undefined);
     assert.ok(jobCatalog !== undefined);
+    assert.ok(fallbackWeaponCatalog !== undefined);
     assert.ok(weaponCatalog !== undefined);
     assert.ok(summonCatalog !== undefined);
     assert.equal(weaponCatalog.annotations?.readOnlyHint, true);
     assert.equal(jobCatalog.annotations?.readOnlyHint, true);
+    assert.equal(fallbackWeaponCatalog.annotations?.readOnlyHint, true);
     assert.equal(calculator.annotations?.readOnlyHint, true);
     assert.equal(calculator.annotations?.destructiveHint, false);
     assert.equal(calculator.annotations?.openWorldHint, false);
@@ -63,6 +68,23 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     };
     assert.equal(jobResponse.jobs?.length, 80);
     assert.ok(jobResponse.jobs?.some((job) => job.jobId === "100501"));
+
+    const fallbackResult = await client.callTool({
+      name: "list_job_fallback_weapons",
+      arguments: {},
+    });
+    const fallbackText = fallbackResult.content.find((item) => item.type === "text");
+    const fallbackResponse = JSON.parse(
+      fallbackText?.type === "text" ? fallbackText.text : "{}",
+    ) as {
+      weapons?: Array<{ weaponId?: string; weaponKindCode?: string }>;
+    };
+    assert.equal(fallbackResponse.weapons?.length, 10);
+    assert.ok(
+      fallbackResponse.weapons?.some(
+        (weapon) => weapon.weaponId === "1010500000" && weapon.weaponKindCode === "6",
+      ),
+    );
 
     const summonResult = await client.callTool({ name: "list_calculator_summons", arguments: {} });
     const summonText = summonResult.content.find((item) => item.type === "text");

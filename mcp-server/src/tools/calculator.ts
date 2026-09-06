@@ -2,6 +2,7 @@ import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { calculateNormalAttackFromRequest } from "../calculator/normalAttackCalculationRequest.js";
 import { createSelectableJobCatalog } from "../calculator/jobCatalogView.js";
+import { createJobFallbackWeaponCatalogView } from "../calculator/jobFallbackWeaponCatalog.js";
 import { createSelectableWeaponCatalog } from "../calculator/weaponCatalogView.js";
 import { createSelectableSummonCatalog } from "../calculator/summonCatalogView.js";
 
@@ -13,6 +14,25 @@ const READ_ONLY_ANNOTATIONS = {
 };
 
 export function registerCalculatorTools(server: McpServer): void {
+  server.registerTool(
+    "list_job_fallback_weapons",
+    {
+      title: "ジョブ仮メイン武器一覧",
+      description:
+        "メイン武器未選択時にジョブの得意武器種へ応じて使用される、全10武器種のLv1仮メイン武器を取得する。通常の所持武器カタログとは別の固定カタログ。",
+      inputSchema: {},
+      annotations: READ_ONLY_ANNOTATIONS,
+    },
+    async () => {
+      const response = createJobFallbackWeaponCatalogView();
+      const structuredContent: Record<string, unknown> = { ...response };
+      return {
+        content: [{ type: "text", text: JSON.stringify(response, null, 2) }],
+        structuredContent,
+      };
+    },
+  );
+
   server.registerTool(
     "list_calculator_jobs",
     {
