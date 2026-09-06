@@ -100,9 +100,11 @@ test("connects staged base damage to independent 101-pattern body and pursuit di
   const result = calculateNormalAttackDamage(makeCurrentInput());
 
   assert.equal(result.baseDamage.damageBeforeRandomAndCap, 3951);
+  assert.equal(result.bodyDamageDistribution.nominalDamage, 3951.40999);
+  assert.equal(result.bodyDamageDistribution.finalRounding, "floor");
   assert.equal(result.bodyDamageDistribution.patternCount, 101);
-  assert.equal(result.bodyDamageDistribution.minimumDamage, 3754);
-  assert.equal(result.bodyDamageDistribution.maximumDamage, 4149);
+  assert.equal(result.bodyDamageDistribution.minimumDamage, 3753);
+  assert.equal(result.bodyDamageDistribution.maximumDamage, 4148);
   assert.equal(result.pursuitDamage?.effectivePursuitPercentage, 5.85);
   assert.equal(result.pursuitDamage?.nominalPursuitDamage, 231.1335);
   assert.equal(result.pursuitDamage?.damageDistribution.patternCount, 101);
@@ -113,8 +115,8 @@ test("connects staged base damage to independent 101-pattern body and pursuit di
     model: "independent-discrete-components",
     componentCount: 2,
     combinationCount: 10201,
-    minimumDamage: 3974,
-    maximumDamage: 4392,
+    minimumDamage: 3973,
+    maximumDamage: 4391,
     expectedDamage:
       result.bodyDamageDistribution.expectedDamage +
       (result.pursuitDamage?.damageDistribution.expectedDamage ?? 0),

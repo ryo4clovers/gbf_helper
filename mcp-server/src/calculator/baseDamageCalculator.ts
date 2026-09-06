@@ -32,6 +32,9 @@ export interface DefenseAdjustedBaseDamageResult {
   attackBeforeDefense: number;
   enemyDefense: number;
   enemyDefenseSource?: EnemyTarget["defenseSource"];
+  /** Unrounded value used as the normal-attack body's random-damage base. */
+  unroundedDamageBeforeRandomAndCap: number;
+  /** Floored value shown as the representative damage in the party screen. */
   damageBeforeRandomAndCap: number;
   stages: AppliedDamageStage[];
   deferredCapModifiers: DamageModifier[];
@@ -239,6 +242,7 @@ export function calculateDefenseAdjustedBaseDamage(
     attackBeforeDefense,
     enemyDefense: target.defense,
     enemyDefenseSource: target.defenseSource,
+    unroundedDamageBeforeRandomAndCap: roundCalculation(stagedDamage),
     damageBeforeRandomAndCap: Math.floor(roundCalculation(stagedDamage)),
     stages,
     deferredCapModifiers: accountModifiers.filter(

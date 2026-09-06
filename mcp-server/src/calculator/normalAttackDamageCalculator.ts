@@ -78,17 +78,18 @@ export function calculateNormalAttackDamage(
     multiplierMin: options.multiplierMin,
     multiplierMax: options.multiplierMax,
     multiplierStep: options.multiplierStep,
-    finalRounding: options.finalRounding ?? "ceil",
   };
-  const bodyDamageDistribution = summarizeDamageDistribution(baseDamage.damageBeforeRandomAndCap, {
+  const bodyDamageDistribution = summarizeDamageDistribution(baseDamage.unroundedDamageBeforeRandomAndCap, {
     ...sharedRandomOptions,
     nominalPreparation: options.bodyNominalPreparation ?? "none",
+    finalRounding: options.finalRounding ?? "floor",
   });
   const pursuitDamage = hasSelectedPursuit(input, options.pursuitSourceSkillId)
     ? calculateEffectivePursuitDamage(input.deck, baseDamage.damageBeforeRandomAndCap, {
         ...sharedRandomOptions,
         sourceSkillId: options.pursuitSourceSkillId,
         nominalPreparation: options.pursuitNominalPreparation ?? "floor",
+        finalRounding: options.finalRounding ?? "ceil",
       })
     : undefined;
   const distributions = [

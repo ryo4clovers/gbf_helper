@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { calculateNormalAttackFromRequest } from "../src/calculator/normalAttackCalculationRequest.ts";
+import { inferRandomMultiplierCandidates } from "../src/calculator/randomMultiplierInference.ts";
 
 function request() {
   return {
@@ -42,20 +43,8 @@ function request() {
   };
 }
 
-test("serves the same normal attack calculation to Web and MCP callers", () => {
-  const response = calculateNormalAttackFromRequest(request());
-
-  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 3951);
-  assert.equal(response.result.bodyDamageDistribution.minimumDamage, 3754);
-  assert.equal(response.result.bodyDamageDistribution.maximumDamage, 4149);
-  assert.equal(response.result.pursuitDamage?.effectivePursuitPercentage, 5.85);
-  assert.equal(response.result.totalDamageDistribution.combinationCount, 10201);
-  assert.equal(response.result.totalDamageDistribution.minimumDamage, 3974);
-  assert.equal(response.result.totalDamageDistribution.maximumDamage, 4392);
-});
-
-test("reproduces the verified +0 through +5 Agni weapon-plus displays", () => {
-  const agniRequest = {
+function agniRequest() {
+  return {
     schemaVersion: 1,
     deckConfig: {
       schemaVersion: 1,
@@ -117,7 +106,23 @@ test("reproduces the verified +0 through +5 Agni weapon-plus displays", () => {
       targetElementDamagePercent: 0,
     },
   };
-  const response = calculateNormalAttackFromRequest(agniRequest);
+}
+
+test("serves the same normal attack calculation to Web and MCP callers", () => {
+  const response = calculateNormalAttackFromRequest(request());
+
+  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 3951);
+  assert.equal(response.result.bodyDamageDistribution.minimumDamage, 3753);
+  assert.equal(response.result.bodyDamageDistribution.maximumDamage, 4148);
+  assert.equal(response.result.pursuitDamage?.effectivePursuitPercentage, 5.85);
+  assert.equal(response.result.totalDamageDistribution.combinationCount, 10201);
+  assert.equal(response.result.totalDamageDistribution.minimumDamage, 3973);
+  assert.equal(response.result.totalDamageDistribution.maximumDamage, 4391);
+});
+
+test("reproduces the verified +0 through +5 Agni weapon-plus displays", () => {
+  const input = agniRequest();
+  const response = calculateNormalAttackFromRequest(input);
 
   assert.equal(response.result.attackPower.totalEffectiveNormalAttackPercent, 90);
   assert.equal(response.result.attackPower.normalAttackSkillMultiplier, 1.9);
@@ -139,7 +144,7 @@ test("reproduces the verified +0 through +5 Agni weapon-plus displays", () => {
     { plusMark: 5, weaponAttack: 2195, protagonistAttack: 22840, displayedDamage: 8009 },
   ];
   for (const observation of observations) {
-    const observedRequest = structuredClone(agniRequest);
+    const observedRequest = structuredClone(input);
     observedRequest.deckConfig.protagonist.attackOverride = observation.protagonistAttack;
     observedRequest.deckConfig.weapons[0].plusMark = observation.plusMark;
     observedRequest.deckConfig.weapons[0].attackOverride = observation.weaponAttack;
@@ -151,6 +156,30 @@ test("reproduces the verified +0 through +5 Agni weapon-plus displays", () => {
       `weapon +${observation.plusMark}`,
     );
   }
+});
+
+test("reproduces all eight observed Agni battle body hits from the unrounded base", () => {
+  const response = calculateNormalAttackFromRequest(agniRequest());
+  const observedBodyDamage = [7725, 7685, 7629, 8229, 7693, 7901, 7685, 8245];
+  const expectedMultipliers = [0.966, 0.961, 0.954, 1.029, 0.962, 0.988, 0.961, 1.031];
+  const baseDamage = response.result.baseDamage;
+
+  assert.equal(baseDamage.damageBeforeRandomAndCap, 7997);
+  assert.equal(baseDamage.unroundedDamageBeforeRandomAndCap, 7997.7612);
+  assert.equal(response.result.bodyDamageDistribution.finalRounding, "floor");
+  assert.equal(response.result.bodyDamageDistribution.minimumDamage, 7597);
+  assert.equal(response.result.bodyDamageDistribution.maximumDamage, 8397);
+
+  const inference = inferRandomMultiplierCandidates(
+    baseDamage.unroundedDamageBeforeRandomAndCap,
+    observedBodyDamage,
+    { finalRounding: "floor" },
+  );
+  assert.equal(inference.resolvedObservationCount, observedBodyDamage.length);
+  assert.deepEqual(
+    inference.observations.map((observation) => observation.candidates),
+    expectedMultipliers.map((multiplier) => [multiplier]),
+  );
 });
 
 test("rejects unknown request fields and invalid enemy defense", () => {

@@ -148,6 +148,7 @@ test("reproduces the displayed neutral damage with independent account, crew, an
   const result = calculateDefenseAdjustedBaseDamage(input, attackPower);
 
   assert.equal(result.attackBeforeDefense, 39514.0999);
+  assert.equal(result.unroundedDamageBeforeRandomAndCap, 3951.40999);
   assert.equal(result.damageBeforeRandomAndCap, 3951);
   assert.deepEqual(
     result.stages.map((stage) => [stage.stage, stage.totalPercent]),
