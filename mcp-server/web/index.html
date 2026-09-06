@@ -111,6 +111,29 @@
               <button id="save-config" class="text-button" type="button">JSON保存</button>
             </div>
           </div>
+          <div class="profile-manager" aria-labelledby="profile-manager-title">
+            <div class="profile-manager-heading">
+              <div>
+                <span id="profile-manager-title" class="field-label">名前付き編成</span>
+                <span class="supporting-text">計算条件一式をこの端末だけに保存します</span>
+              </div>
+              <span id="profile-status" class="persistence-status" role="status">保存済み 0件</span>
+            </div>
+            <div class="profile-controls">
+              <label class="profile-name-field">
+                <span>保存名</span>
+                <input id="profile-name" type="text" maxlength="80" placeholder="例: アグニス連撃検証">
+              </label>
+              <button id="save-profile" class="tonal-button profile-action" type="button">新規保存</button>
+              <label class="profile-select-field">
+                <span>保存済み編成</span>
+                <select id="profile-select">
+                  <option value="">新しい保存枠</option>
+                </select>
+              </label>
+              <button id="load-profile" class="tonal-button profile-action" type="button" disabled>読み込む</button>
+            </div>
+          </div>
         </section>
 
         <section class="surface settings-surface">

@@ -1,8 +1,12 @@
 import {
+  CALCULATOR_PROFILES_STORAGE_KEY,
   CALCULATOR_STATE_FORMAT,
   CALCULATOR_STATE_STORAGE_KEY,
+  parseCalculatorProfiles,
   parseCalculatorState,
+  serializeCalculatorProfiles,
   serializeCalculatorState,
+  upsertCalculatorProfile,
 } from "/calculator-state-storage.js";
 
 const defaultDeck = {
@@ -68,6 +72,8 @@ let latestDamageResult = null;
 let weaponCriticalManuallySelected = false;
 let persistenceReady = false;
 let persistenceTimer = null;
+let savedProfiles = [];
+let selectedProfileId = "";
 
 deckField.value = JSON.stringify(defaultDeck, null, 2);
 
@@ -132,6 +138,105 @@ function restorePersistedState() {
     localStorage.removeItem(CALCULATOR_STATE_STORAGE_KEY);
     setPersistenceStatus("保存状態を復元できないため初期設定を使用", true);
     return false;
+  }
+}
+
+function setProfileStatus(message, isError = false) {
+  const status = $("profile-status");
+  status.textContent = message;
+  status.classList.toggle("error-text", isError);
+}
+
+function selectedProfile() {
+  return savedProfiles.find((profile) => profile.id === selectedProfileId);
+}
+
+function renderProfileOptions(message) {
+  const select = $("profile-select");
+  select.replaceChildren(new Option("新しい保存枠", ""));
+  for (const profile of savedProfiles) {
+    select.append(new Option(profile.name, profile.id));
+  }
+  if (selectedProfile()) select.value = selectedProfileId;
+  else selectedProfileId = "";
+  $("load-profile").disabled = selectedProfileId === "";
+  $("save-profile").textContent = selectedProfileId === "" ? "新規保存" : "上書き保存";
+  if (message !== undefined) setProfileStatus(message);
+  else setProfileStatus(`保存済み ${savedProfiles.length}件`);
+}
+
+function selectProfile(profileId, { clearName = true } = {}) {
+  selectedProfileId = savedProfiles.some((profile) => profile.id === profileId) ? profileId : "";
+  const profile = selectedProfile();
+  if (profile) $("profile-name").value = profile.name;
+  else if (clearName) $("profile-name").value = "";
+  renderProfileOptions();
+}
+
+function restoreNamedProfiles() {
+  const serialized = localStorage.getItem(CALCULATOR_PROFILES_STORAGE_KEY);
+  if (serialized === null) {
+    renderProfileOptions();
+    return;
+  }
+  try {
+    savedProfiles = parseCalculatorProfiles(serialized);
+    renderProfileOptions();
+  } catch {
+    localStorage.removeItem(CALCULATOR_PROFILES_STORAGE_KEY);
+    savedProfiles = [];
+    renderProfileOptions();
+    setProfileStatus("名前付き保存を復元できませんでした", true);
+  }
+}
+
+function persistNamedProfiles() {
+  localStorage.setItem(CALCULATOR_PROFILES_STORAGE_KEY, serializeCalculatorProfiles(savedProfiles));
+}
+
+function createProfileId() {
+  return globalThis.crypto?.randomUUID?.() ?? `profile-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
+
+function saveNamedProfile() {
+  const name = $("profile-name").value.trim();
+  if (name === "") {
+    setProfileStatus("保存名を入力してください", true);
+    $("profile-name").focus();
+    return;
+  }
+  const duplicate = savedProfiles.find((profile) => profile.name === name && profile.id !== selectedProfileId);
+  if (duplicate) {
+    setProfileStatus("同じ保存名があります。一覧から選んで上書きしてください", true);
+    return;
+  }
+  try {
+    const id = selectedProfileId || createProfileId();
+    savedProfiles = upsertCalculatorProfile(savedProfiles, {
+      id,
+      name,
+      updatedAt: new Date().toISOString(),
+      request: buildRequest(),
+    });
+    selectedProfileId = id;
+    persistNamedProfiles();
+    persistCurrentState();
+    renderProfileOptions(`「${name}」を保存しました`);
+  } catch (error) {
+    setProfileStatus(error instanceof Error ? error.message : "名前付き保存に失敗しました", true);
+  }
+}
+
+async function loadNamedProfile() {
+  const profile = selectedProfile();
+  if (!profile) return;
+  try {
+    applyRequestToForm(profile.request);
+    persistRequest(profile.request, `「${profile.name}」を現在の編成にしました`);
+    await calculate();
+    setProfileStatus(`「${profile.name}」を読み込みました`);
+  } catch (error) {
+    setProfileStatus(error instanceof Error ? error.message : "名前付き保存を読み込めませんでした", true);
   }
 }
 
@@ -1469,6 +1574,7 @@ $("config-file").addEventListener("change", async (event) => {
       deckField.value = JSON.stringify(parsed, null, 2);
       renderWeaponEditor();
     }
+    selectProfile("");
     persistCurrentState("読み込んだ設定を端末に保存しました");
     void calculate();
   } catch (error) {
@@ -1486,6 +1592,7 @@ $("game-deck-file").addEventListener("change", async (event) => {
     const converted = await postJson("/api/convert-deck", JSON.parse(await file.text()));
     deckField.value = JSON.stringify(converted, null, 2);
     renderWeaponEditor();
+    selectProfile("");
     $("deck-state").textContent = "deck.jsonを個人IDを含まない設定へ変換しました";
     $("deck-state").classList.remove("error-text");
     persistCurrentState("変換した編成を端末に保存しました");
@@ -1499,6 +1606,13 @@ $("game-deck-file").addEventListener("change", async (event) => {
 $("save-local").addEventListener("click", () => {
   persistCurrentState("この端末に保存しました");
 });
+
+$("profile-select").addEventListener("change", (event) => {
+  selectProfile(event.target.value);
+});
+
+$("save-profile").addEventListener("click", saveNamedProfile);
+$("load-profile").addEventListener("click", () => void loadNamedProfile());
 
 $("save-config").addEventListener("click", () => {
   try {
@@ -1573,6 +1687,7 @@ async function initialize() {
     $("deck-state").classList.add("error-text");
   }
   restorePersistedState();
+  restoreNamedProfiles();
   persistenceReady = true;
   renderWeaponEditor();
   renderSupportSummonEditor();
