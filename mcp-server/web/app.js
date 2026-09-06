@@ -692,7 +692,11 @@ function selectSummon(master) {
     position,
     summonId: master.summonId,
     nameHint: master.name,
-    plusMark: 0,
+    level: master.selectionDefaults?.level,
+    uncapLevel: master.selectionDefaults?.uncapLevel,
+    plusMark: master.selectionDefaults?.plusMark ?? 0,
+    attackOverride: master.selectionDefaults?.attack,
+    hpOverride: master.selectionDefaults?.hp,
   });
   writeDeckConfig(config);
   renderSummonEditor();

@@ -50,6 +50,16 @@ const summonCatalogSchema = z
           verificationStatus: z.enum(["検証済み", "下書き"]),
           source: z.string().min(1),
           confirmedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+          selectionDefaults: z
+            .object({
+              level: z.number().int().positive(),
+              uncapLevel: z.number().int().nonnegative(),
+              plusMark: z.number().int().min(0).max(99),
+              attack: z.number().int().nonnegative(),
+              hp: z.number().int().nonnegative(),
+            })
+            .strict()
+            .optional(),
         })
         .strict(),
     ),

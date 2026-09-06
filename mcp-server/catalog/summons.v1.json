@@ -72,7 +72,14 @@
       ],
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のゲーム内deckレスポンスで主召喚石・加護説明・武器スキル表示値を確認",
-      "confirmedAt": "2026-09-06"
+      "confirmedAt": "2026-09-06",
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 4157,
+        "hp": 1414
+      }
     }
   ]
 }

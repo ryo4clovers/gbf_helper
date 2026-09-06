@@ -10,6 +10,13 @@ export interface SelectableSummonCatalogEntry {
   auraDescription: string;
   auraEffects: SummonAuraEffectDefinition[];
   verificationStatus: "検証済み" | "下書き";
+  selectionDefaults?: {
+    level: number;
+    uncapLevel: number;
+    plusMark: number;
+    attack: number;
+    hp: number;
+  };
 }
 
 export interface SelectableSummonCatalog {
@@ -31,6 +38,7 @@ export function createSelectableSummonCatalog(): SelectableSummonCatalog {
         auraDescription: summon.auraDescription,
         auraEffects: summon.auraEffects,
         verificationStatus: summon.verificationStatus,
+        selectionDefaults: summon.selectionDefaults,
       }),
     )
     .sort((left, right) => left.name.localeCompare(right.name, "ja"));

@@ -93,6 +93,13 @@ export interface SummonMasterCatalogEntry {
   verificationStatus: "検証済み" | "下書き";
   source: string;
   confirmedAt?: string;
+  selectionDefaults?: {
+    level: number;
+    uncapLevel: number;
+    plusMark: number;
+    attack: number;
+    hp: number;
+  };
 }
 
 export interface DeckSummonAura {
