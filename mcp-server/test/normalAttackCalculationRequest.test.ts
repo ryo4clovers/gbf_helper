@@ -2,6 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { calculateNormalAttackFromRequest } from "../src/calculator/normalAttackCalculationRequest.ts";
 import { inferRandomMultiplierCandidates } from "../src/calculator/randomMultiplierInference.ts";
+import { calculateCriticalBodyDamageAtMultiplier } from "../src/calculator/criticalBodyDamageCalculator.ts";
 
 function request() {
   return {
@@ -238,6 +239,39 @@ test("reproduces all 18 observed advantageous pursuit packets with independent r
   assert.deepEqual(
     criticalInference.observations.map((observation) => observation.candidates),
     criticalMultipliers.map((multiplier) => [multiplier]),
+  );
+});
+
+test("reproduces all four observed critical body hits with the two-floor model", () => {
+  const input = agniRequest();
+  input.enemy.elementCode = "4";
+  input.modifiers.targetElementDamagePercent = 5;
+  const response = calculateNormalAttackFromRequest(input);
+  const critical = response.result.criticalBodyDamage;
+
+  assert.ok(critical !== undefined);
+  assert.equal(critical.status, "provisional");
+  assert.equal(critical.probabilityModel, "damage-only");
+  assert.equal(critical.weaponSkillCriticalRatePercent, 18);
+  assert.equal(critical.criticalDamageMultiplier, 1.5);
+  assert.equal(critical.targetElementMultiplierSource, "displayed-damage-calibration");
+
+  const cases = [
+    { randomMultiplier: 0.995, afterCriticalFloor: 16110, finalDamage: 16864 },
+    { randomMultiplier: 0.972, afterCriticalFloor: 15737, finalDamage: 16474 },
+    { randomMultiplier: 1.026, afterCriticalFloor: 16612, finalDamage: 17390 },
+    { randomMultiplier: 1, afterCriticalFloor: 16191, finalDamage: 16949 },
+  ];
+  assert.deepEqual(
+    cases.map(({ randomMultiplier }) => {
+      const trace = calculateCriticalBodyDamageAtMultiplier(response.result.baseDamage, randomMultiplier);
+      return {
+        randomMultiplier: trace.randomMultiplier,
+        afterCriticalFloor: trace.damageAfterCriticalFloor,
+        finalDamage: trace.finalDamage,
+      };
+    }),
+    cases,
   );
 });
 

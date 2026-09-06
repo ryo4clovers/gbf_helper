@@ -11,6 +11,10 @@ import {
   type EffectivePursuitDamageResult,
 } from "./pursuitDamageCalculator.js";
 import {
+  calculateCriticalBodyDamage,
+  type CriticalBodyDamageResult,
+} from "./criticalBodyDamageCalculator.js";
+import {
   summarizeDamageDistribution,
   type DamageDistributionSummary,
   type FinalDamageRounding,
@@ -45,12 +49,14 @@ export interface NormalAttackDamageResult {
   attackPower: NormalAttackPowerResult;
   baseDamage: DefenseAdjustedBaseDamageResult;
   bodyDamageDistribution: DamageDistributionSummary;
+  criticalBodyDamage?: CriticalBodyDamageResult;
   pursuitDamage?: EffectivePursuitDamageResult;
   totalDamageDistribution: CombinedNormalAttackDistribution;
   issues: Array<
     | "damage-cap-unresolved"
     | "rounding-order-unresolved"
     | "independent-component-randomness-provisional"
+    | "critical-probability-unresolved"
   >;
 }
 
@@ -92,6 +98,11 @@ export function calculateNormalAttackDamage(
         finalRounding: options.finalRounding ?? "floor",
       })
     : undefined;
+  const criticalBodyDamage = calculateCriticalBodyDamage(input.deck, baseDamage, {
+    multiplierMin: options.multiplierMin,
+    multiplierMax: options.multiplierMax,
+    multiplierStep: options.multiplierStep,
+  });
   const distributions = [
     bodyDamageDistribution,
     ...(pursuitDamage === undefined ? [] : [pursuitDamage.damageDistribution]),
@@ -103,6 +114,7 @@ export function calculateNormalAttackDamage(
     attackPower,
     baseDamage,
     bodyDamageDistribution,
+    criticalBodyDamage,
     pursuitDamage,
     totalDamageDistribution: {
       schemaVersion: 1,
@@ -117,6 +129,7 @@ export function calculateNormalAttackDamage(
       "damage-cap-unresolved",
       "rounding-order-unresolved",
       ...(pursuitDamage === undefined ? [] : (["independent-component-randomness-provisional"] as const)),
+      ...(criticalBodyDamage === undefined ? [] : (["critical-probability-unresolved"] as const)),
     ],
   };
 }

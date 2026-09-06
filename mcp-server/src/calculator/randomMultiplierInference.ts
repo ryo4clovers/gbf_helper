@@ -95,7 +95,11 @@ function validateConfiguration(
   }
 }
 
-function enumerateMultipliers(multiplierMin: number, multiplierMax: number, multiplierStep: number): number[] {
+export function enumerateRandomMultipliers(
+  multiplierMin: number,
+  multiplierMax: number,
+  multiplierStep: number,
+): number[] {
   const stepCount = Math.floor((multiplierMax - multiplierMin) / multiplierStep + 1e-9);
   return Array.from({ length: stepCount + 1 }, (_, index) =>
     Number((multiplierMin + multiplierStep * index).toFixed(12)),
@@ -110,7 +114,7 @@ export function summarizeDamageDistribution(
   const { multiplierMin, multiplierMax, multiplierStep, nominalPreparation, finalRounding } =
     resolveConfiguration(options);
   validateConfiguration(nominalDamage, multiplierMin, multiplierMax, multiplierStep);
-  const multipliers = enumerateMultipliers(multiplierMin, multiplierMax, multiplierStep);
+  const multipliers = enumerateRandomMultipliers(multiplierMin, multiplierMax, multiplierStep);
   const preparedNominalDamage = prepareNominalDamage(nominalDamage, nominalPreparation);
   const damageValues = multipliers.map((multiplier) =>
     roundFinalDamage(preparedNominalDamage * multiplier, finalRounding),
@@ -149,7 +153,7 @@ export function inferRandomMultiplierCandidates(
   if (observedDamageValues.some((value) => !Number.isFinite(value) || value < 0)) {
     throw new Error("observed damage values must be finite non-negative numbers");
   }
-  const multipliers = enumerateMultipliers(multiplierMin, multiplierMax, multiplierStep);
+  const multipliers = enumerateRandomMultipliers(multiplierMin, multiplierMax, multiplierStep);
   const preparedNominalDamage = prepareNominalDamage(nominalDamage, nominalPreparation);
 
   const observations = observedDamageValues.map((observedDamage, index) => {
