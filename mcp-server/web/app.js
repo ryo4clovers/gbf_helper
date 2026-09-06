@@ -765,6 +765,7 @@ function formatDamage(value) {
 }
 
 const stageNames = {
+  "normal-weapon-skill": "通常攻刃",
   "elemental-attack": "属性攻撃",
   "crew-ship": "船",
   "crew-furnace": "炉",
@@ -788,7 +789,7 @@ function render(response) {
   $("total-expected").textContent = formatDamage(total.expectedDamage);
   $("total-min").textContent = `最小 ${formatDamage(total.minimumDamage)}`;
   $("total-max").textContent = `最大 ${formatDamage(total.maximumDamage)}`;
-  $("body-expected").textContent = formatDamage(body.expectedDamage);
+  $("body-expected").textContent = formatDamage(result.baseDamage.damageBeforeRandomAndCap);
   $("body-range").textContent = `${formatDamage(body.minimumDamage)} — ${formatDamage(body.maximumDamage)}`;
   $("pursuit-label").textContent = result.pursuitDamage
     ? `追撃 ${numberFormat.format(result.pursuitDamage.effectivePursuitPercentage)}%`
@@ -800,13 +801,16 @@ function render(response) {
   $("pattern-count").textContent = `${numberFormat.format(total.combinationCount)} patterns`;
 
   const rows = [
-    { name: "通常攻刃", multiplier: result.attackPower.normalAttackSkillMultiplier, output: result.attackPower.normalSkillAdjustedAttack },
+    {
+      name: `敵防御 ÷ ${numberFormat.format(result.baseDamage.enemyDefense)}（切り上げ）`,
+      multiplier: 1 / result.baseDamage.enemyDefense,
+      output: result.baseDamage.defenseAdjustedBaseAttack,
+    },
     ...result.baseDamage.stages.map((stage) => ({
-      name: stageNames[stage.stage] || stage.stage,
+      name: `${stageNames[stage.stage] || stage.stage}${stage.rounding === "floor" ? "（切り捨て）" : ""}`,
       multiplier: stage.multiplier,
       output: stage.outputDamage,
     })),
-    { name: `敵防御 ÷ ${numberFormat.format(result.baseDamage.enemyDefense)}`, multiplier: 1 / result.baseDamage.enemyDefense, output: result.baseDamage.damageBeforeRandomAndCap },
   ];
   const stageRows = $("stage-rows");
   stageRows.replaceChildren();

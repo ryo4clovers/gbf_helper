@@ -1,13 +1,24 @@
 import type { NormalAttackPowerResult } from "./normalAttackPowerCalculator.js";
-import type { DamageCalculationInput, DamageModifier, DamageModifierStage, EnemyTarget } from "./types.js";
+import type {
+  DamageCalculationInput,
+  DamageModifier,
+  DamageModifierStage,
+  EffectiveWeaponSkillEffect,
+  EnemyTarget,
+} from "./types.js";
+
+export type BaseDamageStage = DamageModifierStage | "normal-weapon-skill";
+export type StageRounding = "none" | "floor";
 
 export interface AppliedDamageStage {
-  stage: DamageModifierStage;
+  stage: BaseDamageStage;
   inputDamage: number;
   totalPercent: number;
   multiplier: number;
+  rawOutputDamage: number;
   outputDamage: number;
-  contributions: DamageModifier[];
+  rounding: StageRounding;
+  contributions: Array<DamageModifier | EffectiveWeaponSkillEffect>;
 }
 
 export interface DefenseAdjustedBaseDamageResult {
@@ -16,6 +27,8 @@ export interface DefenseAdjustedBaseDamageResult {
   model: "staged-normal-attack-base";
   targetEnemySlot: number;
   enemyId: string;
+  defenseAdjustedBaseAttack: number;
+  defenseRounding: "ceil";
   attackBeforeDefense: number;
   enemyDefense: number;
   enemyDefenseSource?: EnemyTarget["defenseSource"];
@@ -67,17 +80,29 @@ function elementalSuperiorityPercent(
 
 function applyStage(
   inputDamage: number,
-  stage: DamageModifierStage,
-  contributions: DamageModifier[],
+  stage: BaseDamageStage,
+  contributions: Array<DamageModifier | EffectiveWeaponSkillEffect>,
+  rounding: StageRounding = "none",
+  totalPercentOverride?: number,
 ): AppliedDamageStage {
-  const totalPercent = roundCalculation(contributions.reduce((sum, modifier) => sum + modifier.amountPercent, 0));
+  const totalPercent = roundCalculation(
+    totalPercentOverride ??
+      contributions.reduce(
+        (sum, modifier) =>
+          sum + ("amountPercent" in modifier ? modifier.amountPercent : modifier.effectiveAmountPercent),
+        0,
+      ),
+  );
   const multiplier = roundCalculation(1 + totalPercent / 100);
+  const rawOutputDamage = roundCalculation(inputDamage * multiplier);
   return {
     stage,
     inputDamage,
     totalPercent,
     multiplier,
-    outputDamage: roundCalculation(inputDamage * multiplier),
+    rawOutputDamage,
+    outputDamage: rounding === "floor" ? Math.floor(rawOutputDamage) : rawOutputDamage,
+    rounding,
     contributions,
   };
 }
@@ -99,7 +124,12 @@ function userInputModifier(
   ];
 }
 
-/** Applies explicit attack frames before dividing by the selected enemy defense. */
+/**
+ * Applies the provisional in-game display model. The displayed ATK is divided by
+ * enemy defense and rounded up before attack frames are applied. The two
+ * intermediate floors are based on the observed +0 through +5 Agni series and
+ * remain explicitly reported while their exact semantic positions are unresolved.
+ */
 export function calculateDefenseAdjustedBaseDamage(
   input: DamageCalculationInput,
   attackPower: NormalAttackPowerResult,
@@ -147,24 +177,56 @@ export function calculateDefenseAdjustedBaseDamage(
     });
   }
 
-  const stageDefinitions: Array<[DamageModifierStage, DamageModifier[]]> = [
-    ["elemental-attack", elementalContributions],
-    ["crew-ship", userInputModifier("crew-ship", input.crewModifiers?.shipAttackPercent)],
-    ["crew-furnace", userInputModifier("crew-furnace", input.crewModifiers?.furnaceAttackPercent)],
-    ["normal-attack-damage", jobModifiers.filter((modifier) => modifier.stage === "normal-attack-damage")],
-    ["damage-dealt", accountModifiers.filter((modifier) => modifier.stage === "damage-dealt")],
-    [
-      "target-element-damage",
-      accountModifiers.filter((modifier) => modifier.stage === "target-element-damage"),
-    ],
+  const stageDefinitions: Array<{
+    stage: BaseDamageStage;
+    contributions: Array<DamageModifier | EffectiveWeaponSkillEffect>;
+    rounding?: StageRounding;
+    totalPercentOverride?: number;
+  }> = [
+    {
+      stage: "damage-dealt",
+      contributions: accountModifiers.filter((modifier) => modifier.stage === "damage-dealt"),
+    },
+    {
+      stage: "crew-ship",
+      contributions: userInputModifier("crew-ship", input.crewModifiers?.shipAttackPercent),
+      rounding: "floor",
+    },
+    {
+      stage: "normal-attack-damage",
+      contributions: jobModifiers.filter((modifier) => modifier.stage === "normal-attack-damage"),
+      rounding: "floor",
+    },
+    { stage: "elemental-attack", contributions: elementalContributions },
+    {
+      stage: "normal-weapon-skill",
+      contributions: attackPower.contributions,
+      totalPercentOverride: attackPower.totalEffectiveNormalAttackPercent,
+    },
+    {
+      stage: "crew-furnace",
+      contributions: userInputModifier("crew-furnace", input.crewModifiers?.furnaceAttackPercent),
+    },
+    {
+      stage: "target-element-damage",
+      contributions: accountModifiers.filter((modifier) => modifier.stage === "target-element-damage"),
+    },
   ];
   const stages: AppliedDamageStage[] = [];
-  let attackBeforeDefense = attackPower.normalSkillAdjustedAttack;
-  for (const [stage, contributions] of stageDefinitions) {
-    const applied = applyStage(attackBeforeDefense, stage, contributions);
+  const defenseAdjustedBaseAttack = Math.ceil(attackPower.baseAttack / target.defense);
+  let stagedDamage = defenseAdjustedBaseAttack;
+  for (const definition of stageDefinitions) {
+    const applied = applyStage(
+      stagedDamage,
+      definition.stage,
+      definition.contributions,
+      definition.rounding,
+      definition.totalPercentOverride,
+    );
     stages.push(applied);
-    attackBeforeDefense = applied.outputDamage;
+    stagedDamage = applied.outputDamage;
   }
+  const attackBeforeDefense = roundCalculation(stagedDamage * target.defense);
 
   return {
     schemaVersion: 1,
@@ -172,10 +234,12 @@ export function calculateDefenseAdjustedBaseDamage(
     model: "staged-normal-attack-base",
     targetEnemySlot: target.slot,
     enemyId: target.enemyId,
+    defenseAdjustedBaseAttack,
+    defenseRounding: "ceil",
     attackBeforeDefense,
     enemyDefense: target.defense,
     enemyDefenseSource: target.defenseSource,
-    damageBeforeRandomAndCap: roundCalculation(attackBeforeDefense / target.defense),
+    damageBeforeRandomAndCap: Math.floor(roundCalculation(stagedDamage)),
     stages,
     deferredCapModifiers: accountModifiers.filter(
       (modifier) => modifier.stage === "damage-cap" || modifier.stage === "normal-attack-damage-cap",

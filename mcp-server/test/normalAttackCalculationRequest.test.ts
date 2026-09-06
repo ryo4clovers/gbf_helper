@@ -45,7 +45,7 @@ function request() {
 test("serves the same normal attack calculation to Web and MCP callers", () => {
   const response = calculateNormalAttackFromRequest(request());
 
-  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 3951.424744);
+  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 3951);
   assert.equal(response.result.bodyDamageDistribution.minimumDamage, 3754);
   assert.equal(response.result.bodyDamageDistribution.maximumDamage, 4149);
   assert.equal(response.result.pursuitDamage?.effectivePursuitPercentage, 5.85);
@@ -54,8 +54,8 @@ test("serves the same normal attack calculation to Web and MCP callers", () => {
   assert.equal(response.result.totalDamageDistribution.maximumDamage, 4392);
 });
 
-test("closely reproduces the verified +0 Agni and Optimus Boost deck display", () => {
-  const response = calculateNormalAttackFromRequest({
+test("reproduces the verified +0 through +5 Agni weapon-plus displays", () => {
+  const agniRequest = {
     schemaVersion: 1,
     deckConfig: {
       schemaVersion: 1,
@@ -116,20 +116,41 @@ test("closely reproduces the verified +0 Agni and Optimus Boost deck display", (
       damageDealtPercent: 3.6,
       targetElementDamagePercent: 0,
     },
-  });
+  };
+  const response = calculateNormalAttackFromRequest(agniRequest);
 
   assert.equal(response.result.attackPower.totalEffectiveNormalAttackPercent, 90);
   assert.equal(response.result.attackPower.normalAttackSkillMultiplier, 1.9);
   assert.equal(response.result.pursuitDamage?.effectivePursuitPercentage, 13.5);
-  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 7998.819256);
-  assert.equal(response.result.bodyDamageDistribution.expectedDamage, 7999);
-  assert.ok(Math.abs(response.result.baseDamage.damageBeforeRandomAndCap - 7997) < 2);
+  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 7997);
   assert.equal(
     response.deckResolutionIssues.some(
       (issue) => issue.code === "multiple-weapon-skill-boosts-assumed-additive",
     ),
     false,
   );
+
+  const observations = [
+    { plusMark: 0, weaponAttack: 2170, protagonistAttack: 22801, displayedDamage: 7997 },
+    { plusMark: 1, weaponAttack: 2175, protagonistAttack: 22809, displayedDamage: 7997 },
+    { plusMark: 2, weaponAttack: 2180, protagonistAttack: 22816, displayedDamage: 8003 },
+    { plusMark: 3, weaponAttack: 2185, protagonistAttack: 22825, displayedDamage: 8006 },
+    { plusMark: 4, weaponAttack: 2190, protagonistAttack: 22832, displayedDamage: 8009 },
+    { plusMark: 5, weaponAttack: 2195, protagonistAttack: 22840, displayedDamage: 8009 },
+  ];
+  for (const observation of observations) {
+    const observedRequest = structuredClone(agniRequest);
+    observedRequest.deckConfig.protagonist.attackOverride = observation.protagonistAttack;
+    observedRequest.deckConfig.weapons[0].plusMark = observation.plusMark;
+    observedRequest.deckConfig.weapons[0].attackOverride = observation.weaponAttack;
+
+    const observedResponse = calculateNormalAttackFromRequest(observedRequest);
+    assert.equal(
+      observedResponse.result.baseDamage.damageBeforeRandomAndCap,
+      observation.displayedDamage,
+      `weapon +${observation.plusMark}`,
+    );
+  }
 });
 
 test("rejects unknown request fields and invalid enemy defense", () => {

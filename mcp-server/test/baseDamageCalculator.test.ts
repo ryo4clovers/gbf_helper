@@ -49,22 +49,25 @@ function inputWithDefense(defense?: number): DamageCalculationInput {
   };
 }
 
-test("divides summon-aura-adjusted attack by explicit enemy defense", () => {
+test("rounds displayed attack up after dividing by explicit enemy defense", () => {
   const result = calculateDefenseAdjustedBaseDamage(inputWithDefense(10), attackPower);
 
   assert.equal(result.status, "partial");
   assert.equal(result.enemyDefense, 10);
   assert.equal(result.enemyDefenseSource, "user-override");
-  assert.equal(result.damageBeforeRandomAndCap, 2708.276);
+  assert.equal(result.defenseAdjustedBaseAttack, 1949);
+  assert.equal(result.defenseRounding, "ceil");
+  assert.equal(result.damageBeforeRandomAndCap, 2709);
   assert.deepEqual(result.unresolvedStages, ["rounding", "damage-cap"]);
   assert.deepEqual(
     result.stages.map((stage) => stage.stage),
     [
-      "elemental-attack",
-      "crew-ship",
-      "crew-furnace",
-      "normal-attack-damage",
       "damage-dealt",
+      "crew-ship",
+      "normal-attack-damage",
+      "elemental-attack",
+      "normal-weapon-skill",
+      "crew-furnace",
       "target-element-damage",
     ],
   );
@@ -144,18 +147,23 @@ test("reproduces the displayed neutral damage with independent account, crew, an
 
   const result = calculateDefenseAdjustedBaseDamage(input, attackPower);
 
-  assert.equal(result.attackBeforeDefense, 39514.247437);
-  assert.equal(result.damageBeforeRandomAndCap, 3951.424744);
+  assert.equal(result.attackBeforeDefense, 39514.0999);
+  assert.equal(result.damageBeforeRandomAndCap, 3951);
   assert.deepEqual(
     result.stages.map((stage) => [stage.stage, stage.totalPercent]),
     [
-      ["elemental-attack", 13],
-      ["crew-ship", 10],
-      ["crew-furnace", 10],
-      ["normal-attack-damage", 3],
       ["damage-dealt", 3.6],
+      ["crew-ship", 10],
+      ["normal-attack-damage", 3],
+      ["elemental-attack", 13],
+      ["normal-weapon-skill", 39],
+      ["crew-furnace", 10],
       ["target-element-damage", 0],
     ],
+  );
+  assert.deepEqual(
+    result.stages.filter((stage) => stage.rounding === "floor").map((stage) => stage.stage),
+    ["crew-ship", "normal-attack-damage"],
   );
   assert.equal(result.deferredCapModifiers.length, 1);
 });
@@ -211,11 +219,18 @@ test("adds elemental superiority in the elemental frame and applies target-eleme
       },
     ],
   };
-  const simpleAttackPower = { ...attackPower, normalSkillAdjustedAttack: 100 };
+  const simpleAttackPower = {
+    ...attackPower,
+    baseAttack: 100,
+    contributions: [],
+    totalEffectiveNormalAttackPercent: 0,
+    normalAttackSkillMultiplier: 1,
+    normalSkillAdjustedAttack: 100,
+  };
 
   const result = calculateDefenseAdjustedBaseDamage(input, simpleAttackPower);
 
-  assert.equal(result.stages[0].totalPercent, 60);
+  assert.equal(result.stages.find((stage) => stage.stage === "elemental-attack")?.totalPercent, 60);
   assert.equal(result.stages.at(-1)?.totalPercent, 5);
-  assert.equal(result.damageBeforeRandomAndCap, 16.8);
+  assert.equal(result.damageBeforeRandomAndCap, 16);
 });
