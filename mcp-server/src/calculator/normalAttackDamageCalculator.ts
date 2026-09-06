@@ -149,7 +149,9 @@ export function calculateNormalAttackDamage(
     },
     issues: [
       "damage-cap-unresolved",
-      "rounding-order-unresolved",
+      ...(baseDamage.unresolvedStages.includes("rounding")
+        ? (["rounding-order-unresolved"] as const)
+        : []),
       ...(pursuitDamage === undefined ? [] : (["independent-component-randomness-provisional"] as const)),
       ...(criticalBodyDamage === undefined ? [] : (["critical-probability-unresolved"] as const)),
     ],

@@ -113,6 +113,7 @@ test("serves the same normal attack calculation to Web and MCP callers", () => {
   const response = calculateNormalAttackFromRequest(request());
 
   assert.equal(response.result.baseDamage.model, "article-2026-07");
+  assert.equal(response.result.issues.includes("rounding-order-unresolved"), false);
   assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 3950);
   assert.equal(response.result.bodyDamageDistribution.minimumDamage, 3753);
   assert.equal(response.result.bodyDamageDistribution.maximumDamage, 4148);
@@ -246,6 +247,7 @@ test("legacy defense model records the 18 neutral support-Agni hits and unresolv
   const pursuit = response.result.pursuitDamage;
 
   assert.ok(pursuit !== undefined);
+  assert.equal(response.result.issues.includes("rounding-order-unresolved"), true);
   assert.equal(
     bodyObserved.every((damage) => damage >= body.minimumDamage && damage <= body.maximumDamage),
     true,

@@ -1083,6 +1083,58 @@ const issueNames = {
   "critical-probability-unresolved": "クリティカル発生率の抽選規則は未確定のため、合計期待値には含めていません",
 };
 
+const calculationModelNames = {
+  "article-2026-07": "記事モデル（2026-07）",
+  "staged-normal-attack-base": "防御先行モデル（旧）",
+};
+
+const roundingNames = {
+  ceil: "切り上げ",
+  floor: "切り捨て",
+};
+
+function appliedStageRow(stage) {
+  const rounding = roundingNames[stage.rounding];
+  return {
+    name: `${stageNames[stage.stage] || stage.stage}${rounding ? `（${rounding}）` : ""}`,
+    multiplier: stage.multiplier,
+    output: stage.outputDamage,
+  };
+}
+
+function calculationBreakdownRows(baseDamage) {
+  if (baseDamage.model !== "article-2026-07" || baseDamage.articleTrace === undefined) {
+    return [
+      {
+        name: `敵防御 ÷ ${numberFormat.format(baseDamage.enemyDefense)}（切り上げ）`,
+        multiplier: 1 / baseDamage.enemyDefense,
+        output: baseDamage.defenseAdjustedBaseAttack,
+      },
+      ...baseDamage.stages.map(appliedStageRow),
+    ];
+  }
+
+  const trace = baseDamage.articleTrace;
+  const rows = [
+    { name: "表示攻撃力", multiplier: 1, output: trace.displayedAttack },
+    { name: "精度処理 ÷ 10（切り上げ）", multiplier: 0.1, output: trace.precisionStep },
+  ];
+  for (const stage of baseDamage.stages) {
+    rows.push(appliedStageRow(stage));
+    if (stage.stage === "crew-furnace") {
+      rows.push({ name: "精度を戻す × 10", multiplier: 10, output: trace.crewAdjustedAttack });
+    }
+    if (stage.stage === "elemental-attack") {
+      rows.push({
+        name: `敵防御 ÷ ${numberFormat.format(baseDamage.enemyDefense)}（丸めなし）`,
+        multiplier: 1 / baseDamage.enemyDefense,
+        output: trace.prePostCapDamage,
+      });
+    }
+  }
+  return rows;
+}
+
 function renderLocalResult(result) {
   const body = result.bodyDamageDistribution;
   const critical = result.criticalBodyDamage;
@@ -1145,19 +1197,9 @@ function render(response, predictions) {
 
   renderLocalResult(result);
   $("pattern-count").textContent = `${numberFormat.format(result.bodyDamageDistribution.patternCount)} patterns`;
+  $("calculation-model").textContent = calculationModelNames[result.baseDamage.model] || result.baseDamage.model;
 
-  const rows = [
-    {
-      name: `敵防御 ÷ ${numberFormat.format(result.baseDamage.enemyDefense)}（切り上げ）`,
-      multiplier: 1 / result.baseDamage.enemyDefense,
-      output: result.baseDamage.defenseAdjustedBaseAttack,
-    },
-    ...result.baseDamage.stages.map((stage) => ({
-      name: `${stageNames[stage.stage] || stage.stage}${stage.rounding === "floor" ? "（切り捨て）" : ""}`,
-      multiplier: stage.multiplier,
-      output: stage.outputDamage,
-    })),
-  ];
+  const rows = calculationBreakdownRows(result.baseDamage);
   const stageRows = $("stage-rows");
   stageRows.replaceChildren();
   for (const row of rows) {

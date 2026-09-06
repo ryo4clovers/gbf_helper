@@ -251,6 +251,8 @@ h3 { margin: 26px 0 13px; font-size: .9rem; color: var(--ink-soft); }
 .local-result-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .breakdown-surface { box-shadow: none; background: var(--surface-container); border-color: transparent; }
 .section-heading.compact { margin-bottom: 12px; }
+.breakdown-chips { display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+.model-chip { padding: 7px 11px; border-radius: 999px; color: var(--primary); background: var(--primary-container); font-size: .72rem; font-weight: 800; }
 .count-chip { padding: 7px 11px; border-radius: 999px; color: var(--secondary); background: var(--secondary-container); font-size: .72rem; font-weight: 800; }
 .table-wrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: .875rem; }
