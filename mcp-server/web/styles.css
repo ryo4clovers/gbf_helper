@@ -87,6 +87,33 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .weapon-editor-heading > div { display: flex; align-items: baseline; gap: 10px; }
 .weapon-editor-heading .field-label { margin: 0; }
 #weapon-count { color: var(--primary); font-size: 1.12rem; }
+.character-editor-heading { margin-top: 2px; }
+#character-count { color: var(--tertiary); font-size: 1.12rem; }
+.character-layout { display: grid; gap: 14px; }
+.character-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.back-character-grid { max-width: 66%; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.character-slot { min-width: 0; border: 1px solid var(--outline-soft); border-radius: 22px 14px 22px 14px; overflow: hidden; background: var(--surface); transition: border-color .18s, transform .18s, box-shadow .18s; }
+.character-slot:hover { border-color: var(--tertiary); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(43,34,83,.1); }
+.character-choice { width: 100%; min-width: 0; padding: 0; border: 0; display: flex; flex-direction: column; color: inherit; background: transparent; text-align: left; }
+.character-art { position: relative; width: 100%; min-height: 92px; display: grid; place-items: center; overflow: hidden; color: white; background: linear-gradient(145deg, #87828f, #514d58); }
+.character-art.fire { background: linear-gradient(145deg, #e44e3a, #8d1824); }
+.character-art.water { background: linear-gradient(145deg, #238ad4, #2443a8); }
+.character-art.earth { background: linear-gradient(145deg, #b88437, #6a431f); }
+.character-art.wind { background: linear-gradient(145deg, #37a86a, #14644a); }
+.character-art.light { background: linear-gradient(145deg, #e6ba3e, #a16e0c); }
+.character-art.dark { background: linear-gradient(145deg, #7b4bc7, #372170); }
+.character-art.unknown { background: var(--surface-high); }
+.character-symbol { position: relative; z-index: 1; font-size: 2.1rem; font-weight: 900; text-shadow: 0 3px 12px rgba(0,0,0,.25); }
+.character-slot.empty .character-symbol { color: var(--tertiary); text-shadow: none; }
+.character-slot-info { width: 100%; min-width: 0; padding: 10px 11px; }
+.character-slot-name, .character-slot-meta { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.character-slot-name { font-size: .84rem; font-weight: 800; }
+.character-slot-meta { margin-top: 2px; color: var(--ink-soft); font-size: .75rem; }
+.character-slot-controls { padding: 8px; border-top: 1px solid var(--outline-soft); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; background: white; }
+.character-slot-controls label { min-width: 0; color: var(--ink-soft); font-size: .68rem; font-weight: 800; }
+.character-slot-controls input { min-height: 30px; margin-top: 3px; padding: 4px 6px; border-radius: 8px; font-size: .72rem; }
+.character-catalog-art { font-size: 1.8rem; }
+.catalog-character-card .catalog-skill-list { color: var(--tertiary); }
 .weapon-layout { display: grid; grid-template-columns: minmax(150px, .8fr) minmax(300px, 2fr); gap: 12px; }
 .main-weapon-slot { display: flex; }
 .weapon-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
@@ -261,6 +288,7 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
   .job-level-controls { border-top: 1px solid var(--outline-soft); border-left: 0; }
   .weapon-layout { grid-template-columns: 1fr; }
   .summon-layout { grid-template-columns: 1fr; }
+  .back-character-grid { max-width: none; }
   .sub-summon-grid { max-width: none; }
   .main-slot .weapon-art { min-height: 118px; }
   .main-slot .weapon-choice { display: grid; grid-template-columns: 42% 1fr; align-items: stretch; }
@@ -275,6 +303,7 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
   .three-columns, .modifier-grid, .metric-grid { grid-template-columns: 1fr; }
   .job-level-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .summon-grid, .sub-summon-grid { grid-template-columns: 1fr; }
+  .character-grid, .back-character-grid { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }

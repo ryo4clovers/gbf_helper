@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { ZodError } from "zod";
 import { convertDeckResponseToCalculatorDeckConfig } from "./calculator/calculatorDeckConfig.js";
 import { calculateNormalAttackFromRequest } from "./calculator/normalAttackCalculationRequest.js";
+import { createSelectableCharacterCatalog } from "./calculator/characterCatalogView.js";
 import { createSelectableJobCatalog } from "./calculator/jobCatalogView.js";
 import { createJobFallbackWeaponCatalogView } from "./calculator/jobFallbackWeaponCatalog.js";
 import { createSelectableWeaponCatalog } from "./calculator/weaponCatalogView.js";
@@ -63,6 +64,10 @@ const server = createServer(async (request, response) => {
     const url = new URL(request.url ?? "/", `http://${HOST}:${PORT}`);
     if (request.method === "GET" && url.pathname === "/api/catalog/weapons") {
       json(response, 200, createSelectableWeaponCatalog());
+      return;
+    }
+    if (request.method === "GET" && url.pathname === "/api/catalog/characters") {
+      json(response, 200, createSelectableCharacterCatalog());
       return;
     }
     if (request.method === "GET" && url.pathname === "/api/catalog/jobs") {

@@ -47,6 +47,24 @@
             <div id="job-editor" class="job-editor"></div>
             <div id="weapon-compatibility-warning" class="compatibility-warning" role="alert" hidden></div>
             <div class="equipment-divider"></div>
+            <div class="weapon-editor-heading character-editor-heading">
+              <div>
+                <span class="field-label">キャラクター編成</span>
+                <strong id="character-count">0 / 5</strong>
+              </div>
+              <span class="supporting-text">前衛3・サブ2枠／表示HP・ATKを実機値で設定</span>
+            </div>
+            <div class="character-layout">
+              <div>
+                <span class="equipment-group-label">前衛</span>
+                <div id="front-character-grid" class="character-grid"></div>
+              </div>
+              <div>
+                <span class="equipment-group-label">サブ</span>
+                <div id="back-character-grid" class="character-grid back-character-grid"></div>
+              </div>
+            </div>
+            <div class="equipment-divider"></div>
             <div class="weapon-editor-heading">
               <div>
                 <span class="field-label">武器編成</span>
@@ -282,6 +300,25 @@
       <div class="picker-footer">
         <button id="remove-summon" class="danger-tonal-button" type="button">この枠から外す</button>
         <span id="summon-catalog-count" class="supporting-text"></span>
+      </div>
+    </dialog>
+    <dialog id="character-picker" class="weapon-picker character-picker" aria-labelledby="character-picker-title">
+      <div class="picker-header">
+        <div>
+          <p class="eyebrow">CHARACTER CATALOG</p>
+          <h2 id="character-picker-title">キャラクターを選択</h2>
+          <p id="character-picker-slot-label" class="supporting-text"></p>
+        </div>
+        <button id="close-character-picker" class="icon-button" type="button" aria-label="閉じる">×</button>
+      </div>
+      <label class="search-field" for="character-search">
+        <span aria-hidden="true">⌕</span>
+        <input id="character-search" type="search" placeholder="名前・属性・レアリティ・IDで検索" autocomplete="off" />
+      </label>
+      <div id="character-results" class="weapon-results character-results"></div>
+      <div class="picker-footer">
+        <button id="remove-character" class="danger-tonal-button" type="button">この枠から外す</button>
+        <span id="character-catalog-count" class="supporting-text"></span>
       </div>
     </dialog>
     <footer>計算結果は検証中の暫定モデルです。ダメージ上限と厳密な途中丸めは未適用です。</footer>

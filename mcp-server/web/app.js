@@ -25,6 +25,14 @@ const defaultDeck = {
 const $ = (id) => document.getElementById(id);
 const form = $("calculator-form");
 const deckField = $("deck-config");
+function reportUnexpectedUiError(error) {
+  const state = $("deck-state");
+  if (!state) return;
+  state.textContent = `画面の初期化に失敗しました: ${error instanceof Error ? error.message : String(error)}`;
+  state.classList.add("error-text");
+}
+window.addEventListener("error", (event) => reportUnexpectedUiError(event.error ?? event.message));
+window.addEventListener("unhandledrejection", (event) => reportUnexpectedUiError(event.reason));
 const numberFormat = new Intl.NumberFormat("ja-JP", { maximumFractionDigits: 3 });
 const elementMeta = {
   "1": { name: "火", className: "fire" },
@@ -36,7 +44,11 @@ const elementMeta = {
 };
 const weaponKindSymbols = { "1": "⚔", "2": "⌁", "3": "♜", "4": "⌁", "5": "✣", "6": "⌖", "7": "◈", "8": "✧", "9": "♩", "10": "◒" };
 const equipmentPlusBonus = { maximum: 99, attackPerMark: 5, hpPerMark: 1 };
+const characterPlusBonus = { maximum: 99, attackPerMark: 3, hpPerMark: 1 };
+const characterPickerResultLimit = 100;
 let jobCatalog = [];
+let characterCatalog = [];
+let editingCharacterSlot = null;
 let weaponCatalog = [];
 let fallbackWeaponCatalog = [];
 let editingWeaponSlot = null;
@@ -53,6 +65,7 @@ function readDeckConfig() {
 }
 
 function writeDeckConfig(config) {
+  config.characters.sort((left, right) => left.slot - right.slot);
   config.weapons.sort((left, right) => left.slot - right.slot);
   const summonPositionOrder = { main: 0, grid: 1, sub: 2 };
   config.summons.sort((left, right) =>
@@ -260,6 +273,196 @@ function removeSelectedJob() {
   void calculate();
 }
 
+function catalogCharacter(characterId) {
+  return characterCatalog.find((character) => character.characterId === characterId);
+}
+
+function characterForSlot(config, slot) {
+  return config.characters.find((character) => character.slot === slot);
+}
+
+function createCharacterNumberField(config, character, key, label, options = {}) {
+  const field = document.createElement("label");
+  field.textContent = label;
+  const input = document.createElement("input");
+  input.type = "number";
+  input.min = String(options.minimum ?? 0);
+  input.max = String(options.maximum ?? 999999);
+  input.step = "1";
+  input.placeholder = "—";
+  input.value = character[key] == null ? "" : String(character[key]);
+  input.setAttribute("aria-label", `${character.nameHint ?? character.characterId}の${label}`);
+  input.addEventListener("change", () => {
+    const value = Number(input.value);
+    const current = characterForSlot(config, character.slot);
+    if (!current) return;
+    if (input.value === "") delete current[key];
+    else if (Number.isInteger(value) && value >= Number(input.min) && value <= Number(input.max)) current[key] = value;
+    else return;
+    writeDeckConfig(config);
+    void calculate();
+  });
+  field.append(input);
+  return field;
+}
+
+function createCharacterPlusField(config, character) {
+  const field = document.createElement("label");
+  field.textContent = "+";
+  const input = document.createElement("input");
+  input.type = "number";
+  input.min = "0";
+  input.max = String(characterPlusBonus.maximum);
+  input.step = "1";
+  input.value = String(character.plusMark ?? 0);
+  input.setAttribute("aria-label", `${character.nameHint ?? character.characterId}のプラスボーナス`);
+  input.addEventListener("change", () => {
+    const value = Number(input.value);
+    if (!Number.isInteger(value) || value < 0 || value > characterPlusBonus.maximum) return;
+    const current = characterForSlot(config, character.slot);
+    if (!current) return;
+    const difference = value - (current.plusMark ?? 0);
+    current.plusMark = value;
+    if (current.attackOverride != null) current.attackOverride += difference * characterPlusBonus.attackPerMark;
+    if (current.hpOverride != null) current.hpOverride += difference * characterPlusBonus.hpPerMark;
+    writeDeckConfig(config);
+    renderCharacterEditor(config);
+    void calculate();
+  });
+  field.append(input);
+  return field;
+}
+
+function createCharacterSlot(config, slot) {
+  const character = characterForSlot(config, slot);
+  const master = character ? catalogCharacter(character.characterId) : undefined;
+  const element = master ? elementMeta[master.elementCode] : undefined;
+  const article = document.createElement("article");
+  article.className = `character-slot ${character ? "occupied" : "empty"}`;
+  const choice = document.createElement("button");
+  choice.type = "button";
+  choice.className = "character-choice";
+  choice.setAttribute("aria-label", `${slot <= 3 ? `前衛${slot}` : `サブ${slot - 3}`}のキャラクターを選択`);
+  choice.addEventListener("click", () => openCharacterPicker(slot));
+  const art = document.createElement("span");
+  art.className = `character-art ${element?.className ?? "unknown"}`;
+  art.append(
+    createText("slot-badge", slot <= 3 ? `FRONT ${slot}` : `SUB ${slot - 3}`),
+    createText("rarity-badge", master?.rarity ?? "—"),
+    createText("character-symbol", character ? "♟" : "+"),
+  );
+  const info = document.createElement("span");
+  info.className = "character-slot-info";
+  info.append(
+    createText("character-slot-name", character ? (master?.name ?? character.nameHint ?? character.characterId) : "キャラクターを選択"),
+    createText("character-slot-meta", character ? `${element?.name ?? "属性不明"}・${master?.rarity ?? "未登録"}` : slot <= 3 ? `前衛 ${slot}` : `サブ ${slot - 3}`),
+  );
+  choice.append(art, info);
+  article.append(choice);
+
+  if (character) {
+    const controls = document.createElement("div");
+    controls.className = "character-slot-controls";
+    controls.append(
+      createCharacterNumberField(config, character, "level", "Lv", { minimum: 1, maximum: 150 }),
+      createCharacterPlusField(config, character),
+      createCharacterNumberField(config, character, "hpOverride", "表示HP"),
+      createCharacterNumberField(config, character, "attackOverride", "表示ATK"),
+    );
+    article.append(controls);
+  }
+  return article;
+}
+
+function renderCharacterEditor(config = readDeckConfig()) {
+  $("front-character-grid").replaceChildren(...Array.from({ length: 3 }, (_, index) => createCharacterSlot(config, index + 1)));
+  $("back-character-grid").replaceChildren(...Array.from({ length: 2 }, (_, index) => createCharacterSlot(config, index + 4)));
+  $("character-count").textContent = `${config.characters.length} / 5`;
+}
+
+function normalizeCharacterSearch(value) {
+  return value.toLocaleLowerCase("ja").replace(/[\s・･._-]/g, "");
+}
+
+function renderCharacterResults(query = "") {
+  const normalized = normalizeCharacterSearch(query.trim());
+  const matches = characterCatalog.filter((character) => {
+    const element = elementMeta[character.elementCode]?.name ?? "";
+    return normalizeCharacterSearch(
+      [character.name, character.nameEn, character.characterId, element, character.rarity].join(" "),
+    ).includes(normalized);
+  });
+  const visibleMatches = matches.slice(0, characterPickerResultLimit);
+  const results = $("character-results");
+  results.replaceChildren();
+  for (const character of visibleMatches) {
+    const element = elementMeta[character.elementCode];
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "catalog-weapon-card catalog-character-card";
+    button.addEventListener("click", () => selectCharacter(character));
+    const art = document.createElement("span");
+    art.className = `catalog-art character-catalog-art ${element?.className ?? "unknown"}`;
+    art.append(createText("character-symbol", "♟"));
+    const details = document.createElement("span");
+    details.className = "catalog-weapon-details";
+    details.append(
+      createText("catalog-weapon-name", character.name),
+      createText("catalog-weapon-meta", `${character.nameEn} ・ ${character.characterId}`),
+      createText("catalog-skill-list", `${element?.name ?? "属性不明"}属性 ・ ${character.rarity}`),
+    );
+    const status = createText(`verification-chip ${character.verificationStatus === "検証済み" ? "verified" : "draft"}`, character.verificationStatus);
+    button.append(art, details, status);
+    results.append(button);
+  }
+  if (matches.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "picker-empty";
+    empty.textContent = "一致するキャラクターがありません。未登録キャラクターはJSONから指定できます。";
+    results.append(empty);
+  }
+  $("character-catalog-count").textContent = matches.length > visibleMatches.length
+    ? `${matches.length}件中 ${visibleMatches.length}件を表示（全${characterCatalog.length}件）`
+    : `${matches.length} / ${characterCatalog.length}件`;
+}
+
+function openCharacterPicker(slot) {
+  editingCharacterSlot = slot;
+  $("character-picker-slot-label").textContent = slot <= 3 ? `前衛 ${slot}を変更` : `サブ ${slot - 3}を変更`;
+  $("character-search").value = "";
+  $("remove-character").disabled = !characterForSlot(readDeckConfig(), slot);
+  renderCharacterResults();
+  $("character-picker").showModal();
+  $("character-search").focus();
+}
+
+function selectCharacter(master) {
+  if (editingCharacterSlot == null) return;
+  const config = readDeckConfig();
+  config.characters = config.characters.filter((character) => character.slot !== editingCharacterSlot);
+  config.characters.push({
+    slot: editingCharacterSlot,
+    position: editingCharacterSlot <= 3 ? "front" : "back",
+    characterId: master.characterId,
+    nameHint: master.name,
+    plusMark: 0,
+  });
+  writeDeckConfig(config);
+  renderCharacterEditor(config);
+  $("character-picker").close();
+  void calculate();
+}
+
+function removeSelectedCharacter() {
+  if (editingCharacterSlot == null) return;
+  const config = readDeckConfig();
+  config.characters = config.characters.filter((character) => character.slot !== editingCharacterSlot);
+  writeDeckConfig(config);
+  renderCharacterEditor(config);
+  $("character-picker").close();
+  void calculate();
+}
+
 function catalogWeapon(weaponId) {
   return weaponCatalog.find((weapon) => weapon.weaponId === weaponId);
 }
@@ -431,6 +634,7 @@ function renderWeaponEditor() {
     applyEquipmentRules(config);
     writeDeckConfig(config);
     renderJobEditor(config);
+    renderCharacterEditor(config);
     renderMainWeaponCompatibility(config);
     const mainSlot = $("main-weapon-slot");
     const grid = $("weapon-grid");
@@ -1172,6 +1376,12 @@ $("job-search").addEventListener("input", (event) => renderJobResults(event.targ
 $("job-picker").addEventListener("click", (event) => {
   if (event.target === $("job-picker")) $("job-picker").close();
 });
+$("close-character-picker").addEventListener("click", () => $("character-picker").close());
+$("remove-character").addEventListener("click", removeSelectedCharacter);
+$("character-search").addEventListener("input", (event) => renderCharacterResults(event.target.value));
+$("character-picker").addEventListener("click", (event) => {
+  if (event.target === $("character-picker")) $("character-picker").close();
+});
 $("close-picker").addEventListener("click", () => $("weapon-picker").close());
 $("remove-weapon").addEventListener("click", removeSelectedWeapon);
 $("weapon-search").addEventListener("input", (event) => renderWeaponResults(event.target.value));
@@ -1187,14 +1397,16 @@ $("summon-picker").addEventListener("click", (event) => {
 
 async function initialize() {
   try {
-    const [jobResponse, weaponResponse, fallbackWeaponResponse, summonResponse] = await Promise.all([
+    const [jobResponse, characterResponse, weaponResponse, fallbackWeaponResponse, summonResponse] = await Promise.all([
       fetch("/api/catalog/jobs"),
+      fetch("/api/catalog/characters"),
       fetch("/api/catalog/weapons"),
       fetch("/api/catalog/job-fallback-weapons"),
       fetch("/api/catalog/summons"),
     ]);
-    if (!jobResponse.ok || !weaponResponse.ok || !fallbackWeaponResponse.ok || !summonResponse.ok) throw new Error("編成カタログを読み込めませんでした");
+    if (!jobResponse.ok || !characterResponse.ok || !weaponResponse.ok || !fallbackWeaponResponse.ok || !summonResponse.ok) throw new Error("編成カタログを読み込めませんでした");
     jobCatalog = (await jobResponse.json()).jobs;
+    characterCatalog = (await characterResponse.json()).characters;
     weaponCatalog = (await weaponResponse.json()).weapons;
     fallbackWeaponCatalog = (await fallbackWeaponResponse.json()).weapons;
     summonCatalog = (await summonResponse.json()).summons;

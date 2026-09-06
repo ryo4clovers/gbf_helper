@@ -225,16 +225,19 @@ test("accepts equipment plus marks from 0 through 99", () => {
     protagonist: {},
     weapons: [{ slot: 1, position: "main", weaponId: "weapon", plusMark: 99 }],
     summons: [{ slot: 1, position: "main", summonId: "summon", plusMark: 0 }],
+    characters: [{ slot: 1, position: "front", characterId: "character", plusMark: 99 }],
   });
 
   assert.equal(result.weapons[0].plusMark, 99);
   assert.equal(result.summons[0].plusMark, 0);
+  assert.equal(result.characters[0].plusMark, 99);
 });
 
-test("rejects weapon and summon plus marks above 99", () => {
+test("rejects equipment and character plus marks above 99", () => {
   for (const equipment of [
     { weapons: [{ slot: 1, position: "main", weaponId: "weapon", plusMark: 100 }] },
     { summons: [{ slot: 1, position: "main", summonId: "summon", plusMark: 100 }] },
+    { characters: [{ slot: 1, position: "front", characterId: "character", plusMark: 100 }] },
   ]) {
     assert.throws(
       () =>

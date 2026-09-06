@@ -1356,3 +1356,10 @@ SSR・SR・R全レアリティ、光・火・水・土・風・闇の全六属�
   - index51 エルモート(SSR)はgbf.wiki検索候補「Elmott」がHP/ATK不一致(低レアリティ版、HP900/ATK6750 vs GameWithのHP1125/ATK8775)だったため不採用、GameWithのみで作成。
   - index45 シルフはgbf.wiki検索候補「Sylph, Flutterspirit of Purity」が召喚石ページ(キャラクターと無関係)だったため不採用、GameWithのみで作成。
   - index41 アンナ(SSR)はgbf.wiki検索候補「Anna」がHP/ATK不一致(低レアリティ版、HP640/ATK4800 vs GameWithのHP1250/ATK9800)だったため不採用、GameWithのみで作成。
+
+## Rank425基礎HPの暫定訂正とキャラクター比較検証の準備(2026-09-07)
+
+- ユーザーから、有志の検証投稿(<https://x.com/retlet/status/2046532836447092996>)にある「Rank425の基礎HPを1964とすると表示HP2534に一致し、1965ではどの丸めでも一致しにくい」という計算例が共有された。
+- `knowledge/mechanics/protagonist-base-stats.md` のRank425基礎HPを1965から1964へ変更した。実機レスポンスによる再現前なので、ステータスは「下書き」のまま、1964を暫定候補として扱う。
+- 同投稿にはRank375で基礎HP1914だったという過去記録もあり、Rank350付近以降の増加規則が現行表から1ずれている可能性がある。今回は根拠が提示されたRank425のみ変更し、他Rankと基礎攻撃力7825は要検証として残した。
+- 主人公固有のRank基礎値と共通計算式・丸めを切り分けるため、ローカル計算画面へRank非依存キャラクターの選択・実測HP/ATK入力機能を追加する。

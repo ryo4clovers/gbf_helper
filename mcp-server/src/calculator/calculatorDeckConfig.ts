@@ -90,7 +90,7 @@ const characterSchema = z
     nameHint: nameHintSchema,
     level: nonNegativeIntegerSchema.optional(),
     uncapLevel: nonNegativeIntegerSchema.optional(),
-    plusMark: nonNegativeIntegerSchema.optional(),
+    plusMark: equipmentPlusMarkSchema.optional(),
     attackOverride: nonNegativeNumberSchema.optional(),
     hpOverride: nonNegativeNumberSchema.optional(),
   })
