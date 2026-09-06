@@ -35,6 +35,7 @@ const elementMeta = {
   "6": { name: "闇", className: "dark" },
 };
 const weaponKindSymbols = { "1": "⚔", "2": "⌁", "3": "♜", "4": "⌁", "5": "✣", "6": "⌖", "7": "◈", "8": "✧", "9": "♩", "10": "◒" };
+const equipmentPlusBonus = { maximum: 99, attackPerMark: 5, hpPerMark: 1 };
 let jobCatalog = [];
 let weaponCatalog = [];
 let fallbackWeaponCatalog = [];
@@ -62,6 +63,45 @@ function createText(className, text) {
   element.className = className;
   element.textContent = text;
   return element;
+}
+
+function updateEquipmentPlusMark(equipment, nextPlusMark) {
+  const previousPlusMark = equipment.plusMark ?? 0;
+  const difference = nextPlusMark - previousPlusMark;
+  equipment.plusMark = nextPlusMark;
+  if (equipment.attackOverride != null) {
+    equipment.attackOverride += difference * equipmentPlusBonus.attackPerMark;
+  }
+  if (equipment.hpOverride != null) {
+    equipment.hpOverride += difference * equipmentPlusBonus.hpPerMark;
+  }
+}
+
+function createEquipmentPlusField(equipment, name, findCurrentEquipment, onUpdated) {
+  const label = document.createElement("label");
+  label.textContent = "+";
+  const input = document.createElement("input");
+  input.type = "number";
+  input.min = "0";
+  input.max = String(equipmentPlusBonus.maximum);
+  input.step = "1";
+  input.value = String(equipment.plusMark ?? 0);
+  input.setAttribute("aria-label", `${name}のプラスボーナス`);
+  input.addEventListener("input", () => {
+    const value = Number(input.value);
+    const isValid = Number.isInteger(value) && value >= 0 && value <= equipmentPlusBonus.maximum;
+    input.setCustomValidity(isValid ? "" : `0〜${equipmentPlusBonus.maximum}の整数を入力してください`);
+    if (!isValid) return;
+    const config = readDeckConfig();
+    const currentEquipment = findCurrentEquipment(config);
+    if (!currentEquipment) return;
+    updateEquipmentPlusMark(currentEquipment, value);
+    writeDeckConfig(config);
+    onUpdated(currentEquipment);
+    void calculate();
+  });
+  label.append(input);
+  return label;
 }
 
 function catalogJob(jobId) {
@@ -357,7 +397,18 @@ function createWeaponSlot(config, slot) {
     });
     skillLabel.append(skillInput);
     const attack = createText("weapon-attack", `ATK ${weapon.attackOverride == null ? "—" : numberFormat.format(weapon.attackOverride)}`);
-    controls.append(skillLabel, attack);
+    controls.append(
+      skillLabel,
+      createEquipmentPlusField(
+        weapon,
+        master?.name ?? weapon.weaponId,
+        (currentConfig) => weaponForSlot(currentConfig, slot),
+        (currentWeapon) => {
+          attack.textContent = `ATK ${currentWeapon.attackOverride == null ? "—" : numberFormat.format(currentWeapon.attackOverride)}`;
+        },
+      ),
+      attack,
+    );
     article.append(controls);
   } else if (isJobFallback) {
     const fallback = document.createElement("div");
@@ -452,6 +503,7 @@ function selectWeapon(master) {
     weaponId: master.weaponId,
     nameHint: master.name,
     skillLevel: master.skills.length ? 15 : undefined,
+    plusMark: 0,
   });
   writeDeckConfig(config);
   renderWeaponEditor();
@@ -547,7 +599,20 @@ function createSummonSlot(config, position, slot) {
     });
     levelLabel.append(levelInput);
     const stats = createText("weapon-attack", `HP ${summon.hpOverride == null ? "—" : numberFormat.format(summon.hpOverride)} / ATK ${summon.attackOverride == null ? "—" : numberFormat.format(summon.attackOverride)}`);
-    controls.append(levelLabel, stats);
+    controls.append(
+      levelLabel,
+      createEquipmentPlusField(
+        summon,
+        master?.name ?? summon.summonId,
+        (currentConfig) => currentConfig.summons.find(
+          (currentSummon) => currentSummon.position === position && currentSummon.slot === slot,
+        ),
+        (currentSummon) => {
+          stats.textContent = `HP ${currentSummon.hpOverride == null ? "—" : numberFormat.format(currentSummon.hpOverride)} / ATK ${currentSummon.attackOverride == null ? "—" : numberFormat.format(currentSummon.attackOverride)}`;
+        },
+      ),
+      stats,
+    );
     article.append(controls);
   }
   return article;
@@ -627,6 +692,7 @@ function selectSummon(master) {
     position,
     summonId: master.summonId,
     nameHint: master.name,
+    plusMark: 0,
   });
   writeDeckConfig(config);
   renderSummonEditor();

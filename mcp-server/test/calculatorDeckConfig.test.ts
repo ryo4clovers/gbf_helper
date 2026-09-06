@@ -217,3 +217,34 @@ test("rejects unknown fields to catch mistakes in hand-authored JSON", () => {
     /unrecognized/i,
   );
 });
+
+test("accepts equipment plus marks from 0 through 99", () => {
+  const result = parseCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: {},
+    weapons: [{ slot: 1, position: "main", weaponId: "weapon", plusMark: 99 }],
+    summons: [{ slot: 1, position: "main", summonId: "summon", plusMark: 0 }],
+  });
+
+  assert.equal(result.weapons[0].plusMark, 99);
+  assert.equal(result.summons[0].plusMark, 0);
+});
+
+test("rejects weapon and summon plus marks above 99", () => {
+  for (const equipment of [
+    { weapons: [{ slot: 1, position: "main", weaponId: "weapon", plusMark: 100 }] },
+    { summons: [{ slot: 1, position: "main", summonId: "summon", plusMark: 100 }] },
+  ]) {
+    assert.throws(
+      () =>
+        parseCalculatorDeckConfig({
+          schemaVersion: 1,
+          format: "gbf-helper-calculator-deck",
+          protagonist: {},
+          ...equipment,
+        }),
+      /less than or equal to 99/i,
+    );
+  }
+});

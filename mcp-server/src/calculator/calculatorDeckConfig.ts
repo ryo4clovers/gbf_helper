@@ -27,6 +27,7 @@ const finiteNumberSchema = z
 
 const nonNegativeNumberSchema = finiteNumberSchema.pipe(z.number().nonnegative());
 const nonNegativeIntegerSchema = finiteNumberSchema.pipe(z.number().int().nonnegative());
+const equipmentPlusMarkSchema = finiteNumberSchema.pipe(z.number().int().min(0).max(99));
 const positiveSlotSchema = finiteNumberSchema.pipe(z.number().int().positive());
 const nameHintSchema = z.string().trim().min(1).optional();
 
@@ -60,7 +61,7 @@ const weaponSchema = z
     level: nonNegativeIntegerSchema.optional(),
     skillLevel: nonNegativeIntegerSchema.optional(),
     uncapLevel: nonNegativeIntegerSchema.optional(),
-    plusMark: nonNegativeIntegerSchema.optional(),
+    plusMark: equipmentPlusMarkSchema.optional(),
     awakening: awakeningSchema.optional(),
     attackOverride: nonNegativeNumberSchema.optional(),
     hpOverride: nonNegativeNumberSchema.optional(),
@@ -75,7 +76,7 @@ const summonSchema = z
     nameHint: nameHintSchema,
     level: nonNegativeIntegerSchema.optional(),
     uncapLevel: nonNegativeIntegerSchema.optional(),
-    plusMark: nonNegativeIntegerSchema.optional(),
+    plusMark: equipmentPlusMarkSchema.optional(),
     attackOverride: nonNegativeNumberSchema.optional(),
     hpOverride: nonNegativeNumberSchema.optional(),
   })
