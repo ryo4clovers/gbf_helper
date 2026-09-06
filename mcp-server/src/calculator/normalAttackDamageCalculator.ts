@@ -1,5 +1,6 @@
 import {
   calculateDefenseAdjustedBaseDamage,
+  elementalSuperiorityPercent,
   type DefenseAdjustedBaseDamageResult,
 } from "./baseDamageCalculator.js";
 import {
@@ -98,11 +99,16 @@ export function calculateNormalAttackDamage(
         finalRounding: options.finalRounding ?? "floor",
       })
     : undefined;
-  const criticalBodyDamage = calculateCriticalBodyDamage(input.deck, baseDamage, {
-    multiplierMin: options.multiplierMin,
-    multiplierMax: options.multiplierMax,
-    multiplierStep: options.multiplierStep,
-  });
+  const target = input.battle.enemies.find((enemy) => enemy.slot === input.targetEnemySlot);
+  const canWeaponSkillCritical =
+    elementalSuperiorityPercent(input.deck.protagonist.elementCode, target?.elementCode) > 0;
+  const criticalBodyDamage = canWeaponSkillCritical
+    ? calculateCriticalBodyDamage(input.deck, baseDamage, {
+        multiplierMin: options.multiplierMin,
+        multiplierMax: options.multiplierMax,
+        multiplierStep: options.multiplierStep,
+      })
+    : undefined;
   const distributions = [
     bodyDamageDistribution,
     ...(pursuitDamage === undefined ? [] : [pursuitDamage.damageDistribution]),

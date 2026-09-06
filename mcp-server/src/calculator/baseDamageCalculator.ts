@@ -59,7 +59,7 @@ function appliesToTarget(
   return true;
 }
 
-function elementalSuperiorityPercent(
+export function elementalSuperiorityPercent(
   attackerElementCode: string | undefined,
   targetElementCode: string | undefined,
 ): number {

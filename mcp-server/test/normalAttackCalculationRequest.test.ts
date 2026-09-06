@@ -275,6 +275,13 @@ test("reproduces all four observed critical body hits with the two-floor model",
   );
 });
 
+test("does not expose a weapon-skill critical distribution against a non-advantageous target", () => {
+  const response = calculateNormalAttackFromRequest(agniRequest());
+
+  assert.equal(response.result.criticalBodyDamage, undefined);
+  assert.ok(!response.result.issues.includes("critical-probability-unresolved"));
+});
+
 test("rejects unknown request fields and invalid enemy defense", () => {
   assert.throws(
     () => calculateNormalAttackFromRequest({ ...request(), unexpected: true }),
