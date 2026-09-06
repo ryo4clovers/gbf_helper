@@ -41,6 +41,21 @@
       "verificationStatus": "検証済み",
       "source": "ゲーム内deckレスポンスで確認",
       "confirmedAt": "2026-09-05"
+    },
+    {
+      "weaponId": "1040915300",
+      "name": "ソロモンアクセル",
+      "elementCode": "1",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "510" },
+        { "sourceKey": "skill2", "skillId": "80" },
+        { "sourceKey": "skill3", "skillId": "1" }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内deckレスポンスで武器・スキル・表示効果量を確認",
+      "confirmedAt": "2026-09-07"
     }
   ]
 }

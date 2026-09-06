@@ -123,6 +123,43 @@ test("resolves protagonist DA and TA rates from the selected job", () => {
   );
 });
 
+test("adds boosted Solomon Accel trium rates to job and completion bonuses", () => {
+  const input = agniRequest();
+  input.deckConfig.protagonist.attackOverride = 27068;
+  input.deckConfig.protagonist.hpOverride = 5095;
+  input.deckConfig.weapons.push({
+    slot: 3,
+    position: "grid",
+    weaponId: "1040915300",
+    level: 150,
+    skillLevel: 15,
+    plusMark: 0,
+    attackOverride: 3441,
+    hpOverride: 182,
+  });
+  const response = calculateNormalAttackFromRequest({
+    ...input,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+  });
+
+  assert.equal(response.result.multiattackRates.doubleAttackRatePercent, 46.9);
+  assert.equal(response.result.multiattackRates.tripleAttackRatePercent, 40.9);
+  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 14852);
+  const trium = response.result.multiattackRates.contributions.find(
+    (contribution) => contribution.sourceName === "紅蓮の三手",
+  );
+  assert.equal(trium?.doubleAttackRatePercent, 32.9);
+  assert.equal(trium?.tripleAttackRatePercent, 32.9);
+
+  const advantageResponse = calculateNormalAttackFromRequest({
+    ...input,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+    enemy: { elementCode: "4", defense: 10 },
+    modifiers: { ...input.modifiers, targetElementDamagePercent: 5 },
+  });
+  assert.equal(advantageResponse.result.baseDamage.damageBeforeRandomAndCap, 20985);
+});
+
 test("serves the same normal attack calculation to Web and MCP callers", () => {
   const response = calculateNormalAttackFromRequest(request());
 

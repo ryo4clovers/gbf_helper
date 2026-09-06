@@ -11,7 +11,7 @@
 
 ## ファイル一覧
 
-全166ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証)。
+全167ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証)。
 
 ### セラフィックウェポン
 
@@ -29,6 +29,12 @@
 | ファイル | 武器名 | 属性 |
 | --- | --- | --- |
 | [fire-ssr-limited-benedia.md](./fire-ssr-limited-benedia.md) | ベネディーア / Benedia | 火 |
+
+### 恒常ガチャ武器
+
+| ファイル | 武器名 | 属性 |
+| --- | --- | --- |
+| [fire-ssr-solomons-accelerator.md](./fire-ssr-solomons-accelerator.md) | ソロモンアクセル / Solomon's Accelerator | 火 |
 
 ### 終末の神器
 

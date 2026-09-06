@@ -98,6 +98,68 @@
       ],
       "verificationStatus": "下書き",
       "source": "ゲーム内表示値と実測追撃からの逆算。基礎効果量は要追加検証"
+    },
+    {
+      "skillId": "510",
+      "name": "紅蓮の三手",
+      "description": "火属性キャラの連続攻撃確率上昇(大)",
+      "effects": [
+        {
+          "kind": "double-attack-rate-up",
+          "elementCode": "1",
+          "amountPercent": 7,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "通常スキル強化370%時の表示32.9%から確認"
+        },
+        {
+          "kind": "triple-attack-rate-up",
+          "elementCode": "1",
+          "amountPercent": 7,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "通常スキル強化370%時の表示32.9%から確認"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deck.damage_infoのDA/TA表示と通常スキル強化合計から確認",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "skillId": "80",
+      "name": "業火の技巧",
+      "description": "火属性キャラのクリティカル確率上昇(中)",
+      "effects": [
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 6.5,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "既存技巧12.5%相当×通常スキル強化4.7倍=表示58.75%から差分確認"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deck.damage_infoのクリティカル表示差分から確認",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "skillId": "1",
+      "name": "火の攻刃",
+      "description": "火属性キャラの攻撃力上昇(小)",
+      "effects": [
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 12,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "既存攻刃30%へ加算し、通常スキル強化4.7倍で表示197%となる差分から確認"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deck.damage_infoの攻刃表示差分から確認",
+      "confirmedAt": "2026-09-07"
     }
   ]
 }
