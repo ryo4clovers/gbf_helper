@@ -285,6 +285,46 @@ test("records the 18 neutral support-Agni hits and exposes the unresolved fracti
   );
 });
 
+test("records the support-Agni +0 through +10 prediction drift", () => {
+  const observations = [
+    { plusMark: 0, weaponAttack: 2170, protagonistAttack: 22801, officialNormal: 10144, localNormal: 10144, officialAdvantage: 14332, localAdvantage: 14333 },
+    { plusMark: 1, weaponAttack: 2175, protagonistAttack: 22809, officialNormal: 10144, localNormal: 10144, officialAdvantage: 14332, localAdvantage: 14333 },
+    { plusMark: 2, weaponAttack: 2180, protagonistAttack: 22816, officialNormal: 10151, localNormal: 10152, officialAdvantage: 14343, localAdvantage: 14344 },
+    { plusMark: 3, weaponAttack: 2185, protagonistAttack: 22825, officialNormal: 10155, localNormal: 10155, officialAdvantage: 14348, localAdvantage: 14349 },
+    { plusMark: 4, weaponAttack: 2190, protagonistAttack: 22832, officialNormal: 10158, localNormal: 10159, officialAdvantage: 14353, localAdvantage: 14355 },
+    { plusMark: 5, weaponAttack: 2195, protagonistAttack: 22840, officialNormal: 10158, localNormal: 10159, officialAdvantage: 14353, localAdvantage: 14355 },
+    { plusMark: 6, weaponAttack: 2200, protagonistAttack: 22847, officialNormal: 10162, localNormal: 10163, officialAdvantage: 14358, localAdvantage: 14360 },
+    { plusMark: 8, weaponAttack: 2210, protagonistAttack: 22862, officialNormal: 10169, localNormal: 10174, officialAdvantage: 14369, localAdvantage: 14376 },
+    { plusMark: 9, weaponAttack: 2215, protagonistAttack: 22869, officialNormal: 10169, localNormal: 10174, officialAdvantage: 14369, localAdvantage: 14376 },
+    { plusMark: 10, weaponAttack: 2220, protagonistAttack: 22878, officialNormal: 10173, localNormal: 10178, officialAdvantage: 14374, localAdvantage: 14381 },
+  ];
+  const differences: Array<[number, number]> = [];
+
+  for (const observation of observations) {
+    const input = agniRequest();
+    input.deckConfig.protagonist.attackOverride = observation.protagonistAttack;
+    input.deckConfig.weapons[0].plusMark = observation.plusMark;
+    input.deckConfig.weapons[0].attackOverride = observation.weaponAttack;
+    const supportSummon = { summonId: "2040094000", nameHint: "アグニス" };
+    const normal = calculateNormalAttackFromRequest({ ...input, supportSummon });
+    const advantageInput = structuredClone(input);
+    advantageInput.enemy.elementCode = "4";
+    advantageInput.modifiers.targetElementDamagePercent = 5;
+    const advantage = calculateNormalAttackFromRequest({ ...advantageInput, supportSummon });
+
+    assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, observation.localNormal);
+    assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, observation.localAdvantage);
+    differences.push([
+      normal.result.baseDamage.damageBeforeRandomAndCap - observation.officialNormal,
+      advantage.result.baseDamage.damageBeforeRandomAndCap - observation.officialAdvantage,
+    ]);
+  }
+  assert.deepEqual(differences, [
+    [0, 1], [0, 1], [1, 1], [0, 1], [1, 2],
+    [1, 2], [1, 2], [5, 7], [5, 7], [5, 7],
+  ]);
+});
+
 test("reproduces all eight observed Agni battle body hits from the unrounded base", () => {
   const response = calculateNormalAttackFromRequest(agniRequest());
   const observedBodyDamage = [7725, 7685, 7629, 8229, 7693, 7901, 7685, 8245];
