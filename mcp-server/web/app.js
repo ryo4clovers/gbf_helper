@@ -1424,6 +1424,15 @@ $("save-config").addEventListener("click", () => {
   }
 });
 
+$("open-battle").addEventListener("click", () => {
+  const request = currentTargetRequest(buildRequest());
+  sessionStorage.setItem(
+    "gbf-helper-battle-setup-v1",
+    JSON.stringify({ schemaVersion: 1, request, enemyMaxHp: 1_000_000 }),
+  );
+  window.location.href = "/battle.html";
+});
+
 $("visual-tab").addEventListener("click", () => setEditorMode("visual"));
 $("json-tab").addEventListener("click", () => setEditorMode("json"));
 $("weapon-critical-toggle").addEventListener("change", selectWeaponCritical);

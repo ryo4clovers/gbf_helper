@@ -22,6 +22,10 @@ const staticFiles: Record<string, { file: string; contentType: string }> = {
   "/index.html": { file: "index.html", contentType: "text/html; charset=utf-8" },
   "/app.js": { file: "app.js", contentType: "text/javascript; charset=utf-8" },
   "/styles.css": { file: "styles.css", contentType: "text/css; charset=utf-8" },
+  "/battle.html": { file: "battle.html", contentType: "text/html; charset=utf-8" },
+  "/battle.js": { file: "battle.js", contentType: "text/javascript; charset=utf-8" },
+  "/battle-state.js": { file: "battle-state.js", contentType: "text/javascript; charset=utf-8" },
+  "/battle.css": { file: "battle.css", contentType: "text/css; charset=utf-8" },
 };
 
 function securityHeaders(response: ServerResponse): void {

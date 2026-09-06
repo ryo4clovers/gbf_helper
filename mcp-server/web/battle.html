@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GBFダメージ検証用ローカル戦闘シミュレーター" />
+    <title>Battle Simulator — GBF Damage Lab</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/battle.css" />
+    <script type="module" src="/battle.js"></script>
+  </head>
+  <body class="battle-page">
+    <header class="top-app-bar battle-app-bar">
+      <a class="brand-mark battle-brand" href="/" aria-label="計算画面へ戻る">⚔</a>
+      <div>
+        <p class="eyebrow">LOCAL BATTLE LAB</p>
+        <h1>戦闘シミュレート</h1>
+      </div>
+      <div class="header-actions">
+        <span class="privacy-chip"><span aria-hidden="true">●</span> 端末内で処理</span>
+        <a class="tonal-button nav-button" href="/">編成・計算へ戻る</a>
+      </div>
+    </header>
+
+    <main class="battle-workspace">
+      <section class="battle-stage surface">
+        <div class="turn-strip">
+          <div><span class="turn-label">TURN</span><strong id="turn-number">1</strong></div>
+          <span id="battle-status" class="battle-status">BATTLE IN PROGRESS</span>
+          <div class="history-actions">
+            <button id="undo-action" class="text-button" type="button">↶ 元に戻す</button>
+            <button id="reset-battle" class="tonal-button danger-button" type="button">リセット</button>
+          </div>
+        </div>
+
+        <article class="enemy-card">
+          <div id="enemy-emblem" class="enemy-emblem" aria-hidden="true">◆</div>
+          <div class="enemy-main">
+            <div class="unit-heading">
+              <div><span id="enemy-element" class="element-chip">—</span><h2 id="enemy-name">敵</h2></div>
+              <strong id="enemy-percent">100%</strong>
+            </div>
+            <div class="hp-bar enemy-hp-bar" role="progressbar" aria-label="敵HP"><span id="enemy-hp-fill"></span></div>
+            <div class="hp-numbers"><strong id="enemy-hp">—</strong><span>/</span><span id="enemy-max-hp">—</span></div>
+            <div class="effect-lines">
+              <div><span class="effect-label">BUFF</span><div id="enemy-buffs" class="effect-list"></div></div>
+              <div><span class="effect-label debuff">DEBUFF</span><div id="enemy-debuffs" class="effect-list"></div></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="battle-actions">
+          <button id="attack-ougi-off" class="attack-button off" type="button"><span>奥義 OFF</span><strong>攻撃</strong></button>
+          <button id="attack-ougi-on" class="attack-button on" type="button"><span>奥義 ON</span><strong>攻撃</strong></button>
+        </div>
+        <p id="action-guidance" class="action-guidance">通常攻撃は記事モデルの乱数1点を抽選します。</p>
+      </section>
+
+      <div class="battle-columns">
+        <section class="surface party-surface">
+          <div class="section-heading compact"><div><span class="step">P</span><h2>パーティ</h2></div></div>
+          <p class="section-note">回復対象にするメンバーを選択できます。</p>
+          <div id="party-list" class="party-list"></div>
+        </section>
+
+        <section class="surface command-surface">
+          <div class="section-heading compact"><div><span class="step">C</span><h2>コマンド</h2></div></div>
+          <div class="command-section">
+            <div class="command-heading"><h3>召喚石</h3><span>召喚ダメージは今後対応</span></div>
+            <div id="summon-actions" class="summon-actions"></div>
+          </div>
+          <div class="command-section">
+            <div class="command-heading"><h3>回復アイテム</h3><span>回復量は暫定</span></div>
+            <div class="item-actions">
+              <button data-item="cure" class="item-button cure" type="button"><span>♥</span><strong>キュアポーション</strong><small>選択中の味方を50%回復</small></button>
+              <button data-item="all" class="item-button all" type="button"><span>✚</span><strong>オールポーション</strong><small>味方全体を35%回復</small></button>
+              <button data-item="elixir" class="item-button elixir" type="button"><span>✦</span><strong>エリクシール</strong><small>全回復・奥義ゲージ100%</small></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="surface timeline-surface">
+          <div class="section-heading compact"><div><span class="step">L</span><h2>ダメージ時系列</h2></div><span id="event-count" class="count-chip">0 actions</span></div>
+          <div id="battle-log" class="battle-log" aria-live="polite"></div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
