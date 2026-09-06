@@ -11,6 +11,7 @@ export type BaseDamageStage = DamageModifierStage | "normal-weapon-skill";
 export type StageRounding = "none" | "floor" | "ceil";
 export type BaseDamageCalculationModel =
   | "defense-first-provisional"
+  | "article-2026-07"
   | "article-2026-07-experimental";
 
 export interface ArticleBaseDamageTrace {
@@ -46,7 +47,7 @@ export interface AppliedDamageStage {
 export interface DefenseAdjustedBaseDamageResult {
   schemaVersion: 1;
   status: "partial";
-  model: "staged-normal-attack-base" | "article-2026-07-experimental";
+  model: "staged-normal-attack-base" | "article-2026-07";
   targetEnemySlot: number;
   enemyId: string;
   defenseAdjustedBaseAttack: number;

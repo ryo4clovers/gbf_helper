@@ -18,7 +18,7 @@ const requestSchema = z
   .object({
     schemaVersion: z.literal(1),
     calculationModel: z
-      .enum(["defense-first-provisional", "article-2026-07-experimental"])
+      .enum(["article-2026-07", "defense-first-provisional", "article-2026-07-experimental"])
       .optional(),
     deckConfig: z.unknown(),
     supportSummon: z

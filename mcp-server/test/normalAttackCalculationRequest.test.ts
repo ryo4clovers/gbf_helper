@@ -112,7 +112,8 @@ function agniRequest() {
 test("serves the same normal attack calculation to Web and MCP callers", () => {
   const response = calculateNormalAttackFromRequest(request());
 
-  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 3951);
+  assert.equal(response.result.baseDamage.model, "article-2026-07");
+  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 3950);
   assert.equal(response.result.bodyDamageDistribution.minimumDamage, 3753);
   assert.equal(response.result.bodyDamageDistribution.maximumDamage, 4148);
   assert.equal(response.result.pursuitDamage?.effectivePursuitPercentage, 5.85);
@@ -196,10 +197,11 @@ test("applies support Agni's normal aura without stats or main-only elemental at
     supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
   });
   const officialAdvantageDamage = 14332;
-  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 14333);
+  assert.equal(advantage.result.baseDamage.model, "article-2026-07");
+  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 14332);
   assert.equal(
     advantage.result.baseDamage.damageBeforeRandomAndCap - officialAdvantageDamage,
-    1,
+    0,
   );
   assert.equal(advantage.result.criticalBodyDamage?.weaponSkillCriticalRatePercent, 28.2);
 });
@@ -215,10 +217,21 @@ test("rejects support summon stats so they cannot enter deck attack or HP", () =
   );
 });
 
-test("records the 18 neutral support-Agni hits and exposes the unresolved fractional base", () => {
+test("accepts the former experimental article model name as a compatibility alias", () => {
+  const response = calculateNormalAttackFromRequest({
+    ...agniRequest(),
+    calculationModel: "article-2026-07-experimental",
+  });
+
+  assert.equal(response.result.baseDamage.model, "article-2026-07");
+  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 7997);
+});
+
+test("legacy defense model records the 18 neutral support-Agni hits and unresolved fractional base", () => {
   const input = agniRequest();
   const response = calculateNormalAttackFromRequest({
     ...input,
+    calculationModel: "defense-first-provisional",
     supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
   });
   const bodyObserved = [
@@ -285,7 +298,28 @@ test("records the 18 neutral support-Agni hits and exposes the unresolved fracti
   );
 });
 
-test("records the support-Agni +0 through +10 prediction drift", () => {
+test("default article model resolves all 18 support-Agni body hits", () => {
+  const input = agniRequest();
+  const response = calculateNormalAttackFromRequest({
+    ...input,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+  });
+  const bodyObserved = [
+    10519, 9981, 10326, 10336, 10286, 10134, 9931, 9890, 10255,
+    10103, 10042, 10205, 9981, 10225, 10610, 10631, 10235, 10499,
+  ];
+  const inference = inferRandomMultiplierCandidates(
+    response.result.baseDamage.unroundedDamageBeforeRandomAndCap,
+    bodyObserved,
+    { finalRounding: "ceil" },
+  );
+
+  assert.equal(response.result.baseDamage.model, "article-2026-07");
+  assert.equal(response.result.bodyDamageDistribution.finalRounding, "ceil");
+  assert.equal(inference.resolvedObservationCount, 18);
+});
+
+test("legacy defense model retains the support-Agni +0 through +10 prediction drift", () => {
   const observations = [
     { plusMark: 0, weaponAttack: 2170, protagonistAttack: 22801, officialNormal: 10144, localNormal: 10144, officialAdvantage: 14332, localAdvantage: 14333 },
     { plusMark: 1, weaponAttack: 2175, protagonistAttack: 22809, officialNormal: 10144, localNormal: 10144, officialAdvantage: 14332, localAdvantage: 14333 },
@@ -307,11 +341,19 @@ test("records the support-Agni +0 through +10 prediction drift", () => {
     input.deckConfig.weapons[0].plusMark = observation.plusMark;
     input.deckConfig.weapons[0].attackOverride = observation.weaponAttack;
     const supportSummon = { summonId: "2040094000", nameHint: "アグニス" };
-    const normal = calculateNormalAttackFromRequest({ ...input, supportSummon });
+    const normal = calculateNormalAttackFromRequest({
+      ...input,
+      calculationModel: "defense-first-provisional",
+      supportSummon,
+    });
     const advantageInput = structuredClone(input);
     advantageInput.enemy.elementCode = "4";
     advantageInput.modifiers.targetElementDamagePercent = 5;
-    const advantage = calculateNormalAttackFromRequest({ ...advantageInput, supportSummon });
+    const advantage = calculateNormalAttackFromRequest({
+      ...advantageInput,
+      calculationModel: "defense-first-provisional",
+      supportSummon,
+    });
 
     assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, observation.localNormal);
     assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, observation.localAdvantage);
@@ -349,7 +391,7 @@ test("article model reproduces all support-Agni +0 through +10 normal and advant
     const supportSummon = { summonId: "2040094000", nameHint: "アグニス" };
     const normal = calculateNormalAttackFromRequest({
       ...input,
-      calculationModel: "article-2026-07-experimental",
+      calculationModel: "article-2026-07",
       supportSummon,
     });
     const advantageInput = structuredClone(input);
@@ -357,7 +399,7 @@ test("article model reproduces all support-Agni +0 through +10 normal and advant
     advantageInput.modifiers.targetElementDamagePercent = 5;
     const advantage = calculateNormalAttackFromRequest({
       ...advantageInput,
-      calculationModel: "article-2026-07-experimental",
+      calculationModel: "article-2026-07",
       supportSummon,
     });
 
@@ -370,8 +412,11 @@ test("article model reproduces all support-Agni +0 through +10 normal and advant
   }
 });
 
-test("reproduces all eight observed Agni battle body hits from the unrounded base", () => {
-  const response = calculateNormalAttackFromRequest(agniRequest());
+test("legacy defense model reproduces all eight observed Agni battle body hits", () => {
+  const response = calculateNormalAttackFromRequest({
+    ...agniRequest(),
+    calculationModel: "defense-first-provisional",
+  });
   const observedBodyDamage = [7725, 7685, 7629, 8229, 7693, 7901, 7685, 8245];
   const expectedMultipliers = [0.966, 0.961, 0.954, 1.029, 0.962, 0.988, 0.961, 1.031];
   const baseDamage = response.result.baseDamage;
@@ -398,13 +443,13 @@ test("article model reproduces all eight observed Agni body hits with final ceil
   const input = agniRequest();
   const response = calculateNormalAttackFromRequest({
     ...input,
-    calculationModel: "article-2026-07-experimental",
+    calculationModel: "article-2026-07",
   });
   const observedBodyDamage = [7725, 7685, 7629, 8229, 7693, 7901, 7685, 8245];
   const expectedMultipliers = [0.966, 0.961, 0.954, 1.029, 0.962, 0.988, 0.961, 1.031];
   const baseDamage = response.result.baseDamage;
 
-  assert.equal(baseDamage.model, "article-2026-07-experimental");
+  assert.equal(baseDamage.model, "article-2026-07");
   assert.equal(baseDamage.damageBeforeRandomAndCap, 7997);
   assert.equal(baseDamage.articleTrace?.precisionStep, 2281);
   assert.equal(baseDamage.articleTrace?.shipStep, 2510);
@@ -424,12 +469,15 @@ test("article model reproduces all eight observed Agni body hits with final ceil
   );
 });
 
-test("reproduces the observed 11,300 advantageous-element display with additive damage bonuses", () => {
+test("legacy defense model reproduces 11,300 with its calibrated additive stage", () => {
   const input = agniRequest();
   input.enemy.elementCode = "4";
   input.modifiers.targetElementDamagePercent = 5;
 
-  const response = calculateNormalAttackFromRequest(input);
+  const response = calculateNormalAttackFromRequest({
+    ...input,
+    calculationModel: "defense-first-provisional",
+  });
   const targetElementStage = response.result.baseDamage.stages.find(
     (stage) => stage.stage === "target-element-damage",
   );
@@ -489,7 +537,7 @@ test("article model reproduces all 18 advantageous pursuit packets", () => {
   input.modifiers.targetElementDamagePercent = 5;
   const response = calculateNormalAttackFromRequest({
     ...input,
-    calculationModel: "article-2026-07-experimental",
+    calculationModel: "article-2026-07",
   });
   const pursuit = response.result.pursuitDamage;
   assert.ok(pursuit !== undefined);
@@ -530,10 +578,10 @@ test("reproduces all four observed critical body hits with the two-floor model",
   assert.equal(critical.targetElementMultiplierSource, "displayed-damage-calibration");
 
   const cases = [
-    { randomMultiplier: 0.995, afterCriticalFloor: 16110, finalDamage: 16864 },
-    { randomMultiplier: 0.972, afterCriticalFloor: 15737, finalDamage: 16474 },
-    { randomMultiplier: 1.026, afterCriticalFloor: 16612, finalDamage: 17390 },
-    { randomMultiplier: 1, afterCriticalFloor: 16191, finalDamage: 16949 },
+    { randomMultiplier: 0.995, afterCriticalFloor: 16108, finalDamage: 16864 },
+    { randomMultiplier: 0.972, afterCriticalFloor: 15735, finalDamage: 16474 },
+    { randomMultiplier: 1.026, afterCriticalFloor: 16610, finalDamage: 17390 },
+    { randomMultiplier: 1, afterCriticalFloor: 16189, finalDamage: 16949 },
   ];
   assert.deepEqual(
     cases.map(({ randomMultiplier }) => {

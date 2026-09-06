@@ -99,14 +99,15 @@ function makeCurrentInput(): DamageCalculationInput {
 test("connects staged base damage to independent 101-pattern body and pursuit distributions", () => {
   const result = calculateNormalAttackDamage(makeCurrentInput());
 
-  assert.equal(result.baseDamage.damageBeforeRandomAndCap, 3951);
-  assert.equal(result.bodyDamageDistribution.nominalDamage, 3951.40999);
-  assert.equal(result.bodyDamageDistribution.finalRounding, "floor");
+  assert.equal(result.baseDamage.model, "article-2026-07");
+  assert.equal(result.baseDamage.damageBeforeRandomAndCap, 3950);
+  assert.equal(result.bodyDamageDistribution.nominalDamage, 3949.8298658000003);
+  assert.equal(result.bodyDamageDistribution.finalRounding, "ceil");
   assert.equal(result.bodyDamageDistribution.patternCount, 101);
   assert.equal(result.bodyDamageDistribution.minimumDamage, 3753);
   assert.equal(result.bodyDamageDistribution.maximumDamage, 4148);
   assert.equal(result.pursuitDamage?.effectivePursuitPercentage, 5.85);
-  assert.equal(result.pursuitDamage?.nominalPursuitDamage, 231.1335);
+  assert.equal(result.pursuitDamage?.nominalPursuitDamage, 231.075);
   assert.equal(result.pursuitDamage?.damageDistribution.patternCount, 101);
   assert.equal(result.pursuitDamage?.damageDistribution.nominalPreparation, "none");
   assert.equal(result.pursuitDamage?.damageDistribution.finalRounding, "floor");

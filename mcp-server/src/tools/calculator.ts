@@ -99,9 +99,9 @@ export function registerCalculatorTools(server: McpServer): void {
       inputSchema: {
         schemaVersion: z.literal(1).describe("計算リクエスト形式。現在は1のみ"),
         calculationModel: z
-          .enum(["defense-first-provisional", "article-2026-07-experimental"])
+          .enum(["article-2026-07", "defense-first-provisional", "article-2026-07-experimental"])
           .optional()
-          .describe("省略時は既定モデル。記事モデルは低ダメージ帯の比較実験専用"),
+          .describe("省略時は記事モデル。防御先行モデルと旧実験名も比較・互換用に指定可能"),
         deckConfig: z.record(z.unknown()).describe("CalculatorDeckConfig v1"),
         enemy: z
           .object({

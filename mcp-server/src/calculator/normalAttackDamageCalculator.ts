@@ -66,6 +66,10 @@ export interface NormalAttackDamageResult {
   >;
 }
 
+function usesArticleBaseDamageModel(model: BaseDamageCalculationModel): boolean {
+  return model === "article-2026-07" || model === "article-2026-07-experimental";
+}
+
 function hasSelectedPursuit(input: DamageCalculationInput, sourceSkillId: string | undefined): boolean {
   const elementCode = input.deck.protagonist.elementCode;
   return (input.deck.effectiveWeaponSkillEffects ?? []).some(
@@ -85,11 +89,11 @@ export function calculateNormalAttackDamage(
   options: NormalAttackDamageOptions = {},
 ): NormalAttackDamageResult {
   const attackPower = calculateBattleNormalAttackPower(input.deck, input.battle);
-  const baseDamageModel = options.baseDamageModel ?? "defense-first-provisional";
-  const baseDamage =
-    baseDamageModel === "article-2026-07-experimental"
-      ? calculateArticleBaseDamage(input, attackPower)
-      : calculateDefenseAdjustedBaseDamage(input, attackPower);
+  const baseDamageModel = options.baseDamageModel ?? "article-2026-07";
+  const useArticleModel = usesArticleBaseDamageModel(baseDamageModel);
+  const baseDamage = useArticleModel
+    ? calculateArticleBaseDamage(input, attackPower)
+    : calculateDefenseAdjustedBaseDamage(input, attackPower);
   const sharedRandomOptions = {
     multiplierMin: options.multiplierMin,
     multiplierMax: options.multiplierMax,
@@ -101,7 +105,7 @@ export function calculateNormalAttackDamage(
     finalRounding:
       options.bodyFinalRounding ??
       options.finalRounding ??
-      (baseDamageModel === "article-2026-07-experimental" ? "ceil" : "floor"),
+      (useArticleModel ? "ceil" : "floor"),
   });
   const pursuitDamage = hasSelectedPursuit(input, options.pursuitSourceSkillId)
     ? calculateEffectivePursuitDamage(input.deck, baseDamage.damageBeforeRandomAndCap, {

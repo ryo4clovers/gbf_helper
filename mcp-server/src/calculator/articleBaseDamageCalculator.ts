@@ -86,12 +86,18 @@ function stage(
   outputDamage: number,
   rounding: AppliedDamageStage["rounding"],
   contributions: Array<DamageModifier | EffectiveWeaponSkillEffect>,
+  additiveBasePercent?: number,
 ): AppliedDamageStage {
   return {
     stage: name,
     inputDamage,
     totalPercent,
-    multiplier: 1 + totalPercent / 100,
+    ...(additiveBasePercent === undefined ? {} : { additiveBasePercent }),
+    multiplier:
+      additiveBasePercent === undefined
+        ? 1 + totalPercent / 100
+        : (1 + (additiveBasePercent + totalPercent) / 100) /
+          (1 + additiveBasePercent / 100),
     rawOutputDamage,
     outputDamage,
     rounding,
@@ -182,15 +188,22 @@ export function calculateArticleBaseDamage(
   const prePostCapDamage = elementalRaw / target.defense;
 
   const postCapContributions = [
-    ...accountModifiers.filter(
-      (modifier) => modifier.stage === "damage-dealt" || modifier.stage === "target-element-damage",
-    ),
+    ...accountModifiers.filter((modifier) => modifier.stage === "damage-dealt"),
     ...jobModifiers.filter((modifier) => modifier.stage === "normal-attack-damage"),
   ];
-  const postCapDamagePercent = postCapContributions.reduce(
+  const targetElementContributions = accountModifiers.filter(
+    (modifier) => modifier.stage === "target-element-damage",
+  );
+  const preTargetDamagePercent = postCapContributions.reduce(
     (sum, contribution) => sum + contribution.amountPercent,
     0,
   );
+  const targetElementDamagePercent = targetElementContributions.reduce(
+    (sum, contribution) => sum + contribution.amountPercent,
+    0,
+  );
+  const postCapDamagePercent = preTargetDamagePercent + targetElementDamagePercent;
+  const preTargetDamage = prePostCapDamage * (1 + preTargetDamagePercent / 100);
   const finalRawDamage = prePostCapDamage * (1 + postCapDamagePercent / 100);
   const displayedDamage = Math.ceil(finalRawDamage);
 
@@ -234,11 +247,21 @@ export function calculateArticleBaseDamage(
     stage(
       "damage-dealt",
       prePostCapDamage,
-      postCapDamagePercent,
+      preTargetDamagePercent,
+      preTargetDamage,
+      preTargetDamage,
+      "none",
+      postCapContributions,
+    ),
+    stage(
+      "target-element-damage",
+      preTargetDamage,
+      targetElementDamagePercent,
       finalRawDamage,
       displayedDamage,
       "ceil",
-      postCapContributions,
+      targetElementContributions,
+      preTargetDamagePercent,
     ),
   ];
   const articleTrace: ArticleBaseDamageTrace = {
@@ -261,7 +284,7 @@ export function calculateArticleBaseDamage(
   return {
     schemaVersion: 1,
     status: "partial",
-    model: "article-2026-07-experimental",
+    model: "article-2026-07",
     targetEnemySlot: target.slot,
     enemyId: target.enemyId,
     defenseAdjustedBaseAttack: crewAdjustedAttack / target.defense,
