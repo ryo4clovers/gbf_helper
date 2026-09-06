@@ -215,6 +215,76 @@ test("rejects support summon stats so they cannot enter deck attack or HP", () =
   );
 });
 
+test("records the 18 neutral support-Agni hits and exposes the unresolved fractional base", () => {
+  const input = agniRequest();
+  const response = calculateNormalAttackFromRequest({
+    ...input,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+  });
+  const bodyObserved = [
+    10519, 9981, 10326, 10336, 10286, 10134, 9931, 9890, 10255,
+    10103, 10042, 10205, 9981, 10225, 10610, 10631, 10235, 10499,
+  ];
+  const pursuitObserved = [
+    2130, 2177, 2053, 2104, 2239, 2190, 2044, 2083, 2072,
+    2164, 2151, 2038, 2130, 2244, 2194, 2065, 2055, 2177,
+  ];
+  const body = response.result.bodyDamageDistribution;
+  const pursuit = response.result.pursuitDamage;
+
+  assert.ok(pursuit !== undefined);
+  assert.equal(
+    bodyObserved.every((damage) => damage >= body.minimumDamage && damage <= body.maximumDamage),
+    true,
+  );
+  assert.equal(
+    pursuitObserved.every(
+      (damage) =>
+        damage >= pursuit.damageDistribution.minimumDamage &&
+        damage <= pursuit.damageDistribution.maximumDamage,
+    ),
+    true,
+  );
+
+  const currentBodyInference = inferRandomMultiplierCandidates(
+    response.result.baseDamage.unroundedDamageBeforeRandomAndCap,
+    bodyObserved,
+    { finalRounding: "floor" },
+  );
+  const currentPursuitInference = inferRandomMultiplierCandidates(
+    pursuit.nominalPursuitDamage,
+    pursuitObserved,
+    { finalRounding: "floor" },
+  );
+  assert.equal(currentBodyInference.resolvedObservationCount, 11);
+  assert.equal(currentPursuitInference.resolvedObservationCount, 17);
+
+  // Midpoints of the base intervals that explain every observed hit with the
+  // verified 0.001 random step. These are evidence, not yet the calculator formula.
+  const calibratedBodyInference = inferRandomMultiplierCandidates(10144.2, bodyObserved, {
+    finalRounding: "floor",
+  });
+  const calibratedPursuitInference = inferRandomMultiplierCandidates(2145.35, pursuitObserved, {
+    finalRounding: "floor",
+  });
+  assert.equal(calibratedBodyInference.resolvedObservationCount, 18);
+  assert.equal(calibratedPursuitInference.resolvedObservationCount, 18);
+  assert.deepEqual(
+    calibratedBodyInference.observations.map((observation) => observation.candidates),
+    [
+      1.037, 0.984, 1.018, 1.019, 1.014, 0.999, 0.979, 0.975, 1.011,
+      0.996, 0.99, 1.006, 0.984, 1.008, 1.046, 1.048, 1.009, 1.035,
+    ].map((multiplier) => [multiplier]),
+  );
+  assert.deepEqual(
+    calibratedPursuitInference.observations.map((observation) => observation.candidates),
+    [
+      0.993, 1.015, 0.957, 0.981, 1.044, 1.021, 0.953, 0.971, 0.966,
+      1.009, 1.003, 0.95, 0.993, 1.046, 1.023, 0.963, 0.958, 1.015,
+    ].map((multiplier) => [multiplier]),
+  );
+});
+
 test("reproduces all eight observed Agni battle body hits from the unrounded base", () => {
   const response = calculateNormalAttackFromRequest(agniRequest());
   const observedBodyDamage = [7725, 7685, 7629, 8229, 7693, 7901, 7685, 8245];
