@@ -396,7 +396,7 @@ function createWeaponSlot(config, slot) {
       void calculate();
     });
     skillLabel.append(skillInput);
-    const attack = createText("weapon-attack", `ATK ${weapon.attackOverride == null ? "—" : numberFormat.format(weapon.attackOverride)}`);
+    const stats = createText("weapon-attack", `HP ${weapon.hpOverride == null ? "—" : numberFormat.format(weapon.hpOverride)} / ATK ${weapon.attackOverride == null ? "—" : numberFormat.format(weapon.attackOverride)}`);
     controls.append(
       skillLabel,
       createEquipmentPlusField(
@@ -404,10 +404,10 @@ function createWeaponSlot(config, slot) {
         master?.name ?? weapon.weaponId,
         (currentConfig) => weaponForSlot(currentConfig, slot),
         (currentWeapon) => {
-          attack.textContent = `ATK ${currentWeapon.attackOverride == null ? "—" : numberFormat.format(currentWeapon.attackOverride)}`;
+          stats.textContent = `HP ${currentWeapon.hpOverride == null ? "—" : numberFormat.format(currentWeapon.hpOverride)} / ATK ${currentWeapon.attackOverride == null ? "—" : numberFormat.format(currentWeapon.attackOverride)}`;
         },
       ),
-      attack,
+      stats,
     );
     article.append(controls);
   } else if (isJobFallback) {
