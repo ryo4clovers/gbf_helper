@@ -116,8 +116,8 @@ test("serves the same normal attack calculation to Web and MCP callers", () => {
   assert.equal(response.result.bodyDamageDistribution.maximumDamage, 4148);
   assert.equal(response.result.pursuitDamage?.effectivePursuitPercentage, 5.85);
   assert.equal(response.result.totalDamageDistribution.combinationCount, 10201);
-  assert.equal(response.result.totalDamageDistribution.minimumDamage, 3973);
-  assert.equal(response.result.totalDamageDistribution.maximumDamage, 4391);
+  assert.equal(response.result.totalDamageDistribution.minimumDamage, 3972);
+  assert.equal(response.result.totalDamageDistribution.maximumDamage, 4390);
 });
 
 test("reproduces the verified +0 through +5 Agni weapon-plus displays", () => {
@@ -197,6 +197,48 @@ test("reproduces the observed 11,300 advantageous-element display with additive 
   assert.equal(targetElementStage?.multiplier, 1.046904);
   assert.equal(response.result.baseDamage.unroundedDamageBeforeRandomAndCap, 11300.471475);
   assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 11300);
+});
+
+test("reproduces all 18 observed advantageous pursuit packets with independent rolls", () => {
+  const input = agniRequest();
+  input.enemy.elementCode = "4";
+  input.modifiers.targetElementDamagePercent = 5;
+  const response = calculateNormalAttackFromRequest(input);
+  const pursuit = response.result.pursuitDamage;
+
+  assert.ok(pursuit !== undefined);
+  assert.equal(pursuit.nominalPursuitDamage, 1525.5);
+  assert.equal(pursuit.damageDistribution.nominalPreparation, "none");
+  assert.equal(pursuit.damageDistribution.finalRounding, "floor");
+
+  const normalObserved = [
+    1581, 1581, 1552, 1571, 1467, 1452, 1525, 1501, 1502, 1511, 1595, 1566, 1534, 1470,
+  ];
+  const normalMultipliers = [
+    1.037, 1.037, 1.018, 1.03, 0.962, 0.952, 1, 0.984, 0.985, 0.991, 1.046, 1.027, 1.006,
+    0.964,
+  ];
+  const normalInference = inferRandomMultiplierCandidates(pursuit.nominalPursuitDamage, normalObserved, {
+    finalRounding: "floor",
+  });
+  assert.equal(normalInference.resolvedObservationCount, normalObserved.length);
+  assert.deepEqual(
+    normalInference.observations.map((observation) => observation.candidates),
+    normalMultipliers.map((multiplier) => [multiplier]),
+  );
+
+  const criticalObserved = [2320, 2182, 2340, 2295];
+  const criticalMultipliers = [1.014, 0.954, 1.023, 1.003];
+  const criticalInference = inferRandomMultiplierCandidates(
+    pursuit.nominalPursuitDamage * 1.5,
+    criticalObserved,
+    { finalRounding: "floor" },
+  );
+  assert.equal(criticalInference.resolvedObservationCount, criticalObserved.length);
+  assert.deepEqual(
+    criticalInference.observations.map((observation) => observation.candidates),
+    criticalMultipliers.map((multiplier) => [multiplier]),
+  );
 });
 
 test("rejects unknown request fields and invalid enemy defense", () => {

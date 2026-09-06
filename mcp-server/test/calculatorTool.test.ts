@@ -50,8 +50,8 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     const response = JSON.parse(text?.type === "text" ? text.text : "{}") as {
       result?: { totalDamageDistribution?: { minimumDamage?: number; maximumDamage?: number } };
     };
-    assert.equal(response.result?.totalDamageDistribution?.minimumDamage, 3973);
-    assert.equal(response.result?.totalDamageDistribution?.maximumDamage, 4391);
+    assert.equal(response.result?.totalDamageDistribution?.minimumDamage, 3972);
+    assert.equal(response.result?.totalDamageDistribution?.maximumDamage, 4390);
 
     const catalogResult = await client.callTool({ name: "list_calculator_weapons", arguments: {} });
     const catalogText = catalogResult.content.find((item) => item.type === "text");

@@ -42,7 +42,9 @@ test("connects the resolved 5.85% pursuit to the default 101 damage patterns", (
   assert.equal(result.damageDistribution.patternCount, 101);
   assert.equal(result.damageDistribution.minimumDamage, 152);
   assert.equal(result.damageDistribution.maximumDamage, 168);
-  assert.ok(Math.abs(result.damageDistribution.expectedDamage - 160.47524752475246) < 1e-12);
+  assert.equal(result.damageDistribution.nominalPreparation, "none");
+  assert.equal(result.damageDistribution.finalRounding, "floor");
+  assert.ok(Math.abs(result.damageDistribution.expectedDamage - 159.84158415841586) < 1e-12);
   assert.deepEqual(result.issues.map((issue) => issue.code), ["unverified-effective-pursuit"]);
 });
 

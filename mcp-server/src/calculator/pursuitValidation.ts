@@ -46,8 +46,8 @@ export interface PursuitValidationResult {
 
 /**
  * Compares a displayed pursuit percentage with observed concurrent normal-attack
- * components. The ±5% defaults are provisional and intentionally use
- * conservative integer bounds until the game's exact rounding order is known.
+ * components. The observed default preserves the fractional pursuit base and
+ * floors each packet only after applying its independent random multiplier.
  */
 export function validateDisplayedPursuitDamage(
   deck: DeckSnapshot,
@@ -60,8 +60,8 @@ export function validateDisplayedPursuitDamage(
   const randomMultiplierMin = options.randomMultiplierMin ?? 0.95;
   const randomMultiplierMax = options.randomMultiplierMax ?? 1.05;
   const multiplierStep = options.multiplierStep ?? 0.001;
-  const inferenceNominalPreparation = options.inferenceNominalPreparation ?? "floor";
-  const inferenceFinalRounding = options.inferenceFinalRounding ?? "ceil";
+  const inferenceNominalPreparation = options.inferenceNominalPreparation ?? "none";
+  const inferenceFinalRounding = options.inferenceFinalRounding ?? "floor";
 
   if (
     !Number.isFinite(randomMultiplierMin) ||

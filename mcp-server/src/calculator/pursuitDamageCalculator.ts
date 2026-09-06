@@ -48,7 +48,8 @@ function selectPursuitEffect(
 
 /**
  * Calculates 101 pursuit-damage patterns by default from a resolved effective
- * pursuit percentage and an externally supplied pre-pursuit base damage.
+ * pursuit percentage and an externally supplied displayed body damage. The
+ * fractional pursuit base is preserved until the final per-packet floor.
  */
 export function calculateEffectivePursuitDamage(
   deck: DeckSnapshot,
@@ -66,8 +67,8 @@ export function calculateEffectivePursuitDamage(
     multiplierMin: options.multiplierMin,
     multiplierMax: options.multiplierMax,
     multiplierStep: options.multiplierStep,
-    nominalPreparation: options.nominalPreparation ?? "floor",
-    finalRounding: options.finalRounding ?? "ceil",
+    nominalPreparation: options.nominalPreparation ?? "none",
+    finalRounding: options.finalRounding ?? "floor",
   });
   const issues: EffectivePursuitDamageIssue[] = [];
   if (

@@ -88,8 +88,8 @@ export function calculateNormalAttackDamage(
     ? calculateEffectivePursuitDamage(input.deck, baseDamage.damageBeforeRandomAndCap, {
         ...sharedRandomOptions,
         sourceSkillId: options.pursuitSourceSkillId,
-        nominalPreparation: options.pursuitNominalPreparation ?? "floor",
-        finalRounding: options.finalRounding ?? "ceil",
+        nominalPreparation: options.pursuitNominalPreparation ?? "none",
+        finalRounding: options.finalRounding ?? "floor",
       })
     : undefined;
   const distributions = [

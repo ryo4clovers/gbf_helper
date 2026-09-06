@@ -68,6 +68,8 @@ test("validates observed pursuit damage against displayed damage and a provision
     outliers: [],
   });
   assert.equal(result.randomMultiplierInference.multiplierCount, 101);
+  assert.equal(result.randomMultiplierInference.nominalPreparation, "none");
+  assert.equal(result.randomMultiplierInference.finalRounding, "floor");
   assert.equal(result.randomMultiplierInference.resolvedObservationCount, 4);
   assert.deepEqual(result.randomMultiplierInference.unresolvedObservationIndexes, []);
   assert.equal(result.damageDistribution.patternCount, 101);

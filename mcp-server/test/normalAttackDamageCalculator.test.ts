@@ -108,15 +108,17 @@ test("connects staged base damage to independent 101-pattern body and pursuit di
   assert.equal(result.pursuitDamage?.effectivePursuitPercentage, 5.85);
   assert.equal(result.pursuitDamage?.nominalPursuitDamage, 231.1335);
   assert.equal(result.pursuitDamage?.damageDistribution.patternCount, 101);
-  assert.equal(result.pursuitDamage?.damageDistribution.minimumDamage, 220);
-  assert.equal(result.pursuitDamage?.damageDistribution.maximumDamage, 243);
+  assert.equal(result.pursuitDamage?.damageDistribution.nominalPreparation, "none");
+  assert.equal(result.pursuitDamage?.damageDistribution.finalRounding, "floor");
+  assert.equal(result.pursuitDamage?.damageDistribution.minimumDamage, 219);
+  assert.equal(result.pursuitDamage?.damageDistribution.maximumDamage, 242);
   assert.deepEqual(result.totalDamageDistribution, {
     schemaVersion: 1,
     model: "independent-discrete-components",
     componentCount: 2,
     combinationCount: 10201,
-    minimumDamage: 3973,
-    maximumDamage: 4391,
+    minimumDamage: 3972,
+    maximumDamage: 4390,
     expectedDamage:
       result.bodyDamageDistribution.expectedDamage +
       (result.pursuitDamage?.damageDistribution.expectedDamage ?? 0),
