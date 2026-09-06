@@ -1,3 +1,10 @@
+import {
+  CALCULATOR_STATE_FORMAT,
+  CALCULATOR_STATE_STORAGE_KEY,
+  parseCalculatorState,
+  serializeCalculatorState,
+} from "/calculator-state-storage.js";
+
 const defaultDeck = {
   schemaVersion: 1,
   format: "gbf-helper-calculator-deck",
@@ -59,6 +66,8 @@ let editingSummonSlot = null;
 let selectedSupportSummon = null;
 let latestDamageResult = null;
 let weaponCriticalManuallySelected = false;
+let persistenceReady = false;
+let persistenceTimer = null;
 
 deckField.value = JSON.stringify(defaultDeck, null, 2);
 
@@ -74,6 +83,56 @@ function writeDeckConfig(config) {
     summonPositionOrder[left.position] - summonPositionOrder[right.position] || left.slot - right.slot,
   );
   deckField.value = JSON.stringify(config, null, 2);
+}
+
+function setPersistenceStatus(message, isError = false) {
+  const status = $("persistence-status");
+  status.textContent = message;
+  status.classList.toggle("error-text", isError);
+}
+
+function persistRequest(request, message = "この端末に自動保存済み") {
+  if (!persistenceReady) return;
+  try {
+    localStorage.setItem(CALCULATOR_STATE_STORAGE_KEY, serializeCalculatorState(request));
+    setPersistenceStatus(message);
+  } catch (error) {
+    setPersistenceStatus(error instanceof Error ? error.message : "自動保存に失敗しました", true);
+  }
+}
+
+function persistCurrentState(message) {
+  try {
+    persistRequest(buildRequest(), message);
+  } catch (error) {
+    // Keep the latest valid state while the JSON editor or a number field is temporarily invalid.
+    if (message !== undefined) {
+      setPersistenceStatus(error instanceof Error ? error.message : "端末への保存に失敗しました", true);
+    }
+  }
+}
+
+function schedulePersistence() {
+  if (!persistenceReady) return;
+  if (persistenceTimer !== null) window.clearTimeout(persistenceTimer);
+  persistenceTimer = window.setTimeout(() => {
+    persistenceTimer = null;
+    persistCurrentState();
+  }, 250);
+}
+
+function restorePersistedState() {
+  const serialized = localStorage.getItem(CALCULATOR_STATE_STORAGE_KEY);
+  if (serialized === null) return false;
+  try {
+    applyRequestToForm(parseCalculatorState(serialized));
+    setPersistenceStatus("保存状態を復元しました");
+    return true;
+  } catch {
+    localStorage.removeItem(CALCULATOR_STATE_STORAGE_KEY);
+    setPersistenceStatus("保存状態を復元できないため初期設定を使用", true);
+    return false;
+  }
 }
 
 function createText(className, text) {
@@ -1357,6 +1416,7 @@ function registerWebMcpTool() {
           postJson("/api/calculate", comparisonRequests.advantage),
         ]);
         applyRequestToForm(input);
+        persistRequest(input);
         render(response, { normal: normalPrediction, advantage: advantagePrediction });
         return conciseResult(response);
       },
@@ -1373,6 +1433,7 @@ async function calculate() {
   button.classList.add("loading");
   try {
     const request = buildRequest();
+    persistRequest(request);
     const comparisonRequests = predictionRequests(request);
     const [response, normalPrediction, advantagePrediction] = await Promise.all([
       postJson("/api/calculate", currentTargetRequest(request)),
@@ -1393,13 +1454,29 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   void calculate();
 });
+form.addEventListener("input", schedulePersistence);
+form.addEventListener("change", schedulePersistence);
 
 $("config-file").addEventListener("change", async (event) => {
   const file = event.target.files?.[0];
   if (!file) return;
-  deckField.value = JSON.stringify(JSON.parse(await file.text()), null, 2);
-  renderWeaponEditor();
-  void calculate();
+  try {
+    const content = await file.text();
+    const parsed = JSON.parse(content);
+    if (parsed?.format === CALCULATOR_STATE_FORMAT) {
+      applyRequestToForm(parseCalculatorState(content));
+    } else {
+      deckField.value = JSON.stringify(parsed, null, 2);
+      renderWeaponEditor();
+    }
+    persistCurrentState("読み込んだ設定を端末に保存しました");
+    void calculate();
+  } catch (error) {
+    $("deck-state").textContent = error instanceof Error ? error.message : "設定を読み込めませんでした";
+    $("deck-state").classList.add("error-text");
+  } finally {
+    event.target.value = "";
+  }
 });
 
 $("game-deck-file").addEventListener("change", async (event) => {
@@ -1411,6 +1488,7 @@ $("game-deck-file").addEventListener("change", async (event) => {
     renderWeaponEditor();
     $("deck-state").textContent = "deck.jsonを個人IDを含まない設定へ変換しました";
     $("deck-state").classList.remove("error-text");
+    persistCurrentState("変換した編成を端末に保存しました");
     void calculate();
   } catch (error) {
     $("deck-state").textContent = error instanceof Error ? error.message : "変換に失敗しました";
@@ -1418,12 +1496,16 @@ $("game-deck-file").addEventListener("change", async (event) => {
   }
 });
 
+$("save-local").addEventListener("click", () => {
+  persistCurrentState("この端末に保存しました");
+});
+
 $("save-config").addEventListener("click", () => {
   try {
-    const content = JSON.stringify(JSON.parse(deckField.value), null, 2);
+    const content = JSON.stringify(JSON.parse(serializeCalculatorState(buildRequest())), null, 2);
     const anchor = document.createElement("a");
     anchor.href = URL.createObjectURL(new Blob([content], { type: "application/json" }));
-    anchor.download = "calculator-deck.v1.json";
+    anchor.download = "gbf-calculator-state.v1.json";
     anchor.click();
     URL.revokeObjectURL(anchor.href);
   } catch (error) {
@@ -1433,7 +1515,9 @@ $("save-config").addEventListener("click", () => {
 });
 
 $("open-battle").addEventListener("click", () => {
-  const request = currentTargetRequest(buildRequest());
+  const configuredRequest = buildRequest();
+  const request = currentTargetRequest(configuredRequest);
+  persistRequest(configuredRequest);
   sessionStorage.setItem(
     "gbf-helper-battle-setup-v1",
     JSON.stringify({ schemaVersion: 1, request, enemyMaxHp: 1_000_000 }),
@@ -1488,6 +1572,8 @@ async function initialize() {
     $("deck-state").textContent = error instanceof Error ? error.message : "編成カタログを読み込めませんでした";
     $("deck-state").classList.add("error-text");
   }
+  restorePersistedState();
+  persistenceReady = true;
   renderWeaponEditor();
   renderSupportSummonEditor();
   registerWebMcpTool();

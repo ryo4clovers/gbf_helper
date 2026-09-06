@@ -105,7 +105,11 @@
           </div>
           <div class="field-footer">
             <span id="deck-state" class="supporting-text">登録済みジョブ・武器・召喚石を自動解決します</span>
-            <button id="save-config" class="text-button" type="button">設定を保存</button>
+            <div class="persistence-actions">
+              <span id="persistence-status" class="persistence-status" role="status">自動保存を準備中</span>
+              <button id="save-local" class="text-button" type="button">端末に保存</button>
+              <button id="save-config" class="text-button" type="button">JSON保存</button>
+            </div>
           </div>
         </section>
 

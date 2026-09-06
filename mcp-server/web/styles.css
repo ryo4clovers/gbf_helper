@@ -54,6 +54,9 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .field-footer { min-height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .supporting-text { color: var(--ink-soft); font-size: .79rem; }
 .error-text { color: var(--error); font-weight: 700; }
+.persistence-actions { display: flex; align-items: center; justify-content: flex-end; gap: 4px; flex-wrap: wrap; }
+.persistence-status { padding: 5px 9px; border-radius: 999px; color: var(--on-secondary-container); background: var(--secondary-container); font-size: .72rem; font-weight: 750; }
+.persistence-status.error-text { color: var(--error); background: #ffdad6; }
 
 .editor-tabs { width: fit-content; display: flex; gap: 4px; margin: -4px 0 20px; padding: 4px; border-radius: 999px; background: var(--surface-container); }
 .editor-tab { min-height: 40px; padding: 0 18px; border: 0; border-radius: 999px; color: var(--ink-soft); background: transparent; font-weight: 750; }
@@ -283,6 +286,8 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
   .surface { padding: 20px; border-radius: 28px 17px 28px 17px; }
   .three-columns, .modifier-grid { grid-template-columns: 1fr 1fr; }
   .section-heading { align-items: flex-start; }
+  .field-footer { align-items: flex-start; flex-direction: column; }
+  .persistence-actions { width: 100%; justify-content: flex-start; }
   .file-actions { gap: 6px !important; }
   .tonal-button { padding: 8px 10px; font-size: .74rem; }
   .metric-card { min-height: 145px; padding: 18px; }
