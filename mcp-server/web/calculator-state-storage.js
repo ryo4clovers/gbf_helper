@@ -81,3 +81,9 @@ export function upsertCalculatorProfile(profiles, profile) {
   const remaining = profiles.filter((candidate) => candidate.id !== validatedProfile.id);
   return [validatedProfile, ...remaining];
 }
+
+/** Removes one named snapshot by its stable ID without touching the remaining saves. */
+export function removeCalculatorProfile(profiles, profileId) {
+  if (!Array.isArray(profiles)) throw new Error("名前付き保存の一覧形式が正しくありません");
+  return profiles.filter((profile) => profile.id !== profileId);
+}

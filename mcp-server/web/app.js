@@ -4,6 +4,7 @@ import {
   CALCULATOR_STATE_STORAGE_KEY,
   parseCalculatorProfiles,
   parseCalculatorState,
+  removeCalculatorProfile,
   serializeCalculatorProfiles,
   serializeCalculatorState,
   upsertCalculatorProfile,
@@ -160,6 +161,8 @@ function renderProfileOptions(message) {
   if (selectedProfile()) select.value = selectedProfileId;
   else selectedProfileId = "";
   $("load-profile").disabled = selectedProfileId === "";
+  $("rename-profile").disabled = selectedProfileId === "";
+  $("delete-profile").disabled = selectedProfileId === "";
   $("save-profile").textContent = selectedProfileId === "" ? "新規保存" : "上書き保存";
   if (message !== undefined) setProfileStatus(message);
   else setProfileStatus(`保存済み ${savedProfiles.length}件`);
@@ -224,6 +227,48 @@ function saveNamedProfile() {
     renderProfileOptions(`「${name}」を保存しました`);
   } catch (error) {
     setProfileStatus(error instanceof Error ? error.message : "名前付き保存に失敗しました", true);
+  }
+}
+
+function renameNamedProfile() {
+  const profile = selectedProfile();
+  if (!profile) return;
+  const name = $("profile-name").value.trim();
+  if (name === "") {
+    setProfileStatus("新しい保存名を入力してください", true);
+    $("profile-name").focus();
+    return;
+  }
+  const duplicate = savedProfiles.find((candidate) => candidate.name === name && candidate.id !== profile.id);
+  if (duplicate) {
+    setProfileStatus("同じ保存名があります", true);
+    return;
+  }
+  try {
+    savedProfiles = upsertCalculatorProfile(savedProfiles, {
+      ...profile,
+      name,
+      updatedAt: new Date().toISOString(),
+    });
+    persistNamedProfiles();
+    renderProfileOptions(`「${name}」へ名前を変更しました`);
+  } catch (error) {
+    setProfileStatus(error instanceof Error ? error.message : "名前を変更できませんでした", true);
+  }
+}
+
+function deleteNamedProfile() {
+  const profile = selectedProfile();
+  if (!profile) return;
+  if (!window.confirm(`保存済み編成「${profile.name}」を削除しますか？\nこの操作は元に戻せません。`)) return;
+  try {
+    savedProfiles = removeCalculatorProfile(savedProfiles, profile.id);
+    selectedProfileId = "";
+    $("profile-name").value = "";
+    persistNamedProfiles();
+    renderProfileOptions(`「${profile.name}」を削除しました`);
+  } catch (error) {
+    setProfileStatus(error instanceof Error ? error.message : "保存済み編成を削除できませんでした", true);
   }
 }
 
@@ -1613,6 +1658,8 @@ $("profile-select").addEventListener("change", (event) => {
 
 $("save-profile").addEventListener("click", saveNamedProfile);
 $("load-profile").addEventListener("click", () => void loadNamedProfile());
+$("rename-profile").addEventListener("click", renameNamedProfile);
+$("delete-profile").addEventListener("click", deleteNamedProfile);
 
 $("save-config").addEventListener("click", () => {
   try {

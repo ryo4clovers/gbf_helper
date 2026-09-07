@@ -7,6 +7,7 @@ import {
   CALCULATOR_STATE_STORAGE_KEY,
   parseCalculatorProfiles,
   parseCalculatorState,
+  removeCalculatorProfile,
   serializeCalculatorProfiles,
   serializeCalculatorState,
   upsertCalculatorProfile,
@@ -74,6 +75,15 @@ test("upserts a named profile by its stable ID", () => {
   const other = { id: "profile-2", name: "別編成", updatedAt: "2026-09-07T12:30:00.000Z", request: request() };
 
   assert.deepEqual(upsertCalculatorProfile([original, other], replacement), [replacement, other]);
+});
+
+test("removes only the selected named profile", () => {
+  const first = { id: "profile-1", name: "残す", updatedAt: "2026-09-07T12:00:00.000Z", request: request() };
+  const second = { id: "profile-2", name: "削除する", updatedAt: "2026-09-07T13:00:00.000Z", request: request() };
+
+  assert.deepEqual(removeCalculatorProfile([first, second], second.id), [first]);
+  assert.deepEqual(removeCalculatorProfile([first], "missing"), [first]);
+  assert.throws(() => removeCalculatorProfile({}, first.id), /一覧形式/);
 });
 
 test("rejects malformed named profiles", () => {
