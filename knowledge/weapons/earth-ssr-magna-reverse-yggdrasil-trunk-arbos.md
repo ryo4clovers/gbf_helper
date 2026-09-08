@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-magna-reverse-yggdrasil-trunk-arbos"
 name_jp: "世界樹の幹甲・アルボス"
-name_en: ""
+name_en: "Yggdrasil Bark Bracer Arbos"
 weapon_id: "1040619000"
 element: 土
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "格闘"
 series: "マグナ・リバースシリーズ"
 obtain: "マグナIII マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。 gbf.wiki「Yggdrasil Bark Bracer Arbos」(https://gbf.wiki/Yggdrasil_Bark_Bracer_Arbos、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # 世界樹の幹甲・アルボス

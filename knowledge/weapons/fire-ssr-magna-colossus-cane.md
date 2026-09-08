@@ -9,8 +9,8 @@ weapon_type: "杖"
 series: "マグナシリーズ"
 obtain: "マルチバトル「コロッサス・マグナ」ドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器図鑑詳細と武器詳細レスポンス(ユーザー提供、Lv1値およびLv100・150・151・152・200の+0個体、2026-09-08)。系列情報・スキル数値は gbf.wiki『Weapon Lists/Omega』/ GameWith(2026-09-07 参照)。スキル数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器図鑑詳細と武器詳細レスポンス(ユーザー提供、Lv1値およびLv100・150・151・152・200の+0個体、2026-09-08)。系列情報・スキル数値は gbf.wiki『Weapon Lists/Omega』/ GameWith(2026-09-07 参照)。スキル数値は未検証。 gbf.wiki「Colossus Cane Omega」(https://gbf.wiki/Colossus_Cane_Omega、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # コロッサスケーン・マグナ(Colossus Cane Omega)

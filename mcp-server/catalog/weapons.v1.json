@@ -13,128 +13,482 @@
       "confirmedAt": "2026-09-05"
     },
     {
-      "weaponId": "1040201400",
-      "name": "イフリートハルベルト",
-      "elementCode": "1",
-      "weaponKindCode": "3",
-      "rarityCode": "4",
-      "skillSlots": [
-        { "sourceKey": "skill1", "skillId": "25" },
-        { "sourceKey": "skill2", "skillId": "74" }
-      ],
-      "verificationStatus": "検証済み",
-      "source": "ゲーム内deckレスポンスで単体編成とオーバーライド同時編成を確認",
-      "confirmedAt": "2026-09-05"
-    },
-    {
-      "weaponId": "1040218900",
-      "name": "オーバーライド",
-      "elementCode": "1",
-      "weaponKindCode": "3",
-      "rarityCode": "4",
-      "seriesId": "2",
-      "skillSlots": [
-        { "sourceKey": "skill1", "skillId": "2025" },
-        { "sourceKey": "skill2", "skillId": "845" },
-        { "sourceKey": "skill3", "skillId": "2174" }
-      ],
-      "verificationStatus": "検証済み",
-      "source": "ゲーム内deckレスポンスで確認",
-      "confirmedAt": "2026-09-05"
-    },
-    {
-      "weaponId": "1040915300",
-      "name": "ソロモンアクセル",
-      "elementCode": "1",
-      "weaponKindCode": "10",
-      "rarityCode": "4",
-      "skillSlots": [
-        { "sourceKey": "skill1", "skillId": "510" },
-        { "sourceKey": "skill2", "skillId": "80" },
-        { "sourceKey": "skill3", "skillId": "1" }
-      ],
-      "verificationStatus": "検証済み",
-      "source": "ユーザー提供のゲーム内deckレスポンスで武器・スキル・表示効果量を確認",
-      "confirmedAt": "2026-09-07"
-    },
-    {
-      "weaponId": "1040206800",
-      "name": "エリクトニオス",
-      "elementCode": "1",
-      "weaponKindCode": "3",
-      "rarityCode": "4",
-      "seriesId": "5",
-      "skillSlots": [
-        { "sourceKey": "skill1", "skillId": "335" },
-        { "sourceKey": "skill2", "skillId": "396" }
-      ],
-      "verificationStatus": "検証済み",
-      "source": "ユーザー提供のゲーム内deckレスポンスで武器・スキル・表示効果量を確認",
-      "confirmedAt": "2026-09-07"
-    },
-    {
-      "weaponId": "1040812900",
-      "name": "ミムメモ人形",
-      "elementCode": "1",
-      "weaponKindCode": "9",
-      "rarityCode": "4",
-      "skillSlots": [
-        { "sourceKey": "skill1", "skillId": "1506" },
-        { "sourceKey": "skill2", "skillId": "639" }
-      ],
-      "verificationStatus": "検証済み",
-      "source": "ユーザー提供のゲーム内deckレスポンスで武器・スキル構成を確認",
-      "confirmedAt": "2026-09-07"
-    },
-    {
-      "weaponId": "1040220800",
-      "name": "禁栄の禍槍",
-      "elementCode": "1",
-      "weaponKindCode": "3",
-      "rarityCode": "4",
-      "seriesId": "45",
-      "levelStats": {
-        "maximumLevel": 150,
-        "points": [
-          { "level": 1, "attack": 420, "hp": 24 },
-          { "level": 100, "attack": 2207, "hp": 225 },
-          { "level": 150, "attack": 2654, "hp": 275 }
-        ]
-      },
-      "skillSlots": [
-        { "sourceKey": "skill1", "skillId": "2801" },
-        { "sourceKey": "skill2", "skillId": "2807" }
-      ],
-      "verificationStatus": "検証済み",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス12レベル分と上限解放前後4境界で確認",
-      "confirmedAt": "2026-09-08"
-    },
-    {
-      "weaponId": "1040401500",
-      "name": "コロッサスケーン・マグナ",
-      "elementCode": "1",
-      "weaponKindCode": "5",
+      "weaponId": "1040002200",
+      "name": "世界樹の晶剣・マグナ",
+      "elementCode": "3",
+      "weaponKindCode": "1",
       "rarityCode": "4",
       "seriesId": "8",
       "selectionDefaults": {
+        "level": 200,
+        "hp": 245,
+        "attack": 2840,
         "uncapLevel": 5,
         "skillLevel": 20
       },
-      "levelStats": {
-        "maximumLevel": 200,
-        "points": [
-          { "level": 1, "attack": 325, "hp": 40 },
-          { "level": 100, "attack": 1960, "hp": 258 },
-          { "level": 150, "attack": 2290, "hp": 302 },
-          { "level": 200, "attack": 2450, "hp": 324 }
-        ]
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "71"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-magna-yggdrasil-crystal-blade.mdとgbf.wiki「Yggdrasil Crystal Blade Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040007200",
+      "name": "シュヴァリエソード・マグナ",
+      "elementCode": "5",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 244,
+        "attack": 2850,
+        "uncapLevel": 5,
+        "skillLevel": 20
       },
       "skillSlots": [
-        { "sourceKey": "skill1", "skillId": "94" }
+        {
+          "sourceKey": "skill1",
+          "skillId": "306"
+        }
       ],
-      "verificationStatus": "検証済み",
-      "source": "ユーザー提供のゲーム内武器図鑑詳細と武器詳細レスポンスでLv1・100・150・151・152・200のステータスとスキル構成を確認",
-      "confirmedAt": "2026-09-08"
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-magna-chevalier-sword.mdとgbf.wiki「Luminiera Sword Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040007400",
+      "name": "バハムートソード・フツルス",
+      "elementCode": "6",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "14",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 275,
+        "attack": 3300,
+        "uncapLevel": 5
+      },
+      "skillSlots": [],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-bahamut-sword.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040011900",
+      "name": "オメガスウォード",
+      "elementCode": "1",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 387,
+        "attack": 4302,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "727"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "760"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1810"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/omega-ssr-sword.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040015000",
+      "name": "ブラフマンシミター",
+      "elementCode": "1",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 230,
+        "attack": 2730,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "928"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "93"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-regalia-brahman-scimitar.mdとgbf.wiki「Scimitar of Brahman」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040017000",
+      "name": "絶対否定の剣",
+      "elementCode": "5",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "3",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 363,
+        "attack": 4200,
+        "uncapLevel": 6
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2196"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2209"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2228"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-dark-opus-sword-normal.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040017100",
+      "name": "永遠拒絶の剣",
+      "elementCode": "5",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "3",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 462,
+        "attack": 4695,
+        "uncapLevel": 6
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2202"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2208"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1726"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-dark-opus-sword-magna.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040017200",
+      "name": "赤き熾炎の剣",
+      "elementCode": "1",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 250,
+        "attack": 2980,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1248"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "375"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-seraphic-weapon.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040018100",
+      "name": "ヴァッサーシュパイアー",
+      "elementCode": "1",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "19",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 275,
+        "attack": 3218,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1276"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1275"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-job-chrysaor.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040019700",
+      "name": "フェイトレス",
+      "elementCode": "2",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "26",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 269,
+        "attack": 3104,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1473"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1527"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-astral-sword.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040020300",
+      "name": "フェディエル・スパイン",
+      "elementCode": "6",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "29",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1555"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1556"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-ancestral-fediel-spine.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040020600",
+      "name": "極神剣",
+      "elementCode": "3",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 230,
+        "attack": 2690,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1225"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "950"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-regalia-gokushinken.mdとgbf.wiki「Godsworn Edge」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040020800",
+      "name": "ライズ・オブ・ジャスティス",
+      "elementCode": "2",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "30",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 286,
+        "attack": 3300,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1827"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1958"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "366"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-nwf-rise-of-justice.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040025100",
+      "name": "滅尽剣・再誕",
+      "elementCode": "1",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "426"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "845"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1656"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-revans-messhin-ken-saidan.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040025200",
+      "name": "セッテ・ディ・スパーダ・リビルド",
+      "elementCode": "4",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1993"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1994"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-revans-sette-di-spada-rebuild.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040026100",
+      "name": "コロッサスバスター・イラ",
+      "elementCode": "1",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 241,
+        "attack": 2826,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2373"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2378"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-magna-reverse-colossus-buster-ira.mdとgbf.wiki「Colossus Buster Ira」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040026300",
+      "name": "世界樹の晶剣・アルボス",
+      "elementCode": "3",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 242,
+        "attack": 2821,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2294"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "71"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2301"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-magna-reverse-yggdrasil-crystal-blade-arbos.mdとgbf.wiki「Yggdrasil Crystal Blade Arbos」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040028900",
+      "name": "万象尽滅の宝剣",
+      "elementCode": "1",
+      "weaponKindCode": "1",
+      "rarityCode": "4",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 412,
+        "attack": 4426,
+        "uncapLevel": 5,
+        "skillLevel": 1
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2620"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2638"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2656"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-versacia-sword.md。効果量は未検証"
     },
     {
       "weaponId": "1040101500",
@@ -150,18 +504,3199 @@
       "levelStats": {
         "maximumLevel": 200,
         "points": [
-          { "level": 1, "attack": 340, "hp": 37 },
-          { "level": 100, "attack": 2155, "hp": 219 },
-          { "level": 150, "attack": 2520, "hp": 255 },
-          { "level": 200, "attack": 2700, "hp": 273 }
+          {
+            "level": 1,
+            "attack": 340,
+            "hp": 37
+          },
+          {
+            "level": 100,
+            "attack": 2155,
+            "hp": 219
+          },
+          {
+            "level": 150,
+            "attack": 2520,
+            "hp": 255
+          },
+          {
+            "level": 200,
+            "attack": 2700,
+            "hp": 273
+          }
         ]
       },
       "skillSlots": [
-        { "sourceKey": "skill1", "skillId": "66" }
+        {
+          "sourceKey": "skill1",
+          "skillId": "66"
+        }
       ],
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のゲーム内武器詳細レスポンスでLv1・100・150・200のステータスとスキル構成を確認",
       "confirmedAt": "2026-09-08"
+    },
+    {
+      "weaponId": "1040106700",
+      "name": "バハムートダガー・フツルス",
+      "elementCode": "6",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "14",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 307,
+        "attack": 3145,
+        "uncapLevel": 5
+      },
+      "skillSlots": [],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-bahamut-dagger.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040110300",
+      "name": "ニーベルン・メッサー",
+      "elementCode": "3",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 260,
+        "attack": 2590,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "950"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "779"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-regalia-nibelung-messer.mdとgbf.wiki「Nibelung Messer」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040110400",
+      "name": "ミトロンの宝剣",
+      "elementCode": "5",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 260,
+        "attack": 2590,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "942"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "943"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-regalia-mithra-sword.mdとgbf.wiki「Mittron's Treasured Blade」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040111000",
+      "name": "ハツオイイルハル",
+      "elementCode": "4",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "33",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "780"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "133"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-malice-hatsuoi-ilhal.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040112300",
+      "name": "ヒュプノスクリス",
+      "elementCode": "2",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "33",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "772"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "778"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-malice-hypnos-kris.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040113200",
+      "name": "ペイン・オブ・デス",
+      "elementCode": "6",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "30",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 411,
+        "attack": 3668,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1828"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1962"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "379"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-nwf-pain-of-death.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040115500",
+      "name": "アビュドス",
+      "elementCode": "6",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1819"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1357"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-ennead-abydos.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040115900",
+      "name": "タァ・セネン",
+      "elementCode": "3",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1750"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1852"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-ennead-ta-senen.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040117600",
+      "name": "コンコルディア・リビルド",
+      "elementCode": "5",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2107"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2161"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-revans-concordia-rebuild.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040117700",
+      "name": "竜伐の剛牙・再誕",
+      "elementCode": "3",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1947"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "376"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-revans-ryubatsu-goga-saidan.mdとgbf.wiki「Fang of the Dragonslayer Mk II」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040119200",
+      "name": "ティアマトエッジ・アウラ",
+      "elementCode": "4",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 270,
+        "attack": 2682,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2338"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2332"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-magna-reverse-tiamat-edge-aura.mdとgbf.wiki「Tiamat Edge Aura」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040119500",
+      "name": "セレストダガー・アーテル",
+      "elementCode": "6",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 263,
+        "attack": 2717,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2389"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2328"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-magna-reverse-celeste-dagger-aeter.mdとgbf.wiki「Celeste Dagger Ater」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040119700",
+      "name": "レヴィアンゲイズ・マレ",
+      "elementCode": "2",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 269,
+        "attack": 2687,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2293"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "66"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2300"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-magna-reverse-levian-gaze-mare.mdとgbf.wiki「Leviathan Gaze Mare」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040122300",
+      "name": "万象尽滅の鋭刃",
+      "elementCode": "2",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "44",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 452,
+        "attack": 4223,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2623"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2641"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2658"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-versacia-dagger.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040201400",
+      "name": "イフリートハルベルト",
+      "elementCode": "1",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "25"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "74"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deckレスポンスで単体編成とオーバーライド同時編成を確認",
+      "confirmedAt": "2026-09-05"
+    },
+    {
+      "weaponId": "1040201900",
+      "name": "セレストホーン・マグナ",
+      "elementCode": "6",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 289,
+        "attack": 2620,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "116"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-magna-celeste-horn.mdとgbf.wiki「Celeste Horn Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040205100",
+      "name": "レヴィアンスピア・マグナ",
+      "elementCode": "2",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 295,
+        "attack": 2590,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "293"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-magna-levian-spear.mdとgbf.wiki「Leviathan Spear Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040205400",
+      "name": "バハムートスピア・フツルス",
+      "elementCode": "6",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "14",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 332,
+        "attack": 3020,
+        "uncapLevel": 5
+      },
+      "skillSlots": [],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-bahamut-spear.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040206800",
+      "name": "エリクトニオス",
+      "elementCode": "1",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "5",
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "335"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "396"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内deckレスポンスで武器・スキル・表示効果量を確認",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "weaponId": "1040210400",
+      "name": "ブラフマントライデント",
+      "elementCode": "1",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 280,
+        "attack": 2500,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "92"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "929"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-regalia-brahman-trident.mdとgbf.wiki「Trident of Brahman」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040210500",
+      "name": "ラストストームランス",
+      "elementCode": "4",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 280,
+        "attack": 2490,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "41"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "940"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-regalia-last-storm-lance.mdとgbf.wiki「Last Storm Lance」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040212500",
+      "name": "絶対否定の槍",
+      "elementCode": "4",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "3",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 433,
+        "attack": 3855,
+        "uncapLevel": 6
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2195"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2209"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2215"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-dark-opus-spear-normal.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040212600",
+      "name": "永遠拒絶の槍",
+      "elementCode": "4",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "3",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 433,
+        "attack": 3855,
+        "uncapLevel": 6
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2201"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2209"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1726"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-dark-opus-spear-magna.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040213700",
+      "name": "ロンゴミニアド",
+      "elementCode": "5",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "26",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 320,
+        "attack": 2847,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1476"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1530"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-astral-spear.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040215100",
+      "name": "ワムデュス・ナイダリア",
+      "elementCode": "2",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "29",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1547"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1548"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-ancestral-wamdus-naidaria.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040215200",
+      "name": "炎の柱",
+      "elementCode": "5",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 250,
+        "attack": 2630,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "944"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1575"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-regalia-pillar-of-flame.mdとgbf.wiki「Pillar of Flame」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040215500",
+      "name": "タイ・オブ・ザ・ハングドマン",
+      "elementCode": "3",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "30",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 341,
+        "attack": 3021,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1829"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1959"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "376"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-nwf-binds-of-the-hanged-man.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040217700",
+      "name": "ベンベネト",
+      "elementCode": "1",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1814"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "235"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-ennead-benbenet.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040218900",
+      "name": "オーバーライド",
+      "elementCode": "1",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "2",
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2025"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "845"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2174"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deckレスポンスで確認",
+      "confirmedAt": "2026-09-05"
+    },
+    {
+      "weaponId": "1040219100",
+      "name": "シュヴァリエランス・クレド",
+      "elementCode": "5",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 300,
+        "attack": 2529,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2321"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2327"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-magna-reverse-chevalier-lance-credo.mdとgbf.wiki「Luminiera Lance Credo」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040220300",
+      "name": "万象尽滅の三又槍",
+      "elementCode": "3",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "44",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 383,
+        "attack": 3585,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2626"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2644"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2660"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-versacia-spear.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040220800",
+      "name": "禁栄の禍槍",
+      "elementCode": "1",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "45",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "attack": 420,
+            "hp": 24
+          },
+          {
+            "level": 100,
+            "attack": 2207,
+            "hp": 225
+          },
+          {
+            "level": 150,
+            "attack": 2654,
+            "hp": 275
+          }
+        ]
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2801"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2807"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス12レベル分と上限解放前後4境界で確認",
+      "confirmedAt": "2026-09-08"
+    },
+    {
+      "weaponId": "1040300900",
+      "name": "ティアマトアムード・マグナ",
+      "elementCode": "4",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 216,
+        "attack": 2990,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "44"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-magna-tiamat-amood.mdとgbf.wiki「Tiamat Amood Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040301100",
+      "name": "シュヴァリエブージ・マグナ",
+      "elementCode": "5",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 217,
+        "attack": 2990,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "102"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-magna-chevalier-bhuj.mdとgbf.wiki「Luminiera Bhuj Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040301400",
+      "name": "セレストザグナル・マグナ",
+      "elementCode": "6",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 213,
+        "attack": 3010,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "116"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-magna-celeste-zaghnal.mdとgbf.wiki「Celeste Zaghnal Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040304300",
+      "name": "バハムートアクス・フツルス",
+      "elementCode": "6",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "14",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 245,
+        "attack": 3445,
+        "uncapLevel": 5
+      },
+      "skillSlots": [],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-bahamut-axe.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040305600",
+      "name": "黒旋風",
+      "elementCode": "4",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "34",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "917"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1498"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-menace-black-whirlwind.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040309300",
+      "name": "ニーベルン・ホルン",
+      "elementCode": "3",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 210,
+        "attack": 2850,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "933"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "934"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-regalia-nibelung-horn.mdとgbf.wiki「Nibelung Horn」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040309400",
+      "name": "アビスストライカー",
+      "elementCode": "6",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 200,
+        "attack": 2870,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "318"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "946"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-regalia-abyss-striker.mdとgbf.wiki「Abyss Striker」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040310600",
+      "name": "絶対否定の大鎌",
+      "elementCode": "1",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 417,
+        "attack": 4935,
+        "uncapLevel": 6,
+        "skillLevel": 25
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2192"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2209"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "502"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-dark-opus-scythe-normal.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040310700",
+      "name": "永遠拒絶の大鎌",
+      "elementCode": "1",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 417,
+        "attack": 4935,
+        "uncapLevel": 6,
+        "skillLevel": 25
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2198"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2209"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1726"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-dark-opus-scythe-magna.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040310800",
+      "name": "闇の子の歯牙",
+      "elementCode": "6",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "1",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 230,
+        "attack": 3100,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1253"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "379"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-seraphic-weapon.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040311800",
+      "name": "ソル・レムナント",
+      "elementCode": "1",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "26",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 236,
+        "attack": 3272,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1472"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1526"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-astral-axe.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040313000",
+      "name": "ル・オー・ホーン",
+      "elementCode": "5",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "29",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1553"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1554"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-ancestral-lu-woh-horn.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040313500",
+      "name": "クラッシュ・オブ・ザ・タワー",
+      "elementCode": "3",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "30",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 253,
+        "attack": 3462,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1830"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1959"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "376"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-nwf-collapse-of-the-tower.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040314000",
+      "name": "セイファート",
+      "elementCode": "5",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "33",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "78"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "781"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1660"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-malice-seyfert.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040315300",
+      "name": "ウラエウス",
+      "elementCode": "2",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1857"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1286"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-ennead-uraeus.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040315400",
+      "name": "マンデト",
+      "elementCode": "4",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1817"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1355"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-ennead-mandet.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040316500",
+      "name": "溟渤と激流の裁き",
+      "elementCode": "2",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "40",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 393,
+        "attack": 4514,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1454"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2050"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1229"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-draconic-origin-axe.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040316700",
+      "name": "竜伐の撃爪・再誕",
+      "elementCode": "3",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2105"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2147"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-revans-ryubatsu-gekiso-saidan.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040316900",
+      "name": "ビエント・ディ・スパーダ・リビルド",
+      "elementCode": "4",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2106"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2154"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-revans-viento-di-spada-rebuild.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040317400",
+      "name": "コロッサスボンバー・イラ",
+      "elementCode": "1",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 212,
+        "attack": 2970,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2335"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2367"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-magna-reverse-colossus-bomber-ira.mdとgbf.wiki「Colossus Bomber Ira」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040318100",
+      "name": "レヴィアンヘッド・マレ",
+      "elementCode": "2",
+      "weaponKindCode": "4",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 213,
+        "attack": 2965,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1214"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2430"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-magna-reverse-levian-head-mare.mdとgbf.wiki「Leviathan Cranium Mare」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040401400",
+      "name": "レヴィアンセプター・マグナ",
+      "elementCode": "2",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 328,
+        "attack": 2430,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "68"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-magna-levian-scepter.mdとgbf.wiki「Leviathan Scepter Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040401500",
+      "name": "コロッサスケーン・マグナ",
+      "elementCode": "1",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "attack": 325,
+            "hp": 40
+          },
+          {
+            "level": 100,
+            "attack": 1960,
+            "hp": 258
+          },
+          {
+            "level": 150,
+            "attack": 2290,
+            "hp": 302
+          },
+          {
+            "level": 200,
+            "attack": 2450,
+            "hp": 324
+          }
+        ]
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "94"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内武器図鑑詳細と武器詳細レスポンスでLv1・100・150・151・152・200のステータスとスキル構成を確認",
+      "confirmedAt": "2026-09-08"
+    },
+    {
+      "weaponId": "1040407000",
+      "name": "バハムートスタッフ・フツルス",
+      "elementCode": "6",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "14",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 370,
+        "attack": 2830,
+        "uncapLevel": 5
+      },
+      "skillSlots": [],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-bahamut-staff.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040408100",
+      "name": "マグマストリーム",
+      "elementCode": "1",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "34",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "261"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2012"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-menace-magma-stream.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040414100",
+      "name": "テュロスワンド",
+      "elementCode": "2",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 310,
+        "attack": 2320,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "930"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "778"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-regalia-tyros-wand.mdとgbf.wiki「Tyros Scepter」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040414200",
+      "name": "アビススパイン",
+      "elementCode": "6",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 310,
+        "attack": 2350,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "948"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "949"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-regalia-abyss-spine.mdとgbf.wiki「Abyss Spine」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040414600",
+      "name": "マジェスタス",
+      "elementCode": "6",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "33",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "425"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "769"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-malice-majestas.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040415000",
+      "name": "絶対否定の杖",
+      "elementCode": "2",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "3",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 581,
+        "attack": 4100,
+        "uncapLevel": 6
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2193"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2209"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2213"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-dark-opus-cane-normal.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040415100",
+      "name": "永遠拒絶の杖",
+      "elementCode": "2",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "3",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 482,
+        "attack": 3605,
+        "uncapLevel": 6
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2199"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2208"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1726"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-dark-opus-cane-magna.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040415300",
+      "name": "美と慈愛の杖",
+      "elementCode": "2",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "1",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 340,
+        "attack": 2540,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1249"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "366"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-seraphic-weapon.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040416300",
+      "name": "カラダンダ",
+      "elementCode": "1",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "33",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "80"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1352"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-malice-karadanda.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040416600",
+      "name": "ユグドラシル・ブランチ",
+      "elementCode": "3",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "26",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 356,
+        "attack": 2664,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1474"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1528"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-astral-staff.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040417400",
+      "name": "金砕棒",
+      "elementCode": "3",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "19",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 348,
+        "attack": 2872,
+        "uncapLevel": 5,
+        "skillLevel": 1
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1557"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1558"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-job-monk.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040417900",
+      "name": "ニーラカンタ",
+      "elementCode": "1",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 260,
+        "attack": 2590,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1213"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "93"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-regalia-nilakantha.mdとgbf.wiki「Nilakantha」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040418000",
+      "name": "輝羅煌閃杖",
+      "elementCode": "4",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 350,
+        "attack": 2400,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1573"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1574"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-regalia-kiragosensen.mdとgbf.wiki「Coruscant Crozier」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040418200",
+      "name": "プレイ・オブ・テンペランス",
+      "elementCode": "4",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "30",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 377,
+        "attack": 2842,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1831"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1960"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "377"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-nwf-theater-of-temperance.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040419700",
+      "name": "ビガ・エドフ",
+      "elementCode": "6",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1826"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "129"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-ennead-bigeh-edfu.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040420400",
+      "name": "レルアバド",
+      "elementCode": "1",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1684"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "777"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-ennead-lelabad.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040420600",
+      "name": "エスナ",
+      "elementCode": "2",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1749"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "125"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-ennead-esna.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040422200",
+      "name": "狂飆と至高の祈り",
+      "elementCode": "4",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "40",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 439,
+        "attack": 3302,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1456"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2052"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1231"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-draconic-origin-cane.mdとgbf.wiki「Prayer of Grand Gales」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040422300",
+      "name": "フォービドゥンアガスティ・リビルド",
+      "elementCode": "6",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1979"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "947"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-revans-forbidden-agastia-rebuild.mdとgbf.wiki「Forbidden Agastia Mk II」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040423100",
+      "name": "コロッサスケーン・イラ",
+      "elementCode": "1",
+      "weaponKindCode": "5",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 336,
+        "attack": 2348,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2292"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "94"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2299"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-magna-reverse-colossus-cane-ira.mdとgbf.wiki「Colossus Cane Ira」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040500500",
+      "name": "コロッサスカービン・マグナ",
+      "elementCode": "1",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 201,
+        "attack": 3060,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "95"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-magna-colossus-carbine.mdとgbf.wiki「Colossus Carbine Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040500600",
+      "name": "シュヴァリエボルト・マグナ",
+      "elementCode": "5",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 203,
+        "attack": 3050,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "101"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-magna-chevalier-bolt.mdとgbf.wiki「Luminiera Bolt Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040502500",
+      "name": "ベネディーア",
+      "elementCode": "1",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 240,
+        "attack": 3600,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "hp": 31,
+            "attack": 505
+          },
+          {
+            "level": 100,
+            "hp": 196,
+            "attack": 2980
+          },
+          {
+            "level": 150,
+            "hp": 240,
+            "attack": 3600
+          }
+        ]
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "626"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "369"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-limited-benedia.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040502600",
+      "name": "ティアマトボルト・マグナ",
+      "elementCode": "4",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 202,
+        "attack": 3050,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "41"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-magna-tiamat-bolt.mdとgbf.wiki「Tiamat Bolt Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040504500",
+      "name": "バハムートマズル・フツルス",
+      "elementCode": "6",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "seriesId": "14",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 229,
+        "attack": 3525,
+        "uncapLevel": 5
+      },
+      "skillSlots": [],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-bahamut-gun.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040508900",
+      "name": "アビスルック",
+      "elementCode": "6",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 190,
+        "attack": 2940,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "114"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "947"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-regalia-abyss-rook.mdとgbf.wiki「Abyss Gaze」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040513400",
+      "name": "ガレヲン・ジョー",
+      "elementCode": "3",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "seriesId": "29",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1549"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1550"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-ancestral-galleon-jaw.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040513700",
+      "name": "ショット・オブ・ザ・スター",
+      "elementCode": "5",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "seriesId": "30",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 237,
+        "attack": 3546,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1832"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1961"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "378"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-nwf-shooting-of-the-star.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040516500",
+      "name": "暁闇と葬送の蝕み",
+      "elementCode": "6",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "seriesId": "40",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 371,
+        "attack": 4634,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1458"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2054"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1233"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-draconic-origin-gun.mdとgbf.wiki「Festering of Mournful Obsequies」を2026-09-09にID照合（一覧値と実機値の差異は要検証）。効果量は未検証"
+    },
+    {
+      "weaponId": "1040516800",
+      "name": "ティアマトボルト・アウラ",
+      "elementCode": "4",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 195,
+        "attack": 3057,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2295"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "43"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2302"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-magna-reverse-tiamat-bolt-aura.mdとgbf.wiki「Tiamat Bolt Aura」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040516900",
+      "name": "シュヴァリエボルト・クレド",
+      "elementCode": "5",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 199,
+        "attack": 3037,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2296"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "101"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2303"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-magna-reverse-chevalier-bolt-credo.mdとgbf.wiki「Luminiera Bolt Credo」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040517500",
+      "name": "ルクス・イン・デネブリス",
+      "elementCode": "2",
+      "weaponKindCode": "6",
+      "rarityCode": "4",
+      "seriesId": "19",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 305,
+        "attack": 3716,
+        "uncapLevel": 5,
+        "skillLevel": 1
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2588"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2589"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2590"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-job-boogeyman.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040600500",
+      "name": "ティアマトガントレ・マグナ",
+      "elementCode": "4",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 281,
+        "attack": 2670,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "43"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-magna-tiamat-gauntlet.mdとgbf.wiki「Tiamat Gauntlet Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040600700",
+      "name": "コロッサスフィスト・マグナ",
+      "elementCode": "1",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 280,
+        "attack": 2670,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "96"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-magna-colossus-fist.mdとgbf.wiki「Colossus Fist Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040604300",
+      "name": "セレストクロー・マグナ",
+      "elementCode": "6",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 278,
+        "attack": 2680,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "114"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-magna-celeste-claw.mdとgbf.wiki「Celeste Claw Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040604400",
+      "name": "バハムートナックル・フツルス",
+      "elementCode": "6",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "14",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 321,
+        "attack": 3075,
+        "uncapLevel": 5
+      },
+      "skillSlots": [],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-bahamut-fist.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040609800",
+      "name": "ブラフマンガントレ",
+      "elementCode": "1",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 270,
+        "attack": 2550,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "926"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "927"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-regalia-brahman-gauntlet.mdとgbf.wiki「Hand of Brahman」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040609900",
+      "name": "ミトロンの籠手",
+      "elementCode": "5",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 270,
+        "attack": 2540,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "941"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "277"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-regalia-mithra-gauntlet.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040611300",
+      "name": "揺るがぬ大地の拳",
+      "elementCode": "3",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "1",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 290,
+        "attack": 2780,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1250"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "376"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-seraphic-weapon.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040612500",
+      "name": "黒銀の滅爪",
+      "elementCode": "6",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "26",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 305,
+        "attack": 2926,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1477"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1531"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-astral-fist.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040613800",
+      "name": "ウィルナス・フィンガー",
+      "elementCode": "1",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "29",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1545"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1546"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-ancestral-wilnas-finger.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040614100",
+      "name": "スピリット・オブ・マナ",
+      "elementCode": "2",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 270,
+        "attack": 2520,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1571"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1572"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-regalia-spirit-of-mana.mdとgbf.wiki「Spirit of Mana」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040614300",
+      "name": "キス・オブ・ザ・デビル",
+      "elementCode": "1",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "30",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 327,
+        "attack": 3098,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1833"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1957"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "375"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-nwf-kiss-of-the-devil.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040615000",
+      "name": "ノーフェイス",
+      "elementCode": "3",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "34",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "428"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1750"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-menace-no-face.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040616600",
+      "name": "アブシンベル",
+      "elementCode": "4",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1751"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "238"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-ennead-abu-simbel.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040618000",
+      "name": "ラグランジュ・リビルド",
+      "elementCode": "2",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2104"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2152"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-revans-lagrange-rebuild.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040618800",
+      "name": "セレストグレース・アーテル",
+      "elementCode": "6",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 270,
+        "attack": 2682,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2297"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "116"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2304"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-magna-reverse-celeste-grace-aeter.mdとgbf.wiki「Celeste Grace Ater」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040619000",
+      "name": "世界樹の幹甲・アルボス",
+      "elementCode": "3",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 274,
+        "attack": 2662,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1738"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2461"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-magna-reverse-yggdrasil-trunk-arbos.mdとgbf.wiki「Yggdrasil Bark Bracer Arbos」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040621200",
+      "name": "万象尽滅の鎧腕",
+      "elementCode": "4",
+      "weaponKindCode": "7",
+      "rarityCode": "4",
+      "seriesId": "44",
+      "selectionDefaults": {
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2628"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2646"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2654"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-versacia-fist.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040700700",
+      "name": "レヴィアンボウ・マグナ",
+      "elementCode": "2",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 261,
+        "attack": 2830,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "67"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-magna-levian-bow.mdとgbf.wiki「Leviathan Bow Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040703700",
+      "name": "バハムートボウ・フツルス",
+      "elementCode": "6",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "14",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 293,
+        "attack": 3280,
+        "uncapLevel": 5
+      },
+      "skillSlots": [],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-bahamut-bow.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040704800",
+      "name": "扇抜",
+      "elementCode": "2",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "34",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "421"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "765"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-menace-ougi-nuki.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040708300",
+      "name": "テュロスボウ",
+      "elementCode": "2",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 250,
+        "attack": 2700,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "931"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-regalia-tyros-bow.mdとgbf.wiki「Tyros Bow」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040708400",
+      "name": "ミトロンの弓",
+      "elementCode": "5",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 250,
+        "attack": 2710,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "944"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "945"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-regalia-mithra-bow.mdとgbf.wiki「Mittron's Bow」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040709100",
+      "name": "果てぬ風呼の魔弓",
+      "elementCode": "4",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "1",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 270,
+        "attack": 2970,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1251"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "377"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-seraphic-weapon.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040710700",
+      "name": "リフレクト・オブ・ザ・ムーン",
+      "elementCode": "2",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "30",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 403,
+        "attack": 3780,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1834"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1958"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "366"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-nwf-reflection-of-the-moon.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040711000",
+      "name": "コロンバ",
+      "elementCode": "2",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "33",
+      "selectionDefaults": {
+        "uncapLevel": 4
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1685"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1697"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-malice-columba.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040711100",
+      "name": "アゴナイズ",
+      "elementCode": "6",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "34",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "6"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1747"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-menace-agonize.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040711600",
+      "name": "ハルシエシス",
+      "elementCode": "5",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1818"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1356"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-ennead-harsiesis.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040711900",
+      "name": "イシェド",
+      "elementCode": "3",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1816"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1316"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-ennead-ished.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040712800",
+      "name": "豊穣と恩愛の寿ぎ",
+      "elementCode": "3",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "40",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 352,
+        "attack": 3822,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1455"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2051"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1230"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-draconic-origin-bow.mdとgbf.wiki「Bounty of Gracious Earth」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040713000",
+      "name": "必滅弓・再誕",
+      "elementCode": "1",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2103"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2145"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-revans-hitsumetsu-yumi-saidan.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040713400",
+      "name": "ティアマトシュート・アウラ",
+      "elementCode": "4",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 253,
+        "attack": 2828,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1977"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "41"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-magna-reverse-tiamat-shot-aura.mdとgbf.wiki「Tiamat Arc Aura」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040714700",
+      "name": "万象尽滅の貫弓",
+      "elementCode": "5",
+      "weaponKindCode": "8",
+      "rarityCode": "4",
+      "seriesId": "44",
+      "selectionDefaults": {
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2631"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2649"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2654"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-versacia-bow.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040800000",
+      "name": "シュヴァリエハープ・マグナ",
+      "elementCode": "5",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 265,
+        "attack": 2510,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "101"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-magna-chevalier-harp.mdとgbf.wiki「Luminiera Harp Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040800100",
+      "name": "セレストハープ・マグナ",
+      "elementCode": "6",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 261,
+        "attack": 2530,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "117"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-magna-celeste-harp.mdとgbf.wiki「Celeste Harp Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040803800",
+      "name": "バハムートハープ・フツルス",
+      "elementCode": "6",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "14",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 297,
+        "attack": 2910,
+        "uncapLevel": 5
+      },
+      "skillSlots": [],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-bahamut-harp.md。効果量は未検証"
     },
     {
       "weaponId": "1040808200",
@@ -177,18 +3712,805 @@
       "levelStats": {
         "maximumLevel": 150,
         "points": [
-          { "level": 1, "attack": 322, "hp": 65 },
-          { "level": 100, "attack": 2044, "hp": 226 },
-          { "level": 150, "attack": 2390, "hp": 260 }
+          {
+            "level": 1,
+            "attack": 322,
+            "hp": 65
+          },
+          {
+            "level": 100,
+            "attack": 2044,
+            "hp": 226
+          },
+          {
+            "level": 150,
+            "attack": 2390,
+            "hp": 260
+          }
         ]
       },
       "skillSlots": [
-        { "sourceKey": "skill1", "skillId": "64" },
-        { "sourceKey": "skill2", "skillId": "932" }
+        {
+          "sourceKey": "skill1",
+          "skillId": "64"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "932"
+        }
       ],
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のゲーム内武器詳細レスポンスでLv1・100・150のステータスとスキル構成を確認",
       "confirmedAt": "2026-09-08"
+    },
+    {
+      "weaponId": "1040808300",
+      "name": "ラストストームハープ",
+      "elementCode": "4",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 260,
+        "attack": 2400,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "938"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "939"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-regalia-last-storm-harp.mdとgbf.wiki「Last Storm Harp」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040809400",
+      "name": "絶対否定の竪琴",
+      "elementCode": "3",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "3",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 385,
+        "attack": 3690,
+        "uncapLevel": 6
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2194"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2209"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2214"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-dark-opus-harp-normal.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040809500",
+      "name": "永遠拒絶の竪琴",
+      "elementCode": "3",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "3",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 385,
+        "attack": 3690,
+        "uncapLevel": 6
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2200"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2209"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1726"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-dark-opus-harp-magna.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040809600",
+      "name": "永遠の知識求る竪琴",
+      "elementCode": "5",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "1",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 270,
+        "attack": 2660,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1252"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "378"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-seraphic-weapon.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040811600",
+      "name": "イノセント・ラヴ",
+      "elementCode": "4",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "26",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 340,
+        "attack": 2748,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1475"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1529"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-astral-harp.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040812900",
+      "name": "ミムメモ人形",
+      "elementCode": "1",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1506"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "639"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内deckレスポンスで武器・スキル構成を確認",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "weaponId": "1040813100",
+      "name": "ゼカリヤ",
+      "elementCode": "6",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 350,
+        "attack": 2330,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1218"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "115"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-regalia-zechariah.mdとgbf.wiki「Zechariah」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040813300",
+      "name": "メロディ・オブ・ジャッジメント",
+      "elementCode": "4",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "30",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 363,
+        "attack": 2921,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1835"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1960"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "377"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-nwf-melody-of-judgement.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040815900",
+      "name": "雄渾と灼熱の調べ",
+      "elementCode": "1",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 518,
+        "attack": 3892,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1453"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2049"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1228"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-draconic-origin-harp.mdとgbf.wiki「Refrain of Blazing Vigor」を2026-09-09にID照合（一覧値と実機値の差異は要検証）。効果量は未検証"
+    },
+    {
+      "weaponId": "1040816100",
+      "name": "フォーセイクンアガスティ・リビルド",
+      "elementCode": "6",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2108"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2162"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-revans-forsaken-agastia-rebuild.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040816500",
+      "name": "世界樹の雫弦・アルボス",
+      "elementCode": "3",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 312,
+        "attack": 2470,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2325"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2455"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-magna-reverse-yggdrasil-string-arbos.mdとgbf.wiki「Yggdrasil Dewdrop Harp Arbos」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040817900",
+      "name": "万象尽滅の楽弦",
+      "elementCode": "6",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "44",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 501,
+        "attack": 3977,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2635"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2653"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2666"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-versacia-harp.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040902700",
+      "name": "コロッサスブレード・マグナ",
+      "elementCode": "1",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 210,
+        "attack": 3030,
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "292"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-magna-colossus-blade.mdとgbf.wiki「Colossus Blade Omega」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040904400",
+      "name": "バハムートブレイド・フツルス",
+      "elementCode": "6",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "14",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 239,
+        "attack": 3500,
+        "uncapLevel": 5
+      },
+      "skillSlots": [],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-bahamut-katana.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040905500",
+      "name": "剣聖の袋竹刀",
+      "elementCode": "3",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "34",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "88"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "3"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-menace-kensei-fukuro-shinai.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040908900",
+      "name": "ニーベルン・クリンゲ",
+      "elementCode": "3",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 200,
+        "attack": 2890,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "71"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "935"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/earth-ssr-regalia-nibelung-klinge.mdとgbf.wiki「Nibelung Klinge」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040909000",
+      "name": "ラストストームブレイド",
+      "elementCode": "4",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 200,
+        "attack": 2900,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "936"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "937"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-regalia-last-storm-blade.mdとgbf.wiki「Last Storm Blade」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040911000",
+      "name": "絶対否定の太刀",
+      "elementCode": "6",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "3",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 408,
+        "attack": 4985,
+        "uncapLevel": 6
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2197"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2209"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2229"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-dark-opus-katana-normal.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040911100",
+      "name": "永遠拒絶の太刀",
+      "elementCode": "6",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "3",
+      "selectionDefaults": {
+        "level": 250,
+        "hp": 309,
+        "attack": 4490,
+        "uncapLevel": 6
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2203"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2209"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1726"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-dark-opus-katana-magna.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040912400",
+      "name": "イーウィヤ・ビーク",
+      "elementCode": "4",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "29",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1551"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1552"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/wind-ssr-ancestral-ewiyar-beak.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040912600",
+      "name": "ヒート・オブ・ザ・サン",
+      "elementCode": "1",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "30",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 343,
+        "attack": 4019,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1836"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1957"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "375"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/fire-ssr-nwf-heat-of-the-sun.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040913300",
+      "name": "ホルアクティ",
+      "elementCode": "5",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "31",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1688"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "781"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-ennead-horakhty.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040915300",
+      "name": "ソロモンアクセル",
+      "elementCode": "1",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "510"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "80"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内deckレスポンスで武器・スキル・表示効果量を確認",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "weaponId": "1040915600",
+      "name": "叡智と廻生の煌き",
+      "elementCode": "5",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "40",
+      "selectionDefaults": {
+        "level": 200,
+        "hp": 287,
+        "attack": 4083,
+        "uncapLevel": 5
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1457"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1452"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1232"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-draconic-origin-katana.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040915900",
+      "name": "シュレディンガー・リビルド",
+      "elementCode": "2",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1881"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1869"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1875"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-revans-schrodinger-rebuild.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040916000",
+      "name": "シンメトリア・リビルド",
+      "elementCode": "5",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "37",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "430"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2010"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-revans-simmetria-rebuild.md。効果量は未検証"
+    },
+    {
+      "weaponId": "1040916200",
+      "name": "シュヴァリエセイバー・クレド",
+      "elementCode": "5",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 209,
+        "attack": 3000,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2309"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2315"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/light-ssr-magna-reverse-chevalier-saber-credo.mdとgbf.wiki「Luminiera Saber Credo」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040916300",
+      "name": "セレストセイバー・アーテル",
+      "elementCode": "6",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 201,
+        "attack": 3040,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2340"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2409"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/dark-ssr-magna-reverse-celeste-saber-aeter.mdとgbf.wiki「Celeste Saber Ater」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+    },
+    {
+      "weaponId": "1040916500",
+      "name": "レヴィアンブレード・マレ",
+      "elementCode": "2",
+      "weaponKindCode": "10",
+      "rarityCode": "4",
+      "seriesId": "42",
+      "selectionDefaults": {
+        "level": 150,
+        "hp": 222,
+        "attack": 2935,
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2436"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2444"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "実機由来knowledge/water-ssr-magna-reverse-levian-blade-mare.mdとgbf.wiki「Leviathan Blade Mare」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
     }
   ]
 }

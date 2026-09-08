@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-magna-reverse-celeste-grace-aeter"
 name_jp: "セレストグレース・アーテル"
-name_en: ""
+name_en: "Celeste Grace Ater"
 weapon_id: "1040618800"
 element: 闇
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "格闘"
 series: "マグナ・リバースシリーズ"
 obtain: "マグナIII マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。 gbf.wiki「Celeste Grace Ater」(https://gbf.wiki/Celeste_Grace_Ater、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # セレストグレース・アーテル

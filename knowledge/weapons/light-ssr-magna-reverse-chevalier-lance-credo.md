@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-magna-reverse-chevalier-lance-credo"
 name_jp: "シュヴァリエランス・クレド"
-name_en: ""
+name_en: "Luminiera Lance Credo"
 weapon_id: "1040219100"
 element: 光
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "槍"
 series: "マグナ・リバースシリーズ"
 obtain: "マグナIII マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。 gbf.wiki「Luminiera Lance Credo」(https://gbf.wiki/Luminiera_Lance_Credo、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # シュヴァリエランス・クレド

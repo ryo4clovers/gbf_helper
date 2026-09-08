@@ -18,12 +18,12 @@ test("summarizes calculator catalog targets and exposes browser-safe entry lists
       exceedsTarget,
     })),
     [
-      { id: "weapons", registeredCount: 10, targetCount: 2967, remainingCount: 2957, coveragePercent: 0.3, exceedsTarget: false },
+      { id: "weapons", registeredCount: 172, targetCount: 2967, remainingCount: 2795, coveragePercent: 5.8, exceedsTarget: false },
       { id: "summons", registeredCount: 122, targetCount: 461, remainingCount: 339, coveragePercent: 26.5, exceedsTarget: false },
       { id: "characters", registeredCount: 1018, targetCount: 1017, remainingCount: 0, coveragePercent: 100.1, exceedsTarget: true },
     ],
   );
-  assert.equal(byId.get("weapons")?.items.length, 10);
+  assert.equal(byId.get("weapons")?.items.length, 172);
   assert.equal(byId.get("summons")?.items.length, 122);
   assert.equal(byId.get("characters")?.items.length, 1018);
   assert.equal(JSON.stringify(progress).includes("captures"), false);

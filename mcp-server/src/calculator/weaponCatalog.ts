@@ -63,8 +63,11 @@ const weaponsFileSchema = z
           rarityCode: z.string().min(1),
           seriesId: z.string().min(1).optional(),
           selectionDefaults: z.object({
+            level: z.number().int().positive().optional(),
             uncapLevel: z.number().int().nonnegative().optional(),
             skillLevel: z.number().int().min(1).max(99).optional(),
+            attack: z.number().int().nonnegative().optional(),
+            hp: z.number().int().nonnegative().optional(),
           }).strict().optional(),
           levelStats: levelStatsSchema.optional(),
           skillSlots: z.array(

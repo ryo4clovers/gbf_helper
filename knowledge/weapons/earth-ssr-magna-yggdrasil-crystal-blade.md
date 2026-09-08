@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-magna-yggdrasil-crystal-blade"
 name_jp: "世界樹の晶剣・マグナ"
-name_en: ""
+name_en: "Yggdrasil Crystal Blade Omega"
 weapon_id: "1040002200"
 element: 土
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "剣"
 series: "マグナシリーズ"
 obtain: "マグナ(旧四大天司/六属性)マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv200・5凸・+0。第2スキル(Exスキル)・AUG はドロップ個体/プレイヤー付与の個体固有情報のため本ファイルには記載しない)。英語名は gbf.wiki 未整備。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv200・5凸・+0。第2スキル(Exスキル)・AUG はドロップ個体/プレイヤー付与の個体固有情報のため本ファイルには記載しない)。英語名は gbf.wiki 未整備。数値は未検証。 gbf.wiki「Yggdrasil Crystal Blade Omega」(https://gbf.wiki/Yggdrasil_Crystal_Blade_Omega、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # 世界樹の晶剣・マグナ

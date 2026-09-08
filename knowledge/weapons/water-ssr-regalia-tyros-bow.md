@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-regalia-tyros-bow"
 name_jp: "テュロスボウ"
-name_en: ""
+name_en: "Tyros Bow"
 weapon_id: "1040708300"
 element: 水
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "弓"
 series: "レガリアシリーズ"
 obtain: "マグナII(HL)マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。 gbf.wiki「Tyros Bow」(https://gbf.wiki/Tyros_Bow、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # テュロスボウ

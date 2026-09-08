@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-magna-levian-gaze"
 name_jp: "レヴィアンゲイズ・マグナ"
-name_en: ""
+name_en: "Leviathan Gaze Omega"
 weapon_id: "1040101500"
 element: 水
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "短剣"
 series: "マグナシリーズ"
 obtain: "マグナ(旧四大天司/六属性)マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv1・100・150・200、+0。第2スキル(Exスキル)・AUG はドロップ個体/プレイヤー付与の個体固有情報のため本ファイルには記載しない)。英語名は gbf.wiki 未整備。スキル数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv1・100・150・200、+0。第2スキル(Exスキル)・AUG はドロップ個体/プレイヤー付与の個体固有情報のため本ファイルには記載しない)。英語名は gbf.wiki 未整備。スキル数値は未検証。 gbf.wiki「Leviathan Gaze Omega」(https://gbf.wiki/Leviathan_Gaze_Omega、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # レヴィアンゲイズ・マグナ

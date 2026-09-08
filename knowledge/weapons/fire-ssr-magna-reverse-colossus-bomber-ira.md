@@ -1,7 +1,7 @@
 ---
 id: "fire-ssr-magna-reverse-colossus-bomber-ira"
 name_jp: "コロッサスボンバー・イラ"
-name_en: ""
+name_en: "Colossus Bomber Ira"
 weapon_id: "1040317400"
 element: 火
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "斧"
 series: "マグナ・リバースシリーズ"
 obtain: "マグナIII マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。 gbf.wiki「Colossus Bomber Ira」(https://gbf.wiki/Colossus_Bomber_Ira、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # コロッサスボンバー・イラ

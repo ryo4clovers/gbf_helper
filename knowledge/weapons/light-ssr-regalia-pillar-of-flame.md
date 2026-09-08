@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-regalia-pillar-of-flame"
 name_jp: "炎の柱"
-name_en: ""
+name_en: "Pillar of Flame"
 weapon_id: "1040215200"
 element: 光
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "槍"
 series: "レガリアシリーズ"
 obtain: "マグナII(HL)マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。 gbf.wiki「Pillar of Flame」(https://gbf.wiki/Pillar_of_Flame、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # 炎の柱

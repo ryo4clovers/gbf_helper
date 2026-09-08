@@ -9,8 +9,8 @@ weapon_type: "楽器"
 series: "ドラゴニックウェポン・オリジン"
 obtain: "ショップ(ドラゴニックウェポンを強化して作成)。強化前は「ドラゴニックウェポン」シリーズ"
 status: 下書き
-last_updated: 2026-09-07
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07。既に強化済みのため強化前のドラゴニックウェポン形態は取得不可)。系列情報は GameWith / gbf.wiki(2026-09-07 参照)。数値は未検証、英語名は暫定。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07。既に強化済みのため強化前のドラゴニックウェポン形態は取得不可)。系列情報は GameWith / gbf.wiki(2026-09-07 参照)。数値は未検証、英語名は暫定。 gbf.wiki「Refrain of Blazing Vigor」(https://gbf.wiki/Refrain_of_Blazing_Vigor、2026-09-09参照。同IDの一覧値と実機値に差異あり。強化形態等を要検証)"
 ---
 
 # 雄渾と灼熱の調べ(Draconic Harp (Origin))

@@ -9,8 +9,8 @@ weapon_type: "銃"
 series: "ドラゴニックウェポン・オリジン"
 obtain: "六竜マルチのトレジャーで「ドラゴニックウェポン」を作成 → オリジンへ強化。第2・第3スキルは変更式"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv200・5凸・+0、第2/第3スキルは取得個体の選択)。強化前「ドラゴニックウェポン」は取得不可。数値・英語名は gbf.wiki『Draconic Weapons』(2026-09-08 参照)。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv200・5凸・+0、第2/第3スキルは取得個体の選択)。強化前「ドラゴニックウェポン」は取得不可。数値・英語名は gbf.wiki『Draconic Weapons』(2026-09-08 参照)。数値は未検証。 gbf.wiki「Festering of Mournful Obsequies」(https://gbf.wiki/Festering_of_Mournful_Obsequies、2026-09-09参照。同IDの一覧値と実機値に差異あり。強化形態等を要検証)"
 ---
 
 # 暁闇と葬送の蝕み(Draconic Gun (Origin))

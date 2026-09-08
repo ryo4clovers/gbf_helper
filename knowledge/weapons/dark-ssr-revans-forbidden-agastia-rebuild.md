@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-revans-forbidden-agastia-rebuild"
 name_jp: "フォービドゥンアガスティ・リビルド"
-name_en: ""
+name_en: "Forbidden Agastia Mk II"
 weapon_id: "1040422300"
 element: 闇
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "杖"
 series: "レヴァンスウェポン"
 obtain: "レヴァンス(天上征伐戦: ワムデュス・レヴァンス等)マルチのドロップ / トレジャー交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0、覚醒タイプ 攻撃/特殊/防御 の各個体)。英語名は gbf.wiki『Revans Weapons』(2026-09-08 参照、未整備のため空欄)。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0、覚醒タイプ 攻撃/特殊/防御 の各個体)。英語名は gbf.wiki『Revans Weapons』(2026-09-08 参照、未整備のため空欄)。数値は未検証。 gbf.wiki「Forbidden Agastia Mk II」(https://gbf.wiki/Forbidden_Agastia_Mk_II、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # フォービドゥンアガスティ・リビルド

@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-revans-ryubatsu-goga-saidan"
 name_jp: "竜伐の剛牙・再誕"
-name_en: ""
+name_en: "Fang of the Dragonslayer Mk II"
 weapon_id: "1040117700"
 element: 土
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "短剣"
 series: "レヴァンスウェポン"
 obtain: "レヴァンス(天上征伐戦: ワムデュス・レヴァンス等)マルチのドロップ / トレジャー交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0、覚醒タイプ 攻撃/特殊/防御 の各個体)。英語名は gbf.wiki『Revans Weapons』(2026-09-08 参照、未整備のため空欄)。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0、覚醒タイプ 攻撃/特殊/防御 の各個体)。英語名は gbf.wiki『Revans Weapons』(2026-09-08 参照、未整備のため空欄)。数値は未検証。 gbf.wiki「Fang of the Dragonslayer Mk II」(https://gbf.wiki/Fang_of_the_Dragonslayer_Mk_II、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # 竜伐の剛牙・再誕

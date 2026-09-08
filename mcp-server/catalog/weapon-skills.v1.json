@@ -2,6 +2,40 @@
   "schemaVersion": 1,
   "skills": [
     {
+      "skillId": "1",
+      "name": "火の攻刃",
+      "description": "火属性キャラの攻撃力上昇(小)",
+      "effects": [
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 12,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "既存攻刃30%へ加算し、通常スキル強化4.7倍で表示197%となる差分から確認"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deck.damage_infoの攻刃表示差分から確認",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "skillId": "3",
+      "name": "土の攻刃",
+      "description": "土属性キャラの攻撃力上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-menace-kensei-fukuro-shinai.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "6",
+      "name": "闇の攻刃",
+      "description": "闇属性キャラの攻撃力上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-menace-agonize.md。効果量・計算枠は未検証"
+    },
+    {
       "skillId": "25",
       "name": "紅蓮の攻刃",
       "description": "火属性キャラの攻撃力上昇(大)",
@@ -18,6 +52,72 @@
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoの単体編成表示で確認",
       "confirmedAt": "2026-09-05"
+    },
+    {
+      "skillId": "41",
+      "name": "嵐竜方陣・攻刃II",
+      "description": "風属性キャラの攻撃力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-magna-reverse-tiamat-shot-aura.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "43",
+      "name": "嵐竜方陣・攻刃III",
+      "description": "風属性キャラの攻撃力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-magna-reverse-tiamat-bolt-aura.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "44",
+      "name": "嵐竜方陣・守護II",
+      "description": "風属性キャラの最大HP上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-magna-tiamat-amood.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "64",
+      "name": "海神方陣・攻刃II",
+      "description": "水属性キャラの攻撃力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。SLv15の効果量は未検証",
+      "confirmedAt": "2026-09-08"
+    },
+    {
+      "skillId": "66",
+      "name": "海神方陣・攻刃III",
+      "description": "水属性キャラの攻撃力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。SLv20の効果量は未検証",
+      "confirmedAt": "2026-09-08"
+    },
+    {
+      "skillId": "67",
+      "name": "海神方陣・守護II",
+      "description": "水属性キャラの最大HP上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-magna-levian-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "68",
+      "name": "海神方陣・治癒III",
+      "description": "水属性キャラの回復上限上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-magna-levian-scepter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "71",
+      "name": "創樹方陣・攻刃III",
+      "description": "土属性キャラの攻撃力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-crystal-blade-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
     },
     {
       "skillId": "74",
@@ -38,66 +138,354 @@
       "confirmedAt": "2026-09-05"
     },
     {
-      "skillId": "2025",
-      "name": "オプティマスブースト・ファイア",
-      "description": "スキル「火」「業火」「紅蓮」の効果が30%UP",
-      "effects": [
-        {
-          "kind": "normal-skill-boost",
-          "elementCode": "1",
-          "amountPercent": 30,
-          "skillLevel": 15,
-          "boostGroup": "normal",
-          "targetSkillNamePrefixes": ["火", "業火", "紅蓮"],
-          "note": "今回のSLv15編成で表示された30%を記録"
-        }
-      ],
-      "verificationStatus": "検証済み",
-      "source": "ゲーム内スキル説明とdeck.damage_infoで確認",
-      "confirmedAt": "2026-09-05"
+      "skillId": "78",
+      "name": "光の技巧",
+      "description": "光属性キャラのクリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-malice-seyfert.md。効果量・計算枠は未検証"
     },
     {
-      "skillId": "845",
-      "name": "火の刹那",
-      "description": "火属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
+      "skillId": "80",
+      "name": "業火の技巧",
+      "description": "火属性キャラのクリティカル確率上昇(中)",
       "effects": [
-        {
-          "kind": "normal-attack-up",
-          "elementCode": "1",
-          "amountPercent": 12,
-          "skillLevel": 15,
-          "boostGroup": "normal",
-          "note": "単体18%と同時編成39%から (39 / 1.30) - 18 = 12% を確認"
-        },
         {
           "kind": "critical-rate-up",
           "elementCode": "1",
-          "amountPercent": 3,
+          "amountPercent": 6.5,
           "skillLevel": 15,
           "boostGroup": "normal",
-          "note": "単体3%と同時編成7.8%から (7.8 / 1.30) - 3 = 3% を確認"
+          "note": "既存技巧12.5%相当×通常スキル強化4.7倍=表示58.75%から差分確認"
         }
       ],
       "verificationStatus": "検証済み",
-      "source": "ゲーム内deck.damage_infoでイフリートハルベルト単体編成とオーバーライド同時編成を比較",
-      "confirmedAt": "2026-09-05"
+      "source": "ゲーム内deck.damage_infoのクリティカル表示差分から確認",
+      "confirmedAt": "2026-09-07"
     },
     {
-      "skillId": "2174",
-      "name": "紅蓮の襲刃",
-      "description": "火属性キャラに火属性追撃効果(大)",
+      "skillId": "88",
+      "name": "地裂の技巧",
+      "description": "土属性キャラのクリティカル確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-menace-kensei-fukuro-shinai.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "92",
+      "name": "機炎方陣・攻刃II",
+      "description": "火属性キャラの攻撃力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-regalia-brahman-trident.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "93",
+      "name": "機炎方陣・守護",
+      "description": "火属性キャラの最大HP上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-regalia-brahman-scimitar.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "94",
+      "name": "機炎方陣・攻刃III",
+      "description": "火属性キャラの攻撃力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。SLv20の効果量は未検証",
+      "confirmedAt": "2026-09-08"
+    },
+    {
+      "skillId": "95",
+      "name": "機炎方陣・守護II",
+      "description": "火属性キャラの最大HP上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-magna-colossus-carbine.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "96",
+      "name": "機炎方陣・見切III",
+      "description": "火属性キャラが稀に回避カウンター(ダメージ大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-magna-colossus-fist.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "101",
+      "name": "騎解方陣・攻刃III",
+      "description": "光属性キャラの攻撃力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-magna-chevalier-bolt.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "102",
+      "name": "騎解方陣・守護II",
+      "description": "光属性キャラの最大HP上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-magna-chevalier-bhuj.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "114",
+      "name": "黒霧方陣・攻刃II",
+      "description": "闇属性キャラの攻撃力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-magna-celeste-claw.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "115",
+      "name": "黒霧方陣・守護",
+      "description": "闇属性キャラの最大HP上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-regalia-zechariah.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "116",
+      "name": "黒霧方陣・攻刃III",
+      "description": "闇属性キャラの攻撃力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-magna-celeste-horn.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "117",
+      "name": "黒霧方陣・守護II",
+      "description": "闇属性キャラの最大HP上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-magna-celeste-harp.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "125",
+      "name": "渦潮の背水",
+      "description": "水属性キャラのHPが少ないほど攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-ennead-esna.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "129",
+      "name": "憎悪の背水",
+      "description": "闇属性キャラのHPが少ないほど攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-ennead-bigeh-edfu.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "133",
+      "name": "乱気の背水",
+      "description": "風属性キャラのHPが少ないほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-malice-hatsuoi-ilhal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "235",
+      "name": "先制の炎刃",
+      "description": "バトル開始時から8ターンの間火属性キャラの攻撃力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-ennead-benbenet.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "238",
+      "name": "先制の風刃",
+      "description": "バトル開始時から8ターンの間風属性キャラの攻撃力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-ennead-abu-simbel.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "261",
+      "name": "業火の治癒",
+      "description": "火属性キャラの回復上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-menace-magma-stream.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "277",
+      "name": "先制の白の結界",
+      "description": "バトル開始時、光属性キャラにバリア効果",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-regalia-mithra-gauntlet.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "292",
+      "name": "機炎方陣・背水III",
+      "description": "火属性キャラのHPが少ないほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-magna-colossus-blade.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "293",
+      "name": "海神方陣・技巧III",
+      "description": "水属性キャラのクリティカル確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-magna-levian-spear.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "306",
+      "name": "騎解方陣・神威",
+      "description": "光属性キャラの攻撃力と最大HPが上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-magna-chevalier-sword.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "318",
+      "name": "黒霧方陣・背水",
+      "description": "闇属性キャラのHPが少ないほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-regalia-abyss-striker.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "335",
+      "name": "紅蓮の暴君",
+      "description": "火属性キャラの攻撃力上昇(大)/火属性キャラの最大HP-10%",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内deckレスポンスでスキル名・説明を確認。攻撃力とHPの計算効果は未登録",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "skillId": "366",
+      "name": "水の神威",
+      "description": "水属性キャラの攻撃力と最大HPが上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-nwf-reflection-of-the-moon.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "369",
+      "name": "業火の克己",
+      "description": "火属性キャラのダブルアタック確率上昇(中)/クリティカル確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-limited-benedia.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "375",
+      "name": "火の神威",
+      "description": "火属性キャラの攻撃力と最大HPが上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-nwf-heat-of-the-sun.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "376",
+      "name": "土の神威",
+      "description": "土属性キャラの攻撃力と最大HPが上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-nwf-binds-of-the-hanged-man.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "377",
+      "name": "風の神威",
+      "description": "風属性キャラの攻撃力と最大HPが上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-nwf-melody-of-judgement.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "378",
+      "name": "光の神威",
+      "description": "光属性キャラの攻撃力と最大HPが上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-nwf-shooting-of-the-star.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "379",
+      "name": "闇の神威",
+      "description": "闇属性キャラの攻撃力と最大HPが上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-nwf-pain-of-death.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "396",
+      "name": "紅蓮の三手",
+      "description": "火属性キャラの連続攻撃確率上昇(大)",
       "effects": [
         {
-          "kind": "elemental-pursuit",
+          "kind": "double-attack-rate-up",
           "elementCode": "1",
-          "amountPercent": 4.5,
+          "amountPercent": 7,
           "skillLevel": 15,
           "boostGroup": "normal",
-          "note": "表示5.85%をオプティマスブースト30%で除して推定"
+          "note": "上限到達編成のDA表示71.44%から、三手(大)SLv15の既知効果量と一致"
+        },
+        {
+          "kind": "triple-attack-rate-up",
+          "elementCode": "1",
+          "amountPercent": 7,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "三手(大)SLv15の既知効果量を適用"
         }
       ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deck.damage_infoのDA表示と通常スキル強化合計から確認",
+      "confirmedAt": "2026-09-07"
+    },
+    {
+      "skillId": "421",
+      "name": "渦潮の堅守",
+      "description": "水属性キャラのHPが少ないほど防御力上昇(中)",
+      "effects": [],
       "verificationStatus": "下書き",
-      "source": "ゲーム内表示値と実測追撃からの逆算。基礎効果量は要追加検証"
+      "source": "knowledge/water-ssr-menace-ougi-nuki.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "425",
+      "name": "憎悪の堅守",
+      "description": "闇属性キャラのHPが少ないほど防御力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-malice-majestas.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "426",
+      "name": "紅蓮の堅守",
+      "description": "火属性キャラのHPが少ないほど防御力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-revans-messhin-ken-saidan.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "428",
+      "name": "地裂の堅守",
+      "description": "土属性キャラのHPが少ないほど防御力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-menace-no-face.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "430",
+      "name": "天光の堅守",
+      "description": "光属性キャラのHPが少ないほど防御力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-revans-simmetria-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "502",
+      "name": "紅蓮の渾身",
+      "description": "火属性キャラのHPが多いほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-dark-opus-scythe-normal.md。効果量・計算枠は未検証"
     },
     {
       "skillId": "510",
@@ -142,39 +530,640 @@
       "confirmedAt": "2026-09-07"
     },
     {
-      "skillId": "335",
-      "name": "紅蓮の暴君",
-      "description": "火属性キャラの攻撃力上昇(大)/火属性キャラの最大HP-10%",
+      "skillId": "626",
+      "name": "紅蓮の攻刃III",
+      "description": "火属性キャラの攻撃力上昇(特大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "ゲーム内deckレスポンスでスキル名・説明を確認。攻撃力とHPの計算効果は未登録",
+      "source": "knowledge/fire-ssr-limited-benedia.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "639",
+      "name": "火の秘奥",
+      "description": "火属性キャラの奥義ダメージUP(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内deckレスポンスでスキル名・説明を確認。奥義ダメージ効果は未登録",
       "confirmedAt": "2026-09-07"
     },
     {
-      "skillId": "396",
-      "name": "紅蓮の三手",
-      "description": "火属性キャラの連続攻撃確率上昇(大)",
+      "skillId": "727",
+      "name": "グラディウス・プレナム",
+      "description": "得意武器が「剣」のキャラの攻撃力とHP上昇(大)/HPが多いほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/omega-ssr-sword.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "760",
+      "name": "スカンデレ・アルカヌム",
+      "description": "奥義のダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/omega-ssr-sword.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "765",
+      "name": "渦潮の神威",
+      "description": "水属性キャラの攻撃力と最大HPが上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-menace-ougi-nuki.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "769",
+      "name": "憎悪の神威",
+      "description": "闇属性キャラの攻撃力と最大HPが上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-malice-majestas.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "772",
+      "name": "渦潮の無双",
+      "description": "水属性キャラの攻撃力上昇(中)/ダブルアタック確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-malice-hypnos-kris.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "777",
+      "name": "イクシード・ファイア",
+      "description": "火属性キャラの奥義ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-ennead-lelabad.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "778",
+      "name": "イクシード・ウォータ",
+      "description": "水属性キャラの奥義ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-malice-hypnos-kris.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "779",
+      "name": "イクシード・アース",
+      "description": "土属性キャラの奥義ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-regalia-nibelung-messer.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "780",
+      "name": "イクシード・ウィンド",
+      "description": "風属性キャラの奥義ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-malice-hatsuoi-ilhal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "781",
+      "name": "イクシード・ライト",
+      "description": "光属性キャラの奥義ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-ennead-horakhty.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "845",
+      "name": "火の刹那",
+      "description": "火属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
       "effects": [
         {
-          "kind": "double-attack-rate-up",
+          "kind": "normal-attack-up",
           "elementCode": "1",
-          "amountPercent": 7,
+          "amountPercent": 12,
           "skillLevel": 15,
           "boostGroup": "normal",
-          "note": "上限到達編成のDA表示71.44%から、三手(大)SLv15の既知効果量と一致"
+          "note": "単体18%と同時編成39%から (39 / 1.30) - 18 = 12% を確認"
         },
         {
-          "kind": "triple-attack-rate-up",
+          "kind": "critical-rate-up",
           "elementCode": "1",
-          "amountPercent": 7,
+          "amountPercent": 3,
           "skillLevel": 15,
           "boostGroup": "normal",
-          "note": "三手(大)SLv15の既知効果量を適用"
+          "note": "単体3%と同時編成7.8%から (7.8 / 1.30) - 3 = 3% を確認"
         }
       ],
       "verificationStatus": "検証済み",
-      "source": "ゲーム内deck.damage_infoのDA表示と通常スキル強化合計から確認",
-      "confirmedAt": "2026-09-07"
+      "source": "ゲーム内deck.damage_infoでイフリートハルベルト単体編成とオーバーライド同時編成を比較",
+      "confirmedAt": "2026-09-05"
+    },
+    {
+      "skillId": "917",
+      "name": "竜巻の渾身",
+      "description": "風属性キャラのHPが多いほど攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-menace-black-whirlwind.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "926",
+      "name": "機炎方陣・拳武III",
+      "description": "得意武器が「格闘」の火属性キャラの攻撃力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-regalia-brahman-gauntlet.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "927",
+      "name": "機炎方陣・見切II",
+      "description": "火属性キャラが稀に回避カウンター(ダメージ中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-regalia-brahman-gauntlet.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "928",
+      "name": "機炎方陣・無双II",
+      "description": "火属性キャラの攻撃力上昇(中)/ダブルアタック確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-regalia-brahman-scimitar.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "929",
+      "name": "機炎方陣・破壊",
+      "description": "火属性キャラのトリプルアタック確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-regalia-brahman-trident.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "930",
+      "name": "海神方陣・杖術III",
+      "description": "得意武器が「杖」の水属性キャラの攻撃力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-regalia-tyros-wand.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "931",
+      "name": "海神方陣・乱舞",
+      "description": "水属性キャラの攻撃力上昇(中)/トリプルアタック確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-regalia-tyros-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "932",
+      "name": "海神方陣・必殺II",
+      "description": "水属性キャラの奥義ダメージUP(中)/奥義ダメージ上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。SLv15の効果量は未検証",
+      "confirmedAt": "2026-09-08"
+    },
+    {
+      "skillId": "933",
+      "name": "創樹方陣・渾身II",
+      "description": "土属性キャラのHPが多いほど攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-regalia-nibelung-horn.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "934",
+      "name": "創樹方陣・技巧III",
+      "description": "土属性キャラのクリティカル確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-regalia-nibelung-horn.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "935",
+      "name": "創樹方陣・不可侵",
+      "description": "土属性キャラが稀に回避カウンター(ダメージ小)/最大HP上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-regalia-nibelung-klinge.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "936",
+      "name": "嵐竜方陣・軍神II",
+      "description": "風属性キャラの最大HP上昇(中)/ダブルアタック確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-regalia-last-storm-blade.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "937",
+      "name": "嵐竜方陣・星晶II",
+      "description": "風属性キャラの星晶獣の攻撃力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-regalia-last-storm-blade.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "938",
+      "name": "嵐竜方陣・渾身II",
+      "description": "風属性キャラのHPが多いほど攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-regalia-last-storm-harp.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "939",
+      "name": "嵐竜方陣・技巧III",
+      "description": "風属性キャラのクリティカル確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-regalia-last-storm-harp.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "940",
+      "name": "嵐竜方陣・暴風",
+      "description": "経過ターンに応じて風属性キャラの連続攻撃確率上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-regalia-last-storm-lance.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "941",
+      "name": "騎解方陣・見切II",
+      "description": "光属性キャラが稀に回避カウンター(ダメージ中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-regalia-mithra-gauntlet.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "942",
+      "name": "騎解方陣・刹那",
+      "description": "光属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-regalia-mithra-sword.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "943",
+      "name": "騎解方陣・背水",
+      "description": "光属性キャラのHPが少ないほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-regalia-mithra-sword.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "944",
+      "name": "騎解方陣・渾身II",
+      "description": "光属性キャラのHPが多いほど攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-regalia-mithra-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "945",
+      "name": "騎解方陣・意志II",
+      "description": "光属性キャラが稀に回避カウンター(ダメージ中)/クリティカル確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-regalia-mithra-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "946",
+      "name": "黒霧方陣・括目III",
+      "description": "闇属性キャラが稀に回避カウンター(ダメージ大)/ダブルアタック確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-regalia-abyss-striker.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "947",
+      "name": "黒霧方陣・克己II",
+      "description": "闇属性キャラのダブルアタック確率上昇(中)/クリティカル確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-regalia-abyss-rook.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "948",
+      "name": "黒霧方陣・神威II",
+      "description": "闇属性キャラの攻撃力と最大HPが上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-regalia-abyss-spine.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "949",
+      "name": "黒霧方陣・必殺II",
+      "description": "闇属性キャラの奥義ダメージUP(中)/奥義ダメージ上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-regalia-abyss-spine.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "950",
+      "name": "創樹方陣・背水",
+      "description": "土属性キャラのHPが少ないほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-regalia-gokushinken.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1213",
+      "name": "機炎方陣・渾身III",
+      "description": "火属性キャラのHPが多いほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-regalia-nilakantha.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1214",
+      "name": "海神方陣・渾身III",
+      "description": "水属性キャラのHPが多いほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-magna-reverse-levian-head-mare.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1218",
+      "name": "黒霧方陣・渾身III",
+      "description": "闇属性キャラのHPが多いほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-regalia-zechariah.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1225",
+      "name": "創樹方陣・三手III",
+      "description": "土属性キャラの連続攻撃確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-regalia-gokushinken.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1228",
+      "name": "紅蓮の神威",
+      "description": "火属性キャラの攻撃力と最大HPが上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-draconic-origin-harp.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1229",
+      "name": "霧氷の神威",
+      "description": "水属性キャラの攻撃力と最大HPが上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-draconic-origin-axe.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1230",
+      "name": "地裂の神威",
+      "description": "土属性キャラの攻撃力と最大HPが上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-draconic-origin-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1231",
+      "name": "乱気の神威",
+      "description": "風属性キャラの攻撃力と最大HPが上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-draconic-origin-cane.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1232",
+      "name": "天光の神威",
+      "description": "光属性キャラの攻撃力と最大HPが上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-draconic-origin-katana.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1233",
+      "name": "奈落の神威",
+      "description": "闇属性キャラの攻撃力と最大HPが上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-draconic-origin-gun.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1248",
+      "name": "ミカエルの祝福III",
+      "description": "火属性のキャラが風属性の敵に対して与ダメージUP(実機 comment のまま)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-seraphic-weapon.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1249",
+      "name": "ガブリエルの祝福III",
+      "description": "水属性のキャラが火属性の敵に対して与ダメージUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-seraphic-weapon.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1250",
+      "name": "ウリエルの祝福III",
+      "description": "土属性のキャラが水属性の敵に対して与ダメージUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-seraphic-weapon.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1251",
+      "name": "ラファエルの祝福III",
+      "description": "風属性のキャラが土属性の敵に対して与ダメージUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-seraphic-weapon.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1252",
+      "name": "双子天司の導きIII",
+      "description": "光属性のキャラが闇属性の敵に対して与ダメージUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-seraphic-weapon.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1253",
+      "name": "堕落のすゝめIII",
+      "description": "闇属性のキャラが光属性の敵に対して与ダメージUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-seraphic-weapon.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1275",
+      "name": "双剣の資質(エンブレム枠 / Dual Blade's ―)",
+      "description": "効果量・計算枠は要検証",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-job-chrysaor.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1276",
+      "name": "双剣の賦性(Dual Blade's Nature)",
+      "description": "「アナザーブレードIIの性能UP ◆メイン装備時/主人公のみ」",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-job-chrysaor.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1286",
+      "name": "コバルト・アーツ",
+      "description": "水属性キャラのアビリティダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-ennead-uraeus.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1316",
+      "name": "アンバー・アーツ",
+      "description": "土属性キャラのアビリティダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-ennead-ished.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1352",
+      "name": "業火の進境",
+      "description": "経過ターンに応じて火属性キャラの火属性攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-malice-karadanda.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1355",
+      "name": "竜巻の進境",
+      "description": "経過ターンに応じて風属性キャラの風属性攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-ennead-mandet.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1356",
+      "name": "雷電の進境",
+      "description": "経過ターンに応じて光属性キャラの光属性攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-ennead-harsiesis.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1357",
+      "name": "憎悪の進境",
+      "description": "経過ターンに応じて闇属性キャラの闇属性攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-ennead-abydos.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1452",
+      "name": "黒の結界",
+      "description": "闇属性ダメージ軽減",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-draconic-origin-katana.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1453",
+      "name": "ウィルナスの炎威",
+      "description": "経過ターンに応じて火属性キャラの攻撃力が上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-draconic-origin-harp.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1454",
+      "name": "ワムデュスの水禍",
+      "description": "経過ターンに応じて水属性キャラの攻撃力が上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-draconic-origin-axe.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1455",
+      "name": "ガレヲンの巌迫",
+      "description": "経過ターンに応じて土属性キャラの攻撃力が上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-draconic-origin-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1456",
+      "name": "イーウィヤの劫風",
+      "description": "経過ターンに応じて風属性キャラの攻撃力が上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-draconic-origin-cane.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1457",
+      "name": "ル・オーの威光",
+      "description": "経過ターンに応じて光属性キャラの攻撃力が上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-draconic-origin-katana.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1458",
+      "name": "フェディエルの呪蝕",
+      "description": "経過ターンに応じて闇属性キャラの攻撃力が上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-draconic-origin-gun.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1472",
+      "name": "紅炎の支配者",
+      "description": "火属性キャラの攻撃力上昇(極大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-astral-axe.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1473",
+      "name": "氷霜の支配者",
+      "description": "水属性キャラの攻撃力上昇(極大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-astral-sword.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1474",
+      "name": "花樹の支配者",
+      "description": "土属性キャラの攻撃力上昇(極大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-astral-staff.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1475",
+      "name": "嵐翠の支配者",
+      "description": "風属性キャラの攻撃力上昇(極大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-astral-harp.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1476",
+      "name": "白輝の支配者",
+      "description": "光属性キャラの攻撃力上昇(極大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-astral-spear.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1477",
+      "name": "禍滅の支配者",
+      "description": "闇属性キャラの攻撃力上昇(極大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-astral-fist.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1498",
+      "name": "グリーン・ブロウ",
+      "description": "風属性キャラがトリプルアタック発動時に3回目の攻撃に風属性追撃効果",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-menace-black-whirlwind.md。効果量・計算枠は未検証"
     },
     {
       "skillId": "1506",
@@ -194,49 +1183,1324 @@
       "source": "ゲーム内deckレスポンスでスキル名・説明・75%上限到達を確認。基礎1.2%は要追加検証"
     },
     {
-      "skillId": "639",
-      "name": "火の秘奥",
-      "description": "火属性キャラの奥義ダメージUP(小)",
+      "skillId": "1526",
+      "name": "アストラル・ブローII",
+      "description": "火属性キャラがトリプルアタック発動時に火属性追撃効果",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "ゲーム内deckレスポンスでスキル名・説明を確認。奥義ダメージ効果は未登録",
-      "confirmedAt": "2026-09-07"
+      "source": "knowledge/fire-ssr-astral-axe.md。効果量・計算枠は未検証"
     },
     {
-      "skillId": "80",
-      "name": "業火の技巧",
-      "description": "火属性キャラのクリティカル確率上昇(中)",
+      "skillId": "1527",
+      "name": "アストラル・スラストII",
+      "description": "水属性キャラが弱体効果が5個以上付与された敵に対して通常攻撃ダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-astral-sword.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1528",
+      "name": "アストラル・アーツII",
+      "description": "土属性キャラが強化効果の数に応じて、アビリティダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-astral-staff.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1529",
+      "name": "アストラル・エコーII",
+      "description": "風属性キャラが強化効果の数に応じて通常攻撃ダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-astral-harp.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1530",
+      "name": "アストラル・ピアースII",
+      "description": "光属性キャラのHPが多いほどアビリティダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-astral-spear.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1531",
+      "name": "アストラル・クローII",
+      "description": "闇属性キャラが連続攻撃発動時に通常攻撃ダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-astral-fist.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1545",
+      "name": "炎威の背水",
+      "description": "火属性キャラのHPが少ないほど攻撃力が上昇(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-ancestral-wilnas-finger.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1546",
+      "name": "朱の誓約",
+      "description": "火属性キャラのHPが少ないほど与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-ancestral-wilnas-finger.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1547",
+      "name": "水禍の技巧",
+      "description": "水属性キャラのクリティカル確率上昇(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-ancestral-wamdus-naidaria.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1548",
+      "name": "碧の誓約",
+      "description": "水属性キャラがクリティカル発動時に与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-ancestral-wamdus-naidaria.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1549",
+      "name": "巌迫の秘奥",
+      "description": "土属性キャラの奥義ダメージUP(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-ancestral-galleon-jaw.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1550",
+      "name": "金の誓約",
+      "description": "土属性キャラの奥義の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-ancestral-galleon-jaw.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1551",
+      "name": "劫風の攻刃",
+      "description": "風属性キャラの攻撃力上昇(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-ancestral-ewiyar-beak.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1552",
+      "name": "翠の誓約",
+      "description": "風属性キャラのアビリティの与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-ancestral-ewiyar-beak.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1553",
+      "name": "威光の三手",
+      "description": "光属性キャラの連続攻撃確率上昇(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-ancestral-lu-woh-horn.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1554",
+      "name": "白の誓約",
+      "description": "光属性キャラが通常攻撃の2ヒット目、3ヒット目、4ヒット目それぞれの与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-ancestral-lu-woh-horn.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1555",
+      "name": "呪蝕の渾身",
+      "description": "闇属性キャラのHPが多いほど攻撃力が上昇(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-ancestral-fediel-spine.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1556",
+      "name": "黒の誓約",
+      "description": "闇属性キャラのHPが多いほど奥義の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-ancestral-fediel-spine.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1557",
+      "name": "修めし僧兵の賦性",
+      "description": "「修験の構えの性能UP ◆メイン装備時」",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-job-monk.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1558",
+      "name": "修めし僧兵の極み",
+      "description": "「武芸百般のダメージ回数UP ◆メイン装備時」",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-job-monk.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1571",
+      "name": "海神方陣・刹那",
+      "description": "水属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-regalia-spirit-of-mana.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1572",
+      "name": "海神方陣・背水II",
+      "description": "水属性キャラのHPが少ないほど攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-regalia-spirit-of-mana.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1573",
+      "name": "嵐竜方陣・神威",
+      "description": "風属性キャラの攻撃力と最大HPが上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-regalia-kiragosensen.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1574",
+      "name": "嵐竜方陣・克己II",
+      "description": "風属性キャラのダブルアタック確率上昇(中)/クリティカル確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-regalia-kiragosensen.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1575",
+      "name": "騎解方陣・技巧III",
+      "description": "光属性キャラのクリティカル確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-regalia-pillar-of-flame.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1656",
+      "name": "スカーレット・クラフト",
+      "description": "火属性キャラがクリティカル発動時に与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-revans-messhin-ken-saidan.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1660",
+      "name": "ゴールデン・クラフト",
+      "description": "光属性キャラがクリティカル発動時に与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-malice-seyfert.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1684",
+      "name": "焔の極意",
+      "description": "火属性キャラの奥義の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-ennead-lelabad.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1685",
+      "name": "雪の極意",
+      "description": "水属性キャラの奥義の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-malice-columba.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1688",
+      "name": "煌の極意",
+      "description": "光属性キャラの奥義の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-ennead-horakhty.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1697",
+      "name": "ボルテージ・オブ・ボウ",
+      "description": "装備している「弓」の数が多いほど攻撃力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-malice-columba.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1726",
+      "name": "虚偽と詐術",
+      "description": "自属性追撃効果/奥義ゲージ上昇量大幅DOWN",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-dark-opus-katana-magna.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1738",
+      "name": "創樹方陣・英傑III",
+      "description": "土属性キャラの奥義性能UP(大)/チェインバースト性能UP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-trunk-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1747",
+      "name": "煉の妙技",
+      "description": "闇属性キャラのアビリティの与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-menace-agonize.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1749",
+      "name": "雪の剛毅",
+      "description": "水属性キャラのHPが少ないほど与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-ennead-esna.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1750",
+      "name": "界の剛毅",
+      "description": "土属性キャラのHPが少ないほど与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-ennead-ta-senen.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1751",
+      "name": "凪の剛毅",
+      "description": "風属性キャラのHPが少ないほど与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-ennead-abu-simbel.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1810",
+      "name": "フルゴル・エーラーティオ",
+      "description": "奥義ゲージ上昇量UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/omega-ssr-sword.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1814",
+      "name": "焔の果断",
+      "description": "火属性キャラのHPが多いほど与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-ennead-benbenet.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1816",
+      "name": "界の果断",
+      "description": "土属性キャラのHPが多いほど与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-ennead-ished.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1817",
+      "name": "凪の果断",
+      "description": "風属性キャラのHPが多いほど与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-ennead-mandet.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1818",
+      "name": "煌の果断",
+      "description": "光属性キャラのHPが多いほど与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-ennead-harsiesis.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1819",
+      "name": "煉の果断",
+      "description": "闇属性キャラのHPが多いほど与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-ennead-abydos.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1826",
+      "name": "煉の洗礼",
+      "description": "闇属性キャラのHPが少ないほど奥義の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-ennead-bigeh-edfu.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1827",
+      "name": "女帝と正義の善意",
+      "description": "水属性キャラの攻撃力上昇(特大)/敵の強化効果を無効化するアビリティを使用時にHP回復",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-nwf-rise-of-justice.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1828",
+      "name": "恋人と死の終焉",
+      "description": "闇属性キャラの攻撃力上昇(特大)/味方が戦闘不能になるたびに闇属性キャラの攻防UP(累積)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-nwf-pain-of-death.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1829",
+      "name": "愚者と刑死者の忍耐",
+      "description": "土属性キャラの攻撃力上昇(特大)/ターン終了時、強化効果が12個以上ある土属性キャラのHP回復",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-nwf-binds-of-the-hanged-man.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1830",
+      "name": "魔術師と塔の天災",
+      "description": "土属性キャラの攻撃力上昇(特大)/主人公が3ターン毎に敵全体に土属性ダメージ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-nwf-collapse-of-the-tower.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1831",
+      "name": "隠者と節制の調和",
+      "description": "風属性キャラの攻撃力上昇(特大)/攻撃行動を行わなかった風属性キャラに攻撃大幅UP(1回)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-nwf-theater-of-temperance.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1832",
+      "name": "戦車と星の希望",
+      "description": "光属性キャラの攻撃力上昇(特大)/天来効果が付与されている光属性キャラに追撃効果",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-nwf-shooting-of-the-star.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1833",
+      "name": "力と悪魔の誘惑",
+      "description": "火属性キャラの攻撃力上昇(特大)/赤熱が付与されている敵に対して与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-nwf-kiss-of-the-devil.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1834",
+      "name": "女教皇と月の幻惑",
+      "description": "水属性キャラの攻撃力上昇(特大)/月が満ちた水属性キャラの攻撃性能UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-nwf-reflection-of-the-moon.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1835",
+      "name": "皇帝と審判の覚醒",
+      "description": "風属性キャラの攻撃力上昇(特大)/風属性キャラが毎ターンHPを消費するが土属性ダメージ軽減",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-nwf-melody-of-judgement.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1836",
+      "name": "教皇と太陽の祝福",
+      "description": "火属性キャラの攻撃力上昇(特大)/再攻撃効果が付与されている火属性キャラに吸収効果",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-nwf-heat-of-the-sun.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1852",
+      "name": "界の奮迅",
+      "description": "土属性キャラのHPが少ないほど連続攻撃確率上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-ennead-ta-senen.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1857",
+      "name": "雪の邁進",
+      "description": "水属性キャラのHPが多いほど連続攻撃確率上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-ennead-uraeus.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1869",
+      "name": "雪の慈雨",
+      "description": "水属性キャラのHPが多いほど奥義の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-revans-schrodinger-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1875",
+      "name": "雪の雄飛",
+      "description": "水属性キャラの奥義ダメージ特殊上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-revans-schrodinger-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1881",
+      "name": "レイジ・オブ・ブレイド",
+      "description": "装備している「刀」の数が多いほど攻撃力/最大HP/連続攻撃確率上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-revans-schrodinger-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1947",
+      "name": "創樹方陣・呪印III",
+      "description": "土属性キャラの攻撃力上昇(大)/毎ターンダメージを受ける",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-revans-ryubatsu-goga-saidan.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1957",
+      "name": "セフィラマキシ・ファイア",
+      "description": "火属性キャラのダメージ上限UP / ◆アーカルムの転世でさらにダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-nwf-heat-of-the-sun.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1958",
+      "name": "セフィラマキシ・ウォータ",
+      "description": "水属性キャラのダメージ上限UP / ◆アーカルムの転世でさらにダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-nwf-reflection-of-the-moon.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1959",
+      "name": "セフィラマキシ・アース",
+      "description": "土属性キャラのダメージ上限UP / ◆アーカルムの転世でさらにダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-nwf-binds-of-the-hanged-man.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1960",
+      "name": "セフィラマキシ・ウィンド",
+      "description": "風属性キャラのダメージ上限UP / ◆アーカルムの転世でさらにダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-nwf-melody-of-judgement.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1961",
+      "name": "セフィラマキシ・ライト",
+      "description": "光属性キャラのダメージ上限UP / ◆アーカルムの転世でさらにダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-nwf-shooting-of-the-star.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1962",
+      "name": "セフィラマキシ・ダーク",
+      "description": "闇属性キャラのダメージ上限UP / ◆アーカルムの転世でさらにダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-nwf-pain-of-death.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1977",
+      "name": "嵐竜方陣・修羅III",
+      "description": "風属性キャラの攻撃力上昇(大)/バトル開始時に最大HPの20%のダメージ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-magna-reverse-tiamat-shot-aura.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1979",
+      "name": "黒霧方陣・修羅III",
+      "description": "闇属性キャラの攻撃力上昇(大)/バトル開始時に最大HPの20%のダメージ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-revans-forbidden-agastia-rebuild.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1993",
+      "name": "レイジ・オブ・ソード",
+      "description": "装備している「剣」の数が多いほど攻撃力/最大HP/連続攻撃確率上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-revans-sette-di-spada-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1994",
+      "name": "チャージ・オブ・ソード",
+      "description": "装備している「剣」の数が多いほど奥義ダメージ/奥義ダメージ上限/奥義ダメージ特殊上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-revans-sette-di-spada-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2010",
+      "name": "光の技錬",
+      "description": "光属性キャラのアビリティダメージ上限UP(小)/アビリティの与ダメージ上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-revans-simmetria-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2012",
+      "name": "業火の技錬",
+      "description": "火属性キャラのアビリティダメージ上限UP(中)/アビリティの与ダメージ上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-menace-magma-stream.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2025",
+      "name": "オプティマスブースト・ファイア",
+      "description": "スキル「火」「業火」「紅蓮」の効果が30%UP",
       "effects": [
         {
-          "kind": "critical-rate-up",
+          "kind": "normal-skill-boost",
           "elementCode": "1",
-          "amountPercent": 6.5,
+          "amountPercent": 30,
           "skillLevel": 15,
           "boostGroup": "normal",
-          "note": "既存技巧12.5%相当×通常スキル強化4.7倍=表示58.75%から差分確認"
+          "targetSkillNamePrefixes": [
+            "火",
+            "業火",
+            "紅蓮"
+          ],
+          "note": "今回のSLv15編成で表示された30%を記録"
         }
       ],
       "verificationStatus": "検証済み",
-      "source": "ゲーム内deck.damage_infoのクリティカル表示差分から確認",
-      "confirmedAt": "2026-09-07"
+      "source": "ゲーム内スキル説明とdeck.damage_infoで確認",
+      "confirmedAt": "2026-09-05"
     },
     {
-      "skillId": "1",
-      "name": "火の攻刃",
+      "skillId": "2049",
+      "name": "朱の威烈",
+      "description": "火属性のキャラが無属性の敵に対して与ダメージUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-draconic-origin-harp.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2050",
+      "name": "碧の威烈",
+      "description": "水属性のキャラが無属性の敵に対して与ダメージUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-draconic-origin-axe.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2051",
+      "name": "金の威烈",
+      "description": "土属性のキャラが無属性の敵に対して与ダメージUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-draconic-origin-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2052",
+      "name": "翠の威烈",
+      "description": "風属性のキャラが無属性の敵に対して与ダメージUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-draconic-origin-cane.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2054",
+      "name": "黒の威烈",
+      "description": "闇属性のキャラが無属性の敵に対して与ダメージUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-draconic-origin-gun.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2103",
+      "name": "スカーレット・インフォース",
+      "description": "火属性キャラの攻撃力と防御力が上昇 / ◆スキル「機炎方陣」または「終炎禁呪」または「火」「業火」「紅蓮」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-revans-hitsumetsu-yumi-saidan.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2104",
+      "name": "コバルト・インフォース",
+      "description": "水属性キャラの攻撃力と防御力が上昇 / ◆スキル「海神方陣」または「怪水禁呪」または「水」「渦潮」「霧氷」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-revans-lagrange-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2105",
+      "name": "アンバー・インフォース",
+      "description": "土属性キャラの攻撃力と防御力が上昇 / ◆スキル「創樹方陣」または「餓金禁呪」または「土」「大地」「地裂」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-revans-ryubatsu-gekiso-saidan.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2106",
+      "name": "ジェイド・インフォース",
+      "description": "風属性キャラの攻撃力と防御力が上昇 / ◆スキル「嵐竜方陣」または「畏風禁呪」または「風」「竜巻」「乱気」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-revans-viento-di-spada-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2107",
+      "name": "ゴールデン・インフォース",
+      "description": "光属性キャラの攻撃力と防御力が上昇 / ◆スキル「騎解方陣」または「喪爛禁呪」または「光」「雷電」「天光」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-revans-concordia-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2108",
+      "name": "グラファイト・インフォース",
+      "description": "闇属性キャラの攻撃力と防御力が上昇 / ◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-revans-forsaken-agastia-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2145",
+      "name": "アーツストライク・ファイア",
+      "description": "火属性キャラのアビリティダメージ上限上昇/通常攻撃ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-revans-hitsumetsu-yumi-saidan.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2147",
+      "name": "アーツストライク・アース",
+      "description": "土属性キャラのアビリティダメージ上限上昇/通常攻撃ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-revans-ryubatsu-gekiso-saidan.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2152",
+      "name": "イクシードアーツ・ウォータ",
+      "description": "水属性キャラのアビリティダメージ上限上昇/奥義ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-revans-lagrange-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2154",
+      "name": "イクシードアーツ・ウィンド",
+      "description": "風属性キャラのアビリティダメージ上限上昇/奥義ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-revans-viento-di-spada-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2161",
+      "name": "イクシードストライク・ライト",
+      "description": "光属性キャラの奥義ダメージ上限上昇/通常攻撃ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-revans-concordia-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2162",
+      "name": "イクシードストライク・ダーク",
+      "description": "闇属性キャラの奥義ダメージ上限上昇/通常攻撃ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-revans-forsaken-agastia-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2174",
+      "name": "紅蓮の襲刃",
+      "description": "火属性キャラに火属性追撃効果(大)",
+      "effects": [
+        {
+          "kind": "elemental-pursuit",
+          "elementCode": "1",
+          "amountPercent": 4.5,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "表示5.85%をオプティマスブースト30%で除して推定"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内表示値と実測追撃からの逆算。基礎効果量は要追加検証"
+    },
+    {
+      "skillId": "2192",
+      "name": "紅蓮の神醒(通常版)",
+      "description": "火属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-dark-opus-scythe-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2193",
+      "name": "霧氷の神醒",
+      "description": "水属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-dark-opus-cane-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2194",
+      "name": "地裂の神醒",
+      "description": "土属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-dark-opus-harp-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2195",
+      "name": "乱気の神醒",
+      "description": "風属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-dark-opus-spear-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2196",
+      "name": "天光の神醒",
+      "description": "光属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-dark-opus-sword-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2197",
+      "name": "奈落の神醒",
+      "description": "闇属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-dark-opus-katana-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2198",
+      "name": "機炎方陣・神醒III(方陣版)",
+      "description": "火属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-dark-opus-scythe-magna.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2199",
+      "name": "海神方陣・神醒III",
+      "description": "水属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-dark-opus-cane-magna.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2200",
+      "name": "創樹方陣・神醒III",
+      "description": "土属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-dark-opus-harp-magna.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2201",
+      "name": "嵐竜方陣・神醒III",
+      "description": "風属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-dark-opus-spear-magna.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2202",
+      "name": "騎解方陣・神醒III",
+      "description": "光属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-dark-opus-sword-magna.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2203",
+      "name": "黒霧方陣・神醒III",
+      "description": "闇属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-dark-opus-katana-magna.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2208",
+      "name": "アルファ・リベレイション・ルベルII",
+      "description": "通常攻撃のダメージ上限上昇/連続攻撃確率上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-dark-opus-sword-magna.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2209",
+      "name": "ベータ・リベレイション・アルブスII",
+      "description": "アビリティのダメージ上限上昇/アビリティ命中確率上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-dark-opus-katana-magna.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2213",
+      "name": "神水の極破",
+      "description": "水属性キャラの攻撃力上昇/ダメージ上限上昇/連続攻撃確率上昇/通常攻撃の与ダメージUP / ◆スキル「海神方陣」または「怪水禁呪」または「水」「渦潮」「霧氷」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-dark-opus-cane-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2214",
+      "name": "神土の極破",
+      "description": "土属性キャラの攻撃力上昇/ダメージ上限上昇/連続攻撃確率上昇/通常攻撃の与ダメージUP / ◆スキル「創樹方陣」または「餓金禁呪」または「土」「大地」「地裂」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-dark-opus-harp-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2215",
+      "name": "神風の極破",
+      "description": "風属性キャラの攻撃力上昇/ダメージ上限上昇/連続攻撃確率上昇/通常攻撃の与ダメージUP / ◆スキル「嵐竜方陣」または「畏風禁呪」または「風」「竜巻」「乱気」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-dark-opus-spear-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2228",
+      "name": "神光の極技",
+      "description": "光属性キャラの攻撃力上昇/ダメージ上限上昇/アビリティダメージ上限上昇/アビリティの与ダメージUP / ◆スキル「騎解方陣」または「喪爛禁呪」または「光」「雷電」「天光」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-dark-opus-sword-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2229",
+      "name": "神闇の極技",
+      "description": "闇属性キャラの攻撃力上昇/ダメージ上限上昇/アビリティダメージ上限上昇/アビリティの与ダメージUP / ◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-dark-opus-katana-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2292",
+      "name": "マグナブースト・ファイア",
+      "description": "スキル「機炎方陣」の効果が20%UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-magna-reverse-colossus-cane-ira.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2293",
+      "name": "マグナブースト・ウォータ",
+      "description": "スキル「海神方陣」の効果が20%UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-magna-reverse-levian-gaze-mare.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2294",
+      "name": "マグナブースト・アース",
+      "description": "スキル「創樹方陣」の効果が20%UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-crystal-blade-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2295",
+      "name": "マグナブースト・ウィンド",
+      "description": "スキル「嵐竜方陣」の効果が20%UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-magna-reverse-tiamat-bolt-aura.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2296",
+      "name": "マグナブースト・ライト",
+      "description": "スキル「騎解方陣」の効果が20%UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-magna-reverse-chevalier-bolt-credo.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2297",
+      "name": "マグナブースト・ダーク",
+      "description": "スキル「黒霧方陣」の効果が20%UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-magna-reverse-celeste-grace-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2299",
+      "name": "機炎の星醒",
+      "description": "装備している「機炎方陣」がつくスキルを持った武器の数が多いほど攻撃力/ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-magna-reverse-colossus-cane-ira.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2300",
+      "name": "海神の星醒",
+      "description": "装備している「海神方陣」がつくスキルを持った武器の数が多いほど攻撃力/ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-magna-reverse-levian-gaze-mare.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2301",
+      "name": "創樹の星醒",
+      "description": "装備している「創樹方陣」がつくスキルを持った武器の数が多いほど攻撃力/ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-crystal-blade-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2302",
+      "name": "嵐竜の星醒",
+      "description": "装備している「嵐竜方陣」がつくスキルを持った武器の数が多いほど攻撃力/ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-magna-reverse-tiamat-bolt-aura.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2303",
+      "name": "騎解の星醒",
+      "description": "装備している「騎解方陣」がつくスキルを持った武器の数が多いほど攻撃力/ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-magna-reverse-chevalier-bolt-credo.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2304",
+      "name": "黒霧の星醒",
+      "description": "装備している「黒霧方陣」がつくスキルを持った武器の数が多いほど攻撃力/ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-magna-reverse-celeste-grace-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2309",
+      "name": "騎解方陣・乱舞III",
+      "description": "光属性キャラの攻撃力上昇(大)/トリプルアタック確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-magna-reverse-chevalier-saber-credo.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2315",
+      "name": "騎解方陣・三手",
+      "description": "光属性キャラの連続攻撃確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-magna-reverse-chevalier-saber-credo.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2321",
+      "name": "騎解方陣・冥護II",
+      "description": "光属性キャラの最大HP上昇(中)/回復上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-magna-reverse-chevalier-lance-credo.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2325",
+      "name": "創樹方陣・堅守II",
+      "description": "土属性キャラのHPが少ないほど防御力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-string-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2327",
+      "name": "騎解方陣・堅守II",
+      "description": "光属性キャラのHPが少ないほど防御力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-magna-reverse-chevalier-lance-credo.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2328",
+      "name": "黒霧方陣・堅守II",
+      "description": "闇属性キャラのHPが少ないほど防御力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-magna-reverse-celeste-dagger-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2332",
+      "name": "嵐竜方陣・堅守",
+      "description": "風属性キャラのHPが少ないほど防御力上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-magna-reverse-tiamat-edge-aura.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2335",
+      "name": "機炎方陣・技錬III",
+      "description": "火属性キャラのアビリティダメージ上限UP(大)/アビリティの与ダメージ上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-magna-reverse-colossus-bomber-ira.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2338",
+      "name": "嵐竜方陣・技錬III",
+      "description": "風属性キャラのアビリティダメージ上限UP(大)/アビリティの与ダメージ上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-magna-reverse-tiamat-edge-aura.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2340",
+      "name": "黒霧方陣・技錬III",
+      "description": "闇属性キャラのアビリティダメージ上限UP(大)/アビリティの与ダメージ上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-magna-reverse-celeste-saber-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2367",
+      "name": "機炎方陣・攻刃",
       "description": "火属性キャラの攻撃力上昇(小)",
-      "effects": [
-        {
-          "kind": "normal-attack-up",
-          "elementCode": "1",
-          "amountPercent": 12,
-          "skillLevel": 15,
-          "boostGroup": "normal",
-          "note": "既存攻刃30%へ加算し、通常スキル強化4.7倍で表示197%となる差分から確認"
-        }
-      ],
-      "verificationStatus": "検証済み",
-      "source": "ゲーム内deck.damage_infoの攻刃表示差分から確認",
-      "confirmedAt": "2026-09-07"
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-magna-reverse-colossus-bomber-ira.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2373",
+      "name": "機炎方陣・治癒III",
+      "description": "火属性キャラの回復上限上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-magna-reverse-colossus-buster-ira.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2378",
+      "name": "機炎方陣・恩寵",
+      "description": "火属性キャラの最大HP上昇(小)/弱体耐性UP(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-magna-reverse-colossus-buster-ira.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2389",
+      "name": "黒霧方陣・天賦II",
+      "description": "闇属性キャラのクリティカル確率上昇(中)/回復上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-magna-reverse-celeste-dagger-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2409",
+      "name": "黒霧方陣・技巧",
+      "description": "闇属性キャラのクリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-magna-reverse-celeste-saber-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2430",
+      "name": "海神方陣・鋭鋒",
+      "description": "水属性キャラのトリプルアタック確率上昇(小)/クリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-magna-reverse-levian-head-mare.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2436",
+      "name": "海神方陣・鼓舞II",
+      "description": "水属性キャラの最大HP上昇(中)/トリプルアタック確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-magna-reverse-levian-blade-mare.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2444",
+      "name": "海神方陣・治癒II",
+      "description": "水属性キャラの回復上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-magna-reverse-levian-blade-mare.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2455",
+      "name": "創樹方陣・聡慧II",
+      "description": "土属性キャラのトリプルアタック確率上昇(中)/回復上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-string-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2461",
+      "name": "創樹方陣・克己",
+      "description": "土属性キャラのダブルアタック確率上昇(小)/クリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-trunk-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2588",
+      "name": "復讐者の巧匠",
+      "description": "「血の誓印効果中、トリプルアタック発動時に敵に自属性ダメージ ◆メイン装備時」",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-job-boogeyman.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2589",
+      "name": "復讐者の矜持",
+      "description": "「コンチネンタル・テーラーの使用間隔が7ターンに変化 ◆メイン装備時/主人公のみ」",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-job-boogeyman.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2590",
+      "name": "復讐者の才賢",
+      "description": "「セイスヘイヴンの性能UP(敵全体に弱体耐性DOWN/命中率DOWN追加) ◆メイン装備時/主人公のみ」",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-job-boogeyman.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2620",
+      "name": "破壊の神刃III",
+      "description": "火属性キャラの攻撃力上昇(特大)/破壊属性追撃効果(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-versacia-sword.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2623",
+      "name": "破壊の神刃III",
+      "description": "水属性キャラの攻撃力上昇(特大)/破壊属性追撃効果(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-versacia-dagger.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2626",
+      "name": "破壊の神刃III",
+      "description": "土属性キャラの攻撃力上昇(特大)/破壊属性追撃効果(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-versacia-spear.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2628",
+      "name": "破壊の神刃II",
+      "description": "風属性キャラの攻撃力上昇(大)/破壊属性追撃効果(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-versacia-fist.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2631",
+      "name": "破壊の神刃II",
+      "description": "光属性キャラの攻撃力上昇(大)/破壊属性追撃効果(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-versacia-bow.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2635",
+      "name": "破壊の神刃III",
+      "description": "闇属性キャラの攻撃力上昇(特大)/破壊属性追撃効果(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-versacia-harp.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2638",
+      "name": "再生の神守III",
+      "description": "火属性キャラの最大HP上昇(特大)/破壊属性奥義追撃効果(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-versacia-sword.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2641",
+      "name": "再生の神守III",
+      "description": "水属性キャラの最大HP上昇(特大)/破壊属性奥義追撃効果(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-versacia-dagger.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2644",
+      "name": "再生の神守III",
+      "description": "土属性キャラの最大HP上昇(特大)/破壊属性奥義追撃効果(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-versacia-spear.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2646",
+      "name": "再生の神守II",
+      "description": "風属性キャラの最大HP上昇(大)/破壊属性奥義追撃効果(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/wind-ssr-versacia-fist.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2649",
+      "name": "再生の神守II",
+      "description": "光属性キャラの最大HP上昇(大)/破壊属性奥義追撃効果(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-versacia-bow.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2653",
+      "name": "再生の神守III",
+      "description": "闇属性キャラの最大HP上昇(特大)/破壊属性奥義追撃効果(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-versacia-harp.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2654",
+      "name": "闘争の輪廻",
+      "description": "闘争を廻る神意の象徴。アンクレットによって力を得る。",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/light-ssr-versacia-bow.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2656",
+      "name": "闘争の神撃II",
+      "description": "火属性キャラの通常攻撃ダメージ上限UP/通常攻撃の与ダメージ上昇/有利な属性の敵に対して与ダメージUP/風属性ダメージ軽減",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-versacia-sword.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2658",
+      "name": "闘争の神撃II",
+      "description": "水属性キャラの通常攻撃ダメージ上限UP/通常攻撃の与ダメージ上昇/有利な属性の敵に対して与ダメージUP/火属性ダメージ軽減 ◆スキル「海神方陣」または「怪水禁呪」または「水」「渦潮」「霧氷」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/water-ssr-versacia-dagger.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2660",
+      "name": "闘争の神撃II",
+      "description": "土属性キャラの通常攻撃ダメージ上限UP/通常攻撃の与ダメージ上昇/有利な属性の敵に対して与ダメージUP/水属性ダメージ軽減 ◆スキル「創樹方陣」または「餓金禁呪」または「土」「大地」「地裂」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/earth-ssr-versacia-spear.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2666",
+      "name": "闘争の神撃II",
+      "description": "闇属性キャラの通常攻撃ダメージ上限UP/通常攻撃の与ダメージ上昇/有利な属性の敵に対して与ダメージUP/光属性ダメージ軽減 ◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "knowledge/dark-ssr-versacia-harp.md。効果量・計算枠は未検証"
     },
     {
       "skillId": "2801",
@@ -254,42 +2518,6 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。効果量は未検証",
-      "confirmedAt": "2026-09-08"
-    },
-    {
-      "skillId": "94",
-      "name": "機炎方陣・攻刃III",
-      "description": "火属性キャラの攻撃力上昇(大)",
-      "effects": [],
-      "verificationStatus": "下書き",
-      "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。SLv20の効果量は未検証",
-      "confirmedAt": "2026-09-08"
-    },
-    {
-      "skillId": "66",
-      "name": "海神方陣・攻刃III",
-      "description": "水属性キャラの攻撃力上昇(大)",
-      "effects": [],
-      "verificationStatus": "下書き",
-      "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。SLv20の効果量は未検証",
-      "confirmedAt": "2026-09-08"
-    },
-    {
-      "skillId": "64",
-      "name": "海神方陣・攻刃II",
-      "description": "水属性キャラの攻撃力上昇(中)",
-      "effects": [],
-      "verificationStatus": "下書き",
-      "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。SLv15の効果量は未検証",
-      "confirmedAt": "2026-09-08"
-    },
-    {
-      "skillId": "932",
-      "name": "海神方陣・必殺II",
-      "description": "水属性キャラの奥義ダメージUP(中)/奥義ダメージ上限上昇(中)",
-      "effects": [],
-      "verificationStatus": "下書き",
-      "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。SLv15の効果量は未検証",
       "confirmedAt": "2026-09-08"
     }
   ]

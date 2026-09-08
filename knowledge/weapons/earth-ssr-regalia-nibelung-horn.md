@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-regalia-nibelung-horn"
 name_jp: "ニーベルン・ホルン"
-name_en: ""
+name_en: "Nibelung Horn"
 weapon_id: "1040309300"
 element: 土
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "斧"
 series: "レガリアシリーズ"
 obtain: "マグナII(HL)マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。 gbf.wiki「Nibelung Horn」(https://gbf.wiki/Nibelung_Horn、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # ニーベルン・ホルン

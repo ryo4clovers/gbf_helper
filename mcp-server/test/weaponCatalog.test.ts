@@ -5,8 +5,8 @@ import { loadIncrementalWeaponCatalog } from "../src/calculator/weaponCatalog.ts
 test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
-  assert.equal(catalog.weapons.size, 10);
-  assert.equal(catalog.skills.size, 18);
+  assert.equal(catalog.weapons.size, 172);
+  assert.equal(catalog.skills.size, 296);
   assert.deepEqual(catalog.weapons.get("1040201400")?.skillSlots, [
     { sourceKey: "skill1", skillId: "25" },
     { sourceKey: "skill2", skillId: "74" },

@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-magna-chevalier-bhuj"
 name_jp: "シュヴァリエブージ・マグナ"
-name_en: ""
+name_en: "Luminiera Bhuj Omega"
 weapon_id: "1040301100"
 element: 光
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "斧"
 series: "マグナシリーズ"
 obtain: "マグナ(旧四大天司/六属性)マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv200・5凸・+0。第2スキル(Exスキル)・AUG はドロップ個体/プレイヤー付与の個体固有情報のため本ファイルには記載しない)。英語名は gbf.wiki 未整備。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv200・5凸・+0。第2スキル(Exスキル)・AUG はドロップ個体/プレイヤー付与の個体固有情報のため本ファイルには記載しない)。英語名は gbf.wiki 未整備。数値は未検証。 gbf.wiki「Luminiera Bhuj Omega」(https://gbf.wiki/Luminiera_Bhuj_Omega、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # シュヴァリエブージ・マグナ

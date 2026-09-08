@@ -1,7 +1,7 @@
 ---
 id: "fire-ssr-magna-reverse-colossus-buster-ira"
 name_jp: "コロッサスバスター・イラ"
-name_en: ""
+name_en: "Colossus Buster Ira"
 weapon_id: "1040026100"
 element: 火
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "剣"
 series: "マグナ・リバースシリーズ"
 obtain: "マグナIII マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv150・4凸・+0)。英語名は gbf.wiki 未整備。数値は未検証。 gbf.wiki「Colossus Buster Ira」(https://gbf.wiki/Colossus_Buster_Ira、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # コロッサスバスター・イラ

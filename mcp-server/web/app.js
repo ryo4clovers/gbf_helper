@@ -987,10 +987,12 @@ function selectWeapon(master) {
     position: editingWeaponSlot === 1 ? "main" : "grid",
     weaponId: master.weaponId,
     nameHint: master.name,
-    level: master.levelStats?.maximumLevel,
+    level: master.levelStats?.maximumLevel ?? master.selectionDefaults?.level,
     uncapLevel: master.selectionDefaults?.uncapLevel ?? (master.levelStats ? 4 : undefined),
     skillLevel: master.selectionDefaults?.skillLevel ?? (master.skills.length ? 15 : undefined),
     plusMark: 0,
+    attackOverride: master.selectionDefaults?.attack,
+    hpOverride: master.selectionDefaults?.hp,
   });
   applyCatalogWeaponLevelStats(config.weapons.at(-1), master);
   writeDeckConfig(config);

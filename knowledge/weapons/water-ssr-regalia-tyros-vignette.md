@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-regalia-tyros-vignette"
 name_jp: "テュロスビネット"
-name_en: ""
+name_en: "Tyros Zither"
 weapon_id: "1040808200"
 element: 水
 rarity: SSR
@@ -9,8 +9,8 @@ weapon_type: "楽器"
 series: "レガリアシリーズ"
 obtain: "マグナII(HL)マルチのドロップ / 討伐章交換"
 status: 下書き
-last_updated: 2026-09-08
-source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv1・100・150、+0)。英語名は gbf.wiki 未整備。スキル数値は未検証。"
+last_updated: 2026-09-09
+source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。Lv1・100・150、+0)。英語名は gbf.wiki 未整備。スキル数値は未検証。 gbf.wiki「Tyros Zither」(https://gbf.wiki/Tyros_Zither、2026-09-09参照。最終HP/ATKの一致を確認)"
 ---
 
 # テュロスビネット
