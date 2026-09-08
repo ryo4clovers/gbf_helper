@@ -12,7 +12,7 @@ const auraEffectSchema = z.discriminatedUnion("kind", [
       kind: z.literal("elemental-attack-up"),
       elementCode: z.string().min(1),
       amountPercent: z.number().finite(),
-      activation: z.enum(["always", "main-only"]),
+      activation: z.enum(["always", "main-only", "sub-only"]),
       description: z.string().min(1),
     })
     .strict(),
@@ -22,7 +22,7 @@ const auraEffectSchema = z.discriminatedUnion("kind", [
       elementCode: z.string().min(1),
       amountPercent: z.number().finite(),
       targetSkillNamePrefixes: z.array(z.string().min(1)).min(1),
-      activation: z.enum(["always", "main-only"]),
+      activation: z.enum(["always", "main-only", "sub-only"]),
       description: z.string().min(1),
     })
     .strict(),

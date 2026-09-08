@@ -83,6 +83,42 @@
         "attack": 4157,
         "hp": 1414
       }
+    },
+    {
+      "summonId": "2040398000",
+      "name": "ウィルナス",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "ウィルナスの加護",
+      "auraDescription": "火属性攻撃力が140%UP。サブ装備時、スキル「火」「業火」「紅蓮」の効果が40%UP",
+      "auraEffects": [
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "1",
+          "amountPercent": 140,
+          "activation": "always",
+          "description": "火属性攻撃力が140%UP"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "1",
+          "amountPercent": 40,
+          "targetSkillNamePrefixes": ["火", "業火", "紅蓮"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「火」「業火」「紅蓮」の効果が40%UP"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内deckレスポンス2件でサブ有無の表示値差分を確認",
+      "confirmedAt": "2026-09-09",
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3324,
+        "hp": 1093
+      }
     }
   ]
 }

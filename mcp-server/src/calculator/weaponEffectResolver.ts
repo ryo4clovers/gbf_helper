@@ -34,7 +34,7 @@ interface SummonBoostSource {
   summonId: string;
   summonName?: string;
   summonSlot: number;
-  position: "main" | "support";
+  position: "main" | "sub" | "support";
   auraName: string;
   verificationStatus: "検証済み" | "下書き";
   effect: Extract<SummonAuraEffectDefinition, { kind: "normal-skill-boost" }>;
@@ -88,15 +88,17 @@ export function resolveEffectiveWeaponSkillEffects(
     ),
   );
   const summonBoosts: SummonBoostSource[] = summons.flatMap((summon) => {
-    if (summon.position !== "main" || summon.aura === undefined) return [];
+    if (summon.aura === undefined) return [];
     const aura = summon.aura;
     return aura.effects.flatMap((effect): SummonBoostSource[] =>
-      effect.kind === "normal-skill-boost"
+      effect.kind === "normal-skill-boost" &&
+      ((summon.position === "main" && effect.activation !== "sub-only") ||
+        (summon.position !== "main" && effect.activation === "sub-only"))
         ? [{
             summonId: summon.masterId,
             summonName: summon.name,
             summonSlot: summon.slot,
-            position: "main",
+            position: summon.position === "main" ? "main" : "sub",
             auraName: aura.name,
             verificationStatus: aura.verificationStatus,
             effect,

@@ -76,7 +76,7 @@ export type SummonAuraEffectDefinition =
       kind: "elemental-attack-up";
       elementCode: string;
       amountPercent: number;
-      activation: "always" | "main-only";
+      activation: "always" | "main-only" | "sub-only";
       description: string;
     }
   | {
@@ -84,7 +84,7 @@ export type SummonAuraEffectDefinition =
       elementCode: string;
       amountPercent: number;
       targetSkillNamePrefixes: string[];
-      activation: "always" | "main-only";
+      activation: "always" | "main-only" | "sub-only";
       description: string;
     }
   | {
@@ -137,7 +137,7 @@ export type AppliedWeaponSkillModifier =
       kind: "normal-skill-boost";
       sourceType: "summon-aura";
       sourceSummonSlot: number;
-      sourcePosition: "main" | "support";
+      sourcePosition: "main" | "sub" | "support";
       sourceSummonId: string;
       sourceSummonName?: string;
       sourceAuraName: string;

@@ -96,9 +96,10 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     const summonResponse = JSON.parse(summonText?.type === "text" ? summonText.text : "{}") as {
       summons?: Array<{ summonId?: string }>;
     };
-    assert.equal(summonResponse.summons?.length, 3);
+    assert.equal(summonResponse.summons?.length, 4);
     assert.ok(summonResponse.summons?.some((summon) => summon.summonId === "2040090000"));
     assert.ok(summonResponse.summons?.some((summon) => summon.summonId === "2040094000"));
+    assert.ok(summonResponse.summons?.some((summon) => summon.summonId === "2040398000"));
   } finally {
     await clientTransport.close();
     await serverTransport.close();

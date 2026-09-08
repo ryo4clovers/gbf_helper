@@ -321,6 +321,39 @@ test("applies support Agni's normal aura without stats or main-only elemental at
   assert.equal(advantage.result.criticalBodyDamage?.weaponSkillCriticalRatePercent, 28.2);
 });
 
+test("applies Wilnas' verified 4-star sub aura to normal weapon skills", () => {
+  const input = agniRequest();
+  input.deckConfig.summons.push({
+    slot: 1,
+    position: "sub",
+    summonId: "2040398000",
+    level: 150,
+    uncapLevel: 4,
+    plusMark: 0,
+    attackOverride: 0,
+    hpOverride: 0,
+  });
+
+  const response = calculateNormalAttackFromRequest({
+    ...input,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+  });
+
+  assert.equal(response.result.attackPower.totalEffectiveNormalAttackPercent, 153);
+  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 10649);
+  assert.equal(response.result.pursuitDamage?.effectivePursuitPercentage, 22.95);
+  assert.equal(
+    response.result.attackPower.contributions[0]?.appliedModifiers.some(
+      (modifier) =>
+        modifier.sourceType === "summon-aura" &&
+        modifier.sourcePosition === "sub" &&
+        modifier.sourceSummonId === "2040398000" &&
+        modifier.amountPercent === 40,
+    ),
+    true,
+  );
+});
+
 test("rejects support summon stats so they cannot enter deck attack or HP", () => {
   assert.throws(
     () =>

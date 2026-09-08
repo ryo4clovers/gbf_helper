@@ -10,7 +10,7 @@ test("loads the initial non-damage summon aura", () => {
   const catalog = loadIncrementalSummonCatalog();
   const summon = catalog.summons.get("2030051000");
 
-  assert.equal(catalog.summons.size, 3);
+  assert.equal(catalog.summons.size, 4);
   assert.equal(summon?.name, "シルフィードベル");
   assert.equal(summon?.verificationStatus, "検証済み");
   assert.equal(summon?.supportSelectable, true);
@@ -20,6 +20,30 @@ test("loads the initial non-damage summon aura", () => {
       description: "レアモンスターの出現確率UP。攻撃力計算には影響しない",
     },
   ]);
+});
+
+test("loads the verified Wilnas sub aura", () => {
+  const summon = loadIncrementalSummonCatalog().summons.get("2040398000");
+
+  assert.equal(summon?.name, "ウィルナス");
+  assert.deepEqual(summon?.auraEffects, [
+    {
+      kind: "elemental-attack-up",
+      elementCode: "1",
+      amountPercent: 140,
+      activation: "always",
+      description: "火属性攻撃力が140%UP",
+    },
+    {
+      kind: "normal-skill-boost",
+      elementCode: "1",
+      amountPercent: 40,
+      targetSkillNamePrefixes: ["火", "業火", "紅蓮"],
+      activation: "sub-only",
+      description: "サブ装備時、スキル「火」「業火」「紅蓮」の効果が40%UP",
+    },
+  ]);
+  assert.equal(summon?.verificationStatus, "検証済み");
 });
 
 test("loads the verified Agni main aura", () => {
