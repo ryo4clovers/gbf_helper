@@ -10,7 +10,9 @@ import type {
   DeckJobMultiattackRateBonus,
   DeckSnapshot,
   ResolvedSupportSummon,
+  WeaponMasterCatalogEntry,
 } from "./types.js";
+import { calculateEquipmentLevelStats } from "../../web/equipment-level-stats.js";
 
 export type CalculatorDeckResolutionIssueCode =
   | "missing-stat-override"
@@ -60,6 +62,17 @@ function appendMissingStatIssues(
       message: "HP cannot be derived until master/stat calculation data is available.",
     });
   }
+}
+
+function calculateCatalogWeaponStats(
+  weapon: CalculatorDeckConfig["weapons"][number],
+  master: WeaponMasterCatalogEntry | undefined,
+): { attack: number; hp: number } | undefined {
+  if (master?.levelStats === undefined || weapon.level === undefined) return undefined;
+  return calculateEquipmentLevelStats(master.levelStats, weapon.level, weapon.plusMark ?? 0, {
+    attack: 5,
+    hp: 1,
+  });
 }
 
 /**
@@ -116,8 +129,14 @@ export function resolveCalculatorDeckConfig(
   }
 
   config.weapons.forEach((weapon, index) => {
-    appendMissingStatIssues(issues, `weapons.${index}`, weapon.attackOverride, weapon.hpOverride);
     const master = catalog.weapons.get(weapon.weaponId);
+    const calculatedStats = calculateCatalogWeaponStats(weapon, master);
+    appendMissingStatIssues(
+      issues,
+      `weapons.${index}`,
+      calculatedStats?.attack ?? weapon.attackOverride,
+      calculatedStats?.hp ?? weapon.hpOverride,
+    );
     const fallbackMaster = weapon.isJobFallback
       ? fallbackWeaponCatalog.byWeaponId.get(weapon.weaponId)
       : undefined;
@@ -223,6 +242,7 @@ export function resolveCalculatorDeckConfig(
     },
     weapons: config.weapons.map((weapon) => {
       const master = catalog.weapons.get(weapon.weaponId);
+      const calculatedStats = calculateCatalogWeaponStats(weapon, master);
       const fallbackMaster = weapon.isJobFallback
         ? fallbackWeaponCatalog.byWeaponId.get(weapon.weaponId)
         : undefined;
@@ -258,8 +278,8 @@ export function resolveCalculatorDeckConfig(
         uncapLevel: weapon.uncapLevel,
         plusMark: weapon.plusMark,
         awakening: weapon.awakening,
-        attack: weapon.attackOverride,
-        hp: weapon.hpOverride,
+        attack: calculatedStats?.attack ?? weapon.attackOverride,
+        hp: calculatedStats?.hp ?? weapon.hpOverride,
         skills,
       };
     }),

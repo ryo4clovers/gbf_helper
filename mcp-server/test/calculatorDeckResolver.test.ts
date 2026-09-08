@@ -3,6 +3,28 @@ import assert from "node:assert/strict";
 import { resolveCalculatorDeckConfig } from "../src/calculator/calculatorDeckResolver.ts";
 import { calculateNormalAttackPower } from "../src/calculator/normalAttackPowerCalculator.ts";
 
+test("derives verified weapon stats from level and applies plus marks afterward", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 2,
+        position: "grid",
+        weaponId: "1040220800",
+        level: 117,
+        skillLevel: 15,
+        plusMark: 10,
+      },
+    ],
+  });
+
+  assert.equal(result.deck.weapons[0].attack, 2408);
+  assert.equal(result.deck.weapons[0].hp, 252);
+  assert.equal(result.issues.some((issue) => issue.code === "missing-stat-override"), false);
+});
+
 test("resolves an override-backed calculator config without inventing instance IDs", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,

@@ -85,6 +85,29 @@
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のゲーム内deckレスポンスで武器・スキル構成を確認",
       "confirmedAt": "2026-09-07"
+    },
+    {
+      "weaponId": "1040220800",
+      "name": "禁栄の禍槍",
+      "elementCode": "1",
+      "weaponKindCode": "3",
+      "rarityCode": "4",
+      "seriesId": "45",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          { "level": 1, "attack": 420, "hp": 24 },
+          { "level": 100, "attack": 2207, "hp": 225 },
+          { "level": 150, "attack": 2654, "hp": 275 }
+        ]
+      },
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "2801" },
+        { "sourceKey": "skill2", "skillId": "2807" }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス12レベル分と上限解放前後4境界で確認",
+      "confirmedAt": "2026-09-08"
     }
   ]
 }

@@ -7,6 +7,10 @@ export interface SelectableWeaponCatalogEntry {
   weaponKindCode: string;
   rarityCode: string;
   seriesId?: string;
+  levelStats?: {
+    maximumLevel: number;
+    points: Array<{ level: number; attack: number; hp: number }>;
+  };
   verificationStatus: "検証済み" | "下書き";
   skills: Array<{
     skillId: string;
@@ -32,6 +36,7 @@ export function createSelectableWeaponCatalog(): SelectableWeaponCatalog {
       weaponKindCode: weapon.weaponKindCode,
       rarityCode: weapon.rarityCode,
       seriesId: weapon.seriesId,
+      levelStats: weapon.levelStats,
       verificationStatus: weapon.verificationStatus,
       skills: weapon.skillSlots.flatMap((slot) => {
         const skill = catalog.skills.get(slot.skillId);

@@ -42,6 +42,10 @@ export interface WeaponMasterCatalogEntry {
   weaponKindCode: string;
   rarityCode: string;
   seriesId?: string;
+  levelStats?: {
+    maximumLevel: number;
+    points: Array<{ level: number; attack: number; hp: number }>;
+  };
   skillSlots: Array<{
     sourceKey: DeckSkill["sourceKey"];
     skillId: string;

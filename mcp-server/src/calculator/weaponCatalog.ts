@@ -28,6 +28,28 @@ const sourceFields = {
   confirmedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
 };
 
+const levelStatsSchema = z
+  .object({
+    maximumLevel: z.number().int().min(1).max(250),
+    points: z.array(
+      z.object({
+        level: z.number().int().min(1).max(250),
+        attack: z.number().int().nonnegative(),
+        hp: z.number().int().nonnegative(),
+      }).strict(),
+    ).min(2),
+  })
+  .strict()
+  .superRefine((progression, context) => {
+    const levels = progression.points.map((point) => point.level);
+    if (levels[0] !== 1 || levels.at(-1) !== progression.maximumLevel) {
+      context.addIssue({ code: "custom", message: "levelStats must start at Lv1 and end at maximumLevel" });
+    }
+    if (levels.some((level, index) => index > 0 && level <= levels[index - 1])) {
+      context.addIssue({ code: "custom", message: "levelStats points must be strictly ascending" });
+    }
+  });
+
 const weaponsFileSchema = z
   .object({
     schemaVersion: z.literal(1),
@@ -40,6 +62,7 @@ const weaponsFileSchema = z
           weaponKindCode: z.string().min(1),
           rarityCode: z.string().min(1),
           seriesId: z.string().min(1).optional(),
+          levelStats: levelStatsSchema.optional(),
           skillSlots: z.array(
             z
               .object({

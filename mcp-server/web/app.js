@@ -9,6 +9,7 @@ import {
   serializeCalculatorState,
   upsertCalculatorProfile,
 } from "/calculator-state-storage.js";
+import { calculateEquipmentLevelStats } from "/equipment-level-stats.js";
 
 const defaultDeck = {
   schemaVersion: 1,
@@ -754,6 +755,19 @@ function weaponForSlot(config, slot) {
   return config.weapons.find((weapon) => weapon.position === "grid" && weapon.slot === slot);
 }
 
+function applyCatalogWeaponLevelStats(weapon, master) {
+  if (!master?.levelStats || weapon.level == null) return false;
+  const stats = calculateEquipmentLevelStats(
+    master.levelStats,
+    weapon.level,
+    weapon.plusMark ?? 0,
+    { attack: equipmentPlusBonus.attackPerMark, hp: equipmentPlusBonus.hpPerMark },
+  );
+  weapon.attackOverride = stats.attack;
+  weapon.hpOverride = stats.hp;
+  return true;
+}
+
 function createWeaponSlot(config, slot) {
   const weapon = weaponForSlot(config, slot);
   const isJobFallback = slot === 1 && weapon?.isJobFallback === true;
@@ -802,6 +816,33 @@ function createWeaponSlot(config, slot) {
   if (weapon && !isJobFallback) {
     const controls = document.createElement("div");
     controls.className = "weapon-slot-controls";
+    let stats;
+    if (master?.levelStats) {
+      const levelLabel = document.createElement("label");
+      levelLabel.textContent = "Lv";
+      const levelInput = document.createElement("input");
+      levelInput.type = "number";
+      levelInput.min = "1";
+      levelInput.max = String(master.levelStats.maximumLevel);
+      levelInput.step = "1";
+      levelInput.value = String(weapon.level ?? master.levelStats.maximumLevel);
+      levelInput.setAttribute("aria-label", `${master.name}のレベル`);
+      levelInput.addEventListener("input", () => {
+        const value = Number(levelInput.value);
+        const isValid = Number.isInteger(value) && value >= 1 && value <= master.levelStats.maximumLevel;
+        levelInput.setCustomValidity(isValid ? "" : `1〜${master.levelStats.maximumLevel}の整数を入力してください`);
+        if (!isValid) return;
+        weapon.level = value;
+        applyCatalogWeaponLevelStats(weapon, master);
+        writeDeckConfig(config);
+        if (stats) {
+          stats.textContent = `HP ${numberFormat.format(weapon.hpOverride)} / ATK ${numberFormat.format(weapon.attackOverride)}`;
+        }
+        void calculate();
+      });
+      levelLabel.append(levelInput);
+      controls.append(levelLabel);
+    }
     const skillLabel = document.createElement("label");
     skillLabel.textContent = "SLv";
     const skillInput = document.createElement("input");
@@ -819,7 +860,7 @@ function createWeaponSlot(config, slot) {
       void calculate();
     });
     skillLabel.append(skillInput);
-    const stats = createText("weapon-attack", `HP ${weapon.hpOverride == null ? "—" : numberFormat.format(weapon.hpOverride)} / ATK ${weapon.attackOverride == null ? "—" : numberFormat.format(weapon.attackOverride)}`);
+    stats = createText("weapon-attack", `HP ${weapon.hpOverride == null ? "—" : numberFormat.format(weapon.hpOverride)} / ATK ${weapon.attackOverride == null ? "—" : numberFormat.format(weapon.attackOverride)}`);
     controls.append(
       skillLabel,
       createEquipmentPlusField(
@@ -926,9 +967,12 @@ function selectWeapon(master) {
     position: editingWeaponSlot === 1 ? "main" : "grid",
     weaponId: master.weaponId,
     nameHint: master.name,
+    level: master.levelStats?.maximumLevel,
+    uncapLevel: master.levelStats ? 4 : undefined,
     skillLevel: master.skills.length ? 15 : undefined,
     plusMark: 0,
   });
+  applyCatalogWeaponLevelStats(config.weapons.at(-1), master);
   writeDeckConfig(config);
   renderWeaponEditor();
   $("weapon-picker").close();

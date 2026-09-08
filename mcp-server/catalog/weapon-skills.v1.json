@@ -237,6 +237,24 @@
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoの攻刃表示差分から確認",
       "confirmedAt": "2026-09-07"
+    },
+    {
+      "skillId": "2801",
+      "name": "終炎禁呪・神威IV",
+      "description": "火属性キャラの攻撃力と最大HPが上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。効果量は未検証",
+      "confirmedAt": "2026-09-08"
+    },
+    {
+      "skillId": "2807",
+      "name": "終炎禁呪・衝刃III",
+      "description": "火属性キャラの与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。効果量は未検証",
+      "confirmedAt": "2026-09-08"
     }
   ]
 }
