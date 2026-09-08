@@ -92,6 +92,7 @@ export function createCalculatorCatalogProgressView(): CalculatorCatalogProgress
   const weapons = createSelectableWeaponCatalog().weapons.map((weapon): CalculatorCatalogItem => ({
     id: weapon.weaponId,
     name: weapon.name,
+    nameEn: weapon.nameEn,
     elementCode: weapon.elementCode,
     rarity: RARITY_CODES[weapon.rarityCode] ?? "未設定",
     verificationStatus: weapon.verificationStatus,

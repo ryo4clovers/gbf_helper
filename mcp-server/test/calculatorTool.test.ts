@@ -58,7 +58,7 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     const catalogResponse = JSON.parse(catalogText?.type === "text" ? catalogText.text : "{}") as {
       weapons?: Array<{ weaponId?: string }>;
     };
-    assert.equal(catalogResponse.weapons?.length, 172);
+    assert.equal(catalogResponse.weapons?.length, 2970);
     assert.ok(catalogResponse.weapons?.some((weapon) => weapon.weaponId === "1040218900"));
     assert.ok(catalogResponse.weapons?.some((weapon) => weapon.weaponId === "1040915300"));
     assert.ok(catalogResponse.weapons?.some((weapon) => weapon.weaponId === "1040220800"));

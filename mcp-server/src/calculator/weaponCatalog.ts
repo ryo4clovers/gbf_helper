@@ -58,6 +58,7 @@ const weaponsFileSchema = z
         .object({
           weaponId: z.string().min(1),
           name: z.string().min(1),
+          nameEn: z.string().min(1).optional(),
           elementCode: z.string().min(1),
           weaponKindCode: z.string().min(1),
           rarityCode: z.string().min(1),
@@ -78,6 +79,13 @@ const weaponsFileSchema = z
               })
               .strict(),
           ),
+          listedSkills: z.array(
+            z.object({
+              sourceKey: z.enum(["skill1", "skill2", "skill3", "skill4"]),
+              name: z.string().min(1),
+              description: z.string().min(1),
+            }).strict(),
+          ).optional(),
           ...sourceFields,
         })
         .strict(),

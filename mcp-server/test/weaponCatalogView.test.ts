@@ -6,12 +6,17 @@ test("creates a deterministic browser-safe weapon catalog", () => {
   const catalog = createSelectableWeaponCatalog();
 
   assert.equal(catalog.schemaVersion, 1);
-  assert.equal(catalog.weapons.length, 172);
+  assert.equal(catalog.weapons.length, 2970);
   assert.deepEqual(
     catalog.weapons.map((weapon) => weapon.name),
     [...catalog.weapons].map((weapon) => weapon.name).sort((left, right) => left.localeCompare(right, "ja")),
   );
   assert.ok(catalog.weapons.some((weapon) => weapon.weaponId === "1040613800" && weapon.name === "ウィルナス・フィンガー"));
+  assert.ok(catalog.weapons.some((weapon) => weapon.weaponId === "1010000000" && weapon.name === "スパタ" && weapon.nameEn === "Spatha"));
+  assert.deepEqual(
+    catalog.weapons.find((weapon) => weapon.weaponId === "1040029700")?.skills.map((skill) => skill.name),
+    ["Oblivion's Enmity", "Dark's Garrison"],
+  );
   assert.deepEqual(
     catalog.weapons.find((weapon) => weapon.weaponId === "1040902700")?.selectionDefaults,
     { level: 200, hp: 210, attack: 3030, uncapLevel: 5, skillLevel: 20 },

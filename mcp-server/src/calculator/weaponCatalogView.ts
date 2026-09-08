@@ -3,6 +3,7 @@ import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 export interface SelectableWeaponCatalogEntry {
   weaponId: string;
   name: string;
+  nameEn?: string;
   elementCode: string;
   weaponKindCode: string;
   rarityCode: string;
@@ -20,7 +21,7 @@ export interface SelectableWeaponCatalogEntry {
   };
   verificationStatus: "検証済み" | "下書き";
   skills: Array<{
-    skillId: string;
+    skillId?: string;
     name: string;
     description: string;
     verificationStatus: "検証済み" | "下書き";
@@ -39,6 +40,7 @@ export function createSelectableWeaponCatalog(): SelectableWeaponCatalog {
     .map((weapon): SelectableWeaponCatalogEntry => ({
       weaponId: weapon.weaponId,
       name: weapon.name,
+      ...(weapon.nameEn ? { nameEn: weapon.nameEn } : {}),
       elementCode: weapon.elementCode,
       weaponKindCode: weapon.weaponKindCode,
       rarityCode: weapon.rarityCode,
@@ -46,7 +48,7 @@ export function createSelectableWeaponCatalog(): SelectableWeaponCatalog {
       selectionDefaults: weapon.selectionDefaults,
       levelStats: weapon.levelStats,
       verificationStatus: weapon.verificationStatus,
-      skills: weapon.skillSlots.flatMap((slot) => {
+      skills: [...weapon.skillSlots.flatMap((slot) => {
         const skill = catalog.skills.get(slot.skillId);
         return skill === undefined
           ? []
@@ -58,7 +60,11 @@ export function createSelectableWeaponCatalog(): SelectableWeaponCatalog {
                 verificationStatus: skill.verificationStatus,
               },
             ];
-      }),
+      }), ...(weapon.listedSkills ?? []).map((skill) => ({
+        name: skill.name,
+        description: skill.description,
+        verificationStatus: "下書き" as const,
+      }))],
     }))
     .sort((left, right) => left.name.localeCompare(right.name, "ja"));
   return { schemaVersion: 1, weapons };

@@ -54,6 +54,7 @@ window.addEventListener("error", (event) => reportUnexpectedUiError(event.error 
 window.addEventListener("unhandledrejection", (event) => reportUnexpectedUiError(event.reason));
 const numberFormat = new Intl.NumberFormat("ja-JP", { maximumFractionDigits: 3 });
 const elementMeta = {
+  "0": { name: "属性可変", className: "unknown" },
   "1": { name: "火", className: "fire" },
   "2": { name: "水", className: "water" },
   "3": { name: "土", className: "earth" },
@@ -62,9 +63,11 @@ const elementMeta = {
   "6": { name: "闇", className: "dark" },
 };
 const weaponKindSymbols = { "1": "⚔", "2": "⌁", "3": "♜", "4": "⌁", "5": "✣", "6": "⌖", "7": "◈", "8": "✧", "9": "♩", "10": "◒" };
+const rarityLabels = { "1": "N", "2": "R", "3": "SR", "4": "SSR" };
 const equipmentPlusBonus = { maximum: 99, attackPerMark: 5, hpPerMark: 1 };
 const characterPlusBonus = { maximum: 99, attackPerMark: 3, hpPerMark: 1 };
 const characterPickerResultLimit = 100;
+const weaponPickerResultLimit = 100;
 let jobCatalog = [];
 let characterCatalog = [];
 let editingCharacterSlot = null;
@@ -931,12 +934,12 @@ function renderWeaponEditor() {
 function renderWeaponResults(query = "") {
   const normalized = query.trim().toLocaleLowerCase("ja");
   const matches = weaponCatalog.filter((weapon) => {
-    const searchable = [weapon.name, weapon.weaponId, ...weapon.skills.map((skill) => skill.name)].join(" ").toLocaleLowerCase("ja");
+    const searchable = [weapon.name, weapon.nameEn, weapon.weaponId, ...weapon.skills.map((skill) => skill.name)].filter(Boolean).join(" ").toLocaleLowerCase("ja");
     return searchable.includes(normalized);
   });
   const results = $("weapon-results");
   results.replaceChildren();
-  for (const weapon of matches) {
+  for (const weapon of matches.slice(0, weaponPickerResultLimit)) {
     const element = elementMeta[weapon.elementCode];
     const button = document.createElement("button");
     button.type = "button";
@@ -949,7 +952,7 @@ function renderWeaponResults(query = "") {
     details.className = "catalog-weapon-details";
     details.append(
       createText("catalog-weapon-name", weapon.name),
-      createText("catalog-weapon-meta", `${element?.name ?? "属性不明"} ・ ${weapon.rarityCode === "4" ? "SSR" : weapon.rarityCode === "3" ? "SR" : "R"} ・ ${weapon.weaponId}`),
+      createText("catalog-weapon-meta", `${element?.name ?? "属性不明"} ・ ${rarityLabels[weapon.rarityCode] ?? "未設定"} ・ ${weapon.weaponId}`),
       createText("catalog-skill-list", weapon.skills.length ? weapon.skills.map((skill) => skill.name).join(" / ") : "武器スキルなし"),
     );
     const status = createText(`verification-chip ${weapon.verificationStatus === "検証済み" ? "verified" : "draft"}`, weapon.verificationStatus);
@@ -962,7 +965,8 @@ function renderWeaponResults(query = "") {
     empty.textContent = "一致する登録武器がありません。未登録武器はJSONから追加できます。";
     results.append(empty);
   }
-  $("catalog-count").textContent = `${matches.length} / ${weaponCatalog.length}件`;
+  const displayed = Math.min(matches.length, weaponPickerResultLimit);
+  $("catalog-count").textContent = `${displayed}件表示 / 該当${matches.length}件 / 全${weaponCatalog.length}件`;
 }
 
 function openWeaponPicker(slot) {
@@ -1226,7 +1230,7 @@ function renderSummonResults(query = "") {
     details.className = "catalog-weapon-details";
     details.append(
       createText("catalog-weapon-name", summon.name),
-      createText("catalog-weapon-meta", `${element?.name ?? "属性不明"} ・ ${summon.rarityCode === "4" ? "SSR" : summon.rarityCode === "3" ? "SR" : "R"} ・ ${summon.summonId}`),
+      createText("catalog-weapon-meta", `${element?.name ?? "属性不明"} ・ ${rarityLabels[summon.rarityCode] ?? "未設定"} ・ ${summon.summonId}`),
       createText("catalog-skill-list", `${summon.auraName}：${summon.auraDescription}`),
     );
     const status = createText(`verification-chip ${summon.verificationStatus === "検証済み" ? "verified" : "draft"}`, summon.verificationStatus);

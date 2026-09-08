@@ -1,7 +1,7 @@
 const $ = (id) => document.getElementById(id);
 const number = new Intl.NumberFormat("ja-JP");
 const PAGE_SIZE = 100;
-const elementLabels = { "1": "火", "2": "水", "3": "土", "4": "風", "5": "光", "6": "闇" };
+const elementLabels = { "0": "属性可変", "1": "火", "2": "水", "3": "土", "4": "風", "5": "光", "6": "闇" };
 const categorySymbols = { weapons: "剣", summons: "晶", characters: "人" };
 let progress;
 let activeCategoryId = "weapons";

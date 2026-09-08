@@ -169,9 +169,50 @@ function validateAbilityJson() {
   console.log(`validated abilities: ${Object.keys(expectations).length} JSON files`);
 }
 
+function validateWeaponWikiCatalog() {
+  const relativePath = "knowledge/weapons/wiki-catalog.v1.json";
+  const filePath = path.join(repositoryRoot, relativePath);
+  let value;
+  try {
+    value = JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch (error) {
+    errors.push(`${relativePath}: invalid JSON (${error.message})`);
+    return;
+  }
+  if (value.schemaVersion !== 1) errors.push(`${relativePath}: schemaVersion must be 1`);
+  if (!value.source || value.source.rowCount !== value.weapons?.length) {
+    errors.push(`${relativePath}: source.rowCount must match weapons length`);
+  }
+  if (!Array.isArray(value.weapons)) {
+    errors.push(`${relativePath}: weapons must be an array`);
+    return;
+  }
+  const wikiKeys = new Set();
+  const weaponIds = new Set();
+  for (const [index, weapon] of value.weapons.entries()) {
+    const label = `${relativePath}: weapons[${index}]`;
+    if (typeof weapon.wikiKey !== "string" || !weapon.wikiKey) errors.push(`${label}.wikiKey must be a non-empty string`);
+    if (wikiKeys.has(weapon.wikiKey)) errors.push(`${label}: duplicate wikiKey ${weapon.wikiKey}`);
+    wikiKeys.add(weapon.wikiKey);
+    if (weapon.weaponId !== null) {
+      if (typeof weapon.weaponId !== "string" || !/^\d{10}$/u.test(weapon.weaponId)) {
+        errors.push(`${label}.weaponId must be a 10-digit string or null`);
+      }
+      if (weaponIds.has(weapon.weaponId)) errors.push(`${label}: duplicate weaponId ${weapon.weaponId}`);
+      weaponIds.add(weapon.weaponId);
+    }
+    if (typeof weapon.nameEn !== "string" || !weapon.nameEn) errors.push(`${label}.nameEn must be a non-empty string`);
+    if (!Array.isArray(weapon.statPoints) || !Array.isArray(weapon.skills) || !Array.isArray(weapon.chargeAttacks)) {
+      errors.push(`${label}: statPoints, skills, and chargeAttacks must be arrays`);
+    }
+  }
+  console.log(`validated weapon wiki catalog: ${value.weapons.length} rows (${weaponIds.size} master IDs)`);
+}
+
 for (const category of Object.keys(schemas)) validateFrontmatterCategory(category);
 validateMechanics();
 validateAbilityJson();
+validateWeaponWikiCatalog();
 
 if (errors.length > 0) {
   console.error(`\nknowledge validation failed with ${errors.length} error(s):`);

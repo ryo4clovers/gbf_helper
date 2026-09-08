@@ -46,6 +46,7 @@ export interface WeaponSkillEffectDefinition {
 export interface WeaponMasterCatalogEntry {
   weaponId: string;
   name: string;
+  nameEn?: string;
   elementCode: string;
   weaponKindCode: string;
   rarityCode: string;
@@ -64,6 +65,12 @@ export interface WeaponMasterCatalogEntry {
   skillSlots: Array<{
     sourceKey: DeckSkill["sourceKey"];
     skillId: string;
+  }>;
+  /** Wiki-listed names/descriptions whose game skill_id and numeric effects are not verified yet. */
+  listedSkills?: Array<{
+    sourceKey: DeckSkill["sourceKey"];
+    name: string;
+    description: string;
   }>;
   verificationStatus: "検証済み" | "下書き";
   source: string;
