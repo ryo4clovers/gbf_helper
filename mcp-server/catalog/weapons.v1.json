@@ -135,6 +135,33 @@
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のゲーム内武器図鑑詳細と武器詳細レスポンスでLv1・100・150・151・152・200のステータスとスキル構成を確認",
       "confirmedAt": "2026-09-08"
+    },
+    {
+      "weaponId": "1040101500",
+      "name": "レヴィアンゲイズ・マグナ",
+      "elementCode": "2",
+      "weaponKindCode": "2",
+      "rarityCode": "4",
+      "seriesId": "8",
+      "selectionDefaults": {
+        "uncapLevel": 5,
+        "skillLevel": 20
+      },
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          { "level": 1, "attack": 340, "hp": 37 },
+          { "level": 100, "attack": 2155, "hp": 219 },
+          { "level": 150, "attack": 2520, "hp": 255 },
+          { "level": 200, "attack": 2700, "hp": 273 }
+        ]
+      },
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "66" }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンスでLv1・100・150・200のステータスとスキル構成を確認",
+      "confirmedAt": "2026-09-08"
     }
   ]
 }

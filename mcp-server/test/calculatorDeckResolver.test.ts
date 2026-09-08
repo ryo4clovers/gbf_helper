@@ -47,6 +47,28 @@ test("derives stats across an extended weapon level range", () => {
   assert.equal(result.issues.some((issue) => issue.code === "missing-stat-override"), false);
 });
 
+test("derives Leviathan Gaze Omega stats at the Lv150 breakpoint", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "2", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 2,
+        position: "grid",
+        weaponId: "1040101500",
+        level: 150,
+        skillLevel: 15,
+        plusMark: 0,
+      },
+    ],
+  });
+
+  assert.equal(result.deck.weapons[0].attack, 2520);
+  assert.equal(result.deck.weapons[0].hp, 255);
+  assert.equal(result.issues.some((issue) => issue.code === "missing-stat-override"), false);
+});
+
 test("resolves an override-backed calculator config without inventing instance IDs", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,

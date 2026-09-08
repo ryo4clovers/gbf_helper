@@ -5,8 +5,8 @@ import { loadIncrementalWeaponCatalog } from "../src/calculator/weaponCatalog.ts
 test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
-  assert.equal(catalog.weapons.size, 8);
-  assert.equal(catalog.skills.size, 15);
+  assert.equal(catalog.weapons.size, 9);
+  assert.equal(catalog.skills.size, 16);
   assert.deepEqual(catalog.weapons.get("1040201400")?.skillSlots, [
     { sourceKey: "skill1", skillId: "25" },
     { sourceKey: "skill2", skillId: "74" },
@@ -42,6 +42,15 @@ test("loads the initial incremental weapon and skill catalog", () => {
       { level: 200, attack: 2450, hp: 324 },
     ],
   });
+  assert.deepEqual(catalog.weapons.get("1040101500")?.levelStats, {
+    maximumLevel: 200,
+    points: [
+      { level: 1, attack: 340, hp: 37 },
+      { level: 100, attack: 2155, hp: 219 },
+      { level: 150, attack: 2520, hp: 255 },
+      { level: 200, attack: 2700, hp: 273 },
+    ],
+  });
   assert.deepEqual(
     catalog.skills.get("510")?.effects
       .filter((effect) => effect.skillLevel === 15)
@@ -58,4 +67,5 @@ test("loads the initial incremental weapon and skill catalog", () => {
   assert.equal(catalog.skills.get("1506")?.verificationStatus, "下書き");
   assert.equal(catalog.skills.get("2801")?.verificationStatus, "下書き");
   assert.equal(catalog.skills.get("94")?.verificationStatus, "下書き");
+  assert.equal(catalog.skills.get("66")?.verificationStatus, "下書き");
 });

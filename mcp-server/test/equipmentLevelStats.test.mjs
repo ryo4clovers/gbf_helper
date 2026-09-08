@@ -63,6 +63,27 @@ test("reproduces every observed Colossus Cane Omega boundary and Lv150 to Lv200 
   }
 });
 
+test("reproduces every observed Leviathan Gaze Omega boundary", () => {
+  const progression = {
+    maximumLevel: 200,
+    points: [
+      { level: 1, attack: 340, hp: 37 },
+      { level: 100, attack: 2155, hp: 219 },
+      { level: 150, attack: 2520, hp: 255 },
+      { level: 200, attack: 2700, hp: 273 },
+    ],
+  };
+
+  for (const [level, attack, hp] of [
+    [1, 340, 37],
+    [100, 2155, 219],
+    [150, 2520, 255],
+    [200, 2700, 273],
+  ]) {
+    assert.deepEqual(calculateEquipmentLevelStats(progression, level), { attack, hp });
+  }
+});
+
 test("accepts verified breakpoint data up to level 250 but rejects guesses beyond it", () => {
   const progression = {
     maximumLevel: 250,
