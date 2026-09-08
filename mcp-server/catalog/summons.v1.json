@@ -108,9 +108,32 @@
           "description": "サブ装備時、スキル「火」「業火」「紅蓮」の効果が40%UP"
         }
       ],
+      "auraOverrides": [
+        {
+          "uncapLevel": 0,
+          "auraDescription": "火属性攻撃力が100%UP。サブ装備時、スキル「火」「業火」「紅蓮」の効果が10%UP",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "1",
+              "amountPercent": 100,
+              "activation": "always",
+              "description": "火属性攻撃力が100%UP"
+            },
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 10,
+              "targetSkillNamePrefixes": ["火", "業火", "紅蓮"],
+              "activation": "sub-only",
+              "description": "サブ装備時、スキル「火」「業火」「紅蓮」の効果が10%UP"
+            }
+          ]
+        }
+      ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内deckレスポンス2件でサブ有無の表示値差分を確認",
+      "source": "ユーザー提供のゲーム内deckレスポンス4件でサブ有無・配置差・同系統2枚配置の表示値差分を確認",
       "confirmedAt": "2026-09-09",
       "selectionDefaults": {
         "level": 150,

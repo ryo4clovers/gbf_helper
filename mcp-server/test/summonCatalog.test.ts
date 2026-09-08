@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   loadIncrementalSummonCatalog,
   resolveBattleSupportSummon,
+  resolveCatalogSummonAura,
 } from "../src/calculator/summonCatalog.ts";
 import type { BattleSnapshot } from "../src/calculator/types.ts";
 
@@ -44,6 +45,24 @@ test("loads the verified Wilnas sub aura", () => {
     },
   ]);
   assert.equal(summon?.verificationStatus, "検証済み");
+});
+
+test("resolves Wilnas' verified 0-star aura instead of the 4-star catalog default", () => {
+  const summon = loadIncrementalSummonCatalog().summons.get("2040398000");
+  assert.ok(summon !== undefined);
+
+  const aura = resolveCatalogSummonAura(summon, 0);
+
+  assert.deepEqual(
+    aura.auraEffects.map((effect) => [
+      effect.kind,
+      "amountPercent" in effect ? effect.amountPercent : undefined,
+    ]),
+    [
+      ["elemental-attack-up", 100],
+      ["normal-skill-boost", 10],
+    ],
+  );
 });
 
 test("loads every verified Six Dragons 4-star aura", () => {

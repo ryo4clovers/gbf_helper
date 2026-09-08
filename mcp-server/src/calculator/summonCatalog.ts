@@ -47,6 +47,17 @@ const summonCatalogSchema = z
           auraName: z.string().min(1),
           auraDescription: z.string().min(1),
           auraEffects: z.array(auraEffectSchema),
+          auraOverrides: z
+            .array(
+              z
+                .object({
+                  uncapLevel: z.number().int().nonnegative(),
+                  auraDescription: z.string().min(1),
+                  auraEffects: z.array(auraEffectSchema),
+                })
+                .strict(),
+            )
+            .optional(),
           verificationStatus: z.enum(["検証済み", "下書き"]),
           source: z.string().min(1),
           confirmedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
@@ -70,6 +81,15 @@ const summonCatalogSchema = z
 export interface IncrementalSummonCatalog {
   schemaVersion: 1;
   summons: Map<string, SummonMasterCatalogEntry>;
+}
+
+/** Uses an exact verified uncap override when available, otherwise the catalog default. */
+export function resolveCatalogSummonAura(
+  master: SummonMasterCatalogEntry,
+  uncapLevel?: number,
+): Pick<SummonMasterCatalogEntry, "auraDescription" | "auraEffects"> {
+  const override = master.auraOverrides?.find((candidate) => candidate.uncapLevel === uncapLevel);
+  return override ?? master;
 }
 
 /** Loads the small on-demand summon/aura catalog. */

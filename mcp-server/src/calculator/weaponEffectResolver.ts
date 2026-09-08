@@ -74,6 +74,30 @@ function matchesSummonBoost(target: EffectSource, boost: SummonBoostSource): boo
   return boost.effect.targetSkillNamePrefixes.some((prefix) => target.skill.name?.startsWith(prefix));
 }
 
+function subAuraIdentity(boost: SummonBoostSource): string {
+  return [
+    boost.effect.elementCode,
+    [...boost.effect.targetSkillNamePrefixes].sort().join("\u0000"),
+  ].join("\u0001");
+}
+
+/** Same-effect sub auras do not stack; keep the strongest source and retain first position on ties. */
+function selectStrongestSubAuraBoosts(boosts: SummonBoostSource[]): SummonBoostSource[] {
+  const strongestByIdentity = new Map<string, SummonBoostSource>();
+  for (const boost of boosts) {
+    if (boost.effect.activation !== "sub-only") continue;
+    const identity = subAuraIdentity(boost);
+    const current = strongestByIdentity.get(identity);
+    if (current === undefined || boost.effect.amountPercent > current.effect.amountPercent) {
+      strongestByIdentity.set(identity, boost);
+    }
+  }
+  return boosts.filter(
+    (boost) =>
+      boost.effect.activation !== "sub-only" || strongestByIdentity.get(subAuraIdentity(boost)) === boost,
+  );
+}
+
 /** Resolves catalogued base effects and records every modifier used to boost them. */
 export function resolveEffectiveWeaponSkillEffects(
   weapons: DeckWeapon[],
@@ -148,7 +172,9 @@ export function resolveEffectiveWeaponSkillEffects(
 
   const effects = applicableSources.map((source): EffectiveWeaponSkillEffect => {
     const matchingBoosts = boosts.filter((boost) => matchesBoost(source, boost));
-    const matchingSummonBoosts = summonBoosts.filter((boost) => matchesSummonBoost(source, boost));
+    const matchingSummonBoosts = selectStrongestSubAuraBoosts(
+      summonBoosts.filter((boost) => matchesSummonBoost(source, boost)),
+    );
     if (matchingBoosts.length > 1) {
       issues.push({
         code: "multiple-weapon-skill-boosts-assumed-additive",

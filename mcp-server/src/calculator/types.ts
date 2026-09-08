@@ -108,6 +108,12 @@ export interface SummonMasterCatalogEntry {
   auraName: string;
   auraDescription: string;
   auraEffects: SummonAuraEffectDefinition[];
+  /** Exact uncap states that differ from the catalog's default selectable state. */
+  auraOverrides?: Array<{
+    uncapLevel: number;
+    auraDescription: string;
+    auraEffects: SummonAuraEffectDefinition[];
+  }>;
   verificationStatus: "検証済み" | "下書き";
   source: string;
   confirmedAt?: string;

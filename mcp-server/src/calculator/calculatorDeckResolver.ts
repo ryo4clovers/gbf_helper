@@ -2,7 +2,7 @@ import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
 import { applyCalculatorDeckEquipmentRules } from "./calculatorDeckEquipmentRules.js";
 import { createSelectableJobCatalog } from "./jobCatalogView.js";
 import { loadJobFallbackWeaponCatalog } from "./jobFallbackWeaponCatalog.js";
-import { loadIncrementalSummonCatalog } from "./summonCatalog.js";
+import { loadIncrementalSummonCatalog, resolveCatalogSummonAura } from "./summonCatalog.js";
 import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 import { resolveEffectiveWeaponSkillEffects } from "./weaponEffectResolver.js";
 import type {
@@ -289,6 +289,8 @@ export function resolveCalculatorDeckConfig(
     }),
     summons: config.summons.map((summon) => {
       const master = summonCatalog.summons.get(summon.summonId);
+      const resolvedAura =
+        master === undefined ? undefined : resolveCatalogSummonAura(master, summon.uncapLevel);
       return {
         slot: summon.slot,
         position: summon.position,
@@ -306,8 +308,8 @@ export function resolveCalculatorDeckConfig(
             ? undefined
             : {
                 name: master.auraName,
-                description: master.auraDescription,
-                effects: master.auraEffects,
+                description: resolvedAura?.auraDescription ?? master.auraDescription,
+                effects: resolvedAura?.auraEffects ?? master.auraEffects,
                 verificationStatus: master.verificationStatus,
                 source: master.source,
                 confirmedAt: master.confirmedAt,

@@ -389,6 +389,46 @@ test("applies Wilnas' sub aura from a normal sub-summon slot with the observed s
   );
 });
 
+test("keeps only the strongest same-effect Wilnas sub aura across both sub slot types", () => {
+  const input = agniRequest();
+  input.deckConfig.protagonist.attackOverride = 26923;
+  input.deckConfig.protagonist.hpOverride = 6188;
+  input.deckConfig.summons.push(
+    {
+      slot: 2,
+      position: "grid",
+      summonId: "2040398000",
+      level: 150,
+      uncapLevel: 4,
+      plusMark: 0,
+      attackOverride: 3324,
+      hpOverride: 1093,
+    },
+    {
+      slot: 1,
+      position: "sub",
+      summonId: "2040398000",
+      level: 1,
+      uncapLevel: 0,
+      plusMark: 0,
+      attackOverride: 399,
+      hpOverride: 127,
+    },
+  );
+
+  const response = calculateNormalAttackFromRequest({
+    ...input,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+  });
+  const summonModifiers = response.result.attackPower.contributions[0]?.appliedModifiers.filter(
+    (modifier) => modifier.sourceType === "summon-aura" && modifier.sourceSummonId === "2040398000",
+  );
+
+  assert.deepEqual(summonModifiers?.map((modifier) => modifier.amountPercent), [40]);
+  assert.equal(response.result.attackPower.totalEffectiveNormalAttackPercent, 153);
+  assert.equal(response.result.baseDamage.damageBeforeRandomAndCap, 12573);
+});
+
 test("rejects support summon stats so they cannot enter deck attack or HP", () => {
   assert.throws(
     () =>
