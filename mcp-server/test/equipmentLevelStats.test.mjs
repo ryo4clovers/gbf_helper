@@ -84,6 +84,25 @@ test("reproduces every observed Leviathan Gaze Omega boundary", () => {
   }
 });
 
+test("reproduces every observed Tyros Vignette boundary", () => {
+  const progression = {
+    maximumLevel: 150,
+    points: [
+      { level: 1, attack: 322, hp: 65 },
+      { level: 100, attack: 2044, hp: 226 },
+      { level: 150, attack: 2390, hp: 260 },
+    ],
+  };
+
+  for (const [level, attack, hp] of [
+    [1, 322, 65],
+    [100, 2044, 226],
+    [150, 2390, 260],
+  ]) {
+    assert.deepEqual(calculateEquipmentLevelStats(progression, level), { attack, hp });
+  }
+});
+
 test("accepts verified breakpoint data up to level 250 but rejects guesses beyond it", () => {
   const progression = {
     maximumLevel: 250,

@@ -58,12 +58,13 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     const catalogResponse = JSON.parse(catalogText?.type === "text" ? catalogText.text : "{}") as {
       weapons?: Array<{ weaponId?: string }>;
     };
-    assert.equal(catalogResponse.weapons?.length, 9);
+    assert.equal(catalogResponse.weapons?.length, 10);
     assert.ok(catalogResponse.weapons?.some((weapon) => weapon.weaponId === "1040218900"));
     assert.ok(catalogResponse.weapons?.some((weapon) => weapon.weaponId === "1040915300"));
     assert.ok(catalogResponse.weapons?.some((weapon) => weapon.weaponId === "1040220800"));
     assert.ok(catalogResponse.weapons?.some((weapon) => weapon.weaponId === "1040401500"));
     assert.ok(catalogResponse.weapons?.some((weapon) => weapon.weaponId === "1040101500"));
+    assert.ok(catalogResponse.weapons?.some((weapon) => weapon.weaponId === "1040808200"));
 
     const jobResult = await client.callTool({ name: "list_calculator_jobs", arguments: {} });
     const jobText = jobResult.content.find((item) => item.type === "text");

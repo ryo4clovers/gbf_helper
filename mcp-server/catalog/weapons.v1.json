@@ -162,6 +162,33 @@
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のゲーム内武器詳細レスポンスでLv1・100・150・200のステータスとスキル構成を確認",
       "confirmedAt": "2026-09-08"
+    },
+    {
+      "weaponId": "1040808200",
+      "name": "テュロスビネット",
+      "elementCode": "2",
+      "weaponKindCode": "9",
+      "rarityCode": "4",
+      "seriesId": "7",
+      "selectionDefaults": {
+        "uncapLevel": 4,
+        "skillLevel": 15
+      },
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          { "level": 1, "attack": 322, "hp": 65 },
+          { "level": 100, "attack": 2044, "hp": 226 },
+          { "level": 150, "attack": 2390, "hp": 260 }
+        ]
+      },
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "64" },
+        { "sourceKey": "skill2", "skillId": "932" }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンスでLv1・100・150のステータスとスキル構成を確認",
+      "confirmedAt": "2026-09-08"
     }
   ]
 }

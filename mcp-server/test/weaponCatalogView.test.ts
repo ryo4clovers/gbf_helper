@@ -6,10 +6,21 @@ test("creates a deterministic browser-safe weapon catalog", () => {
   const catalog = createSelectableWeaponCatalog();
 
   assert.equal(catalog.schemaVersion, 1);
-  assert.equal(catalog.weapons.length, 9);
+  assert.equal(catalog.weapons.length, 10);
   assert.deepEqual(
     catalog.weapons.map((weapon) => weapon.name),
-    ["イフリートハルベルト", "エリクトニオス", "オーバーライド", "コロッサスケーン・マグナ", "ソロモンアクセル", "ブロンズソード", "ミムメモ人形", "レヴィアンゲイズ・マグナ", "禁栄の禍槍"],
+    ["イフリートハルベルト", "エリクトニオス", "オーバーライド", "コロッサスケーン・マグナ", "ソロモンアクセル", "テュロスビネット", "ブロンズソード", "ミムメモ人形", "レヴィアンゲイズ・マグナ", "禁栄の禍槍"],
+  );
+  assert.deepEqual(
+    catalog.weapons.find((weapon) => weapon.weaponId === "1040808200")?.levelStats,
+    {
+      maximumLevel: 150,
+      points: [
+        { level: 1, attack: 322, hp: 65 },
+        { level: 100, attack: 2044, hp: 226 },
+        { level: 150, attack: 2390, hp: 260 },
+      ],
+    },
   );
   assert.deepEqual(
     catalog.weapons.find((weapon) => weapon.weaponId === "1040101500")?.levelStats,

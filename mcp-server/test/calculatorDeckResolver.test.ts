@@ -69,6 +69,28 @@ test("derives Leviathan Gaze Omega stats at the Lv150 breakpoint", () => {
   assert.equal(result.issues.some((issue) => issue.code === "missing-stat-override"), false);
 });
 
+test("derives Tyros Vignette stats across its verified level range", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "2", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 2,
+        position: "grid",
+        weaponId: "1040808200",
+        level: 100,
+        skillLevel: 15,
+        plusMark: 0,
+      },
+    ],
+  });
+
+  assert.equal(result.deck.weapons[0].attack, 2044);
+  assert.equal(result.deck.weapons[0].hp, 226);
+  assert.equal(result.issues.some((issue) => issue.code === "missing-stat-override"), false);
+});
+
 test("resolves an override-backed calculator config without inventing instance IDs", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,
