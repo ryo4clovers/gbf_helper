@@ -10,6 +10,7 @@ import {
   upsertCalculatorProfile,
 } from "/calculator-state-storage.js";
 import { calculateEquipmentLevelStats } from "/equipment-level-stats.js";
+import { createEquipmentLevelOptions } from "/equipment-level-options.js";
 
 const defaultDeck = {
   schemaVersion: 1,
@@ -829,19 +830,23 @@ function createWeaponSlot(config, slot) {
     if (master?.levelStats) {
       const levelLabel = document.createElement("label");
       levelLabel.textContent = "Lv";
-      const levelInput = document.createElement("input");
-      levelInput.type = "number";
-      const minimumLevel = master.levelStats.points[0].level;
-      levelInput.min = String(minimumLevel);
-      levelInput.max = String(master.levelStats.maximumLevel);
-      levelInput.step = "1";
-      levelInput.value = String(weapon.level ?? master.levelStats.maximumLevel);
-      levelInput.setAttribute("aria-label", `${master.name}のレベル`);
-      levelInput.addEventListener("input", () => {
-        const value = Number(levelInput.value);
-        const isValid = Number.isInteger(value) && value >= minimumLevel && value <= master.levelStats.maximumLevel;
-        levelInput.setCustomValidity(isValid ? "" : `${minimumLevel}〜${master.levelStats.maximumLevel}の整数を入力してください`);
-        if (!isValid) return;
+      const levelSelect = document.createElement("select");
+      const currentLevel = weapon.level ?? master.levelStats.maximumLevel;
+      const levelOptions = createEquipmentLevelOptions(master.levelStats, currentLevel);
+      for (const levelOption of levelOptions) {
+        const option = new Option(
+          levelOption.verified ? String(levelOption.level) : `${levelOption.level}（未検証）`,
+          String(levelOption.level),
+        );
+        option.disabled = !levelOption.verified;
+        levelSelect.append(option);
+      }
+      levelSelect.value = String(currentLevel);
+      levelSelect.setAttribute("aria-label", `${master.name}の検証済みレベル`);
+      levelSelect.title = "実測または図鑑で確認できた境界Lvだけ選択できます";
+      levelSelect.addEventListener("change", () => {
+        const value = Number(levelSelect.value);
+        if (!levelOptions.some((option) => option.verified && option.level === value)) return;
         weapon.level = value;
         applyCatalogWeaponLevelStats(weapon, master);
         writeDeckConfig(config);
@@ -850,7 +855,7 @@ function createWeaponSlot(config, slot) {
         }
         void calculate();
       });
-      levelLabel.append(levelInput);
+      levelLabel.append(levelSelect);
       controls.append(levelLabel);
     }
     const skillLabel = document.createElement("label");

@@ -23,6 +23,7 @@ const staticFiles: Record<string, { file: string; contentType: string }> = {
   "/app.js": { file: "app.js", contentType: "text/javascript; charset=utf-8" },
   "/calculator-state-storage.js": { file: "calculator-state-storage.js", contentType: "text/javascript; charset=utf-8" },
   "/equipment-level-stats.js": { file: "equipment-level-stats.js", contentType: "text/javascript; charset=utf-8" },
+  "/equipment-level-options.js": { file: "equipment-level-options.js", contentType: "text/javascript; charset=utf-8" },
   "/styles.css": { file: "styles.css", contentType: "text/css; charset=utf-8" },
   "/battle.html": { file: "battle.html", contentType: "text/html; charset=utf-8" },
   "/battle.js": { file: "battle.js", contentType: "text/javascript; charset=utf-8" },

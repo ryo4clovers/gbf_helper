@@ -160,6 +160,7 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .weapon-slot-controls { min-height: 38px; padding: 5px 9px; display: flex; align-items: center; justify-content: space-between; gap: 6px; border-top: 1px solid var(--outline-soft); background: white; flex-wrap: wrap; }
 .weapon-slot-controls label { display: flex; align-items: center; gap: 4px; color: var(--ink-soft); font-size: .75rem; font-weight: 750; }
 .weapon-slot-controls input { width: 42px; min-height: 26px; padding: 3px 5px; border-radius: 8px; font-size: .72rem; }
+.weapon-slot-controls select { width: 70px; min-height: 26px; padding: 3px 5px; border-radius: 8px; font-size: .72rem; }
 .weapon-attack { color: var(--ink-soft); font-size: .75rem; font-weight: 750; }
 .fallback-summary { background: var(--secondary-container); }
 .fallback-label { color: var(--on-secondary-container); font-size: .75rem; font-weight: 800; }
