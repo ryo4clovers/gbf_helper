@@ -24,6 +24,8 @@ test("creates a deterministic browser-safe weapon catalog", () => {
       levelStats: {
         maximumLevel: 200,
         points: [
+          { level: 1, attack: 325, hp: 40 },
+          { level: 100, attack: 1960, hp: 258 },
           { level: 150, attack: 2290, hp: 302 },
           { level: 200, attack: 2450, hp: 324 },
         ],

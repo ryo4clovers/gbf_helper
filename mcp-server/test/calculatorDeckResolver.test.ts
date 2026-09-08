@@ -25,7 +25,7 @@ test("derives verified weapon stats from level and applies plus marks afterward"
   assert.equal(result.issues.some((issue) => issue.code === "missing-stat-override"), false);
 });
 
-test("derives stats inside a partially verified weapon level range", () => {
+test("derives stats across an extended weapon level range", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,
     format: "gbf-helper-calculator-deck",

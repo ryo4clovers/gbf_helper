@@ -123,6 +123,8 @@
       "levelStats": {
         "maximumLevel": 200,
         "points": [
+          { "level": 1, "attack": 325, "hp": 40 },
+          { "level": 100, "attack": 1960, "hp": 258 },
           { "level": 150, "attack": 2290, "hp": 302 },
           { "level": 200, "attack": 2450, "hp": 324 }
         ]
@@ -131,7 +133,7 @@
         { "sourceKey": "skill1", "skillId": "94" }
       ],
       "verificationStatus": "検証済み",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンスでLv150・151・152・200のステータスとスキル構成を確認",
+      "source": "ユーザー提供のゲーム内武器図鑑詳細と武器詳細レスポンスでLv1・100・150・151・152・200のステータスとスキル構成を確認",
       "confirmedAt": "2026-09-08"
     }
   ]

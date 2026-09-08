@@ -36,6 +36,8 @@ test("loads the initial incremental weapon and skill catalog", () => {
   assert.deepEqual(catalog.weapons.get("1040401500")?.levelStats, {
     maximumLevel: 200,
     points: [
+      { level: 1, attack: 325, hp: 40 },
+      { level: 100, attack: 1960, hp: 258 },
       { level: 150, attack: 2290, hp: 302 },
       { level: 200, attack: 2450, hp: 324 },
     ],
