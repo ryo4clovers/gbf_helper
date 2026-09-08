@@ -76,6 +76,14 @@
       "supportSelectable": true,
       "source": "ユーザー提供のゲーム内deckレスポンスで主召喚石・加護説明・武器スキル表示値を確認",
       "confirmedAt": "2026-09-06",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          { "level": 100, "uncapLevel": 3, "attack": 2270, "hp": 770 },
+          { "level": 150, "uncapLevel": 4, "attack": 3213, "hp": 1092 },
+          { "level": 250, "uncapLevel": 6, "attack": 4157, "hp": 1414 }
+        ]
+      },
       "selectionDefaults": {
         "level": 250,
         "uncapLevel": 6,
@@ -111,6 +119,9 @@
       "auraOverrides": [
         {
           "uncapLevel": 0,
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供のゲーム内図鑑詳細と無凸deckレスポンスで確認",
+          "confirmedAt": "2026-09-09",
           "auraDescription": "火属性攻撃力が100%UP。サブ装備時、スキル「火」「業火」「紅蓮」の効果が10%UP",
           "auraEffects": [
             {
@@ -129,12 +140,43 @@
               "description": "サブ装備時、スキル「火」「業火」「紅蓮」の効果が10%UP"
             }
           ]
+        },
+        {
+          "uncapLevel": 3,
+          "verificationStatus": "下書き",
+          "source": "gbf.wiki Wilnas (Summon) と GameWith個別ページで照合（2026-09-09）",
+          "auraDescription": "火属性攻撃力が120%UP。サブ装備時、スキル「火」「業火」「紅蓮」の効果が20%UP",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "1",
+              "amountPercent": 120,
+              "activation": "always",
+              "description": "火属性攻撃力が120%UP"
+            },
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 20,
+              "targetSkillNamePrefixes": ["火", "業火", "紅蓮"],
+              "activation": "sub-only",
+              "description": "サブ装備時、スキル「火」「業火」「紅蓮」の効果が20%UP"
+            }
+          ]
         }
       ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
       "source": "ユーザー提供のゲーム内deckレスポンス5件でサブ有無・配置差・同系統2枚配置・無凸単独の表示値差分を確認",
       "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          { "level": 1, "uncapLevel": 0, "attack": 399, "hp": 127 },
+          { "level": 100, "uncapLevel": 3, "attack": 2349, "hp": 771 },
+          { "level": 150, "uncapLevel": 4, "attack": 3324, "hp": 1093 }
+        ]
+      },
       "selectionDefaults": {
         "level": 150,
         "uncapLevel": 4,
@@ -167,10 +209,30 @@
           "description": "サブ装備時、スキル「土」「大地」「地裂」の効果が40%UP"
         }
       ],
+      "auraOverrides": [
+        {
+          "uncapLevel": 3,
+          "verificationStatus": "下書き",
+          "source": "gbf.wiki Six Dragons召喚石各ページで照合（2026-09-09）",
+          "auraDescription": "土属性攻撃力が120%UP。サブ装備時、スキル「土」「大地」「地裂」の効果が20%UP",
+          "auraEffects": [
+            { "kind": "elemental-attack-up", "elementCode": "3", "amountPercent": 120, "activation": "always", "description": "土属性攻撃力が120%UP" },
+            { "kind": "normal-skill-boost", "elementCode": "3", "amountPercent": 20, "targetSkillNamePrefixes": ["土", "大地", "地裂"], "activation": "sub-only", "description": "サブ装備時、スキル「土」「大地」「地裂」の効果が20%UP" }
+          ]
+        }
+      ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
       "source": "ユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンスで確認",
       "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          { "level": 1, "uncapLevel": 0, "attack": 324, "hp": 142 },
+          { "level": 100, "uncapLevel": 3, "attack": 2049, "hp": 831 },
+          { "level": 150, "uncapLevel": 4, "attack": 2912, "hp": 1176 }
+        ]
+      },
       "selectionDefaults": {
         "level": 150,
         "uncapLevel": 4,
@@ -203,10 +265,30 @@
           "description": "サブ装備時、スキル「風」「竜巻」「乱気」の効果が40%UP"
         }
       ],
+      "auraOverrides": [
+        {
+          "uncapLevel": 3,
+          "verificationStatus": "下書き",
+          "source": "gbf.wiki Six Dragons召喚石各ページで照合（2026-09-09）",
+          "auraDescription": "風属性攻撃力が120%UP。サブ装備時、スキル「風」「竜巻」「乱気」の効果が20%UP",
+          "auraEffects": [
+            { "kind": "elemental-attack-up", "elementCode": "4", "amountPercent": 120, "activation": "always", "description": "風属性攻撃力が120%UP" },
+            { "kind": "normal-skill-boost", "elementCode": "4", "amountPercent": 20, "targetSkillNamePrefixes": ["風", "竜巻", "乱気"], "activation": "sub-only", "description": "サブ装備時、スキル「風」「竜巻」「乱気」の効果が20%UP" }
+          ]
+        }
+      ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
       "source": "ユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンスで確認",
       "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          { "level": 1, "uncapLevel": 0, "attack": 365, "hp": 134 },
+          { "level": 100, "uncapLevel": 3, "attack": 2145, "hp": 812 },
+          { "level": 150, "uncapLevel": 4, "attack": 3035, "hp": 1151 }
+        ]
+      },
       "selectionDefaults": {
         "level": 150,
         "uncapLevel": 4,
@@ -239,10 +321,30 @@
           "description": "サブ装備時、スキル「光」「雷電」「天光」の効果が40%UP"
         }
       ],
+      "auraOverrides": [
+        {
+          "uncapLevel": 3,
+          "verificationStatus": "下書き",
+          "source": "gbf.wiki Six Dragons召喚石各ページで照合（2026-09-09）",
+          "auraDescription": "光属性攻撃力が120%UP。サブ装備時、スキル「光」「雷電」「天光」の効果が20%UP",
+          "auraEffects": [
+            { "kind": "elemental-attack-up", "elementCode": "5", "amountPercent": 120, "activation": "always", "description": "光属性攻撃力が120%UP" },
+            { "kind": "normal-skill-boost", "elementCode": "5", "amountPercent": 20, "targetSkillNamePrefixes": ["光", "雷電", "天光"], "activation": "sub-only", "description": "サブ装備時、スキル「光」「雷電」「天光」の効果が20%UP" }
+          ]
+        }
+      ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
       "source": "ユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンスで確認",
       "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          { "level": 1, "uncapLevel": 0, "attack": 255, "hp": 155 },
+          { "level": 100, "uncapLevel": 3, "attack": 1800, "hp": 880 },
+          { "level": 150, "uncapLevel": 4, "attack": 2573, "hp": 1243 }
+        ]
+      },
       "selectionDefaults": {
         "level": 150,
         "uncapLevel": 4,
@@ -275,10 +377,30 @@
           "description": "サブ装備時、スキル「水」「渦潮」「霧氷」の効果が40%UP"
         }
       ],
+      "auraOverrides": [
+        {
+          "uncapLevel": 3,
+          "verificationStatus": "下書き",
+          "source": "gbf.wiki Six Dragons召喚石各ページで照合（2026-09-09）",
+          "auraDescription": "水属性攻撃力が120%UP。サブ装備時、スキル「水」「渦潮」「霧氷」の効果が20%UP",
+          "auraEffects": [
+            { "kind": "elemental-attack-up", "elementCode": "2", "amountPercent": 120, "activation": "always", "description": "水属性攻撃力が120%UP" },
+            { "kind": "normal-skill-boost", "elementCode": "2", "amountPercent": 20, "targetSkillNamePrefixes": ["水", "渦潮", "霧氷"], "activation": "sub-only", "description": "サブ装備時、スキル「水」「渦潮」「霧氷」の効果が20%UP" }
+          ]
+        }
+      ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
       "source": "ユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンスで確認",
       "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          { "level": 1, "uncapLevel": 0, "attack": 234, "hp": 160 },
+          { "level": 100, "uncapLevel": 3, "attack": 1704, "hp": 900 },
+          { "level": 150, "uncapLevel": 4, "attack": 2439, "hp": 1270 }
+        ]
+      },
       "selectionDefaults": {
         "level": 150,
         "uncapLevel": 4,
@@ -311,10 +433,30 @@
           "description": "サブ装備時、スキル「闇」「憎悪」「奈落」の効果が40%UP"
         }
       ],
+      "auraOverrides": [
+        {
+          "uncapLevel": 3,
+          "verificationStatus": "下書き",
+          "source": "gbf.wiki Six Dragons召喚石各ページで照合（2026-09-09）",
+          "auraDescription": "闇属性攻撃力が120%UP。サブ装備時、スキル「闇」「憎悪」「奈落」の効果が20%UP",
+          "auraEffects": [
+            { "kind": "elemental-attack-up", "elementCode": "6", "amountPercent": 120, "activation": "always", "description": "闇属性攻撃力が120%UP" },
+            { "kind": "normal-skill-boost", "elementCode": "6", "amountPercent": 20, "targetSkillNamePrefixes": ["闇", "憎悪", "奈落"], "activation": "sub-only", "description": "サブ装備時、スキル「闇」「憎悪」「奈落」の効果が20%UP" }
+          ]
+        }
+      ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
       "source": "ユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンスで確認",
       "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          { "level": 1, "uncapLevel": 0, "attack": 374, "hp": 132 },
+          { "level": 100, "uncapLevel": 3, "attack": 2154, "hp": 810 },
+          { "level": 150, "uncapLevel": 4, "attack": 3044, "hp": 1149 }
+        ]
+      },
       "selectionDefaults": {
         "level": 150,
         "uncapLevel": 4,

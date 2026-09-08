@@ -310,9 +310,9 @@ export function resolveCalculatorDeckConfig(
                 name: master.auraName,
                 description: resolvedAura?.auraDescription ?? master.auraDescription,
                 effects: resolvedAura?.auraEffects ?? master.auraEffects,
-                verificationStatus: master.verificationStatus,
-                source: master.source,
-                confirmedAt: master.confirmedAt,
+                verificationStatus: resolvedAura?.verificationStatus ?? master.verificationStatus,
+                source: resolvedAura?.source ?? master.source,
+                confirmedAt: resolvedAura?.confirmedAt ?? master.confirmedAt,
               },
       };
     }),

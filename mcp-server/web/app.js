@@ -1036,6 +1036,22 @@ function summonSlotLabel(position, slot) {
   return `召喚石 ${slot}`;
 }
 
+function applyCatalogSummonLevelStats(summon, master) {
+  if (!master?.levelStats || summon.level == null) return false;
+  const point = master.levelStats.points.find((candidate) => candidate.level === summon.level);
+  if (!point) return false;
+  const stats = calculateEquipmentLevelStats(
+    master.levelStats,
+    summon.level,
+    summon.plusMark ?? 0,
+    { attack: equipmentPlusBonus.attackPerMark, hp: equipmentPlusBonus.hpPerMark },
+  );
+  summon.uncapLevel = point.uncapLevel;
+  summon.attackOverride = stats.attack;
+  summon.hpOverride = stats.hp;
+  return true;
+}
+
 function createSummonSlot(config, position, slot) {
   const summon = summonForSlot(config, position, slot);
   const master = summon ? catalogSummon(summon.summonId) : undefined;
@@ -1069,24 +1085,42 @@ function createSummonSlot(config, position, slot) {
     controls.className = "weapon-slot-controls";
     const levelLabel = document.createElement("label");
     levelLabel.textContent = "Lv";
-    const levelInput = document.createElement("input");
-    levelInput.type = "number";
-    levelInput.min = "1";
-    levelInput.max = "250";
-    levelInput.step = "1";
-    levelInput.placeholder = "—";
-    levelInput.value = summon.level == null ? "" : String(summon.level);
-    levelInput.setAttribute("aria-label", `${master?.name ?? summon.summonId}のレベル`);
-    levelInput.addEventListener("change", () => {
-      const value = Number(levelInput.value);
-      if (levelInput.value === "") delete summon.level;
-      else if (Number.isInteger(value) && value >= 1 && value <= 250) summon.level = value;
-      else return;
+    const levelSelect = document.createElement("select");
+    const currentLevel = summon.level ?? master?.levelStats?.maximumLevel;
+    const levelOptions = createEquipmentLevelOptions(master?.levelStats, currentLevel);
+    if (levelOptions.length === 0 && currentLevel != null) {
+      levelOptions.push({ level: currentLevel, verified: false });
+    }
+    for (const levelOption of levelOptions) {
+      const option = new Option(
+        levelOption.verified ? String(levelOption.level) : `${levelOption.level}（未検証）`,
+        String(levelOption.level),
+      );
+      option.disabled = !levelOption.verified;
+      levelSelect.append(option);
+    }
+    levelSelect.value = currentLevel == null ? "" : String(currentLevel);
+    levelSelect.disabled = !master?.levelStats;
+    levelSelect.setAttribute("aria-label", `${master?.name ?? summon.summonId}の検証済みレベル`);
+    levelSelect.title = master?.levelStats
+      ? "実測または図鑑で確認できた境界Lvだけ選択できます"
+      : "この召喚石はレベル別ステータスが未登録です";
+    let stats;
+    levelSelect.addEventListener("change", () => {
+      const value = Number(levelSelect.value);
+      if (!levelOptions.some((option) => option.verified && option.level === value)) return;
+      const previousSummons = config.summons.map((entry) => ({ ...entry }));
+      summon.level = value;
+      applyCatalogSummonLevelStats(summon, master);
+      rebaseProtagonistForSummonChange(config, previousSummons);
       writeDeckConfig(config);
+      if (stats) {
+        stats.textContent = `HP ${numberFormat.format(summon.hpOverride)} / ATK ${numberFormat.format(summon.attackOverride)}`;
+      }
       void calculate();
     });
-    levelLabel.append(levelInput);
-    const stats = createText("weapon-attack", `HP ${summon.hpOverride == null ? "—" : numberFormat.format(summon.hpOverride)} / ATK ${summon.attackOverride == null ? "—" : numberFormat.format(summon.attackOverride)}`);
+    levelLabel.append(levelSelect);
+    stats = createText("weapon-attack", `HP ${summon.hpOverride == null ? "—" : numberFormat.format(summon.hpOverride)} / ATK ${summon.attackOverride == null ? "—" : numberFormat.format(summon.attackOverride)}`);
     controls.append(
       levelLabel,
       createEquipmentPlusField(

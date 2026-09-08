@@ -65,6 +65,38 @@ test("resolves Wilnas' verified 0-star aura instead of the 4-star catalog defaul
   );
 });
 
+test("resolves the sourced draft 3-star Wilnas aura", () => {
+  const summon = loadIncrementalSummonCatalog().summons.get("2040398000");
+  assert.ok(summon !== undefined);
+
+  const aura = resolveCatalogSummonAura(summon, 3);
+
+  assert.equal(aura.verificationStatus, "下書き");
+  assert.deepEqual(
+    aura.auraEffects.map((effect) => [
+      effect.kind,
+      "amountPercent" in effect ? effect.amountPercent : undefined,
+    ]),
+    [
+      ["elemental-attack-up", 120],
+      ["normal-skill-boost", 20],
+    ],
+  );
+});
+
+test("loads verified summon level breakpoints", () => {
+  const catalog = loadIncrementalSummonCatalog();
+  const wilnas = catalog.summons.get("2040398000");
+  const agni = catalog.summons.get("2040094000");
+
+  assert.deepEqual(wilnas?.levelStats?.points, [
+    { level: 1, uncapLevel: 0, attack: 399, hp: 127 },
+    { level: 100, uncapLevel: 3, attack: 2349, hp: 771 },
+    { level: 150, uncapLevel: 4, attack: 3324, hp: 1093 },
+  ]);
+  assert.deepEqual(agni?.levelStats?.points.map((point) => point.level), [100, 150, 250]);
+});
+
 test("loads every verified Six Dragons 4-star aura", () => {
   const catalog = loadIncrementalSummonCatalog();
   const expected = [

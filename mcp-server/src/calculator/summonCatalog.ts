@@ -34,6 +34,29 @@ const auraEffectSchema = z.discriminatedUnion("kind", [
     .strict(),
 ]);
 
+const summonLevelStatsSchema = z
+  .object({
+    maximumLevel: z.number().int().min(1).max(250),
+    points: z.array(
+      z.object({
+        level: z.number().int().min(1).max(250),
+        uncapLevel: z.number().int().nonnegative(),
+        attack: z.number().int().nonnegative(),
+        hp: z.number().int().nonnegative(),
+      }).strict(),
+    ).min(2),
+  })
+  .strict()
+  .superRefine((progression, context) => {
+    const levels = progression.points.map((point) => point.level);
+    if (levels.at(-1) !== progression.maximumLevel) {
+      context.addIssue({ code: "custom", message: "levelStats must end at maximumLevel" });
+    }
+    if (levels.some((level, index) => index > 0 && level <= levels[index - 1])) {
+      context.addIssue({ code: "custom", message: "levelStats points must be strictly ascending" });
+    }
+  });
+
 const summonCatalogSchema = z
   .object({
     schemaVersion: z.literal(1),
@@ -54,6 +77,9 @@ const summonCatalogSchema = z
                   uncapLevel: z.number().int().nonnegative(),
                   auraDescription: z.string().min(1),
                   auraEffects: z.array(auraEffectSchema),
+                  verificationStatus: z.enum(["検証済み", "下書き"]),
+                  source: z.string().min(1),
+                  confirmedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
                 })
                 .strict(),
             )
@@ -62,6 +88,7 @@ const summonCatalogSchema = z
           source: z.string().min(1),
           confirmedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
           supportSelectable: z.boolean(),
+          levelStats: summonLevelStatsSchema.optional(),
           selectionDefaults: z
             .object({
               level: z.number().int().positive(),
@@ -87,7 +114,10 @@ export interface IncrementalSummonCatalog {
 export function resolveCatalogSummonAura(
   master: SummonMasterCatalogEntry,
   uncapLevel?: number,
-): Pick<SummonMasterCatalogEntry, "auraDescription" | "auraEffects"> {
+): Pick<
+  SummonMasterCatalogEntry,
+  "auraDescription" | "auraEffects" | "verificationStatus" | "source" | "confirmedAt"
+> {
   const override = master.auraOverrides?.find((candidate) => candidate.uncapLevel === uncapLevel);
   return override ?? master;
 }

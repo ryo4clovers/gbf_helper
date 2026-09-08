@@ -113,12 +113,19 @@ export interface SummonMasterCatalogEntry {
     uncapLevel: number;
     auraDescription: string;
     auraEffects: SummonAuraEffectDefinition[];
+    verificationStatus: "検証済み" | "下書き";
+    source: string;
+    confirmedAt?: string;
   }>;
   verificationStatus: "検証済み" | "下書き";
   source: string;
   confirmedAt?: string;
   /** Whether this summon may be chosen in the pre-quest support summon slot. */
   supportSelectable: boolean;
+  levelStats?: {
+    maximumLevel: number;
+    points: Array<{ level: number; uncapLevel: number; attack: number; hp: number }>;
+  };
   selectionDefaults?: {
     level: number;
     uncapLevel: number;

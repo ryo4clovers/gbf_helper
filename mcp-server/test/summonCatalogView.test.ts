@@ -40,5 +40,6 @@ test("creates a deterministic browser-safe summon catalog", () => {
     attack: 3324,
     hp: 1093,
   });
+  assert.deepEqual(wilnas?.levelStats?.points.map((point) => point.level), [1, 100, 150]);
   assert.equal(JSON.stringify(catalog).includes("instanceId"), false);
 });
