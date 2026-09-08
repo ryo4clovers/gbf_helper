@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "confirmedAt": "2026-09-09",
+  "source": "ユーザー提供の現時点総数",
+  "totals": {
+    "weapons": 2967,
+    "summons": 461,
+    "characters": 1017
+  }
+}

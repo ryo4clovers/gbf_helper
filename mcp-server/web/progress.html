@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="GBF武器・召喚石データのローカル収集進捗" />
-    <title>Data Progress — GBF Damage Lab</title>
+    <meta name="description" content="GBF計算機カタログの登録進捗と登録済みデータ一覧" />
+    <title>Calculator Catalog — GBF Damage Lab</title>
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/progress.css" />
     <script type="module" src="/progress.js"></script>
@@ -13,11 +13,11 @@
     <header class="top-app-bar progress-app-bar">
       <a class="brand-mark progress-brand" href="/" aria-label="計算画面へ戻る">▤</a>
       <div>
-        <p class="eyebrow">LOCAL DATA LAB</p>
-        <h1>データ収集進捗</h1>
+        <p class="eyebrow">CALCULATOR CATALOG</p>
+        <h1>計算機カタログ</h1>
       </div>
       <div class="header-actions">
-        <span class="privacy-chip"><span aria-hidden="true">●</span> 公開可能データのみ表示</span>
+        <span class="privacy-chip"><span aria-hidden="true">●</span> 登録済みマスタのみ表示</span>
         <a class="tonal-button nav-button" href="/">編成・計算へ戻る</a>
       </div>
     </header>
@@ -27,33 +27,36 @@
         <div>
           <span class="step">DATA</span>
           <div>
-            <h2>現在の蓄積状況</h2>
-            <p>図鑑取得・ナレッジ登録・計算機対応を、それぞれ独立した件数として集計します。</p>
+            <h2>計算機で選択できるデータ</h2>
+            <p>武器・召喚石・キャラクターの登録数と、現在のカタログ内容を確認できます。</p>
           </div>
         </div>
-        <p class="scope-note">各段階は対象範囲が異なるため、単純な包含関係ではありません。</p>
+        <p id="target-note" class="scope-note">基準件数を読み込んでいます</p>
       </section>
 
-      <section id="summary-grid" class="progress-summary-grid" aria-label="全体集計"></section>
-      <div id="progress-state" class="progress-state" role="status">進捗データを読み込んでいます</div>
-      <section id="category-grid" class="category-grid" aria-label="武器と召喚石の進捗"></section>
+      <section id="summary-grid" class="progress-summary-grid" aria-label="カタログ登録進捗"></section>
+      <div id="progress-state" class="progress-state" role="status">カタログを読み込んでいます</div>
 
-      <section class="surface breakdown-panel">
-        <div class="section-heading compact">
-          <div><span class="step">属性</span><h2>ナレッジと計算機の属性別件数</h2></div>
+      <section class="surface catalog-panel">
+        <div class="catalog-toolbar">
+          <div>
+            <span class="step">LIST</span>
+            <h2>登録済み一覧</h2>
+          </div>
+          <label class="catalog-search">
+            <span>名前・IDで検索</span>
+            <input id="catalog-search" type="search" placeholder="例: レヴィアン / 1040101500" autocomplete="off" />
+          </label>
         </div>
-        <p class="panel-description">色付きが計算機対応、薄い背景がナレッジ登録数です。</p>
-        <div id="element-breakdowns" class="element-breakdowns"></div>
-      </section>
-
-      <section class="surface breakdown-panel">
-        <div class="section-heading compact">
-          <div><span class="step">系統</span><h2>武器シリーズ別ナレッジ</h2></div>
+        <div id="catalog-tabs" class="catalog-tabs" role="tablist" aria-label="カタログ種別"></div>
+        <div class="list-status-row">
+          <p id="list-status" aria-live="polite"></p>
+          <p class="list-legend"><span>属性</span><span>レアリティ</span><span>検証状態</span></p>
         </div>
-        <p class="panel-description">登録数の多い順。シリーズの偏りと次の収集候補を確認できます。</p>
-        <div id="series-breakdown" class="series-breakdown"></div>
+        <div id="catalog-list" class="catalog-list" role="tabpanel"></div>
+        <nav id="pagination" class="pagination" aria-label="一覧ページ"></nav>
       </section>
     </main>
-    <footer>集計元: コミット済みの knowledge / calculator catalog / 収集スナップショット</footer>
+    <footer>集計元: 計算機のコミット済みカタログ / 基準件数: ユーザー提供値</footer>
   </body>
 </html>

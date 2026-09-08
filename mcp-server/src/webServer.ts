@@ -10,7 +10,7 @@ import { createSelectableJobCatalog } from "./calculator/jobCatalogView.js";
 import { createJobFallbackWeaponCatalogView } from "./calculator/jobFallbackWeaponCatalog.js";
 import { createSelectableWeaponCatalog } from "./calculator/weaponCatalogView.js";
 import { createSelectableSummonCatalog } from "./calculator/summonCatalogView.js";
-import { createCollectionProgressView } from "./services/collectionProgress.js";
+import { createCalculatorCatalogProgressView } from "./services/calculatorCatalogProgress.js";
 
 const HOST = "127.0.0.1";
 const requestedPort = Number.parseInt(process.env.GBF_CALCULATOR_PORT ?? "4173", 10);
@@ -93,8 +93,8 @@ const server = createServer(async (request, response) => {
       json(response, 200, createSelectableSummonCatalog());
       return;
     }
-    if (request.method === "GET" && url.pathname === "/api/collection-progress") {
-      json(response, 200, createCollectionProgressView());
+    if (request.method === "GET" && url.pathname === "/api/catalog-progress") {
+      json(response, 200, createCalculatorCatalogProgressView());
       return;
     }
     if (request.method === "POST" && url.pathname === "/api/calculate") {
