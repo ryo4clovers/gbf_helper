@@ -169,6 +169,29 @@ test("parseDeckResponse normalizes numeric strings and removes empty slots", () 
   });
 });
 
+test("distinguishes normal sub-summon and sub-aura-only slots", () => {
+  const input = makeDeckResponse();
+  input.deck.pc.summons[2] = {
+    master: { id: "2040398000", name: "ウィルナス", attribute: "1", rarity: "4" },
+    param: { id: "7002", level: "150", attack: "3324", hp: 1093 },
+  };
+  input.deck.pc.sub_summons[1] = {
+    master: { id: "2040398000", name: "ウィルナス", attribute: "1", rarity: "4" },
+    param: { id: "7003", level: "150", attack: "3324", hp: 1093 },
+  };
+
+  const summons = parseDeckResponse(input).summons;
+
+  assert.deepEqual(
+    summons.map(({ slot, position, masterId }) => ({ slot, position, masterId })),
+    [
+      { slot: 1, position: "main", masterId: "2040001000" },
+      { slot: 2, position: "grid", masterId: "2040398000" },
+      { slot: 1, position: "sub", masterId: "2040398000" },
+    ],
+  );
+});
+
 test("identifies a zero-instance main weapon as the job fallback", () => {
   const input = makeDeckResponse();
   Reflect.set(input.deck.pc.weapons[1].param, "id", 0);

@@ -1,4 +1,12 @@
-export type EquipmentPosition = "main" | "grid" | "sub";
+/**
+ * Summon placement in a deck.
+ * `grid` is a normal sub-summon slot whose stats count; `sub` is the
+ * sub-aura-only slot whose stats do not count. Both can activate sub-only auras.
+ */
+export type SummonPosition = "main" | "grid" | "sub";
+
+/** @deprecated Use `SummonPosition`; retained for compatibility with existing callers. */
+export type EquipmentPosition = SummonPosition;
 
 export interface DeckStats {
   attack?: number;
@@ -233,7 +241,7 @@ export interface DeckWeapon extends DeckStats {
 
 export interface DeckSummon extends DeckStats {
   slot: number;
-  position: EquipmentPosition;
+  position: SummonPosition;
   /** Present for imported game snapshots; omitted for user-authored configurations. */
   instanceId?: string;
   masterId: string;
@@ -364,7 +372,7 @@ export interface CalculatorDeckWeaponConfig {
 
 export interface CalculatorDeckSummonConfig {
   slot: number;
-  position: EquipmentPosition;
+  position: SummonPosition;
   summonId: string;
   nameHint?: string;
   level?: number;
