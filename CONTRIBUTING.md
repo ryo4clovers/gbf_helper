@@ -36,6 +36,13 @@ npm run build       # 配布用JavaScriptの生成
 - 情報源の選定、収集方法、既知の例外は `docs/data-collection-notes.md` を参照します。
 - `draft/` と `tools/network-recorder/captures/` はローカル専用です。アカウント固有情報を含む可能性があるためコミットしません。
 
+### 収集進捗画面
+
+- ローカル計算機の `/progress.html` は、`knowledge/weapons/`・`knowledge/summons/`と`mcp-server/catalog/`を実行時に集計します。ナレッジや計算カタログの件数は手動転記しません。
+- 図鑑レスポンスの収集件数だけは、処理済みバッチの集計値を`mcp-server/catalog/collection-progress.v1.json`へ追記・更新します。
+- 進捗JSONには公開可能な集計値、収集日、収集範囲だけを記録します。生レスポンスの内容、個体ID、アカウント情報、ローカル保存先は含めません。
+- 「図鑑取得」「ナレッジ登録」「計算機対応」は対象範囲が異なる独立指標です。完全な母数が確定するまでは、図鑑取得率を推測表示しません。
+
 ## コミットメッセージ
 
 - 規約と記入例は `.gitmessage` に記載しています。

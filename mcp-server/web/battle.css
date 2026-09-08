@@ -1,7 +1,6 @@
 .battle-page { min-height: 100vh; background: radial-gradient(circle at 50% -10%, #d9d1ff 0, transparent 34rem), radial-gradient(circle at 100% 28%, #bdf3ed 0, transparent 30rem), var(--surface); }
 .battle-app-bar { position: relative; z-index: 2; }
 .battle-brand { text-decoration: none; transform: rotate(3deg); }
-.nav-button { text-decoration: none; }
 .battle-workspace { width: min(1580px, calc(100% - 40px)); margin: 6px auto 56px; display: grid; gap: 20px; }
 .battle-stage { position: relative; overflow: hidden; padding: 0; border-radius: 42px 24px 42px 24px; background: linear-gradient(145deg, rgba(31,27,48,.97), rgba(50,42,79,.94)); color: white; }
 .battle-stage::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 80% 10%, rgba(121,230,218,.22), transparent 35%), radial-gradient(circle at 20% 95%, rgba(139,111,255,.32), transparent 35%); }

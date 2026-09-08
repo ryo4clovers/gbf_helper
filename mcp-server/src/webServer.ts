@@ -10,6 +10,7 @@ import { createSelectableJobCatalog } from "./calculator/jobCatalogView.js";
 import { createJobFallbackWeaponCatalogView } from "./calculator/jobFallbackWeaponCatalog.js";
 import { createSelectableWeaponCatalog } from "./calculator/weaponCatalogView.js";
 import { createSelectableSummonCatalog } from "./calculator/summonCatalogView.js";
+import { createCollectionProgressView } from "./services/collectionProgress.js";
 
 const HOST = "127.0.0.1";
 const requestedPort = Number.parseInt(process.env.GBF_CALCULATOR_PORT ?? "4173", 10);
@@ -29,6 +30,9 @@ const staticFiles: Record<string, { file: string; contentType: string }> = {
   "/battle.js": { file: "battle.js", contentType: "text/javascript; charset=utf-8" },
   "/battle-state.js": { file: "battle-state.js", contentType: "text/javascript; charset=utf-8" },
   "/battle.css": { file: "battle.css", contentType: "text/css; charset=utf-8" },
+  "/progress.html": { file: "progress.html", contentType: "text/html; charset=utf-8" },
+  "/progress.js": { file: "progress.js", contentType: "text/javascript; charset=utf-8" },
+  "/progress.css": { file: "progress.css", contentType: "text/css; charset=utf-8" },
 };
 
 function securityHeaders(response: ServerResponse): void {
@@ -87,6 +91,10 @@ const server = createServer(async (request, response) => {
     }
     if (request.method === "GET" && url.pathname === "/api/catalog/summons") {
       json(response, 200, createSelectableSummonCatalog());
+      return;
+    }
+    if (request.method === "GET" && url.pathname === "/api/collection-progress") {
+      json(response, 200, createCollectionProgressView());
       return;
     }
     if (request.method === "POST" && url.pathname === "/api/calculate") {
