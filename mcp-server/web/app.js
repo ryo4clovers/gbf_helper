@@ -757,6 +757,8 @@ function weaponForSlot(config, slot) {
 
 function applyCatalogWeaponLevelStats(weapon, master) {
   if (!master?.levelStats || weapon.level == null) return false;
+  const minimumLevel = master.levelStats.points[0]?.level;
+  if (minimumLevel == null || weapon.level < minimumLevel || weapon.level > master.levelStats.maximumLevel) return false;
   const stats = calculateEquipmentLevelStats(
     master.levelStats,
     weapon.level,
@@ -766,6 +768,13 @@ function applyCatalogWeaponLevelStats(weapon, master) {
   weapon.attackOverride = stats.attack;
   weapon.hpOverride = stats.hp;
   return true;
+}
+
+function applyCatalogWeaponLevelStatsToConfig(config) {
+  for (const weapon of config.weapons) {
+    if (weapon.isJobFallback === true) continue;
+    applyCatalogWeaponLevelStats(weapon, catalogWeapon(weapon.weaponId));
+  }
 }
 
 function createWeaponSlot(config, slot) {
@@ -822,15 +831,16 @@ function createWeaponSlot(config, slot) {
       levelLabel.textContent = "Lv";
       const levelInput = document.createElement("input");
       levelInput.type = "number";
-      levelInput.min = "1";
+      const minimumLevel = master.levelStats.points[0].level;
+      levelInput.min = String(minimumLevel);
       levelInput.max = String(master.levelStats.maximumLevel);
       levelInput.step = "1";
       levelInput.value = String(weapon.level ?? master.levelStats.maximumLevel);
       levelInput.setAttribute("aria-label", `${master.name}のレベル`);
       levelInput.addEventListener("input", () => {
         const value = Number(levelInput.value);
-        const isValid = Number.isInteger(value) && value >= 1 && value <= master.levelStats.maximumLevel;
-        levelInput.setCustomValidity(isValid ? "" : `1〜${master.levelStats.maximumLevel}の整数を入力してください`);
+        const isValid = Number.isInteger(value) && value >= minimumLevel && value <= master.levelStats.maximumLevel;
+        levelInput.setCustomValidity(isValid ? "" : `${minimumLevel}〜${master.levelStats.maximumLevel}の整数を入力してください`);
         if (!isValid) return;
         weapon.level = value;
         applyCatalogWeaponLevelStats(weapon, master);
@@ -890,6 +900,7 @@ function renderWeaponEditor() {
   try {
     const config = readDeckConfig();
     applyEquipmentRules(config);
+    applyCatalogWeaponLevelStatsToConfig(config);
     writeDeckConfig(config);
     renderJobEditor(config);
     renderCharacterEditor(config);
@@ -968,8 +979,8 @@ function selectWeapon(master) {
     weaponId: master.weaponId,
     nameHint: master.name,
     level: master.levelStats?.maximumLevel,
-    uncapLevel: master.levelStats ? 4 : undefined,
-    skillLevel: master.skills.length ? 15 : undefined,
+    uncapLevel: master.selectionDefaults?.uncapLevel ?? (master.levelStats ? 4 : undefined),
+    skillLevel: master.selectionDefaults?.skillLevel ?? (master.skills.length ? 15 : undefined),
     plusMark: 0,
   });
   applyCatalogWeaponLevelStats(config.weapons.at(-1), master);

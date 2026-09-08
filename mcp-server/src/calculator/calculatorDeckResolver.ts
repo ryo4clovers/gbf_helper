@@ -69,6 +69,10 @@ function calculateCatalogWeaponStats(
   master: WeaponMasterCatalogEntry | undefined,
 ): { attack: number; hp: number } | undefined {
   if (master?.levelStats === undefined || weapon.level === undefined) return undefined;
+  const minimumLevel = master.levelStats.points[0]?.level;
+  if (minimumLevel === undefined || weapon.level < minimumLevel || weapon.level > master.levelStats.maximumLevel) {
+    return undefined;
+  }
   return calculateEquipmentLevelStats(master.levelStats, weapon.level, weapon.plusMark ?? 0, {
     attack: 5,
     hp: 1,

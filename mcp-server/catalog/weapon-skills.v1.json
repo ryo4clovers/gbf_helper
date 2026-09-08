@@ -255,6 +255,15 @@
       "verificationStatus": "下書き",
       "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。効果量は未検証",
       "confirmedAt": "2026-09-08"
+    },
+    {
+      "skillId": "94",
+      "name": "機炎方陣・攻刃III",
+      "description": "火属性キャラの攻撃力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。SLv20の効果量は未検証",
+      "confirmedAt": "2026-09-08"
     }
   ]
 }

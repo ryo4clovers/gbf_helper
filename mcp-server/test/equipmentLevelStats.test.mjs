@@ -39,6 +39,27 @@ test("adds plus marks after calculating and flooring level stats", () => {
   );
 });
 
+test("reproduces the observed Colossus Cane Omega Lv150 to Lv200 interval", () => {
+  const progression = {
+    maximumLevel: 200,
+    points: [
+      { level: 150, attack: 2290, hp: 302 },
+      { level: 200, attack: 2450, hp: 324 },
+    ],
+  };
+  const observations = [
+    [150, 2290, 302],
+    [151, 2293, 302],
+    [152, 2296, 302],
+    [200, 2450, 324],
+  ];
+
+  for (const [level, attack, hp] of observations) {
+    assert.deepEqual(calculateEquipmentLevelStats(progression, level), { attack, hp });
+  }
+  assert.throws(() => calculateEquipmentLevelStats(progression, 149), /150〜200/);
+});
+
 test("accepts verified breakpoint data up to level 250 but rejects guesses beyond it", () => {
   const progression = {
     maximumLevel: 250,
@@ -53,4 +74,3 @@ test("accepts verified breakpoint data up to level 250 but rejects guesses beyon
   assert.deepEqual(calculateEquipmentLevelStats(progression, 225), { attack: 235, hp: 117 });
   assert.throws(() => calculateEquipmentLevelStats(progression, 251), /1〜250/);
 });
-

@@ -25,6 +25,28 @@ test("derives verified weapon stats from level and applies plus marks afterward"
   assert.equal(result.issues.some((issue) => issue.code === "missing-stat-override"), false);
 });
 
+test("derives stats inside a partially verified weapon level range", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 2,
+        position: "grid",
+        weaponId: "1040401500",
+        level: 152,
+        skillLevel: 20,
+        plusMark: 0,
+      },
+    ],
+  });
+
+  assert.equal(result.deck.weapons[0].attack, 2296);
+  assert.equal(result.deck.weapons[0].hp, 302);
+  assert.equal(result.issues.some((issue) => issue.code === "missing-stat-override"), false);
+});
+
 test("resolves an override-backed calculator config without inventing instance IDs", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,

@@ -19,8 +19,8 @@ function validateProgression(progression) {
     if (point.level <= previousLevel) throw new Error("装備ステータスの境界Lvは昇順で指定してください");
     previousLevel = point.level;
   }
-  if (progression.points[0].level !== 1 || previousLevel !== progression.maximumLevel) {
-    throw new Error("装備ステータスにはLv1と最大Lvの境界値が必要です");
+  if (previousLevel !== progression.maximumLevel) {
+    throw new Error("装備ステータスには検証範囲の最大Lv境界値が必要です");
   }
 }
 
@@ -30,18 +30,19 @@ function interpolateStat(start, end, progress, span) {
 
 /**
  * Calculates base equipment stats from verified level breakpoints.
- * Lv1 is a fixed special point. The first growth segment uses Lv itself as
- * progress (Lv1 -> Lv2 applies two increments), matching observed game data.
+ * Lv1 is a fixed special point when the verified range starts there. Its first
+ * growth segment uses Lv itself as progress (Lv1 -> Lv2 applies two increments).
+ * A later verified range may start from another breakpoint, such as Lv150.
  */
 export function calculateEquipmentLevelStats(progression, level, plusMark = 0, plusBonus = { attack: 0, hp: 0 }) {
   validateProgression(progression);
-  requireInteger(level, "装備Lv", 1, progression.maximumLevel);
+  const first = progression.points[0];
+  requireInteger(level, "装備Lv", first.level, progression.maximumLevel);
   requireInteger(plusMark, "プラスボーナス", 0, 99);
 
-  const first = progression.points[0];
   let attack = first.attack;
   let hp = first.hp;
-  if (level !== 1) {
+  if (level !== first.level) {
     const endIndex = progression.points.findIndex((point) => point.level >= level);
     const end = progression.points[endIndex];
     const start = progression.points[endIndex - 1];
@@ -57,4 +58,3 @@ export function calculateEquipmentLevelStats(progression, level, plusMark = 0, p
     hp: hp + plusMark * plusBonus.hp,
   };
 }
-

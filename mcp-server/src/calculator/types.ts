@@ -42,6 +42,10 @@ export interface WeaponMasterCatalogEntry {
   weaponKindCode: string;
   rarityCode: string;
   seriesId?: string;
+  selectionDefaults?: {
+    uncapLevel?: number;
+    skillLevel?: number;
+  };
   levelStats?: {
     maximumLevel: number;
     points: Array<{ level: number; attack: number; hp: number }>;

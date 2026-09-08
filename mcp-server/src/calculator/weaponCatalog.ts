@@ -42,8 +42,8 @@ const levelStatsSchema = z
   .strict()
   .superRefine((progression, context) => {
     const levels = progression.points.map((point) => point.level);
-    if (levels[0] !== 1 || levels.at(-1) !== progression.maximumLevel) {
-      context.addIssue({ code: "custom", message: "levelStats must start at Lv1 and end at maximumLevel" });
+    if (levels.at(-1) !== progression.maximumLevel) {
+      context.addIssue({ code: "custom", message: "levelStats must end at maximumLevel" });
     }
     if (levels.some((level, index) => index > 0 && level <= levels[index - 1])) {
       context.addIssue({ code: "custom", message: "levelStats points must be strictly ascending" });
@@ -62,6 +62,10 @@ const weaponsFileSchema = z
           weaponKindCode: z.string().min(1),
           rarityCode: z.string().min(1),
           seriesId: z.string().min(1).optional(),
+          selectionDefaults: z.object({
+            uncapLevel: z.number().int().nonnegative().optional(),
+            skillLevel: z.number().int().min(1).max(99).optional(),
+          }).strict().optional(),
           levelStats: levelStatsSchema.optional(),
           skillSlots: z.array(
             z
