@@ -133,7 +133,7 @@
       ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内deckレスポンス4件でサブ有無・配置差・同系統2枚配置の表示値差分を確認",
+      "source": "ユーザー提供のゲーム内deckレスポンス5件でサブ有無・配置差・同系統2枚配置・無凸単独の表示値差分を確認",
       "confirmedAt": "2026-09-09",
       "selectionDefaults": {
         "level": 150,
