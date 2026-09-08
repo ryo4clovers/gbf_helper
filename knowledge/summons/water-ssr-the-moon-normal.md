@@ -6,7 +6,7 @@ rarity: SSR
 element: "水"
 obtain: "アーカルムの転世"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/The_Moon_(SSR)) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 水 |
 | 入手方法 | アーカルムの転世 |
+| マスターID | `2040320000` |
 
 ## ステータス
 
@@ -66,6 +67,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 - 効果: (3凸)水属性キャラが火属性の敵に対して与ダメージ7%UP / (4凸)水属性キャラが火属性の敵に対して与ダメージ10%UP
 - 出典: GameWith
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv200 / 5凸
+- 表示ステータス: HP 1094 / ATK 2820
+- 召喚効果: 敵全体に水属性5倍ダメージ/5ターンの間水属性キャラの攻防が徐々にUP　◆参戦者が合体召喚不可
+- 加護効果: 水属性攻撃力100%UP(ターン経過で140%まで上昇)
+- サブ加護効果: 水属性のキャラが火属性の敵に対して与ダメージ10%UP
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

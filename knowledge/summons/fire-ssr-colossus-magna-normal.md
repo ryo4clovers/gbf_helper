@@ -6,7 +6,7 @@ rarity: SSR
 element: "火"
 obtain: "ボスドロップ"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) のみ(取得日: 2026-08-20)。gbf.wiki候補は自動検索で見つからず/確認できず。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 火 |
 | 入手方法 | ボスドロップ |
+| マスターID | `2040034000` |
 
 ## ステータス
 
@@ -69,6 +70,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv250 / 6凸
+- 表示ステータス: HP 1064 / ATK 2665
+- 召喚効果: 敵全体に火属性ダメージ(極大)/火属性追加ダメージ/防御DOWN/味方全体にバリア効果/火属性攻撃UP
+- 加護効果: スキル「機炎方陣」の効果が170%UP
+- サブ加護効果: 火属性キャラの攻防10%UP
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

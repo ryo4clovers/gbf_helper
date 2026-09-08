@@ -2,6 +2,258 @@
   "schemaVersion": 1,
   "summons": [
     {
+      "summonId": "2030016000",
+      "name": "カーバンクル・ペリドット",
+      "elementCode": "4",
+      "rarityCode": "3",
+      "auraName": "カーバンクル・ペリドットの加護",
+      "auraDescription": "弱体耐性が40%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性が40%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 75,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 150,
+            "hp": 60
+          },
+          {
+            "level": 75,
+            "uncapLevel": 3,
+            "attack": 950,
+            "hp": 380
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 75,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 950,
+        "hp": 380
+      }
+    },
+    {
+      "summonId": "2030021000",
+      "name": "カーバンクル・アクアマリン",
+      "elementCode": "2",
+      "rarityCode": "3",
+      "auraName": "カーバンクル・アクアマリンの加護",
+      "auraDescription": "弱体耐性が40%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性が40%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 75,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 205,
+            "hp": 88
+          },
+          {
+            "level": 75,
+            "uncapLevel": 3,
+            "attack": 1280,
+            "hp": 516
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 75,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 1280,
+        "hp": 516
+      }
+    },
+    {
+      "summonId": "2030024000",
+      "name": "カーバンクル・ジルコン",
+      "elementCode": "3",
+      "rarityCode": "3",
+      "auraName": "カーバンクル・ジルコンの加護",
+      "auraDescription": "弱体耐性が40%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性が40%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 75,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 210,
+            "hp": 87
+          },
+          {
+            "level": 75,
+            "uncapLevel": 3,
+            "attack": 1285,
+            "hp": 517
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 75,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 1285,
+        "hp": 517
+      }
+    },
+    {
+      "summonId": "2030031000",
+      "name": "カーバンクル・ガーネット",
+      "elementCode": "1",
+      "rarityCode": "3",
+      "auraName": "カーバンクル・ガーネットの加護",
+      "auraDescription": "弱体耐性が40%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性が40%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 75,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 225,
+            "hp": 84
+          },
+          {
+            "level": 75,
+            "uncapLevel": 3,
+            "attack": 1300,
+            "hp": 514
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 75,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 1300,
+        "hp": 514
+      }
+    },
+    {
+      "summonId": "2030039000",
+      "name": "カーバンクル・オニキス",
+      "elementCode": "6",
+      "rarityCode": "3",
+      "auraName": "カーバンクル・オニキスの加護",
+      "auraDescription": "弱体耐性が40%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性が40%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 75,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 235,
+            "hp": 82
+          },
+          {
+            "level": 75,
+            "uncapLevel": 3,
+            "attack": 1310,
+            "hp": 512
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 75,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 1310,
+        "hp": 512
+      }
+    },
+    {
+      "summonId": "2030042000",
+      "name": "カーバンクル・オパール",
+      "elementCode": "5",
+      "rarityCode": "3",
+      "auraName": "カーバンクル・オパールの加護",
+      "auraDescription": "弱体耐性が40%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性が40%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 75,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 215,
+            "hp": 86
+          },
+          {
+            "level": 75,
+            "uncapLevel": 3,
+            "attack": 1290,
+            "hp": 516
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 75,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 1290,
+        "hp": 516
+      }
+    },
+    {
       "summonId": "2030051000",
       "name": "シルフィードベル",
       "elementCode": "4",
@@ -20,6 +272,708 @@
       "confirmedAt": "2026-09-05"
     },
     {
+      "summonId": "2040003000",
+      "name": "バハムート",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "バハムートの加護",
+      "auraDescription": "全属性攻撃力が150%UP/召喚の与ダメージ50%UP/バトル開始時に召喚石の使用可能ターンを3ターン短縮 / サブ加護: 召喚の与ダメージ50%UP/召喚石の使用間隔を1ターン短縮",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が150%UP/召喚の与ダメージ50%UP/バトル開始時に召喚石の使用可能ターンを3ターン短縮 / サブ加護: 召喚の与ダメージ50%UP/召喚石の使用間隔を1ターン短縮"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 380,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2160,
+            "hp": 850
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3050,
+            "hp": 1210
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 3495,
+            "hp": 1390
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 3940,
+            "hp": 1570
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 3940,
+        "hp": 1570
+      }
+    },
+    {
+      "summonId": "2040020000",
+      "name": "ティアマト・マグナ",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "ティアマト・マグナの加護",
+      "auraDescription": "スキル「嵐竜方陣」の効果が170%UP / サブ加護: 風属性キャラの攻防10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「嵐竜方陣」の効果が170%UP / サブ加護: 風属性キャラの攻防10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 270,
+            "hp": 104
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1630,
+            "hp": 650
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1960,
+            "hp": 780
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2310,
+            "hp": 923
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 2660,
+            "hp": 1066
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 2660,
+        "hp": 1066
+      }
+    },
+    {
+      "summonId": "2040027000",
+      "name": "ユグドラシル・マグナ",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ユグドラシル・マグナの加護",
+      "auraDescription": "スキル「創樹方陣」の効果が170%UP / サブ加護: 土属性キャラの攻防10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「創樹方陣」の効果が170%UP / サブ加護: 土属性キャラの攻防10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 260,
+            "hp": 106
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1620,
+            "hp": 651
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1950,
+            "hp": 781
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2300,
+            "hp": 924
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 2650,
+            "hp": 1067
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 2650,
+        "hp": 1067
+      }
+    },
+    {
+      "summonId": "2040028000",
+      "name": "リヴァイアサン・マグナ",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "リヴァイアサン・マグナの加護",
+      "auraDescription": "スキル「海神方陣」の効果が170%UP / サブ加護: 水属性キャラの攻防10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「海神方陣」の効果が170%UP / サブ加護: 水属性キャラの攻防10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 255,
+            "hp": 107
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1615,
+            "hp": 652
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1945,
+            "hp": 782
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2295,
+            "hp": 925
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 2645,
+            "hp": 1068
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 2645,
+        "hp": 1068
+      }
+    },
+    {
+      "summonId": "2040034000",
+      "name": "コロッサス・マグナ",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "コロッサス・マグナの加護",
+      "auraDescription": "スキル「機炎方陣」の効果が170%UP / サブ加護: 火属性キャラの攻防10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「機炎方陣」の効果が170%UP / サブ加護: 火属性キャラの攻防10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 275,
+            "hp": 103
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1635,
+            "hp": 648
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1965,
+            "hp": 778
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2315,
+            "hp": 921
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 2665,
+            "hp": 1064
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 2665,
+        "hp": 1064
+      }
+    },
+    {
+      "summonId": "2040046000",
+      "name": "セレスト・マグナ",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "セレスト・マグナの加護",
+      "auraDescription": "スキル「黒霧方陣」の効果が170%UP / サブ加護: 闇属性キャラの攻防10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「黒霧方陣」の効果が170%UP / サブ加護: 闇属性キャラの攻防10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 285,
+            "hp": 101
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1645,
+            "hp": 646
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1975,
+            "hp": 776
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2325,
+            "hp": 919
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 2675,
+            "hp": 1062
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 2675,
+        "hp": 1062
+      }
+    },
+    {
+      "summonId": "2040047000",
+      "name": "シュヴァリエ・マグナ",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "シュヴァリエ・マグナの加護",
+      "auraDescription": "スキル「騎解方陣」の効果が170%UP / サブ加護: 光属性キャラの攻防10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「騎解方陣」の効果が170%UP / サブ加護: 光属性キャラの攻防10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 265,
+            "hp": 105
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1625,
+            "hp": 650
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1955,
+            "hp": 780
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2305,
+            "hp": 923
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 2655,
+            "hp": 1066
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 2655,
+        "hp": 1066
+      }
+    },
+    {
+      "summonId": "2040056000",
+      "name": "ルシフェル",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "ルシフェルの加護",
+      "auraDescription": "全属性攻撃力が150%UP/最大HP50%UP/敵が特殊技を使用時、弱体効果を1つ回復/純白の翼効果 / サブ加護: 回復性能30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が150%UP/最大HP50%UP/敵が特殊技を使用時、弱体効果を1つ回復/純白の翼効果 / サブ加護: 回復性能30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 340,
+            "hp": 136
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2015,
+            "hp": 900
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2850,
+            "hp": 1280
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 3268,
+            "hp": 1470
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 3686,
+            "hp": 1660
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 3686,
+        "hp": 1660
+      }
+    },
+    {
+      "summonId": "2040057000",
+      "name": "[覚醒魔王]神崎蘭子",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "狂乱の宴",
+      "auraDescription": "全属性攻撃力が30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 180,
+            "hp": 100
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1250,
+            "hp": 666
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1666,
+            "hp": 740
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 60,
+        "uncapLevel": 1,
+        "plusMark": 0,
+        "attack": 822,
+        "hp": 439
+      }
+    },
+    {
+      "summonId": "2040065000",
+      "name": "ジ・オーダー・グランデ",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "ジ・オーダー・グランデの加護",
+      "auraDescription": "バトルメンバーの得意武器の種類が多いほど攻撃力UP(最大200%)/防御力UP(最大50%) / ◆バトルメンバーの得意武器が5種以上のときバトル開始時にパーティの奥義ゲージ10%UP/主人公に蒼穹の刃効果 / サブ加護: 無属性の敵に対して与ダメージ10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: バトルメンバーの得意武器の種類が多いほど攻撃力UP(最大200%)/防御力UP(最大50%) / ◆バトルメンバーの得意武器が5種以上のときバトル開始時にパーティの奥義ゲージ10%UP/主人公に蒼穹の刃効果 / サブ加護: 無属性の敵に対して与ダメージ10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 350,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2080,
+            "hp": 880
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2945,
+            "hp": 1250
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 3378,
+            "hp": 1435
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 3378,
+        "hp": 1435
+      }
+    },
+    {
+      "summonId": "2040080000",
+      "name": "ゼウス",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "ゼウスの加護",
+      "auraDescription": "スキル「光」「雷電」「天光」の効果が170%UP / ◆メイン召喚石に装備時、光属性攻撃力が30%UP / サブ加護: 光属性キャラの光属性攻撃力が20%UP/HP20%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「光」「雷電」「天光」の効果が170%UP / ◆メイン召喚石に装備時、光属性攻撃力が30%UP / サブ加護: 光属性キャラの光属性攻撃力が20%UP/HP20%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 370,
+            "hp": 130
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2220,
+            "hp": 790
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3145,
+            "hp": 1120
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 3608,
+            "hp": 1285
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 4071,
+            "hp": 1450
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 4071,
+        "hp": 1450
+      }
+    },
+    {
+      "summonId": "2040084000",
+      "name": "ティターン",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ティターンの加護",
+      "auraDescription": "スキル「土」「大地」「地裂」の効果が170%UP / ◆メイン召喚石に装備時、土属性攻撃力が30%UP / サブ加護: 土属性キャラの土属性攻撃力が20%UP/HP20%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「土」「大地」「地裂」の効果が170%UP / ◆メイン召喚石に装備時、土属性攻撃力が30%UP / サブ加護: 土属性キャラの土属性攻撃力が20%UP/HP20%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 310,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1940,
+            "hp": 920
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2755,
+            "hp": 1310
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 3163,
+            "hp": 1505
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 3571,
+            "hp": 1700
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 3571,
+        "hp": 1700
+      }
+    },
+    {
       "summonId": "2040090000",
       "name": "ハデス",
       "elementCode": "6",
@@ -31,7 +985,11 @@
           "kind": "normal-skill-boost",
           "elementCode": "6",
           "amountPercent": 170,
-          "targetSkillNamePrefixes": ["闇", "憎悪", "奈落"],
+          "targetSkillNamePrefixes": [
+            "闇",
+            "憎悪",
+            "奈落"
+          ],
           "activation": "always",
           "description": "スキル「闇」「憎悪」「奈落」の効果が170%UP"
         },
@@ -46,7 +1004,49 @@
       "verificationStatus": "検証済み",
       "supportSelectable": true,
       "source": "ゲーム内startレスポンスの支援召喚石と加護説明で確認",
-      "confirmedAt": "2026-09-05"
+      "confirmedAt": "2026-09-05",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 420,
+            "hp": 123
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2350,
+            "hp": 755
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3315,
+            "hp": 1071
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 3798,
+            "hp": 1229
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 4281,
+            "hp": 1387
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 4281,
+        "hp": 1387
+      }
     },
     {
       "summonId": "2040094000",
@@ -60,7 +1060,11 @@
           "kind": "normal-skill-boost",
           "elementCode": "1",
           "amountPercent": 170,
-          "targetSkillNamePrefixes": ["火", "業火", "紅蓮"],
+          "targetSkillNamePrefixes": [
+            "火",
+            "業火",
+            "紅蓮"
+          ],
           "activation": "always",
           "description": "スキル「火」「業火」「紅蓮」の効果が170%UP"
         },
@@ -79,9 +1083,36 @@
       "levelStats": {
         "maximumLevel": 250,
         "points": [
-          { "level": 100, "uncapLevel": 3, "attack": 2270, "hp": 770 },
-          { "level": 150, "uncapLevel": 4, "attack": 3213, "hp": 1092 },
-          { "level": 250, "uncapLevel": 6, "attack": 4157, "hp": 1414 }
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 385,
+            "hp": 127
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2270,
+            "hp": 770
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3213,
+            "hp": 1092
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 3685,
+            "hp": 1253
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 4157,
+            "hp": 1414
+          }
         ]
       },
       "selectionDefaults": {
@@ -90,6 +1121,2736 @@
         "plusMark": 0,
         "attack": 4157,
         "hp": 1414
+      }
+    },
+    {
+      "summonId": "2040098000",
+      "name": "ゼピュロス",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "ゼピュロスの加護",
+      "auraDescription": "スキル「風」「竜巻」「乱気」の効果が170%UP / ◆メイン召喚石に装備時、風属性攻撃力が30%UP / サブ加護: 風属性キャラの風属性攻撃力が20%UP/HP20%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「風」「竜巻」「乱気」の効果が170%UP / ◆メイン召喚石に装備時、風属性攻撃力が30%UP / サブ加護: 風属性キャラの風属性攻撃力が20%UP/HP20%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 380,
+            "hp": 128
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2250,
+            "hp": 774
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3185,
+            "hp": 1097
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 3653,
+            "hp": 1259
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 4121,
+            "hp": 1421
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 4121,
+        "hp": 1421
+      }
+    },
+    {
+      "summonId": "2040100000",
+      "name": "ヴァルナ",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "ヴァルナの加護",
+      "auraDescription": "スキル「水」「渦潮」「霧氷」の効果が170%UP / ◆メイン召喚石に装備時、水属性攻撃力が30%UP / サブ加護: 水属性キャラの水属性攻撃力が20%UP/HP20%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「水」「渦潮」「霧氷」の効果が170%UP / ◆メイン召喚石に装備時、水属性攻撃力が30%UP / サブ加護: 水属性キャラの水属性攻撃力が20%UP/HP20%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 250,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 370,
+            "hp": 130
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2150,
+            "hp": 800
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3040,
+            "hp": 1135
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 3485,
+            "hp": 1303
+          },
+          {
+            "level": 250,
+            "uncapLevel": 6,
+            "attack": 3930,
+            "hp": 1471
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 250,
+        "uncapLevel": 6,
+        "plusMark": 0,
+        "attack": 3930,
+        "hp": 1471
+      }
+    },
+    {
+      "summonId": "2040114000",
+      "name": "カグヤ",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "カグヤの加護",
+      "auraDescription": "パーティ全体に自動復活効果(1回)/連続攻撃確率UP/アイテムドロップ率と獲得経験値が30%UP / サブ加護: 獲得経験値が10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: パーティ全体に自動復活効果(1回)/連続攻撃確率UP/アイテムドロップ率と獲得経験値が30%UP / サブ加護: 獲得経験値が10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 350,
+            "hp": 150
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2140,
+            "hp": 860
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3035,
+            "hp": 1215
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3035,
+        "hp": 1215
+      }
+    },
+    {
+      "summonId": "2040122000",
+      "name": "バイヴカハ",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "バイヴカハの加護",
+      "auraDescription": "弱体耐性30%UP/風属性攻撃時にクリティカル確率UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性30%UP/風属性攻撃時にクリティカル確率UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 305,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1915,
+            "hp": 823
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2320,
+            "hp": 990
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 60,
+        "uncapLevel": 1,
+        "plusMark": 0,
+        "attack": 1271,
+        "hp": 549
+      }
+    },
+    {
+      "summonId": "2040125000",
+      "name": "プロメテウス",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "プロメテウスの加護",
+      "auraDescription": "弱体耐性30%UP/火属性攻撃時にクリティカル確率UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性30%UP/火属性攻撃時にクリティカル確率UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 300,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1920,
+            "hp": 822
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2330,
+            "hp": 990
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 80,
+        "uncapLevel": 2,
+        "plusMark": 0,
+        "attack": 1596,
+        "hp": 685
+      }
+    },
+    {
+      "summonId": "2040130000",
+      "name": "ギルガメッシュ",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ギルガメッシュの加護",
+      "auraDescription": "弱体耐性30%UP/土属性攻撃時にクリティカル確率UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性30%UP/土属性攻撃時にクリティカル確率UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 300,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1905,
+            "hp": 825
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2310,
+            "hp": 1000
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 1,
+        "uncapLevel": 2,
+        "plusMark": 0,
+        "attack": 300,
+        "hp": 140
+      }
+    },
+    {
+      "summonId": "2040134000",
+      "name": "アヌビス",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "アヌビスの加護",
+      "auraDescription": "弱体耐性40%UP/闇属性攻撃時にクリティカル確率UP(性能UP)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性40%UP/闇属性攻撃時にクリティカル確率UP(性能UP)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 300,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1930,
+            "hp": 820
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2340,
+            "hp": 990
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2340,
+        "hp": 990
+      }
+    },
+    {
+      "summonId": "2040144000",
+      "name": "ヘクトル",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "ヘクトルの加護",
+      "auraDescription": "弱体耐性30%UP/光属性攻撃時にクリティカル確率UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性30%UP/光属性攻撃時にクリティカル確率UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 300,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1910,
+            "hp": 824
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2310,
+            "hp": 1000
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 1,
+        "uncapLevel": 2,
+        "plusMark": 0,
+        "attack": 300,
+        "hp": 140
+      }
+    },
+    {
+      "summonId": "2040160000",
+      "name": "カー・オン",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "カー・オンの加護",
+      "auraDescription": "弱体耐性40%UP/水属性攻撃時にクリティカル確率UP(性能UP)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 弱体耐性40%UP/水属性攻撃時にクリティカル確率UP(性能UP)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 300,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1990,
+            "hp": 804
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2410,
+            "hp": 970
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2410,
+        "hp": 970
+      }
+    },
+    {
+      "summonId": "2040185000",
+      "name": "シヴァ",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "シヴァの加護",
+      "auraDescription": "火属性攻撃力が160%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性攻撃力が160%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 345,
+            "hp": 135
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2150,
+            "hp": 850
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3053,
+            "hp": 1208
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3053,
+        "hp": 1208
+      }
+    },
+    {
+      "summonId": "2040202000",
+      "name": "ラファエル",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "ラファエルの加護",
+      "auraDescription": "風属性攻撃力が140%UP / サブ加護: 風属性キャラのダメージ上限15%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 風属性攻撃力が140%UP / サブ加護: 風属性キャラのダメージ上限15%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 251,
+            "hp": 158
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1750,
+            "hp": 930
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2500,
+            "hp": 1316
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2500,
+        "hp": 1316
+      }
+    },
+    {
+      "summonId": "2040203000",
+      "name": "ウリエル",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ウリエルの加護",
+      "auraDescription": "土属性攻撃力が140%UP / サブ加護: 土属性キャラのダメージ上限15%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 土属性攻撃力が140%UP / サブ加護: 土属性キャラのダメージ上限15%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 352,
+            "hp": 133
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2180,
+            "hp": 844
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3094,
+            "hp": 1200
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3094,
+        "hp": 1200
+      }
+    },
+    {
+      "summonId": "2040205000",
+      "name": "ゴッドガード・ブローディア",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ゴッドガード・ブローディアの加護",
+      "auraDescription": "土属性攻撃力が160%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 土属性攻撃力が160%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 320,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2100,
+            "hp": 870
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2990,
+            "hp": 1235
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2990,
+        "hp": 1235
+      }
+    },
+    {
+      "summonId": "2040225000",
+      "name": "エウロペ",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "エウロペの加護",
+      "auraDescription": "水属性攻撃力が160%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 水属性攻撃力が160%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 325,
+            "hp": 150
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2070,
+            "hp": 880
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2943,
+            "hp": 1245
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2943,
+        "hp": 1245
+      }
+    },
+    {
+      "summonId": "2040234000",
+      "name": "ケロちゃん",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "わいは封印の獣ケルベロスや！",
+      "auraDescription": "全属性キャラの攻撃力が60%UP/HP30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性キャラの攻撃力が60%UP/HP30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 245,
+            "hp": 90
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1450,
+            "hp": 575
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1751,
+            "hp": 696
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 1902,
+            "hp": 757
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 1902,
+        "hp": 757
+      }
+    },
+    {
+      "summonId": "2040261000",
+      "name": "グリームニル",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "グリームニルの加護",
+      "auraDescription": "風属性攻撃力が160%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 風属性攻撃力が160%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 347,
+            "hp": 134
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2145,
+            "hp": 851
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3044,
+            "hp": 1210
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3044,
+        "hp": 1210
+      }
+    },
+    {
+      "summonId": "2040275000",
+      "name": "ハールート・マールート",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "ハールート・マールートの加護",
+      "auraDescription": "全属性攻撃力が50%UP/ダブルアタック確率50%UP / サブ加護: ダブルアタック確率20%UP/トリプルアタック確率10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が50%UP/ダブルアタック確率50%UP / サブ加護: ダブルアタック確率20%UP/トリプルアタック確率10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 350,
+            "hp": 135
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2075,
+            "hp": 808
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2938,
+            "hp": 1145
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2938,
+        "hp": 1145
+      }
+    },
+    {
+      "summonId": "2040288000",
+      "name": "モルガナカー",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "怪盗団の先導役",
+      "auraDescription": "闇属性攻撃力が100%UP/闇属性キャラのHP10%UP/奥義ダメージ10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が100%UP/闇属性キャラのHP10%UP/奥義ダメージ10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 270,
+            "hp": 85
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1492,
+            "hp": 570
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1800,
+            "hp": 690
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 1954,
+            "hp": 750
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 1954,
+        "hp": 750
+      }
+    },
+    {
+      "summonId": "2040293000",
+      "name": "水着マキュラ・マリウス",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "マキュラ・マリウスの加護",
+      "auraDescription": "水属性攻撃力が90%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 水属性攻撃力が90%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 345,
+            "hp": 125
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2090,
+            "hp": 755
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2530,
+            "hp": 910
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2530,
+        "hp": 910
+      }
+    },
+    {
+      "summonId": "2040294000",
+      "name": "ジェフティ",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "独立型戦闘支援ユニットADA",
+      "auraDescription": "全属性攻撃力が40%UP/HP10%UP/ダブルアタック確率10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が40%UP/HP10%UP/ダブルアタック確率10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 100,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 230,
+            "hp": 93
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1472,
+            "hp": 570
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 100,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 1472,
+        "hp": 570
+      }
+    },
+    {
+      "summonId": "2040306000",
+      "name": "ミカエル",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "ミカエルの加護",
+      "auraDescription": "火属性攻撃力が140%UP / サブ加護: 火属性キャラのダメージ上限15%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性攻撃力が140%UP / サブ加護: 火属性キャラのダメージ上限15%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 359,
+            "hp": 129
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2240,
+            "hp": 832
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3181,
+            "hp": 1184
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3181,
+        "hp": 1184
+      }
+    },
+    {
+      "summonId": "2040311000",
+      "name": "ガブリエル",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "ガブリエルの加護",
+      "auraDescription": "水属性攻撃力が140%UP / サブ加護: 水属性キャラのダメージ上限15%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 水属性攻撃力が140%UP / サブ加護: 水属性キャラのダメージ上限15%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 375,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2100,
+            "hp": 850
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2963,
+            "hp": 1205
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2963,
+        "hp": 1205
+      }
+    },
+    {
+      "summonId": "2040313000",
+      "name": "ジャスティス",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "ジャスティスの加護",
+      "auraDescription": "水属性キャラの攻撃力130%UP/防御力10%UP / サブ加護: 水属性キャラのHPが30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 水属性キャラの攻撃力130%UP/防御力10%UP / サブ加護: 水属性キャラのHPが30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 260,
+            "hp": 116
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1660,
+            "hp": 702
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2365,
+            "hp": 990
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2717,
+            "hp": 1134
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 2717,
+        "hp": 1134
+      }
+    },
+    {
+      "summonId": "2040314000",
+      "name": "ザ・ハングドマン",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ザ・ハングドマンの加護",
+      "auraDescription": "土属性キャラの攻撃力130%UP/防御力10%UP / サブ加護: 土属性のキャラが水属性の敵に対して与ダメージ10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 土属性キャラの攻撃力130%UP/防御力10%UP / サブ加護: 土属性のキャラが水属性の敵に対して与ダメージ10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 280,
+            "hp": 109
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1745,
+            "hp": 667
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2465,
+            "hp": 951
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2825,
+            "hp": 1093
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 2825,
+        "hp": 1093
+      }
+    },
+    {
+      "summonId": "2040315000",
+      "name": "デス",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "デスの加護",
+      "auraDescription": "闇属性キャラの攻撃力140%UP / サブ加護: 闇属性キャラが光属性の敵に対して与ダメージ10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性キャラの攻撃力140%UP / サブ加護: 闇属性キャラが光属性の敵に対して与ダメージ10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 300,
+            "hp": 109
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1770,
+            "hp": 695
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2490,
+            "hp": 984
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2850,
+            "hp": 1128
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 2850,
+        "hp": 1128
+      }
+    },
+    {
+      "summonId": "2040316000",
+      "name": "テンペランス",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "テンペランスの加護",
+      "auraDescription": "パーティ全体のHPが50%に近いほど風属性キャラの攻撃力UP(最大で140%まで上昇) / サブ加護: 風属性キャラのHPが30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: パーティ全体のHPが50%に近いほど風属性キャラの攻撃力UP(最大で140%まで上昇) / サブ加護: 風属性キャラのHPが30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 275,
+            "hp": 113
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1675,
+            "hp": 699
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2380,
+            "hp": 987
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2732,
+            "hp": 1131
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 2732,
+        "hp": 1131
+      }
+    },
+    {
+      "summonId": "2040317000",
+      "name": "ザ・デビル",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "ザ・デビルの加護",
+      "auraDescription": "火属性キャラの攻撃力130%UP/防御力10%UP / サブ加護: 火属性キャラのHPが30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性キャラの攻撃力130%UP/防御力10%UP / サブ加護: 火属性キャラのHPが30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 280,
+            "hp": 112
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1680,
+            "hp": 698
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2385,
+            "hp": 986
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2737,
+            "hp": 1130
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 2737,
+        "hp": 1130
+      }
+    },
+    {
+      "summonId": "2040318000",
+      "name": "ザ・タワー",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ザ・タワーの加護",
+      "auraDescription": "土属性攻撃力100%UP(ターン経過で140%まで上昇) / サブ加護: 土属性キャラのHPが30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 土属性攻撃力100%UP(ターン経過で140%まで上昇) / サブ加護: 土属性キャラのHPが30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 265,
+            "hp": 115
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1665,
+            "hp": 700
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2370,
+            "hp": 989
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2722,
+            "hp": 1133
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 2722,
+        "hp": 1133
+      }
+    },
+    {
+      "summonId": "2040319000",
+      "name": "ザ・スター",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "ザ・スターの加護",
+      "auraDescription": "光属性キャラの連続攻撃確率UP(ターン経過で効果UP) / サブ加護: 光属性キャラが闇属性の敵に対して与ダメージ10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 光属性キャラの連続攻撃確率UP(ターン経過で効果UP) / サブ加護: 光属性キャラが闇属性の敵に対して与ダメージ10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 280,
+            "hp": 113
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1750,
+            "hp": 699
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2470,
+            "hp": 988
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2830,
+            "hp": 1132
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 2830,
+        "hp": 1132
+      }
+    },
+    {
+      "summonId": "2040320000",
+      "name": "ザ・ムーン",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "ザ・ムーンの加護",
+      "auraDescription": "水属性攻撃力100%UP(ターン経過で140%まで上昇) / サブ加護: 水属性のキャラが火属性の敵に対して与ダメージ10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 水属性攻撃力100%UP(ターン経過で140%まで上昇) / サブ加護: 水属性のキャラが火属性の敵に対して与ダメージ10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 275,
+            "hp": 110
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1740,
+            "hp": 668
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2460,
+            "hp": 952
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2820,
+            "hp": 1094
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 2820,
+        "hp": 1094
+      }
+    },
+    {
+      "summonId": "2040321000",
+      "name": "ザ・サン",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "ザ・サンの加護",
+      "auraDescription": "火属性キャラの連続攻撃確率UP(ターン経過で効果UP) / サブ加護: 火属性のキャラが風属性の敵に対して与ダメージ10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性キャラの連続攻撃確率UP(ターン経過で効果UP) / サブ加護: 火属性のキャラが風属性の敵に対して与ダメージ10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 295,
+            "hp": 106
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1765,
+            "hp": 664
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2480,
+            "hp": 948
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2837,
+            "hp": 1090
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 2837,
+        "hp": 1090
+      }
+    },
+    {
+      "summonId": "2040322000",
+      "name": "ジャッジメント",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "ジャッジメントの加護",
+      "auraDescription": "風属性キャラの攻撃力130%UP/防御力10%UP / サブ加護: 風属性のキャラが土属性の敵に対して与ダメージ10%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 風属性キャラの攻撃力130%UP/防御力10%UP / サブ加護: 風属性のキャラが土属性の敵に対して与ダメージ10%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 290,
+            "hp": 107
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1760,
+            "hp": 665
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2475,
+            "hp": 949
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2832,
+            "hp": 1091
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 2832,
+        "hp": 1091
+      }
+    },
+    {
+      "summonId": "2040327000",
+      "name": "サリエル",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "サリエルの加護",
+      "auraDescription": "闇属性攻撃力が140%UP / サブ加護: 闇属性キャラのダメージ上限15%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が140%UP / サブ加護: 闇属性キャラのダメージ上限15%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 357,
+            "hp": 132
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2155,
+            "hp": 790
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3054,
+            "hp": 1119
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3054,
+        "hp": 1119
+      }
+    },
+    {
+      "summonId": "2040330000",
+      "name": "メタトロン",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "メタトロンの加護",
+      "auraDescription": "光属性攻撃力が140%UP / サブ加護: 光属性キャラのダメージ上限15%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 光属性攻撃力が140%UP / サブ加護: 光属性キャラのダメージ上限15%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 327,
+            "hp": 138
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2022,
+            "hp": 816
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2870,
+            "hp": 1155
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2870,
+        "hp": 1155
+      }
+    },
+    {
+      "summonId": "2040333000",
+      "name": "水着ユグドラシル",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ユグドラシルの加護",
+      "auraDescription": "土属性攻撃力が80%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 土属性攻撃力が80%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 332,
+            "hp": 137
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2002,
+            "hp": 820
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2500,
+            "hp": 1030
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 1,
+        "uncapLevel": 0,
+        "plusMark": 0,
+        "attack": 332,
+        "hp": 137
+      }
+    },
+    {
+      "summonId": "2040335000",
+      "name": "水着サテュロス",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "サテュロスの加護",
+      "auraDescription": "火属性攻撃力が80%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性攻撃力が80%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 347,
+            "hp": 134
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2050,
+            "hp": 810
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2476,
+            "hp": 979
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 60,
+        "uncapLevel": 2,
+        "plusMark": 0,
+        "attack": 1368,
+        "hp": 539
+      }
+    },
+    {
+      "summonId": "2040336000",
+      "name": "水着ローズ",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "ローズクイーンの加護",
+      "auraDescription": "風属性攻撃力が80%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 風属性攻撃力が80%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 342,
+            "hp": 135
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1900,
+            "hp": 840
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2290,
+            "hp": 1020
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 40,
+        "uncapLevel": 2,
+        "plusMark": 0,
+        "attack": 965,
+        "hp": 417
+      }
+    },
+    {
+      "summonId": "2040338000",
+      "name": "スルト",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "スルトの加護",
+      "auraDescription": "火属性攻撃力が100%UP/バトル開始時に味方全体に業火の刻印を付与 / サブ加護: 火属性キャラがそれぞれの業火の刻印の数に応じて火属性攻撃力UP(最大35%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性攻撃力が100%UP/バトル開始時に味方全体に業火の刻印を付与 / サブ加護: 火属性キャラがそれぞれの業火の刻印の数に応じて火属性攻撃力UP(最大35%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 367,
+            "hp": 130
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2102,
+            "hp": 800
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2540,
+            "hp": 970
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2540,
+        "hp": 970
+      }
+    },
+    {
+      "summonId": "2040340000",
+      "name": "竜吉公主",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "竜吉公主の加護",
+      "auraDescription": "水属性攻撃力が100%UP/バトル開始時に味方全体に玉水の刻印を付与 / サブ加護: 水属性キャラがそれぞれの玉水の刻印の数に応じて水属性攻撃力UP(最大35%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 水属性攻撃力が100%UP/バトル開始時に味方全体に玉水の刻印を付与 / サブ加護: 水属性キャラがそれぞれの玉水の刻印の数に応じて水属性攻撃力UP(最大35%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 327,
+            "hp": 138
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2022,
+            "hp": 816
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2450,
+            "hp": 990
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2450,
+        "hp": 990
+      }
+    },
+    {
+      "summonId": "2040342000",
+      "name": "ドグー",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ドグーの加護",
+      "auraDescription": "土属性攻撃力が100%UP/バトル開始時に味方全体に荒土の刻印を付与 / サブ加護: 土属性キャラがそれぞれの荒土の刻印の数に応じて土属性攻撃力UP(最大35%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 土属性攻撃力が100%UP/バトル開始時に味方全体に荒土の刻印を付与 / サブ加護: 土属性キャラがそれぞれの荒土の刻印の数に応じて土属性攻撃力UP(最大35%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 332,
+            "hp": 137
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2027,
+            "hp": 815
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2450,
+            "hp": 980
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2450,
+        "hp": 980
+      }
+    },
+    {
+      "summonId": "2040344000",
+      "name": "エッリル",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "エッリルの加護",
+      "auraDescription": "風属性攻撃力が100%UP/バトル開始時に味方全体に狂風の刻印を付与 / サブ加護: 風属性キャラがそれぞれの狂風の刻印の数に応じて風属性攻撃力UP(最大35%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 風属性攻撃力が100%UP/バトル開始時に味方全体に狂風の刻印を付与 / サブ加護: 風属性キャラがそれぞれの狂風の刻印の数に応じて風属性攻撃力UP(最大35%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 367,
+            "hp": 130
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2052,
+            "hp": 810
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2470,
+            "hp": 980
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2470,
+        "hp": 980
+      }
+    },
+    {
+      "summonId": "2040347000",
+      "name": "ベリアル",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "こういうプレイも悪くないだろう？",
+      "auraDescription": "闇属性攻撃力が130%UP/闇属性キャラの最大HPを上限20000に固定/被ダメージの最大値を5000に固定 / サブ加護: 与ダメージが最大30000上昇/最大HP30%DOWN",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が130%UP/闇属性キャラの最大HPを上限20000に固定/被ダメージの最大値を5000に固定 / サブ加護: 与ダメージが最大30000上昇/最大HP30%DOWN"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 400,
+            "hp": 120
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2310,
+            "hp": 800
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3265,
+            "hp": 1140
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3265,
+        "hp": 1140
+      }
+    },
+    {
+      "summonId": "2040350000",
+      "name": "ヘイムダル",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "ヘイムダルの加護",
+      "auraDescription": "光属性攻撃力が100%UP/バトル開始時に味方全体に極光の刻印を付与 / サブ加護: 光属性キャラがそれぞれの極光の刻印の数に応じて光属性攻撃力UP(最大35%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 光属性攻撃力が100%UP/バトル開始時に味方全体に極光の刻印を付与 / サブ加護: 光属性キャラがそれぞれの極光の刻印の数に応じて光属性攻撃力UP(最大35%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 402,
+            "hp": 123
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2269,
+            "hp": 767
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2740,
+            "hp": 930
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2740,
+        "hp": 930
+      }
+    },
+    {
+      "summonId": "2040352000",
+      "name": "ナイアルラトホテップ",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "ナイアルラトホテップの加護",
+      "auraDescription": "闇属性攻撃力が100%UP/バトル開始時に味方全体に幽闇の刻印を付与 / サブ加護: 闇属性キャラがそれぞれの幽闇の刻印の数に応じて闇属性攻撃力UP(最大35%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が100%UP/バトル開始時に味方全体に幽闇の刻印を付与 / サブ加護: 闇属性キャラがそれぞれの幽闇の刻印の数に応じて闇属性攻撃力UP(最大35%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 412,
+            "hp": 121
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2032,
+            "hp": 814
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2440,
+            "hp": 990
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2440,
+        "hp": 990
+      }
+    },
+    {
+      "summonId": "2040361000",
+      "name": "セキトバ",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "セキトバの加護",
+      "auraDescription": "火属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に火属性キャラの奥義ゲージ30%UP / サブ加護: 火属性キャラのHPが30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に火属性キャラの奥義ゲージ30%UP / サブ加護: 火属性キャラのHPが30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 347,
+            "hp": 134
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2042,
+            "hp": 812
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2466,
+            "hp": 982
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2466,
+        "hp": 982
+      }
+    },
+    {
+      "summonId": "2040363000",
+      "name": "カリュブディス",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "カリュブディスの加護",
+      "auraDescription": "水属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に水属性キャラの奥義ゲージ30%UP / サブ加護: 水属性キャラのHPが30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 水属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に水属性キャラの奥義ゲージ30%UP / サブ加護: 水属性キャラのHPが30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 265,
+            "hp": 160
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1680,
+            "hp": 900
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2034,
+            "hp": 1085
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2034,
+        "hp": 1085
+      }
+    },
+    {
+      "summonId": "2040364000",
+      "name": "ゴールデンぴにゃこら太",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "見るものを圧倒する純金の輝き",
+      "auraDescription": "風と光属性攻撃力が50%UP/風と光属性キャラの防御力20%UP/バトル開始時味方全体に被ダメージ無効(1回) / サブ加護: シンデレラガールズの攻撃力20%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 風と光属性攻撃力が50%UP/風と光属性キャラの防御力20%UP/バトル開始時味方全体に被ダメージ無効(1回) / サブ加護: シンデレラガールズの攻撃力20%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 185,
+            "hp": 102
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1292,
+            "hp": 606
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1570,
+            "hp": 730
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1570,
+        "hp": 730
+      }
+    },
+    {
+      "summonId": "2040366000",
+      "name": "オウルキャット",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "オウルキャットの加護",
+      "auraDescription": "風属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に風属性キャラの奥義ゲージ30%UP　★初回召喚時は風属性キャラに配置によって異なる強化効果を1ターンの間付与 / サブ加護: 風属性キャラのHPが30%UP　★初回召喚時は風属性キャラに配置によって異なる強化効果を1ターンの間付与",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 風属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に風属性キャラの奥義ゲージ30%UP　★初回召喚時は風属性キャラに配置によって異なる強化効果を1ターンの間付与 / サブ加護: 風属性キャラのHPが30%UP　★初回召喚時は風属性キャラに配置によって異なる強化効果を1ターンの間付与"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 362,
+            "hp": 131
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2057,
+            "hp": 809
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2481,
+            "hp": 979
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2481,
+        "hp": 979
+      }
+    },
+    {
+      "summonId": "2040368000",
+      "name": "マンモス",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "マンモスの加護",
+      "auraDescription": "土属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に土属性キャラの奥義ゲージ30%UP / サブ加護: 土属性キャラのHPが30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 土属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に土属性キャラの奥義ゲージ30%UP / サブ加護: 土属性キャラのHPが30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 317,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2012,
+            "hp": 818
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2436,
+            "hp": 988
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2436,
+        "hp": 988
+      }
+    },
+    {
+      "summonId": "2040369000",
+      "name": "水着アテナ",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "アテナの加護",
+      "auraDescription": "火属性攻撃力が80%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性攻撃力が80%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 332,
+            "hp": 137
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2027,
+            "hp": 815
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2450,
+            "hp": 980
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 80,
+        "uncapLevel": 2,
+        "plusMark": 0,
+        "attack": 1688,
+        "hp": 679
+      }
+    },
+    {
+      "summonId": "2040375000",
+      "name": "水着カグヤ",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "カグヤの加護",
+      "auraDescription": "光属性攻撃力が80%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 光属性攻撃力が80%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 317,
+            "hp": 147
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1912,
+            "hp": 880
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2310,
+            "hp": 1060
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 40,
+        "uncapLevel": 1,
+        "plusMark": 0,
+        "attack": 955,
+        "hp": 440
+      }
+    },
+    {
+      "summonId": "2040381000",
+      "name": "アルテミス",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "アルテミスの加護",
+      "auraDescription": "光属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に光属性キャラの奥義ゲージ30%UP / サブ加護: 光属性キャラのHPが30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 光属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に光属性キャラの奥義ゲージ30%UP / サブ加護: 光属性キャラのHPが30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 337,
+            "hp": 136
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2032,
+            "hp": 814
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2456,
+            "hp": 984
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2456,
+        "hp": 984
+      }
+    },
+    {
+      "summonId": "2040385000",
+      "name": "ジルニトラ",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "ジルニトラの加護",
+      "auraDescription": "闇属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に闇属性キャラの奥義ゲージ30%UP / サブ加護: 闇属性キャラのHPが30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に闇属性キャラの奥義ゲージ30%UP / サブ加護: 闇属性キャラのHPが30%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 394,
+            "hp": 128
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2174,
+            "hp": 806
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2619,
+            "hp": 976
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2619,
+        "hp": 976
+      }
+    },
+    {
+      "summonId": "2040388000",
+      "name": "サリエル(クリスマス)",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "サリエルの加護",
+      "auraDescription": "闇属性攻撃力が80％UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が80％UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 382,
+            "hp": 127
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2077,
+            "hp": 805
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2501,
+            "hp": 975
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 60,
+        "uncapLevel": 1,
+        "plusMark": 0,
+        "attack": 1399,
+        "hp": 533
+      }
+    },
+    {
+      "summonId": "2040392000",
+      "name": "ツチノコ",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ツチノコ見聞録",
+      "auraDescription": "土属性攻撃力が130%UP/バトル開始時にパーティの奥義ゲージ30%UP/バトル終了時にツチノコに遭遇することがある / サブ加護: バトル終了時にツチノコに遭遇することがある",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 土属性攻撃力が130%UP/バトル開始時にパーティの奥義ゲージ30%UP/バトル終了時にツチノコに遭遇することがある / サブ加護: バトル終了時にツチノコに遭遇することがある"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 310,
+            "hp": 153
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2080,
+            "hp": 875
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2965,
+            "hp": 1236
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2965,
+        "hp": 1236
       }
     },
     {
@@ -111,7 +3872,11 @@
           "kind": "normal-skill-boost",
           "elementCode": "1",
           "amountPercent": 40,
-          "targetSkillNamePrefixes": ["火", "業火", "紅蓮"],
+          "targetSkillNamePrefixes": [
+            "火",
+            "業火",
+            "紅蓮"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「火」「業火」「紅蓮」の効果が40%UP"
         }
@@ -135,7 +3900,11 @@
               "kind": "normal-skill-boost",
               "elementCode": "1",
               "amountPercent": 10,
-              "targetSkillNamePrefixes": ["火", "業火", "紅蓮"],
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
               "activation": "sub-only",
               "description": "サブ装備時、スキル「火」「業火」「紅蓮」の効果が10%UP"
             }
@@ -158,7 +3927,11 @@
               "kind": "normal-skill-boost",
               "elementCode": "1",
               "amountPercent": 20,
-              "targetSkillNamePrefixes": ["火", "業火", "紅蓮"],
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
               "activation": "sub-only",
               "description": "サブ装備時、スキル「火」「業火」「紅蓮」の効果が20%UP"
             }
@@ -172,9 +3945,24 @@
       "levelStats": {
         "maximumLevel": 150,
         "points": [
-          { "level": 1, "uncapLevel": 0, "attack": 399, "hp": 127 },
-          { "level": 100, "uncapLevel": 3, "attack": 2349, "hp": 771 },
-          { "level": 150, "uncapLevel": 4, "attack": 3324, "hp": 1093 }
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 399,
+            "hp": 127
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2349,
+            "hp": 771
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3324,
+            "hp": 1093
+          }
         ]
       },
       "selectionDefaults": {
@@ -204,7 +3992,11 @@
           "kind": "normal-skill-boost",
           "elementCode": "3",
           "amountPercent": 40,
-          "targetSkillNamePrefixes": ["土", "大地", "地裂"],
+          "targetSkillNamePrefixes": [
+            "土",
+            "大地",
+            "地裂"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「土」「大地」「地裂」の効果が40%UP"
         }
@@ -216,8 +4008,25 @@
           "source": "gbf.wiki Six Dragons召喚石各ページで照合（2026-09-09）",
           "auraDescription": "土属性攻撃力が120%UP。サブ装備時、スキル「土」「大地」「地裂」の効果が20%UP",
           "auraEffects": [
-            { "kind": "elemental-attack-up", "elementCode": "3", "amountPercent": 120, "activation": "always", "description": "土属性攻撃力が120%UP" },
-            { "kind": "normal-skill-boost", "elementCode": "3", "amountPercent": 20, "targetSkillNamePrefixes": ["土", "大地", "地裂"], "activation": "sub-only", "description": "サブ装備時、スキル「土」「大地」「地裂」の効果が20%UP" }
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "3",
+              "amountPercent": 120,
+              "activation": "always",
+              "description": "土属性攻撃力が120%UP"
+            },
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 20,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "sub-only",
+              "description": "サブ装備時、スキル「土」「大地」「地裂」の効果が20%UP"
+            }
           ]
         }
       ],
@@ -228,9 +4037,24 @@
       "levelStats": {
         "maximumLevel": 150,
         "points": [
-          { "level": 1, "uncapLevel": 0, "attack": 324, "hp": 142 },
-          { "level": 100, "uncapLevel": 3, "attack": 2049, "hp": 831 },
-          { "level": 150, "uncapLevel": 4, "attack": 2912, "hp": 1176 }
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 324,
+            "hp": 142
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2049,
+            "hp": 831
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2912,
+            "hp": 1176
+          }
         ]
       },
       "selectionDefaults": {
@@ -239,6 +4063,150 @@
         "plusMark": 0,
         "attack": 2912,
         "hp": 1176
+      }
+    },
+    {
+      "summonId": "2040402000",
+      "name": "水着ティアマト",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "ティアマトの加護",
+      "auraDescription": "風属性攻撃力が110%UP / サブ加護: バトル開始時に風属性キャラに弱体効果無効(1回)/1ターンの間必ずトリプルアタック",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 風属性攻撃力が110%UP / サブ加護: バトル開始時に風属性キャラに弱体効果無効(1回)/1ターンの間必ずトリプルアタック"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 315,
+            "hp": 140
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1850,
+            "hp": 850
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2230,
+            "hp": 1030
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2230,
+        "hp": 1030
+      }
+    },
+    {
+      "summonId": "2040403000",
+      "name": "水着マンドラゴラ",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "マンドラゴラの加護",
+      "auraDescription": "土属性攻撃力が70%UP/土属性キャラのHPが20%UP / サブ加護: バトル開始時に土属性キャラにディスペルガード効果(1回)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 土属性攻撃力が70%UP/土属性キャラのHPが20%UP / サブ加護: バトル開始時に土属性キャラにディスペルガード効果(1回)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 220,
+            "hp": 162
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1620,
+            "hp": 905
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1970,
+            "hp": 1090
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 1,
+        "uncapLevel": 0,
+        "plusMark": 0,
+        "attack": 220,
+        "hp": 162
+      }
+    },
+    {
+      "summonId": "2040405000",
+      "name": "桂小太郎&エリザベス",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "狂乱の貴公子",
+      "auraDescription": "全属性キャラの攻撃力が50%UP/奥義ダメージ30%UP/HP20%UP / サブ加護: バトル開始時に万事屋銀ちゃん 坂田銀時＆志村新八＆神楽に弱体効果無効(1回)/攻撃UP/1ターンの間必ずトリプルアタック",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性キャラの攻撃力が50%UP/奥義ダメージ30%UP/HP20%UP / サブ加護: バトル開始時に万事屋銀ちゃん 坂田銀時＆志村新八＆神楽に弱体効果無効(1回)/攻撃UP/1ターンの間必ずトリプルアタック"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 200,
+            "hp": 95
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1374,
+            "hp": 600
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1668,
+            "hp": 726
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 100,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1374,
+        "hp": 600
       }
     },
     {
@@ -260,7 +4228,11 @@
           "kind": "normal-skill-boost",
           "elementCode": "4",
           "amountPercent": 40,
-          "targetSkillNamePrefixes": ["風", "竜巻", "乱気"],
+          "targetSkillNamePrefixes": [
+            "風",
+            "竜巻",
+            "乱気"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「風」「竜巻」「乱気」の効果が40%UP"
         }
@@ -272,8 +4244,25 @@
           "source": "gbf.wiki Six Dragons召喚石各ページで照合（2026-09-09）",
           "auraDescription": "風属性攻撃力が120%UP。サブ装備時、スキル「風」「竜巻」「乱気」の効果が20%UP",
           "auraEffects": [
-            { "kind": "elemental-attack-up", "elementCode": "4", "amountPercent": 120, "activation": "always", "description": "風属性攻撃力が120%UP" },
-            { "kind": "normal-skill-boost", "elementCode": "4", "amountPercent": 20, "targetSkillNamePrefixes": ["風", "竜巻", "乱気"], "activation": "sub-only", "description": "サブ装備時、スキル「風」「竜巻」「乱気」の効果が20%UP" }
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "4",
+              "amountPercent": 120,
+              "activation": "always",
+              "description": "風属性攻撃力が120%UP"
+            },
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 20,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "sub-only",
+              "description": "サブ装備時、スキル「風」「竜巻」「乱気」の効果が20%UP"
+            }
           ]
         }
       ],
@@ -284,9 +4273,24 @@
       "levelStats": {
         "maximumLevel": 150,
         "points": [
-          { "level": 1, "uncapLevel": 0, "attack": 365, "hp": 134 },
-          { "level": 100, "uncapLevel": 3, "attack": 2145, "hp": 812 },
-          { "level": 150, "uncapLevel": 4, "attack": 3035, "hp": 1151 }
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 365,
+            "hp": 134
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2145,
+            "hp": 812
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3035,
+            "hp": 1151
+          }
         ]
       },
       "selectionDefaults": {
@@ -295,6 +4299,102 @@
         "plusMark": 0,
         "attack": 3035,
         "hp": 1151
+      }
+    },
+    {
+      "summonId": "2040407000",
+      "name": "しずか&ジャイアン&スネ夫",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "頼れる仲間たち！",
+      "auraDescription": "光属性キャラの攻撃力が60%UP/HP20%UP/再生効果",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 光属性キャラの攻撃力が60%UP/HP20%UP/再生効果"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 240,
+            "hp": 90
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1500,
+            "hp": 570
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1815,
+            "hp": 690
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 100,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1500,
+        "hp": 570
+      }
+    },
+    {
+      "summonId": "2040408000",
+      "name": "ベルゼバブ",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "一にして全、全にして一",
+      "auraDescription": "全属性攻撃力が100%UP/主人公のステータス大幅UP/バトル開始時に主人公のトランスLvが3上昇(最大3) / サブ加護: 主人公が奥義発動時に主人公のトランスLvが1上昇(最大3) ◆トランスLvに応じて主人公の連続攻撃確率UP/Lv3の時ステータス大幅UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が100%UP/主人公のステータス大幅UP/バトル開始時に主人公のトランスLvが3上昇(最大3) / サブ加護: 主人公が奥義発動時に主人公のトランスLvが1上昇(最大3) ◆トランスLvに応じて主人公の連続攻撃確率UP/Lv3の時ステータス大幅UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 407,
+            "hp": 122
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2317,
+            "hp": 761
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3272,
+            "hp": 1081
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3272,
+        "hp": 1081
       }
     },
     {
@@ -316,7 +4416,11 @@
           "kind": "normal-skill-boost",
           "elementCode": "5",
           "amountPercent": 40,
-          "targetSkillNamePrefixes": ["光", "雷電", "天光"],
+          "targetSkillNamePrefixes": [
+            "光",
+            "雷電",
+            "天光"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「光」「雷電」「天光」の効果が40%UP"
         }
@@ -328,8 +4432,25 @@
           "source": "gbf.wiki Six Dragons召喚石各ページで照合（2026-09-09）",
           "auraDescription": "光属性攻撃力が120%UP。サブ装備時、スキル「光」「雷電」「天光」の効果が20%UP",
           "auraEffects": [
-            { "kind": "elemental-attack-up", "elementCode": "5", "amountPercent": 120, "activation": "always", "description": "光属性攻撃力が120%UP" },
-            { "kind": "normal-skill-boost", "elementCode": "5", "amountPercent": 20, "targetSkillNamePrefixes": ["光", "雷電", "天光"], "activation": "sub-only", "description": "サブ装備時、スキル「光」「雷電」「天光」の効果が20%UP" }
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "5",
+              "amountPercent": 120,
+              "activation": "always",
+              "description": "光属性攻撃力が120%UP"
+            },
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 20,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "sub-only",
+              "description": "サブ装備時、スキル「光」「雷電」「天光」の効果が20%UP"
+            }
           ]
         }
       ],
@@ -340,9 +4461,24 @@
       "levelStats": {
         "maximumLevel": 150,
         "points": [
-          { "level": 1, "uncapLevel": 0, "attack": 255, "hp": 155 },
-          { "level": 100, "uncapLevel": 3, "attack": 1800, "hp": 880 },
-          { "level": 150, "uncapLevel": 4, "attack": 2573, "hp": 1243 }
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 255,
+            "hp": 155
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1800,
+            "hp": 880
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2573,
+            "hp": 1243
+          }
         ]
       },
       "selectionDefaults": {
@@ -351,6 +4487,150 @@
         "plusMark": 0,
         "attack": 2573,
         "hp": 1243
+      }
+    },
+    {
+      "summonId": "2040410000",
+      "name": "シャントットII",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "ブチ切れ",
+      "auraDescription": "全属性キャラの攻撃力が50%UP/奥義ダメージ20%UP/チェインバーストの威力が20%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性キャラの攻撃力が50%UP/奥義ダメージ20%UP/チェインバーストの威力が20%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 255,
+            "hp": 88
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1562,
+            "hp": 556
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1889,
+            "hp": 673
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1889,
+        "hp": 673
+      }
+    },
+    {
+      "summonId": "2040411000",
+      "name": "水着ベリアル",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "さあオレに身を委ねるといい。",
+      "auraDescription": "火属性攻撃力が130%UP/火属性キャラの最大HPを上限20000に固定/被ダメージの最大値を5000に固定 / サブ加護: バトル開始時に味方全体にカウンター効果(回避・被ダメージ/1回)/被ダメージ上昇",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性攻撃力が130%UP/火属性キャラの最大HPを上限20000に固定/被ダメージの最大値を5000に固定 / サブ加護: バトル開始時に味方全体にカウンター効果(回避・被ダメージ/1回)/被ダメージ上昇"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 412,
+            "hp": 121
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2442,
+            "hp": 732
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3457,
+            "hp": 1038
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3457,
+        "hp": 1038
+      }
+    },
+    {
+      "summonId": "2040412000",
+      "name": "水着スリーピィ",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "スリーピィの加護",
+      "auraDescription": "闇属性攻撃力が80%UP/バトル開始時に闇属性キャラの奥義ゲージ10%UP / サブ加護: バトル開始時に闇属性キャラにブロック効果",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が80%UP/バトル開始時に闇属性キャラの奥義ゲージ10%UP / サブ加護: バトル開始時に闇属性キャラにブロック効果"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 325,
+            "hp": 139
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1850,
+            "hp": 851
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2231,
+            "hp": 1029
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 1,
+        "uncapLevel": 2,
+        "plusMark": 0,
+        "attack": 325,
+        "hp": 139
       }
     },
     {
@@ -372,7 +4652,11 @@
           "kind": "normal-skill-boost",
           "elementCode": "2",
           "amountPercent": 40,
-          "targetSkillNamePrefixes": ["水", "渦潮", "霧氷"],
+          "targetSkillNamePrefixes": [
+            "水",
+            "渦潮",
+            "霧氷"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「水」「渦潮」「霧氷」の効果が40%UP"
         }
@@ -384,8 +4668,25 @@
           "source": "gbf.wiki Six Dragons召喚石各ページで照合（2026-09-09）",
           "auraDescription": "水属性攻撃力が120%UP。サブ装備時、スキル「水」「渦潮」「霧氷」の効果が20%UP",
           "auraEffects": [
-            { "kind": "elemental-attack-up", "elementCode": "2", "amountPercent": 120, "activation": "always", "description": "水属性攻撃力が120%UP" },
-            { "kind": "normal-skill-boost", "elementCode": "2", "amountPercent": 20, "targetSkillNamePrefixes": ["水", "渦潮", "霧氷"], "activation": "sub-only", "description": "サブ装備時、スキル「水」「渦潮」「霧氷」の効果が20%UP" }
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "2",
+              "amountPercent": 120,
+              "activation": "always",
+              "description": "水属性攻撃力が120%UP"
+            },
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 20,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "sub-only",
+              "description": "サブ装備時、スキル「水」「渦潮」「霧氷」の効果が20%UP"
+            }
           ]
         }
       ],
@@ -396,9 +4697,24 @@
       "levelStats": {
         "maximumLevel": 150,
         "points": [
-          { "level": 1, "uncapLevel": 0, "attack": 234, "hp": 160 },
-          { "level": 100, "uncapLevel": 3, "attack": 1704, "hp": 900 },
-          { "level": 150, "uncapLevel": 4, "attack": 2439, "hp": 1270 }
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 234,
+            "hp": 160
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1704,
+            "hp": 900
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2439,
+            "hp": 1270
+          }
         ]
       },
       "selectionDefaults": {
@@ -407,6 +4723,102 @@
         "plusMark": 0,
         "attack": 2439,
         "hp": 1270
+      }
+    },
+    {
+      "summonId": "2040415000",
+      "name": "ウタ",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "世界の歌姫",
+      "auraDescription": "全属性キャラの攻撃力が50%UP/HP20%UP/防御力20%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性キャラの攻撃力が50%UP/HP20%UP/防御力20%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 230,
+            "hp": 93
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1442,
+            "hp": 576
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1745,
+            "hp": 697
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1745,
+        "hp": 697
+      }
+    },
+    {
+      "summonId": "2040417000",
+      "name": "ヤチマ",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "STAY MOON",
+      "auraDescription": "全属性攻撃力が140%UP / サブ加護: 1ターンに2回召喚可能",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が140%UP / サブ加護: 1ターンに2回召喚可能"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 327,
+            "hp": 138
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2022,
+            "hp": 816
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2870,
+            "hp": 1155
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2870,
+        "hp": 1155
       }
     },
     {
@@ -428,7 +4840,11 @@
           "kind": "normal-skill-boost",
           "elementCode": "6",
           "amountPercent": 40,
-          "targetSkillNamePrefixes": ["闇", "憎悪", "奈落"],
+          "targetSkillNamePrefixes": [
+            "闇",
+            "憎悪",
+            "奈落"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「闇」「憎悪」「奈落」の効果が40%UP"
         }
@@ -440,8 +4856,25 @@
           "source": "gbf.wiki Six Dragons召喚石各ページで照合（2026-09-09）",
           "auraDescription": "闇属性攻撃力が120%UP。サブ装備時、スキル「闇」「憎悪」「奈落」の効果が20%UP",
           "auraEffects": [
-            { "kind": "elemental-attack-up", "elementCode": "6", "amountPercent": 120, "activation": "always", "description": "闇属性攻撃力が120%UP" },
-            { "kind": "normal-skill-boost", "elementCode": "6", "amountPercent": 20, "targetSkillNamePrefixes": ["闇", "憎悪", "奈落"], "activation": "sub-only", "description": "サブ装備時、スキル「闇」「憎悪」「奈落」の効果が20%UP" }
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 120,
+              "activation": "always",
+              "description": "闇属性攻撃力が120%UP"
+            },
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 20,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "sub-only",
+              "description": "サブ装備時、スキル「闇」「憎悪」「奈落」の効果が20%UP"
+            }
           ]
         }
       ],
@@ -452,9 +4885,24 @@
       "levelStats": {
         "maximumLevel": 150,
         "points": [
-          { "level": 1, "uncapLevel": 0, "attack": 374, "hp": 132 },
-          { "level": 100, "uncapLevel": 3, "attack": 2154, "hp": 810 },
-          { "level": 150, "uncapLevel": 4, "attack": 3044, "hp": 1149 }
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 374,
+            "hp": 132
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2154,
+            "hp": 810
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3044,
+            "hp": 1149
+          }
         ]
       },
       "selectionDefaults": {
@@ -463,6 +4911,1410 @@
         "plusMark": 0,
         "attack": 3044,
         "hp": 1149
+      }
+    },
+    {
+      "summonId": "2040420000",
+      "name": "水着ケルベロス",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "ケルベロスの加護",
+      "auraDescription": "火属性攻撃力が110%UP/バトルメンバーのHPが少ないほどトリプルアタック確率UP / サブ加護: バトル開始時に火属性キャラにディスペルガード効果(1回)/逆境効果",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性攻撃力が110%UP/バトルメンバーのHPが少ないほどトリプルアタック確率UP / サブ加護: バトル開始時に火属性キャラにディスペルガード効果(1回)/逆境効果"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 325,
+            "hp": 139
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1850,
+            "hp": 851
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2231,
+            "hp": 1029
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2231,
+        "hp": 1029
+      }
+    },
+    {
+      "summonId": "2040421000",
+      "name": "五条 悟",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "六眼を持つ男",
+      "auraDescription": "闇属性攻撃力が80%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が80%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 260,
+            "hp": 87
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1532,
+            "hp": 562
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1850,
+            "hp": 681
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1850,
+        "hp": 681
+      }
+    },
+    {
+      "summonId": "2040422000",
+      "name": "東堂 葵",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "全力で導く！",
+      "auraDescription": "全属性キャラの攻撃力が50%UP/奥義ダメージ30%UP/バトル開始時にパーティの奥義ゲージ20%UP / サブ加護: バトル開始時に虎杖悠仁＆伏黒 恵に活性効果/ストレングス効果/1ターンの間必ずトリプルアタック",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性キャラの攻撃力が50%UP/奥義ダメージ30%UP/バトル開始時にパーティの奥義ゲージ20%UP / サブ加護: バトル開始時に虎杖悠仁＆伏黒 恵に活性効果/ストレングス効果/1ターンの間必ずトリプルアタック"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 240,
+            "hp": 91
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1487,
+            "hp": 567
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1800,
+            "hp": 685
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1800,
+        "hp": 685
+      }
+    },
+    {
+      "summonId": "2040423000",
+      "name": "水着ティラノサウルス",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "ティラノサウルスの加護",
+      "auraDescription": "水属性攻撃力が130%UP/バトル開始時に水属性キャラの奥義ゲージ30%UP / サブ加護: バトル開始時に水属性キャラに奥義性能UP(1回)/水属性の主人公に奥義再発動(1回)効果",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 水属性攻撃力が130%UP/バトル開始時に水属性キャラの奥義ゲージ30%UP / サブ加護: バトル開始時に水属性キャラに奥義性能UP(1回)/水属性の主人公に奥義再発動(1回)効果"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 327,
+            "hp": 138
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2022,
+            "hp": 816
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2446,
+            "hp": 986
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2446,
+        "hp": 986
+      }
+    },
+    {
+      "summonId": "2040425000",
+      "name": "トリプルゼロ",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "相克の十二枚羽",
+      "auraDescription": "全属性攻撃力が120%UP/バトル開始時、主人公に約束の羽を12枚追加 / ◆約束の羽の枚数に応じて主人公の攻撃UP/防御UP/12枚のときバトルメンバーの与ダメージUP / サブ加護: 主人公がアビリティ使用時と奥義発動時、主人公に約束の羽を2枚追加(最大12) / ◆約束の羽の枚数に応じて主人公の攻撃UP/防御UP/12枚のときバトルメンバーの与ダメージUP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が120%UP/バトル開始時、主人公に約束の羽を12枚追加 / ◆約束の羽の枚数に応じて主人公の攻撃UP/防御UP/12枚のときバトルメンバーの与ダメージUP / サブ加護: 主人公がアビリティ使用時と奥義発動時、主人公に約束の羽を2枚追加(最大12) / ◆約束の羽の枚数に応じて主人公の攻撃UP/防御UP/12枚のときバトルメンバーの与ダメージUP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 367,
+            "hp": 130
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2087,
+            "hp": 803
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2947,
+            "hp": 1140
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2947,
+        "hp": 1140
+      }
+    },
+    {
+      "summonId": "2040426000",
+      "name": "オールマイト",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "次は君だ",
+      "auraDescription": "全属性キャラの攻撃力が50%UP/奥義ダメージ20%UP/チェインバーストの威力が20％UP / サブ加護: バトル開始時に緑谷出久、爆豪勝己にストレングス効果/弱体効果無効(1回)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性キャラの攻撃力が50%UP/奥義ダメージ20%UP/チェインバーストの威力が20％UP / サブ加護: バトル開始時に緑谷出久、爆豪勝己にストレングス効果/弱体効果無効(1回)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 290,
+            "hp": 81
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1802,
+            "hp": 504
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2180,
+            "hp": 610
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2180,
+        "hp": 610
+      }
+    },
+    {
+      "summonId": "2040428000",
+      "name": "水着マーズ",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "マーズの加護",
+      "auraDescription": "光属性攻撃力が110%UP / サブ加護: バトル開始時に光属性キャラに弱体効果無効(1回)/クリティカル確率UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 光属性攻撃力が110%UP / サブ加護: バトル開始時に光属性キャラに弱体効果無効(1回)/クリティカル確率UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 362,
+            "hp": 131
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2082,
+            "hp": 804
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2512,
+            "hp": 972
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2512,
+        "hp": 972
+      }
+    },
+    {
+      "summonId": "2040429000",
+      "name": "水着ベルゼバブ",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "唯一絶対の玉体",
+      "auraDescription": "全属性攻撃力が100%UP/バトル開始時と主人公が奥義発動時に主人公にスペルビア効果 / サブ加護: バトル開始時に主人公にスペルビア効果",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が100%UP/バトル開始時と主人公が奥義発動時に主人公にスペルビア効果 / サブ加護: バトル開始時に主人公にスペルビア効果"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 442,
+            "hp": 115
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2137,
+            "hp": 793
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2985,
+            "hp": 1132
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2985,
+        "hp": 1132
+      }
+    },
+    {
+      "summonId": "2040431000",
+      "name": "ミリム・ナーヴァ",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "破壊の暴君(デストロイ)",
+      "auraDescription": "全属性キャラの攻撃力が50%UP/アビリティダメージ30%UP/アビリティダメージ上限15%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性キャラの攻撃力が50%UP/アビリティダメージ30%UP/アビリティダメージ上限15%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 300,
+            "hp": 79
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1787,
+            "hp": 511
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2531,
+            "hp": 727
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2531,
+        "hp": 727
+      }
+    },
+    {
+      "summonId": "2040433000",
+      "name": "オロロジャイア",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "時竜の加護",
+      "auraDescription": "闇属性攻撃力が140%UP/闇属性キャラのHPが40%UP / サブ加護: バトル開始時1ターンの間、主人公を『涯て』に接続する(1番目のアビリティが「アセンダンス・ブルー」に変化)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が140%UP/闇属性キャラのHPが40%UP / サブ加護: バトル開始時1ターンの間、主人公を『涯て』に接続する(1番目のアビリティが「アセンダンス・ブルー」に変化)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 310,
+            "hp": 145
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2023,
+            "hp": 836
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2880,
+            "hp": 1182
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2880,
+        "hp": 1182
+      }
+    },
+    {
+      "summonId": "2040434000",
+      "name": "神楽坂明日菜",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "黄昏の姫御子",
+      "auraDescription": "全属性キャラの攻撃力が50%UP/奥義ダメージ30%UP/バトル開始時にパーティの奥義ゲージ20%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性キャラの攻撃力が50%UP/奥義ダメージ30%UP/バトル開始時にパーティの奥義ゲージ20%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 245,
+            "hp": 90
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1477,
+            "hp": 569
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1785,
+            "hp": 689
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1785,
+        "hp": 689
+      }
+    },
+    {
+      "summonId": "2040435000",
+      "name": "テトラゴッド",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "テトラゴッドの加護",
+      "auraDescription": "水属性攻撃力が120%UP / サブ加護: 水属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 水属性攻撃力が120%UP / サブ加護: 水属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 100,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 342,
+            "hp": 135
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2112,
+            "hp": 798
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 100,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 2112,
+        "hp": 798
+      }
+    },
+    {
+      "summonId": "2040436000",
+      "name": "ソウルインヴォーカー",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "ソウルインヴォーカーの加護",
+      "auraDescription": "火属性攻撃力が120%UP / サブ加護: 火属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性攻撃力が120%UP / サブ加護: 火属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 100,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 372,
+            "hp": 129
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2192,
+            "hp": 782
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 100,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 2192,
+        "hp": 782
+      }
+    },
+    {
+      "summonId": "2040437000",
+      "name": "水着バステト",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "バステトの加護",
+      "auraDescription": "風属性攻撃力が110%UP / サブ加護: バトル開始時に風属性キャラにディスペルガード効果(1回)/ストレングス効果",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 風属性攻撃力が110%UP / サブ加護: バトル開始時に風属性キャラにディスペルガード効果(1回)/ストレングス効果"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 327,
+            "hp": 138
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2022,
+            "hp": 816
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2446,
+            "hp": 986
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2446,
+        "hp": 986
+      }
+    },
+    {
+      "summonId": "2040438000",
+      "name": "デストロイヤーズコマンダー",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "デストロイヤーズコマンダーの加護",
+      "auraDescription": "土属性攻撃力が120%UP / サブ加護: 土属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 土属性攻撃力が120%UP / サブ加護: 土属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 100,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 352,
+            "hp": 133
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2177,
+            "hp": 785
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 100,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 2177,
+        "hp": 785
+      }
+    },
+    {
+      "summonId": "2040441000",
+      "name": "ウェパル",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "ウェパルの加護",
+      "auraDescription": "闇属性攻撃力が120%UP / サブ加護: 闇属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が120%UP / サブ加護: 闇属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 100,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 322,
+            "hp": 139
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2017,
+            "hp": 817
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 100,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 2017,
+        "hp": 817
+      }
+    },
+    {
+      "summonId": "2040442000",
+      "name": "フェアリープリンセス",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "フェアリープリンセスの加護",
+      "auraDescription": "光属性攻撃力が120%UP / サブ加護: 光属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 光属性攻撃力が120%UP / サブ加護: 光属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 100,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 297,
+            "hp": 144
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1972,
+            "hp": 826
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 100,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 1972,
+        "hp": 826
+      }
+    },
+    {
+      "summonId": "2040443000",
+      "name": "カシオペア",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "カシオペアの加護",
+      "auraDescription": "風属性攻撃力が120%UP / サブ加護: 風属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 風属性攻撃力が120%UP / サブ加護: 風属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 100,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 327,
+            "hp": 138
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1952,
+            "hp": 830
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 100,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 1952,
+        "hp": 830
+      }
+    },
+    {
+      "summonId": "2040445000",
+      "name": "マリ＆８号機",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "正規実用型",
+      "auraDescription": "全属性キャラの攻撃力が50%UP/アビリティダメージ30%UP/バトル開始時に主人公とエヴァンゲリオン各機に被ダメージ無効(1回)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性キャラの攻撃力が50%UP/アビリティダメージ30%UP/バトル開始時に主人公とエヴァンゲリオン各機に被ダメージ無効(1回)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 238,
+            "hp": 88
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1486,
+            "hp": 568
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1798,
+            "hp": 688
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1798,
+        "hp": 688
+      }
+    },
+    {
+      "summonId": "2040446000",
+      "name": "ベルメルヴォルク",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "ベルメルヴォルクの加護",
+      "auraDescription": "スキル「終炎禁呪」の効果が100%UP / ◆装備している火属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「終炎禁呪」の効果が100%UP / ◆装備している火属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 355,
+            "hp": 86
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1717,
+            "hp": 629
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2058,
+            "hp": 765
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2058,
+        "hp": 765
+      }
+    },
+    {
+      "summonId": "2040447000",
+      "name": "ニフイヴィンテ",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "ニフイヴィンテの加護",
+      "auraDescription": "スキル「怪水禁呪」の効果が100%UP / ◆装備している水属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「怪水禁呪」の効果が100%UP / ◆装備している水属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 200,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 155,
+            "hp": 126
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1517,
+            "hp": 669
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1858,
+            "hp": 805
+          },
+          {
+            "level": 200,
+            "uncapLevel": 5,
+            "attack": 2029,
+            "hp": 873
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1858,
+        "hp": 805
+      }
+    },
+    {
+      "summonId": "2040448000",
+      "name": "ヴェルサシア",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "破壊の意志",
+      "auraDescription": "全属性攻撃力が200%UP/味方全体で奥義とトリプルアタックを合計で5回以上発動したターンの終了時、主人公に他化自在効果 / サブ加護: 味方全体で奥義とトリプルアタックを合計で8回以上発動したターンの終了時、主人公に他化自在効果",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が200%UP/味方全体で奥義とトリプルアタックを合計で5回以上発動したターンの終了時、主人公に他化自在効果 / サブ加護: 味方全体で奥義とトリプルアタックを合計で8回以上発動したターンの終了時、主人公に他化自在効果"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 412,
+            "hp": 121
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2107,
+            "hp": 799
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2955,
+            "hp": 1138
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2955,
+        "hp": 1138
+      }
+    },
+    {
+      "summonId": "2040451000",
+      "name": "ナロフィルミダス",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ナロフィルミダスの加護",
+      "auraDescription": "スキル「餓金禁呪」の効果が100%UP / ◆装備している土属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「餓金禁呪」の効果が100%UP / ◆装備している土属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 295,
+            "hp": 98
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1692,
+            "hp": 634
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2041,
+            "hp": 768
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2041,
+        "hp": 768
+      }
+    },
+    {
+      "summonId": "2040452000",
+      "name": "マクタンマカル",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "マクタンマカルの加護",
+      "auraDescription": "スキル「畏風禁呪」の効果が100%UP / ◆装備している風属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「畏風禁呪」の効果が100%UP / ◆装備している風属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 215,
+            "hp": 114
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1512,
+            "hp": 670
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1836,
+            "hp": 809
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1836,
+        "hp": 809
+      }
+    },
+    {
+      "summonId": "2040453000",
+      "name": "パパルクルヴァ",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "パパルクルヴァの加護",
+      "auraDescription": "スキル「喪爛禁呪」の効果が100%UP / ◆装備している光属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「喪爛禁呪」の効果が100%UP / ◆装備している光属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 230,
+            "hp": 111
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1422,
+            "hp": 688
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1720,
+            "hp": 832
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1720,
+        "hp": 832
+      }
+    },
+    {
+      "summonId": "2040454000",
+      "name": "ザマルヴォッチ",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "ザマルヴォッチの加護",
+      "auraDescription": "スキル「冥堕禁呪」の効果が100%UP / ◆装備している闇属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「冥堕禁呪」の効果が100%UP / ◆装備している闇属性の「禁禍武器」の退魔Lvの合計に応じて性能UP(最大150%)"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 320,
+            "hp": 93
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1852,
+            "hp": 606
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2235,
+            "hp": 734
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2235,
+        "hp": 734
+      }
+    },
+    {
+      "summonId": "2040457000",
+      "name": "ローダーン",
+      "elementCode": "1",
+      "rarityCode": "4",
+      "auraName": "ローダーンの加護",
+      "auraDescription": "火属性攻撃力が120%UP / サブ加護: 火属性キャラのアビリティダメージ20%UP/アビリティダメージ上限20%UP/アビリティ与ダメージが最大100000上昇",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性攻撃力が120%UP / サブ加護: 火属性キャラのアビリティダメージ20%UP/アビリティダメージ上限20%UP/アビリティ与ダメージが最大100000上昇"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 100,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 397,
+            "hp": 124
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2107,
+            "hp": 799
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 100,
+        "uncapLevel": 3,
+        "plusMark": 0,
+        "attack": 2107,
+        "hp": 799
+      }
+    },
+    {
+      "summonId": "2040458000",
+      "name": "至高無上の金剛覇者",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "闘争の果て、力の頂",
+      "auraDescription": "全属性攻撃力が80%UP / サブ加護: 主人公が奥義発動時に主人公のトランスLvが1上昇(最大3) ◆トランスLvに応じて主人公の連続攻撃確率UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が80%UP / サブ加護: 主人公が奥義発動時に主人公のトランスLvが1上昇(最大3) ◆トランスLvに応じて主人公の連続攻撃確率UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 407,
+            "hp": 122
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2317,
+            "hp": 761
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 3272,
+            "hp": 1081
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 1,
+        "uncapLevel": 0,
+        "plusMark": 0,
+        "attack": 407,
+        "hp": 122
+      }
+    },
+    {
+      "summonId": "2040459000",
+      "name": "朽木白哉&更木剣八&涅マユリ",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "隊を背負いし羽織",
+      "auraDescription": "全属性キャラの攻撃力が50%UP/チェインバーストの威力が20%UP/バトル開始時にパーティの奥義ゲージ20%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性キャラの攻撃力が50%UP/チェインバーストの威力が20%UP/バトル開始時にパーティの奥義ゲージ20%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 245,
+            "hp": 90
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1472,
+            "hp": 570
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 1779,
+            "hp": 690
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 1779,
+        "hp": 690
+      }
+    },
+    {
+      "summonId": "2040461000",
+      "name": "水着タル子マン",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "タル子マンの加護",
+      "auraDescription": "土属性攻撃力が80%UP / サブ加護: 土属性キャラのHPが15%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "効果文は確認済み。数値計算への構造化は未対応: 土属性攻撃力が80%UP / サブ加護: 土属性キャラのHPが15%UP"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "confirmedAt": "2026-09-09",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 342,
+            "hp": 135
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 2037,
+            "hp": 813
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2461,
+            "hp": 983
+          }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 1,
+        "uncapLevel": 0,
+        "plusMark": 0,
+        "attack": 342,
+        "hp": 135
       }
     }
   ]

@@ -6,7 +6,7 @@ rarity: SSR
 element: "火"
 obtain: ""
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Satyr_(Summer)) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 火 |
 | 入手方法 |  |
+| マスターID | `2040335000` |
 
 ## ステータス
 
@@ -65,6 +66,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv60 / 2凸
+- 表示ステータス: HP 539 / ATK 1368
+- 召喚効果: 自分に星トモの夏効果/火属性キャラに風属性ダメージカット(20％)　◆敵が特殊技を使用した時、味方全体のHPを回復/弱体効果を1つ回復
+- 加護効果: 火属性攻撃力が80%UP
+- サブ加護効果: 記載なし
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

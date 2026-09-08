@@ -6,7 +6,7 @@ rarity: SSR
 element: "水"
 obtain: "アーカルムの転世"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Justice_(SSR)) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 水 |
 | 入手方法 | アーカルムの転世 |
+| マスターID | `2040313000` |
 
 ## ステータス
 
@@ -66,6 +67,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 - 効果: (3凸)水属性キャラのHPが20%UP / (4凸)水属性キャラのHPが30%UP
 - 出典: GameWith
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv200 / 5凸
+- 表示ステータス: HP 1134 / ATK 2717
+- 召喚効果: 敵全体に水属性5倍ダメージ/味方全体のHPを平均化/水属性キャラのHP回復　◆参戦者が合体召喚不可
+- 加護効果: 水属性キャラの攻撃力130%UP/防御力10%UP
+- サブ加護効果: 水属性キャラのHPが30%UP
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

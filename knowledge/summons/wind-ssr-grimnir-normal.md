@@ -6,7 +6,7 @@ rarity: SSR
 element: "風"
 obtain: "ガチャ排出/サプチケ不可"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Grimnir_(Summon)) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 風 |
 | 入手方法 | ガチャ排出/サプチケ不可 |
+| マスターID | `2040261000` |
 
 ## ステータス
 
@@ -55,6 +56,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv150 / 4凸
+- 表示ステータス: HP 1210 / ATK 3044
+- 召喚効果: 敵全体に風属性5倍ダメージ/味方全体にバリア効果(10000)/1～6ターン後に敵全体に5倍風属性ダメージ/味方全体にアビリティ与ダメージ上昇(累積)　◆再召喚不可
+- 加護効果: 風属性攻撃力が160%UP
+- サブ加護効果: 記載なし
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

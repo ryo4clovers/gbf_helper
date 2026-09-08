@@ -6,7 +6,7 @@ rarity: SSR
 element: "闇"
 obtain: "ガチャ排出/サプチケ不可"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Belial) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 闇 |
 | 入手方法 | ガチャ排出/サプチケ不可 |
+| マスターID | `2040347000` |
 
 ## ステータス
 
@@ -63,6 +64,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 - 効果: 与ダメージが15000上昇/最大HP30%DOWN / (3凸)与ダメージが20000上昇に強化 / (4凸)与ダメージが30000上昇に強化
 - 出典: GameWith
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv150 / 4凸
+- 表示ステータス: HP 1140 / ATK 3265
+- 召喚効果: 4ターン毎に敵全体か味方全体にランダムな効果　◆再召喚不可/参戦者が合体召喚不可
+- 加護効果: 闇属性攻撃力が130%UP/闇属性キャラの最大HPを上限20000に固定/被ダメージの最大値を5000に固定
+- サブ加護効果: 与ダメージが最大30000上昇/最大HP30%DOWN
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

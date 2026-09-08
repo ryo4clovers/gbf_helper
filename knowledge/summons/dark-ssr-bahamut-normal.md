@@ -6,7 +6,7 @@ rarity: SSR
 element: "闇"
 obtain: "ガチャ排出/サプチケ不可"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Bahamut) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 闇 |
 | 入手方法 | ガチャ排出/サプチケ不可 |
+| マスターID | `2040003000` |
 
 ## ステータス
 
@@ -83,6 +84,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv250 / 6凸
+- 表示ステータス: HP 1570 / ATK 3940
+- 召喚効果: 敵全体に自属性20倍ダメージ/味方全体に創世の翼効果/召喚石の再使用間隔を1ターン短縮
+- 加護効果: 全属性攻撃力が150%UP/召喚の与ダメージ50%UP/バトル開始時に召喚石の使用可能ターンを3ターン短縮
+- サブ加護効果: 召喚の与ダメージ50%UP/召喚石の使用間隔を1ターン短縮
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

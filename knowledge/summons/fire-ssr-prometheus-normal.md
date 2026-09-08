@@ -6,7 +6,7 @@ rarity: SSR
 element: "火"
 obtain: "ガチャ排出"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Prometheus) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 火 |
 | 入手方法 | ガチャ排出 |
+| マスターID | `2040125000` |
 
 ## ステータス
 
@@ -62,6 +63,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv80 / 2凸
+- 表示ステータス: HP 685 / ATK 1596
+- 召喚効果: 敵全体に火属性ダメージ(特大)/味方全体の火属性攻撃UP/風属性ダメージカット(30%)
+- 加護効果: 弱体耐性30%UP/火属性攻撃時にクリティカル確率UP
+- サブ加護効果: 記載なし
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

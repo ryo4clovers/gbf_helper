@@ -6,7 +6,7 @@ rarity: SSR
 element: "闇"
 obtain: "イベント報酬"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Ranko_Kanzaki_(Summon)) の両方で確認(取得日: 2026-08-20)。ATK/HPの一部に不一致あり(未確認・要検証事項を参照)。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 闇 |
 | 入手方法 | イベント報酬 |
+| マスターID | `2040057000` |
 
 ## ステータス
 
@@ -48,6 +49,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv60 / 1凸
+- 表示ステータス: HP 439 / ATK 822
+- 召喚効果: 敵全体に闇属性ダメージ(特大)/火と水属性の追加ダメージ
+- 加護効果: 全属性攻撃力が30%UP
+- サブ加護効果: 記載なし
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

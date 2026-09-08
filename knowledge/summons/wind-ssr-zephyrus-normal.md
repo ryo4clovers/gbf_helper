@@ -6,7 +6,7 @@ rarity: SSR
 element: "風"
 obtain: "ガチャ排出/"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Zephyrus) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 風 |
 | 入手方法 | ガチャ排出/ |
+| マスターID | `2040098000` |
 
 ## ステータス
 
@@ -44,6 +45,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv250 / 6凸
+- 表示ステータス: HP 1421 / ATK 4121
+- 召喚効果: 敵全体に風属性12倍ダメージ/強化効果を1つ無効化/味方全体の弱体効果を1つ回復/奥義ゲージUP(25%)
+- 加護効果: スキル「風」「竜巻」「乱気」の効果が170%UP / ◆メイン召喚石に装備時、風属性攻撃力が30%UP
+- サブ加護効果: 風属性キャラの風属性攻撃力が20%UP/HP20%UP
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

@@ -11,7 +11,7 @@ test("loads the initial non-damage summon aura", () => {
   const catalog = loadIncrementalSummonCatalog();
   const summon = catalog.summons.get("2030051000");
 
-  assert.equal(catalog.summons.size, 9);
+  assert.equal(catalog.summons.size, 122);
   assert.equal(summon?.name, "シルフィードベル");
   assert.equal(summon?.verificationStatus, "検証済み");
   assert.equal(summon?.supportSelectable, true);
@@ -94,7 +94,7 @@ test("loads verified summon level breakpoints", () => {
     { level: 100, uncapLevel: 3, attack: 2349, hp: 771 },
     { level: 150, uncapLevel: 4, attack: 3324, hp: 1093 },
   ]);
-  assert.deepEqual(agni?.levelStats?.points.map((point) => point.level), [100, 150, 250]);
+  assert.deepEqual(agni?.levelStats?.points.map((point) => point.level), [1, 100, 150, 200, 250]);
 });
 
 test("loads every verified Six Dragons 4-star aura", () => {

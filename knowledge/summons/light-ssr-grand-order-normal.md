@@ -6,7 +6,7 @@ rarity: SSR
 element: "光"
 obtain: "ガチャ排出/サプチケ不可"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Grand_Order) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 光 |
 | 入手方法 | ガチャ排出/サプチケ不可 |
+| マスターID | `2040065000` |
 
 ## ステータス
 
@@ -90,6 +91,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv200 / 5凸
+- 表示ステータス: HP 1435 / ATK 3378
+- 召喚効果: 敵全体に光属性4倍ダメージ/味方全体に調停の翼効果(特殊強化(攻防UP)/吸収効果)/主人公に蒼穹の刃効果
+- 加護効果: バトルメンバーの得意武器の種類が多いほど攻撃力UP(最大200%)/防御力UP(最大50%) / ◆バトルメンバーの得意武器が5種以上のときバトル開始時にパーティの奥義ゲージ10%UP/主人公に蒼穹の刃効果
+- サブ加護効果: 無属性の敵に対して与ダメージ10%UP
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

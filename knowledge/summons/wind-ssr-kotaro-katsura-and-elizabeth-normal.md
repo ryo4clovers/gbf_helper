@@ -6,7 +6,7 @@ rarity: SSR
 element: "風"
 obtain: "イベント報酬"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Kotaro_Katsura_and_Elizabeth) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 風 |
 | 入手方法 | イベント報酬 |
+| マスターID | `2040405000` |
 
 ## ステータス
 
@@ -48,6 +49,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv100 / 4凸
+- 表示ステータス: HP 600 / ATK 1374
+- 召喚効果: 敵全体に風属性4倍ダメージ/防御DOWN(3ターン)/味方全体の奥義性能UP(1回)
+- 加護効果: 全属性キャラの攻撃力が50%UP/奥義ダメージ30%UP/HP20%UP
+- サブ加護効果: バトル開始時に万事屋銀ちゃん 坂田銀時＆志村新八＆神楽に弱体効果無効(1回)/攻撃UP/1ターンの間必ずトリプルアタック
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

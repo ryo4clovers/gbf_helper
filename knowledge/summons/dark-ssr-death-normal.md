@@ -6,7 +6,7 @@ rarity: SSR
 element: "闇"
 obtain: "アーカルムの転世"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Death_(SSR)) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 闇 |
 | 入手方法 | アーカルムの転世 |
+| マスターID | `2040315000` |
 
 ## ステータス
 
@@ -45,6 +46,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 - 効果: (3凸)闇属性キャラが光属性の敵に対して与ダメージ7%UP / (4凸)闇属性キャラが光属性の敵に対して与ダメージ10%UP
 - 出典: GameWith
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv200 / 5凸
+- 表示ステータス: HP 1128 / ATK 2850
+- 召喚効果: 敵全体に闇属性5倍ダメージ/4番目に配置された闇属性キャラ(主人公とルリアを除く)を戦闘不能にし、闇属性キャラが4ターンの間必ずトリプルアタック　◆参戦者が合体召喚不可
+- 加護効果: 闇属性キャラの攻撃力140%UP
+- サブ加護効果: 闇属性キャラが光属性の敵に対して与ダメージ10%UP
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

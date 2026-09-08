@@ -6,7 +6,7 @@ rarity: SSR
 element: "闇"
 obtain: "ガチャ排出/サプチケ不可"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Beelzebub) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 闇 |
 | 入手方法 | ガチャ排出/サプチケ不可 |
+| マスターID | `2040408000` |
 
 ## ステータス
 
@@ -65,6 +66,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv150 / 4凸
+- 表示ステータス: HP 1081 / ATK 3272
+- 召喚効果: 敵全体に自属性20倍ダメージ/防御DOWN/弱体耐性DOWN/主人公のトランスLvに応じた追加効果　◆参戦者が合体召喚不可
+- 加護効果: 全属性攻撃力が100%UP/主人公のステータス大幅UP/バトル開始時に主人公のトランスLvが3上昇(最大3)
+- サブ加護効果: 主人公が奥義発動時に主人公のトランスLvが1上昇(最大3) ◆トランスLvに応じて主人公の連続攻撃確率UP/Lv3の時ステータス大幅UP
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

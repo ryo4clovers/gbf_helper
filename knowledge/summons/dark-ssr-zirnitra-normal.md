@@ -6,7 +6,7 @@ rarity: SSR
 element: "闇"
 obtain: "ガチャ排出"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Zirnitra) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 闇 |
 | 入手方法 | ガチャ排出 |
+| マスターID | `2040385000` |
 
 ## ステータス
 
@@ -65,6 +66,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv150 / 4凸
+- 表示ステータス: HP 976 / ATK 2619
+- 召喚効果: 敵全体に闇属性9倍ダメージ/闇属性キャラに闇属性追撃効果/連続攻撃確率UP
+- 加護効果: 闇属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に闇属性キャラの奥義ゲージ30%UP
+- サブ加護効果: 闇属性キャラのHPが30%UP
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

@@ -6,7 +6,7 @@ rarity: SSR
 element: "火"
 obtain: "アーカルムの転世"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/The_Devil_(SSR)) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 火 |
 | 入手方法 | アーカルムの転世 |
+| マスターID | `2040317000` |
 
 ## ステータス
 
@@ -66,6 +67,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 - 効果: (3凸)火属性キャラのHPが20%UP / (4凸)火属性キャラのHPが30%UP
 - 出典: GameWith
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv200 / 5凸
+- 表示ステータス: HP 1130 / ATK 2737
+- 召喚効果: 敵全体に火属性5倍ダメージ/赤熱効果/風属性の敵の攻防DOWN(特大) / ◆参戦者が合体召喚不可
+- 加護効果: 火属性キャラの攻撃力130%UP/防御力10%UP
+- サブ加護効果: 火属性キャラのHPが30%UP
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

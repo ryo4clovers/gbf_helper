@@ -6,7 +6,7 @@ rarity: SSR
 element: "光"
 obtain: "ボスドロップ"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Chevalier_Magna) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 光 |
 | 入手方法 | ボスドロップ |
+| マスターID | `2040047000` |
 
 ## ステータス
 
@@ -69,6 +70,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv250 / 6凸
+- 表示ステータス: HP 1066 / ATK 2655
+- 召喚効果: 敵全体に光属性ダメージ(極大)/光属性追加ダメージ/強化効果を一つ無効化/闇属性攻撃DOWN/味方全体に光属性攻撃UP
+- 加護効果: スキル「騎解方陣」の効果が170%UP
+- サブ加護効果: 光属性キャラの攻防10%UP
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

@@ -6,7 +6,7 @@ rarity: SSR
 element: "風"
 obtain: "ガチャ排出"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Owlcat) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 風 |
 | 入手方法 | ガチャ排出 |
+| マスターID | `2040366000` |
 
 ## ステータス
 
@@ -65,6 +66,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 ## サブ加護効果(サブ編成時)
 
 - 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv150 / 4凸
+- 表示ステータス: HP 979 / ATK 2481
+- 召喚効果: 敵全体に風属性9倍ダメージ/1,3番目に配置された風属性キャラに風属性追撃効果/2,4番目に配置された風属性キャラに連続攻撃確率UP
+- 加護効果: 風属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に風属性キャラの奥義ゲージ30%UP　★初回召喚時は風属性キャラに配置によって異なる強化効果を1ターンの間付与
+- サブ加護効果: 風属性キャラのHPが30%UP　★初回召喚時は風属性キャラに配置によって異なる強化効果を1ターンの間付与
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

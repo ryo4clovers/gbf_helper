@@ -6,7 +6,7 @@ rarity: SSR
 element: "土"
 obtain: "ガチャ排出/サプチケ不可"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Tsuchinoko) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 土 |
 | 入手方法 | ガチャ排出/サプチケ不可 |
+| マスターID | `2040392000` |
 
 ## ステータス
 
@@ -63,6 +64,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 - 効果: (4凸)バトル終了時にツチノコに遭遇することがある
 - 出典: GameWith
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv150 / 4凸
+- 表示ステータス: HP 1236 / ATK 2965
+- 召喚効果: 敵全体のアイテムドロップ率UP(?回)/味方全体が即座に奥義発動可能　◆再召喚不可/参戦者が合体召喚不可
+- 加護効果: 土属性攻撃力が130%UP/バトル開始時にパーティの奥義ゲージ30%UP/バトル終了時にツチノコに遭遇することがある
+- サブ加護効果: バトル終了時にツチノコに遭遇することがある
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

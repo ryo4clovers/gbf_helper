@@ -6,7 +6,7 @@ rarity: SSR
 element: "風"
 obtain: "ガチャ排出"
 status: 下書き
-last_updated: 2026-08-20
+last_updated: 2026-09-09
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Elil) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -23,6 +23,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 風 |
 | 入手方法 | ガチャ排出 |
+| マスターID | `2040344000` |
 
 ## ステータス
 
@@ -66,6 +67,16 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 - 効果: 風属性キャラがそれぞれの狂風の刻印の数に応じて風属性攻撃力UP / (3凸)風属性キャラがそれぞれの狂風の刻印の数に応じて風属性攻撃力UP / (4凸)風属性キャラがそれぞれの狂風の刻印の数に応じて風属性攻撃力UP(最大35%)
 - 出典: GameWith
+
+## 実機所持データ確認
+
+- 確認日: 2026-09-09
+- 確認段階: Lv150 / 4凸
+- 表示ステータス: HP 980 / ATK 2470
+- 召喚効果: 敵全体に風属性9倍ダメージ/風属性キャラに狂風の刻印を付与/風属性攻撃UP/回避率UP　◆参戦者が合体召喚不可
+- 加護効果: 風属性攻撃力が100%UP/バトル開始時に味方全体に狂風の刻印を付与
+- サブ加護効果: 風属性キャラがそれぞれの狂風の刻印の数に応じて風属性攻撃力UP(最大35%)
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
 ## 関連トピック
 

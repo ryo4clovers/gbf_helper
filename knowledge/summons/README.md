@@ -283,6 +283,45 @@
 | [dark-ssr-brunnhilde-normal.md](./dark-ssr-brunnhilde-normal.md) | ブリュンヒルデ / Brunnhilde | SSR | 闇 | 下書き |
 | [dark-ssr-jack-o-lantern-normal.md](./dark-ssr-jack-o-lantern-normal.md) | ジャック・オー・ランタン / Jack-o'-Lantern | SSR | 闇 | 下書き |
 
+| [fire-ssr-lodern-normal.md](./fire-ssr-lodern-normal.md) | ローダーン / Lodern | SSR | 火 | 下書き |
+| [water-sr-aquamarine-carbuncle-normal.md](./water-sr-aquamarine-carbuncle-normal.md) | カーバンクル・アクアマリン / Aquamarine Carbuncle | SR | 水 | 下書き |
+| [fire-sr-garnet-carbuncle-normal.md](./fire-sr-garnet-carbuncle-normal.md) | カーバンクル・ガーネット / Garnet Carbuncle | SR | 火 | 下書き |
+| [dark-sr-onyx-carbuncle-normal.md](./dark-sr-onyx-carbuncle-normal.md) | カーバンクル・オニキス / Onyx Carbuncle | SR | 闇 | 下書き |
+| [light-sr-opal-carbuncle-normal.md](./light-sr-opal-carbuncle-normal.md) | カーバンクル・オパール / Opal Carbuncle | SR | 光 | 下書き |
+| [wind-sr-peridot-carbuncle-normal.md](./wind-sr-peridot-carbuncle-normal.md) | カーバンクル・ペリドット / Peridot Carbuncle | SR | 風 | 下書き |
+| [earth-sr-zircon-carbuncle-normal.md](./earth-sr-zircon-carbuncle-normal.md) | カーバンクル・ジルコン / Zircon Carbuncle | SR | 土 | 下書き |
+| [dark-ssr-milim-nava-normal.md](./dark-ssr-milim-nava-normal.md) | ミリム・ナーヴァ / Milim Nava | SSR | 闇 | 下書き |
+| [light-ssr-uta-normal.md](./light-ssr-uta-normal.md) | ウタ / Uta | SSR | 光 | 下書き |
+| [light-ssr-aoi-todo-normal.md](./light-ssr-aoi-todo-normal.md) | 東堂 葵 / Aoi Todo | SSR | 光 | 下書き |
+| [light-ssr-all-might-normal.md](./light-ssr-all-might-normal.md) | オールマイト / All Might | SSR | 光 | 下書き |
+| [light-ssr-asuna-kagurazaka-normal.md](./light-ssr-asuna-kagurazaka-normal.md) | 神楽坂明日菜 / Asuna Kagurazaka | SSR | 光 | 下書き |
+| [wind-ssr-mari-and-unit-08-normal.md](./wind-ssr-mari-and-unit-08-normal.md) | マリ＆８号機 / Mari and Unit 08 | SSR | 風 | 下書き |
+| [wind-ssr-byakuya-kuchiki-kenpachi-zaraki-and-mayuri-kurotsuchi-normal.md](./wind-ssr-byakuya-kuchiki-kenpachi-zaraki-and-mayuri-kurotsuchi-normal.md) | 朽木白哉&更木剣八&涅マユリ / Byakuya Kuchiki, Kenpachi Zaraki, and Mayuri Kurotsuchi | SSR | 風 | 下書き |
+| [dark-ssr-satoru-gojo-normal.md](./dark-ssr-satoru-gojo-normal.md) | 五条 悟 / Satoru Gojo | SSR | 闇 | 下書き |
+| [water-ssr-yatima-normal.md](./water-ssr-yatima-normal.md) | ヤチマ / Yatima | SSR | 水 | 下書き |
+| [dark-ssr-the-supreme-conqueror-normal.md](./dark-ssr-the-supreme-conqueror-normal.md) | 至高無上の金剛覇者 / The Supreme Conqueror | SSR | 闇 | 下書き |
+| [fire-ssr-versusia-normal.md](./fire-ssr-versusia-normal.md) | ヴェルサシア / Versusia | SSR | 火 | 下書き |
+| [dark-ssr-orologia-normal.md](./dark-ssr-orologia-normal.md) | オロロジャイア / Orologia | SSR | 闇 | 下書き |
+| [light-ssr-triple-zero-normal.md](./light-ssr-triple-zero-normal.md) | トリプルゼロ / Triple Zero | SSR | 光 | 下書き |
+| [water-ssr-tetragod-normal.md](./water-ssr-tetragod-normal.md) | テトラゴッド / Tetragod | SSR | 水 | 下書き |
+| [fire-ssr-soul-invoker-normal.md](./fire-ssr-soul-invoker-normal.md) | ソウルインヴォーカー / Soul Invoker | SSR | 火 | 下書き |
+| [dark-ssr-vepar-normal.md](./dark-ssr-vepar-normal.md) | ウェパル / Vepar | SSR | 闇 | 下書き |
+| [light-ssr-fairy-princess-normal.md](./light-ssr-fairy-princess-normal.md) | フェアリープリンセス / Fairy Princess | SSR | 光 | 下書き |
+| [wind-ssr-cassiopeia-normal.md](./wind-ssr-cassiopeia-normal.md) | カシオペア / Cassiopeia | SSR | 風 | 下書き |
+| [earth-ssr-commander-of-destruction-normal.md](./earth-ssr-commander-of-destruction-normal.md) | デストロイヤーズコマンダー / Commander of Destruction | SSR | 土 | 下書き |
+| [wind-ssr-bastet-summer.md](./wind-ssr-bastet-summer.md) | 水着バステト / Bastet | SSR | 風 | 下書き |
+| [earth-ssr-ms-tart-man-summer.md](./earth-ssr-ms-tart-man-summer.md) | 水着タル子マン / Ms. Tart Man | SSR | 土 | 下書き |
+| [water-ssr-tyrannosaurus-summer.md](./water-ssr-tyrannosaurus-summer.md) | 水着ティラノサウルス / Tyrannosaurus | SSR | 水 | 下書き |
+| [water-ssr-beelzebub-summer.md](./water-ssr-beelzebub-summer.md) | 水着ベルゼバブ / Beelzebub | SSR | 水 | 下書き |
+| [fire-ssr-cerberus-summer.md](./fire-ssr-cerberus-summer.md) | 水着ケルベロス / Cerberus | SSR | 火 | 下書き |
+| [light-ssr-mars-summer.md](./light-ssr-mars-summer.md) | 水着マーズ / Mars | SSR | 光 | 下書き |
+| [water-ssr-nihuyvintae-normal.md](./water-ssr-nihuyvintae-normal.md) | ニフイヴィンテ / Nihuyvintae | SSR | 水 | 下書き |
+| [fire-ssr-belmervolk-normal.md](./fire-ssr-belmervolk-normal.md) | ベルメルヴォルク / Belmervolk | SSR | 火 | 下書き |
+| [dark-ssr-zamalvoch-normal.md](./dark-ssr-zamalvoch-normal.md) | ザマルヴォッチ / Zamalvoch | SSR | 闇 | 下書き |
+| [light-ssr-papahlukruva-normal.md](./light-ssr-papahlukruva-normal.md) | パパルクルヴァ / Papahlukruva | SSR | 光 | 下書き |
+| [wind-ssr-macutanmacar-normal.md](./wind-ssr-macutanmacar-normal.md) | マクタンマカル / Macutanmacar | SSR | 風 | 下書き |
+| [earth-ssr-narophirmidas-normal.md](./earth-ssr-narophirmidas-normal.md) | ナロフィルミダス / Narophirmidas | SSR | 土 | 下書き |
+
 ## 運用ルール
 
 - ファイル名(および frontmatter の `id`)は次の形式に統一する:
