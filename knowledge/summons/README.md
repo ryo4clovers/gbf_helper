@@ -234,6 +234,7 @@
 | [light-ssr-colossal-hermit-normal.md](./light-ssr-colossal-hermit-normal.md) | 灼弩火罹 / Colossal Hermit | SSR | 光 | 下書き |
 | [light-ssr-ultra-robo-grand-god-kaiser-normal.md](./light-ssr-ultra-robo-grand-god-kaiser-normal.md) | 極鋼巨帝グランゴッドカイザー / Ultra Robo Grand God Kaiser | SSR | 光 | 下書き |
 | [dark-ssr-hades-normal.md](./dark-ssr-hades-normal.md) | ハデス / Hades | SSR | 闇 | 下書き |
+| [dark-ssr-fediel-normal.md](./dark-ssr-fediel-normal.md) | フェディエル / Fediel | SSR | 闇 | 検証済み |
 | [dark-ssr-sariel-normal.md](./dark-ssr-sariel-normal.md) | サリエル / Sariel | SSR | 闇 | 下書き |
 | [dark-ssr-death-normal.md](./dark-ssr-death-normal.md) | デス / Death | SSR | 闇 | 下書き |
 | [dark-ssr-bahamut-normal.md](./dark-ssr-bahamut-normal.md) | バハムート / Bahamut | SSR | 闇 | 下書き |

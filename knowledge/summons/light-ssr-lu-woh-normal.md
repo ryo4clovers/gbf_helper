@@ -6,8 +6,8 @@ rarity: SSR
 element: "光"
 obtain: "ガチャ排出"
 status: 下書き
-last_updated: 2026-08-20
-source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Lu_Woh_(Summon)) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
+last_updated: 2026-09-09
+source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Lu_Woh_(Summon)) の両方で確認(取得日: 2026-08-20)。初期状態とLv150・4凸のマスタ情報はユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンスで確認(確認日: 2026-09-09)。"
 ---
 
 # ル・オー(Lu Woh)
@@ -23,11 +23,13 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 | レアリティ | SSR |
 | 属性 | 光 |
 | 入手方法 | ガチャ排出 |
+| マスターID | `2040409000` |
 
 ## ステータス
 
 | レベル | HP | ATK |
 | --- | --- | --- |
+| Lv1 | 155 | 255 |
 | Lv100(3★) | 880 | 1800 |
 | Lv150(4★・最終上限解放) | 1243 | 2573 |
 
@@ -39,7 +41,8 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 - 初回召喚: 3ターン後
 - 使用間隔: 9ターン
 - 再召喚: 可
-- 出典: GameWith(個別ページ)
+- 出典: ユーザー提供のゲーム内図鑑詳細レスポンス
+- ステータス: 検証済み(2026-09-09)
 
 ### 3凸『導の破閃』
 
@@ -55,16 +58,20 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 - 初回召喚: 3ターン後
 - 使用間隔: 9ターン
 - 再召喚: 可
-- 出典: GameWith(個別ページ)
+- 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス。ダメージ上限の補足はGameWith(個別ページ)
+- ステータス: 検証済み(2026-09-09)
 
 ## 加護効果(メイン編成時)
 
-- 効果: 光属性攻撃力100%UP / (3凸)光属性攻撃力120%UP
-- 出典: GameWith
+- 効果: 光属性攻撃力100%UP / (3凸)光属性攻撃力120%UP / (4凸)光属性攻撃力140%UP
+- 出典: GameWith。初期・4凸部分はユーザー提供のゲーム内レスポンス
+- ステータス: 初期・4凸部分は検証済み(2026-09-09)
 
 ## サブ加護効果(サブ編成時)
 
-- 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+- 効果: スキル「光」「雷電」「天光」の効果が10%UP / (4凸)40%UP
+- 出典: ユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンス
+- ステータス: 初期・4凸を検証済み(2026-09-09)
 
 ## 関連トピック
 
@@ -73,6 +80,5 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 ## 未確認・要検証事項
 
-- サブ加護効果の正確な倍率はGameWith一覧に明記されていない場合、未検証。
-- 4★(4凸)到達時点のステータスはgbf.wikiで確認済みだが、その時点での加護効果/召喚効果の具体的な変化はGameWith一覧に明記されておらず未検証。
+- 3凸時点のサブ加護倍率は未確認。
 - gbf.wikiでさらに上位の上限解放段階(5★/6★等)が存在する場合、本ファイルはGameWithの標準的な表記(3★/4★)までの記載としており、それ以降は未反映。

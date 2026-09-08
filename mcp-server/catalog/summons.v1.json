@@ -119,6 +119,186 @@
         "attack": 3324,
         "hp": 1093
       }
+    },
+    {
+      "summonId": "2040401000",
+      "name": "ガレヲン",
+      "elementCode": "3",
+      "rarityCode": "4",
+      "auraName": "ガレヲンの加護",
+      "auraDescription": "土属性攻撃力が140%UP。サブ装備時、スキル「土」「大地」「地裂」の効果が40%UP",
+      "auraEffects": [
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "3",
+          "amountPercent": 140,
+          "activation": "always",
+          "description": "土属性攻撃力が140%UP"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "3",
+          "amountPercent": 40,
+          "targetSkillNamePrefixes": ["土", "大地", "地裂"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「土」「大地」「地裂」の効果が40%UP"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンスで確認",
+      "confirmedAt": "2026-09-09",
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2912,
+        "hp": 1176
+      }
+    },
+    {
+      "summonId": "2040406000",
+      "name": "イーウィヤ",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "イーウィヤの加護",
+      "auraDescription": "風属性攻撃力が140%UP。サブ装備時、スキル「風」「竜巻」「乱気」の効果が40%UP",
+      "auraEffects": [
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "4",
+          "amountPercent": 140,
+          "activation": "always",
+          "description": "風属性攻撃力が140%UP"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "4",
+          "amountPercent": 40,
+          "targetSkillNamePrefixes": ["風", "竜巻", "乱気"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「風」「竜巻」「乱気」の効果が40%UP"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンスで確認",
+      "confirmedAt": "2026-09-09",
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3035,
+        "hp": 1151
+      }
+    },
+    {
+      "summonId": "2040409000",
+      "name": "ル・オー",
+      "elementCode": "5",
+      "rarityCode": "4",
+      "auraName": "ル・オーの加護",
+      "auraDescription": "光属性攻撃力が140%UP。サブ装備時、スキル「光」「雷電」「天光」の効果が40%UP",
+      "auraEffects": [
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "5",
+          "amountPercent": 140,
+          "activation": "always",
+          "description": "光属性攻撃力が140%UP"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "5",
+          "amountPercent": 40,
+          "targetSkillNamePrefixes": ["光", "雷電", "天光"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「光」「雷電」「天光」の効果が40%UP"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンスで確認",
+      "confirmedAt": "2026-09-09",
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2573,
+        "hp": 1243
+      }
+    },
+    {
+      "summonId": "2040413000",
+      "name": "ワムデュス",
+      "elementCode": "2",
+      "rarityCode": "4",
+      "auraName": "ワムデュスの加護",
+      "auraDescription": "水属性攻撃力が140%UP。サブ装備時、スキル「水」「渦潮」「霧氷」の効果が40%UP",
+      "auraEffects": [
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "2",
+          "amountPercent": 140,
+          "activation": "always",
+          "description": "水属性攻撃力が140%UP"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "2",
+          "amountPercent": 40,
+          "targetSkillNamePrefixes": ["水", "渦潮", "霧氷"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「水」「渦潮」「霧氷」の効果が40%UP"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンスで確認",
+      "confirmedAt": "2026-09-09",
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2439,
+        "hp": 1270
+      }
+    },
+    {
+      "summonId": "2040418000",
+      "name": "フェディエル",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "フェディエルの加護",
+      "auraDescription": "闇属性攻撃力が140%UP。サブ装備時、スキル「闇」「憎悪」「奈落」の効果が40%UP",
+      "auraEffects": [
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "6",
+          "amountPercent": 140,
+          "activation": "always",
+          "description": "闇属性攻撃力が140%UP"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "6",
+          "amountPercent": 40,
+          "targetSkillNamePrefixes": ["闇", "憎悪", "奈落"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「闇」「憎悪」「奈落」の効果が40%UP"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "supportSelectable": true,
+      "source": "ユーザー提供のゲーム内図鑑詳細・所持召喚石詳細レスポンスで確認",
+      "confirmedAt": "2026-09-09",
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 3044,
+        "hp": 1149
+      }
     }
   ]
 }

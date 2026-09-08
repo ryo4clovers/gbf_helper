@@ -10,7 +10,7 @@ test("loads the initial non-damage summon aura", () => {
   const catalog = loadIncrementalSummonCatalog();
   const summon = catalog.summons.get("2030051000");
 
-  assert.equal(catalog.summons.size, 4);
+  assert.equal(catalog.summons.size, 9);
   assert.equal(summon?.name, "シルフィードベル");
   assert.equal(summon?.verificationStatus, "検証済み");
   assert.equal(summon?.supportSelectable, true);
@@ -44,6 +44,39 @@ test("loads the verified Wilnas sub aura", () => {
     },
   ]);
   assert.equal(summon?.verificationStatus, "検証済み");
+});
+
+test("loads every verified Six Dragons 4-star aura", () => {
+  const catalog = loadIncrementalSummonCatalog();
+  const expected = [
+    ["2040398000", "ウィルナス", "1", "火", ["火", "業火", "紅蓮"]],
+    ["2040413000", "ワムデュス", "2", "水", ["水", "渦潮", "霧氷"]],
+    ["2040401000", "ガレヲン", "3", "土", ["土", "大地", "地裂"]],
+    ["2040406000", "イーウィヤ", "4", "風", ["風", "竜巻", "乱気"]],
+    ["2040409000", "ル・オー", "5", "光", ["光", "雷電", "天光"]],
+    ["2040418000", "フェディエル", "6", "闇", ["闇", "憎悪", "奈落"]],
+  ] as const;
+
+  for (const [summonId, name, elementCode, elementName, prefixes] of expected) {
+    const summon = catalog.summons.get(summonId);
+    assert.equal(summon?.name, name);
+    assert.equal(summon?.verificationStatus, "検証済み");
+    assert.deepEqual(summon?.auraEffects[0], {
+      kind: "elemental-attack-up",
+      elementCode,
+      amountPercent: 140,
+      activation: "always",
+      description: `${elementName}属性攻撃力が140%UP`,
+    });
+    assert.deepEqual(summon?.auraEffects[1], {
+      kind: "normal-skill-boost",
+      elementCode,
+      amountPercent: 40,
+      targetSkillNamePrefixes: [...prefixes],
+      activation: "sub-only",
+      description: `サブ装備時、スキル「${prefixes.join("」「")}」の効果が40%UP`,
+    });
+  }
 });
 
 test("loads the verified Agni main aura", () => {
