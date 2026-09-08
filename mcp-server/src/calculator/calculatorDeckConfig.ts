@@ -51,6 +51,8 @@ const protagonistSchema = z
     baseTripleAttackRate: ratePercentSchema.optional(),
     jobCompletionDoubleAttackRate: ratePercentSchema.optional(),
     jobCompletionTripleAttackRate: ratePercentSchema.optional(),
+    masterBonusAttackPercent: ratePercentSchema.optional(),
+    masterBonusHpPercent: ratePercentSchema.optional(),
     attackOverride: nonNegativeNumberSchema.optional(),
     hpOverride: nonNegativeNumberSchema.optional(),
   })
@@ -200,6 +202,8 @@ export function convertDeckResponseToCalculatorDeckConfig(input: unknown): Calcu
       baseTripleAttackRate: snapshot.protagonist.job?.baseTripleAttackRate,
       jobCompletionDoubleAttackRate: snapshot.protagonist.job?.jobCompletionDoubleAttackRate,
       jobCompletionTripleAttackRate: snapshot.protagonist.job?.jobCompletionTripleAttackRate,
+      masterBonusAttackPercent: snapshot.protagonist.job?.masterBonusAttackPercent,
+      masterBonusHpPercent: snapshot.protagonist.job?.masterBonusHpPercent,
       attackOverride: snapshot.protagonist.attack,
       hpOverride: snapshot.protagonist.hp,
     },

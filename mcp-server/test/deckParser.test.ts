@@ -36,6 +36,7 @@ function makeDeckResponse() {
           bonue: {
             master_bonus: [
               { type: "attack_up", name: "攻撃力", param: 24 },
+              { type: "hp_up", name: "HP", param: 20 },
               { type: "double_attack_rate_up", name: "ダブルアタック確率", param: "7" },
               { type: "triple_attack_rate_up", name: "トリプルアタック確率", param: 5 },
               {
@@ -119,6 +120,8 @@ test("parseDeckResponse normalizes numeric strings and removes empty slots", () 
   assert.deepEqual(result.protagonist.job?.weaponKindCodes, ["1", "2"]);
   assert.equal(result.protagonist.job?.jobCompletionDoubleAttackRate, 7);
   assert.equal(result.protagonist.job?.jobCompletionTripleAttackRate, 5);
+  assert.equal(result.protagonist.job?.masterBonusAttackPercent, 24);
+  assert.equal(result.protagonist.job?.masterBonusHpPercent, 20);
   assert.deepEqual(result.protagonist.job?.damageModifiers, [
     {
       stage: "normal-attack-damage",

@@ -242,7 +242,9 @@ function normalizeJob(value: unknown): DeckJob | undefined {
 
   const bonus = asRecord(job?.bonue);
   const masterBonuses = Array.isArray(bonus?.master_bonus) ? bonus.master_bonus : [];
-  const masterBonusRate = (type: "double_attack_rate_up" | "triple_attack_rate_up"): number | undefined => {
+  const masterBonusRate = (
+    type: "attack_up" | "hp_up" | "double_attack_rate_up" | "triple_attack_rate_up",
+  ): number | undefined => {
     const values = masterBonuses.flatMap((rawBonus): number[] => {
       const entry = asRecord(rawBonus);
       if (entry === undefined || optionalString(entry.type) !== type) return [];
@@ -281,6 +283,8 @@ function normalizeJob(value: unknown): DeckJob | undefined {
     baseTripleAttackRate: optionalNumber(master.ta_odds, "deck.pc.job.master.ta_odds"),
     jobCompletionDoubleAttackRate: masterBonusRate("double_attack_rate_up"),
     jobCompletionTripleAttackRate: masterBonusRate("triple_attack_rate_up"),
+    masterBonusAttackPercent: masterBonusRate("attack_up"),
+    masterBonusHpPercent: masterBonusRate("hp_up"),
     level: optionalNumber(param?.level, "deck.pc.job.param.level"),
     masterLevel: optionalNumber(param?.master_level, "deck.pc.job.param.master_level"),
     perfectionProofLevel: optionalNumber(

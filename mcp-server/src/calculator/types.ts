@@ -284,6 +284,10 @@ export interface DeckJob {
   baseTripleAttackRate?: number;
   jobCompletionDoubleAttackRate?: number;
   jobCompletionTripleAttackRate?: number;
+  /** Account-wide completed-job attack bonus, despite being nested under the equipped job response. */
+  masterBonusAttackPercent?: number;
+  /** Account-wide completed-job HP bonus, despite being nested under the equipped job response. */
+  masterBonusHpPercent?: number;
   multiattackRateBonuses?: DeckJobMultiattackRateBonus[];
   level?: number;
   masterLevel?: number;
@@ -356,6 +360,8 @@ export interface CalculatorDeckProtagonistConfig {
   baseTripleAttackRate?: number;
   jobCompletionDoubleAttackRate?: number;
   jobCompletionTripleAttackRate?: number;
+  masterBonusAttackPercent?: number;
+  masterBonusHpPercent?: number;
   attackOverride?: number;
   hpOverride?: number;
 }

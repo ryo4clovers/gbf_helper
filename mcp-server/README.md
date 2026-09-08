@@ -88,6 +88,9 @@ Web画面とMCPツールは共通の`calculateNormalAttackFromRequest`を呼ぶ�
 
 - `schemaVersion: 1` と `format: "gbf-helper-calculator-deck"` で形式を識別する
 - 武器・召喚石・キャラクターはマスターID、枠、Lv、上限解放、プラス値等を保持する
+- 本家レスポンスのアカウント共通ジョブマスターボーナスは、主人公の
+  `masterBonusAttackPercent` / `masterBonusHpPercent` に保持する。ビジュアル編集で召喚石の
+  ステータス算入枠を変更した際、インポート済みの主人公表示ATK・HPを差分更新するために使う
 - `nameHint` は人間向け表示だけに使い、計算上の識別は各マスターIDを正とする
 - 本家レスポンスでメイン武器の `param.id` が `0` の場合は、ジョブが補う仮武器として
   `isJobFallback: true` を設定する。攻撃力・HPは計算に含め、画面ではメイン未選択として表示する

@@ -11,6 +11,7 @@ import {
 } from "/calculator-state-storage.js";
 import { calculateEquipmentLevelStats } from "/equipment-level-stats.js";
 import { createEquipmentLevelOptions } from "/equipment-level-options.js";
+import { rebaseProtagonistForSummonChange } from "/summon-stat-contribution.js";
 
 const defaultDeck = {
   schemaVersion: 1,
@@ -25,6 +26,8 @@ const defaultDeck = {
     perfectionProofLevel: 0,
     jobCompletionDoubleAttackRate: 7,
     jobCompletionTripleAttackRate: 5,
+    masterBonusAttackPercent: 24,
+    masterBonusHpPercent: 20,
     attackOverride: 22801,
     hpOverride: 4877,
   },
@@ -324,9 +327,10 @@ function createEquipmentPlusField(equipment, name, findCurrentEquipment, onUpdat
     const config = readDeckConfig();
     const currentEquipment = findCurrentEquipment(config);
     if (!currentEquipment) return;
+    const previousEquipment = { ...currentEquipment };
     updateEquipmentPlusMark(currentEquipment, value);
     writeDeckConfig(config);
-    onUpdated(currentEquipment);
+    onUpdated(currentEquipment, config, previousEquipment);
     void calculate();
   });
   label.append(input);
@@ -1091,7 +1095,12 @@ function createSummonSlot(config, position, slot) {
         (currentConfig) => currentConfig.summons.find(
           (currentSummon) => currentSummon.position === position && currentSummon.slot === slot,
         ),
-        (currentSummon) => {
+        (currentSummon, currentConfig, previousSummon) => {
+          const previousSummons = currentConfig.summons.map((entry) =>
+            entry === currentSummon ? previousSummon : entry,
+          );
+          rebaseProtagonistForSummonChange(currentConfig, previousSummons);
+          writeDeckConfig(currentConfig);
           stats.textContent = `HP ${currentSummon.hpOverride == null ? "—" : numberFormat.format(currentSummon.hpOverride)} / ATK ${currentSummon.attackOverride == null ? "—" : numberFormat.format(currentSummon.attackOverride)}`;
         },
       ),
@@ -1229,6 +1238,7 @@ function selectSummon(master) {
   }
   const { position, slot } = editingSummonSlot;
   const config = readDeckConfig();
+  const previousSummons = [...config.summons];
   config.summons = config.summons.filter((summon) =>
     position === "main" ? summon.position !== "main" : summon.position !== position || summon.slot !== slot,
   );
@@ -1243,6 +1253,7 @@ function selectSummon(master) {
     attackOverride: master.selectionDefaults?.attack,
     hpOverride: master.selectionDefaults?.hp,
   });
+  rebaseProtagonistForSummonChange(config, previousSummons);
   writeDeckConfig(config);
   renderSummonEditor();
   $("summon-picker").close();
@@ -1260,7 +1271,9 @@ function removeSelectedSummon() {
   }
   const { position, slot } = editingSummonSlot;
   const config = readDeckConfig();
+  const previousSummons = [...config.summons];
   config.summons = config.summons.filter((summon) => summon.position !== position || summon.slot !== slot);
+  rebaseProtagonistForSummonChange(config, previousSummons);
   writeDeckConfig(config);
   renderSummonEditor();
   $("summon-picker").close();

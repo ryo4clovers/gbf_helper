@@ -51,6 +51,8 @@ test("converts a game response without retaining instance IDs or displayed calcu
           param: { level: "20", master_level: 1, perfection_proof_level: "0" },
           bonue: {
             master_bonus: [
+              { type: "attack_up", param: "24" },
+              { type: "hp_up", param: 20 },
               { type: "double_attack_rate_up", param: "7" },
               { type: "triple_attack_rate_up", param: 5 },
             ],
@@ -105,6 +107,8 @@ test("converts a game response without retaining instance IDs or displayed calcu
       baseTripleAttackRate: 3,
       jobCompletionDoubleAttackRate: 7,
       jobCompletionTripleAttackRate: 5,
+      masterBonusAttackPercent: 24,
+      masterBonusHpPercent: 20,
       attackOverride: 16255,
       hpOverride: 3504,
     },
