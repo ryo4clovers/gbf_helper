@@ -6,6 +6,7 @@ import {
   buildWeaponSheetValues,
   buildWeaponSkillSheetValues,
   parseJapaneseChargeAttackKnowledge,
+  parseJapaneseWeaponSkillsKnowledge,
 } from "./catalog-sheet-data.mjs";
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
@@ -113,17 +114,18 @@ async function loadCatalog(relativePath) {
   return JSON.parse(await readFile(path.join(REPOSITORY_ROOT, relativePath), "utf8"));
 }
 
-async function loadJapaneseChargeAttacks() {
+async function loadJapaneseWeaponKnowledge() {
   const directory = path.join(REPOSITORY_ROOT, "knowledge", "weapons");
   const filenames = (await readdir(directory))
     .filter((filename) => filename.endsWith(".md") && !filename.startsWith("_") && filename !== "README.md")
     .sort();
-  const entries = await Promise.all(
-    filenames.map(async (filename) => parseJapaneseChargeAttackKnowledge(
-      await readFile(path.join(directory, filename), "utf8"),
-    )),
+  const markdowns = await Promise.all(
+    filenames.map((filename) => readFile(path.join(directory, filename), "utf8")),
   );
-  return entries.filter(Boolean);
+  return {
+    japaneseChargeAttacks: markdowns.map(parseJapaneseChargeAttackKnowledge).filter(Boolean),
+    japaneseWeaponSkills: markdowns.flatMap(parseJapaneseWeaponSkillsKnowledge),
+  };
 }
 
 function findSheetProperties(metadata, title) {
@@ -135,17 +137,17 @@ function findSheetProperties(metadata, title) {
 }
 
 export async function buildSyncPayload() {
-  const [weaponCatalog, skillCatalog, wikiCatalog, japaneseChargeAttacks] = await Promise.all([
+  const [weaponCatalog, skillCatalog, wikiCatalog, japaneseWeaponKnowledge] = await Promise.all([
     loadCatalog("mcp-server/catalog/weapons.v1.json"),
     loadCatalog("mcp-server/catalog/weapon-skills.v1.json"),
     loadCatalog("knowledge/weapons/wiki-catalog.v1.json"),
-    loadJapaneseChargeAttacks(),
+    loadJapaneseWeaponKnowledge(),
   ]);
   return {
     weaponValues: buildWeaponSheetValues(weaponCatalog, {
       wikiCatalog,
       skillCatalog,
-      japaneseChargeAttacks,
+      ...japaneseWeaponKnowledge,
     }),
     skillValues: buildWeaponSkillSheetValues(skillCatalog),
   };

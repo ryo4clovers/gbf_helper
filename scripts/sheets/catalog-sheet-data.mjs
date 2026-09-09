@@ -172,6 +172,14 @@ function japaneseChargeAttacksByWeaponId(entries) {
   );
 }
 
+function japaneseWeaponSkillsBySlot(entries) {
+  return new Map(
+    (entries ?? [])
+      .filter((entry) => entry?.weaponId && entry?.sourceKey)
+      .map((entry) => [`${entry.weaponId}:${entry.sourceKey}`, entry]),
+  );
+}
+
 function findStatPoint(weapon, level) {
   return weapon.levelStats?.points?.find((point) => point.level === level);
 }
@@ -183,10 +191,6 @@ function maximumStatPoint(weapon) {
       ? weapon.selectionDefaults
       : undefined
   );
-}
-
-function finalSkillStage(skill) {
-  return { ...(skill?.initial ?? {}), ...(skill?.upgraded ?? {}) };
 }
 
 function cleanWikiText(value) {
@@ -207,17 +211,14 @@ function seriesLabel(weapon, wikiEntry) {
   return displayCode(wikiEntry?.series, WIKI_SERIES_LABELS, "wiki.series");
 }
 
-function skillCells(weapon, wikiEntry, skillIndex) {
+function skillCells(weapon, skillIndex, japaneseSkillIndex) {
   return Array.from({ length: WEAPON_SKILL_SLOT_COUNT }, (_, offset) => {
     const slot = offset + 1;
     const sourceKey = `skill${slot}`;
     const structuredSlot = weapon.skillSlots?.find((skill) => skill.sourceKey === sourceKey);
-    const listedSkill = weapon.listedSkills?.find((skill) => skill.sourceKey === sourceKey);
-    const wikiSkill = wikiEntry?.skills?.find((skill) => skill.slot === slot);
     const skillId = structuredSlot?.skillId ? String(structuredSlot.skillId) : "";
-    const name = skillIndex.get(skillId)?.name
-      ?? listedSkill?.name
-      ?? finalSkillStage(wikiSkill).name
+    const name = japaneseSkillIndex.get(`${weapon.weaponId}:${sourceKey}`)?.name
+      ?? skillIndex.get(skillId)?.name
       ?? "";
     return [skillId, cleanWikiText(name)];
   }).flat();
@@ -249,9 +250,20 @@ export function parseJapaneseChargeAttackKnowledge(markdown) {
   return { weaponId, name, description };
 }
 
+export function parseJapaneseWeaponSkillsKnowledge(markdown) {
+  const weaponId = markdown.match(/^weapon_id:\s*["']?([^"'\r\n]+)["']?\s*$/mu)?.[1]?.trim();
+  if (!weaponId) return [];
+
+  return [...markdown.matchAll(/^### スキル([1-4]):\s*(.+)$/gmu)].map((match) => ({
+    weaponId,
+    sourceKey: `skill${match[1]}`,
+    name: match[2].trim(),
+  }));
+}
+
 export function buildWeaponSheetValues(
   catalog,
-  { wikiCatalog, skillCatalog, japaneseChargeAttacks = [] } = {},
+  { wikiCatalog, skillCatalog, japaneseChargeAttacks = [], japaneseWeaponSkills = [] } = {},
 ) {
   if (!Array.isArray(catalog?.weapons)) {
     throw new Error("武器カタログの weapons が配列ではありません");
@@ -260,6 +272,7 @@ export function buildWeaponSheetValues(
   const wikiIndex = wikiEntriesByWeaponId(wikiCatalog);
   const skillIndex = skillsById(skillCatalog);
   const japaneseChargeAttackIndex = japaneseChargeAttacksByWeaponId(japaneseChargeAttacks);
+  const japaneseSkillIndex = japaneseWeaponSkillsBySlot(japaneseWeaponSkills);
 
   return [
     [...WEAPON_HEADERS],
@@ -285,7 +298,7 @@ export function buildWeaponSheetValues(
         }),
         asCellValue(japaneseChargeAttack?.name),
         asCellValue(japaneseChargeAttack?.description),
-        ...skillCells(weapon, wikiEntry, skillIndex),
+        ...skillCells(weapon, skillIndex, japaneseSkillIndex),
         asCellValue(weapon.verificationStatus),
         asCellValue(weapon.confirmedAt),
         asCellValue(weapon.source),

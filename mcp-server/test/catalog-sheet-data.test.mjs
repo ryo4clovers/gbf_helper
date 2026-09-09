@@ -13,6 +13,7 @@ import {
   buildWeaponSkillSheetValues,
   displayCode,
   parseJapaneseChargeAttackKnowledge,
+  parseJapaneseWeaponSkillsKnowledge,
 } from "../../scripts/sheets/catalog-sheet-data.mjs";
 import { syncCatalogSheet } from "../../scripts/sheets/sync-catalog-sheet.mjs";
 
@@ -79,6 +80,11 @@ test("武器行は表示コード、Lv境界、奥義、スキル枠を利用者
         name: "最終奥義",
         description: "火属性ダメージ(特大)",
       }],
+      japaneseWeaponSkills: [{
+        weaponId: "1040000000",
+        sourceKey: "skill1",
+        name: "火の技巧・実機表記",
+      }],
     },
   );
 
@@ -97,8 +103,46 @@ test("武器行は表示コード、Lv境界、奥義、スキル枠を利用者
   assert.equal(row.奥義名, "最終奥義");
   assert.equal(row.奥義効果, "火属性ダメージ(特大)");
   assert.equal(row["スキル1 skill_id"], "74");
-  assert.equal(row.スキル1名, "火の技巧");
+  assert.equal(row.スキル1名, "火の技巧・実機表記");
   assert.equal(row.検証状態, "検証済み");
+});
+
+test("実機由来ナレッジからスロット別の日本語スキル名を抽出する", () => {
+  const entries = parseJapaneseWeaponSkillsKnowledge(`---
+weapon_id: "1040020300"
+---
+
+### スキル1: 呪蝕の渾身
+
+- skill_id: \`1555\`
+
+### スキル2: 黒の誓約
+
+- skill_id: \`1556\`
+`);
+
+  assert.deepEqual(entries, [
+    { weaponId: "1040020300", sourceKey: "skill1", name: "呪蝕の渾身" },
+    { weaponId: "1040020300", sourceKey: "skill2", name: "黒の誓約" },
+  ]);
+});
+
+test("日本語の根拠がないWiki由来スキル名は公開しない", () => {
+  const values = buildWeaponSheetValues(
+    { weapons: [{
+      weaponId: "1040000000",
+      name: "テスト武器",
+      elementCode: "1",
+      weaponKindCode: "1",
+      rarityCode: "4",
+    }] },
+    { wikiCatalog: { weapons: [{
+      weaponId: "1040000000",
+      skills: [{ slot: 1, initial: { name: "English Skill" } }],
+    }] } },
+  );
+  const row = Object.fromEntries(WEAPON_HEADERS.map((header, index) => [header, values[1][index]]));
+  assert.equal(row.スキル1名, "");
 });
 
 test("実機由来ナレッジから日本語の奥義だけを抽出する", () => {

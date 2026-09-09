@@ -36,10 +36,12 @@
 比較できるようにするため。`skill_id` はGitへの取り込み時の照合キーとして同期するが、
 一般利用者向けのシート上では列を非表示にする。
 
-シリーズ・構造化されていないスキル名は `knowledge/weapons/wiki-catalog.v1.json` を
-補助データとして使う。奥義は英語Wikiから転記・機械翻訳せず、`knowledge/weapons/*.md` の
+シリーズは `knowledge/weapons/wiki-catalog.v1.json` を補助データとして使う。
+奥義とスキル名は英語Wikiから転記・機械翻訳せず、`knowledge/weapons/*.md` と
+`mcp-server/catalog/weapon-skills.v1.json` に日本語名があるものだけ表示する。奥義は
+`knowledge/weapons/*.md` の
 「奥義(チャージアタック)」に実機由来の日本語名・効果がある武器だけ表示する。
-未収録の奥義は空欄とし、確度は `検証状態`・`確認日`・`出典` で判別する。
+未収録の奥義・スキル名は空欄とし、確度は `検証状態`・`確認日`・`出典` で判別する。
 
 ## 提案シートの表示名
 
