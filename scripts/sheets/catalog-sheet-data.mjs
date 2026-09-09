@@ -120,7 +120,6 @@ export const WEAPON_HEADERS = Object.freeze([
   "武器種",
   "シリーズ",
   "最大Lv",
-  "最大上限解放",
   "最大Lv HP",
   "最大Lv 攻撃",
   ...WEAPON_STAT_LEVELS.flatMap((level) => [`Lv${level} HP`, `Lv${level} 攻撃`]),
@@ -208,11 +207,6 @@ function seriesLabel(weapon, wikiEntry) {
   return displayCode(wikiEntry?.series, WIKI_SERIES_LABELS, "wiki.series");
 }
 
-function uncapLabel(weapon, wikiEntry) {
-  const maximum = wikiEntry?.uncaps?.maximum ?? weapon.selectionDefaults?.uncapLevel;
-  return maximum === undefined || maximum === null || maximum === "" ? "" : `${maximum}凸`;
-}
-
 function skillCells(weapon, wikiEntry, skillIndex) {
   return Array.from({ length: WEAPON_SKILL_SLOT_COUNT }, (_, offset) => {
     const slot = offset + 1;
@@ -283,7 +277,6 @@ export function buildWeaponSheetValues(
         displayCode(weapon.weaponKindCode, WEAPON_KIND_LABELS, "weaponKindCode"),
         seriesLabel(weapon, wikiEntry),
         asCellValue(maximumLevel),
-        uncapLabel(weapon, wikiEntry),
         asCellValue(maximumPoint?.hp),
         asCellValue(maximumPoint?.attack),
         ...WEAPON_STAT_LEVELS.flatMap((level) => {

@@ -91,7 +91,6 @@ test("武器行は表示コード、Lv境界、奥義、スキル枠を利用者
   assert.equal(row.武器種, "刀");
   assert.equal(row.シリーズ, "終末の神器");
   assert.equal(row.最大Lv, 250);
-  assert.equal(row.最大上限解放, "6凸");
   assert.equal(row["最大Lv HP"], 400);
   assert.equal(row["Lv1 攻撃"], 400);
   assert.equal(row["Lv100 HP"], 200);
@@ -231,16 +230,16 @@ test("同期は閲覧用2タブだけを書き換え、余った旧行を後か�
   const updateBody = JSON.parse(calls[1].init.body);
   assert.deepEqual(
     updateBody.data.map((entry) => entry.range),
-    ["'武器カタログ'!A1:AH2", "'スキル・効果'!A1:K3"],
+    ["'武器カタログ'!A1:AG2", "'スキル・効果'!A1:K3"],
   );
   assert.ok(updateBody.data.every((entry) => !entry.range.includes("提案")));
 
   const clearBody = JSON.parse(calls[2].init.body);
-  assert.deepEqual(clearBody.ranges, ["'武器カタログ'!A3:AH", "'スキル・効果'!A4:K"]);
+  assert.deepEqual(clearBody.ranges, ["'武器カタログ'!A3:AG", "'スキル・効果'!A4:K"]);
   assert.deepEqual(result, {
     weaponRows: 1,
     skillRows: 2,
-    clearedRanges: ["'武器カタログ'!A3:AH", "'スキル・効果'!A4:K"],
+    clearedRanges: ["'武器カタログ'!A3:AG", "'スキル・効果'!A4:K"],
   });
 });
 
@@ -290,7 +289,7 @@ test("同期先の行列が不足している場合は値を書き込む前に�
   const expansionBody = JSON.parse(calls[1].init.body);
   assert.deepEqual(expansionBody.requests, [
     { appendDimension: { sheetId: 11, dimension: "ROWS", length: 1 } },
-    { appendDimension: { sheetId: 11, dimension: "COLUMNS", length: 26 } },
+    { appendDimension: { sheetId: 11, dimension: "COLUMNS", length: 25 } },
     { appendDimension: { sheetId: 12, dimension: "ROWS", length: 1 } },
   ]);
   assert.match(calls[2].url, /values:batchUpdate$/);
