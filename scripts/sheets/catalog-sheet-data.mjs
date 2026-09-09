@@ -51,6 +51,54 @@ export const SERIES_LABELS = Object.freeze({
   "45": "禁禍武器",
 });
 
+export const WIKI_SERIES_LABELS = Object.freeze({
+  ancestral: "アンセスタルシリーズ",
+  astral: "アストラルウェポン",
+  bahamut: "バハムートウェポン",
+  beast: "四象武器",
+  ccw: "英雄武器",
+  celestial: "極星器",
+  collab: "コラボ武器",
+  cosmos: "コスモス武器",
+  "dark opus": "終末の神器",
+  destroyer: "破壊の標",
+  draconic: "ドラゴニックウェポン",
+  draconicprovenance: "ドラゴニック・オリジン",
+  ennead: "エニアドシリーズ",
+  epic: "エピックウェポン",
+  exo: "神滅戦武器",
+  grand: "リミテッドシリーズ",
+  hollowsky: "虚空武器",
+  illustrious: "ルミナスシリーズ",
+  malice: "マリスシリーズ",
+  menace: "メナスシリーズ",
+  militis: "ミーレスシリーズ",
+  newworld: "新世界の礎",
+  odious: "禁禍武器",
+  "olden primal": "オールド・プライマルシリーズ",
+  omega: "マグナシリーズ",
+  "omega rebirth": "マグナ・リバース",
+  primal: "プライマルシリーズ",
+  proven: "ブレイブグラウンド武器",
+  regalia: "レガリアシリーズ",
+  relic: "依代武器",
+  replica: "レプリカ",
+  revans: "レヴァンスシリーズ",
+  revenant: "天星器",
+  rose: "ローズクリスタル武器",
+  rusted: "朽ち果てた武器",
+  sephira: "セフィラ武器",
+  seraphic: "セラフィックウェポン",
+  splendor: "十天光輝の武器",
+  superlative: "スペリオルシリーズ",
+  ultima: "オメガウェポン",
+  upgrader: "強化素材",
+  vintage: "ヴィンテージシリーズ",
+  vyrmament: "ぐらぶるっ！武器",
+  world: "ワールドシリーズ",
+  xeno: "六道武器",
+});
+
 export const EFFECT_KIND_LABELS = Object.freeze({
   "normal-attack-up": "通常攻刃",
   "normal-skill-boost": "通常スキル効果量UP",
@@ -60,15 +108,32 @@ export const EFFECT_KIND_LABELS = Object.freeze({
   "elemental-pursuit": "属性追撃",
 });
 
+export const WEAPON_STAT_LEVELS = Object.freeze([1, 100, 150, 200, 250]);
+export const WEAPON_SKILL_SLOT_COUNT = 4;
+
 export const WEAPON_HEADERS = Object.freeze([
   "weapon_id",
-  "名前",
+  "武器名",
   "英語名",
   "属性",
+  "レア",
   "武器種",
-  "レアリティ",
   "シリーズ",
-  "ステータス",
+  "最大Lv",
+  "最大上限解放",
+  "最大スキルLv",
+  "最大Lv HP",
+  "最大Lv 攻撃",
+  ...WEAPON_STAT_LEVELS.flatMap((level) => [`Lv${level} HP`, `Lv${level} 攻撃`]),
+  "奥義段階",
+  "奥義名",
+  "奥義効果",
+  ...Array.from({ length: WEAPON_SKILL_SLOT_COUNT }, (_, index) => [
+    `スキル${index + 1} skill_id`,
+    `スキル${index + 1}名`,
+  ]).flat(),
+  "検証状態",
+  "確認日",
   "出典",
 ]);
 
@@ -90,6 +155,80 @@ function asCellValue(value) {
   return value ?? "";
 }
 
+function wikiEntriesByWeaponId(wikiCatalog) {
+  return new Map(
+    (wikiCatalog?.weapons ?? [])
+      .filter((entry) => entry.weaponId)
+      .map((entry) => [entry.weaponId, entry]),
+  );
+}
+
+function skillsById(skillCatalog) {
+  return new Map((skillCatalog?.skills ?? []).map((skill) => [String(skill.skillId), skill]));
+}
+
+function findStatPoint(weapon, level) {
+  return weapon.levelStats?.points?.find((point) => point.level === level);
+}
+
+function maximumStatPoint(weapon) {
+  const maximumLevel = weapon.levelStats?.maximumLevel ?? weapon.selectionDefaults?.level;
+  return findStatPoint(weapon, maximumLevel) ?? (
+    weapon.selectionDefaults?.level === maximumLevel
+      ? weapon.selectionDefaults
+      : undefined
+  );
+}
+
+function finalStage(stages, key, orderKey) {
+  return [...(stages ?? [])]
+    .filter((stage) => stage?.[key] !== undefined)
+    .sort((left, right) => Number(right?.[orderKey] ?? 0) - Number(left?.[orderKey] ?? 0))[0];
+}
+
+function finalSkillStage(skill) {
+  return { ...(skill?.initial ?? {}), ...(skill?.upgraded ?? {}) };
+}
+
+function cleanWikiText(value) {
+  if (!value) return "";
+  return String(value)
+    .replace(/<br\s*\/?\s*>/giu, " / ")
+    .replace(/<[^>]+>/gu, "")
+    .replace(/\[\[(?:[^|\]]+\|)?([^\]]+)\]\]/gu, "$1")
+    .replace(/&nbsp;/gu, " ")
+    .replace(/'''?/gu, "")
+    .replace(/[\u007f]/gu, "")
+    .replace(/\s+/gu, " ")
+    .trim();
+}
+
+function seriesLabel(weapon, wikiEntry) {
+  if (weapon.seriesId) return displayCode(weapon.seriesId, SERIES_LABELS, "seriesId");
+  return displayCode(wikiEntry?.series, WIKI_SERIES_LABELS, "wiki.series");
+}
+
+function uncapLabel(weapon, wikiEntry) {
+  const maximum = wikiEntry?.uncaps?.maximum ?? weapon.selectionDefaults?.uncapLevel;
+  return maximum === undefined || maximum === null || maximum === "" ? "" : `${maximum}凸`;
+}
+
+function skillCells(weapon, wikiEntry, skillIndex) {
+  return Array.from({ length: WEAPON_SKILL_SLOT_COUNT }, (_, offset) => {
+    const slot = offset + 1;
+    const sourceKey = `skill${slot}`;
+    const structuredSlot = weapon.skillSlots?.find((skill) => skill.sourceKey === sourceKey);
+    const listedSkill = weapon.listedSkills?.find((skill) => skill.sourceKey === sourceKey);
+    const wikiSkill = wikiEntry?.skills?.find((skill) => skill.slot === slot);
+    const skillId = structuredSlot?.skillId ? String(structuredSlot.skillId) : "";
+    const name = skillIndex.get(skillId)?.name
+      ?? listedSkill?.name
+      ?? finalSkillStage(wikiSkill).name
+      ?? "";
+    return [skillId, cleanWikiText(name)];
+  }).flat();
+}
+
 export function displayCode(value, labels, fieldName) {
   if (value === undefined || value === null || value === "") {
     return "";
@@ -103,24 +242,47 @@ export function displayCode(value, labels, fieldName) {
   return label;
 }
 
-export function buildWeaponSheetValues(catalog) {
+export function buildWeaponSheetValues(catalog, { wikiCatalog, skillCatalog } = {}) {
   if (!Array.isArray(catalog?.weapons)) {
     throw new Error("武器カタログの weapons が配列ではありません");
   }
 
+  const wikiIndex = wikiEntriesByWeaponId(wikiCatalog);
+  const skillIndex = skillsById(skillCatalog);
+
   return [
     [...WEAPON_HEADERS],
-    ...catalog.weapons.map((weapon) => [
-      asCellValue(weapon.weaponId),
-      asCellValue(weapon.name),
-      asCellValue(weapon.nameEn),
-      displayCode(weapon.elementCode, ELEMENT_LABELS, "elementCode"),
-      displayCode(weapon.weaponKindCode, WEAPON_KIND_LABELS, "weaponKindCode"),
-      displayCode(weapon.rarityCode, RARITY_LABELS, "rarityCode"),
-      displayCode(weapon.seriesId, SERIES_LABELS, "seriesId"),
-      asCellValue(weapon.verificationStatus),
-      asCellValue(weapon.source),
-    ]),
+    ...catalog.weapons.map((weapon) => {
+      const wikiEntry = wikiIndex.get(weapon.weaponId);
+      const maximumLevel = weapon.levelStats?.maximumLevel ?? weapon.selectionDefaults?.level;
+      const maximumPoint = maximumStatPoint(weapon);
+      const chargeAttack = finalStage(wikiEntry?.chargeAttacks, "stage", "stage");
+      return [
+        asCellValue(weapon.weaponId),
+        asCellValue(weapon.name),
+        asCellValue(weapon.nameEn),
+        displayCode(weapon.elementCode, ELEMENT_LABELS, "elementCode"),
+        displayCode(weapon.rarityCode, RARITY_LABELS, "rarityCode"),
+        displayCode(weapon.weaponKindCode, WEAPON_KIND_LABELS, "weaponKindCode"),
+        seriesLabel(weapon, wikiEntry),
+        asCellValue(maximumLevel),
+        uncapLabel(weapon, wikiEntry),
+        asCellValue(weapon.selectionDefaults?.skillLevel),
+        asCellValue(maximumPoint?.hp),
+        asCellValue(maximumPoint?.attack),
+        ...WEAPON_STAT_LEVELS.flatMap((level) => {
+          const point = findStatPoint(weapon, level);
+          return [asCellValue(point?.hp), asCellValue(point?.attack)];
+        }),
+        asCellValue(chargeAttack?.stage),
+        cleanWikiText(chargeAttack?.name),
+        cleanWikiText(chargeAttack?.description),
+        ...skillCells(weapon, wikiEntry, skillIndex),
+        asCellValue(weapon.verificationStatus),
+        asCellValue(weapon.confirmedAt),
+        asCellValue(weapon.source),
+      ];
+    }),
   ];
 }
 

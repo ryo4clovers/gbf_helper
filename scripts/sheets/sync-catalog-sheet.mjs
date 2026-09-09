@@ -121,14 +121,26 @@ function findSheetProperties(metadata, title) {
 }
 
 export async function buildSyncPayload() {
-  const [weaponCatalog, skillCatalog] = await Promise.all([
+  const [weaponCatalog, skillCatalog, wikiCatalog] = await Promise.all([
     loadCatalog("mcp-server/catalog/weapons.v1.json"),
     loadCatalog("mcp-server/catalog/weapon-skills.v1.json"),
+    loadCatalog("knowledge/weapons/wiki-catalog.v1.json"),
   ]);
   return {
-    weaponValues: buildWeaponSheetValues(weaponCatalog),
+    weaponValues: buildWeaponSheetValues(weaponCatalog, { wikiCatalog, skillCatalog }),
     skillValues: buildWeaponSkillSheetValues(skillCatalog),
   };
+}
+
+function columnLabel(columnCount) {
+  let value = columnCount;
+  let label = "";
+  while (value > 0) {
+    value -= 1;
+    label = String.fromCharCode(65 + (value % 26)) + label;
+    value = Math.floor(value / 26);
+  }
+  return label;
 }
 
 export async function syncCatalogSheet(spreadsheetId, accessToken, payload) {
@@ -140,11 +152,15 @@ export async function syncCatalogSheet(spreadsheetId, accessToken, payload) {
   );
   const weaponSheet = findSheetProperties(metadata, "武器カタログ");
   const skillSheet = findSheetProperties(metadata, "スキル・効果");
+  const weaponColumns = payload.weaponValues[0].length;
+  const skillColumns = payload.skillValues[0].length;
+  const weaponLastColumn = columnLabel(weaponColumns);
+  const skillLastColumn = columnLabel(skillColumns);
 
   const expansionRequests = [];
   for (const [sheet, requiredRows, requiredColumns] of [
-    [weaponSheet, payload.weaponValues.length, 9],
-    [skillSheet, payload.skillValues.length, 11],
+    [weaponSheet, payload.weaponValues.length, weaponColumns],
+    [skillSheet, payload.skillValues.length, skillColumns],
   ]) {
     if (sheet.gridProperties.rowCount < requiredRows) {
       expansionRequests.push({
@@ -178,12 +194,12 @@ export async function syncCatalogSheet(spreadsheetId, accessToken, payload) {
       valueInputOption: "RAW",
       data: [
         {
-          range: `'武器カタログ'!A1:I${payload.weaponValues.length}`,
+          range: `'武器カタログ'!A1:${weaponLastColumn}${payload.weaponValues.length}`,
           majorDimension: "ROWS",
           values: payload.weaponValues,
         },
         {
-          range: `'スキル・効果'!A1:K${payload.skillValues.length}`,
+          range: `'スキル・効果'!A1:${skillLastColumn}${payload.skillValues.length}`,
           majorDimension: "ROWS",
           values: payload.skillValues,
         },
@@ -193,10 +209,10 @@ export async function syncCatalogSheet(spreadsheetId, accessToken, payload) {
 
   const staleRanges = [];
   if (weaponSheet.gridProperties.rowCount > payload.weaponValues.length) {
-    staleRanges.push(`'武器カタログ'!A${payload.weaponValues.length + 1}:I`);
+    staleRanges.push(`'武器カタログ'!A${payload.weaponValues.length + 1}:${weaponLastColumn}`);
   }
   if (skillSheet.gridProperties.rowCount > payload.skillValues.length) {
-    staleRanges.push(`'スキル・効果'!A${payload.skillValues.length + 1}:K`);
+    staleRanges.push(`'スキル・効果'!A${payload.skillValues.length + 1}:${skillLastColumn}`);
   }
   if (staleRanges.length > 0) {
     await requestGoogleJson(`${baseUrl}/values:batchClear`, accessToken, {
