@@ -38524,6 +38524,7 @@
       "selectionDefaults": {
         "level": 150,
         "uncapLevel": 4,
+        "skillLevel": 15,
         "attack": 2030,
         "hp": 800
       },
@@ -38547,7 +38548,16 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "322"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "118"
+        }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -38561,7 +38571,8 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内deckレスポンス(2026-09-09)でID・Lv150/SLv15/+0ステータス・スキルID/文・編成表示を確認。Lv1/Lv100境界はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照",
+      "confirmedAt": "2026-09-09"
     },
     {
       "weaponId": "1040007200",

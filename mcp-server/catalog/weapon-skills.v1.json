@@ -261,6 +261,15 @@
       "source": "knowledge/dark-ssr-magna-celeste-harp.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
     },
     {
+      "skillId": "118",
+      "name": "火の背水",
+      "description": "火属性キャラのHPが少ないほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ゲーム内deckレスポンス(2026-09-09)でスキル名・ID・説明を確認。SLv別効果量とHP依存式は未検証",
+      "confirmedAt": "2026-09-09"
+    },
+    {
       "skillId": "125",
       "name": "渦潮の背水",
       "description": "水属性キャラのHPが少ないほど攻撃力が上昇(中)",
@@ -347,6 +356,32 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/dark-ssr-regalia-abyss-striker.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "322",
+      "name": "業火の刹那",
+      "description": "火属性キャラの攻撃力上昇(中)/クリティカル確率上昇(中)",
+      "effects": [
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 14.5,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "既知攻刃30%と合算し、通常スキル強化4.7倍で表示209%となることを確認。14.5%は公開Wiki値とのクロスチェックを含む"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 6.5,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "既知技巧6%と合算し、通常スキル強化4.7倍で表示58.75%と完全一致"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ゲーム内deck.damage_infoの攻刃・クリティカル表示(2026-09-09)とgbf.wikiのSLv15効果量をクロスチェック",
+      "confirmedAt": "2026-09-09"
     },
     {
       "skillId": "335",

@@ -18,7 +18,7 @@
 
 ## ファイル一覧
 
-個別Markdownは全169ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証)。
+個別Markdownは全170ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証または一部のみ実機確認済み)。
 
 ### セラフィックウェポン
 
@@ -47,6 +47,7 @@
 
 | ファイル | 武器名 | 属性 |
 | --- | --- | --- |
+| [fire-ssr-primal-ecke-sachs.md](./fire-ssr-primal-ecke-sachs.md) | エッケザックス / Ecke Sachs | 火 |
 | [fire-ssr-erichthonius.md](./fire-ssr-erichthonius.md) | エリクトニオス / Erichthonius | 火 |
 
 ### シリーズ未確認

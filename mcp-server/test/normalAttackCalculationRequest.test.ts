@@ -321,6 +321,29 @@ test("applies support Agni's normal aura without stats or main-only elemental at
   assert.equal(advantage.result.criticalBodyDamage?.weaponSkillCriticalRatePercent, 28.2);
 });
 
+test("resolves Ecke Sachs Hellfire's Celere at skill level 15", () => {
+  const input = agniRequest();
+  input.enemy.elementCode = "4";
+  input.deckConfig.weapons.push({
+    slot: 3,
+    position: "grid",
+    weaponId: "1040007100",
+    level: 150,
+    skillLevel: 15,
+    plusMark: 0,
+    attackOverride: 2030,
+    hpOverride: 800,
+  });
+
+  const response = calculateNormalAttackFromRequest({
+    ...input,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+  });
+
+  assert.equal(response.result.attackPower.totalEffectiveNormalAttackPercent, 209.15);
+  assert.equal(response.result.criticalBodyDamage?.weaponSkillCriticalRatePercent, 58.75);
+});
+
 test("applies Wilnas' verified 4-star sub aura to normal weapon skills", () => {
   const input = agniRequest();
   input.deckConfig.summons.push({
