@@ -51,6 +51,15 @@ export const SERIES_LABELS = Object.freeze({
   "45": "禁禍武器",
 });
 
+export const EFFECT_KIND_LABELS = Object.freeze({
+  "normal-attack-up": "通常攻刃",
+  "normal-skill-boost": "通常スキル効果量UP",
+  "critical-rate-up": "クリティカル確率UP",
+  "double-attack-rate-up": "ダブルアタック確率UP",
+  "triple-attack-rate-up": "トリプルアタック確率UP",
+  "elemental-pursuit": "属性追撃",
+});
+
 export const WEAPON_HEADERS = Object.freeze([
   "weapon_id",
   "名前",
@@ -120,7 +129,7 @@ function buildSkillEffectRow(skill, effect = undefined) {
     asCellValue(skill.skillId),
     asCellValue(skill.name),
     asCellValue(skill.description),
-    asCellValue(effect?.kind),
+    displayCode(effect?.kind, EFFECT_KIND_LABELS, "effect.kind"),
     displayCode(effect?.elementCode, ELEMENT_LABELS, "effect.elementCode"),
     asCellValue(effect?.skillLevel),
     asCellValue(effect?.amountPercent),

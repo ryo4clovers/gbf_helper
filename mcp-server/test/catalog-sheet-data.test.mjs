@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
+  EFFECT_KIND_LABELS,
   ELEMENT_LABELS,
   RARITY_LABELS,
   WEAPON_KIND_LABELS,
@@ -16,12 +17,17 @@ test("コードをシート向け表示名へ変換する", () => {
   assert.equal(displayCode("6", ELEMENT_LABELS, "elementCode"), "闇");
   assert.equal(displayCode("10", WEAPON_KIND_LABELS, "weaponKindCode"), "刀");
   assert.equal(displayCode("4", RARITY_LABELS, "rarityCode"), "SSR");
+  assert.equal(displayCode("critical-rate-up", EFFECT_KIND_LABELS, "effect.kind"), "クリティカル確率UP");
 });
 
 test("未定義コードは同期対象に残さない", () => {
   assert.throws(
     () => displayCode("99", ELEMENT_LABELS, "elementCode"),
     /elementCodeに未定義のコードがあります: 99/,
+  );
+  assert.throws(
+    () => displayCode("unknown-effect", EFFECT_KIND_LABELS, "effect.kind"),
+    /effect\.kindに未定義のコードがあります: unknown-effect/,
   );
 });
 
@@ -83,7 +89,7 @@ test("スキル効果行は効果単位の確度を優先して属性を表示�
     "74",
     "火の技巧",
     "テスト効果",
-    "critical-rate-up",
+    "クリティカル確率UP",
     "火",
     10,
     2,
@@ -108,6 +114,7 @@ test("実カタログの表示列に数値コードを残さない", async () =>
   assert.ok(weaponValues.slice(1).every((row) => !/^\d+$/.test(row[5])));
   assert.ok(weaponValues.slice(1).every((row) => row[6] === "" || !/^\d+$/.test(row[6])));
   assert.ok(skillValues.slice(1).every((row) => row[4] === "" || !/^\d+$/.test(row[4])));
+  assert.ok(skillValues.slice(1).every((row) => row[3] === "" || !/^[a-z]+(?:-[a-z]+)+$/.test(row[3])));
 });
 
 test("同期は閲覧用2タブだけを書き換え、余った旧行を後から消去する", async (context) => {
