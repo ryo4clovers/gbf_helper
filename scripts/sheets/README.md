@@ -29,15 +29,32 @@ node scripts/sheets/sync-catalog-sheet.mjs --dry-run
 ```
 
 実際の同期では、対象スプレッドシートIDとGoogle認証情報を環境変数で指定する。
+ローカル実行では、JSON鍵を保存しない `gcloud` のサービスアカウント偽装を推奨する。
 
 ```powershell
-$env:GBF_CATALOG_SPREADSHEET_ID = "<スプレッドシートID>"
-$env:GOOGLE_APPLICATION_CREDENTIALS = "<サービスアカウントJSONの絶対パス>"
-node scripts/sheets/sync-catalog-sheet.mjs
+$projectId = "modular-source-361911"
+$serviceAccount = "gbf-catalog-sheet-sync@$projectId.iam.gserviceaccount.com"
+$env:GBF_CATALOG_SPREADSHEET_ID = "1TatrdrmdbLmRV9DPIVCfKUnhZK_e6VvcLNnET13fi1Y"
+
+try {
+  $env:GOOGLE_SHEETS_ACCESS_TOKEN = gcloud auth print-access-token `
+    --impersonate-service-account=$serviceAccount `
+    --project=$projectId `
+    --scopes=https://www.googleapis.com/auth/spreadsheets
+
+  node scripts/sheets/sync-catalog-sheet.mjs
+} finally {
+  Remove-Item Env:GOOGLE_SHEETS_ACCESS_TOKEN -ErrorAction SilentlyContinue
+  Remove-Item Env:GBF_CATALOG_SPREADSHEET_ID -ErrorAction SilentlyContinue
+}
 ```
 
-一時アクセストークンを使う場合は `GOOGLE_SHEETS_ACCESS_TOKEN`、CIではサービスアカウントJSONを
-`GOOGLE_SERVICE_ACCOUNT_JSON` に設定できる。認証情報はリポジトリへ保存しない。
+初回だけ、`gcloud auth login` 済みのユーザーに対象サービスアカウントの
+`roles/iam.serviceAccountTokenCreator` が必要になる。短期トークンは表示・保存せず、実行後に
+環境変数から削除する。
+
+JSON鍵を使う場合は `GOOGLE_APPLICATION_CREDENTIALS` または `GOOGLE_SERVICE_ACCOUNT_JSON` も
+利用できるが、長期鍵の漏えい・失効管理が増えるため通常は使わない。認証情報はリポジトリへ保存しない。
 
 サービスアカウントを使う場合は、対象ファイルの編集者に追加するだけでなく、
 `武器カタログ` と `スキル・効果` の保護範囲でも編集者として許可する必要がある。
