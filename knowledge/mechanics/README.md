@@ -24,6 +24,7 @@
 | [limit-bonus.md](./limit-bonus.md) | Limit Bonus(LB) — 主人公(ジョブ)側とキャラクター側の違い | 下書き |
 | [protagonist-base-stats.md](./protagonist-base-stats.md) | 主人公のRank別基礎HP/攻撃力とステータス計算式 | 下書き |
 | [equipment-level-stats.md](./equipment-level-stats.md) | 武器・召喚石のレベル別HP/攻撃力計算 | 下書き |
+| [weapon-critical-skills.md](./weapon-critical-skills.md) | 通常技巧系武器スキルのクリティカル率 | 下書き |
 | [weapon-master-id.md](./weapon-master-id.md) | 武器マスターIDのレアリティ・武器種・内部番号構造 | 下書き |
 | [summon-master-id.md](./summon-master-id.md) | 召喚石マスターIDのレアリティ・内部番号構造 | 下書き |
 | [summon-aura-types.md](./summon-aura-types.md) | 召喚石の効果(通常時/EX/HELLなど)の分類 | 下書き |
