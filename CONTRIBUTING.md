@@ -54,6 +54,21 @@ git config --local commit.template .gitmessage
 
 - 形式は `<スコープ>: <日本語の要約>`（句点なし）。本文は 72 文字前後で折り返し、出典・カバレッジ・保留事項・生データ保存先を箇条書きで残します。
 
+## 公開カタログシート同期
+
+Google Sheetsの閲覧用カタログはGit管理のJSONを正本とし、
+`scripts/sheets/sync-catalog-sheet.mjs` で一方向同期します。
+内部コードはJSON内に保持し、シートへの書き出し時だけ属性・武器種・レアリティ・シリーズを
+利用者向け表示名へ変換します。`提案`タブは同期処理で上書きしません。
+
+変更前の確認やCIでは認証不要のdry-runを使用できます。
+
+```powershell
+node scripts/sheets/sync-catalog-sheet.mjs --dry-run
+```
+
+認証方法と本同期の手順は [scripts/sheets/README.md](scripts/sheets/README.md) を参照してください。
+
 ## セッションの引き継ぎ
 
 新しいチャット(Claude)や Codex に作業を渡すときは、引き継ぎプロンプトを生成します。
