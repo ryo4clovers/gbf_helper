@@ -41,6 +41,10 @@ export interface WeaponSkillEffectDefinition {
   boostGroup?: "normal";
   targetSkillNamePrefixes?: string[];
   note?: string;
+  /** Verification is recorded per numeric effect, so one skill may mix confirmed and provisional levels. */
+  verificationStatus?: "検証済み" | "下書き";
+  source?: string;
+  confirmedAt?: string;
 }
 
 export interface WeaponMasterCatalogEntry {

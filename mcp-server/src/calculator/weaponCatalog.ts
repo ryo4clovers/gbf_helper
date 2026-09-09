@@ -19,6 +19,9 @@ const effectSchema = z
     boostGroup: z.literal("normal").optional(),
     targetSkillNamePrefixes: z.array(z.string().min(1)).optional(),
     note: z.string().min(1).optional(),
+    verificationStatus: statusSchema.optional(),
+    source: z.string().min(1).optional(),
+    confirmedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
   })
   .strict();
 

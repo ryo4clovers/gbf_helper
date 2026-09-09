@@ -323,6 +323,37 @@ test("reproduces the combined displayed attack and critical values after a 30% b
   );
 });
 
+test("uses a provisional critical value at SLv10 while retaining an effect-level warning", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 1,
+        position: "main",
+        weaponId: "1040201400",
+        skillLevel: 10,
+        attackOverride: 2170,
+        hpOverride: 241,
+      },
+    ],
+  });
+
+  assert.deepEqual(
+    result.deck.effectiveWeaponSkillEffects?.map((effect) => [effect.sourceSkillId, effect.kind, effect.baseAmountPercent]),
+    [["74", "critical-rate-up", 2]],
+  );
+  assert.equal(
+    result.deck.effectiveWeaponSkillEffects?.[0]?.verificationStatus,
+    "下書き",
+  );
+  assert.equal(
+    result.issues.some((issue) => issue.code === "unverified-weapon-skill-effect"),
+    true,
+  );
+});
+
 test("reproduces Agni's observed 170% boost and main-only elemental attack aura", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,

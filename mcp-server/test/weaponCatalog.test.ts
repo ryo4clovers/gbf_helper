@@ -95,4 +95,18 @@ test("loads the initial incremental weapon and skill catalog", () => {
   assert.equal(catalog.skills.get("66")?.verificationStatus, "下書き");
   assert.equal(catalog.skills.get("64")?.verificationStatus, "下書き");
   assert.equal(catalog.skills.get("932")?.verificationStatus, "下書き");
+  assert.deepEqual(
+    catalog.skills.get("74")?.effects
+      .filter((effect) => effect.kind === "critical-rate-up")
+      .map((effect) => [effect.skillLevel, effect.amountPercent, effect.verificationStatus]),
+    [
+      [15, 3, "検証済み"],
+      [10, 2, "下書き"],
+      [20, 4, "下書き"],
+    ],
+  );
+  assert.equal(
+    catalog.skills.get("1547")?.effects[0]?.source,
+    "ユーザー提供の攻略Wiki表画像（2026-09-09）",
+  );
 });

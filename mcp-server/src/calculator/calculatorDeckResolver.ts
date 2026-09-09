@@ -21,6 +21,7 @@ export type CalculatorDeckResolutionIssueCode =
   | "weapon-master-data-unresolved"
   | "weapon-skill-data-unresolved"
   | "unverified-weapon-skill"
+  | "unverified-weapon-skill-effect"
   | "weapon-skill-level-unresolved"
   | "multiple-weapon-skill-boosts-assumed-additive"
   | "summon-aura-unresolved"
@@ -168,6 +169,20 @@ export function resolveCalculatorDeckConfig(
           code: "unverified-weapon-skill",
           path: `weapons.${index}.weaponId`,
           message: `Weapon skill ${skill.skillId} (${skill.name}) is ${skill.verificationStatus}.`,
+        });
+      } else if (
+        skill.effects.some(
+          (effect) =>
+            effect.verificationStatus !== undefined &&
+            effect.verificationStatus !== "検証済み" &&
+            (effect.skillLevel === undefined || weapon.skillLevel === effect.skillLevel),
+        )
+      ) {
+        issues.push({
+          severity: "warning",
+          code: "unverified-weapon-skill-effect",
+          path: `weapons.${index}.weaponId`,
+          message: `Weapon skill ${skill.skillId} (${skill.name}) has a provisional numeric effect at SLv${weapon.skillLevel ?? "unknown"}.`,
         });
       }
     });

@@ -220,7 +220,7 @@ export function resolveEffectiveWeaponSkillEffects(
       baseAmountPercent: source.effect.amountPercent,
       effectiveAmountPercent: roundPercentage(source.effect.amountPercent * (1 + boostPercent / 100)),
       skillLevel: source.effect.skillLevel,
-      verificationStatus: source.skill.verificationStatus ?? "下書き",
+      verificationStatus: source.effect.verificationStatus ?? source.skill.verificationStatus ?? "下書き",
       appliedModifiers,
     };
   });

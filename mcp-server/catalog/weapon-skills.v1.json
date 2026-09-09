@@ -130,7 +130,30 @@
           "amountPercent": 3,
           "skillLevel": 15,
           "boostGroup": "normal",
-          "note": "イフリートハルベルト単体編成の表示3%で確認"
+          "note": "イフリートハルベルト単体編成の表示3%で確認",
+          "verificationStatus": "検証済み",
+          "source": "ゲーム内deck.damage_infoの単体編成表示で確認",
+          "confirmedAt": "2026-09-05"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 2,
+          "skillLevel": 10,
+          "boostGroup": "normal",
+          "note": "技巧(小)のSLv10値。skill_id 74への対応は実機で確認済みだが、数値は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 4,
+          "skillLevel": 20,
+          "boostGroup": "normal",
+          "note": "技巧(小)のSLv20値。skill_id 74への対応は実機で確認済みだが、数値は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
         }
       ],
       "verificationStatus": "検証済み",
@@ -156,7 +179,30 @@
           "amountPercent": 6.5,
           "skillLevel": 15,
           "boostGroup": "normal",
-          "note": "既存技巧12.5%相当×通常スキル強化4.7倍=表示58.75%から差分確認"
+          "note": "既存技巧12.5%相当×通常スキル強化4.7倍=表示58.75%から差分確認",
+          "verificationStatus": "検証済み",
+          "source": "ゲーム内deck.damage_infoのクリティカル表示差分から確認",
+          "confirmedAt": "2026-09-07"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 5,
+          "skillLevel": 10,
+          "boostGroup": "normal",
+          "note": "技巧(中)のSLv10値。skill_id 80への対応は実機で確認済みだが、数値は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 7.5,
+          "skillLevel": 20,
+          "boostGroup": "normal",
+          "note": "技巧(中)のSLv20値。skill_id 80への対応は実機で確認済みだが、数値は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
         }
       ],
       "verificationStatus": "検証済み",
@@ -167,7 +213,38 @@
       "skillId": "88",
       "name": "地裂の技巧",
       "description": "土属性キャラのクリティカル確率上昇(大)",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "3",
+          "amountPercent": 8,
+          "skillLevel": 10,
+          "boostGroup": "normal",
+          "note": "技巧(大)のSLv10値。skill_id 88は実機由来ナレッジで確認、数値と枠は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "3",
+          "amountPercent": 10,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "技巧(大)のSLv15値。skill_id 88は実機由来ナレッジで確認、数値と枠は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "3",
+          "amountPercent": 11,
+          "skillLevel": 20,
+          "boostGroup": "normal",
+          "note": "技巧(大)のSLv20値。skill_id 88は実機由来ナレッジで確認、数値と枠は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
+        }
+      ],
       "verificationStatus": "下書き",
       "source": "knowledge/earth-ssr-menace-kensei-fukuro-shinai.md。効果量・計算枠は未検証"
     },
@@ -376,7 +453,30 @@
           "amountPercent": 6.5,
           "skillLevel": 15,
           "boostGroup": "normal",
-          "note": "既知技巧6%と合算し、通常スキル強化4.7倍で表示58.75%と完全一致"
+          "note": "既知技巧6%と合算し、通常スキル強化4.7倍で表示58.75%と完全一致",
+          "verificationStatus": "検証済み",
+          "source": "ゲーム内deck.damage_infoのクリティカル表示から確認",
+          "confirmedAt": "2026-09-09"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 5,
+          "skillLevel": 10,
+          "boostGroup": "normal",
+          "note": "刹那(中)の技巧部分のSLv10値。skill_id 322への対応は実機で確認済みだが、数値は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 7.5,
+          "skillLevel": 20,
+          "boostGroup": "normal",
+          "note": "刹那(中)の技巧部分のSLv20値。skill_id 322への対応は実機で確認済みだが、数値は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
         }
       ],
       "verificationStatus": "検証済み",
@@ -680,7 +780,30 @@
           "amountPercent": 3,
           "skillLevel": 15,
           "boostGroup": "normal",
-          "note": "単体3%と同時編成7.8%から (7.8 / 1.30) - 3 = 3% を確認"
+          "note": "単体3%と同時編成7.8%から (7.8 / 1.30) - 3 = 3% を確認",
+          "verificationStatus": "検証済み",
+          "source": "ゲーム内deck.damage_infoでイフリートハルベルト単体編成とオーバーライド同時編成を比較",
+          "confirmedAt": "2026-09-05"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 2,
+          "skillLevel": 10,
+          "boostGroup": "normal",
+          "note": "刹那(小)の技巧部分のSLv10値。skill_id 845への対応は実機で確認済みだが、数値は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 4,
+          "skillLevel": 20,
+          "boostGroup": "normal",
+          "note": "刹那(小)の技巧部分のSLv20値。skill_id 845への対応は実機で確認済みだが、数値は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
         }
       ],
       "verificationStatus": "検証済み",
@@ -1285,7 +1408,18 @@
       "skillId": "1547",
       "name": "水禍の技巧",
       "description": "水属性キャラのクリティカル確率上昇(特大)",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "2",
+          "amountPercent": 20,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "note": "水禍の技巧(特大)のSLv15値。skill_id 1547は実機由来ナレッジで確認、数値と枠は二次情報由来",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
+        }
+      ],
       "verificationStatus": "下書き",
       "source": "knowledge/water-ssr-ancestral-wamdus-naidaria.md。効果量・計算枠は未検証"
     },
