@@ -27,7 +27,7 @@
 | [weapon-critical-skills.md](./weapon-critical-skills.md) | 通常技巧系武器スキルのクリティカル率 | 下書き |
 | [weapon-master-id.md](./weapon-master-id.md) | 武器マスターIDのレアリティ・武器種・内部番号構造 | 下書き |
 | [summon-master-id.md](./summon-master-id.md) | 召喚石マスターIDのレアリティ・内部番号構造 | 下書き |
-| [summon-aura-types.md](./summon-aura-types.md) | 召喚石の効果(通常時/EX/HELLなど)の分類 | 下書き |
+| [summon-aura-types.md](./summon-aura-types.md) | 召喚石の加護・召喚仕様 | 下書き |
 | [team-building-basics.md](./team-building-basics.md) | パーティ編成の基本(サブ限・適正編成など) | 下書き |
 | [battle-flow.md](./battle-flow.md) | 戦闘の流れ(ターン制、行動順など) | 下書き |
 | [multi-battle.md](./multi-battle.md) | マルチバトル(参加人数、貢献度、報酬など) | 下書き |
