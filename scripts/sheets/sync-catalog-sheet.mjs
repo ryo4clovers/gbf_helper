@@ -1,10 +1,11 @@
 import { createSign } from "node:crypto";
-import { readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import {
   buildWeaponSheetValues,
   buildWeaponSkillSheetValues,
+  parseJapaneseChargeAttackKnowledge,
 } from "./catalog-sheet-data.mjs";
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
@@ -112,6 +113,19 @@ async function loadCatalog(relativePath) {
   return JSON.parse(await readFile(path.join(REPOSITORY_ROOT, relativePath), "utf8"));
 }
 
+async function loadJapaneseChargeAttacks() {
+  const directory = path.join(REPOSITORY_ROOT, "knowledge", "weapons");
+  const filenames = (await readdir(directory))
+    .filter((filename) => filename.endsWith(".md") && !filename.startsWith("_") && filename !== "README.md")
+    .sort();
+  const entries = await Promise.all(
+    filenames.map(async (filename) => parseJapaneseChargeAttackKnowledge(
+      await readFile(path.join(directory, filename), "utf8"),
+    )),
+  );
+  return entries.filter(Boolean);
+}
+
 function findSheetProperties(metadata, title) {
   const properties = metadata.sheets?.find((sheet) => sheet.properties?.title === title)?.properties;
   if (!properties) {
@@ -121,13 +135,18 @@ function findSheetProperties(metadata, title) {
 }
 
 export async function buildSyncPayload() {
-  const [weaponCatalog, skillCatalog, wikiCatalog] = await Promise.all([
+  const [weaponCatalog, skillCatalog, wikiCatalog, japaneseChargeAttacks] = await Promise.all([
     loadCatalog("mcp-server/catalog/weapons.v1.json"),
     loadCatalog("mcp-server/catalog/weapon-skills.v1.json"),
     loadCatalog("knowledge/weapons/wiki-catalog.v1.json"),
+    loadJapaneseChargeAttacks(),
   ]);
   return {
-    weaponValues: buildWeaponSheetValues(weaponCatalog, { wikiCatalog, skillCatalog }),
+    weaponValues: buildWeaponSheetValues(weaponCatalog, {
+      wikiCatalog,
+      skillCatalog,
+      japaneseChargeAttacks,
+    }),
     skillValues: buildWeaponSkillSheetValues(skillCatalog),
   };
 }

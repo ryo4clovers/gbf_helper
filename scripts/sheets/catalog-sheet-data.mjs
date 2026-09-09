@@ -121,11 +121,9 @@ export const WEAPON_HEADERS = Object.freeze([
   "シリーズ",
   "最大Lv",
   "最大上限解放",
-  "最大スキルLv",
   "最大Lv HP",
   "最大Lv 攻撃",
   ...WEAPON_STAT_LEVELS.flatMap((level) => [`Lv${level} HP`, `Lv${level} 攻撃`]),
-  "奥義段階",
   "奥義名",
   "奥義効果",
   ...Array.from({ length: WEAPON_SKILL_SLOT_COUNT }, (_, index) => [
@@ -167,6 +165,14 @@ function skillsById(skillCatalog) {
   return new Map((skillCatalog?.skills ?? []).map((skill) => [String(skill.skillId), skill]));
 }
 
+function japaneseChargeAttacksByWeaponId(entries) {
+  return new Map(
+    (entries ?? [])
+      .filter((entry) => entry?.weaponId)
+      .map((entry) => [String(entry.weaponId), entry]),
+  );
+}
+
 function findStatPoint(weapon, level) {
   return weapon.levelStats?.points?.find((point) => point.level === level);
 }
@@ -178,12 +184,6 @@ function maximumStatPoint(weapon) {
       ? weapon.selectionDefaults
       : undefined
   );
-}
-
-function finalStage(stages, key, orderKey) {
-  return [...(stages ?? [])]
-    .filter((stage) => stage?.[key] !== undefined)
-    .sort((left, right) => Number(right?.[orderKey] ?? 0) - Number(left?.[orderKey] ?? 0))[0];
 }
 
 function finalSkillStage(skill) {
@@ -242,13 +242,30 @@ export function displayCode(value, labels, fieldName) {
   return label;
 }
 
-export function buildWeaponSheetValues(catalog, { wikiCatalog, skillCatalog } = {}) {
+export function parseJapaneseChargeAttackKnowledge(markdown) {
+  const weaponId = markdown.match(/^weapon_id:\s*["']?([^"'\r\n]+)["']?\s*$/mu)?.[1]?.trim();
+  const section = markdown.match(
+    /^## 奥義\(チャージアタック\)\s*$([\s\S]*?)(?=^##\s|$(?![\s\S]))/mu,
+  )?.[1];
+  const rawName = section?.match(/^- 名称:\s*(.+)$/mu)?.[1]?.trim();
+  const description = section?.match(/^- 効果(?:\([^\r\n)]*\))?:\s*(.+)$/mu)?.[1]?.trim();
+  if (!weaponId || !rawName || !description) return undefined;
+
+  const name = rawName.replace(/\([^\r\n()]*(?:段階|=)[^\r\n()]*\)\s*$/u, "").trim();
+  return { weaponId, name, description };
+}
+
+export function buildWeaponSheetValues(
+  catalog,
+  { wikiCatalog, skillCatalog, japaneseChargeAttacks = [] } = {},
+) {
   if (!Array.isArray(catalog?.weapons)) {
     throw new Error("武器カタログの weapons が配列ではありません");
   }
 
   const wikiIndex = wikiEntriesByWeaponId(wikiCatalog);
   const skillIndex = skillsById(skillCatalog);
+  const japaneseChargeAttackIndex = japaneseChargeAttacksByWeaponId(japaneseChargeAttacks);
 
   return [
     [...WEAPON_HEADERS],
@@ -256,7 +273,7 @@ export function buildWeaponSheetValues(catalog, { wikiCatalog, skillCatalog } = 
       const wikiEntry = wikiIndex.get(weapon.weaponId);
       const maximumLevel = weapon.levelStats?.maximumLevel ?? weapon.selectionDefaults?.level;
       const maximumPoint = maximumStatPoint(weapon);
-      const chargeAttack = finalStage(wikiEntry?.chargeAttacks, "stage", "stage");
+      const japaneseChargeAttack = japaneseChargeAttackIndex.get(weapon.weaponId);
       return [
         asCellValue(weapon.weaponId),
         asCellValue(weapon.name),
@@ -267,16 +284,14 @@ export function buildWeaponSheetValues(catalog, { wikiCatalog, skillCatalog } = 
         seriesLabel(weapon, wikiEntry),
         asCellValue(maximumLevel),
         uncapLabel(weapon, wikiEntry),
-        asCellValue(weapon.selectionDefaults?.skillLevel),
         asCellValue(maximumPoint?.hp),
         asCellValue(maximumPoint?.attack),
         ...WEAPON_STAT_LEVELS.flatMap((level) => {
           const point = findStatPoint(weapon, level);
           return [asCellValue(point?.hp), asCellValue(point?.attack)];
         }),
-        asCellValue(chargeAttack?.stage),
-        cleanWikiText(chargeAttack?.name),
-        cleanWikiText(chargeAttack?.description),
+        asCellValue(japaneseChargeAttack?.name),
+        asCellValue(japaneseChargeAttack?.description),
         ...skillCells(weapon, wikiEntry, skillIndex),
         asCellValue(weapon.verificationStatus),
         asCellValue(weapon.confirmedAt),
