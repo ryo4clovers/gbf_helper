@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {
   calculateProtagonistRankBaseStats,
   rebaseProtagonistForRankChange,
-} from "../web/protagonist-rank-stats.js";
+} from "../web/summon-stat-contribution.js";
 
 test("returns the provisional Rank base-stat breakpoints", () => {
   assert.deepEqual(calculateProtagonistRankBaseStats(1), {
