@@ -56,8 +56,8 @@ function assertEnvironment(environment) {
     throw new Error("保存データの個別環境設定が正しくありません");
   }
   const protagonist = pickFiniteNumbers(environment.protagonist, environmentProtagonistKeys, "protagonist");
-  if (protagonist.rank !== undefined && (!Number.isInteger(protagonist.rank) || protagonist.rank <= 0)) {
-    throw new Error("protagonist.rank は正の整数である必要があります");
+  if (protagonist.rank !== undefined && (!Number.isInteger(protagonist.rank) || protagonist.rank < 1 || protagonist.rank > 425)) {
+    throw new Error("protagonist.rank は1〜425の整数である必要があります");
   }
   return {
     schemaVersion: 1,

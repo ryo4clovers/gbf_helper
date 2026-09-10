@@ -189,7 +189,7 @@ test("rejects malformed formation storage and profiles", () => {
   );
   assert.throws(
     () => serializeCalculatorEnvironment({ schemaVersion: 1, protagonist: { rank: 0 }, modifiers: {}, random: {} }),
-    /正の整数/,
+    /1〜425/,
   );
   assert.throws(() => serializeCalculatorProfiles([{ ...valid, name: " " }]), /保存名/);
   assert.throws(() => serializeCalculatorProfiles([{ ...valid, updatedAt: "invalid" }]), /更新日時/);

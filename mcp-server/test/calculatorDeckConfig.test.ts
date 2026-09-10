@@ -39,6 +39,7 @@ test("rejects a non-positive or fractional player rank", () => {
 
   assert.throws(() => parseCalculatorDeckConfig(deck(0)));
   assert.throws(() => parseCalculatorDeckConfig(deck(1.5)));
+  assert.throws(() => parseCalculatorDeckConfig(deck(426)));
 });
 
 test("converts a game response without retaining instance IDs or displayed calculation results", () => {

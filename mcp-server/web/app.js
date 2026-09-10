@@ -20,6 +20,7 @@ import {
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
 import { calculateEquipmentLevelStats } from "/equipment-level-stats.js";
 import { createEquipmentLevelOptions } from "/equipment-level-options.js";
+import { rebaseProtagonistForRankChange } from "/protagonist-rank-stats.js";
 import { rebaseProtagonistForSummonChange } from "/summon-stat-contribution.js";
 
 const $ = (id) => document.getElementById(id);
@@ -1372,7 +1373,9 @@ function numberValue(id) {
 
 function buildRequest() {
   const deckConfig = readDeckConfig();
+  const previousRank = deckConfig.protagonist.rank;
   deckConfig.protagonist.rank = numberValue("player-rank");
+  rebaseProtagonistForRankChange(deckConfig, previousRank);
   applyEquipmentRules(deckConfig);
   writeDeckConfig(deckConfig);
   return {
@@ -1794,6 +1797,7 @@ form.addEventListener("submit", (event) => {
 });
 form.addEventListener("input", schedulePersistence);
 form.addEventListener("change", schedulePersistence);
+$("player-rank").addEventListener("change", () => void calculate());
 
 $("config-file").addEventListener("change", async (event) => {
   const file = event.target.files?.[0];
