@@ -4,17 +4,20 @@ import test from "node:test";
 import { resolveCalculatorDeckConfig } from "../src/calculator/calculatorDeckResolver.js";
 import { DEFAULT_CALCULATOR_DECK } from "../web/calculator-default-deck.js";
 
-test("local result area exposes HP, critical rate, and DA/TA rate metrics", async () => {
+test("local result area exposes HP, critical rate, DA/TA, and the crest toggle", async () => {
   const [html, app] = await Promise.all([
     readFile(new URL("../web/index.html", import.meta.url), "utf8"),
     readFile(new URL("../web/app.js", import.meta.url), "utf8"),
   ]);
 
-  for (const id of ["protagonist-hp", "critical-rate", "da-rate", "ta-rate"]) {
+  for (const id of ["protagonist-hp", "critical-rate", "da-rate", "ta-rate", "include-extinction-crest-local"]) {
     assert.match(html, new RegExp(`id=["']${id}["']`));
     assert.match(app, new RegExp(`\\$\\(["']${id}["']\\)`));
   }
   assert.match(html, /<p>連撃率<\/p>/u);
+  assert.ok(html.indexOf('id="weapon-critical-toggle"') < html.indexOf('id="include-extinction-crest-local"'));
+  assert.ok(html.indexOf('id="include-extinction-crest-local"') < html.indexOf('class="metric-grid local-result-grid"'));
+  assert.doesNotMatch(html, /<details class="advanced-settings memorial-settings" open>/u);
 });
 
 test("formation area contains support summon and reset control with the requested default", async () => {

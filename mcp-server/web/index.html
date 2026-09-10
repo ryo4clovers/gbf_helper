@@ -161,7 +161,7 @@
             <label class="number-field"><span>ジョブ通常与ダメ</span><input id="job-damage" type="number" value="3" min="0" step="0.1" /><em>%</em></label>
           </div>
 
-          <details class="advanced-settings memorial-settings" open>
+          <details class="advanced-settings memorial-settings">
             <summary>大事なもの</summary>
             <p class="settings-help">所持状況に合わせて有効・無効、Lv、効果量を設定します。設定は個別環境として端末に保存されます。</p>
             <div id="memorial-item-editor"></div>
@@ -245,6 +245,14 @@
               <small id="critical-switch-note">現在の条件では利用できません</small>
             </span>
             <input id="weapon-critical-toggle" type="checkbox" role="switch" disabled />
+            <span class="switch-track" aria-hidden="true"><span></span></span>
+          </label>
+          <label class="critical-switch" for="include-extinction-crest-local">
+            <span class="switch-copy">
+              <strong>神滅の印章をローカル結果に含める</strong>
+              <small>本家ダメージ予測には含めません。古戦場では適用外です。</small>
+            </span>
+            <input id="include-extinction-crest-local" type="checkbox" role="switch" checked />
             <span class="switch-track" aria-hidden="true"><span></span></span>
           </label>
           <div class="metric-grid local-result-grid">

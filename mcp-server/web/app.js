@@ -28,6 +28,7 @@ import {
   MEMORIAL_ITEM_DEFINITIONS,
   calculateMemorialItemModifiers,
   defaultMemorialItemSettings,
+  describeMemorialItemEffect,
 } from "/memorial-item-config.js";
 
 const $ = (id) => document.getElementById(id);
@@ -1402,24 +1403,7 @@ function renderMemorialItemEditor(savedSettings) {
   const settings = savedSettings ?? defaultMemorialItemSettings();
   container.replaceChildren();
 
-  const localSwitch = document.createElement("label");
-  localSwitch.className = "critical-switch memorial-global-switch";
-  const localCheckbox = document.createElement("input");
-  localCheckbox.id = "include-extinction-crest-local";
-  localCheckbox.type = "checkbox";
-  localCheckbox.checked = settings.includeExtinctionCrestInLocalResults ?? true;
-  const track = document.createElement("span");
-  track.className = "switch-track";
-  track.append(document.createElement("span"));
-  const copy = document.createElement("span");
-  copy.className = "switch-copy";
-  const title = document.createElement("strong");
-  title.textContent = "神滅の印章をローカル結果に含める";
-  const note = document.createElement("small");
-  note.textContent = "本家ダメージ予測には常に含めません。古戦場除外は敵種別の追加時に判定します。";
-  copy.append(title, note);
-  localSwitch.append(localCheckbox, track, copy);
-  container.append(localSwitch);
+  $("include-extinction-crest-local").checked = settings.includeExtinctionCrestInLocalResults ?? true;
 
   for (const groupName of [...new Set(MEMORIAL_ITEM_DEFINITIONS.map((item) => item.group))]) {
     const group = document.createElement("section");
@@ -1439,6 +1423,10 @@ function renderMemorialItemEditor(savedSettings) {
       checkbox.checked = state.enabled ?? true;
       const name = document.createElement("span");
       name.textContent = definition.name;
+      const effect = document.createElement("small");
+      effect.className = "memorial-effect";
+      effect.textContent = describeMemorialItemEffect(definition, state);
+      name.append(effect);
       if (definition.kind === "character-deferred") {
         const deferred = document.createElement("small");
         deferred.className = "memorial-note";
@@ -1479,11 +1467,6 @@ function renderMemorialItemEditor(savedSettings) {
         unit.textContent = "%";
         amountLabel.append(amountText, amount, unit);
         controls.append(amountLabel);
-      } else if (definition.amountPercent !== undefined) {
-        const amount = document.createElement("small");
-        amount.className = "memorial-note";
-        amount.textContent = `${definition.amountPercent}%`;
-        controls.append(amount);
       }
       row.append(nameLabel, controls);
       group.append(row);
@@ -1939,7 +1922,11 @@ form.addEventListener("submit", (event) => {
 });
 form.addEventListener("input", schedulePersistence);
 form.addEventListener("change", schedulePersistence);
-$("memorial-item-editor").addEventListener("change", () => void calculate());
+$("memorial-item-editor").addEventListener("change", () => {
+  renderMemorialItemEditor(readMemorialItemSettings());
+  void calculate();
+});
+$("include-extinction-crest-local").addEventListener("change", () => void calculate());
 $("player-rank").addEventListener("change", () => void calculate());
 
 $("config-file").addEventListener("change", async (event) => {

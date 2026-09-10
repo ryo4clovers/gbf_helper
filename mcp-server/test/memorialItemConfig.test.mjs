@@ -3,6 +3,8 @@ import assert from "node:assert/strict";
 import {
   calculateMemorialItemModifiers,
   defaultMemorialItemSettings,
+  describeMemorialItemEffect,
+  MEMORIAL_ITEM_DEFINITIONS,
 } from "../web/memorial-item-config.js";
 
 test("applies the matching Four Saints item and fixed account items", () => {
@@ -16,6 +18,18 @@ test("applies the matching Four Saints item and fixed account items", () => {
   assert.equal(result.damageCapPercent, 3);
   assert.equal(result.damageDealtPercent, 3.6);
   assert.equal(result.chainBurstPerformancePercent, 5);
+});
+
+test("uses the requested game-like groups and Other ordering", () => {
+  const father = MEMORIAL_ITEM_DEFINITIONS.find((item) => item.id === "29");
+  assert.equal(father.group, "メインクエスト");
+  assert.deepEqual(
+    MEMORIAL_ITEM_DEFINITIONS.filter((item) => item.group === "その他").map((item) => item.id),
+    ["9003", "9013", "9014", "9015", "9016", "9017"],
+  );
+  const fireCrest = MEMORIAL_ITEM_DEFINITIONS.find((item) => item.id === "9009");
+  assert.match(describeMemorialItemEffect(fireCrest, { enabled: true, level: 20 }), /DA率\+6%/u);
+  assert.match(describeMemorialItemEffect(fireCrest, { enabled: true, level: 20 }), /TA率\+7%/u);
 });
 
 test("uses crest level thresholds and supports local-result exclusion", () => {
