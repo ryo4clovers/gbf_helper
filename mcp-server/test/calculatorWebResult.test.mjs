@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import { resolveCalculatorDeckConfig } from "../src/calculator/calculatorDeckResolver.js";
+import { DEFAULT_CALCULATOR_DECK } from "../web/calculator-default-deck.js";
 
 test("local result area exposes HP, critical rate, and DA/TA rate metrics", async () => {
   const [html, app] = await Promise.all([
@@ -27,8 +29,19 @@ test("formation area contains support summon and reset control with the requeste
   assert.ok(supportSummon >= 0 && supportSummon < battleConditions);
   assert.match(html, /id="reset-formation"/u);
   assert.match(app, /\$\("reset-formation"\)\.addEventListener\("click", resetFormation\)/u);
-  assert.match(app, /jobId: "110001",\s+jobNameHint: "ナイト"/u);
-  assert.match(app, /weapons: \[\]/u);
-  assert.match(app, /summonId: "2030051000", nameHint: "シルフィードベル"/u);
+  assert.equal(DEFAULT_CALCULATOR_DECK.protagonist.jobId, "110001");
+  assert.equal(DEFAULT_CALCULATOR_DECK.protagonist.attackOverride, 10885);
+  assert.equal(DEFAULT_CALCULATOR_DECK.protagonist.hpOverride, 2885);
+  assert.equal(DEFAULT_CALCULATOR_DECK.weapons[0].isJobFallback, true);
+  assert.equal(DEFAULT_CALCULATOR_DECK.summons[0].summonId, "2030051000");
+  assert.equal(DEFAULT_CALCULATOR_DECK.summons[0].attackOverride, 865);
+  assert.equal(DEFAULT_CALCULATOR_DECK.summons[0].hpOverride, 433);
+  assert.match(app, /deckConfig: structuredClone\(DEFAULT_CALCULATOR_DECK\),\s+supportSummon: undefined/u);
   assert.match(storage, /supportSummon: saved\.supportSummon/u);
+
+  const resolution = resolveCalculatorDeckConfig(DEFAULT_CALCULATOR_DECK);
+  assert.equal(resolution.deck.protagonist.attack, 10885);
+  assert.equal(resolution.deck.summons[0].attack, 865);
+  assert.equal(resolution.deck.summons[0].hp, 433);
+  assert.equal(resolution.issues.some((issue) => issue.code === "missing-stat-override"), false);
 });

@@ -12,24 +12,10 @@ import {
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
 } from "/calculator-state-storage.js";
+import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js";
 import { calculateEquipmentLevelStats } from "/equipment-level-stats.js";
 import { createEquipmentLevelOptions } from "/equipment-level-options.js";
 import { rebaseProtagonistForSummonChange } from "/summon-stat-contribution.js";
-
-const defaultDeck = {
-  schemaVersion: 1,
-  format: "gbf-helper-calculator-deck",
-  name: "デフォルト編成",
-  protagonist: {
-    jobId: "110001",
-    jobNameHint: "ナイト",
-  },
-  weapons: [],
-  summons: [
-    { slot: 1, position: "main", summonId: "2030051000", nameHint: "シルフィードベル" },
-  ],
-  characters: [],
-};
 
 const $ = (id) => document.getElementById(id);
 const form = $("calculator-form");
@@ -74,7 +60,7 @@ let persistenceTimer = null;
 let savedProfiles = [];
 let selectedProfileId = "";
 
-deckField.value = JSON.stringify(defaultDeck, null, 2);
+deckField.value = JSON.stringify(DEFAULT_CALCULATOR_DECK, null, 2);
 
 function readDeckConfig() {
   return JSON.parse(deckField.value);
@@ -123,7 +109,11 @@ function persistCurrentState(message) {
 function resetFormation() {
   if (!window.confirm("現在の編成をデフォルトへ戻しますか？\n名前付き保存と戦闘条件は削除されません。")) return;
   try {
-    applyFormationToForm(createCalculatorFormation({ schemaVersion: 1, deckConfig: defaultDeck }));
+    applyRequestToForm({
+      ...buildRequest(),
+      deckConfig: structuredClone(DEFAULT_CALCULATOR_DECK),
+      supportSummon: undefined,
+    });
     selectProfile("");
     persistCurrentState("デフォルト編成にリセットしました");
     setProfileStatus("名前付き編成は保持されています");
