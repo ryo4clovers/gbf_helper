@@ -1515,13 +1515,16 @@ function renderLocalResult(result) {
     ? "現在の敵属性では発動なし"
     : "武器スキル・有利属性時";
 
-  const ta = result.multiattackRates;
-  $("ta-rate").textContent = `${numberFormat.format(ta.tripleAttackRatePercent)}%`;
-  const taNotes = [];
-  if (ta.issues.includes("job-base-rate-unresolved")) taNotes.push("ジョブ基礎率未解決");
-  if (ta.issues.includes("character-effects-unresolved")) taNotes.push("キャラ効果未反映");
-  if (ta.issues.includes("battle-buffs-unresolved")) taNotes.push("バトル中バフ未反映");
-  $("ta-rate-note").textContent = taNotes.length === 0 ? "ジョブ・武器スキル" : taNotes.join("・");
+  const multiattack = result.multiattackRates;
+  $("da-rate").textContent = `${numberFormat.format(multiattack.doubleAttackRatePercent)}%`;
+  $("ta-rate").textContent = `${numberFormat.format(multiattack.tripleAttackRatePercent)}%`;
+  const multiattackNotes = [];
+  if (multiattack.issues.includes("job-base-rate-unresolved")) multiattackNotes.push("ジョブ基礎率未解決");
+  if (multiattack.issues.includes("character-effects-unresolved")) multiattackNotes.push("キャラ効果未反映");
+  if (multiattack.issues.includes("battle-buffs-unresolved")) multiattackNotes.push("バトル中バフ未反映");
+  $("multiattack-rate-note").textContent = multiattackNotes.length === 0
+    ? "ジョブ・武器スキル"
+    : multiattackNotes.join("・");
 }
 
 function selectWeaponCritical() {

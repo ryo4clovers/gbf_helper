@@ -244,8 +244,11 @@ h3 { margin: 26px 0 13px; font-size: .9rem; color: var(--ink-soft); }
 .metric-card.status-card { background: var(--surface-container-high, var(--surface-container)); border: 1px solid var(--outline-soft); }
 .metric-card.hp-card { color: #7b2441; }
 .metric-card.critical-rate-card { color: #725600; }
-.metric-card.ta-rate-card { color: var(--primary); }
+.metric-card.multiattack-rate-card { color: var(--primary); }
 .metric-card.status-card .metric-icon { font-size: .72rem; }
+.multiattack-rate-values { display: flex !important; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+.multiattack-rate-values span { font-size: .76rem; letter-spacing: 0; }
+.multiattack-rate-values b { margin-left: 3px; font-size: 1.35rem; font-weight: 850; letter-spacing: -.03em; }
 .metric-card.future-card { color: var(--ink-soft); background: var(--surface-container); border: 1px dashed var(--outline-soft); }
 .metric-card.future-card strong { font-size: 1.4rem; }
 .metric-card.ougi-card { border-radius: 18px 30px 18px 30px; }
