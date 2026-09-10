@@ -31,6 +31,7 @@
               <h2>編成</h2>
             </div>
             <div class="file-actions">
+              <button id="reset-formation" class="text-button danger-action" type="button">編成リセット</button>
               <label class="tonal-button" for="config-file">設定を開く</label>
               <input id="config-file" type="file" accept="application/json,.json" hidden />
               <label class="tonal-button" for="game-deck-file">deck.jsonを変換</label>
@@ -104,6 +105,13 @@
             <label class="field-label" for="deck-config">CalculatorDeckConfig v1</label>
             <textarea id="deck-config" class="code-field" spellcheck="false" rows="13"></textarea>
           </div>
+          <div class="support-summon-section">
+            <div class="weapon-editor-heading summon-editor-heading">
+              <div><span class="field-label">サポート召喚石</span></div>
+              <span class="supporting-text">編成保存の対象・加護のみ反映・HP/ATKは加算しません</span>
+            </div>
+            <div id="support-summon-slot" class="support-summon-slot"></div>
+          </div>
           <div class="field-footer">
             <span id="deck-state" class="supporting-text">登録済みジョブ・武器・召喚石を自動解決します</span>
             <div class="persistence-actions">
@@ -145,13 +153,6 @@
               <span class="step">02</span>
               <h2>戦闘条件</h2>
             </div>
-          </div>
-          <div class="support-summon-section">
-            <div class="weapon-editor-heading summon-editor-heading">
-              <div><span class="field-label">サポート召喚石</span></div>
-              <span class="supporting-text">加護のみ反映・HP/ATKは加算しません</span>
-            </div>
-            <div id="support-summon-slot" class="support-summon-slot"></div>
           </div>
           <div class="field-grid three-columns">
             <label class="select-field">

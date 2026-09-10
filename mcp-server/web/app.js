@@ -19,25 +19,14 @@ import { rebaseProtagonistForSummonChange } from "/summon-stat-contribution.js";
 const defaultDeck = {
   schemaVersion: 1,
   format: "gbf-helper-calculator-deck",
-  name: "火属性・アグニス検証編成",
+  name: "デフォルト編成",
   protagonist: {
-    elementCode: "1",
     jobId: "110001",
     jobNameHint: "ナイト",
-    jobLevel: 20,
-    masterLevel: 1,
-    perfectionProofLevel: 0,
-    jobCompletionDoubleAttackRate: 7,
-    jobCompletionTripleAttackRate: 5,
-    masterBonusAttackPercent: 24,
-    masterBonusHpPercent: 20,
   },
-  weapons: [
-    { slot: 1, position: "main", weaponId: "1040201400", nameHint: "イフリートハルベルト", level: 150, skillLevel: 15, plusMark: 0, attackOverride: 2170, hpOverride: 241 },
-    { slot: 2, position: "grid", weaponId: "1040218900", nameHint: "オーバーライド", level: 150, skillLevel: 15, plusMark: 0, attackOverride: 3114, hpOverride: 331 },
-  ],
+  weapons: [],
   summons: [
-    { slot: 1, position: "main", summonId: "2040094000", nameHint: "アグニス", level: 250, uncapLevel: 6, plusMark: 0, attackOverride: 4157, hpOverride: 1414 },
+    { slot: 1, position: "main", summonId: "2030051000", nameHint: "シルフィードベル" },
   ],
   characters: [],
 };
@@ -128,6 +117,19 @@ function persistCurrentState(message) {
     if (message !== undefined) {
       setPersistenceStatus(error instanceof Error ? error.message : "端末への保存に失敗しました", true);
     }
+  }
+}
+
+function resetFormation() {
+  if (!window.confirm("現在の編成をデフォルトへ戻しますか？\n名前付き保存と戦闘条件は削除されません。")) return;
+  try {
+    applyFormationToForm(createCalculatorFormation({ schemaVersion: 1, deckConfig: defaultDeck }));
+    selectProfile("");
+    persistCurrentState("デフォルト編成にリセットしました");
+    setProfileStatus("名前付き編成は保持されています");
+    void calculate();
+  } catch (error) {
+    setPersistenceStatus(error instanceof Error ? error.message : "編成をリセットできませんでした", true);
   }
 }
 
@@ -1805,6 +1807,8 @@ $("game-deck-file").addEventListener("change", async (event) => {
 $("save-local").addEventListener("click", () => {
   persistCurrentState("この端末に保存しました");
 });
+
+$("reset-formation").addEventListener("click", resetFormation);
 
 $("profile-select").addEventListener("change", (event) => {
   selectProfile(event.target.value);
