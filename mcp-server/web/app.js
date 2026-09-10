@@ -1,13 +1,18 @@
 import {
+  CALCULATOR_ENVIRONMENT_STORAGE_KEY,
   CALCULATOR_FORMATION_FORMAT,
   CALCULATOR_FORMATION_STORAGE_KEY,
   CALCULATOR_PROFILES_STORAGE_KEY,
   LEGACY_CALCULATOR_STORAGE_KEYS,
+  createCalculatorEnvironment,
   createCalculatorFormation,
+  mergeCalculatorEnvironment,
   mergeCalculatorFormation,
+  parseCalculatorEnvironment,
   parseCalculatorFormation,
   parseCalculatorProfiles,
   removeCalculatorProfile,
+  serializeCalculatorEnvironment,
   serializeCalculatorFormation,
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
@@ -82,17 +87,27 @@ function setPersistenceStatus(message, isError = false) {
   status.classList.toggle("error-text", isError);
 }
 
-function persistRequest(request, message = "編成をこの端末に自動保存済み") {
+function persistRequest(request, message = "編成・個別環境をこの端末に自動保存済み") {
   if (!persistenceReady) return;
+  const errors = [];
   try {
     localStorage.setItem(
       CALCULATOR_FORMATION_STORAGE_KEY,
       serializeCalculatorFormation(createCalculatorFormation(request)),
     );
-    setPersistenceStatus(message);
   } catch (error) {
-    setPersistenceStatus(error instanceof Error ? error.message : "自動保存に失敗しました", true);
+    errors.push(error);
   }
+  try {
+    localStorage.setItem(
+      CALCULATOR_ENVIRONMENT_STORAGE_KEY,
+      serializeCalculatorEnvironment(createCalculatorEnvironment(request)),
+    );
+  } catch (error) {
+    errors.push(error);
+  }
+  if (errors.length === 0) setPersistenceStatus(message);
+  else setPersistenceStatus(errors[0] instanceof Error ? errors[0].message : "自動保存に失敗しました", true);
 }
 
 function persistCurrentState(message) {
@@ -107,13 +122,14 @@ function persistCurrentState(message) {
 }
 
 function resetFormation() {
-  if (!window.confirm("現在の編成をデフォルトへ戻しますか？\n名前付き保存と戦闘条件は削除されません。")) return;
+  if (!window.confirm("現在の編成をデフォルトへ戻しますか？\n個別環境・名前付き保存・戦闘条件は削除されません。")) return;
   try {
-    applyRequestToForm({
-      ...buildRequest(),
+    const currentRequest = buildRequest();
+    applyFormationToForm(createCalculatorFormation({
+      ...currentRequest,
       deckConfig: structuredClone(DEFAULT_CALCULATOR_DECK),
       supportSummon: undefined,
-    });
+    }));
     selectProfile("");
     persistCurrentState("デフォルト編成にリセットしました");
     setProfileStatus("名前付き編成は保持されています");
@@ -134,6 +150,10 @@ function schedulePersistence() {
 
 function applyFormationToForm(formation) {
   const request = mergeCalculatorFormation(buildRequest(), formation);
+  applyResolvedRequestToForm(request);
+}
+
+function applyResolvedRequestToForm(request) {
   applyCatalogWeaponLevelStatsToConfig(request.deckConfig);
   for (const summon of request.deckConfig.summons) {
     applyCatalogSummonLevelStats(summon, catalogSummon(summon.summonId));
@@ -142,17 +162,37 @@ function applyFormationToForm(formation) {
 }
 
 function restorePersistedState() {
-  const serialized = localStorage.getItem(CALCULATOR_FORMATION_STORAGE_KEY);
-  if (serialized === null) return false;
-  try {
-    applyFormationToForm(parseCalculatorFormation(serialized));
-    setPersistenceStatus("保存した編成を復元しました");
-    return true;
-  } catch {
-    localStorage.removeItem(CALCULATOR_FORMATION_STORAGE_KEY);
-    setPersistenceStatus("編成を復元できないため初期設定を使用", true);
-    return false;
+  let request = buildRequest();
+  const restored = [];
+  const failed = [];
+  const environment = localStorage.getItem(CALCULATOR_ENVIRONMENT_STORAGE_KEY);
+  if (environment !== null) {
+    try {
+      request = mergeCalculatorEnvironment(request, parseCalculatorEnvironment(environment));
+      restored.push("個別環境");
+    } catch {
+      localStorage.removeItem(CALCULATOR_ENVIRONMENT_STORAGE_KEY);
+      failed.push("個別環境");
+    }
   }
+  const formation = localStorage.getItem(CALCULATOR_FORMATION_STORAGE_KEY);
+  if (formation !== null) {
+    try {
+      request = mergeCalculatorFormation(request, parseCalculatorFormation(formation));
+      restored.push("編成");
+    } catch {
+      localStorage.removeItem(CALCULATOR_FORMATION_STORAGE_KEY);
+      failed.push("編成");
+    }
+  }
+  if (restored.length > 0) applyResolvedRequestToForm(request);
+  if (failed.length > 0) {
+    const restoredMessage = restored.length > 0 ? `${restored.join("・")}を復元、` : "";
+    setPersistenceStatus(`${restoredMessage}${failed.join("・")}は復元できないため初期設定を使用`, true);
+  } else if (restored.length > 0) {
+    setPersistenceStatus(`保存した${restored.join("・")}を復元しました`);
+  }
+  return restored.length > 0;
 }
 
 function setProfileStatus(message, isError = false) {

@@ -1,5 +1,7 @@
 export const CALCULATOR_FORMATION_STORAGE_KEY = "gbf-helper-calculator-formation-v2";
 export const CALCULATOR_FORMATION_FORMAT = "gbf-helper-calculator-formation";
+export const CALCULATOR_ENVIRONMENT_STORAGE_KEY = "gbf-helper-calculator-environment-v1";
+export const CALCULATOR_ENVIRONMENT_FORMAT = "gbf-helper-calculator-environment";
 export const CALCULATOR_PROFILES_STORAGE_KEY = "gbf-helper-calculator-formation-profiles-v2";
 export const CALCULATOR_PROFILES_FORMAT = "gbf-helper-calculator-formation-profiles";
 export const LEGACY_CALCULATOR_STORAGE_KEYS = [
@@ -27,6 +29,39 @@ const personalProtagonistKeys = [
   "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
   "attackOverride", "hpOverride",
 ];
+const environmentProtagonistKeys = [
+  "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
+];
+const modifierKeys = [
+  "allElementAttackPercent", "elementAttackPercent", "shipAttackPercent", "furnaceAttackPercent",
+  "jobNormalAttackDamagePercent", "damageDealtPercent", "targetElementDamagePercent",
+];
+const randomKeys = ["minimum", "maximum", "step"];
+
+function pickFiniteNumbers(source, keys, label) {
+  const picked = pick(source, keys);
+  for (const [key, value] of Object.entries(picked)) {
+    if (typeof value !== "number" || !Number.isFinite(value)) {
+      throw new Error(`${label}.${key} は有限の数値である必要があります`);
+    }
+  }
+  return picked;
+}
+
+function assertEnvironment(environment) {
+  if (!isRecord(environment) || environment.schemaVersion !== 1) {
+    throw new Error("保存データの個別環境形式が正しくありません");
+  }
+  if (!isRecord(environment.protagonist) || !isRecord(environment.modifiers) || !isRecord(environment.random)) {
+    throw new Error("保存データの個別環境設定が正しくありません");
+  }
+  return {
+    schemaVersion: 1,
+    protagonist: pickFiniteNumbers(environment.protagonist, environmentProtagonistKeys, "protagonist"),
+    modifiers: pickFiniteNumbers(environment.modifiers, modifierKeys, "modifiers"),
+    random: pickFiniteNumbers(environment.random, randomKeys, "random"),
+  };
+}
 
 function assertFormation(formation) {
   if (!isRecord(formation) || formation.schemaVersion !== 1 || !isRecord(formation.deckConfig)) {
@@ -94,6 +129,36 @@ export function mergeCalculatorFormation(currentRequest, formation) {
   };
 }
 
+/** Extracts account-specific bonuses and local calculation settings independently of formation and enemy data. */
+export function createCalculatorEnvironment(request) {
+  if (!isRecord(request) || request.schemaVersion !== 1 || !isRecord(request.deckConfig?.protagonist)) {
+    throw new Error("計算リクエストの形式が正しくありません");
+  }
+  return assertEnvironment({
+    schemaVersion: 1,
+    protagonist: pick(request.deckConfig.protagonist, environmentProtagonistKeys),
+    modifiers: pick(request.modifiers, modifierKeys),
+    random: pick(request.random, randomKeys),
+  });
+}
+
+/** Applies personal environment values without replacing formation, enemy, or calculated runtime stats. */
+export function mergeCalculatorEnvironment(currentRequest, environment) {
+  const saved = assertEnvironment(environment);
+  return {
+    ...currentRequest,
+    deckConfig: {
+      ...currentRequest.deckConfig,
+      protagonist: {
+        ...currentRequest.deckConfig.protagonist,
+        ...saved.protagonist,
+      },
+    },
+    modifiers: { ...currentRequest.modifiers, ...saved.modifiers },
+    random: { ...currentRequest.random, ...saved.random },
+  };
+}
+
 function assertCalculatorProfile(profile) {
   if (!isRecord(profile) || typeof profile.id !== "string" || profile.id.trim() === "") {
     throw new Error("名前付き保存のIDが正しくありません");
@@ -118,6 +183,22 @@ export function parseCalculatorFormation(serialized) {
     throw new Error("ローカル計算機の編成保存データではありません");
   }
   return assertFormation(state.formation);
+}
+
+export function serializeCalculatorEnvironment(environment) {
+  return JSON.stringify({
+    schemaVersion: 1,
+    format: CALCULATOR_ENVIRONMENT_FORMAT,
+    environment: assertEnvironment(environment),
+  });
+}
+
+export function parseCalculatorEnvironment(serialized) {
+  const state = JSON.parse(serialized);
+  if (!isRecord(state) || state.schemaVersion !== 1 || state.format !== CALCULATOR_ENVIRONMENT_FORMAT) {
+    throw new Error("ローカル計算機の個別環境保存データではありません");
+  }
+  return assertEnvironment(state.environment);
 }
 
 export function serializeCalculatorProfiles(profiles) {
