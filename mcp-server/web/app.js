@@ -12,7 +12,7 @@ import {
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
 } from "/calculator-state-storage.js";
-import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js";
+import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
 import { calculateEquipmentLevelStats } from "/equipment-level-stats.js";
 import { createEquipmentLevelOptions } from "/equipment-level-options.js";
 import { rebaseProtagonistForSummonChange } from "/summon-stat-contribution.js";

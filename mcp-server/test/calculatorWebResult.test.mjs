@@ -45,3 +45,17 @@ test("formation area contains support summon and reset control with the requeste
   assert.equal(resolution.deck.summons[0].hp, 433);
   assert.equal(resolution.issues.some((issue) => issue.code === "missing-stat-override"), false);
 });
+
+test("web server exposes every root-relative module imported by the calculator", async () => {
+  const [app, webServer] = await Promise.all([
+    readFile(new URL("../web/app.js", import.meta.url), "utf8"),
+    readFile(new URL("../src/webServer.ts", import.meta.url), "utf8"),
+  ]);
+  const importedPaths = [...app.matchAll(/from\s+["'](\/[^"']+)["']/gu)]
+    .map((match) => new URL(match[1], "http://localhost").pathname);
+
+  assert.ok(importedPaths.length > 0);
+  for (const importedPath of importedPaths) {
+    assert.match(webServer, new RegExp(`^[ \\t]*["']${importedPath.replaceAll(".", "\\.")}["']:`, "mu"));
+  }
+});
