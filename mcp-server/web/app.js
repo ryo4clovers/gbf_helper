@@ -100,12 +100,7 @@ function renderCrewSupportEditor(settings) {
     input.id = `crew-support-${definition.key}`;
     input.type = "checkbox";
     input.checked = normalized[definition.key];
-    input.setAttribute("role", "switch");
-    const track = document.createElement("span");
-    track.className = "switch-track";
-    track.setAttribute("aria-hidden", "true");
-    track.append(document.createElement("span"));
-    row.append(copy, input, track);
+    row.append(input, copy);
     container.append(row);
   }
 }

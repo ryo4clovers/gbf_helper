@@ -6,7 +6,7 @@
     <meta name="description" content="GBF通常攻撃ダメージのローカル計算画面" />
     <title>GBF Damage Lab</title>
     <link rel="stylesheet" href="/styles.css" />
-    <script type="module" src="/app.js?v=5"></script>
+    <script type="module" src="/app.js?v=6"></script>
   </head>
   <body>
     <header class="top-app-bar">
@@ -159,13 +159,11 @@
             <label class="number-field"><span>ジョブ通常与ダメ</span><input id="job-damage" type="number" value="3" min="0" step="0.1" /><em>%</em></label>
           </div>
 
-          <div class="environment-setting-group" aria-labelledby="crew-support-heading">
-            <div class="environment-setting-heading">
-              <h3 id="crew-support-heading">騎空団サポート</h3>
-              <p>所属状況に合わせて有効・無効を設定します。効果量は固定です。</p>
-            </div>
+          <details class="advanced-settings crew-support-settings">
+            <summary>騎空団サポート</summary>
+            <p class="settings-help">所属状況に合わせて有効・無効を設定します。効果量は固定です。</p>
             <div id="crew-support-editor" class="crew-support-list"></div>
-          </div>
+          </details>
 
           <details class="advanced-settings memorial-settings">
             <summary>大事なもの</summary>
