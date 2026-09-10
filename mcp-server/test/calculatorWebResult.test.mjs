@@ -59,3 +59,26 @@ test("web server exposes every root-relative module imported by the calculator",
     assert.match(webServer, new RegExp(`^[ \\t]*["']${importedPath.replaceAll(".", "\\.")}["']:`, "mu"));
   }
 });
+
+test("separates personal environment inputs from enemy battle conditions", async () => {
+  const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
+  const section = (id) => {
+    const start = html.indexOf(`id="${id}"`);
+    const end = html.indexOf("</section>", start);
+    assert.ok(start >= 0 && end > start);
+    return html.slice(start, end);
+  };
+  const environment = section("personal-environment-panel");
+  const battle = section("battle-conditions-panel");
+
+  assert.match(environment, /<h2>個別環境ステータス<\/h2>/u);
+  for (const id of ["all-element", "element-attack", "ship", "furnace", "job-damage", "damage-dealt", "target-damage", "random-min", "random-max", "random-step"]) {
+    assert.match(environment, new RegExp(`id=["']${id}["']`));
+    assert.doesNotMatch(battle, new RegExp(`id=["']${id}["']`));
+  }
+  for (const id of ["enemy-name", "enemy-defense", "enemy-element"]) {
+    assert.match(battle, new RegExp(`id=["']${id}["']`));
+    assert.doesNotMatch(environment, new RegExp(`id=["']${id}["']`));
+  }
+  assert.ok(html.indexOf('id="personal-environment-panel"') < html.indexOf('id="battle-conditions-panel"'));
+});
