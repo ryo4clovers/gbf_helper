@@ -10,7 +10,7 @@ test("parses a user-authored calculator deck and normalizes IDs and numeric stri
     schemaVersion: 1,
     format: "gbf-helper-calculator-deck",
     name: " 手動編成 ",
-    protagonist: { elementCode: 1, jobId: 110001, attackOverride: "16255" },
+    protagonist: { rank: "375", elementCode: 1, jobId: 110001, attackOverride: "16255" },
     weapons: [
       { slot: "1", position: "main", weaponId: 1010000400, level: "1", skillLevel: 1 },
     ],
@@ -19,11 +19,26 @@ test("parses a user-authored calculator deck and normalizes IDs and numeric stri
   });
 
   assert.equal(result.name, "手動編成");
+  assert.equal(result.protagonist.rank, 375);
   assert.equal(result.protagonist.elementCode, "1");
   assert.equal(result.protagonist.jobId, "110001");
   assert.equal(result.protagonist.attackOverride, 16255);
   assert.equal(result.weapons[0].slot, 1);
   assert.equal(result.weapons[0].weaponId, "1010000400");
+});
+
+test("rejects a non-positive or fractional player rank", () => {
+  const deck = (rank: number) => ({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { rank },
+    weapons: [],
+    summons: [],
+    characters: [],
+  });
+
+  assert.throws(() => parseCalculatorDeckConfig(deck(0)));
+  assert.throws(() => parseCalculatorDeckConfig(deck(1.5)));
 });
 
 test("converts a game response without retaining instance IDs or displayed calculation results", () => {

@@ -1372,6 +1372,7 @@ function numberValue(id) {
 
 function buildRequest() {
   const deckConfig = readDeckConfig();
+  deckConfig.protagonist.rank = numberValue("player-rank");
   applyEquipmentRules(deckConfig);
   writeDeckConfig(deckConfig);
   return {
@@ -1653,6 +1654,7 @@ function applyRequestToForm(request) {
   selectedSupportSummon = request.supportSummon ?? null;
   renderWeaponEditor();
   renderSupportSummonEditor();
+  $("player-rank").value = String(request.deckConfig.protagonist.rank ?? 1);
   $("enemy-element").value = request.enemy.elementCode;
   $("enemy-defense").value = String(request.enemy.defense);
   $("enemy-name").value = request.enemy.name || "";

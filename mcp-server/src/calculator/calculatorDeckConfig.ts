@@ -27,6 +27,7 @@ const finiteNumberSchema = z
 
 const nonNegativeNumberSchema = finiteNumberSchema.pipe(z.number().nonnegative());
 const nonNegativeIntegerSchema = finiteNumberSchema.pipe(z.number().int().nonnegative());
+const positiveIntegerSchema = finiteNumberSchema.pipe(z.number().int().positive());
 const ratePercentSchema = finiteNumberSchema.pipe(z.number().min(0).max(100));
 const equipmentPlusMarkSchema = finiteNumberSchema.pipe(z.number().int().min(0).max(99));
 const positiveSlotSchema = finiteNumberSchema.pipe(z.number().int().positive());
@@ -41,6 +42,7 @@ const awakeningSchema = z
 
 const protagonistSchema = z
   .object({
+    rank: positiveIntegerSchema.optional(),
     elementCode: idSchema.optional(),
     jobId: idSchema.optional(),
     jobNameHint: nameHintSchema,

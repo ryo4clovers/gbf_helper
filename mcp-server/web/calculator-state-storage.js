@@ -26,11 +26,11 @@ const weaponKeys = [
 const summonKeys = ["slot", "position", "summonId", "nameHint", "level", "uncapLevel", "plusMark"];
 const characterKeys = ["slot", "position", "characterId", "nameHint", "level", "uncapLevel", "plusMark"];
 const personalProtagonistKeys = [
-  "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
+  "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
   "attackOverride", "hpOverride",
 ];
 const environmentProtagonistKeys = [
-  "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
+  "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
 ];
 const modifierKeys = [
   "allElementAttackPercent", "elementAttackPercent", "shipAttackPercent", "furnaceAttackPercent",
@@ -55,9 +55,13 @@ function assertEnvironment(environment) {
   if (!isRecord(environment.protagonist) || !isRecord(environment.modifiers) || !isRecord(environment.random)) {
     throw new Error("保存データの個別環境設定が正しくありません");
   }
+  const protagonist = pickFiniteNumbers(environment.protagonist, environmentProtagonistKeys, "protagonist");
+  if (protagonist.rank !== undefined && (!Number.isInteger(protagonist.rank) || protagonist.rank <= 0)) {
+    throw new Error("protagonist.rank は正の整数である必要があります");
+  }
   return {
     schemaVersion: 1,
-    protagonist: pickFiniteNumbers(environment.protagonist, environmentProtagonistKeys, "protagonist"),
+    protagonist,
     modifiers: pickFiniteNumbers(environment.modifiers, modifierKeys, "modifiers"),
     random: pickFiniteNumbers(environment.random, randomKeys, "random"),
   };

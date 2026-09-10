@@ -30,6 +30,7 @@ function request() {
       format: "gbf-helper-calculator-deck",
       name: "検証編成",
       protagonist: {
+        rank: 375,
         elementCode: "1",
         jobId: "110001",
         jobCompletionDoubleAttackRate: 7,
@@ -67,6 +68,7 @@ test("persists only formation choices including the support summon", () => {
   assert.equal(stored.format, CALCULATOR_FORMATION_FORMAT);
   assert.deepEqual(parseCalculatorFormation(serialized), formation);
   assert.equal(formation.supportSummon.summonId, "2040094000");
+  assert.equal(formation.deckConfig.protagonist.rank, undefined);
   assert.equal(formation.deckConfig.protagonist.hpOverride, undefined);
   assert.equal(formation.deckConfig.protagonist.jobCompletionDoubleAttackRate, undefined);
   assert.equal(formation.deckConfig.weapons[0].attackOverride, undefined);
@@ -85,6 +87,7 @@ test("persists personal environment separately from formation and enemy data", (
   assert.equal(CALCULATOR_ENVIRONMENT_STORAGE_KEY, "gbf-helper-calculator-environment-v1");
   assert.equal(stored.format, CALCULATOR_ENVIRONMENT_FORMAT);
   assert.deepEqual(parseCalculatorEnvironment(serialized), environment);
+  assert.equal(environment.protagonist.rank, 375);
   assert.equal(environment.protagonist.jobCompletionDoubleAttackRate, 7);
   assert.equal(environment.protagonist.masterBonusAttackPercent, 18);
   assert.equal(environment.modifiers.furnaceAttackPercent, 20);
@@ -100,6 +103,7 @@ test("merges personal environment without replacing formation, enemy, or runtime
   const current = request();
   const savedRequest = request();
   savedRequest.deckConfig.protagonist.jobCompletionDoubleAttackRate = 12;
+  savedRequest.deckConfig.protagonist.rank = 400;
   savedRequest.deckConfig.protagonist.masterBonusHpPercent = 25;
   savedRequest.deckConfig.protagonist.attackOverride = 99999;
   savedRequest.modifiers.shipAttackPercent = 30;
@@ -109,6 +113,7 @@ test("merges personal environment without replacing formation, enemy, or runtime
   const merged = mergeCalculatorEnvironment(current, createCalculatorEnvironment(savedRequest));
 
   assert.equal(merged.deckConfig.protagonist.jobCompletionDoubleAttackRate, 12);
+  assert.equal(merged.deckConfig.protagonist.rank, 400);
   assert.equal(merged.deckConfig.protagonist.masterBonusHpPercent, 25);
   assert.equal(merged.deckConfig.protagonist.attackOverride, 22801);
   assert.equal(merged.deckConfig.weapons[0].weaponId, "1040201400");
@@ -127,6 +132,7 @@ test("merges a formation without replacing current personal or battle settings",
   const merged = mergeCalculatorFormation(current, createCalculatorFormation(savedRequest));
 
   assert.equal(merged.deckConfig.name, "保存側");
+  assert.equal(merged.deckConfig.protagonist.rank, 375);
   assert.equal(merged.deckConfig.protagonist.hpOverride, 4630);
   assert.equal(merged.deckConfig.protagonist.masterBonusHpPercent, 20);
   assert.equal(merged.deckConfig.weapons[0].attackOverride, 2170);
@@ -180,6 +186,10 @@ test("rejects malformed formation storage and profiles", () => {
       random: {},
     }),
     /有限の数値/,
+  );
+  assert.throws(
+    () => serializeCalculatorEnvironment({ schemaVersion: 1, protagonist: { rank: 0 }, modifiers: {}, random: {} }),
+    /正の整数/,
   );
   assert.throws(() => serializeCalculatorProfiles([{ ...valid, name: " " }]), /保存名/);
   assert.throws(() => serializeCalculatorProfiles([{ ...valid, updatedAt: "invalid" }]), /更新日時/);

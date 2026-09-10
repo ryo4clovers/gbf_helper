@@ -72,7 +72,7 @@ test("separates personal environment inputs from enemy battle conditions", async
   const battle = section("battle-conditions-panel");
 
   assert.match(environment, /<h2>個別環境ステータス<\/h2>/u);
-  for (const id of ["all-element", "element-attack", "ship", "furnace", "job-damage", "damage-dealt", "target-damage", "random-min", "random-max", "random-step"]) {
+  for (const id of ["player-rank", "all-element", "element-attack", "ship", "furnace", "job-damage", "damage-dealt", "target-damage", "random-min", "random-max", "random-step"]) {
     assert.match(environment, new RegExp(`id=["']${id}["']`));
     assert.doesNotMatch(battle, new RegExp(`id=["']${id}["']`));
   }

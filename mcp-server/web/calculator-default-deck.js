@@ -4,6 +4,7 @@ export const DEFAULT_CALCULATOR_DECK = {
   format: "gbf-helper-calculator-deck",
   name: "デフォルト編成",
   protagonist: {
+    rank: 1,
     elementCode: "1",
     jobId: "110001",
     jobNameHint: "ナイト",

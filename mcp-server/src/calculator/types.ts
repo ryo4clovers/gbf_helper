@@ -398,6 +398,7 @@ export interface DeckSnapshot {
 }
 
 export interface CalculatorDeckProtagonistConfig {
+  rank?: number;
   elementCode?: string;
   jobId?: string;
   jobNameHint?: string;
