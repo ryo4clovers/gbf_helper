@@ -18,7 +18,17 @@ function setup() {
     enemyMaxHp: 100_000,
     request: {
       deckConfig: {
-        protagonist: { elementCode: "1", jobNameHint: "ナイト", hpOverride: 4_877 },
+        protagonist: {
+          elementCode: "1",
+          jobNameHint: "ナイト",
+          hpOverride: 4_877,
+          crewSupport: {
+            airshipEnabled: true,
+            rainbowFurnaceEnabled: true,
+            copperGongEnabled: true,
+            potionMakerEnabled: true,
+          },
+        },
         characters: [
           { slot: 1, position: "front", characterId: "a", nameHint: "アニラ", hpOverride: 3_000 },
           { slot: 4, position: "back", characterId: "b", nameHint: "サブ", hpOverride: 2_000 },
@@ -37,6 +47,8 @@ test("battle starts at turn 1 with the front party and support summon", () => {
   assert.equal(state.turn, 1);
   assert.equal(state.enemy.hp, 100_000);
   assert.deepEqual(state.party.map((member) => member.name), ["ナイト", "アニラ"]);
+  assert.deepEqual(state.party.map((member) => member.charge), [30, 30]);
+  assert.equal(state.items.curePotion, 2);
   assert.deepEqual(state.summons.map((summon) => summon.id), ["deck:main:1", "support"]);
 });
 
@@ -50,7 +62,7 @@ test("normal attack advances a turn and records body and pursuit packets", () =>
   assert.equal(initial.turn, 1);
   assert.equal(state.turn, 2);
   assert.equal(state.enemy.hp, 88_000);
-  assert.equal(state.party[0].charge, 10);
+  assert.equal(state.party[0].charge, 40);
   assert.deepEqual(state.events.map((event) => event.amount), [2_000, 10_000]);
 });
 
@@ -66,6 +78,29 @@ test("items target the selected member and elixir restores the whole party", () 
   assert.equal(cured.party[1].hp, 2_000);
   assert.deepEqual(restored.party.map((member) => member.hp), [4_877, 3_000]);
   assert.deepEqual(restored.party.map((member) => member.charge), [100, 100]);
+});
+
+test("potion maker grants two cure potions and item use consumes them", () => {
+  const initial = createInitialBattleState(setup());
+  initial.party[0].hp = 1;
+  const item = { name: "キュア", scope: "single", healPercent: 10, inventoryKey: "curePotion" };
+  const first = applyItem(initial, item);
+  const second = applyItem(first, item);
+  const rejected = applyItem(second, item);
+
+  assert.equal(first.items.curePotion, 1);
+  assert.equal(second.items.curePotion, 0);
+  assert.equal(rejected, second);
+});
+
+test("disabled gong and potion maker start without their battle bonuses", () => {
+  const disabled = setup();
+  disabled.request.deckConfig.protagonist.crewSupport.copperGongEnabled = false;
+  disabled.request.deckConfig.protagonist.crewSupport.potionMakerEnabled = false;
+  const state = createInitialBattleState(disabled);
+
+  assert.deepEqual(state.party.map((member) => member.charge), [0, 0]);
+  assert.equal(state.items.curePotion, 0);
 });
 
 test("a summon can only be committed once", () => {

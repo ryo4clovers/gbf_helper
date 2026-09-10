@@ -16,7 +16,7 @@ import {
   serializeCalculatorFormation,
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
-} from "/calculator-state-storage.js";
+} from "/calculator-state-storage.js?v=2";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
 import { calculateEquipmentLevelStats } from "/equipment-level-stats.js";
 import { createEquipmentLevelOptions } from "/equipment-level-options.js";
@@ -30,6 +30,12 @@ import {
   defaultMemorialItemSettings,
   describeMemorialItemEffect,
 } from "/memorial-item-config.js";
+import {
+  CREW_SUPPORT_DEFINITIONS,
+  calculateCrewSupportEffects,
+  defaultCrewSupportSettings,
+  normalizeCrewSupportSettings,
+} from "/crew-support-config.js";
 
 const $ = (id) => document.getElementById(id);
 const form = $("calculator-form");
@@ -75,6 +81,41 @@ let savedProfiles = [];
 let selectedProfileId = "";
 
 deckField.value = JSON.stringify(DEFAULT_CALCULATOR_DECK, null, 2);
+
+function renderCrewSupportEditor(settings) {
+  const normalized = normalizeCrewSupportSettings(settings);
+  const container = $("crew-support-editor");
+  container.replaceChildren();
+  for (const definition of CREW_SUPPORT_DEFINITIONS) {
+    const row = document.createElement("label");
+    row.className = "crew-support-row";
+    const copy = document.createElement("span");
+    copy.className = "crew-support-copy";
+    const name = document.createElement("strong");
+    name.textContent = definition.name;
+    const effect = document.createElement("small");
+    effect.textContent = definition.effect;
+    copy.append(name, effect);
+    const input = document.createElement("input");
+    input.id = `crew-support-${definition.key}`;
+    input.type = "checkbox";
+    input.checked = normalized[definition.key];
+    input.setAttribute("role", "switch");
+    const track = document.createElement("span");
+    track.className = "switch-track";
+    track.setAttribute("aria-hidden", "true");
+    track.append(document.createElement("span"));
+    row.append(copy, input, track);
+    container.append(row);
+  }
+}
+
+function readCrewSupportSettings() {
+  return Object.fromEntries(CREW_SUPPORT_DEFINITIONS.map((definition) => [
+    definition.key,
+    $(`crew-support-${definition.key}`)?.checked ?? true,
+  ]));
+}
 
 function readDeckConfig() {
   return JSON.parse(deckField.value);
@@ -1481,6 +1522,7 @@ function buildRequest() {
   deckConfig.protagonist.rank = numberValue("player-rank");
   rebaseProtagonistForRankChange(deckConfig, previousRank);
   deckConfig.protagonist.memorialItems = readMemorialItemSettings();
+  deckConfig.protagonist.crewSupport = readCrewSupportSettings();
   applyEquipmentRules(deckConfig);
   writeDeckConfig(deckConfig);
   const memorialModifiers = calculateMemorialItemModifiers(
@@ -1488,6 +1530,7 @@ function buildRequest() {
     deckConfig.protagonist.elementCode,
     $("enemy-element").value,
   );
+  const crewSupportEffects = calculateCrewSupportEffects(deckConfig.protagonist.crewSupport);
   return {
     schemaVersion: 1,
     deckConfig,
@@ -1499,8 +1542,8 @@ function buildRequest() {
     },
     modifiers: {
       ...memorialModifiers,
-      shipAttackPercent: numberValue("ship"),
-      furnaceAttackPercent: numberValue("furnace"),
+      shipAttackPercent: crewSupportEffects.shipAttackPercent,
+      furnaceAttackPercent: crewSupportEffects.furnaceAttackPercent,
       jobNormalAttackDamagePercent: numberValue("job-damage"),
     },
     random: {
@@ -1781,13 +1824,12 @@ function applyRequestToForm(request) {
   renderWeaponEditor();
   renderSupportSummonEditor();
   renderMemorialItemEditor(request.deckConfig.protagonist.memorialItems);
+  renderCrewSupportEditor(request.deckConfig.protagonist.crewSupport ?? defaultCrewSupportSettings());
   $("player-rank").value = String(request.deckConfig.protagonist.rank ?? 1);
   $("enemy-element").value = request.enemy.elementCode;
   $("enemy-defense").value = String(request.enemy.defense);
   $("enemy-name").value = request.enemy.name || "";
   const modifierFields = {
-    shipAttackPercent: "ship",
-    furnaceAttackPercent: "furnace",
     jobNormalAttackDamagePercent: "job-damage",
   };
   for (const [property, fieldId] of Object.entries(modifierFields)) {
@@ -2044,6 +2086,7 @@ $("summon-picker").addEventListener("click", (event) => {
 
 async function initialize() {
   for (const key of LEGACY_CALCULATOR_STORAGE_KEYS) localStorage.removeItem(key);
+  renderCrewSupportEditor(readDeckConfig().protagonist.crewSupport);
   renderMemorialItemEditor(readDeckConfig().protagonist.memorialItems);
   try {
     const [jobResponse, characterResponse, weaponResponse, fallbackWeaponResponse, summonResponse] = await Promise.all([

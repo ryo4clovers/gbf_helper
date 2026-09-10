@@ -216,6 +216,23 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .field-grid { display: grid; gap: 14px; }
 .three-columns { grid-template-columns: repeat(3, 1fr); }
 .modifier-grid { grid-template-columns: repeat(4, 1fr); }
+.environment-setting-group { margin-top: 18px; border: 1px solid var(--outline-soft); border-radius: 18px; overflow: hidden; background: var(--surface); }
+.environment-setting-heading { padding: 12px 14px; background: var(--surface-container); }
+.environment-setting-heading h3 { margin: 0; color: var(--primary); font-size: .88rem; }
+.environment-setting-heading p { margin: 4px 0 0; color: var(--ink-soft); font-size: .7rem; line-height: 1.45; }
+.crew-support-list { display: grid; grid-template-columns: 1fr 1fr; }
+.crew-support-row { min-width: 0; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-top: 1px solid var(--outline-soft); cursor: pointer; }
+.crew-support-row:nth-child(odd) { border-right: 1px solid var(--outline-soft); }
+.crew-support-row:has(input:not(:checked)) { opacity: .58; }
+.crew-support-copy { min-width: 0; flex: 1; }
+.crew-support-copy strong, .crew-support-copy small { display: block; }
+.crew-support-copy strong { color: var(--ink); font-size: .8rem; }
+.crew-support-copy small { margin-top: 3px; color: var(--ink-soft); font-size: .69rem; line-height: 1.4; }
+.crew-support-row input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.crew-support-row .switch-track { flex: 0 0 auto; }
+.crew-support-row input:checked + .switch-track { background: var(--primary); }
+.crew-support-row input:checked + .switch-track span { transform: translateX(22px); }
+.crew-support-row input:focus-visible + .switch-track { outline: 3px solid rgba(91,67,214,.25); }
 .field-grid label { position: relative; }
 input, select { width: 100%; min-height: 52px; border: 1px solid var(--outline-soft); border-radius: 16px; padding: 14px 15px; color: var(--ink); background: var(--surface); outline: 0; }
 .number-field input { padding-right: 38px; }
@@ -349,6 +366,8 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
 }
 @media (max-width: 420px) {
   .three-columns, .modifier-grid, .metric-grid { grid-template-columns: 1fr; }
+  .crew-support-list { grid-template-columns: 1fr; }
+  .crew-support-row:nth-child(odd) { border-right: 0; }
   .job-level-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .summon-grid, .sub-summon-grid { grid-template-columns: 1fr; }
   .character-grid, .back-character-grid { grid-template-columns: 1fr; }

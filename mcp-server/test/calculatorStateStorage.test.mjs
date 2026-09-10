@@ -43,6 +43,12 @@ function request() {
           includeExtinctionCrestInLocalResults: true,
           items: { "1001": { enabled: true, level: 10 }, "9015": { enabled: true, amountPercent: 3.6 } },
         },
+        crewSupport: {
+          airshipEnabled: true,
+          rainbowFurnaceEnabled: false,
+          copperGongEnabled: true,
+          potionMakerEnabled: false,
+        },
       },
       weapons: [{ slot: 1, position: "main", weaponId: "1040201400", level: 150, attackOverride: 2170, hpOverride: 241 }],
       summons: [{ slot: 1, position: "main", summonId: "2040185000", level: 150, attackOverride: 2500, hpOverride: 900 }],
@@ -75,6 +81,7 @@ test("persists only formation choices including the support summon", () => {
   assert.equal(formation.deckConfig.protagonist.rank, undefined);
   assert.equal(formation.deckConfig.protagonist.hpOverride, undefined);
   assert.equal(formation.deckConfig.protagonist.jobCompletionDoubleAttackRate, undefined);
+  assert.equal(formation.deckConfig.protagonist.crewSupport, undefined);
   assert.equal(formation.deckConfig.weapons[0].attackOverride, undefined);
   assert.equal(formation.deckConfig.summons[0].hpOverride, undefined);
   assert.equal(formation.deckConfig.characters[0].attackOverride, undefined);
@@ -95,6 +102,7 @@ test("persists personal environment separately from formation and enemy data", (
   assert.equal(environment.protagonist.jobCompletionDoubleAttackRate, 7);
   assert.equal(environment.protagonist.masterBonusAttackPercent, 18);
   assert.equal(environment.memorialItems.items["1001"].level, 10);
+  assert.equal(environment.crewSupport.rainbowFurnaceEnabled, false);
   assert.equal(environment.modifiers.furnaceAttackPercent, 20);
   assert.equal(environment.random.step, 0.001);
   assert.equal(environment.protagonist.attackOverride, undefined);
@@ -121,6 +129,7 @@ test("merges personal environment without replacing formation, enemy, or runtime
   assert.equal(merged.deckConfig.protagonist.rank, 400);
   assert.equal(merged.deckConfig.protagonist.masterBonusHpPercent, 25);
   assert.equal(merged.deckConfig.protagonist.memorialItems.items["9015"].amountPercent, 3.6);
+  assert.equal(merged.deckConfig.protagonist.crewSupport.potionMakerEnabled, false);
   assert.equal(merged.deckConfig.protagonist.attackOverride, 22801);
   assert.equal(merged.deckConfig.weapons[0].weaponId, "1040201400");
   assert.equal(merged.supportSummon.summonId, "2040094000");
@@ -141,6 +150,7 @@ test("merges a formation without replacing current personal or battle settings",
   assert.equal(merged.deckConfig.protagonist.rank, 375);
   assert.equal(merged.deckConfig.protagonist.hpOverride, 4630);
   assert.equal(merged.deckConfig.protagonist.masterBonusHpPercent, 20);
+  assert.equal(merged.deckConfig.protagonist.crewSupport.copperGongEnabled, true);
   assert.equal(merged.deckConfig.weapons[0].attackOverride, 2170);
   assert.equal(merged.enemy.defense, 10);
   assert.equal(merged.modifiers.shipAttackPercent, 10);

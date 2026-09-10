@@ -419,6 +419,12 @@ export interface CalculatorDeckProtagonistConfig {
     includeExtinctionCrestInLocalResults: boolean;
     items: Record<string, { enabled: boolean; level?: number; amountPercent?: number }>;
   };
+  crewSupport?: {
+    airshipEnabled: boolean;
+    rainbowFurnaceEnabled: boolean;
+    copperGongEnabled: boolean;
+    potionMakerEnabled: boolean;
+  };
 }
 
 export interface CalculatorDeckWeaponConfig {

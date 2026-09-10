@@ -1,3 +1,5 @@
+import { calculateCrewSupportEffects } from "./crew-support-config.js";
+
 export const BATTLE_SETUP_STORAGE_KEY = "gbf-helper-battle-setup-v1";
 export const SIMULATION_MODES = Object.freeze({
   normal: "normal",
@@ -51,7 +53,7 @@ export function resolveAttackCount(mode, doubleAttackRatePercent, tripleAttackRa
   return 1;
 }
 
-function combatantFromDeck(entry, fallbackName, fallbackElement) {
+function combatantFromDeck(entry, fallbackName, fallbackElement, initialCharge = 0) {
   const maxHp = Math.max(1, Math.floor(entry.hpOverride ?? 1));
   return {
     id: entry.characterId ?? "protagonist",
@@ -59,7 +61,7 @@ function combatantFromDeck(entry, fallbackName, fallbackElement) {
     elementCode: entry.elementCode ?? fallbackElement,
     hp: maxHp,
     maxHp,
-    charge: 0,
+    charge: initialCharge,
     buffs: [],
     debuffs: [],
   };
@@ -67,15 +69,22 @@ function combatantFromDeck(entry, fallbackName, fallbackElement) {
 
 export function createInitialBattleState(setup) {
   const deck = setup.request.deckConfig;
+  const crewSupportEffects = calculateCrewSupportEffects(deck.protagonist.crewSupport);
   const protagonist = combatantFromDeck(
     deck.protagonist,
     deck.protagonist.jobNameHint ?? "主人公",
     deck.protagonist.elementCode,
+    crewSupportEffects.battleStartChargeGaugePercent,
   );
   const characters = deck.characters
     .filter((character) => character.position === "front")
     .sort((left, right) => left.slot - right.slot)
-    .map((character) => combatantFromDeck(character, `キャラクター${character.slot}`, deck.protagonist.elementCode));
+    .map((character) => combatantFromDeck(
+      character,
+      `キャラクター${character.slot}`,
+      deck.protagonist.elementCode,
+      crewSupportEffects.battleStartChargeGaugePercent,
+    ));
   const enemyMaxHp = Math.max(1, Math.floor(setup.enemyMaxHp ?? 1_000_000));
   const summons = [
     ...deck.summons
@@ -99,6 +108,7 @@ export function createInitialBattleState(setup) {
       debuffs: [],
     },
     party: [protagonist, ...characters],
+    items: { curePotion: crewSupportEffects.curePotionCount },
     summons,
     events: [],
     nextEventId: 1,
@@ -131,7 +141,9 @@ export function applyAttack(state, packets, options = {}) {
 }
 
 export function applyItem(state, item) {
+  if (item.inventoryKey && (state.items?.[item.inventoryKey] ?? 0) <= 0) return state;
   const next = copy(state);
+  if (item.inventoryKey) next.items[item.inventoryKey] -= 1;
   const targets = item.scope === "all"
     ? next.party
     : [next.party.find((member) => member.id === next.selectedPartyId) ?? next.party[0]];

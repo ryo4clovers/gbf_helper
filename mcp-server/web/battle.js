@@ -11,7 +11,7 @@ import {
   resolveCritical,
   resolveDamageMultiplier,
   selectPartyMember,
-} from "/battle-state.js";
+} from "/battle-state.js?v=2";
 
 const $ = (id) => document.getElementById(id);
 const numberFormat = new Intl.NumberFormat("ja-JP", { maximumFractionDigits: 0 });
@@ -24,7 +24,7 @@ const elementMeta = {
   "6": { name: "闇", color: "#6b43a9" },
 };
 const itemDefinitions = {
-  cure: { name: "キュアポーション", scope: "single", healPercent: 50, note: "選択中の味方を最大HPの50%回復（暫定）" },
+  cure: { name: "キュアポーション", scope: "single", healPercent: 50, inventoryKey: "curePotion", note: "選択中の味方を最大HPの50%回復（暫定）" },
   all: { name: "オールポーション", scope: "all", healPercent: 35, note: "味方全体を最大HPの35%回復（暫定）" },
   elixir: { name: "エリクシール", scope: "all", healPercent: 100, fullHeal: true, fullCharge: true, note: "味方全体を全回復し奥義ゲージを100%にする（暫定）" },
 };
@@ -311,6 +311,15 @@ function render() {
   renderParty();
   renderSummons();
   renderLog();
+  for (const button of document.querySelectorAll("[data-item]")) {
+    const item = itemDefinitions[button.dataset.item];
+    if (!item.inventoryKey) continue;
+    const count = state.items?.[item.inventoryKey] ?? 0;
+    button.disabled = count <= 0;
+    button.querySelector("small").textContent = count > 0
+      ? `残り${count}個・選択中の味方を50%回復`
+      : "所持していません（ポーションメーカーで追加）";
+  }
 }
 
 async function attack(ougiEnabled) {

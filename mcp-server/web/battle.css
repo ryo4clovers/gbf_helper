@@ -83,6 +83,7 @@
 .item-button.cure > span { color: #07835d; }
 .item-button.all > span { color: #2966bd; }
 .item-button.elixir > span { color: var(--tertiary); }
+.item-button:disabled { cursor: not-allowed; opacity: .48; }
 .battle-log { max-height: 620px; min-height: 220px; overflow: auto; display: grid; gap: 8px; align-content: start; }
 .log-empty { padding: 42px 18px; border-radius: 20px; color: var(--ink-soft); background: var(--surface-container); text-align: center; font-size: .82rem; }
 .log-entry { padding: 11px 12px; border-left: 5px solid var(--outline-soft); border-radius: 8px 17px 17px 8px; background: var(--surface); }

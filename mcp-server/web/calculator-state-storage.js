@@ -27,7 +27,7 @@ const summonKeys = ["slot", "position", "summonId", "nameHint", "level", "uncapL
 const characterKeys = ["slot", "position", "characterId", "nameHint", "level", "uncapLevel", "plusMark"];
 const personalProtagonistKeys = [
   "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
-  "attackOverride", "hpOverride", "memorialItems",
+  "attackOverride", "hpOverride", "memorialItems", "crewSupport",
 ];
 const environmentProtagonistKeys = [
   "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
@@ -72,6 +72,21 @@ function sanitizeMemorialItems(value) {
   };
 }
 
+const crewSupportKeys = ["airshipEnabled", "rainbowFurnaceEnabled", "copperGongEnabled", "potionMakerEnabled"];
+
+function sanitizeCrewSupport(value) {
+  if (value === undefined) return undefined;
+  if (!isRecord(value)) throw new Error("騎空団サポート設定が正しくありません");
+  const sanitized = {};
+  for (const key of crewSupportKeys) {
+    if (value[key] !== undefined && typeof value[key] !== "boolean") {
+      throw new Error(`騎空団サポート.${key} は真偽値である必要があります`);
+    }
+    sanitized[key] = value[key] ?? true;
+  }
+  return sanitized;
+}
+
 function assertEnvironment(environment) {
   if (!isRecord(environment) || environment.schemaVersion !== 1) {
     throw new Error("保存データの個別環境形式が正しくありません");
@@ -87,6 +102,7 @@ function assertEnvironment(environment) {
     schemaVersion: 1,
     protagonist,
     ...(environment.memorialItems === undefined ? {} : { memorialItems: sanitizeMemorialItems(environment.memorialItems) }),
+    ...(environment.crewSupport === undefined ? {} : { crewSupport: sanitizeCrewSupport(environment.crewSupport) }),
     modifiers: pickFiniteNumbers(environment.modifiers, modifierKeys, "modifiers"),
     random: pickFiniteNumbers(environment.random, randomKeys, "random"),
   };
@@ -167,6 +183,7 @@ export function createCalculatorEnvironment(request) {
     schemaVersion: 1,
     protagonist: pick(request.deckConfig.protagonist, environmentProtagonistKeys),
     memorialItems: request.deckConfig.protagonist.memorialItems,
+    crewSupport: request.deckConfig.protagonist.crewSupport,
     modifiers: pick(request.modifiers, modifierKeys),
     random: pick(request.random, randomKeys),
   });
@@ -183,6 +200,7 @@ export function mergeCalculatorEnvironment(currentRequest, environment) {
         ...currentRequest.deckConfig.protagonist,
         ...saved.protagonist,
         ...(saved.memorialItems === undefined ? {} : { memorialItems: saved.memorialItems }),
+        ...(saved.crewSupport === undefined ? {} : { crewSupport: saved.crewSupport }),
       },
     },
     modifiers: { ...currentRequest.modifiers, ...saved.modifiers },

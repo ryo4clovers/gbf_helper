@@ -51,6 +51,15 @@ const memorialItemSettingsSchema = z
   })
   .strict();
 
+const crewSupportSettingsSchema = z
+  .object({
+    airshipEnabled: z.boolean(),
+    rainbowFurnaceEnabled: z.boolean(),
+    copperGongEnabled: z.boolean(),
+    potionMakerEnabled: z.boolean(),
+  })
+  .strict();
+
 const protagonistSchema = z
   .object({
     rank: playerRankSchema.optional(),
@@ -69,6 +78,7 @@ const protagonistSchema = z
     attackOverride: nonNegativeNumberSchema.optional(),
     hpOverride: nonNegativeNumberSchema.optional(),
     memorialItems: memorialItemSettingsSchema.optional(),
+    crewSupport: crewSupportSettingsSchema.optional(),
   })
   .strict();
 
