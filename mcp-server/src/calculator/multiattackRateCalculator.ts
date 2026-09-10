@@ -7,6 +7,7 @@ export interface MultiattackRateContribution {
     | "master-level"
     | "perfection-proof"
     | "job-completion"
+    | "memorial-item"
     | "weapon-skill";
   sourceName: string;
   doubleAttackRatePercent: number;
@@ -17,7 +18,7 @@ export interface MultiattackRateContribution {
 export interface ProtagonistMultiattackRateResult {
   schemaVersion: 1;
   status: "provisional";
-  scope: "job-and-weapon-skills";
+  scope: "job-weapon-and-account-items";
   doubleAttackRatePercent: number;
   tripleAttackRatePercent: number;
   weaponSkillDoubleAttackRatePercent: number;
@@ -99,6 +100,18 @@ export function calculateProtagonistMultiattackRates(
     weaponEffects.set(key, contribution);
   }
   contributions.push(...weaponEffects.values());
+  if (
+    deck.protagonist.memorialDoubleAttackRatePercent !== undefined ||
+    deck.protagonist.memorialTripleAttackRatePercent !== undefined
+  ) {
+    contributions.push({
+      sourceType: "memorial-item",
+      sourceName: "神滅の印章（大事なもの）",
+      doubleAttackRatePercent: deck.protagonist.memorialDoubleAttackRatePercent ?? 0,
+      tripleAttackRatePercent: deck.protagonist.memorialTripleAttackRatePercent ?? 0,
+      verificationStatus: "下書き",
+    });
+  }
   const nonWeaponContributions = contributions.filter((contribution) => contribution.sourceType !== "weapon-skill");
   const weaponContributions = contributions.filter((contribution) => contribution.sourceType === "weapon-skill");
   const uncappedWeaponSkillDoubleAttackRatePercent = roundPercentage(
@@ -122,7 +135,7 @@ export function calculateProtagonistMultiattackRates(
   return {
     schemaVersion: 1,
     status: "provisional",
-    scope: "job-and-weapon-skills",
+    scope: "job-weapon-and-account-items",
     // The game truncates the final summed DA/TA values before displaying and rolling them.
     doubleAttackRatePercent: Math.floor(cappedDoubleAttackRatePercent),
     tripleAttackRatePercent: Math.floor(cappedTripleAttackRatePercent),

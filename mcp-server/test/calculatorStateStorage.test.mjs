@@ -39,6 +39,10 @@ function request() {
         masterBonusHpPercent: 20,
         attackOverride: 22801,
         hpOverride: 4630,
+        memorialItems: {
+          includeExtinctionCrestInLocalResults: true,
+          items: { "1001": { enabled: true, level: 10 }, "9015": { enabled: true, amountPercent: 3.6 } },
+        },
       },
       weapons: [{ slot: 1, position: "main", weaponId: "1040201400", level: 150, attackOverride: 2170, hpOverride: 241 }],
       summons: [{ slot: 1, position: "main", summonId: "2040185000", level: 150, attackOverride: 2500, hpOverride: 900 }],
@@ -90,6 +94,7 @@ test("persists personal environment separately from formation and enemy data", (
   assert.equal(environment.protagonist.rank, 375);
   assert.equal(environment.protagonist.jobCompletionDoubleAttackRate, 7);
   assert.equal(environment.protagonist.masterBonusAttackPercent, 18);
+  assert.equal(environment.memorialItems.items["1001"].level, 10);
   assert.equal(environment.modifiers.furnaceAttackPercent, 20);
   assert.equal(environment.random.step, 0.001);
   assert.equal(environment.protagonist.attackOverride, undefined);
@@ -115,6 +120,7 @@ test("merges personal environment without replacing formation, enemy, or runtime
   assert.equal(merged.deckConfig.protagonist.jobCompletionDoubleAttackRate, 12);
   assert.equal(merged.deckConfig.protagonist.rank, 400);
   assert.equal(merged.deckConfig.protagonist.masterBonusHpPercent, 25);
+  assert.equal(merged.deckConfig.protagonist.memorialItems.items["9015"].amountPercent, 3.6);
   assert.equal(merged.deckConfig.protagonist.attackOverride, 22801);
   assert.equal(merged.deckConfig.weapons[0].weaponId, "1040201400");
   assert.equal(merged.supportSummon.summonId, "2040094000");

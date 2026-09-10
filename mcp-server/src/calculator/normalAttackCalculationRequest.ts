@@ -45,6 +45,11 @@ const requestSchema = z
         jobNormalAttackDamagePercent: optionalPercent,
         damageDealtPercent: optionalPercent,
         targetElementDamagePercent: optionalPercent,
+        damageCapPercent: optionalPercent,
+        normalAttackDamageCapPercent: optionalPercent,
+        extinctionCrestDoubleAttackRatePercent: optionalPercent,
+        extinctionCrestTripleAttackRatePercent: optionalPercent,
+        chainBurstPerformancePercent: optionalPercent,
       })
       .strict()
       .default({}),
@@ -155,6 +160,14 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
       protagonistElementCode,
       request.enemy.elementCode,
     ),
+    ...modifier("damage-cap", request.modifiers.damageCapPercent, "memorial-item-9014", "オプリメル・フラゴル"),
+    ...modifier(
+      "normal-attack-damage-cap",
+      request.modifiers.normalAttackDamageCapPercent,
+      "memorial-item-four-saints",
+      "四聖の玲瓏佩・龍心",
+      protagonistElementCode,
+    ),
   ];
   const accountBonuses: AccountBonusSnapshot | undefined =
     accountModifiers.length === 0
@@ -177,6 +190,11 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
       ),
     );
   }
+
+  resolution.deck.protagonist.memorialDoubleAttackRatePercent =
+    request.modifiers.extinctionCrestDoubleAttackRatePercent;
+  resolution.deck.protagonist.memorialTripleAttackRatePercent =
+    request.modifiers.extinctionCrestTripleAttackRatePercent;
 
   const calculationInput: DamageCalculationInput = {
     schemaVersion: 1,

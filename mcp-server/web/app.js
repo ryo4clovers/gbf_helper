@@ -24,6 +24,11 @@ import {
   rebaseProtagonistForRankChange,
   rebaseProtagonistForSummonChange,
 } from "/summon-stat-contribution.js";
+import {
+  MEMORIAL_ITEM_DEFINITIONS,
+  calculateMemorialItemModifiers,
+  defaultMemorialItemSettings,
+} from "/memorial-item-config.js";
 
 const $ = (id) => document.getElementById(id);
 const form = $("calculator-form");
@@ -1373,13 +1378,133 @@ function numberValue(id) {
   return Number.isFinite(value) ? value : 0;
 }
 
+function readMemorialItemSettings() {
+  const defaults = defaultMemorialItemSettings();
+  return {
+    includeExtinctionCrestInLocalResults: $("include-extinction-crest-local")?.checked ?? true,
+    items: Object.fromEntries(MEMORIAL_ITEM_DEFINITIONS.map((definition) => {
+      const enabled = $(`memorial-enabled-${definition.id}`)?.checked ?? true;
+      const levelField = $(`memorial-level-${definition.id}`);
+      const amountField = $(`memorial-amount-${definition.id}`);
+      return [definition.id, {
+        enabled,
+        ...(levelField === null ? {} : { level: Number(levelField.value) }),
+        ...(amountField === null ? {} : { amountPercent: Number(amountField.value) }),
+      }];
+    })),
+    ...($("memorial-item-editor") === null ? defaults : {}),
+  };
+}
+
+function renderMemorialItemEditor(savedSettings) {
+  const container = $("memorial-item-editor");
+  if (container === null) return;
+  const settings = savedSettings ?? defaultMemorialItemSettings();
+  container.replaceChildren();
+
+  const localSwitch = document.createElement("label");
+  localSwitch.className = "critical-switch memorial-global-switch";
+  const localCheckbox = document.createElement("input");
+  localCheckbox.id = "include-extinction-crest-local";
+  localCheckbox.type = "checkbox";
+  localCheckbox.checked = settings.includeExtinctionCrestInLocalResults ?? true;
+  const track = document.createElement("span");
+  track.className = "switch-track";
+  track.append(document.createElement("span"));
+  const copy = document.createElement("span");
+  copy.className = "switch-copy";
+  const title = document.createElement("strong");
+  title.textContent = "神滅の印章をローカル結果に含める";
+  const note = document.createElement("small");
+  note.textContent = "本家ダメージ予測には常に含めません。古戦場除外は敵種別の追加時に判定します。";
+  copy.append(title, note);
+  localSwitch.append(localCheckbox, track, copy);
+  container.append(localSwitch);
+
+  for (const groupName of [...new Set(MEMORIAL_ITEM_DEFINITIONS.map((item) => item.group))]) {
+    const group = document.createElement("section");
+    group.className = "memorial-group";
+    const heading = document.createElement("h3");
+    heading.textContent = groupName;
+    group.append(heading);
+    for (const definition of MEMORIAL_ITEM_DEFINITIONS.filter((item) => item.group === groupName)) {
+      const state = settings.items?.[definition.id] ?? {};
+      const row = document.createElement("div");
+      row.className = "memorial-item-row";
+      const nameLabel = document.createElement("label");
+      nameLabel.className = "memorial-name";
+      const checkbox = document.createElement("input");
+      checkbox.id = `memorial-enabled-${definition.id}`;
+      checkbox.type = "checkbox";
+      checkbox.checked = state.enabled ?? true;
+      const name = document.createElement("span");
+      name.textContent = definition.name;
+      if (definition.kind === "character-deferred") {
+        const deferred = document.createElement("small");
+        deferred.className = "memorial-note";
+        deferred.textContent = "設定のみ保存（キャラクター検証後に計算接続）";
+        name.append(deferred);
+      }
+      nameLabel.append(checkbox, name);
+      const controls = document.createElement("div");
+      controls.className = "memorial-controls";
+      if (definition.defaultLevel !== undefined) {
+        const levelLabel = document.createElement("label");
+        levelLabel.className = "number-field";
+        const levelText = document.createElement("span");
+        levelText.textContent = "Lv";
+        const level = document.createElement("input");
+        level.id = `memorial-level-${definition.id}`;
+        level.type = "number";
+        level.min = "0";
+        level.max = String(definition.maxLevel);
+        level.step = "1";
+        level.value = String(state.level ?? definition.defaultLevel);
+        levelLabel.append(levelText, level);
+        controls.append(levelLabel);
+      }
+      if (definition.kind === "damage-dealt") {
+        const amountLabel = document.createElement("label");
+        amountLabel.className = "number-field";
+        const amountText = document.createElement("span");
+        amountText.textContent = "効果量";
+        const amount = document.createElement("input");
+        amount.id = `memorial-amount-${definition.id}`;
+        amount.type = "number";
+        amount.min = "0";
+        amount.max = String(definition.maxAmountPercent);
+        amount.step = "0.1";
+        amount.value = String(state.amountPercent ?? definition.defaultAmountPercent);
+        const unit = document.createElement("em");
+        unit.textContent = "%";
+        amountLabel.append(amountText, amount, unit);
+        controls.append(amountLabel);
+      } else if (definition.amountPercent !== undefined) {
+        const amount = document.createElement("small");
+        amount.className = "memorial-note";
+        amount.textContent = `${definition.amountPercent}%`;
+        controls.append(amount);
+      }
+      row.append(nameLabel, controls);
+      group.append(row);
+    }
+    container.append(group);
+  }
+}
+
 function buildRequest() {
   const deckConfig = readDeckConfig();
   const previousRank = deckConfig.protagonist.rank;
   deckConfig.protagonist.rank = numberValue("player-rank");
   rebaseProtagonistForRankChange(deckConfig, previousRank);
+  deckConfig.protagonist.memorialItems = readMemorialItemSettings();
   applyEquipmentRules(deckConfig);
   writeDeckConfig(deckConfig);
+  const memorialModifiers = calculateMemorialItemModifiers(
+    deckConfig.protagonist.memorialItems,
+    deckConfig.protagonist.elementCode,
+    $("enemy-element").value,
+  );
   return {
     schemaVersion: 1,
     deckConfig,
@@ -1390,13 +1515,10 @@ function buildRequest() {
       defense: numberValue("enemy-defense"),
     },
     modifiers: {
-      allElementAttackPercent: numberValue("all-element"),
-      elementAttackPercent: numberValue("element-attack"),
+      ...memorialModifiers,
       shipAttackPercent: numberValue("ship"),
       furnaceAttackPercent: numberValue("furnace"),
       jobNormalAttackDamagePercent: numberValue("job-damage"),
-      damageDealtPercent: numberValue("damage-dealt"),
-      targetElementDamagePercent: numberValue("target-damage"),
     },
     random: {
       minimum: numberValue("random-min"),
@@ -1449,15 +1571,31 @@ function predictionRequests(request) {
   const attackerElement = request.deckConfig.protagonist?.elementCode;
   const advantageTarget = advantageTargetByAttacker[attackerElement];
   if (advantageTarget === undefined) throw new Error("主人公属性から有利属性を解決できません");
+  const advantageMemorial = calculateMemorialItemModifiers(
+    request.deckConfig.protagonist?.memorialItems,
+    attackerElement,
+    advantageTarget,
+  );
   return {
     normal: {
       ...request,
       enemy: { ...request.enemy, elementCode: attackerElement },
-      modifiers: { ...request.modifiers, targetElementDamagePercent: 0 },
+      modifiers: {
+        ...request.modifiers,
+        targetElementDamagePercent: 0,
+        extinctionCrestDoubleAttackRatePercent: 0,
+        extinctionCrestTripleAttackRatePercent: 0,
+      },
     },
     advantage: {
       ...request,
       enemy: { ...request.enemy, elementCode: advantageTarget },
+      modifiers: {
+        ...request.modifiers,
+        targetElementDamagePercent: advantageMemorial.targetElementDamagePercent,
+        extinctionCrestDoubleAttackRatePercent: 0,
+        extinctionCrestTripleAttackRatePercent: 0,
+      },
     },
   };
 }
@@ -1659,18 +1797,15 @@ function applyRequestToForm(request) {
   selectedSupportSummon = request.supportSummon ?? null;
   renderWeaponEditor();
   renderSupportSummonEditor();
+  renderMemorialItemEditor(request.deckConfig.protagonist.memorialItems);
   $("player-rank").value = String(request.deckConfig.protagonist.rank ?? 1);
   $("enemy-element").value = request.enemy.elementCode;
   $("enemy-defense").value = String(request.enemy.defense);
   $("enemy-name").value = request.enemy.name || "";
   const modifierFields = {
-    allElementAttackPercent: "all-element",
-    elementAttackPercent: "element-attack",
     shipAttackPercent: "ship",
     furnaceAttackPercent: "furnace",
     jobNormalAttackDamagePercent: "job-damage",
-    damageDealtPercent: "damage-dealt",
-    targetElementDamagePercent: "target-damage",
   };
   for (const [property, fieldId] of Object.entries(modifierFields)) {
     $(fieldId).value = String(request.modifiers?.[property] ?? 0);
@@ -1734,6 +1869,11 @@ function registerWebMcpTool() {
               jobNormalAttackDamagePercent: { type: "number", minimum: 0, maximum: 1000 },
               damageDealtPercent: { type: "number", minimum: 0, maximum: 1000 },
               targetElementDamagePercent: { type: "number", minimum: 0, maximum: 1000 },
+              damageCapPercent: { type: "number", minimum: 0, maximum: 1000 },
+              normalAttackDamageCapPercent: { type: "number", minimum: 0, maximum: 1000 },
+              extinctionCrestDoubleAttackRatePercent: { type: "number", minimum: 0, maximum: 1000 },
+              extinctionCrestTripleAttackRatePercent: { type: "number", minimum: 0, maximum: 1000 },
+              chainBurstPerformancePercent: { type: "number", minimum: 0, maximum: 1000 },
             },
             additionalProperties: false,
           },
@@ -1799,6 +1939,7 @@ form.addEventListener("submit", (event) => {
 });
 form.addEventListener("input", schedulePersistence);
 form.addEventListener("change", schedulePersistence);
+$("memorial-item-editor").addEventListener("change", () => void calculate());
 $("player-rank").addEventListener("change", () => void calculate());
 
 $("config-file").addEventListener("change", async (event) => {
@@ -1916,6 +2057,7 @@ $("summon-picker").addEventListener("click", (event) => {
 
 async function initialize() {
   for (const key of LEGACY_CALCULATOR_STORAGE_KEYS) localStorage.removeItem(key);
+  renderMemorialItemEditor(readDeckConfig().protagonist.memorialItems);
   try {
     const [jobResponse, characterResponse, weaponResponse, fallbackWeaponResponse, summonResponse] = await Promise.all([
       fetch("/api/catalog/jobs"),

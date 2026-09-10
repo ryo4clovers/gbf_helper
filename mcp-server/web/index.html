@@ -156,14 +156,16 @@
           </div>
           <div class="field-grid modifier-grid">
             <label class="number-field"><span>Rank</span><input id="player-rank" type="number" value="1" min="1" max="425" step="1" required title="現在の表示ステータスを基準にRank変更分を反映します" /></label>
-            <label class="number-field"><span>全属性攻撃</span><input id="all-element" type="number" value="3" min="0" step="0.1" /><em>%</em></label>
-            <label class="number-field"><span>属性攻撃</span><input id="element-attack" type="number" value="10" min="0" step="0.1" /><em>%</em></label>
             <label class="number-field"><span>船</span><input id="ship" type="number" value="10" min="0" step="0.1" /><em>%</em></label>
             <label class="number-field"><span>炉</span><input id="furnace" type="number" value="10" min="0" step="0.1" /><em>%</em></label>
             <label class="number-field"><span>ジョブ通常与ダメ</span><input id="job-damage" type="number" value="3" min="0" step="0.1" /><em>%</em></label>
-            <label class="number-field"><span>与ダメージ</span><input id="damage-dealt" type="number" value="3.6" min="0" step="0.1" /><em>%</em></label>
-            <label class="number-field"><span>対有利属性与ダメ</span><input id="target-damage" type="number" value="5" min="0" step="0.1" /><em>%</em></label>
           </div>
+
+          <details class="advanced-settings memorial-settings" open>
+            <summary>大事なもの</summary>
+            <p class="settings-help">所持状況に合わせて有効・無効、Lv、効果量を設定します。設定は個別環境として端末に保存されます。</p>
+            <div id="memorial-item-editor"></div>
+          </details>
 
           <details class="advanced-settings">
             <summary>乱数の詳細設定</summary>

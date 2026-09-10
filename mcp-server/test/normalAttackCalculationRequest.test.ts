@@ -132,6 +132,25 @@ test("resolves protagonist DA and TA rates from the selected job", () => {
   });
 });
 
+test("adds God Extinction Crest DA and TA rates as an account-item contribution", () => {
+  const input = agniRequest();
+  const response = calculateNormalAttackFromRequest({
+    ...input,
+    modifiers: {
+      ...input.modifiers,
+      extinctionCrestDoubleAttackRatePercent: 6,
+      extinctionCrestTripleAttackRatePercent: 7,
+    },
+  });
+
+  assert.equal(response.result.multiattackRates.doubleAttackRatePercent, 20);
+  assert.equal(response.result.multiattackRates.tripleAttackRatePercent, 15);
+  assert.equal(
+    response.result.multiattackRates.contributions.some((contribution) => contribution.sourceType === "memorial-item"),
+    true,
+  );
+});
+
 test("returns HP after applying the strongest resolved character HP sub aura", () => {
   const input = agniRequest();
   input.deckConfig.protagonist.hpOverride = 4630;

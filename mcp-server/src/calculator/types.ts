@@ -353,6 +353,8 @@ export interface DeckJobMultiattackRateBonus {
 export interface Protagonist extends DeckStats {
   elementCode?: string;
   job?: DeckJob;
+  memorialDoubleAttackRatePercent?: number;
+  memorialTripleAttackRatePercent?: number;
 }
 
 export interface DeckDisplayedEffectValue {
@@ -413,6 +415,10 @@ export interface CalculatorDeckProtagonistConfig {
   masterBonusHpPercent?: number;
   attackOverride?: number;
   hpOverride?: number;
+  memorialItems?: {
+    includeExtinctionCrestInLocalResults: boolean;
+    items: Record<string, { enabled: boolean; level?: number; amountPercent?: number }>;
+  };
 }
 
 export interface CalculatorDeckWeaponConfig {

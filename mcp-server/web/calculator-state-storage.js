@@ -27,14 +27,13 @@ const summonKeys = ["slot", "position", "summonId", "nameHint", "level", "uncapL
 const characterKeys = ["slot", "position", "characterId", "nameHint", "level", "uncapLevel", "plusMark"];
 const personalProtagonistKeys = [
   "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
-  "attackOverride", "hpOverride",
+  "attackOverride", "hpOverride", "memorialItems",
 ];
 const environmentProtagonistKeys = [
   "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
 ];
 const modifierKeys = [
-  "allElementAttackPercent", "elementAttackPercent", "shipAttackPercent", "furnaceAttackPercent",
-  "jobNormalAttackDamagePercent", "damageDealtPercent", "targetElementDamagePercent",
+  "shipAttackPercent", "furnaceAttackPercent", "jobNormalAttackDamagePercent",
 ];
 const randomKeys = ["minimum", "maximum", "step"];
 
@@ -46,6 +45,31 @@ function pickFiniteNumbers(source, keys, label) {
     }
   }
   return picked;
+}
+
+function sanitizeMemorialItems(value) {
+  if (value === undefined) return undefined;
+  if (!isRecord(value) || !isRecord(value.items)) throw new Error("大事なもの設定が正しくありません");
+  const items = {};
+  for (const [id, raw] of Object.entries(value.items)) {
+    if (!/^\d+$/.test(id) || !isRecord(raw) || typeof raw.enabled !== "boolean") {
+      throw new Error("大事なものの項目設定が正しくありません");
+    }
+    const item = { enabled: raw.enabled };
+    for (const key of ["level", "amountPercent"]) {
+      if (raw[key] !== undefined) {
+        if (typeof raw[key] !== "number" || !Number.isFinite(raw[key]) || raw[key] < 0) {
+          throw new Error(`大事なもの.${id}.${key} は0以上の有限数である必要があります`);
+        }
+        item[key] = raw[key];
+      }
+    }
+    items[id] = item;
+  }
+  return {
+    includeExtinctionCrestInLocalResults: value.includeExtinctionCrestInLocalResults !== false,
+    items,
+  };
 }
 
 function assertEnvironment(environment) {
@@ -62,6 +86,7 @@ function assertEnvironment(environment) {
   return {
     schemaVersion: 1,
     protagonist,
+    ...(environment.memorialItems === undefined ? {} : { memorialItems: sanitizeMemorialItems(environment.memorialItems) }),
     modifiers: pickFiniteNumbers(environment.modifiers, modifierKeys, "modifiers"),
     random: pickFiniteNumbers(environment.random, randomKeys, "random"),
   };
@@ -141,6 +166,7 @@ export function createCalculatorEnvironment(request) {
   return assertEnvironment({
     schemaVersion: 1,
     protagonist: pick(request.deckConfig.protagonist, environmentProtagonistKeys),
+    memorialItems: request.deckConfig.protagonist.memorialItems,
     modifiers: pick(request.modifiers, modifierKeys),
     random: pick(request.random, randomKeys),
   });
@@ -156,6 +182,7 @@ export function mergeCalculatorEnvironment(currentRequest, environment) {
       protagonist: {
         ...currentRequest.deckConfig.protagonist,
         ...saved.protagonist,
+        ...(saved.memorialItems === undefined ? {} : { memorialItems: saved.memorialItems }),
       },
     },
     modifiers: { ...currentRequest.modifiers, ...saved.modifiers },

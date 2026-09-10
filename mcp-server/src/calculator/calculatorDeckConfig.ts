@@ -40,6 +40,17 @@ const awakeningSchema = z
   })
   .strict();
 
+const memorialItemSettingsSchema = z
+  .object({
+    includeExtinctionCrestInLocalResults: z.boolean(),
+    items: z.record(z.string().regex(/^\d+$/), z.object({
+      enabled: z.boolean(),
+      level: nonNegativeNumberSchema.optional(),
+      amountPercent: nonNegativeNumberSchema.optional(),
+    }).strict()),
+  })
+  .strict();
+
 const protagonistSchema = z
   .object({
     rank: playerRankSchema.optional(),
@@ -57,6 +68,7 @@ const protagonistSchema = z
     masterBonusHpPercent: ratePercentSchema.optional(),
     attackOverride: nonNegativeNumberSchema.optional(),
     hpOverride: nonNegativeNumberSchema.optional(),
+    memorialItems: memorialItemSettingsSchema.optional(),
   })
   .strict();
 
