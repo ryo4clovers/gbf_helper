@@ -28,6 +28,16 @@ const auraEffectSchema = z.discriminatedUnion("kind", [
     .strict(),
   z
     .object({
+      kind: z.literal("character-hp-up"),
+      elementCode: z.string().min(1),
+      amountPercent: z.number().finite(),
+      activation: z.enum(["always", "main-only", "sub-only"]),
+      stackingGroup: z.string().min(1),
+      description: z.string().min(1),
+    })
+    .strict(),
+  z
+    .object({
       kind: z.literal("utility"),
       description: z.string().min(1),
     })

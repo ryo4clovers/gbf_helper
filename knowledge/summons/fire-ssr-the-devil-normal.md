@@ -6,8 +6,8 @@ rarity: SSR
 element: "火"
 obtain: "アーカルムの転世"
 status: 下書き
-last_updated: 2026-09-09
-source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/The_Devil_(SSR)) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
+last_updated: 2026-09-10
+source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/The_Devil_(SSR)) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。サブ加護HP30%と同系統非重複はユーザー提供deck比較で確認(確認日: 2026-09-10)。"
 ---
 
 # ザ・デビル(The Devil)
@@ -78,6 +78,15 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 - サブ加護効果: 火属性キャラのHPが30%UP
 - 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
+## サブ加護の編成差分確認
+
+- 確認日: 2026-09-10
+- 基準編成HP: 4630
+- ザ・デビル単体: 6019(+30%)
+- ザ・デビル+セキトバ: 6019(+30%)
+- アグニ(+20%)+ザ・デビル(+30%): 6019(+30%)
+- 以上から3種の火属性キャラHPサブ加護は同系統で、最も高い1件だけが適用されることを確認した。
+
 ## 関連トピック
 
 - [buffs-debuffs.md](../mechanics/buffs-debuffs.md)
@@ -85,5 +94,4 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 ## 未確認・要検証事項
 
-- サブ加護効果の正確な倍率はGameWith一覧に明記されていない場合、未検証。
 - gbf.wikiでさらに上位の上限解放段階(5★/6★等)が存在する場合、本ファイルはGameWithの標準的な表記(3★/4★)までの記載としており、それ以降は未反映。

@@ -6,8 +6,8 @@ rarity: SSR
 element: "火"
 obtain: "ガチャ排出"
 status: 下書き
-last_updated: 2026-09-09
-source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Agni) の両方で確認(取得日: 2026-08-20)。Lv250のステータスと加護はユーザー提供のゲーム内deckレスポンスで確認(確認日: 2026-09-06)。"
+last_updated: 2026-09-10
+source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Agni) の両方で確認(取得日: 2026-08-20)。Lv250のステータスと主加護はユーザー提供のゲーム内deckレスポンスで確認(確認日: 2026-09-06)。サブ加護HP20%は編成HP差分で確認(確認日: 2026-09-10)。"
 ---
 
 # アグニス(Agni)
@@ -46,7 +46,9 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 ## サブ加護効果(サブ編成時)
 
-- 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+- 効果: 火属性キャラの火属性攻撃力が20%UP/HP20%UP
+- HP部分は、同一編成のサブ加護枠へ装備したとき主人公HPが4630から5556へ増加し、20%と一致することを確認した。
+- 出典: ユーザー提供のゲーム内所持召喚石詳細・deck比較(2026-09-10)
 
 ## 実機所持データ確認
 
@@ -58,6 +60,13 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 - サブ加護効果: 火属性キャラの火属性攻撃力が20%UP/HP20%UP
 - 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
+## サブ加護の編成差分確認
+
+- 確認日: 2026-09-10
+- 基準編成HP: 4630
+- アグニ単体: 5556(+20%)
+- アグニ+ザ・デビル: 6019(+30%)。20%+30%にはならず、同じ火属性キャラHPグループの最大値30%だけが適用された。
+
 ## 関連トピック
 
 - [buffs-debuffs.md](../mechanics/buffs-debuffs.md)
@@ -65,7 +74,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 ## 未確認・要検証事項
 
-- サブ加護効果の正確な倍率はGameWith一覧に明記されていない場合、未検証。
 - 召喚ターン(初回召喚/使用間隔/再召喚可否)はGameWith個別ページから抽出できなかったため未記載。個別ページを直接確認する必要がある。
 - 5★段階のステータスと加護効果は未確認。
 - 6★加護の対象に「赤星」が含まれない理由、および段階による対象系列の変化は要検証。
+- サブ加護の火属性攻撃力20%部分が本家予測ダメージへどう反映されるかは、今回のHP比較では未検証。

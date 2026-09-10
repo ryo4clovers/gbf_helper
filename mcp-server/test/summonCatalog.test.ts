@@ -142,9 +142,34 @@ test("loads the verified Agni main aura", () => {
     [
       ["normal-skill-boost", 170],
       ["elemental-attack-up", 30],
+      ["character-hp-up", 20],
     ],
   );
   assert.equal(summon?.verificationStatus, "検証済み");
+});
+
+test("loads the verified fire character HP sub auras with one stacking group", () => {
+  const catalog = loadIncrementalSummonCatalog();
+  const expected = [
+    ["2040094000", "アグニス", 20],
+    ["2040317000", "ザ・デビル", 30],
+    ["2040361000", "セキトバ", 30],
+  ] as const;
+
+  for (const [summonId, name, amountPercent] of expected) {
+    const summon = catalog.summons.get(summonId);
+    const hpEffect = summon?.auraEffects.find((effect) => effect.kind === "character-hp-up");
+    assert.equal(summon?.name, name);
+    assert.deepEqual(hpEffect, {
+      kind: "character-hp-up",
+      elementCode: "1",
+      amountPercent,
+      activation: "sub-only",
+      stackingGroup: "fire-character-hp",
+      description: `サブ装備時、火属性キャラのHPが${amountPercent}%UP`,
+    });
+    assert.equal(summon?.verificationStatus, "検証済み");
+  }
 });
 
 test("resolves the sanitized Hades support summon from battle state", () => {

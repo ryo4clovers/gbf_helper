@@ -6,8 +6,8 @@ rarity: SSR
 element: "火"
 obtain: "ガチャ排出"
 status: 下書き
-last_updated: 2026-09-09
-source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Red_Hare) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
+last_updated: 2026-09-10
+source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Red_Hare) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。サブ加護HP30%と同系統非重複はユーザー提供deck比較で確認(確認日: 2026-09-10)。"
 ---
 
 # セキトバ(Red Hare)
@@ -65,7 +65,9 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 ## サブ加護効果(サブ編成時)
 
-- 加護効果と同一、または倍率のみ異なる想定(GameWith一覧には明記なし、要検証)。
+- 効果: 火属性キャラのHPが30%UP
+- 同一編成のサブ加護枠へ装備したとき主人公HPが4630から6019へ増加し、30%と一致することを確認した。
+- 出典: ユーザー提供のゲーム内所持召喚石詳細・deck比較(2026-09-10)
 
 ## 実機所持データ確認
 
@@ -77,6 +79,13 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 - サブ加護効果: 火属性キャラのHPが30%UP
 - 出典: ユーザー提供のゲーム内所持召喚石詳細レスポンス
 
+## サブ加護の編成差分確認
+
+- 確認日: 2026-09-10
+- 基準編成HP: 4630
+- セキトバ単体: 6019(+30%)
+- セキトバ+ザ・デビル: 6019(+30%)。30%+30%にはならず、同じ火属性キャラHPグループの最大値1件だけが適用された。
+
 ## 関連トピック
 
 - [buffs-debuffs.md](../mechanics/buffs-debuffs.md)
@@ -84,6 +93,4 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 ## 未確認・要検証事項
 
-- サブ加護効果の正確な倍率はGameWith一覧に明記されていない場合、未検証。
-- 4★(4凸)到達時点のステータスはgbf.wikiで確認済みだが、その時点での加護効果/召喚効果の具体的な変化はGameWith一覧に明記されておらず未検証。
 - gbf.wikiでさらに上位の上限解放段階(5★/6★等)が存在する場合、本ファイルはGameWithの標準的な表記(3★/4★)までの記載としており、それ以降は未反映。

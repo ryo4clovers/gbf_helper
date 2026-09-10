@@ -3,6 +3,7 @@ import { applyCalculatorDeckEquipmentRules } from "./calculatorDeckEquipmentRule
 import { createSelectableJobCatalog } from "./jobCatalogView.js";
 import { loadJobFallbackWeaponCatalog } from "./jobFallbackWeaponCatalog.js";
 import { loadIncrementalSummonCatalog, resolveCatalogSummonAura } from "./summonCatalog.js";
+import { resolveEffectiveCharacterHpAuras } from "./summonAuraEffectResolver.js";
 import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 import { resolveEffectiveWeaponSkillEffects } from "./weaponEffectResolver.js";
 import type {
@@ -350,6 +351,10 @@ export function resolveCalculatorDeckConfig(
     supportSummon,
   );
   deck.effectiveWeaponSkillEffects = effectResolution.effects;
+  deck.effectiveCharacterHpAuras = resolveEffectiveCharacterHpAuras(
+    deck.summons,
+    deck.protagonist.elementCode,
+  );
   issues.push(
     ...effectResolution.issues.map((issue) => ({
       severity: "warning" as const,

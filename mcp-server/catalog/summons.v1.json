@@ -1054,7 +1054,7 @@
       "elementCode": "1",
       "rarityCode": "4",
       "auraName": "アグニスの加護",
-      "auraDescription": "スキル「火」「業火」「紅蓮」の効果が170%UP。メイン召喚石に装備時、火属性攻撃力が30%UP",
+      "auraDescription": "スキル「火」「業火」「紅蓮」の効果が170%UP。メイン召喚石に装備時、火属性攻撃力が30%UP / サブ加護: 火属性キャラの火属性攻撃力が20%UP/HP20%UP",
       "auraEffects": [
         {
           "kind": "normal-skill-boost",
@@ -1074,12 +1074,20 @@
           "amountPercent": 30,
           "activation": "main-only",
           "description": "メイン召喚石に装備時、火属性攻撃力が30%UP"
+        },
+        {
+          "kind": "character-hp-up",
+          "elementCode": "1",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "fire-character-hp",
+          "description": "サブ装備時、火属性キャラのHPが20%UP"
         }
       ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内deckレスポンスで主召喚石・加護説明・武器スキル表示値を確認",
-      "confirmedAt": "2026-09-06",
+      "source": "ユーザー提供のゲーム内deckレスポンスで主加護と、別編成比較でサブ加護HP20%・同系統非重複を確認",
+      "confirmedAt": "2026-09-10",
       "levelStats": {
         "maximumLevel": 250,
         "points": [
@@ -2435,13 +2443,21 @@
       "auraEffects": [
         {
           "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性キャラの攻撃力130%UP/防御力10%UP / サブ加護: 火属性キャラのHPが30%UP"
+          "description": "数値計算への構造化は未対応: 火属性キャラの攻撃力130%UP/防御力10%UP"
+        },
+        {
+          "kind": "character-hp-up",
+          "elementCode": "1",
+          "amountPercent": 30,
+          "activation": "sub-only",
+          "stackingGroup": "fire-character-hp",
+          "description": "サブ装備時、火属性キャラのHPが30%UP"
         }
       ],
-      "verificationStatus": "下書き",
+      "verificationStatus": "検証済み",
       "supportSelectable": false,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
-      "confirmedAt": "2026-09-09",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスとdeck比較で効果文・HP30%・同系統非重複を確認",
+      "confirmedAt": "2026-09-10",
       "levelStats": {
         "maximumLevel": 200,
         "points": [
@@ -3335,13 +3351,21 @@
       "auraEffects": [
         {
           "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: 火属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に火属性キャラの奥義ゲージ30%UP / サブ加護: 火属性キャラのHPが30%UP"
+          "description": "数値計算への構造化は未対応: 火属性攻撃力が100%UP/奥義ダメージ30%UP/バトル開始時に火属性キャラの奥義ゲージ30%UP"
+        },
+        {
+          "kind": "character-hp-up",
+          "elementCode": "1",
+          "amountPercent": 30,
+          "activation": "sub-only",
+          "stackingGroup": "fire-character-hp",
+          "description": "サブ装備時、火属性キャラのHPが30%UP"
         }
       ],
-      "verificationStatus": "下書き",
+      "verificationStatus": "検証済み",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
-      "confirmedAt": "2026-09-09",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスとdeck比較で効果文・HP30%・同系統非重複を確認",
+      "confirmedAt": "2026-09-10",
       "levelStats": {
         "maximumLevel": 150,
         "points": [

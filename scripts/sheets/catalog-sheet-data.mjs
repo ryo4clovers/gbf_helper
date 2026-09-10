@@ -102,6 +102,7 @@ export const WIKI_SERIES_LABELS = Object.freeze({
 export const EFFECT_KIND_LABELS = Object.freeze({
   "normal-attack-up": "通常攻刃",
   "normal-skill-boost": "通常スキル効果量UP",
+  "character-hp-up": "キャラHPUP",
   "critical-rate-up": "クリティカル確率UP",
   "double-attack-rate-up": "ダブルアタック確率UP",
   "triple-attack-rate-up": "トリプルアタック確率UP",

@@ -91,7 +91,11 @@ export interface WeaponSkillCatalogEntry {
   confirmedAt?: string;
 }
 
-export type SummonAuraEffectKind = "elemental-attack-up" | "normal-skill-boost" | "utility";
+export type SummonAuraEffectKind =
+  | "elemental-attack-up"
+  | "normal-skill-boost"
+  | "character-hp-up"
+  | "utility";
 
 export type SummonAuraEffectDefinition =
   | {
@@ -110,9 +114,31 @@ export type SummonAuraEffectDefinition =
       description: string;
     }
   | {
+      kind: "character-hp-up";
+      elementCode: string;
+      amountPercent: number;
+      activation: "always" | "main-only" | "sub-only";
+      /** Effects with the same element and stacking group keep only the strongest source. */
+      stackingGroup: string;
+      description: string;
+    }
+  | {
       kind: "utility";
       description: string;
     };
+
+export interface EffectiveCharacterHpAura {
+  kind: "character-hp-up";
+  elementCode: string;
+  amountPercent: number;
+  stackingGroup: string;
+  sourceSummonSlot: number;
+  sourcePosition: "main" | "sub";
+  sourceSummonId: string;
+  sourceSummonName?: string;
+  sourceAuraName: string;
+  verificationStatus: "検証済み" | "下書き";
+}
 
 export interface SummonMasterCatalogEntry {
   summonId: string;
@@ -368,6 +394,7 @@ export interface DeckSnapshot {
   summons: DeckSummon[];
   displayedDamageInfo?: DeckDisplayedDamageInfo;
   effectiveWeaponSkillEffects?: EffectiveWeaponSkillEffect[];
+  effectiveCharacterHpAuras?: EffectiveCharacterHpAura[];
 }
 
 export interface CalculatorDeckProtagonistConfig {
