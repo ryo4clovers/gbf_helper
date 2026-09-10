@@ -28,6 +28,10 @@ import {
   calculateProtagonistMultiattackRates,
   type ProtagonistMultiattackRateResult,
 } from "./multiattackRateCalculator.js";
+import {
+  calculateProtagonistHp,
+  type ProtagonistHpResult,
+} from "./protagonistHpCalculator.js";
 
 export interface NormalAttackDamageOptions {
   baseDamageModel?: BaseDamageCalculationModel;
@@ -61,6 +65,7 @@ export interface NormalAttackDamageResult {
   bodyDamageDistribution: DamageDistributionSummary;
   criticalBodyDamage?: CriticalBodyDamageResult;
   pursuitDamage?: EffectivePursuitDamageResult;
+  protagonistHp?: ProtagonistHpResult;
   multiattackRates: ProtagonistMultiattackRateResult;
   totalDamageDistribution: CombinedNormalAttackDistribution;
   issues: Array<
@@ -143,6 +148,7 @@ export function calculateNormalAttackDamage(
     bodyDamageDistribution,
     criticalBodyDamage,
     pursuitDamage,
+    protagonistHp: calculateProtagonistHp(input.deck),
     multiattackRates: calculateProtagonistMultiattackRates(input.deck),
     totalDamageDistribution: {
       schemaVersion: 1,

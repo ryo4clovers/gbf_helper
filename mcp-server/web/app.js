@@ -1497,6 +1497,31 @@ function renderLocalResult(result) {
   if (useCritical) {
     $("body-note").textContent = `武器スキル発生率 ${numberFormat.format(critical.weaponSkillCriticalRatePercent)}%`;
   }
+
+  const hp = result.protagonistHp;
+  $("protagonist-hp").textContent = hp === undefined ? "—" : formatDamage(hp.hp);
+  if (hp === undefined) {
+    $("protagonist-hp-note").textContent = "主人公HPが未設定です";
+  } else if (hp.summonAuraPercent === 0) {
+    $("protagonist-hp-note").textContent = `基礎HP ${formatDamage(hp.baseHp)}・加護なし`;
+  } else {
+    const roundingNote = hp.issues.includes("fractional-rounding-unresolved") ? "・端数処理は暫定" : "";
+    $("protagonist-hp-note").textContent = `基礎HP ${formatDamage(hp.baseHp)}・召喚石加護 +${numberFormat.format(hp.summonAuraPercent)}%${roundingNote}`;
+  }
+
+  const criticalRate = critical?.weaponSkillCriticalRatePercent ?? 0;
+  $("critical-rate").textContent = `${numberFormat.format(criticalRate)}%`;
+  $("critical-rate-note").textContent = critical === undefined
+    ? "現在の敵属性では発動なし"
+    : "武器スキル・有利属性時";
+
+  const ta = result.multiattackRates;
+  $("ta-rate").textContent = `${numberFormat.format(ta.tripleAttackRatePercent)}%`;
+  const taNotes = [];
+  if (ta.issues.includes("job-base-rate-unresolved")) taNotes.push("ジョブ基礎率未解決");
+  if (ta.issues.includes("character-effects-unresolved")) taNotes.push("キャラ効果未反映");
+  if (ta.issues.includes("battle-buffs-unresolved")) taNotes.push("バトル中バフ未反映");
+  $("ta-rate-note").textContent = taNotes.length === 0 ? "ジョブ・武器スキル" : taNotes.join("・");
 }
 
 function selectWeaponCritical() {

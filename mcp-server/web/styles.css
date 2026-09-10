@@ -241,6 +241,11 @@ h3 { margin: 26px 0 13px; font-size: .9rem; color: var(--ink-soft); }
 .metric-card.prediction-card { color: var(--on-primary); background: linear-gradient(145deg, #4932bd, #6550db); }
 .metric-card.advantage-card { border-radius: 18px 30px 18px 30px; color: var(--on-secondary-container); background: var(--secondary-container); }
 .metric-card.body-card.critical-mode { color: #4b3900; background: #ffefbd; }
+.metric-card.status-card { background: var(--surface-container-high, var(--surface-container)); border: 1px solid var(--outline-soft); }
+.metric-card.hp-card { color: #7b2441; }
+.metric-card.critical-rate-card { color: #725600; }
+.metric-card.ta-rate-card { color: var(--primary); }
+.metric-card.status-card .metric-icon { font-size: .72rem; }
 .metric-card.future-card { color: var(--ink-soft); background: var(--surface-container); border: 1px dashed var(--outline-soft); }
 .metric-card.future-card strong { font-size: 1.4rem; }
 .metric-card.ougi-card { border-radius: 18px 30px 18px 30px; }

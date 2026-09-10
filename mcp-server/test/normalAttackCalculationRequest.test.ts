@@ -121,6 +121,51 @@ test("resolves protagonist DA and TA rates from the selected job", () => {
     response.result.multiattackRates.contributions.map((contribution) => contribution.sourceType),
     ["job-base", "job-completion"],
   );
+  assert.deepEqual(response.result.protagonistHp, {
+    schemaVersion: 1,
+    status: "provisional",
+    baseHp: 4877,
+    summonAuraPercent: 0,
+    hp: 4877,
+    appliedAuras: [],
+    issues: [],
+  });
+});
+
+test("returns HP after applying the strongest resolved character HP sub aura", () => {
+  const input = agniRequest();
+  input.deckConfig.protagonist.hpOverride = 4630;
+  input.deckConfig.summons.push(
+    {
+      slot: 1,
+      position: "sub",
+      summonId: "2040094000",
+      level: 250,
+      uncapLevel: 6,
+      plusMark: 0,
+      attackOverride: 4157,
+      hpOverride: 1414,
+    },
+    {
+      slot: 2,
+      position: "sub",
+      summonId: "2040317000",
+      level: 200,
+      uncapLevel: 5,
+      plusMark: 0,
+      attackOverride: 2737,
+      hpOverride: 1130,
+    },
+  );
+
+  const response = calculateNormalAttackFromRequest(input);
+
+  assert.equal(response.result.protagonistHp?.hp, 6019);
+  assert.equal(response.result.protagonistHp?.summonAuraPercent, 30);
+  assert.deepEqual(
+    response.result.protagonistHp?.appliedAuras.map((aura) => aura.sourceSummonId),
+    ["2040317000"],
+  );
 });
 
 test("adds boosted Solomon Accel trium rates to job and completion bonuses", () => {
