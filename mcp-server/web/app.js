@@ -1,12 +1,15 @@
 import {
+  CALCULATOR_FORMATION_FORMAT,
+  CALCULATOR_FORMATION_STORAGE_KEY,
   CALCULATOR_PROFILES_STORAGE_KEY,
-  CALCULATOR_STATE_FORMAT,
-  CALCULATOR_STATE_STORAGE_KEY,
+  LEGACY_CALCULATOR_STORAGE_KEYS,
+  createCalculatorFormation,
+  mergeCalculatorFormation,
+  parseCalculatorFormation,
   parseCalculatorProfiles,
-  parseCalculatorState,
   removeCalculatorProfile,
+  serializeCalculatorFormation,
   serializeCalculatorProfiles,
-  serializeCalculatorState,
   upsertCalculatorProfile,
 } from "/calculator-state-storage.js";
 import { calculateEquipmentLevelStats } from "/equipment-level-stats.js";
@@ -28,8 +31,6 @@ const defaultDeck = {
     jobCompletionTripleAttackRate: 5,
     masterBonusAttackPercent: 24,
     masterBonusHpPercent: 20,
-    attackOverride: 22801,
-    hpOverride: 4877,
   },
   weapons: [
     { slot: 1, position: "main", weaponId: "1040201400", nameHint: "イフリートハルベルト", level: 150, skillLevel: 15, plusMark: 0, attackOverride: 2170, hpOverride: 241 },
@@ -106,10 +107,13 @@ function setPersistenceStatus(message, isError = false) {
   status.classList.toggle("error-text", isError);
 }
 
-function persistRequest(request, message = "この端末に自動保存済み") {
+function persistRequest(request, message = "編成をこの端末に自動保存済み") {
   if (!persistenceReady) return;
   try {
-    localStorage.setItem(CALCULATOR_STATE_STORAGE_KEY, serializeCalculatorState(request));
+    localStorage.setItem(
+      CALCULATOR_FORMATION_STORAGE_KEY,
+      serializeCalculatorFormation(createCalculatorFormation(request)),
+    );
     setPersistenceStatus(message);
   } catch (error) {
     setPersistenceStatus(error instanceof Error ? error.message : "自動保存に失敗しました", true);
@@ -136,16 +140,25 @@ function schedulePersistence() {
   }, 250);
 }
 
+function applyFormationToForm(formation) {
+  const request = mergeCalculatorFormation(buildRequest(), formation);
+  applyCatalogWeaponLevelStatsToConfig(request.deckConfig);
+  for (const summon of request.deckConfig.summons) {
+    applyCatalogSummonLevelStats(summon, catalogSummon(summon.summonId));
+  }
+  applyRequestToForm(request);
+}
+
 function restorePersistedState() {
-  const serialized = localStorage.getItem(CALCULATOR_STATE_STORAGE_KEY);
+  const serialized = localStorage.getItem(CALCULATOR_FORMATION_STORAGE_KEY);
   if (serialized === null) return false;
   try {
-    applyRequestToForm(parseCalculatorState(serialized));
-    setPersistenceStatus("保存状態を復元しました");
+    applyFormationToForm(parseCalculatorFormation(serialized));
+    setPersistenceStatus("保存した編成を復元しました");
     return true;
   } catch {
-    localStorage.removeItem(CALCULATOR_STATE_STORAGE_KEY);
-    setPersistenceStatus("保存状態を復元できないため初期設定を使用", true);
+    localStorage.removeItem(CALCULATOR_FORMATION_STORAGE_KEY);
+    setPersistenceStatus("編成を復元できないため初期設定を使用", true);
     return false;
   }
 }
@@ -227,7 +240,7 @@ function saveNamedProfile() {
       id,
       name,
       updatedAt: new Date().toISOString(),
-      request: buildRequest(),
+      formation: createCalculatorFormation(buildRequest()),
     });
     selectedProfileId = id;
     persistNamedProfiles();
@@ -284,8 +297,8 @@ async function loadNamedProfile() {
   const profile = selectedProfile();
   if (!profile) return;
   try {
-    applyRequestToForm(profile.request);
-    persistRequest(profile.request, `「${profile.name}」を現在の編成にしました`);
+    applyFormationToForm(profile.formation);
+    persistCurrentState(`「${profile.name}」を現在の編成にしました`);
     await calculate();
     setProfileStatus(`「${profile.name}」を読み込みました`);
   } catch (error) {
@@ -1754,8 +1767,8 @@ $("config-file").addEventListener("change", async (event) => {
   try {
     const content = await file.text();
     const parsed = JSON.parse(content);
-    if (parsed?.format === CALCULATOR_STATE_FORMAT) {
-      applyRequestToForm(parseCalculatorState(content));
+    if (parsed?.format === CALCULATOR_FORMATION_FORMAT) {
+      applyFormationToForm(parseCalculatorFormation(content));
     } else {
       deckField.value = JSON.stringify(parsed, null, 2);
       renderWeaponEditor();
@@ -1804,10 +1817,14 @@ $("delete-profile").addEventListener("click", deleteNamedProfile);
 
 $("save-config").addEventListener("click", () => {
   try {
-    const content = JSON.stringify(JSON.parse(serializeCalculatorState(buildRequest())), null, 2);
+    const content = JSON.stringify(
+      JSON.parse(serializeCalculatorFormation(createCalculatorFormation(buildRequest()))),
+      null,
+      2,
+    );
     const anchor = document.createElement("a");
     anchor.href = URL.createObjectURL(new Blob([content], { type: "application/json" }));
-    anchor.download = "gbf-calculator-state.v1.json";
+    anchor.download = "gbf-calculator-formation.v2.json";
     anchor.click();
     URL.revokeObjectURL(anchor.href);
   } catch (error) {
@@ -1856,6 +1873,7 @@ $("summon-picker").addEventListener("click", (event) => {
 });
 
 async function initialize() {
+  for (const key of LEGACY_CALCULATOR_STORAGE_KEYS) localStorage.removeItem(key);
   try {
     const [jobResponse, characterResponse, weaponResponse, fallbackWeaponResponse, summonResponse] = await Promise.all([
       fetch("/api/catalog/jobs"),
