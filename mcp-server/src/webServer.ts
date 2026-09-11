@@ -31,6 +31,7 @@ const staticFiles: Record<string, { file: string; contentType: string }> = {
   "/crew-support-config.js": { file: "crew-support-config.js", contentType: "text/javascript; charset=utf-8" },
   "/job-completion-bonus-config.js": { file: "job-completion-bonus-config.js", contentType: "text/javascript; charset=utf-8" },
   "/job-growth-config.js": { file: "job-growth-config.js", contentType: "text/javascript; charset=utf-8" },
+  "/job-picker-filter.js": { file: "job-picker-filter.js", contentType: "text/javascript; charset=utf-8" },
   "/styles.css": { file: "styles.css", contentType: "text/css; charset=utf-8" },
   "/battle.html": { file: "battle.html", contentType: "text/html; charset=utf-8" },
   "/battle.js": { file: "battle.js", contentType: "text/javascript; charset=utf-8" },

@@ -198,6 +198,12 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .search-field { margin: 0 28px 16px; min-height: 56px; padding: 0 14px; display: flex; align-items: center; gap: 9px; border: 1px solid var(--outline-soft); border-radius: 19px; background: white; }
 .search-field > span { color: var(--primary); font-size: 1.4rem; }
 .search-field input { min-height: 52px; padding: 0; border: 0; background: transparent; box-shadow: none; }
+.job-picker .search-field { margin-bottom: 10px; }
+.job-class-filter-wrap { margin: 0 28px 16px; display: grid; gap: 8px; }
+.job-class-filters { display: flex; flex-wrap: wrap; gap: 7px; }
+.job-class-filter { min-height: 34px; padding: 6px 11px; border: 1px solid var(--outline-soft); border-radius: 999px; color: var(--ink-soft); background: white; font-size: .75rem; font-weight: 800; transition: color .16s, border-color .16s, background .16s; }
+.job-class-filter:hover { border-color: var(--primary); color: var(--primary); }
+.job-class-filter[aria-pressed="true"] { border-color: var(--primary); color: var(--on-primary); background: var(--primary); }
 .weapon-results { max-height: 430px; padding: 0 28px; display: grid; gap: 10px; overflow-y: auto; }
 .catalog-weapon-card { width: 100%; min-height: 92px; padding: 10px; border: 1px solid var(--outline-soft); border-radius: 23px 15px 23px 15px; display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; align-items: center; gap: 13px; color: inherit; background: white; text-align: left; transition: transform .16s, border-color .16s, background .16s; }
 .catalog-weapon-card:hover { transform: translateX(3px); border-color: var(--primary); background: #fbf9ff; }
@@ -374,7 +380,7 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
   .catalog-weapon-card .verification-chip { display: none; }
   .weapon-results { padding: 0 16px; }
   .picker-header, .picker-footer { padding-left: 18px; padding-right: 18px; }
-  .search-field { margin-left: 18px; margin-right: 18px; }
+  .search-field, .job-class-filter-wrap { margin-left: 18px; margin-right: 18px; }
 }
 @media (max-width: 420px) {
   .three-columns, .modifier-grid, .metric-grid { grid-template-columns: 1fr; }

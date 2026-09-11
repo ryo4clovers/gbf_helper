@@ -46,6 +46,10 @@ import {
   calculateJobGrowthBonuses,
   normalizeJobGrowthLevels,
 } from "/job-growth-config.js?v=1";
+import {
+  JOB_CLASS_FILTER_ORDER,
+  filterAndSortJobs,
+} from "/job-picker-filter.js?v=1";
 
 const $ = (id) => document.getElementById(id);
 const form = $("calculator-form");
@@ -75,6 +79,7 @@ const characterPlusBonus = { maximum: 99, attackPerMark: 3, hpPerMark: 1 };
 const characterPickerResultLimit = 100;
 const weaponPickerResultLimit = 100;
 let jobCatalog = [];
+let selectedJobClassTier = "";
 let characterCatalog = [];
 let editingCharacterSlot = null;
 let weaponCatalog = [];
@@ -636,13 +641,7 @@ function renderJobEditor(config) {
 }
 
 function renderJobResults(query = "") {
-  const normalizeJobSearch = (value) => value.toLocaleLowerCase("ja").replace(/[\s・･._-]/g, "");
-  const normalized = normalizeJobSearch(query.trim());
-  const matches = jobCatalog.filter((job) =>
-    normalizeJobSearch(
-      [job.name, job.nameEn, job.jobId, job.classTier, ...job.weaponKinds.map((weapon) => weapon.name)].join(" "),
-    ).includes(normalized),
-  );
+  const matches = filterAndSortJobs(jobCatalog, query, selectedJobClassTier);
   const results = $("job-results");
   results.replaceChildren();
   for (const job of matches) {
@@ -671,9 +670,33 @@ function renderJobResults(query = "") {
   $("job-catalog-count").textContent = `${matches.length} / ${jobCatalog.length}件`;
 }
 
+function renderJobClassFilters() {
+  const availableClasses = new Set(jobCatalog.map((job) => job.classTier));
+  const container = $("job-class-filters");
+  container.replaceChildren();
+  for (const classTier of JOB_CLASS_FILTER_ORDER.filter((name) => availableClasses.has(name))) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "job-class-filter";
+    button.textContent = classTier;
+    button.setAttribute("aria-pressed", String(selectedJobClassTier === classTier));
+    button.addEventListener("click", () => {
+      selectedJobClassTier = selectedJobClassTier === classTier ? "" : classTier;
+      renderJobClassFilters();
+      renderJobResults($("job-search").value);
+    });
+    container.append(button);
+  }
+  $("job-class-filter-status").textContent = selectedJobClassTier === ""
+    ? "すべてのクラスを表示"
+    : `選択中: ${selectedJobClassTier}`;
+}
+
 function openJobPicker() {
   $("job-search").value = "";
+  selectedJobClassTier = "";
   $("remove-job").disabled = !readDeckConfig().protagonist.jobId;
+  renderJobClassFilters();
   renderJobResults();
   $("job-picker").showModal();
   $("job-search").focus();

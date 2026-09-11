@@ -63,6 +63,15 @@ test("web server exposes every root-relative module imported by the calculator",
   }
 });
 
+test("job picker exposes class filter controls below search", async () => {
+  const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
+  const searchPosition = html.indexOf('id="job-search"');
+  const filterPosition = html.indexOf('id="job-class-filters"');
+  const resultPosition = html.indexOf('id="job-results"');
+  assert.ok(searchPosition >= 0 && searchPosition < filterPosition && filterPosition < resultPosition);
+  assert.match(html, /id="job-class-filter-status"/u);
+});
+
 test("separates personal environment inputs from enemy battle conditions", async () => {
   const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
   const section = (id) => {
