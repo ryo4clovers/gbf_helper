@@ -20,6 +20,9 @@ test("creates a deterministic browser-safe catalog from all job knowledge", () =
   const knight = catalog.jobs.find((job) => job.jobId === "110001");
   assert.equal(knight?.baseDoubleAttackRate, 7);
   assert.equal(knight?.baseTripleAttackRate, 3);
+  assert.equal(knight?.maximumJobLevel, 20);
+  assert.equal(knight?.maximumMasterLevel, 0);
+  assert.equal(knight?.maximumPerfectionProofLevel, 0);
   assert.deepEqual(knight?.jobLevelMultiattackBonuses, []);
 
   const relicBuster = catalog.jobs.find((job) => job.jobId === "450301");
@@ -38,4 +41,13 @@ test("creates a deterministic browser-safe catalog from all job knowledge", () =
   assert.deepEqual(relicBuster?.perfectionProofMultiattackBonuses, [
     { level: 4, doubleAttackRatePercent: 0, tripleAttackRatePercent: 7 },
   ]);
+  assert.equal(relicBuster?.maximumMasterLevel, 30);
+  assert.equal(relicBuster?.maximumPerfectionProofLevel, 6);
+  assert.equal(
+    relicBuster?.jobLevelBonuses.reduce((sum, bonus) => sum + bonus.attack, 0),
+    3_000,
+  );
+
+  assert.equal(fighterOrigin?.maximumJobLevel, 50);
+  assert.equal(fighterOrigin?.maximumMasterLevel, 0);
 });

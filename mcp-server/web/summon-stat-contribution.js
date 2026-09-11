@@ -117,17 +117,23 @@ export function rebaseProtagonistForCompletionBonusChange(
   nextAttackPercent,
   nextHpPercent,
   nextMainWeaponAttackContribution = 0,
+  nextJobGrowthAttackContribution = 0,
+  nextJobGrowthHpContribution = 0,
 ) {
   const previousAttackPercent = config.protagonist.masterBonusAttackPercent;
   const previousMainContribution = config.protagonist.mainWeaponCompletionAttackContribution;
+  const previousGrowthAttack = config.protagonist.jobGrowthAttackContribution;
+  const previousGrowthHp = config.protagonist.jobGrowthHpContribution;
   if (Number.isFinite(config.protagonist.attackOverride) && Number.isFinite(previousAttackPercent)) {
-    if (Number.isFinite(previousMainContribution)) {
+    if (Number.isFinite(previousMainContribution) && Number.isFinite(previousGrowthAttack)) {
       const previousMultiplier = 1 + previousAttackPercent / 100;
       const nextMultiplier = 1 + nextAttackPercent / 100;
       config.protagonist.attackOverride = Math.round(
         (config.protagonist.attackOverride / previousMultiplier
           - previousMainContribution
-          + nextMainWeaponAttackContribution) * nextMultiplier,
+          - previousGrowthAttack
+          + nextMainWeaponAttackContribution
+          + nextJobGrowthAttackContribution) * nextMultiplier,
       );
     } else {
       config.protagonist.attackOverride = rebaseCompletionMultiplier(
@@ -137,10 +143,26 @@ export function rebaseProtagonistForCompletionBonusChange(
       );
     }
   }
-  config.protagonist.hpOverride = rebaseCompletionMultiplier(
-    config.protagonist.hpOverride,
-    config.protagonist.masterBonusHpPercent,
-    nextHpPercent,
-  );
+  if (
+    Number.isFinite(config.protagonist.hpOverride)
+    && Number.isFinite(config.protagonist.masterBonusHpPercent)
+    && Number.isFinite(previousGrowthHp)
+  ) {
+    const previousMultiplier = 1 + config.protagonist.masterBonusHpPercent / 100;
+    const nextMultiplier = 1 + nextHpPercent / 100;
+    config.protagonist.hpOverride = Math.round(
+      (config.protagonist.hpOverride / previousMultiplier
+        - previousGrowthHp
+        + nextJobGrowthHpContribution) * nextMultiplier,
+    );
+  } else {
+    config.protagonist.hpOverride = rebaseCompletionMultiplier(
+      config.protagonist.hpOverride,
+      config.protagonist.masterBonusHpPercent,
+      nextHpPercent,
+    );
+  }
   config.protagonist.mainWeaponCompletionAttackContribution = nextMainWeaponAttackContribution;
+  config.protagonist.jobGrowthAttackContribution = nextJobGrowthAttackContribution;
+  config.protagonist.jobGrowthHpContribution = nextJobGrowthHpContribution;
 }

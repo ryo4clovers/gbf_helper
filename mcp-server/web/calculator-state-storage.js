@@ -28,6 +28,7 @@ const characterKeys = ["slot", "position", "characterId", "nameHint", "level", "
 const personalProtagonistKeys = [
   "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
   "attackOverride", "hpOverride", "memorialItems", "crewSupport", "completedJobIds", "mainWeaponCompletionAttackContribution",
+  "jobGrowthAttackContribution", "jobGrowthHpContribution",
 ];
 const environmentProtagonistKeys = [
   "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",

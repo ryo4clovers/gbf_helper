@@ -9,7 +9,7 @@ export const DEFAULT_CALCULATOR_DECK = {
     jobId: "110001",
     jobNameHint: "ナイト",
     jobLevel: 20,
-    masterLevel: 1,
+    masterLevel: 0,
     perfectionProofLevel: 0,
     baseDoubleAttackRate: 7,
     baseTripleAttackRate: 3,

@@ -77,6 +77,8 @@ const protagonistSchema = z
     masterBonusHpPercent: ratePercentSchema.optional(),
     completedJobIds: z.array(idSchema).optional(),
     mainWeaponCompletionAttackContribution: nonNegativeNumberSchema.optional(),
+    jobGrowthAttackContribution: nonNegativeNumberSchema.optional(),
+    jobGrowthHpContribution: nonNegativeNumberSchema.optional(),
     attackOverride: nonNegativeNumberSchema.optional(),
     hpOverride: nonNegativeNumberSchema.optional(),
     memorialItems: memorialItemSettingsSchema.optional(),

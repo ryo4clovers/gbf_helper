@@ -415,6 +415,8 @@ export interface CalculatorDeckProtagonistConfig {
   masterBonusHpPercent?: number;
   completedJobIds?: string[];
   mainWeaponCompletionAttackContribution?: number;
+  jobGrowthAttackContribution?: number;
+  jobGrowthHpContribution?: number;
   attackOverride?: number;
   hpOverride?: number;
   memorialItems?: {

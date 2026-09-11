@@ -45,6 +45,8 @@ test("replaces the main-weapon completion contribution without double counting",
       masterBonusAttackPercent: 24,
       masterBonusHpPercent: 20,
       mainWeaponCompletionAttackContribution: 120,
+      jobGrowthAttackContribution: 0,
+      jobGrowthHpContribution: 0,
     },
   };
   rebaseProtagonistForCompletionBonusChange(config, 24, 20, 60);
@@ -52,6 +54,26 @@ test("replaces the main-weapon completion contribution without double counting",
   assert.equal(config.protagonist.mainWeaponCompletionAttackContribution, 60);
   rebaseProtagonistForCompletionBonusChange(config, 24, 20, 120);
   assert.equal(config.protagonist.attackOverride, 12_400);
+});
+
+test("replaces flat job-growth ATK and HP contributions inside completion multipliers", () => {
+  const config = {
+    protagonist: {
+      attackOverride: 12_400,
+      hpOverride: 2_400,
+      masterBonusAttackPercent: 24,
+      masterBonusHpPercent: 20,
+      mainWeaponCompletionAttackContribution: 0,
+      jobGrowthAttackContribution: 2_000,
+      jobGrowthHpContribution: 500,
+    },
+  };
+  rebaseProtagonistForCompletionBonusChange(config, 24, 20, 0, 1_000, 200);
+  assert.equal(config.protagonist.attackOverride, 11_160);
+  assert.equal(config.protagonist.hpOverride, 2_040);
+  rebaseProtagonistForCompletionBonusChange(config, 24, 20, 0, 2_000, 500);
+  assert.equal(config.protagonist.attackOverride, 12_400);
+  assert.equal(config.protagonist.hpOverride, 2_400);
 });
 
 test("rebases observed protagonist stats by the scaled Rank delta", () => {

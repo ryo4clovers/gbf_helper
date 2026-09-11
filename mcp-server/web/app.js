@@ -42,6 +42,10 @@ import {
   calculateJobCompletionBonuses,
   normalizeCompletedJobIds,
 } from "/job-completion-bonus-config.js";
+import {
+  calculateJobGrowthBonuses,
+  normalizeJobGrowthLevels,
+} from "/job-growth-config.js?v=1";
 
 const $ = (id) => document.getElementById(id);
 const form = $("calculator-form");
@@ -534,27 +538,38 @@ function catalogJob(jobId) {
   return jobCatalog.find((job) => job.jobId === jobId);
 }
 
-function createJobLevelField(config, key, label, maximum) {
+function createJobLevelField(config, job, key, label, maximum, minimum = 0) {
   const field = document.createElement("label");
   field.textContent = label;
   const input = document.createElement("input");
   input.type = "number";
-  input.min = "0";
+  input.min = String(minimum);
   input.max = String(maximum);
   input.step = "1";
-  input.placeholder = "—";
-  input.value = config.protagonist[key] == null ? "" : String(config.protagonist[key]);
+  input.value = String(config.protagonist[key] ?? minimum);
+  input.disabled = maximum === 0;
   input.setAttribute("aria-label", `${label}を変更`);
   input.addEventListener("change", () => {
     const value = Number(input.value);
-    if (input.value === "") delete config.protagonist[key];
-    else if (Number.isInteger(value) && value >= 0 && value <= maximum) config.protagonist[key] = value;
-    else return;
+    if (!Number.isInteger(value) || value < minimum || value > maximum) return;
+    config.protagonist[key] = value;
+    normalizeJobGrowthLevels(config.protagonist, job);
     writeDeckConfig(config);
+    renderJobEditor(config);
     void calculate();
   });
   field.append(input);
   return field;
+}
+
+function jobGrowthStageSummary(label, totals) {
+  const values = [
+    totals.attack > 0 ? `ATK +${numberFormat.format(totals.attack)}` : "",
+    totals.hp > 0 ? `HP +${numberFormat.format(totals.hp)}` : "",
+    totals.doubleAttackRatePercent > 0 ? `DA +${totals.doubleAttackRatePercent}%` : "",
+    totals.tripleAttackRatePercent > 0 ? `TA +${totals.tripleAttackRatePercent}%` : "",
+  ].filter(Boolean);
+  return values.length > 0 ? `${label}: ${values.join(" / ")}` : "";
 }
 
 function renderJobEditor(config) {
@@ -599,13 +614,22 @@ function renderJobEditor(config) {
   choice.append(icon, details);
   card.append(choice);
   if (jobId) {
+    normalizeJobGrowthLevels(config.protagonist, job);
     const controls = document.createElement("div");
     controls.className = "job-level-controls";
     controls.append(
-      createJobLevelField(config, "jobLevel", "Lv", 999),
-      createJobLevelField(config, "masterLevel", "ML", 999),
-      createJobLevelField(config, "perfectionProofLevel", "極致", 999),
+      createJobLevelField(config, job, "jobLevel", "Lv", job?.maximumJobLevel ?? 20, 1),
+      createJobLevelField(config, job, "masterLevel", "ML", job?.maximumMasterLevel ?? 0, job?.maximumMasterLevel ? 1 : 0),
+      createJobLevelField(config, job, "perfectionProofLevel", "極致", job?.maximumPerfectionProofLevel ?? 0),
     );
+    const growth = calculateJobGrowthBonuses(job, config.protagonist);
+    const summaryText = [
+      jobGrowthStageSummary("Lv", growth.jobLevel),
+      jobGrowthStageSummary("ML", growth.masterLevel),
+      jobGrowthStageSummary("極致", growth.perfectionProof),
+    ].filter(Boolean).join(" ｜ ");
+    const summary = createText("job-growth-summary", summaryText || "現在の段階に計算対象ボーナスはありません");
+    controls.append(summary);
     card.append(controls);
   }
   $("job-editor").replaceChildren(card);
@@ -1101,6 +1125,7 @@ function renderWeaponEditor() {
     const config = readDeckConfig();
     applyEquipmentRules(config);
     applyCatalogWeaponLevelStatsToConfig(config);
+    normalizeJobGrowthLevels(config.protagonist, catalogJob(config.protagonist.jobId));
     writeDeckConfig(config);
     renderJobEditor(config);
     renderCharacterEditor(config);
@@ -1615,6 +1640,9 @@ function buildRequest() {
   deckConfig.protagonist.rank = numberValue("player-rank");
   rebaseProtagonistForRankChange(deckConfig, previousRank);
   applyEquipmentRules(deckConfig);
+  const selectedJob = catalogJob(deckConfig.protagonist.jobId);
+  normalizeJobGrowthLevels(deckConfig.protagonist, selectedJob);
+  const growth = calculateJobGrowthBonuses(selectedJob, deckConfig.protagonist);
   deckConfig.protagonist.memorialItems = readMemorialItemSettings();
   deckConfig.protagonist.crewSupport = readCrewSupportSettings();
   const completion = renderJobCompletionSummary(readCompletedJobIds(), deckConfig);
@@ -1624,6 +1652,8 @@ function buildRequest() {
     completion.totals.attack ?? 0,
     completion.totals.hp ?? 0,
     mainWeaponCompletionAttackContribution(deckConfig, completion.totals.mainWeaponAttack ?? 0),
+    growth.totals.attack,
+    growth.totals.hp,
   );
   deckConfig.protagonist.masterBonusAttackPercent = completion.totals.attack ?? 0;
   deckConfig.protagonist.masterBonusHpPercent = completion.totals.hp ?? 0;

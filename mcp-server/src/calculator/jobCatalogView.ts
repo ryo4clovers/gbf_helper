@@ -11,6 +11,7 @@ const jobFrontmatterSchema = z
     name_en: z.string().min(1),
     class_tier: z.string().min(1),
     weapon_type: z.string().min(1),
+    has_kokuchi: z.boolean().default(false),
     status: z.enum(["検証済み", "下書き", "未着手"]),
   })
   .passthrough();
@@ -36,10 +37,22 @@ export interface SelectableJobCatalogEntry {
   weaponKinds: Array<{ code: string; name: string }>;
   baseDoubleAttackRate?: number;
   baseTripleAttackRate?: number;
+  maximumJobLevel: number;
+  maximumMasterLevel: number;
+  maximumPerfectionProofLevel: number;
+  jobLevelBonuses: JobGrowthBonus[];
+  masterLevelBonuses: JobGrowthBonus[];
+  perfectionProofBonuses: JobGrowthBonus[];
   jobLevelMultiattackBonuses: MultiattackRateBonus[];
   masterLevelMultiattackBonuses: MultiattackRateBonus[];
   perfectionProofMultiattackBonuses: MultiattackRateBonus[];
   verificationStatus: "検証済み" | "下書き" | "未着手";
+}
+
+export interface JobGrowthBonus extends MultiattackRateBonus {
+  attack: number;
+  hp: number;
+  description: string;
 }
 
 export interface MultiattackRateBonus {
@@ -68,13 +81,33 @@ function rateInText(text: string, label: "ダブルアタック" | "トリプル
 }
 
 function multiattackBonusRows(markdownSection: string): MultiattackRateBonus[] {
-  return [...markdownSection.matchAll(/^\|\s*(\d+)\s*\|\s*(.*?)\s*\|\s*$/gm)]
-    .map((match) => ({
-      level: Number(match[1]),
-      doubleAttackRatePercent: rateInText(match[2], "ダブルアタック"),
-      tripleAttackRatePercent: rateInText(match[2], "トリプルアタック"),
+  return growthBonusRows(markdownSection)
+    .map(({ level, doubleAttackRatePercent, tripleAttackRatePercent }) => ({
+      level,
+      doubleAttackRatePercent,
+      tripleAttackRatePercent,
     }))
     .filter((bonus) => bonus.doubleAttackRatePercent > 0 || bonus.tripleAttackRatePercent > 0);
+}
+
+function flatStatInText(text: string, label: "攻撃力" | "HP"): number {
+  const match = text.match(new RegExp(`${label}\\s*\\+?\\s*(\\d+(?:\\.\\d+)?)\\s*([%％]?)`));
+  return match === null || match[2] !== "" ? 0 : Number(match[1]);
+}
+
+function growthBonusRows(markdownSection: string): JobGrowthBonus[] {
+  return [...markdownSection.matchAll(/^\|\s*(\d+)\s*\|\s*(.*?)\s*\|\s*$/gm)].map((match) => ({
+    level: Number(match[1]),
+    attack: flatStatInText(match[2], "攻撃力"),
+    hp: flatStatInText(match[2], "HP"),
+    doubleAttackRatePercent: rateInText(match[2], "ダブルアタック"),
+    tripleAttackRatePercent: rateInText(match[2], "トリプルアタック"),
+    description: match[2].trim(),
+  }));
+}
+
+function maximumLevel(rows: JobGrowthBonus[], fallback: number): number {
+  return rows.reduce((maximum, row) => Math.max(maximum, row.level), fallback);
 }
 
 function baseMultiattackRates(markdown: string): { double?: number; triple?: number } {
@@ -95,6 +128,10 @@ export function createSelectableJobCatalog(
       const document = matter(readFileSync(path.join(jobsPath, name), "utf8"));
       const frontmatter = jobFrontmatterSchema.parse(document.data);
       const baseRates = baseMultiattackRates(document.content);
+      const jobLevelBonuses = growthBonusRows(section(document.content, "ジョブLvアップボーナス"));
+      const masterLevelBonuses = growthBonusRows(section(document.content, "マスターレベル強化"));
+      const perfectionProofBonuses = growthBonusRows(section(document.content, "極致の証"));
+      const supportsMasterLevel = frontmatter.class_tier === "ClassIV" || frontmatter.class_tier === "エクストラII";
       const weaponKinds = frontmatter.weapon_type.split("/").map((weaponName) => {
         const normalizedName = weaponName.trim();
         const code = weaponKindCodes[normalizedName];
@@ -109,9 +146,19 @@ export function createSelectableJobCatalog(
         weaponKinds,
         baseDoubleAttackRate: baseRates.double,
         baseTripleAttackRate: baseRates.triple,
+        maximumJobLevel: maximumLevel(jobLevelBonuses, 20),
+        maximumMasterLevel: supportsMasterLevel ? maximumLevel(masterLevelBonuses, 30) : 0,
+        maximumPerfectionProofLevel: frontmatter.has_kokuchi ? maximumLevel(perfectionProofBonuses, 6) : 0,
+        jobLevelBonuses,
+        masterLevelBonuses: supportsMasterLevel ? masterLevelBonuses : [],
+        perfectionProofBonuses: frontmatter.has_kokuchi ? perfectionProofBonuses : [],
         jobLevelMultiattackBonuses: multiattackBonusRows(section(document.content, "ジョブLvアップボーナス")),
-        masterLevelMultiattackBonuses: multiattackBonusRows(section(document.content, "マスターレベル強化")),
-        perfectionProofMultiattackBonuses: multiattackBonusRows(section(document.content, "極致の証")),
+        masterLevelMultiattackBonuses: supportsMasterLevel
+          ? multiattackBonusRows(section(document.content, "マスターレベル強化"))
+          : [],
+        perfectionProofMultiattackBonuses: frontmatter.has_kokuchi
+          ? multiattackBonusRows(section(document.content, "極致の証"))
+          : [],
         verificationStatus: frontmatter.status,
       };
     })
