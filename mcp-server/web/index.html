@@ -156,8 +156,19 @@
           </div>
           <div class="field-grid modifier-grid">
             <label class="number-field"><span>Rank</span><input id="player-rank" type="number" value="1" min="1" max="425" step="1" required title="現在の表示ステータスを基準にRank変更分を反映します" /></label>
-            <label class="number-field"><span>ジョブ通常与ダメ</span><input id="job-damage" type="number" value="3" min="0" step="0.1" /><em>%</em></label>
           </div>
+
+          <details class="advanced-settings job-completion-settings">
+            <summary>ジョブコンプリートボーナス</summary>
+            <p class="settings-help">コンプリート済みのジョブを選ぶと、主人公のボーナスを自動集計します。攻撃・HP・DA・TA・通常攻撃与ダメージは計算へ反映し、それ以外は集計表示のみです。公開Wiki由来の数値は要検証です。</p>
+            <div class="job-completion-toolbar">
+              <button id="complete-all-jobs" class="text-button" type="button">すべて選択</button>
+              <button id="clear-completed-jobs" class="text-button" type="button">すべて解除</button>
+              <strong id="job-completion-count">—</strong>
+            </div>
+            <div id="job-completion-summary" class="job-completion-summary"></div>
+            <div id="job-completion-editor"></div>
+          </details>
 
           <details class="advanced-settings crew-support-settings">
             <summary>騎空団サポート</summary>

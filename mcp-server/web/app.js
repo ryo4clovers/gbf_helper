@@ -21,6 +21,7 @@ import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
 import { calculateEquipmentLevelStats } from "/equipment-level-stats.js";
 import { createEquipmentLevelOptions } from "/equipment-level-options.js";
 import {
+  rebaseProtagonistForCompletionBonusChange,
   rebaseProtagonistForRankChange,
   rebaseProtagonistForSummonChange,
 } from "/summon-stat-contribution.js";
@@ -36,6 +37,11 @@ import {
   defaultCrewSupportSettings,
   normalizeCrewSupportSettings,
 } from "/crew-support-config.js";
+import {
+  JOB_COMPLETION_BONUS_DEFINITIONS,
+  calculateJobCompletionBonuses,
+  normalizeCompletedJobIds,
+} from "/job-completion-bonus-config.js";
 
 const $ = (id) => document.getElementById(id);
 const form = $("calculator-form");
@@ -110,6 +116,97 @@ function readCrewSupportSettings() {
     definition.key,
     $(`crew-support-${definition.key}`)?.checked ?? true,
   ]));
+}
+
+const jobClassOrder = ["オリジン", "ClassI", "ClassII", "ClassIII", "ClassIV", "ClassV", "エクストラ", "エクストラII"];
+
+function readCompletedJobIds() {
+  return JOB_COMPLETION_BONUS_DEFINITIONS.flatMap((definition) => {
+    const job = jobCatalog.find((candidate) => candidate.name === definition.name);
+    return job && $(`job-completed-${job.jobId}`)?.checked ? [job.jobId] : [];
+  });
+}
+
+function currentMainWeaponKindCode(config) {
+  const main = config.weapons.find((weapon) => weapon.position === "main" && !weapon.isJobFallback);
+  return weaponCatalog.find((weapon) => weapon.weaponId === main?.weaponId)?.weaponKindCode;
+}
+
+function renderJobCompletionSummary(completedJobIds, config) {
+  const selectedJob = catalogJob(config.protagonist.jobId);
+  const result = calculateJobCompletionBonuses(
+    completedJobIds, jobCatalog, selectedJob, currentMainWeaponKindCode(config),
+  );
+  const labels = {
+    attack: "攻撃力", hp: "HP", da: "DA率", ta: "TA率", normalAttackDamage: "通常攻撃与ダメージ",
+    damageCap: "ダメージ上限", abilityDamage: "アビリティダメージ", abilityDamageCap: "アビリティダメージ上限",
+    defense: "防御力", healing: "回復力", healingCap: "回復上限", debuffSuccess: "弱体成功率",
+    debuffResistance: "弱体耐性", dodge: "回避率", overdriveSuppression: "OD抑制",
+    overdriveDamageReduction: "OD中被ダメ軽減", normalAttackChargeGain: "通常攻撃時奥義ゲージ上昇量",
+    mainWeaponAttackSword: "剣メイン攻撃力", mainWeaponAttackDagger: "短剣メイン攻撃力",
+    mainWeaponAttackSpear: "槍メイン攻撃力", mainWeaponAttackAxe: "斧メイン攻撃力",
+    mainWeaponAttackStaff: "杖メイン攻撃力", mainWeaponAttackGun: "銃メイン攻撃力",
+    mainWeaponAttackMelee: "格闘メイン攻撃力", mainWeaponAttackBow: "弓メイン攻撃力",
+    mainWeaponAttackHarp: "楽器メイン攻撃力", mainWeaponAttackKatana: "刀メイン攻撃力",
+  };
+  const summary = $("job-completion-summary");
+  summary.replaceChildren();
+  const connectedKeys = new Set(["attack", "hp", "da", "ta", "normalAttackDamage"]);
+  for (const [key, amount] of Object.entries(result.totals)) {
+    const chip = document.createElement("span");
+    chip.className = connectedKeys.has(key) ? "connected" : "pending";
+    chip.title = connectedKeys.has(key) ? "計算へ反映" : "集計のみ（計算未接続）";
+    chip.textContent = `${labels[key] ?? key} +${numberFormat.format(amount)}${key === "normalAttackChargeGain" ? "" : "%"}`;
+    summary.append(chip);
+  }
+  if (result.inactiveConditionalEffects.length > 0) {
+    const note = document.createElement("small");
+    note.textContent = `条件付き効果 ${result.inactiveConditionalEffects.length}件は現在の編成では対象外です`;
+    summary.append(note);
+  }
+  $("job-completion-count").textContent = `${result.selectedJobIds.length} / ${JOB_COMPLETION_BONUS_DEFINITIONS.length}ジョブ`;
+  return result;
+}
+
+function renderJobCompletionEditor(value) {
+  const completedIds = new Set(normalizeCompletedJobIds(value, jobCatalog));
+  const jobByName = new Map(jobCatalog.map((job) => [job.name, job]));
+  const groups = new Map(jobClassOrder.map((tier) => [tier, []]));
+  for (const definition of JOB_COMPLETION_BONUS_DEFINITIONS) {
+    const job = jobByName.get(definition.name);
+    if (job) groups.get(job.classTier)?.push({ definition, job });
+  }
+  const editor = $("job-completion-editor");
+  editor.replaceChildren();
+  for (const tier of jobClassOrder) {
+    const entries = groups.get(tier) ?? [];
+    if (entries.length === 0) continue;
+    const group = document.createElement("details");
+    group.className = "job-completion-group";
+    const heading = document.createElement("summary");
+    heading.textContent = `${tier}（${entries.filter(({ job }) => completedIds.has(job.jobId)).length} / ${entries.length}）`;
+    const list = document.createElement("div");
+    list.className = "job-completion-list";
+    for (const { definition, job } of entries) {
+      const row = document.createElement("label");
+      row.className = "job-completion-row";
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.id = `job-completed-${job.jobId}`;
+      input.checked = completedIds.has(job.jobId);
+      const copy = document.createElement("span");
+      const name = document.createElement("strong");
+      name.textContent = definition.name;
+      const description = document.createElement("small");
+      description.textContent = definition.description;
+      copy.append(name, description);
+      row.append(input, copy);
+      list.append(row);
+    }
+    group.append(heading, list);
+    editor.append(group);
+  }
+  renderJobCompletionSummary([...completedIds], readDeckConfig());
 }
 
 function readDeckConfig() {
@@ -505,8 +602,6 @@ function renderJobEditor(config) {
       createJobLevelField(config, "jobLevel", "Lv", 999),
       createJobLevelField(config, "masterLevel", "ML", 999),
       createJobLevelField(config, "perfectionProofLevel", "極致", 999),
-      createJobLevelField(config, "jobCompletionDoubleAttackRate", "コンプDA%", 100),
-      createJobLevelField(config, "jobCompletionTripleAttackRate", "コンプTA%", 100),
     );
     card.append(controls);
   }
@@ -1518,6 +1613,17 @@ function buildRequest() {
   rebaseProtagonistForRankChange(deckConfig, previousRank);
   deckConfig.protagonist.memorialItems = readMemorialItemSettings();
   deckConfig.protagonist.crewSupport = readCrewSupportSettings();
+  const completion = renderJobCompletionSummary(readCompletedJobIds(), deckConfig);
+  deckConfig.protagonist.completedJobIds = completion.selectedJobIds;
+  rebaseProtagonistForCompletionBonusChange(
+    deckConfig,
+    completion.totals.attack ?? 0,
+    completion.totals.hp ?? 0,
+  );
+  deckConfig.protagonist.masterBonusAttackPercent = completion.totals.attack ?? 0;
+  deckConfig.protagonist.masterBonusHpPercent = completion.totals.hp ?? 0;
+  deckConfig.protagonist.jobCompletionDoubleAttackRate = completion.totals.da ?? 0;
+  deckConfig.protagonist.jobCompletionTripleAttackRate = completion.totals.ta ?? 0;
   applyEquipmentRules(deckConfig);
   writeDeckConfig(deckConfig);
   const memorialModifiers = calculateMemorialItemModifiers(
@@ -1539,7 +1645,7 @@ function buildRequest() {
       ...memorialModifiers,
       shipAttackPercent: crewSupportEffects.shipAttackPercent,
       furnaceAttackPercent: crewSupportEffects.furnaceAttackPercent,
-      jobNormalAttackDamagePercent: numberValue("job-damage"),
+      jobNormalAttackDamagePercent: completion.totals.normalAttackDamage ?? 0,
     },
     random: {
       minimum: numberValue("random-min"),
@@ -1820,16 +1926,11 @@ function applyRequestToForm(request) {
   renderSupportSummonEditor();
   renderMemorialItemEditor(request.deckConfig.protagonist.memorialItems);
   renderCrewSupportEditor(request.deckConfig.protagonist.crewSupport ?? defaultCrewSupportSettings());
+  renderJobCompletionEditor(request.deckConfig.protagonist.completedJobIds);
   $("player-rank").value = String(request.deckConfig.protagonist.rank ?? 1);
   $("enemy-element").value = request.enemy.elementCode;
   $("enemy-defense").value = String(request.enemy.defense);
   $("enemy-name").value = request.enemy.name || "";
-  const modifierFields = {
-    jobNormalAttackDamagePercent: "job-damage",
-  };
-  for (const [property, fieldId] of Object.entries(modifierFields)) {
-    $(fieldId).value = String(request.modifiers?.[property] ?? 0);
-  }
   $("random-min").value = String(request.random?.minimum ?? 0.95);
   $("random-max").value = String(request.random?.maximum ?? 1.05);
   $("random-step").value = String(request.random?.step ?? 0.001);
@@ -1961,6 +2062,15 @@ form.addEventListener("input", schedulePersistence);
 form.addEventListener("change", schedulePersistence);
 $("memorial-item-editor").addEventListener("change", () => {
   renderMemorialItemEditor(readMemorialItemSettings());
+  void calculate();
+});
+$("job-completion-editor").addEventListener("change", () => void calculate());
+$("complete-all-jobs").addEventListener("click", () => {
+  renderJobCompletionEditor(jobCatalog.map((job) => job.jobId));
+  void calculate();
+});
+$("clear-completed-jobs").addEventListener("click", () => {
+  renderJobCompletionEditor([]);
   void calculate();
 });
 $("include-extinction-crest-local").addEventListener("change", () => void calculate());
@@ -2097,6 +2207,7 @@ async function initialize() {
     weaponCatalog = (await weaponResponse.json()).weapons;
     fallbackWeaponCatalog = (await fallbackWeaponResponse.json()).weapons;
     summonCatalog = (await summonResponse.json()).summons;
+    renderJobCompletionEditor(readDeckConfig().protagonist.completedJobIds);
   } catch (error) {
     $("deck-state").textContent = error instanceof Error ? error.message : "編成カタログを読み込めませんでした";
     $("deck-state").classList.add("error-text");

@@ -87,6 +87,7 @@ function modifier(
   sourceName: string,
   elementCode?: string,
   targetElementCode?: string,
+  condition?: DamageModifier["condition"],
 ): DamageModifier[] {
   if (amountPercent === undefined || amountPercent === 0) return [];
   return [
@@ -98,6 +99,7 @@ function modifier(
       sourceName,
       elementCode,
       targetElementCode,
+      condition,
       verificationStatus: "下書き",
     },
   ];
@@ -187,6 +189,8 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
         "manual-job-normal-attack-damage",
         "ジョブ通常攻撃与ダメージ（手入力）",
         protagonistElementCode,
+        undefined,
+        "non-class-v",
       ),
     );
   }

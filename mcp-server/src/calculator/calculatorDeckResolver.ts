@@ -247,6 +247,7 @@ export function resolveCalculatorDeckConfig(
           : {
               masterId: config.protagonist.jobId,
               name: selectedJob?.name ?? config.protagonist.jobNameHint,
+              classCode: selectedJob?.classTier === "ClassV" ? "5" : selectedJob?.classTier,
               weaponKindCodes: selectedJob?.weaponKinds.map((weaponKind) => weaponKind.code) ?? [],
               baseDoubleAttackRate:
                 config.protagonist.baseDoubleAttackRate ?? selectedJob?.baseDoubleAttackRate,

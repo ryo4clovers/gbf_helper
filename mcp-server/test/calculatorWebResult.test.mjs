@@ -77,7 +77,10 @@ test("separates personal environment inputs from enemy battle conditions", async
   assert.match(environment, /<h2>個別環境ステータス<\/h2>/u);
   for (const id of [
     "player-rank",
-    "job-damage",
+    "job-completion-editor",
+    "job-completion-summary",
+    "complete-all-jobs",
+    "clear-completed-jobs",
     "crew-support-editor",
     "memorial-item-editor",
     "random-min",
@@ -87,6 +90,7 @@ test("separates personal environment inputs from enemy battle conditions", async
     assert.match(environment, new RegExp(`id=["']${id}["']`));
     assert.doesNotMatch(battle, new RegExp(`id=["']${id}["']`));
   }
+  assert.doesNotMatch(environment, /id=["']job-damage["']/u);
   assert.doesNotMatch(environment, /id=["'](?:ship|furnace)["']/u);
   assert.match(environment, /<details class="advanced-settings crew-support-settings">/u);
   assert.doesNotMatch(environment, /<details class="advanced-settings crew-support-settings" open>/u);

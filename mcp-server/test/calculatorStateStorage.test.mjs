@@ -37,6 +37,7 @@ function request() {
         jobCompletionTripleAttackRate: 4,
         masterBonusAttackPercent: 18,
         masterBonusHpPercent: 20,
+        completedJobIds: ["100001", "140401"],
         attackOverride: 22801,
         hpOverride: 4630,
         memorialItems: {
@@ -101,6 +102,7 @@ test("persists personal environment separately from formation and enemy data", (
   assert.equal(environment.protagonist.rank, 375);
   assert.equal(environment.protagonist.jobCompletionDoubleAttackRate, 7);
   assert.equal(environment.protagonist.masterBonusAttackPercent, 18);
+  assert.deepEqual(environment.protagonist.completedJobIds, ["100001", "140401"]);
   assert.equal(environment.memorialItems.items["1001"].level, 10);
   assert.equal(environment.crewSupport.rainbowFurnaceEnabled, false);
   assert.equal(environment.modifiers.furnaceAttackPercent, 20);

@@ -27,7 +27,7 @@ const summonKeys = ["slot", "position", "summonId", "nameHint", "level", "uncapL
 const characterKeys = ["slot", "position", "characterId", "nameHint", "level", "uncapLevel", "plusMark"];
 const personalProtagonistKeys = [
   "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
-  "attackOverride", "hpOverride", "memorialItems", "crewSupport",
+  "attackOverride", "hpOverride", "memorialItems", "crewSupport", "completedJobIds",
 ];
 const environmentProtagonistKeys = [
   "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
@@ -95,6 +95,12 @@ function assertEnvironment(environment) {
     throw new Error("保存データの個別環境設定が正しくありません");
   }
   const protagonist = pickFiniteNumbers(environment.protagonist, environmentProtagonistKeys, "protagonist");
+  if (environment.protagonist.completedJobIds !== undefined) {
+    if (!Array.isArray(environment.protagonist.completedJobIds) || environment.protagonist.completedJobIds.some((id) => typeof id !== "string" || id.trim() === "")) {
+      throw new Error("protagonist.completedJobIds はジョブIDの配列である必要があります");
+    }
+    protagonist.completedJobIds = [...new Set(environment.protagonist.completedJobIds)];
+  }
   if (protagonist.rank !== undefined && (!Number.isInteger(protagonist.rank) || protagonist.rank < 1 || protagonist.rank > 425)) {
     throw new Error("protagonist.rank は1〜425の整数である必要があります");
   }
@@ -181,7 +187,10 @@ export function createCalculatorEnvironment(request) {
   }
   return assertEnvironment({
     schemaVersion: 1,
-    protagonist: pick(request.deckConfig.protagonist, environmentProtagonistKeys),
+    protagonist: {
+      ...pick(request.deckConfig.protagonist, environmentProtagonistKeys),
+      ...pick(request.deckConfig.protagonist, ["completedJobIds"]),
+    },
     memorialItems: request.deckConfig.protagonist.memorialItems,
     crewSupport: request.deckConfig.protagonist.crewSupport,
     modifiers: pick(request.modifiers, modifierKeys),

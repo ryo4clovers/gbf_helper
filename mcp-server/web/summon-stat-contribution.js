@@ -103,3 +103,24 @@ export function rebaseProtagonistForRankChange(config, previousRank) {
     );
   }
 }
+
+function rebaseCompletionMultiplier(value, previousPercent, nextPercent) {
+  if (!Number.isFinite(value) || !Number.isFinite(previousPercent) || !Number.isFinite(nextPercent) || previousPercent === nextPercent) {
+    return value;
+  }
+  return Math.round(value / (1 + previousPercent / 100) * (1 + nextPercent / 100));
+}
+
+/** Rebases an observed display snapshot when completed-job ATK/HP totals change. */
+export function rebaseProtagonistForCompletionBonusChange(config, nextAttackPercent, nextHpPercent) {
+  config.protagonist.attackOverride = rebaseCompletionMultiplier(
+    config.protagonist.attackOverride,
+    config.protagonist.masterBonusAttackPercent,
+    nextAttackPercent,
+  );
+  config.protagonist.hpOverride = rebaseCompletionMultiplier(
+    config.protagonist.hpOverride,
+    config.protagonist.masterBonusHpPercent,
+    nextHpPercent,
+  );
+}

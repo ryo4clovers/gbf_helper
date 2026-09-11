@@ -2,6 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   calculateProtagonistRankBaseStats,
+  rebaseProtagonistForCompletionBonusChange,
   rebaseProtagonistForRankChange,
 } from "../web/summon-stat-contribution.js";
 
@@ -15,6 +16,25 @@ test("returns the provisional Rank base-stat breakpoints", () => {
   assert.equal(calculateProtagonistRankBaseStats(190).hp, 1_730);
   assert.equal(calculateProtagonistRankBaseStats(425).attack, 7_825);
   assert.equal(calculateProtagonistRankBaseStats(425).hp, 1_964);
+});
+
+test("rebases observed stats when completed-job attack and HP totals change", () => {
+  const config = {
+    protagonist: {
+      attackOverride: 12_400,
+      hpOverride: 2_400,
+      masterBonusAttackPercent: 24,
+      masterBonusHpPercent: 20,
+    },
+  };
+  rebaseProtagonistForCompletionBonusChange(config, 23, 19);
+  assert.equal(config.protagonist.attackOverride, 12_300);
+  assert.equal(config.protagonist.hpOverride, 2_380);
+  config.protagonist.masterBonusAttackPercent = 23;
+  config.protagonist.masterBonusHpPercent = 19;
+  rebaseProtagonistForCompletionBonusChange(config, 24, 20);
+  assert.equal(config.protagonist.attackOverride, 12_400);
+  assert.equal(config.protagonist.hpOverride, 2_400);
 });
 
 test("rebases observed protagonist stats by the scaled Rank delta", () => {

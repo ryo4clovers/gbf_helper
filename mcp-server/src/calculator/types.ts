@@ -413,6 +413,7 @@ export interface CalculatorDeckProtagonistConfig {
   jobCompletionTripleAttackRate?: number;
   masterBonusAttackPercent?: number;
   masterBonusHpPercent?: number;
+  completedJobIds?: string[];
   attackOverride?: number;
   hpOverride?: number;
   memorialItems?: {
