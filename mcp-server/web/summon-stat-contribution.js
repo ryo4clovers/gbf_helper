@@ -111,16 +111,36 @@ function rebaseCompletionMultiplier(value, previousPercent, nextPercent) {
   return Math.round(value / (1 + previousPercent / 100) * (1 + nextPercent / 100));
 }
 
-/** Rebases an observed display snapshot when completed-job ATK/HP totals change. */
-export function rebaseProtagonistForCompletionBonusChange(config, nextAttackPercent, nextHpPercent) {
-  config.protagonist.attackOverride = rebaseCompletionMultiplier(
-    config.protagonist.attackOverride,
-    config.protagonist.masterBonusAttackPercent,
-    nextAttackPercent,
-  );
+/** Rebases an observed display snapshot when completed-job ATK/HP or main-weapon bonuses change. */
+export function rebaseProtagonistForCompletionBonusChange(
+  config,
+  nextAttackPercent,
+  nextHpPercent,
+  nextMainWeaponAttackContribution = 0,
+) {
+  const previousAttackPercent = config.protagonist.masterBonusAttackPercent;
+  const previousMainContribution = config.protagonist.mainWeaponCompletionAttackContribution;
+  if (Number.isFinite(config.protagonist.attackOverride) && Number.isFinite(previousAttackPercent)) {
+    if (Number.isFinite(previousMainContribution)) {
+      const previousMultiplier = 1 + previousAttackPercent / 100;
+      const nextMultiplier = 1 + nextAttackPercent / 100;
+      config.protagonist.attackOverride = Math.round(
+        (config.protagonist.attackOverride / previousMultiplier
+          - previousMainContribution
+          + nextMainWeaponAttackContribution) * nextMultiplier,
+      );
+    } else {
+      config.protagonist.attackOverride = rebaseCompletionMultiplier(
+        config.protagonist.attackOverride,
+        previousAttackPercent,
+        nextAttackPercent,
+      );
+    }
+  }
   config.protagonist.hpOverride = rebaseCompletionMultiplier(
     config.protagonist.hpOverride,
     config.protagonist.masterBonusHpPercent,
     nextHpPercent,
   );
+  config.protagonist.mainWeaponCompletionAttackContribution = nextMainWeaponAttackContribution;
 }

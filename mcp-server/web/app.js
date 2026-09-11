@@ -128,8 +128,15 @@ function readCompletedJobIds() {
 }
 
 function currentMainWeaponKindCode(config) {
-  const main = config.weapons.find((weapon) => weapon.position === "main" && !weapon.isJobFallback);
-  return weaponCatalog.find((weapon) => weapon.weaponId === main?.weaponId)?.weaponKindCode;
+  const main = config.weapons.find((weapon) => weapon.position === "main");
+  const catalog = main?.isJobFallback ? fallbackWeaponCatalog : weaponCatalog;
+  return catalog.find((weapon) => weapon.weaponId === main?.weaponId)?.weaponKindCode;
+}
+
+function mainWeaponCompletionAttackContribution(config, amountPercent) {
+  const main = config.weapons.find((weapon) => weapon.position === "main");
+  if (!Number.isFinite(main?.attackOverride) || !Number.isFinite(amountPercent)) return 0;
+  return Math.round(main.attackOverride * amountPercent / 100);
 }
 
 function renderJobCompletionSummary(completedJobIds, config) {
@@ -143,15 +150,11 @@ function renderJobCompletionSummary(completedJobIds, config) {
     defense: "防御力", healing: "回復力", healingCap: "回復上限", debuffSuccess: "弱体成功率",
     debuffResistance: "弱体耐性", dodge: "回避率", overdriveSuppression: "OD抑制",
     overdriveDamageReduction: "OD中被ダメ軽減", normalAttackChargeGain: "通常攻撃時奥義ゲージ上昇量",
-    mainWeaponAttackSword: "剣メイン攻撃力", mainWeaponAttackDagger: "短剣メイン攻撃力",
-    mainWeaponAttackSpear: "槍メイン攻撃力", mainWeaponAttackAxe: "斧メイン攻撃力",
-    mainWeaponAttackStaff: "杖メイン攻撃力", mainWeaponAttackGun: "銃メイン攻撃力",
-    mainWeaponAttackMelee: "格闘メイン攻撃力", mainWeaponAttackBow: "弓メイン攻撃力",
-    mainWeaponAttackHarp: "楽器メイン攻撃力", mainWeaponAttackKatana: "刀メイン攻撃力",
+    mainWeaponAttack: "メイン武器攻撃力",
   };
   const summary = $("job-completion-summary");
   summary.replaceChildren();
-  const connectedKeys = new Set(["attack", "hp", "da", "ta", "normalAttackDamage"]);
+  const connectedKeys = new Set(["attack", "hp", "da", "ta", "normalAttackDamage", "mainWeaponAttack"]);
   for (const [key, amount] of Object.entries(result.totals)) {
     const chip = document.createElement("span");
     chip.className = connectedKeys.has(key) ? "connected" : "pending";
@@ -1611,6 +1614,7 @@ function buildRequest() {
   const previousRank = deckConfig.protagonist.rank;
   deckConfig.protagonist.rank = numberValue("player-rank");
   rebaseProtagonistForRankChange(deckConfig, previousRank);
+  applyEquipmentRules(deckConfig);
   deckConfig.protagonist.memorialItems = readMemorialItemSettings();
   deckConfig.protagonist.crewSupport = readCrewSupportSettings();
   const completion = renderJobCompletionSummary(readCompletedJobIds(), deckConfig);
@@ -1619,12 +1623,12 @@ function buildRequest() {
     deckConfig,
     completion.totals.attack ?? 0,
     completion.totals.hp ?? 0,
+    mainWeaponCompletionAttackContribution(deckConfig, completion.totals.mainWeaponAttack ?? 0),
   );
   deckConfig.protagonist.masterBonusAttackPercent = completion.totals.attack ?? 0;
   deckConfig.protagonist.masterBonusHpPercent = completion.totals.hp ?? 0;
   deckConfig.protagonist.jobCompletionDoubleAttackRate = completion.totals.da ?? 0;
   deckConfig.protagonist.jobCompletionTripleAttackRate = completion.totals.ta ?? 0;
-  applyEquipmentRules(deckConfig);
   writeDeckConfig(deckConfig);
   const memorialModifiers = calculateMemorialItemModifiers(
     deckConfig.protagonist.memorialItems,

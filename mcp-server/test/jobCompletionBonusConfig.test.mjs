@@ -30,3 +30,13 @@ test("King normal attack damage is inactive while a Class V job is selected", ()
   assert.equal(result.totals.normalAttackDamage, undefined);
   assert.ok(result.inactiveConditionalEffects.some((entry) => entry.jobName === "キング"));
 });
+
+test("main-weapon completion bonuses combine only for the equipped weapon kind", () => {
+  const ids = defaultCompletedJobIds(catalog);
+  const selectedJob = catalog.find((job) => job.name === "ナイト");
+  assert.equal(calculateJobCompletionBonuses(ids, catalog, selectedJob, "1").totals.mainWeaponAttack, 6);
+  assert.equal(calculateJobCompletionBonuses(ids, catalog, selectedJob, "4").totals.mainWeaponAttack, 6);
+  assert.equal(calculateJobCompletionBonuses(ids, catalog, selectedJob, "3").totals.mainWeaponAttack, 3);
+  assert.equal(calculateJobCompletionBonuses(ids, catalog, selectedJob, "5").totals.mainWeaponAttack, 3);
+  assert.equal(calculateJobCompletionBonuses(ids, catalog, selectedJob).totals.mainWeaponAttack, undefined);
+});
