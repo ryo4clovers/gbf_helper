@@ -50,6 +50,10 @@ import {
   JOB_CLASS_FILTER_ORDER,
   filterAndSortJobs,
 } from "/job-picker-filter.js?v=1";
+import {
+  CATALOG_ELEMENT_ORDER,
+  filterAndSortCatalogByElement,
+} from "/catalog-element-filter.js?v=1";
 
 const $ = (id) => document.getElementById(id);
 const form = $("calculator-form");
@@ -81,11 +85,14 @@ const weaponPickerResultLimit = 100;
 let jobCatalog = [];
 let selectedJobClassTier = "";
 let characterCatalog = [];
+let selectedCharacterElementCode = "";
 let editingCharacterSlot = null;
 let weaponCatalog = [];
 let fallbackWeaponCatalog = [];
+let selectedWeaponElementCode = "";
 let editingWeaponSlot = null;
 let summonCatalog = [];
+let selectedSummonElementCode = "";
 let editingSummonSlot = null;
 let selectedSupportSummon = null;
 let latestDamageResult = null;
@@ -96,6 +103,25 @@ let savedProfiles = [];
 let selectedProfileId = "";
 
 deckField.value = JSON.stringify(DEFAULT_CALCULATOR_DECK, null, 2);
+
+function renderCatalogElementFilters({ catalog, selectedElementCode, containerId, statusId, onChange }) {
+  const availableElements = new Set(catalog.map((entry) => String(entry.elementCode)));
+  const container = $(containerId);
+  container.replaceChildren();
+  for (const elementCode of CATALOG_ELEMENT_ORDER.filter((code) => availableElements.has(code))) {
+    const element = elementMeta[elementCode];
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `element-filter-button ${element?.className ?? "unknown"}`;
+    button.textContent = element?.name ?? "属性不明";
+    button.setAttribute("aria-pressed", String(selectedElementCode === elementCode));
+    button.addEventListener("click", () => onChange(selectedElementCode === elementCode ? "" : elementCode));
+    container.append(button);
+  }
+  $(statusId).textContent = selectedElementCode === ""
+    ? "すべての属性を表示"
+    : `選択中: ${elementMeta[selectedElementCode]?.name ?? "属性不明"}`;
+}
 
 function renderCrewSupportEditor(settings) {
   const normalized = normalizeCrewSupportSettings(settings);
@@ -847,12 +873,16 @@ function normalizeCharacterSearch(value) {
 
 function renderCharacterResults(query = "") {
   const normalized = normalizeCharacterSearch(query.trim());
-  const matches = characterCatalog.filter((character) => {
-    const element = elementMeta[character.elementCode]?.name ?? "";
-    return normalizeCharacterSearch(
-      [character.name, character.nameEn, character.characterId, element, character.rarity].join(" "),
-    ).includes(normalized);
-  });
+  const matches = filterAndSortCatalogByElement(
+    characterCatalog.filter((character) => {
+      const element = elementMeta[character.elementCode]?.name ?? "";
+      return normalizeCharacterSearch(
+        [character.name, character.nameEn, character.characterId, element, character.rarity].join(" "),
+      ).includes(normalized);
+    }),
+    selectedCharacterElementCode,
+    "characterId",
+  );
   const visibleMatches = matches.slice(0, characterPickerResultLimit);
   const results = $("character-results");
   results.replaceChildren();
@@ -887,11 +917,27 @@ function renderCharacterResults(query = "") {
     : `${matches.length} / ${characterCatalog.length}件`;
 }
 
+function renderCharacterElementFilters() {
+  renderCatalogElementFilters({
+    catalog: characterCatalog,
+    selectedElementCode: selectedCharacterElementCode,
+    containerId: "character-element-filters",
+    statusId: "character-element-filter-status",
+    onChange: (elementCode) => {
+      selectedCharacterElementCode = elementCode;
+      renderCharacterElementFilters();
+      renderCharacterResults($("character-search").value);
+    },
+  });
+}
+
 function openCharacterPicker(slot) {
   editingCharacterSlot = slot;
   $("character-picker-slot-label").textContent = slot <= 3 ? `前衛 ${slot}を変更` : `サブ ${slot - 3}を変更`;
   $("character-search").value = "";
+  selectedCharacterElementCode = "";
   $("remove-character").disabled = !characterForSlot(readDeckConfig(), slot);
+  renderCharacterElementFilters();
   renderCharacterResults();
   $("character-picker").showModal();
   $("character-search").focus();
@@ -1169,10 +1215,14 @@ function renderWeaponEditor() {
 
 function renderWeaponResults(query = "") {
   const normalized = query.trim().toLocaleLowerCase("ja");
-  const matches = weaponCatalog.filter((weapon) => {
-    const searchable = [weapon.name, weapon.nameEn, weapon.weaponId, ...weapon.skills.map((skill) => skill.name)].filter(Boolean).join(" ").toLocaleLowerCase("ja");
-    return searchable.includes(normalized);
-  });
+  const matches = filterAndSortCatalogByElement(
+    weaponCatalog.filter((weapon) => {
+      const searchable = [weapon.name, weapon.nameEn, weapon.weaponId, ...weapon.skills.map((skill) => skill.name)].filter(Boolean).join(" ").toLocaleLowerCase("ja");
+      return searchable.includes(normalized);
+    }),
+    selectedWeaponElementCode,
+    "weaponId",
+  );
   const results = $("weapon-results");
   results.replaceChildren();
   for (const weapon of matches.slice(0, weaponPickerResultLimit)) {
@@ -1205,12 +1255,28 @@ function renderWeaponResults(query = "") {
   $("catalog-count").textContent = `${displayed}件表示 / 該当${matches.length}件 / 全${weaponCatalog.length}件`;
 }
 
+function renderWeaponElementFilters() {
+  renderCatalogElementFilters({
+    catalog: weaponCatalog,
+    selectedElementCode: selectedWeaponElementCode,
+    containerId: "weapon-element-filters",
+    statusId: "weapon-element-filter-status",
+    onChange: (elementCode) => {
+      selectedWeaponElementCode = elementCode;
+      renderWeaponElementFilters();
+      renderWeaponResults($("weapon-search").value);
+    },
+  });
+}
+
 function openWeaponPicker(slot) {
   editingWeaponSlot = slot;
   $("picker-slot-label").textContent = slot === 1 ? "メイン武器を変更" : `武器枠 ${slot}を変更`;
   $("weapon-search").value = "";
+  selectedWeaponElementCode = "";
   const currentWeapon = weaponForSlot(readDeckConfig(), slot);
   $("remove-weapon").disabled = !currentWeapon || currentWeapon.isJobFallback === true;
+  renderWeaponElementFilters();
   renderWeaponResults();
   $("weapon-picker").showModal();
   $("weapon-search").focus();
@@ -1442,14 +1508,16 @@ function renderSupportSummonEditor() {
 
 function renderSummonResults(query = "") {
   const normalized = query.trim().toLocaleLowerCase("ja");
-  const availableSummons = editingSummonSlot?.kind === "support"
-    ? summonCatalog.filter((summon) => summon.supportSelectable)
-    : summonCatalog;
-  const matches = availableSummons.filter((summon) =>
-    [summon.name, summon.summonId, summon.auraName, summon.auraDescription]
-      .join(" ")
-      .toLocaleLowerCase("ja")
-      .includes(normalized),
+  const availableSummons = availableSummonsForPicker();
+  const matches = filterAndSortCatalogByElement(
+    availableSummons.filter((summon) =>
+      [summon.name, summon.summonId, summon.auraName, summon.auraDescription]
+        .join(" ")
+        .toLocaleLowerCase("ja")
+        .includes(normalized),
+    ),
+    selectedSummonElementCode,
+    "summonId",
   );
   const results = $("summon-results");
   results.replaceChildren();
@@ -1482,11 +1550,33 @@ function renderSummonResults(query = "") {
   $("summon-catalog-count").textContent = `${matches.length} / ${availableSummons.length}件`;
 }
 
+function availableSummonsForPicker() {
+  return editingSummonSlot?.kind === "support"
+    ? summonCatalog.filter((summon) => summon.supportSelectable)
+    : summonCatalog;
+}
+
+function renderSummonElementFilters() {
+  renderCatalogElementFilters({
+    catalog: availableSummonsForPicker(),
+    selectedElementCode: selectedSummonElementCode,
+    containerId: "summon-element-filters",
+    statusId: "summon-element-filter-status",
+    onChange: (elementCode) => {
+      selectedSummonElementCode = elementCode;
+      renderSummonElementFilters();
+      renderSummonResults($("summon-search").value);
+    },
+  });
+}
+
 function openSummonPicker(position, slot) {
   editingSummonSlot = { kind: "deck", position, slot };
   $("summon-picker-slot-label").textContent = `${summonSlotLabel(position, slot)}を変更`;
   $("summon-search").value = "";
+  selectedSummonElementCode = "";
   $("remove-summon").disabled = !summonForSlot(readDeckConfig(), position, slot);
+  renderSummonElementFilters();
   renderSummonResults();
   $("summon-picker").showModal();
   $("summon-search").focus();
@@ -1496,7 +1586,9 @@ function openSupportSummonPicker() {
   editingSummonSlot = { kind: "support" };
   $("summon-picker-slot-label").textContent = "クエスト開始前に選ぶサポート召喚石を変更";
   $("summon-search").value = "";
+  selectedSummonElementCode = "";
   $("remove-summon").disabled = selectedSupportSummon === null;
+  renderSummonElementFilters();
   renderSummonResults();
   $("summon-picker").showModal();
   $("summon-search").focus();
