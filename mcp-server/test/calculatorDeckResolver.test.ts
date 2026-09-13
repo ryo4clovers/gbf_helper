@@ -462,7 +462,7 @@ test("reproduces Fire's Might small SLv1 through 3 with Agni's 170% boost", () =
   }
 });
 
-test("applies provisional Godmight small SLv20 attack while warning that its HP part is unsupported", () => {
+test("applies provisional Godmight small SLv20 attack and HP components", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,
     format: "gbf-helper-calculator-deck",
@@ -494,11 +494,14 @@ test("applies provisional Godmight small SLv20 attack while warning that its HP 
   assert.deepEqual(
     result.deck.effectiveWeaponSkillEffects
       ?.filter((effect) => effect.sourceSkillId === "375")
-      .map((effect) => [effect.baseAmountPercent, effect.effectiveAmountPercent, effect.verificationStatus]),
-    [[12.5, 33.75, "下書き"]],
+      .map((effect) => [effect.kind, effect.baseAmountPercent, effect.effectiveAmountPercent, effect.verificationStatus]),
+    [
+      ["normal-attack-up", 12.5, 33.75, "下書き"],
+      ["normal-hp-up", 12.5, 33.75, "下書き"],
+    ],
   );
   assert.equal(result.issues.some((issue) => issue.code === "unverified-weapon-skill-effect"), true);
-  assert.equal(result.issues.some((issue) => issue.code === "weapon-skill-partially-supported"), true);
+  assert.equal(result.issues.some((issue) => issue.code === "weapon-skill-partially-supported"), false);
 });
 
 test("reports missing stat overrides with precise config paths", () => {

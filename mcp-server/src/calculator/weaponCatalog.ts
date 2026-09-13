@@ -11,6 +11,7 @@ const effectSchema = z
   .object({
     kind: z.enum([
       "normal-attack-up",
+      "normal-hp-up",
       "critical-rate-up",
       "double-attack-rate-up",
       "triple-attack-rate-up",
@@ -100,7 +101,7 @@ const weaponsFileSchema = z
   })
   .strict();
 
-const normalAttackAmountTableAssignmentSchema = z.object({
+const skillAmountTableAssignmentSchema = z.object({
   tableId: z.string().min(1),
   elementCode: z.string().min(1),
 }).strict();
@@ -111,7 +112,8 @@ const skillEntrySchema = z
     name: z.string().min(1),
     description: z.string().min(1),
     effects: z.array(effectSchema),
-    normalAttackAmountTable: normalAttackAmountTableAssignmentSchema.optional(),
+    normalAttackAmountTable: skillAmountTableAssignmentSchema.optional(),
+    normalHpAmountTable: skillAmountTableAssignmentSchema.optional(),
     unsupportedEffects: z.array(z.string().min(1)).min(1).optional(),
     ...sourceFields,
   })
@@ -124,7 +126,7 @@ const skillsFileSchema = z
   })
   .strict();
 
-const normalAttackAmountTablesFileSchema = z
+const skillAmountTablesFileSchema = z
   .object({
     schemaVersion: z.literal(1),
     tables: z.array(
@@ -165,8 +167,11 @@ function uniqueMap<T>(items: T[], getId: (item: T) => string, label: string): Ma
 export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
   const weaponFile = weaponsFileSchema.parse(readJson("weapons.v1.json"));
   const skillFile = skillsFileSchema.parse(readJson("weapon-skills.v1.json"));
-  const normalAttackTableFile = normalAttackAmountTablesFileSchema.parse(
+  const normalAttackTableFile = skillAmountTablesFileSchema.parse(
     readJson("weapon-skill-normal-attack-tables.v1.json"),
+  );
+  const normalHpTableFile = skillAmountTablesFileSchema.parse(
+    readJson("weapon-skill-normal-hp-tables.v1.json"),
   );
   const weapons = uniqueMap(weaponFile.weapons, (weapon) => weapon.weaponId, "weapon");
   const normalAttackTables = uniqueMap(
@@ -174,30 +179,53 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
     (table) => table.tableId,
     "normal attack amount table",
   );
+  const normalHpTables = uniqueMap(
+    normalHpTableFile.tables,
+    (table) => table.tableId,
+    "normal HP amount table",
+  );
   const expandedSkills = skillFile.skills.map((skill): WeaponSkillCatalogEntry => {
-    const { normalAttackAmountTable, ...baseSkill } = skill;
-    if (normalAttackAmountTable === undefined) return baseSkill;
-
-    const table = normalAttackTables.get(normalAttackAmountTable.tableId);
-    if (table === undefined) {
-      throw new Error(
-        `weapon skill ${skill.skillId} references unknown normal attack amount table ${normalAttackAmountTable.tableId}`,
+    const { normalAttackAmountTable, normalHpAmountTable, ...baseSkill } = skill;
+    const assignments = [
+      {
+        kind: "normal-attack-up" as const,
+        assignment: normalAttackAmountTable,
+        tables: normalAttackTables,
+        label: "normal attack",
+      },
+      {
+        kind: "normal-hp-up" as const,
+        assignment: normalHpAmountTable,
+        tables: normalHpTables,
+        label: "normal HP",
+      },
+    ];
+    const generatedEffects: WeaponSkillEffectDefinition[] = [];
+    for (const { kind, assignment, tables, label } of assignments) {
+      if (assignment === undefined) continue;
+      const table = tables.get(assignment.tableId);
+      if (table === undefined) {
+        throw new Error(
+          `weapon skill ${skill.skillId} references unknown ${label} amount table ${assignment.tableId}`,
+        );
+      }
+      generatedEffects.push(
+        ...table.values
+          .filter((value) => !baseSkill.effects.some(
+            (effect) => effect.kind === kind && effect.skillLevel === value.skillLevel,
+          ))
+          .map((value): WeaponSkillEffectDefinition => ({
+            kind,
+            elementCode: assignment.elementCode,
+            amountPercent: value.amountPercent,
+            skillLevel: value.skillLevel,
+            boostGroup: "normal",
+            verificationStatus: table.verificationStatus,
+            source: table.source,
+            ...(table.confirmedAt === undefined ? {} : { confirmedAt: table.confirmedAt }),
+          })),
       );
     }
-    const generatedEffects: WeaponSkillEffectDefinition[] = table.values
-      .filter((value) => !baseSkill.effects.some(
-        (effect) => effect.kind === "normal-attack-up" && effect.skillLevel === value.skillLevel,
-      ))
-      .map((value) => ({
-        kind: "normal-attack-up",
-        elementCode: normalAttackAmountTable.elementCode,
-        amountPercent: value.amountPercent,
-        skillLevel: value.skillLevel,
-        boostGroup: "normal",
-        verificationStatus: table.verificationStatus,
-        source: table.source,
-        ...(table.confirmedAt === undefined ? {} : { confirmedAt: table.confirmedAt }),
-      }));
     return { ...baseSkill, effects: [...baseSkill.effects, ...generatedEffects] };
   });
   const skills = uniqueMap(expandedSkills, (skill) => skill.skillId, "weapon skill");

@@ -125,8 +125,10 @@ test("resolves protagonist DA and TA rates from the selected job", () => {
     schemaVersion: 1,
     status: "provisional",
     baseHp: 4877,
+    weaponSkillHpPercent: 0,
     summonAuraPercent: 0,
     hp: 4877,
+    appliedWeaponSkillEffects: [],
     appliedAuras: [],
     issues: [],
   });

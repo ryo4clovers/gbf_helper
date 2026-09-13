@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "tables": [
+    {
+      "tableId": "normal-godmight-small",
+      "values": [
+        { "skillLevel": 1, "amountPercent": 1 },
+        { "skillLevel": 10, "amountPercent": 10 },
+        { "skillLevel": 15, "amountPercent": 12 },
+        { "skillLevel": 20, "amountPercent": 12.5 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の攻略サイト表画像2点（2026-09-13、実機未検証）"
+    },
+    {
+      "tableId": "normal-godmight-medium",
+      "values": [
+        { "skillLevel": 1, "amountPercent": 3 },
+        { "skillLevel": 10, "amountPercent": 12 },
+        { "skillLevel": 15, "amountPercent": 14.5 },
+        { "skillLevel": 20, "amountPercent": 15.5 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の攻略サイト表画像2点（2026-09-13、実機未検証）"
+    },
+    {
+      "tableId": "normal-godmight-large",
+      "values": [
+        { "skillLevel": 1, "amountPercent": 6 },
+        { "skillLevel": 10, "amountPercent": 15 },
+        { "skillLevel": 15, "amountPercent": 18 },
+        { "skillLevel": 20, "amountPercent": 20 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の攻略サイト表画像2点（2026-09-13、実機未検証）"
+    },
+    {
+      "tableId": "normal-aegis-small",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 12 },
+        { "skillLevel": 15, "amountPercent": 14 },
+        { "skillLevel": 20, "amountPercent": 16 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の攻略サイト表画像（2026-09-13、実機未検証）"
+    },
+    {
+      "tableId": "normal-aegis-medium",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 15 },
+        { "skillLevel": 15, "amountPercent": 17 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の攻略サイト表画像（2026-09-13、実機未検証）"
+    },
+    {
+      "tableId": "normal-aegis-large",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 18 },
+        { "skillLevel": 15, "amountPercent": 21 },
+        { "skillLevel": 20, "amountPercent": 24 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の攻略サイト表画像（2026-09-13、実機未検証）"
+    },
+    {
+      "tableId": "normal-aegis-ii",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 19 },
+        { "skillLevel": 15, "amountPercent": 24 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の攻略サイト表画像（2026-09-13、実機未検証）"
+    },
+    {
+      "tableId": "omega-hp",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 10 },
+        { "skillLevel": 15, "amountPercent": 15 },
+        { "skillLevel": 20, "amountPercent": 20 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の攻略サイト表画像（2026-09-13、発動条件とskill_idは未確認）"
+    },
+    {
+      "tableId": "bahamut-hp-low",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 15 },
+        { "skillLevel": 15, "amountPercent": 18 },
+        { "skillLevel": 20, "amountPercent": 21 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の攻略サイト表画像（2026-09-13、種族条件とskill_idは未確認）"
+    },
+    {
+      "tableId": "bahamut-hp-high",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 30 },
+        { "skillLevel": 15, "amountPercent": 40 },
+        { "skillLevel": 20, "amountPercent": 45 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の攻略サイト表画像（2026-09-13、種族条件とskill_idは未確認）"
+    }
+  ]
+}

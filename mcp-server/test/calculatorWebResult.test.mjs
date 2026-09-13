@@ -15,6 +15,8 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
     assert.match(app, new RegExp(`\\$\\(["']${id}["']\\)`));
   }
   assert.match(html, /<p>連撃率<\/p>/u);
+  assert.match(app, /武器スキル \+\$\{numberFormat\.format\(hp\.weaponSkillHpPercent\)\}%/u);
+  assert.match(app, /基礎HPの基準は要検証/u);
   assert.ok(html.indexOf('id="weapon-critical-toggle"') < html.indexOf('id="include-extinction-crest-local"'));
   assert.ok(html.indexOf('id="include-extinction-crest-local"') < html.indexOf('class="metric-grid local-result-grid"'));
   assert.doesNotMatch(html, /<details class="advanced-settings memorial-settings" open>/u);

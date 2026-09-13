@@ -2112,11 +2112,18 @@ function renderLocalResult(result) {
   $("protagonist-hp").textContent = hp === undefined ? "—" : formatDamage(hp.hp);
   if (hp === undefined) {
     $("protagonist-hp-note").textContent = "主人公HPが未設定です";
-  } else if (hp.summonAuraPercent === 0) {
-    $("protagonist-hp-note").textContent = `基礎HP ${formatDamage(hp.baseHp)}・加護なし`;
   } else {
-    const roundingNote = hp.issues.includes("fractional-rounding-unresolved") ? "・端数処理は暫定" : "";
-    $("protagonist-hp-note").textContent = `基礎HP ${formatDamage(hp.baseHp)}・召喚石加護 +${numberFormat.format(hp.summonAuraPercent)}%${roundingNote}`;
+    const notes = [`基礎HP ${formatDamage(hp.baseHp)}`];
+    if (hp.weaponSkillHpPercent > 0) {
+      notes.push(`武器スキル +${numberFormat.format(hp.weaponSkillHpPercent)}%`);
+    }
+    if (hp.summonAuraPercent > 0) {
+      notes.push(`召喚石加護 +${numberFormat.format(hp.summonAuraPercent)}%`);
+    }
+    if (hp.weaponSkillHpPercent === 0 && hp.summonAuraPercent === 0) notes.push("補正なし");
+    if (hp.issues.includes("fractional-rounding-unresolved")) notes.push("端数処理は暫定");
+    if (hp.issues.includes("weapon-skill-hp-baseline-unresolved")) notes.push("基礎HPの基準は要検証");
+    $("protagonist-hp-note").textContent = notes.join("・");
   }
 
   const criticalRate = critical?.weaponSkillCriticalRatePercent ?? 0;

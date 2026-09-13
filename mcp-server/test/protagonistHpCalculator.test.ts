@@ -35,8 +35,10 @@ test("retains base HP when no character HP aura applies", () => {
     schemaVersion: 1,
     status: "provisional",
     baseHp: 4630,
+    weaponSkillHpPercent: 0,
     summonAuraPercent: 0,
     hp: 4630,
+    appliedWeaponSkillEffects: [],
     appliedAuras: [],
     issues: [],
   });
@@ -49,4 +51,30 @@ test("marks fractional HP rounding as unresolved", () => {
 
   assert.equal(result?.hp, 5557);
   assert.deepEqual(result?.issues, ["fractional-rounding-unresolved"]);
+});
+
+test("applies boosted normal HP weapon skills before character HP summon auras", () => {
+  const input = deck(20);
+  input.protagonist.hp = 1000;
+  input.effectiveWeaponSkillEffects = [{
+    sourceWeaponSlot: 2,
+    sourceWeaponId: "godmight",
+    sourceSkillId: "375",
+    sourceSkillName: "火の神威",
+    kind: "normal-hp-up",
+    elementCode: "1",
+    baseAmountPercent: 12.5,
+    effectiveAmountPercent: 33.75,
+    skillLevel: 20,
+    verificationStatus: "下書き",
+    appliedModifiers: [],
+  }];
+
+  const result = calculateProtagonistHp(input);
+
+  assert.equal(result?.weaponSkillHpPercent, 33.75);
+  assert.equal(result?.summonAuraPercent, 20);
+  assert.equal(result?.hp, 1605);
+  assert.equal(result?.appliedWeaponSkillEffects.length, 1);
+  assert.deepEqual(result?.issues, ["weapon-skill-hp-baseline-unresolved"]);
 });

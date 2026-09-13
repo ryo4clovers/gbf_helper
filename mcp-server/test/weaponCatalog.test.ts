@@ -44,7 +44,22 @@ test("loads the initial incremental weapon and skill catalog", () => {
     );
     assert.equal(effects.every((effect) => effect.verificationStatus === "下書き"), true);
   }
-  assert.deepEqual(catalog.skills.get("375")?.unsupportedEffects, ["最大HP上昇（守護部分）"]);
+  const normalHpTableCases = [
+    ["375", [[1, 1], [10, 10], [15, 12], [20, 12.5]]],
+    ["765", [[1, 3], [10, 12], [15, 14.5], [20, 15.5]]],
+    ["1228", [[1, 6], [10, 15], [15, 18], [20, 20]]],
+  ] as const;
+  for (const [skillId, expected] of normalHpTableCases) {
+    const effects = catalog.skills.get(skillId)?.effects
+      .filter((effect) => effect.kind === "normal-hp-up") ?? [];
+    assert.deepEqual(
+      effects.map((effect) => [effect.skillLevel, effect.amountPercent]),
+      expected,
+      `normal HP table for skill ${skillId}`,
+    );
+    assert.equal(effects.every((effect) => effect.verificationStatus === "下書き"), true);
+  }
+  assert.equal(catalog.skills.get("375")?.unsupportedEffects, undefined);
   assert.deepEqual(catalog.weapons.get("1040201400")?.skillSlots, [
     { sourceKey: "skill1", skillId: "25" },
     { sourceKey: "skill2", skillId: "74" },

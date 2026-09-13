@@ -27,6 +27,7 @@ export interface DeckSkill {
 
 export type WeaponSkillEffectKind =
   | "normal-attack-up"
+  | "normal-hp-up"
   | "critical-rate-up"
   | "double-attack-rate-up"
   | "triple-attack-rate-up"
