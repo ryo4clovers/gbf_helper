@@ -25,6 +25,7 @@ test("コードをシート向け表示名へ変換する", () => {
   assert.equal(displayCode("critical-rate-up", EFFECT_KIND_LABELS, "effect.kind"), "クリティカル確率UP");
   assert.equal(displayCode("healing-cap-up", EFFECT_KIND_LABELS, "effect.kind"), "回復上限UP");
   assert.equal(displayCode("debuff-resistance-up", EFFECT_KIND_LABELS, "effect.kind"), "弱体耐性UP");
+  assert.equal(displayCode("damage-dealt-up", EFFECT_KIND_LABELS, "effect.kind"), "与ダメージUP");
   assert.equal(displayCode("character-hp-up", EFFECT_KIND_LABELS, "effect.kind"), "キャラHPUP");
   assert.equal(displayCode("dark opus", WIKI_SERIES_LABELS, "wiki.series"), "終末の神器");
 });

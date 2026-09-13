@@ -219,6 +219,23 @@ test("loads the initial incremental weapon and skill catalog", () => {
       ["double-attack-rate-up", 5, "magna", "検証済み"],
     ],
   );
+  assert.deepEqual(
+    catalog.skills.get("2198")?.effects
+      .filter((effect) => effect.skillLevel === 25)
+      .map((effect) => [effect.kind, effect.amountPercent, effect.boostGroup, effect.verificationStatus]),
+    [
+      ["normal-attack-up", 24, "magna", "下書き"],
+      ["magna-hp-up", 24, "magna", "下書き"],
+      ["damage-dealt-up", 2, "magna", "下書き"],
+    ],
+  );
+  assert.deepEqual(catalog.weapons.get("1040310700")?.selectionDefaults, {
+    level: 250,
+    hp: 318,
+    attack: 4440,
+    uncapLevel: 6,
+    skillLevel: 25,
+  });
   assert.deepEqual(catalog.weapons.get("1040611800")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1089" },
     { sourceKey: "skill2", skillId: "1337" },

@@ -7707,9 +7707,44 @@
       "skillId": "2198",
       "name": "機炎方陣・神醒III(方陣版)",
       "description": "火属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 24,
+          "skillLevel": 25,
+          "boostGroup": "magna",
+          "note": "Lv250神醒IIIの方陣攻刃（大）。方陣加護対象",
+          "verificationStatus": "下書き",
+          "source": "永遠拒絶の大鎌Lv250・SLv25武器詳細とGameWithのLv250神醒効果量（2026-09-14参照）。方陣版の編成表示は要検証",
+          "confirmedAt": "2026-09-14"
+        },
+        {
+          "kind": "magna-hp-up",
+          "elementCode": "1",
+          "amountPercent": 24,
+          "skillLevel": 25,
+          "boostGroup": "magna",
+          "note": "Lv250神醒IIIの最大HP（大）。方陣加護対象",
+          "verificationStatus": "下書き",
+          "source": "永遠拒絶の大鎌Lv250・SLv25武器詳細とGameWithのLv250神醒効果量（2026-09-14参照）。方陣版の編成表示は要検証",
+          "confirmedAt": "2026-09-14"
+        },
+        {
+          "kind": "damage-dealt-up",
+          "elementCode": "1",
+          "amountPercent": 2,
+          "skillLevel": 25,
+          "boostGroup": "magna",
+          "note": "Lv230時点は1.75%、Lv250で2%。減衰処理後にヒットごとに適用し、方陣加護対象",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の永遠拒絶の大鎌Lv250・SLv25武器詳細とGameWithのLv250神醒効果量（2026-09-14参照）。方陣加護後の実機編成は要検証",
+          "confirmedAt": "2026-09-14"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "knowledge/fire-ssr-dark-opus-scythe-magna.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供の永遠拒絶の大鎌Lv250・SLv25武器詳細（2026-09-14）。skill_id・構成は実機確認、数値と方陣加護後表示は要検証",
+      "confirmedAt": "2026-09-14"
     },
     {
       "skillId": "2199",

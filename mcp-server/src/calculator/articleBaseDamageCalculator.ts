@@ -137,6 +137,11 @@ export function calculateArticleBaseDamage(
   const jobModifiers = (input.deck.protagonist.job?.damageModifiers ?? []).filter((modifier) =>
     appliesToTarget(modifier, protagonistElementCode, target.elementCode, jobClassCode),
   );
+  const weaponDamageDealtContributions = (input.deck.effectiveWeaponSkillEffects ?? []).filter(
+    (effect) =>
+      effect.kind === "damage-dealt-up" &&
+      (effect.elementCode === undefined || effect.elementCode === protagonistElementCode),
+  );
   const shipPercent = input.crewModifiers?.shipAttackPercent ?? 0;
   const furnacePercent = input.crewModifiers?.furnaceAttackPercent ?? 0;
 
@@ -211,12 +216,14 @@ export function calculateArticleBaseDamage(
   const postCapContributions = [
     ...accountModifiers.filter((modifier) => modifier.stage === "damage-dealt"),
     ...jobModifiers.filter((modifier) => modifier.stage === "normal-attack-damage"),
+    ...weaponDamageDealtContributions,
   ];
   const targetElementContributions = accountModifiers.filter(
     (modifier) => modifier.stage === "target-element-damage",
   );
   const preTargetDamagePercent = postCapContributions.reduce(
-    (sum, contribution) => sum + contribution.amountPercent,
+    (sum, contribution) =>
+      sum + ("amountPercent" in contribution ? contribution.amountPercent : contribution.effectiveAmountPercent),
     0,
   );
   const targetElementDamagePercent = targetElementContributions.reduce(

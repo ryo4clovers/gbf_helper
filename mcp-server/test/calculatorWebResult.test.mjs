@@ -23,6 +23,8 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
   assert.match(html, /<p>連撃率<\/p>/u);
   assert.match(html, /Rank基礎値から主人公の表示ATK・HPを自動計算します/u);
   assert.match(app, /武器スキル \+\$\{numberFormat\.format\(hp\.weaponSkillHpPercent\)\}%/u);
+  assert.match(app, /otherSkills\.damageDealt\.effectivePercent/u);
+  assert.match(html, /id="damage-dealt-rate"/u);
   assert.match(app, /召喚石固定HP \+\$\{formatDamage\(hp\.summonAuraFlatHp\)\}/u);
   assert.match(app, /基礎HPの基準は要検証/u);
   const hpSliderPosition = html.indexOf('id="protagonist-hp-percent"');

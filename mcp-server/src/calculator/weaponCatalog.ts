@@ -21,6 +21,7 @@ const effectSchema = z
       "triple-attack-rate-up",
       "healing-cap-up",
       "debuff-resistance-up",
+      "damage-dealt-up",
       "elemental-pursuit",
       "normal-skill-boost",
     ]),

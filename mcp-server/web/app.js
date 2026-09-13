@@ -2164,6 +2164,8 @@ function renderLocalResult(result) {
     : multiattackNotes.join("・");
 
   const otherSkills = result.otherWeaponSkills;
+  $("damage-dealt-rate").textContent = `+${numberFormat.format(otherSkills.damageDealt.effectivePercent)}%`;
+  $("damage-dealt-note").textContent = "武器スキル・加護後／減衰後段（ダメージ上限は未解決）";
   $("healing-cap-rate").textContent = `+${numberFormat.format(otherSkills.healingCap.effectivePercent)}%`;
   $("healing-cap-note").textContent = otherSkills.healingCap.uncappedPercent > otherSkills.healingCap.effectivePercent
     ? `合計 ${numberFormat.format(otherSkills.healingCap.uncappedPercent)}%・上限100%適用`

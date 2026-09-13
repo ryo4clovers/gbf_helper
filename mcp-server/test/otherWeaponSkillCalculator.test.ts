@@ -79,3 +79,27 @@ test("caps combined healing cap at 100 percent", () => {
   assert.equal(result.healingCap.uncappedPercent, 110);
   assert.equal(result.healingCap.effectivePercent, 100);
 });
+
+test("reports post-cap damage dealt from weapon skills", () => {
+  const resolution = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 1,
+        position: "main",
+        weaponId: "1040310700",
+        level: 250,
+        skillLevel: 25,
+        attackOverride: 4440,
+        hpOverride: 318,
+      },
+    ],
+    summons: [],
+  });
+
+  const result = calculateOtherWeaponSkills(resolution.deck);
+  assert.equal(result.damageDealt.effectivePercent, 2);
+  assert.equal(result.damageDealt.contributions[0]?.sourceSkillId, "2198");
+});

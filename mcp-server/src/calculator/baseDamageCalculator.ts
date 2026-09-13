@@ -191,7 +191,15 @@ export function calculateDefenseAdjustedBaseDamage(
   const jobModifiers = (input.deck.protagonist.job?.damageModifiers ?? []).filter((modifier) =>
     appliesToTarget(modifier, protagonistElementCode, target.elementCode, jobClassCode),
   );
-  const damageDealtContributions = accountModifiers.filter((modifier) => modifier.stage === "damage-dealt");
+  const weaponDamageDealtContributions = (input.deck.effectiveWeaponSkillEffects ?? []).filter(
+    (effect) =>
+      effect.kind === "damage-dealt-up" &&
+      (effect.elementCode === undefined || effect.elementCode === protagonistElementCode),
+  );
+  const damageDealtContributions = [
+    ...accountModifiers.filter((modifier) => modifier.stage === "damage-dealt"),
+    ...weaponDamageDealtContributions,
+  ];
   const normalAttackDamageContributions = jobModifiers.filter(
     (modifier) => modifier.stage === "normal-attack-damage",
   );
@@ -200,7 +208,8 @@ export function calculateDefenseAdjustedBaseDamage(
   );
   const previouslyAppliedDamagePercent = roundCalculation(
     [...damageDealtContributions, ...normalAttackDamageContributions].reduce(
-      (sum, modifier) => sum + modifier.amountPercent,
+      (sum, modifier) =>
+        sum + ("amountPercent" in modifier ? modifier.amountPercent : modifier.effectiveAmountPercent),
       0,
     ),
   );

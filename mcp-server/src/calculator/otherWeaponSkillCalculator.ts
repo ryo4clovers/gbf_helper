@@ -9,6 +9,7 @@ export interface OtherWeaponSkillRateSummary {
 
 export interface OtherWeaponSkillResult {
   schemaVersion: 1;
+  damageDealt: OtherWeaponSkillRateSummary;
   healingCap: OtherWeaponSkillRateSummary;
   debuffResistance: OtherWeaponSkillRateSummary;
   /** Provisional simple model requested for an enemy effect whose base success rate is 100%. */
@@ -21,7 +22,7 @@ function roundPercentage(value: number): number {
 
 function matchingEffects(
   deck: DeckSnapshot,
-  kind: "healing-cap-up" | "debuff-resistance-up",
+  kind: "damage-dealt-up" | "healing-cap-up" | "debuff-resistance-up",
 ): EffectiveWeaponSkillEffect[] {
   const elementCode = deck.protagonist.elementCode;
   return (deck.effectiveWeaponSkillEffects ?? []).filter(
@@ -48,10 +49,12 @@ function summarizeRate(
 
 /** Aggregates utility weapon-skill rates without mixing them into normal-attack damage. */
 export function calculateOtherWeaponSkills(deck: DeckSnapshot): OtherWeaponSkillResult {
+  const damageDealt = summarizeRate(matchingEffects(deck, "damage-dealt-up"));
   const healingCap = summarizeRate(matchingEffects(deck, "healing-cap-up"), 100);
   const debuffResistance = summarizeRate(matchingEffects(deck, "debuff-resistance-up"));
   return {
     schemaVersion: 1,
+    damageDealt,
     healingCap,
     debuffResistance,
     incomingDebuffSuccessRateAt100Percent: roundPercentage(
