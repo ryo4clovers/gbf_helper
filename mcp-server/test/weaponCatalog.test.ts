@@ -6,7 +6,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
   assert.equal(catalog.weapons.size, 2970);
-  assert.equal(catalog.skills.size, 378);
+  assert.equal(catalog.skills.size, 415);
   assert.deepEqual(catalog.weapons.get("1020500200")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1" },
   ]);
@@ -68,6 +68,27 @@ test("loads the initial incremental weapon and skill catalog", () => {
     ["621", [[10, 18], [15, 23], [20, 25.5]]],
     ["378", [[10, 10], [15, 12], [20, 12.5]]],
     ["1232", [[10, 15], [15, 18], [20, 20]]],
+    ["4", [[10, 10], [15, 12], [20, 13]]],
+    ["16", [[10, 12], [15, 14.5], [20, 16]]],
+    ["28", [[10, 15], [15, 18], [20, 20]]],
+    ["211", [[10, 16], [15, 20], [20, 22]]],
+    ["629", [[10, 17], [15, 22]]],
+    ["325", [[10, 12], [15, 14.5], [20, 16]]],
+    ["338", [[10, 15], [15, 18], [20, 20]]],
+    ["774", [[10, 12], [15, 14.5], [20, 16]]],
+    ["870", [[10, 10], [15, 12], [20, 13]]],
+    ["1509", [[10, 12], [15, 14.5], [20, 16]]],
+    ["377", [[10, 10], [15, 12], [20, 12.5]]],
+    ["1231", [[10, 15], [15, 18], [20, 20]]],
+    ["6", [[10, 10], [15, 12], [20, 13]]],
+    ["30", [[10, 15], [15, 18], [20, 20]]],
+    ["631", [[10, 17], [15, 22]]],
+    ["850", [[10, 10], [15, 12], [20, 13]]],
+    ["340", [[10, 15], [15, 18], [20, 20]]],
+    ["615", [[10, 18], [15, 23], [20, 25.5]]],
+    ["872", [[10, 10], [15, 12], [20, 13]]],
+    ["769", [[10, 12], [15, 14.5], [20, 15.5]]],
+    ["379", [[10, 10], [15, 12], [20, 12.5]]],
   ] as const;
   for (const [skillId, expected] of normalAttackTableCases) {
     const effects = catalog.skills.get(skillId)?.effects
@@ -92,6 +113,11 @@ test("loads the initial incremental weapon and skill catalog", () => {
     ["378", [[1, 1], [10, 10], [15, 12], [20, 12.5]]],
     ["1232", [[1, 6], [10, 15], [15, 18], [20, 20]]],
     ["1432", [[10, 12], [15, 14], [20, 16]]],
+    ["34", [[10, 18], [15, 21], [20, 24]]],
+    ["377", [[1, 1], [10, 10], [15, 12], [20, 12.5]]],
+    ["379", [[1, 1], [10, 10], [15, 12], [20, 12.5]]],
+    ["769", [[1, 3], [10, 12], [15, 14.5], [20, 15.5]]],
+    ["1231", [[1, 6], [10, 15], [15, 18], [20, 20]]],
   ] as const;
   for (const [skillId, expected] of normalHpTableCases) {
     const effects = catalog.skills.get(skillId)?.effects
@@ -202,6 +228,46 @@ test("loads the initial incremental weapon and skill catalog", () => {
       catalog.weapons.get(weaponId)?.skillSlots.map(({ sourceKey, skillId }) => [sourceKey, skillId]),
       expected,
       `skill slots for light weapon ${weaponId}`,
+    );
+  }
+  const sharedWindWeaponSkillSlots = new Map([
+    ["1040008900", [["skill1", "493"], ["skill2", "28"]]],
+    ["1040022000", [["skill1", "1413"], ["skill2", "16"], ["skill3", "1659"]]],
+    ["1040024200", [["skill1", "1954"], ["skill2", "377"]]],
+    ["1040105400", [["skill1", "629"], ["skill2", "774"]]],
+    ["1040109000", [["skill1", "338"], ["skill2", "513"]]],
+    ["1040117200", [["skill1", "2028"], ["skill2", "870"], ["skill3", "2034"]]],
+    ["1040207600", [["skill1", "211"], ["skill2", "83"]]],
+    ["1040212500", [["skill1", "2195"], ["skill2", "2209"], ["skill3", "2215"]]],
+    ["1040217400", [["skill1", "1929"], ["skill2", "1930"], ["skill3", "1231"], ["skill4", "3005"]]],
+    ["1040313100", [["skill1", "1509"], ["skill2", "139"], ["skill3", "1754"]]],
+    ["1040700900", [["skill1", "34"], ["skill2", "4"]]],
+    ["1040705200", [["skill1", "325"], ["skill2", "429"]]],
+    ["1040912400", [["skill1", "1551"], ["skill2", "1552"]]],
+  ]);
+  for (const [weaponId, expected] of sharedWindWeaponSkillSlots) {
+    assert.deepEqual(
+      catalog.weapons.get(weaponId)?.skillSlots.map(({ sourceKey, skillId }) => [sourceKey, skillId]),
+      expected,
+      `skill slots for wind weapon ${weaponId}`,
+    );
+  }
+  const sharedDarkWeaponSkillSlots = new Map([
+    ["1040008700", [["skill1", "631"], ["skill2", "850"]]],
+    ["1040106500", [["skill1", "340"], ["skill2", "401"]]],
+    ["1040113200", [["skill1", "1828"], ["skill2", "1962"], ["skill3", "379"]]],
+    ["1040216900", [["skill1", "1649"], ["skill2", "872"]]],
+    ["1040307100", [["skill1", "769"], ["skill2", "782"]]],
+    ["1040408700", [["skill1", "30"], ["skill2", "278"]]],
+    ["1040605900", [["skill1", "135"], ["skill2", "6"]]],
+    ["1040706000", [["skill1", "615"], ["skill2", "616"]]],
+    ["1040911000", [["skill1", "2197"], ["skill2", "2209"], ["skill3", "2229"]]],
+  ]);
+  for (const [weaponId, expected] of sharedDarkWeaponSkillSlots) {
+    assert.deepEqual(
+      catalog.weapons.get(weaponId)?.skillSlots.map(({ sourceKey, skillId }) => [sourceKey, skillId]),
+      expected,
+      `skill slots for dark weapon ${weaponId}`,
     );
   }
   assert.deepEqual(catalog.weapons.get("1040812900")?.skillSlots, [
