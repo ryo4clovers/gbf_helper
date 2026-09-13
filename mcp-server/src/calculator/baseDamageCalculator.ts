@@ -12,6 +12,7 @@ export type BaseDamageStage =
   | DamageModifierStage
   | "normal-weapon-skill"
   | "normal-stamina"
+  | "magna-stamina"
   | "normal-enmity";
 export type StageRounding = "none" | "floor" | "ceil";
 export type BaseDamageCalculationModel =
@@ -262,6 +263,13 @@ export function calculateDefenseAdjustedBaseDamage(
           stage: "normal-stamina" as const,
           contributions: hpDependentAttack.staminaContributions,
           totalPercentOverride: hpDependentAttack.totalEffectiveNormalStaminaPercent,
+        }]),
+    ...(hpDependentAttack === undefined || hpDependentAttack.magnaStaminaContributions.length === 0
+      ? []
+      : [{
+          stage: "magna-stamina" as const,
+          contributions: hpDependentAttack.magnaStaminaContributions,
+          totalPercentOverride: hpDependentAttack.totalEffectiveMagnaStaminaPercent,
         }]),
     ...(hpDependentAttack === undefined || hpDependentAttack.enmityContributions.length === 0
       ? []

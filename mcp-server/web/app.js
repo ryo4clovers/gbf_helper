@@ -2025,6 +2025,7 @@ function predictionRequests(request) {
 const stageNames = {
   "normal-weapon-skill": "通常攻刃",
   "normal-stamina": "通常渾身",
+  "magna-stamina": "方陣渾身",
   "normal-enmity": "通常背水",
   "elemental-attack": "属性攻撃",
   "crew-ship": "船",

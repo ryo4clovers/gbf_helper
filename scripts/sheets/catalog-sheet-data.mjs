@@ -101,6 +101,11 @@ export const WIKI_SERIES_LABELS = Object.freeze({
 
 export const EFFECT_KIND_LABELS = Object.freeze({
   "normal-attack-up": "通常攻刃",
+  "normal-stamina-up": "通常渾身",
+  "magna-stamina-up": "方陣渾身",
+  "normal-enmity-up": "通常背水",
+  "normal-hp-up": "通常HPUP",
+  "magna-hp-up": "方陣HPUP",
   "normal-skill-boost": "通常スキル効果量UP",
   "character-hp-up": "キャラHPUP",
   "critical-rate-up": "クリティカル確率UP",

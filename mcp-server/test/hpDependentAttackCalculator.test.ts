@@ -68,6 +68,52 @@ test("adds same-frame skills and multiplies normal stamina and enmity as separat
   assert.equal(result.normalEnmityMultiplier, 1.308);
 });
 
+test("keeps normal and magna stamina in separate multiplicative frames", () => {
+  const effects: EffectiveWeaponSkillEffect[] = [
+    {
+      sourceWeaponSlot: 1,
+      sourceWeaponId: "normal",
+      sourceSkillId: "1296",
+      sourceSkillName: "火の渾身",
+      kind: "normal-stamina-up",
+      elementCode: "1",
+      baseAmountPercent: 5.587798,
+      effectiveAmountPercent: 24.586309,
+      skillLevel: 15,
+      hpDependentCurve: { kind: "stamina", coefficient: 80 },
+      verificationStatus: "下書き",
+      appliedModifiers: [],
+    },
+    {
+      sourceWeaponSlot: 2,
+      sourceWeaponId: "magna",
+      sourceSkillId: "1213",
+      sourceSkillName: "機炎方陣・渾身III",
+      kind: "magna-stamina-up",
+      elementCode: "1",
+      baseAmountPercent: 15,
+      effectiveAmountPercent: 15,
+      skillLevel: 15,
+      hpDependentCurve: { kind: "stamina", coefficient: 56.4 },
+      verificationStatus: "下書き",
+      appliedModifiers: [],
+    },
+  ];
+  const result = calculateHpDependentAttack({
+    schemaVersion: 1,
+    protagonist: { attack: 10000, elementCode: "1" },
+    weapons: [],
+    summons: [],
+    characters: [],
+    effectiveWeaponSkillEffects: effects,
+  }, 100);
+
+  assert.equal(result.totalEffectiveNormalStaminaPercent, 24.586307);
+  assert.equal(result.totalEffectiveMagnaStaminaPercent, 15.003247);
+  assert.equal(result.normalStaminaMultiplier, 1.245863);
+  assert.equal(result.magnaStaminaMultiplier, 1.150032);
+});
+
 function calculateFrogaAtHp(protagonistCurrentHpPercent: number) {
   return calculateNormalAttackFromRequest({
     schemaVersion: 1,

@@ -187,7 +187,8 @@ export function calculateArticleBaseDamage(
     0,
   );
   const staminaRaw = weaponSkillRaw * (hpDependentAttack?.normalStaminaMultiplier ?? 1);
-  const enmityRaw = staminaRaw * (hpDependentAttack?.normalEnmityMultiplier ?? 1);
+  const magnaStaminaRaw = staminaRaw * (hpDependentAttack?.magnaStaminaMultiplier ?? 1);
+  const enmityRaw = magnaStaminaRaw * (hpDependentAttack?.normalEnmityMultiplier ?? 1);
   const elementalRaw = enmityRaw * (1 + elementalPercent / 100);
   const prePostCapDamage = elementalRaw / target.defense;
 
@@ -250,11 +251,22 @@ export function calculateArticleBaseDamage(
           "none",
           hpDependentAttack.staminaContributions,
         )]),
+    ...(hpDependentAttack === undefined || hpDependentAttack.magnaStaminaContributions.length === 0
+      ? []
+      : [stage(
+          "magna-stamina",
+          staminaRaw,
+          hpDependentAttack.totalEffectiveMagnaStaminaPercent,
+          magnaStaminaRaw,
+          magnaStaminaRaw,
+          "none",
+          hpDependentAttack.magnaStaminaContributions,
+        )]),
     ...(hpDependentAttack === undefined || hpDependentAttack.enmityContributions.length === 0
       ? []
       : [stage(
           "normal-enmity",
-          staminaRaw,
+          magnaStaminaRaw,
           hpDependentAttack.totalEffectiveNormalEnmityPercent,
           enmityRaw,
           enmityRaw,

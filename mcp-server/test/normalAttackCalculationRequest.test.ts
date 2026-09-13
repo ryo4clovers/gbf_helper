@@ -187,6 +187,52 @@ test("derives Froga display stats and reproduces the game calculator estimates",
   assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 10374);
 });
 
+function derivedNilakanthaRequest(includeFroga: boolean, enemyElementCode: "1" | "4") {
+  const request = derivedFrogaRequest(enemyElementCode, enemyElementCode === "4" ? 5 : 0);
+  request.deckConfig.protagonist.attackOverride = includeFroga ? 22709 : 18178;
+  request.deckConfig.protagonist.hpOverride = includeFroga ? 4746 : 4374;
+  request.deckConfig.weapons = [
+    request.deckConfig.weapons[0],
+    {
+      slot: 2,
+      position: "grid" as const,
+      weaponId: "1040417900",
+      level: 150,
+      skillLevel: 15,
+    },
+    ...(includeFroga ? [{
+      slot: 3,
+      position: "grid" as const,
+      weaponId: "1040024600",
+      level: 150,
+      skillLevel: 15,
+    }] : []),
+  ];
+  return request;
+}
+
+test("reproduces Nilakantha and proves normal/magna stamina multiply as separate frames", () => {
+  const nilakantha = calculateNormalAttackFromRequest(derivedNilakanthaRequest(false, "1"));
+  const combined = calculateNormalAttackFromRequest(derivedNilakanthaRequest(true, "1"));
+  const advantage = calculateNormalAttackFromRequest(derivedNilakanthaRequest(true, "4"));
+
+  assert.equal(nilakantha.result.attackPower.baseAttack, 18178);
+  assert.equal(nilakantha.result.protagonistHp?.hp, 5009);
+  assert.equal(nilakantha.result.baseDamage.damageBeforeRandomAndCap, 3857);
+  assert.equal(combined.result.attackPower.baseAttack, 22709);
+  assert.equal(combined.result.protagonistHp?.hp, 8985);
+  assert.equal(combined.result.baseDamage.damageBeforeRandomAndCap, 9835);
+  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 13897);
+  assert.equal(
+    combined.result.baseDamage.stages.some((stage) => stage.stage === "normal-stamina"),
+    true,
+  );
+  assert.equal(
+    combined.result.baseDamage.stages.some((stage) => stage.stage === "magna-stamina"),
+    true,
+  );
+});
+
 test("resolves protagonist DA and TA rates from the selected job", () => {
   const response = calculateNormalAttackFromRequest(agniRequest());
 

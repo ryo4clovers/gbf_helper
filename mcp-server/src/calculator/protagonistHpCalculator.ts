@@ -20,14 +20,14 @@ function roundPercentage(value: number): number {
   return Math.round(value * 1_000_000) / 1_000_000;
 }
 
-/** Applies resolved normal HP weapon skills, then de-duplicated passive summon HP auras. */
+/** Applies resolved weapon HP skills, then de-duplicated passive summon HP auras. */
 export function calculateProtagonistHp(deck: DeckSnapshot): ProtagonistHpResult | undefined {
   const baseHp = deck.protagonist.hp;
   if (baseHp === undefined) return undefined;
 
   const appliedWeaponSkillEffects = (deck.effectiveWeaponSkillEffects ?? []).filter(
     (effect) =>
-      effect.kind === "normal-hp-up" &&
+      (effect.kind === "normal-hp-up" || effect.kind === "magna-hp-up") &&
       (effect.elementCode === undefined || effect.elementCode === deck.protagonist.elementCode),
   );
   const weaponSkillHpPercent = roundPercentage(
@@ -37,7 +37,13 @@ export function calculateProtagonistHp(deck: DeckSnapshot): ProtagonistHpResult 
   const summonAuraPercent = roundPercentage(
     appliedAuras.reduce((sum, aura) => sum + aura.amountPercent, 0),
   );
-  const unroundedHp = baseHp * (1 + weaponSkillHpPercent / 100) * (1 + summonAuraPercent / 100);
+  const weaponSkillAdjustedHpRaw = baseHp * (1 + weaponSkillHpPercent / 100);
+  // Two weapon-skill observations with fractional results both match ceil. Character-HP
+  // summon auras retain their separately observed floor at the following stage.
+  const weaponSkillAdjustedHp = appliedWeaponSkillEffects.length === 0
+    ? baseHp
+    : Math.ceil(weaponSkillAdjustedHpRaw);
+  const unroundedHp = weaponSkillAdjustedHp * (1 + summonAuraPercent / 100);
   const hasFraction = !Number.isInteger(unroundedHp);
   const issues: ProtagonistHpResult["issues"] = [];
   if (hasFraction) issues.push("fractional-rounding-unresolved");
@@ -49,7 +55,7 @@ export function calculateProtagonistHp(deck: DeckSnapshot): ProtagonistHpResult 
     baseHp,
     weaponSkillHpPercent,
     summonAuraPercent,
-    hp: Math.round(unroundedHp),
+    hp: Math.floor(unroundedHp),
     appliedWeaponSkillEffects,
     appliedAuras,
     issues,

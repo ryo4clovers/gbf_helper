@@ -12,8 +12,10 @@ const effectSchema = z
     kind: z.enum([
       "normal-attack-up",
       "normal-stamina-up",
+      "magna-stamina-up",
       "normal-enmity-up",
       "normal-hp-up",
+      "magna-hp-up",
       "critical-rate-up",
       "double-attack-rate-up",
       "triple-attack-rate-up",
@@ -124,8 +126,10 @@ const skillEntrySchema = z
     effects: z.array(effectSchema),
     normalAttackAmountTable: skillAmountTableAssignmentSchema.optional(),
     normalStaminaAmountTable: skillAmountTableAssignmentSchema.optional(),
+    magnaStaminaAmountTable: skillAmountTableAssignmentSchema.optional(),
     normalEnmityAmountTable: skillAmountTableAssignmentSchema.optional(),
     normalHpAmountTable: skillAmountTableAssignmentSchema.optional(),
+    magnaHpAmountTable: skillAmountTableAssignmentSchema.optional(),
     criticalRateAmountTable: rateAmountTableAssignmentSchema.optional(),
     doubleAttackRateAmountTable: rateAmountTableAssignmentSchema.optional(),
     tripleAttackRateAmountTable: rateAmountTableAssignmentSchema.optional(),
@@ -235,8 +239,10 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
     const {
       normalAttackAmountTable,
       normalStaminaAmountTable,
+      magnaStaminaAmountTable,
       normalEnmityAmountTable,
       normalHpAmountTable,
+      magnaHpAmountTable,
       criticalRateAmountTable,
       doubleAttackRateAmountTable,
       tripleAttackRateAmountTable,
@@ -256,6 +262,12 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
         label: "normal stamina",
       },
       {
+        kind: "magna-stamina-up" as const,
+        assignment: magnaStaminaAmountTable,
+        tables: hpDependentTables,
+        label: "magna stamina",
+      },
+      {
         kind: "normal-enmity-up" as const,
         assignment: normalEnmityAmountTable,
         tables: hpDependentTables,
@@ -266,6 +278,12 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
         assignment: normalHpAmountTable,
         tables: normalHpTables,
         label: "normal HP",
+      },
+      {
+        kind: "magna-hp-up" as const,
+        assignment: magnaHpAmountTable,
+        tables: normalHpTables,
+        label: "magna HP",
       },
       {
         kind: "critical-rate-up" as const,

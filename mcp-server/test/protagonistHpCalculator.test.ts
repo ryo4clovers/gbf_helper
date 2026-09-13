@@ -76,10 +76,13 @@ test("applies boosted normal HP weapon skills before character HP summon auras",
   assert.equal(result?.summonAuraPercent, 20);
   assert.equal(result?.hp, 1605);
   assert.equal(result?.appliedWeaponSkillEffects.length, 1);
-  assert.deepEqual(result?.issues, ["weapon-skill-hp-baseline-unresolved"]);
+  assert.deepEqual(result?.issues, [
+    "fractional-rounding-unresolved",
+    "weapon-skill-hp-baseline-unresolved",
+  ]);
 });
 
-test("rounds the observed Froga HP result to the nearest integer", () => {
+test("ceils the weapon-skill stage for the observed Froga HP result", () => {
   const input = deck();
   input.protagonist.hp = 4434;
   input.effectiveWeaponSkillEffects = [{
@@ -97,4 +100,24 @@ test("rounds the observed Froga HP result to the nearest integer", () => {
   }];
 
   assert.equal(calculateProtagonistHp(input)?.hp, 7751);
+});
+
+test("ceils the observed magna HP weapon-skill stage", () => {
+  const input = deck();
+  input.protagonist.hp = 4374;
+  input.effectiveWeaponSkillEffects = [{
+    sourceWeaponSlot: 2,
+    sourceWeaponId: "1040417900",
+    sourceSkillId: "93",
+    sourceSkillName: "機炎方陣・守護",
+    kind: "magna-hp-up",
+    elementCode: "1",
+    baseAmountPercent: 14.5,
+    effectiveAmountPercent: 14.5,
+    skillLevel: 15,
+    verificationStatus: "検証済み",
+    appliedModifiers: [],
+  }];
+
+  assert.equal(calculateProtagonistHp(input)?.hp, 5009);
 });

@@ -4,12 +4,19 @@ export interface HpDependentAttackResult {
   schemaVersion: 1;
   protagonistCurrentHpPercent: number;
   staminaContributions: EffectiveWeaponSkillEffect[];
+  magnaStaminaContributions: EffectiveWeaponSkillEffect[];
   enmityContributions: EffectiveWeaponSkillEffect[];
   totalEffectiveNormalStaminaPercent: number;
+  totalEffectiveMagnaStaminaPercent: number;
   totalEffectiveNormalEnmityPercent: number;
   normalStaminaMultiplier: number;
+  magnaStaminaMultiplier: number;
   normalEnmityMultiplier: number;
-  issues: Array<"unverified-normal-stamina" | "unverified-normal-enmity">;
+  issues: Array<
+    "unverified-normal-stamina" |
+    "unverified-magna-stamina" |
+    "unverified-normal-enmity"
+  >;
 }
 
 function roundPercentage(value: number): number {
@@ -98,9 +105,15 @@ export function calculateHpDependentAttack(
     .filter((effect) => appliesToElement(effect, elementCode))
     .map((effect) => amountAtCurrentHp(effect, protagonistCurrentHpPercent));
   const staminaContributions = applicable.filter((effect) => effect.kind === "normal-stamina-up");
+  const magnaStaminaContributions = applicable.filter(
+    (effect) => effect.kind === "magna-stamina-up",
+  );
   const enmityContributions = applicable.filter((effect) => effect.kind === "normal-enmity-up");
   const totalEffectiveNormalStaminaPercent = roundPercentage(
     staminaContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
+  );
+  const totalEffectiveMagnaStaminaPercent = roundPercentage(
+    magnaStaminaContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
   );
   const totalEffectiveNormalEnmityPercent = roundPercentage(Math.min(
     800,
@@ -110,6 +123,9 @@ export function calculateHpDependentAttack(
   if (staminaContributions.some((effect) => effect.verificationStatus !== "検証済み")) {
     issues.push("unverified-normal-stamina");
   }
+  if (magnaStaminaContributions.some((effect) => effect.verificationStatus !== "検証済み")) {
+    issues.push("unverified-magna-stamina");
+  }
   if (enmityContributions.some((effect) => effect.verificationStatus !== "検証済み")) {
     issues.push("unverified-normal-enmity");
   }
@@ -117,10 +133,13 @@ export function calculateHpDependentAttack(
     schemaVersion: 1,
     protagonistCurrentHpPercent,
     staminaContributions,
+    magnaStaminaContributions,
     enmityContributions,
     totalEffectiveNormalStaminaPercent,
+    totalEffectiveMagnaStaminaPercent,
     totalEffectiveNormalEnmityPercent,
     normalStaminaMultiplier: roundPercentage(1 + totalEffectiveNormalStaminaPercent / 100),
+    magnaStaminaMultiplier: roundPercentage(1 + totalEffectiveMagnaStaminaPercent / 100),
     normalEnmityMultiplier: roundPercentage(1 + totalEffectiveNormalEnmityPercent / 100),
     issues,
   };

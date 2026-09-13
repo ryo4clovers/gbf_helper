@@ -28,8 +28,10 @@ export interface DeckSkill {
 export type WeaponSkillEffectKind =
   | "normal-attack-up"
   | "normal-stamina-up"
+  | "magna-stamina-up"
   | "normal-enmity-up"
   | "normal-hp-up"
+  | "magna-hp-up"
   | "critical-rate-up"
   | "double-attack-rate-up"
   | "triple-attack-rate-up"
