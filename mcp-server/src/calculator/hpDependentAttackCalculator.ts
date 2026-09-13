@@ -24,15 +24,25 @@ function staminaSkillLevelCoefficient(skillLevel: number): number {
   return skillLevel <= 15 ? skillLevel : 15 + (skillLevel - 15) * 0.4;
 }
 
-/** Calculates the unboosted normal-stamina amount at the supplied HP percentage. */
-export function calculateStaminaAmountPercent(
+function calculateRawStaminaAmountPercent(
   coefficient: number,
   skillLevel: number,
   hpPercent: number,
 ): number {
   if (hpPercent < 25) return 0;
   const skillCoefficient = staminaSkillLevelCoefficient(skillLevel);
-  return roundBaseSkillPercentage(2.1 + (hpPercent / (coefficient - skillCoefficient)) ** 2.9);
+  return 2.1 + (hpPercent / (coefficient - skillCoefficient)) ** 2.9;
+}
+
+/** Calculates the unboosted normal-stamina amount at the supplied HP percentage. */
+export function calculateStaminaAmountPercent(
+  coefficient: number,
+  skillLevel: number,
+  hpPercent: number,
+): number {
+  return roundBaseSkillPercentage(
+    calculateRawStaminaAmountPercent(coefficient, skillLevel, hpPercent),
+  );
 }
 
 /** Calculates the unboosted normal-enmity amount from its HP50% reference amount. */
@@ -57,16 +67,18 @@ function amountAtCurrentHp(
   const curve = effect.hpDependentCurve;
   const skillLevel = effect.skillLevel;
   if (curve === undefined || skillLevel === undefined) return effect;
-  const baseAmountPercent = curve.kind === "stamina"
-    ? calculateStaminaAmountPercent(curve.coefficient, skillLevel, hpPercent)
+  const rawBaseAmountPercent = curve.kind === "stamina"
+    ? calculateRawStaminaAmountPercent(curve.coefficient, skillLevel, hpPercent)
     : calculateEnmityAmountPercent(effect.baseAmountPercent, hpPercent);
+  const baseAmountPercent = roundPercentage(rawBaseAmountPercent);
   const boostMultiplier = effect.baseAmountPercent === 0
     ? 1
     : effect.effectiveAmountPercent / effect.baseAmountPercent;
   return {
     ...effect,
     baseAmountPercent,
-    effectiveAmountPercent: roundPercentage(baseAmountPercent * boostMultiplier),
+    // Observed HP25 data only matches when the aura is applied before display rounding.
+    effectiveAmountPercent: roundPercentage(rawBaseAmountPercent * boostMultiplier),
   };
 }
 

@@ -62,9 +62,9 @@ test("adds same-frame skills and multiplies normal stamina and enmity as separat
   };
 
   const result = calculateHpDependentAttack(deck, 50);
-  assert.equal(result.totalEffectiveNormalStaminaPercent, 11.308);
+  assert.equal(result.totalEffectiveNormalStaminaPercent, 11.295971);
   assert.equal(result.totalEffectiveNormalEnmityPercent, 30.8);
-  assert.equal(result.normalStaminaMultiplier, 1.11308);
+  assert.equal(result.normalStaminaMultiplier, 1.11296);
   assert.equal(result.normalEnmityMultiplier, 1.308);
 });
 
@@ -107,11 +107,11 @@ test("connects Froga skill 1296 to the 340% Agni aura at full HP", () => {
 
   const stamina = response.result.hpDependentAttack;
   assert.equal(stamina.staminaContributions[0]?.sourceSkillId, "1296");
-  assert.equal(stamina.staminaContributions[0]?.baseAmountPercent, 5.59);
-  assert.equal(stamina.staminaContributions[0]?.effectiveAmountPercent, 24.596);
+  assert.equal(stamina.staminaContributions[0]?.baseAmountPercent, 5.587798);
+  assert.equal(stamina.staminaContributions[0]?.effectiveAmountPercent, 24.586309);
   assert.equal(
     response.result.baseDamage.stages.some(
-      (stage) => stage.stage === "normal-stamina" && stage.totalPercent === 24.596,
+      (stage) => stage.stage === "normal-stamina" && stage.totalPercent === 24.586309,
     ),
     true,
   );
@@ -120,9 +120,24 @@ test("connects Froga skill 1296 to the 340% Agni aura at full HP", () => {
 test("reproduces Froga skill 1296's observed 11.3% display at HP50", () => {
   const stamina = calculateFrogaAtHp(50).result.hpDependentAttack;
   assert.equal(stamina.staminaContributions[0]?.sourceSkillId, "1296");
-  assert.equal(stamina.staminaContributions[0]?.baseAmountPercent, 2.57);
-  assert.equal(stamina.staminaContributions[0]?.effectiveAmountPercent, 11.308);
-  assert.equal(Math.floor((stamina.totalEffectiveNormalStaminaPercent + Number.EPSILON) * 100) / 100, 11.3);
+  assert.equal(stamina.staminaContributions[0]?.baseAmountPercent, 2.567266);
+  assert.equal(stamina.staminaContributions[0]?.effectiveAmountPercent, 11.295971);
+  assert.equal(Math.round(stamina.totalEffectiveNormalStaminaPercent * 100) / 100, 11.3);
+});
+
+test("reproduces Froga skill 1296's observed displays at HP25 and HP75", () => {
+  const checkpoints = [
+    { hpPercent: 25, expectedEffectivePercent: 9.515442, expectedDisplayPercent: 9.52 },
+    { hpPercent: 75, expectedEffectivePercent: 15.903181, expectedDisplayPercent: 15.9 },
+  ];
+  for (const checkpoint of checkpoints) {
+    const stamina = calculateFrogaAtHp(checkpoint.hpPercent).result.hpDependentAttack;
+    assert.equal(stamina.staminaContributions[0]?.effectiveAmountPercent, checkpoint.expectedEffectivePercent);
+    assert.equal(
+      Math.round(stamina.totalEffectiveNormalStaminaPercent * 100) / 100,
+      checkpoint.expectedDisplayPercent,
+    );
+  }
 });
 
 function calculateCrimsonStingerAtHp(protagonistCurrentHpPercent: number) {
@@ -186,4 +201,19 @@ test("reproduces Crimson Stinger skill 118's observed 2.2% display at HP50", () 
   assert.equal(enmity.enmityContributions[0]?.baseAmountPercent, 0.5);
   assert.equal(enmity.enmityContributions[0]?.effectiveAmountPercent, 2.2);
   assert.equal(enmity.totalEffectiveNormalEnmityPercent, 2.2);
+});
+
+test("reproduces Crimson Stinger skill 118's observed displays at HP25 and HP75", () => {
+  const checkpoints = [
+    { hpPercent: 25, expectedEffectivePercent: 4.125, expectedDisplayPercent: 4.13 },
+    { hpPercent: 75, expectedEffectivePercent: 0.825, expectedDisplayPercent: 0.83 },
+  ];
+  for (const checkpoint of checkpoints) {
+    const enmity = calculateCrimsonStingerAtHp(checkpoint.hpPercent).result.hpDependentAttack;
+    assert.equal(enmity.enmityContributions[0]?.effectiveAmountPercent, checkpoint.expectedEffectivePercent);
+    assert.equal(
+      Math.round((enmity.totalEffectiveNormalEnmityPercent + Number.EPSILON) * 100) / 100,
+      checkpoint.expectedDisplayPercent,
+    );
+  }
 });

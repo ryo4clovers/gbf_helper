@@ -70,7 +70,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWith・神ゲー攻略の効果量表とHP依存式（2026-09-13閲覧）。火の渾身 skill_id 1296・SLv15はHP100%とHP50%を実機照合済みだが、他SLv・HP帯は要検証。小の係数80は公開表のHP100%値から逆算"
+      "source": "GameWith・神ゲー攻略の効果量表とHP依存式（2026-09-13閲覧）。火の渾身 skill_id 1296・SLv15はHP25%・50%・75%・100%を実機照合し、未丸めの曲線値へ加護を掛ける順序を確認済み。他SLv・HP帯は要検証。小の係数80は公開表のHP100%値から逆算"
     },
     {
       "tableId": "normal-stamina-medium",
@@ -322,7 +322,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWith・神ゲー攻略の効果量表とHP依存式（2026-09-13閲覧）。火の背水 skill_id 118・SLv1はHP100%とHP50%を実機照合済みだが、他SLv・HP帯は要検証"
+      "source": "GameWith・神ゲー攻略の効果量表とHP依存式（2026-09-13閲覧）。火の背水 skill_id 118・SLv1はHP25%・50%・75%・100%を実機照合済みだが、他SLv・HP帯は要検証"
     },
     {
       "tableId": "normal-enmity-medium",
