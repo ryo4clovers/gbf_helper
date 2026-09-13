@@ -187,6 +187,16 @@
       "source": "knowledge/earth-ssr-menace-kensei-fukuro-shinai.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "5",
+      "name": "光の攻刃",
+      "description": "光属性キャラの攻撃力上昇(小)",
+      "normalAttackAmountTable": { "tableId": "normal-small", "elementCode": "5" },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "6",
       "name": "闇の攻刃",
       "description": "闇属性キャラの攻撃力上昇(小)",
@@ -255,6 +265,16 @@
         "tableId": "normal-large",
         "elementCode": "3"
       },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "29",
+      "name": "天光の攻刃",
+      "description": "光属性キャラの攻撃力上昇(大)",
+      "normalAttackAmountTable": { "tableId": "normal-large", "elementCode": "5" },
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -594,6 +614,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "122",
+      "name": "光の背水",
+      "description": "光属性キャラのHPが少ないほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "125",
       "name": "渦潮の背水",
       "description": "水属性キャラのHPが少ないほど攻撃力が上昇(中)",
@@ -648,6 +677,16 @@
         "tableId": "normal-ii",
         "elementCode": "3"
       },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "212",
+      "name": "天光の攻刃II",
+      "description": "光属性キャラの攻撃力上昇(大)",
+      "normalAttackAmountTable": { "tableId": "normal-ii", "elementCode": "5" },
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -716,7 +755,8 @@
       "description": "光属性キャラの攻撃力と最大HPが上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-magna-chevalier-sword.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、方陣効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "318",
@@ -793,6 +833,19 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "326",
+      "name": "雷電の刹那",
+      "description": "光属性キャラの攻撃力上昇(中)/クリティカル確率上昇(中)",
+      "normalAttackAmountTable": { "tableId": "normal-medium", "elementCode": "5" },
+      "unsupportedEffects": [
+        "クリティカル確率上昇（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "335",
       "name": "紅蓮の暴君",
       "description": "火属性キャラの攻撃力上昇(大)/火属性キャラの最大HP-10%",
@@ -829,6 +882,19 @@
       },
       "unsupportedEffects": [
         "土属性キャラの最大HP-10%"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "339",
+      "name": "天光の暴君",
+      "description": "光属性キャラの攻撃力上昇(大)/光属性キャラの最大HP-10%",
+      "normalAttackAmountTable": { "tableId": "normal-large", "elementCode": "5" },
+      "unsupportedEffects": [
+        "光属性キャラの最大HP-10%"
       ],
       "effects": [],
       "verificationStatus": "下書き",
@@ -909,7 +975,8 @@
       "normalHpAmountTable": { "tableId": "normal-godmight-small", "elementCode": "5" },
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-nwf-shooting-of-the-star.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "379",
@@ -1082,6 +1149,37 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "610",
+      "name": "震天の境界へと至りし者",
+      "description": "光属性キャラが弱体効果「奥義封印」無効/奥義ダメージUP/奥義ダメージ上限UP ◆メイン装備時",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "611",
+      "name": "震天の祈り",
+      "description": "回復アビリティを使用時に味方全体の光属性攻撃力UP(累積/最大5回)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "621",
+      "name": "天光の暴君II",
+      "description": "光属性キャラの攻撃力上昇(特大)/光属性キャラの最大HP-10%",
+      "normalAttackAmountTable": { "tableId": "normal-tyrant-ii", "elementCode": "5" },
+      "unsupportedEffects": [
+        "光属性キャラの最大HP-10%"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "626",
       "name": "紅蓮の攻刃III",
       "description": "火属性キャラの攻撃力上昇(特大)",
@@ -1111,6 +1209,16 @@
         "tableId": "normal-iii",
         "elementCode": "3"
       },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "630",
+      "name": "天光の攻刃III",
+      "description": "光属性キャラの攻撃力上昇(特大)",
+      "normalAttackAmountTable": { "tableId": "normal-iii", "elementCode": "5" },
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1355,6 +1463,19 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "849",
+      "name": "光の刹那",
+      "description": "光属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
+      "normalAttackAmountTable": { "tableId": "normal-small", "elementCode": "5" },
+      "unsupportedEffects": [
+        "クリティカル確率上昇（小）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "869",
       "name": "土の乱舞",
       "description": "土属性キャラの攻撃力上昇(小)/トリプルアタック確率上昇(小)",
@@ -1362,6 +1483,19 @@
         "tableId": "normal-small",
         "elementCode": "3"
       },
+      "unsupportedEffects": [
+        "トリプルアタック確率上昇（小）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "871",
+      "name": "光の乱舞",
+      "description": "光属性キャラの攻撃力上昇(小)/トリプルアタック確率上昇(小)",
+      "normalAttackAmountTable": { "tableId": "normal-small", "elementCode": "5" },
       "unsupportedEffects": [
         "トリプルアタック確率上昇（小）"
       ],
@@ -1386,6 +1520,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/wind-ssr-menace-black-whirlwind.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "918",
+      "name": "雷電の渾身",
+      "description": "光属性キャラのHPが多いほど攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "926",
@@ -1589,6 +1732,15 @@
       "source": "knowledge/earth-ssr-regalia-gokushinken.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
     },
     {
+      "skillId": "1007",
+      "name": "好機到来II",
+      "description": "敵ブレイク時必ずトリプルアタック/与ダメージ上昇 ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1009",
       "name": "不死をも殺す神弓II",
       "description": "ダメージアビリティが2回発動する/アビリティダメージUP/アビリティダメージ上限UP ◆メイン装備時/主人公のみ/再使用不可のアビリティを除く",
@@ -1718,7 +1870,8 @@
       "normalHpAmountTable": { "tableId": "normal-godmight-large", "elementCode": "5" },
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-draconic-origin-katana.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1233",
@@ -1777,6 +1930,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/dark-ssr-seraphic-weapon.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1264",
+      "name": "雷電の三手",
+      "description": "光属性キャラの連続攻撃確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1275",
@@ -1876,6 +2038,32 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、攻刃量は攻略サイト表由来",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1426",
+      "name": "天光の刹那II",
+      "description": "光属性キャラの攻撃力上昇(大)/クリティカル確率上昇(大)",
+      "normalAttackAmountTable": { "tableId": "normal-ii", "elementCode": "5" },
+      "unsupportedEffects": [
+        "クリティカル確率上昇（大）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1432",
+      "name": "光の恩寵",
+      "description": "光属性キャラの最大HP上昇(小)/弱体耐性UP(小)",
+      "normalHpAmountTable": { "tableId": "normal-aegis-small", "elementCode": "5" },
+      "unsupportedEffects": [
+        "弱体耐性UP（小）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
     },
     {
@@ -2246,6 +2434,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1648",
+      "name": "天光の技錬",
+      "description": "光属性キャラのアビリティダメージ上限UP(大)/アビリティの与ダメージ上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1651",
       "name": "霧氷の修羅",
       "description": "水属性キャラの攻撃力上昇(大)/バトル開始時に最大HPの20%のダメージ",
@@ -2296,6 +2493,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1668",
+      "name": "天光の極意",
+      "description": "光属性キャラの奥義の与ダメージ上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1684",
       "name": "焔の極意",
       "description": "火属性キャラの奥義の与ダメージ上昇",
@@ -2333,7 +2539,8 @@
       "description": "自属性追撃効果/奥義ゲージ上昇量大幅DOWN",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-dark-opus-katana-magna.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1738",
@@ -2477,7 +2684,8 @@
       "description": "光属性キャラの攻撃力上昇(特大)/天来効果が付与されている光属性キャラに追撃効果",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-nwf-shooting-of-the-star.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1833",
@@ -2606,7 +2814,8 @@
       "description": "光属性キャラのダメージ上限UP / ◆アーカルムの転世でさらにダメージ上限UP",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-nwf-shooting-of-the-star.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1962",
@@ -2686,6 +2895,15 @@
       "verificationStatus": "検証済み",
       "source": "ゲーム内スキル説明とdeck.damage_infoで確認",
       "confirmedAt": "2026-09-05"
+    },
+    {
+      "skillId": "2029",
+      "name": "オプティマスブースト・ライト",
+      "description": "スキル「光」「雷電」「天光」の効果が30%UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、実際の加護計算との照合は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "2049",
@@ -2887,7 +3105,8 @@
       "description": "光属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-dark-opus-sword-normal.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、SLv25曲線・与ダメージ量は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "2197",
@@ -2962,6 +3181,15 @@
       "source": "knowledge/dark-ssr-dark-opus-katana-magna.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "2210",
+      "name": "ガンマ・リベレイション・アーテルII",
+      "description": "奥義のダメージ上限上昇/奥義ダメージ特殊上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "2213",
       "name": "神水の極破",
       "description": "水属性キャラの攻撃力上昇/ダメージ上限上昇/連続攻撃確率上昇/通常攻撃の与ダメージUP / ◆スキル「海神方陣」または「怪水禁呪」または「水」「渦潮」「霧氷」の効果上昇量が合計280%以上で発動",
@@ -3000,6 +3228,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/dark-ssr-dark-opus-katana-normal.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2286",
+      "name": "天光の戦技",
+      "description": "光属性キャラがクリティカル発動時に与ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "2292",
@@ -3502,6 +3739,33 @@
         "攻撃力上昇（大）のSLv曲線",
         "トリプルアタック確率上昇（大）"
       ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "3015",
+      "name": "雷神の威光II",
+      "description": "1番目のアビリティを使用時に敵全体に4回光属性ダメージ/感電Lvが2上昇(最大10)/光属性キャラのアビリティ与ダメージ上昇/光属性冴手効果 ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "3017",
+      "name": "雷神の追討III",
+      "description": "通常攻撃時に敵全体に4回光属性ダメージ/感電Lvが1上昇(最大10)/弱体耐性DOWN(累積)/感電Lvが10の敵がいる時、ターン進行時に攻撃行動を2回行う ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "3019",
+      "name": "雷神の天譴II",
+      "description": "光属性キャラの通常攻撃時に敵の感電Lvが10の場合、敵の天譴Lvが1上昇(最大10)/ターン終了時に敵の天譴Lvが10の時、Lvをリセットして敵に3回光属性ダメージ/被ダメージUP ◆メイン装備時/主人公のみ",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
