@@ -2134,7 +2134,12 @@ function renderLocalResult(result) {
     if (hp.summonAuraPercent > 0) {
       notes.push(`召喚石加護 +${numberFormat.format(hp.summonAuraPercent)}%`);
     }
-    if (hp.weaponSkillHpPercent === 0 && hp.summonAuraPercent === 0) notes.push("補正なし");
+    if ((hp.summonAuraFlatHp ?? 0) > 0) {
+      notes.push(`召喚石固定HP +${formatDamage(hp.summonAuraFlatHp)}`);
+    }
+    if (hp.weaponSkillHpPercent === 0 && hp.summonAuraPercent === 0 && (hp.summonAuraFlatHp ?? 0) === 0) {
+      notes.push("補正なし");
+    }
     if (hp.issues.includes("fractional-rounding-unresolved")) notes.push("端数処理は暫定");
     if (hp.issues.includes("weapon-skill-hp-baseline-unresolved")) notes.push("基礎HPの基準は要検証");
     $("protagonist-hp-note").textContent = notes.join("・");

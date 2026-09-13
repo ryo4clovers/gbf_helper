@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { resolveEffectiveCharacterHpAuras } from "../src/calculator/summonAuraEffectResolver.ts";
+import {
+  resolveEffectiveCharacterHpAuras,
+  resolveEffectiveCharacterHpFlatAuras,
+} from "../src/calculator/summonAuraEffectResolver.ts";
 import type { DeckSummon } from "../src/calculator/types.ts";
 
 function hpSummon(
@@ -64,4 +67,32 @@ test("HP sub auras do not apply to another element or a main slot", () => {
 
   assert.deepEqual(resolveEffectiveCharacterHpAuras([sub], "2"), []);
   assert.deepEqual(resolveEffectiveCharacterHpAuras([main], "1"), []);
+});
+
+test("resolves an all-element flat HP aura only from the main summon", () => {
+  const summon: DeckSummon = {
+    slot: 1,
+    position: "main",
+    masterId: "2040430000",
+    name: "蒼空の楔",
+    aura: {
+      name: "六竜の加護",
+      description: "全属性キャラのHPを25000上昇",
+      effects: [{
+        kind: "character-hp-flat",
+        elementCode: "0",
+        amount: 25000,
+        activation: "main-only",
+        description: "全属性キャラのHPを25000上昇",
+      }],
+      verificationStatus: "検証済み",
+      source: "実機編成比較",
+    },
+  };
+
+  assert.deepEqual(
+    resolveEffectiveCharacterHpFlatAuras([summon], "1").map((effect) => effect.amount),
+    [25000],
+  );
+  assert.deepEqual(resolveEffectiveCharacterHpFlatAuras([{ ...summon, position: "sub" }], "1"), []);
 });

@@ -108,6 +108,7 @@ export type SummonAuraEffectKind =
   | "elemental-attack-up"
   | "normal-skill-boost"
   | "character-hp-up"
+  | "character-hp-flat"
   | "utility";
 
 export type SummonAuraEffectDefinition =
@@ -138,6 +139,14 @@ export type SummonAuraEffectDefinition =
       description: string;
     }
   | {
+      kind: "character-hp-flat";
+      /** Element code 0 applies to every element. */
+      elementCode: string;
+      amount: number;
+      activation: "always" | "main-only" | "sub-only";
+      description: string;
+    }
+  | {
       kind: "utility";
       description: string;
     };
@@ -147,6 +156,18 @@ export interface EffectiveCharacterHpAura {
   elementCode: string;
   amountPercent: number;
   stackingGroup: string;
+  sourceSummonSlot: number;
+  sourcePosition: "main" | "sub";
+  sourceSummonId: string;
+  sourceSummonName?: string;
+  sourceAuraName: string;
+  verificationStatus: "検証済み" | "下書き";
+}
+
+export interface EffectiveCharacterHpFlatAura {
+  kind: "character-hp-flat";
+  elementCode: string;
+  amount: number;
   sourceSummonSlot: number;
   sourcePosition: "main" | "sub";
   sourceSummonId: string;
@@ -413,6 +434,7 @@ export interface DeckSnapshot {
   displayedDamageInfo?: DeckDisplayedDamageInfo;
   effectiveWeaponSkillEffects?: EffectiveWeaponSkillEffect[];
   effectiveCharacterHpAuras?: EffectiveCharacterHpAura[];
+  effectiveCharacterHpFlatAuras?: EffectiveCharacterHpFlatAura[];
 }
 
 export interface CalculatorDeckProtagonistConfig {

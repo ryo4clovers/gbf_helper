@@ -1,6 +1,7 @@
 import type {
   DeckSnapshot,
   EffectiveCharacterHpAura,
+  EffectiveCharacterHpFlatAura,
   EffectiveWeaponSkillEffect,
 } from "./types.js";
 
@@ -13,6 +14,8 @@ export interface ProtagonistHpResult {
   hp: number;
   appliedWeaponSkillEffects: EffectiveWeaponSkillEffect[];
   appliedAuras: EffectiveCharacterHpAura[];
+  summonAuraFlatHp?: number;
+  appliedFlatAuras?: EffectiveCharacterHpFlatAura[];
   issues: Array<"fractional-rounding-unresolved" | "weapon-skill-hp-baseline-unresolved">;
 }
 
@@ -34,6 +37,7 @@ export function calculateProtagonistHp(deck: DeckSnapshot): ProtagonistHpResult 
     appliedWeaponSkillEffects.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
   );
   const appliedAuras = deck.effectiveCharacterHpAuras ?? [];
+  const appliedFlatAuras = deck.effectiveCharacterHpFlatAuras ?? [];
   const summonAuraPercent = roundPercentage(
     appliedAuras.reduce((sum, aura) => sum + aura.amountPercent, 0),
   );
@@ -45,6 +49,7 @@ export function calculateProtagonistHp(deck: DeckSnapshot): ProtagonistHpResult 
     : Math.ceil(weaponSkillAdjustedHpRaw);
   const unroundedHp = weaponSkillAdjustedHp * (1 + summonAuraPercent / 100);
   const hasFraction = !Number.isInteger(unroundedHp);
+  const summonAuraFlatHp = appliedFlatAuras.reduce((sum, aura) => sum + aura.amount, 0);
   const issues: ProtagonistHpResult["issues"] = [];
   if (hasFraction) issues.push("fractional-rounding-unresolved");
   if (appliedWeaponSkillEffects.length > 0) issues.push("weapon-skill-hp-baseline-unresolved");
@@ -55,9 +60,10 @@ export function calculateProtagonistHp(deck: DeckSnapshot): ProtagonistHpResult 
     baseHp,
     weaponSkillHpPercent,
     summonAuraPercent,
-    hp: Math.floor(unroundedHp),
+    hp: Math.floor(unroundedHp) + summonAuraFlatHp,
     appliedWeaponSkillEffects,
     appliedAuras,
+    ...(summonAuraFlatHp === 0 ? {} : { summonAuraFlatHp, appliedFlatAuras }),
     issues,
   };
 }

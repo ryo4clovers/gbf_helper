@@ -186,6 +186,22 @@ test("loads Wedges of the Sky's all-element magna sub aura", () => {
   assert.equal(summon?.name, "蒼空の楔");
   assert.equal(summon?.verificationStatus, "検証済み");
   assert.equal(summon?.supportSelectable, false);
+  assert.deepEqual(summon?.auraEffects.slice(0, 2), [
+    {
+      kind: "elemental-attack-up",
+      elementCode: "0",
+      amountPercent: 140,
+      activation: "main-only",
+      description: "メイン装備時、全属性攻撃力が140%UP",
+    },
+    {
+      kind: "character-hp-flat",
+      elementCode: "0",
+      amount: 25000,
+      activation: "main-only",
+      description: "メイン装備時、全属性キャラのHPを25000上昇",
+    },
+  ]);
   assert.deepEqual(summon?.selectionDefaults, {
     level: 150,
     uncapLevel: 4,

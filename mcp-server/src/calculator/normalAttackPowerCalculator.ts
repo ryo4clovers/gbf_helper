@@ -77,7 +77,7 @@ export function calculateNormalAttackPower(
     return aura.effects.flatMap((effect): ElementalSummonAuraContribution[] => {
       if (
         effect.kind !== "elemental-attack-up" ||
-        (elementCode !== undefined && effect.elementCode !== undefined && effect.elementCode !== elementCode)
+        (elementCode !== undefined && effect.elementCode !== "0" && effect.elementCode !== elementCode)
       ) {
         return [];
       }
@@ -102,7 +102,7 @@ export function calculateNormalAttackPower(
         if (
           effect.kind !== "elemental-attack-up" ||
           effect.activation !== "always" ||
-          (elementCode !== undefined && effect.elementCode !== elementCode)
+          (elementCode !== undefined && effect.elementCode !== "0" && effect.elementCode !== elementCode)
         ) {
           return [];
         }

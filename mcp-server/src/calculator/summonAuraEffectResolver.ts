@@ -1,4 +1,8 @@
-import type { DeckSummon, EffectiveCharacterHpAura } from "./types.js";
+import type {
+  DeckSummon,
+  EffectiveCharacterHpAura,
+  EffectiveCharacterHpFlatAura,
+} from "./types.js";
 
 function appliesFromPosition(summon: DeckSummon, activation: "always" | "main-only" | "sub-only"): boolean {
   if (summon.position === "main") return activation !== "sub-only";
@@ -47,4 +51,34 @@ export function resolveEffectiveCharacterHpAuras(
     }
   }
   return [...strongestByGroup.values()];
+}
+
+/** Resolves flat character-HP summon auras after weapon and percentage HP stages. */
+export function resolveEffectiveCharacterHpFlatAuras(
+  summons: DeckSummon[],
+  characterElementCode?: string,
+): EffectiveCharacterHpFlatAura[] {
+  if (characterElementCode === undefined) return [];
+
+  return summons.flatMap((summon): EffectiveCharacterHpFlatAura[] => {
+    if (summon.aura === undefined) return [];
+    const aura = summon.aura;
+    return aura.effects.flatMap((effect): EffectiveCharacterHpFlatAura[] =>
+      effect.kind === "character-hp-flat" &&
+      (effect.elementCode === "0" || effect.elementCode === characterElementCode) &&
+      appliesFromPosition(summon, effect.activation)
+        ? [{
+            kind: effect.kind,
+            elementCode: effect.elementCode,
+            amount: effect.amount,
+            sourceSummonSlot: summon.slot,
+            sourcePosition: summon.position === "main" ? "main" : "sub",
+            sourceSummonId: summon.masterId,
+            sourceSummonName: summon.name,
+            sourceAuraName: aura.name,
+            verificationStatus: aura.verificationStatus,
+          }]
+        : [],
+    );
+  });
 }

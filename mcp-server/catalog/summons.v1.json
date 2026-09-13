@@ -5341,8 +5341,18 @@
       "auraDescription": "全属性攻撃力が140%UP/全属性キャラのHPを25000上昇 / サブ加護: スキル「機炎方陣」「海神方陣」「創樹方陣」「嵐竜方陣」「騎解方陣」「黒霧方陣」の効果が30%UP",
       "auraEffects": [
         {
-          "kind": "utility",
-          "description": "メイン加護の全属性攻撃力140%UPと全属性キャラHP25000上昇は数値計算への構造化未対応"
+          "kind": "elemental-attack-up",
+          "elementCode": "0",
+          "amountPercent": 140,
+          "activation": "main-only",
+          "description": "メイン装備時、全属性攻撃力が140%UP"
+        },
+        {
+          "kind": "character-hp-flat",
+          "elementCode": "0",
+          "amount": 25000,
+          "activation": "main-only",
+          "description": "メイン装備時、全属性キャラのHPを25000上昇"
         },
         {
           "kind": "normal-skill-boost",

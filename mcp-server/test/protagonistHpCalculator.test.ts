@@ -121,3 +121,37 @@ test("ceils the observed magna HP weapon-skill stage", () => {
 
   assert.equal(calculateProtagonistHp(input)?.hp, 5009);
 });
+
+test("adds a flat main-summon HP aura after the weapon-skill HP stage", () => {
+  const input = deck();
+  input.protagonist.hp = 3647;
+  input.effectiveWeaponSkillEffects = [{
+    sourceWeaponSlot: 2,
+    sourceWeaponId: "1040417900",
+    sourceSkillId: "93",
+    sourceSkillName: "機炎方陣・守護",
+    kind: "magna-hp-up",
+    elementCode: "1",
+    baseAmountPercent: 14.5,
+    effectiveAmountPercent: 14.5,
+    skillLevel: 15,
+    verificationStatus: "検証済み",
+    appliedModifiers: [],
+  }];
+  input.effectiveCharacterHpFlatAuras = [{
+    kind: "character-hp-flat",
+    elementCode: "0",
+    amount: 25000,
+    sourceSummonSlot: 1,
+    sourcePosition: "main",
+    sourceSummonId: "2040430000",
+    sourceSummonName: "蒼空の楔",
+    sourceAuraName: "六竜の加護",
+    verificationStatus: "検証済み",
+  }];
+
+  const result = calculateProtagonistHp(input);
+  assert.equal(result?.weaponSkillHpPercent, 14.5);
+  assert.equal(result?.summonAuraFlatHp, 25000);
+  assert.equal(result?.hp, 29176);
+});
