@@ -1316,7 +1316,7 @@
       "description": "火属性キャラのHPが少ないほど攻撃力が上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文に加え、クリムゾンスティンガーSLv1のHP100%編成画面で効果量が表示されないことを実機確認。HP低下時の効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13",
       "normalEnmityAmountTable": {
         "tableId": "normal-enmity-small",

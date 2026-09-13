@@ -111,3 +111,54 @@ test("connects Froga skill 1296 to the 340% Agni aura at full HP", () => {
     true,
   );
 });
+
+test("keeps Crimson Stinger skill 118 inactive at full HP", () => {
+  const response = calculateNormalAttackFromRequest({
+    schemaVersion: 1,
+    protagonistCurrentHpPercent: 100,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+    deckConfig: {
+      schemaVersion: 1,
+      format: "gbf-helper-calculator-deck",
+      protagonist: { elementCode: "1", attackOverride: 15574, hpOverride: 4117 },
+      weapons: [
+        {
+          slot: 1,
+          position: "main",
+          weaponId: "1010000400",
+          level: 1,
+          skillLevel: 1,
+          attackOverride: 70,
+          hpOverride: 6,
+        },
+        {
+          slot: 2,
+          position: "grid",
+          weaponId: "1040218700",
+          level: 1,
+          skillLevel: 1,
+          attackOverride: 408,
+          hpOverride: 38,
+        },
+      ],
+      summons: [{
+        slot: 1,
+        position: "main",
+        summonId: "2040094000",
+        level: 250,
+        uncapLevel: 6,
+        attackOverride: 4157,
+        hpOverride: 1414,
+      }],
+      characters: [],
+    },
+    enemy: { elementCode: "1", defense: 10 },
+    modifiers: {},
+  });
+
+  const enmity = response.result.hpDependentAttack;
+  assert.equal(enmity.enmityContributions[0]?.sourceSkillId, "118");
+  assert.equal(enmity.enmityContributions[0]?.skillLevel, 1);
+  assert.equal(enmity.enmityContributions[0]?.effectiveAmountPercent, 0);
+  assert.equal(enmity.normalEnmityMultiplier, 1);
+});
