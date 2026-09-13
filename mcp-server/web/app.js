@@ -110,6 +110,7 @@ let persistenceReady = false;
 let persistenceTimer = null;
 let savedProfiles = [];
 let selectedProfileId = "";
+const CATALOG_LOAD_RETRY_DELAYS_MS = [0, 250, 750];
 
 deckField.value = JSON.stringify(DEFAULT_CALCULATOR_DECK, null, 2);
 
@@ -2521,29 +2522,56 @@ $("summon-picker").addEventListener("click", (event) => {
   if (event.target === $("summon-picker")) $("summon-picker").close();
 });
 
+async function loadCalculatorCatalogs() {
+  let lastError;
+  for (const delayMs of CATALOG_LOAD_RETRY_DELAYS_MS) {
+    if (delayMs > 0) await new Promise((resolve) => window.setTimeout(resolve, delayMs));
+    try {
+      const [jobResponse, characterResponse, weaponResponse, fallbackWeaponResponse, summonResponse] = await Promise.all([
+        fetch("/api/catalog/jobs"),
+        fetch("/api/catalog/characters"),
+        fetch("/api/catalog/weapons"),
+        fetch("/api/catalog/job-fallback-weapons"),
+        fetch("/api/catalog/summons"),
+      ]);
+      if (!jobResponse.ok || !characterResponse.ok || !weaponResponse.ok || !fallbackWeaponResponse.ok || !summonResponse.ok) {
+        throw new Error("編成カタログを読み込めませんでした");
+      }
+      const [jobs, characters, weapons, fallbackWeapons, summons] = await Promise.all([
+        jobResponse.json(),
+        characterResponse.json(),
+        weaponResponse.json(),
+        fallbackWeaponResponse.json(),
+        summonResponse.json(),
+      ]);
+      const catalogs = [jobs.jobs, characters.characters, weapons.weapons, fallbackWeapons.weapons, summons.summons];
+      if (catalogs.some((catalog) => !Array.isArray(catalog) || catalog.length === 0)) {
+        throw new Error("編成カタログが空です");
+      }
+      [jobCatalog, characterCatalog, weaponCatalog, fallbackWeaponCatalog, summonCatalog] = catalogs;
+      return;
+    } catch (error) {
+      lastError = error;
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error("編成カタログを読み込めませんでした");
+}
+
 async function initialize() {
   for (const key of LEGACY_CALCULATOR_STORAGE_KEYS) localStorage.removeItem(key);
   renderCrewSupportEditor(readDeckConfig().protagonist.crewSupport);
   renderMemorialItemEditor(readDeckConfig().protagonist.memorialItems);
   try {
-    const [jobResponse, characterResponse, weaponResponse, fallbackWeaponResponse, summonResponse] = await Promise.all([
-      fetch("/api/catalog/jobs"),
-      fetch("/api/catalog/characters"),
-      fetch("/api/catalog/weapons"),
-      fetch("/api/catalog/job-fallback-weapons"),
-      fetch("/api/catalog/summons"),
-    ]);
-    if (!jobResponse.ok || !characterResponse.ok || !weaponResponse.ok || !fallbackWeaponResponse.ok || !summonResponse.ok) throw new Error("編成カタログを読み込めませんでした");
-    jobCatalog = (await jobResponse.json()).jobs;
-    characterCatalog = (await characterResponse.json()).characters;
-    weaponCatalog = (await weaponResponse.json()).weapons;
-    fallbackWeaponCatalog = (await fallbackWeaponResponse.json()).weapons;
-    summonCatalog = (await summonResponse.json()).summons;
-    renderJobCompletionEditor(readDeckConfig().protagonist.completedJobIds);
+    await loadCalculatorCatalogs();
   } catch (error) {
-    $("deck-state").textContent = error instanceof Error ? error.message : "編成カタログを読み込めませんでした";
+    const reason = error instanceof Error ? error.message : "編成カタログを読み込めませんでした";
+    $("deck-state").textContent = `${reason}。保存状態は変更していません。サーバ起動後に再読み込みしてください`;
     $("deck-state").classList.add("error-text");
+    setPersistenceStatus("カタログ未取得のため自動保存を停止しています", true);
+    restoreNamedProfiles();
+    return;
   }
+  renderJobCompletionEditor(readDeckConfig().protagonist.completedJobIds);
   restorePersistedState();
   restoreNamedProfiles();
   persistenceReady = true;

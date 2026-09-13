@@ -59,6 +59,16 @@ test("formation area contains support summon and reset control with the requeste
   assert.equal(resolution.issues.some((issue) => issue.code === "missing-stat-override"), false);
 });
 
+test("catalog initialization never overwrites persisted job completion state after a restart failure", async () => {
+  const app = await readFile(new URL("../web/app.js", import.meta.url), "utf8");
+  const loadPosition = app.indexOf("await loadCalculatorCatalogs();");
+  const restorePosition = app.indexOf("restorePersistedState();", loadPosition);
+  const persistencePosition = app.indexOf("persistenceReady = true;", loadPosition);
+  assert.ok(loadPosition >= 0 && loadPosition < restorePosition && restorePosition < persistencePosition);
+  assert.match(app, /const CATALOG_LOAD_RETRY_DELAYS_MS = \[0, 250, 750\];/u);
+  assert.match(app, /catch \(error\) \{[\s\S]*setPersistenceStatus\("カタログ未取得のため自動保存を停止しています", true\);[\s\S]*return;[\s\S]*\}\s+renderJobCompletionEditor/u);
+});
+
 test("web server exposes every root-relative module imported by the calculator", async () => {
   const [app, webServer] = await Promise.all([
     readFile(new URL("../web/app.js", import.meta.url), "utf8"),
