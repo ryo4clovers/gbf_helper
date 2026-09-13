@@ -298,6 +298,19 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "12",
+      "name": "闇の守護",
+      "description": "闇属性キャラの最大HP上昇(小)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-small",
+        "elementCode": "6"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "13",
       "name": "業火の攻刃",
       "description": "火属性キャラの攻撃力上昇(中)",
@@ -363,6 +376,19 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "18",
+      "name": "憎悪の攻刃",
+      "description": "闇属性キャラの攻撃力上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "6"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "19",
       "name": "業火の守護",
       "description": "火属性キャラの最大HP上昇(中)",
@@ -421,6 +447,19 @@
       "normalHpAmountTable": {
         "tableId": "normal-aegis-medium",
         "elementCode": "5"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "24",
+      "name": "憎悪の守護",
+      "description": "闇属性キャラの最大HP上昇(中)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-medium",
+        "elementCode": "6"
       },
       "effects": [],
       "verificationStatus": "下書き",
@@ -580,6 +619,19 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "36",
+      "name": "奈落の守護",
+      "description": "闇属性キャラの最大HP上昇(大)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-large",
+        "elementCode": "6"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "37",
       "name": "癒しの力",
       "description": "回復タイプの回復効果上昇(小)",
@@ -640,6 +692,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "51",
+      "name": "闇の二手",
+      "description": "闇属性キャラのダブルアタック確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "52",
       "name": "業火の二手",
       "description": "火属性キャラのダブルアタック確率上昇(中)",
@@ -670,6 +731,15 @@
       "skillId": "55",
       "name": "竜巻の二手",
       "description": "風属性キャラのダブルアタック確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "57",
+      "name": "憎悪の二手",
+      "description": "闇属性キャラのダブルアタック確率上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -822,6 +892,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "79",
+      "name": "闇の技巧",
+      "description": "闇属性キャラのクリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "80",
       "name": "業火の技巧",
       "description": "火属性キャラのクリティカル確率上昇(中)",
@@ -899,6 +978,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "85",
+      "name": "憎悪の技巧",
+      "description": "闇属性キャラのクリティカル確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "86",
       "name": "紅蓮の技巧",
       "description": "火属性キャラのクリティカル確率上昇(大)",
@@ -969,6 +1057,15 @@
       "skillId": "90",
       "name": "天光の技巧",
       "description": "光属性キャラのクリティカル確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "91",
+      "name": "奈落の技巧",
+      "description": "闇属性キャラのクリティカル確率上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1109,6 +1206,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "123",
+      "name": "闇の背水",
+      "description": "闇属性キャラのHPが少ないほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "124",
       "name": "業火の背水",
       "description": "火属性キャラのHPが少ないほど攻撃力が上昇(中)",
@@ -1131,7 +1237,8 @@
       "description": "闇属性キャラのHPが少ないほど攻撃力が上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-ennead-bigeh-edfu.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "130",
@@ -1251,6 +1358,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "147",
+      "name": "憎悪の見切",
+      "description": "闇属性キャラが稀に回避カウンター(ダメージ中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "208",
       "name": "紅蓮の攻刃II",
       "description": "火属性キャラの攻撃力上昇(大)",
@@ -1316,6 +1432,19 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "213",
+      "name": "奈落の攻刃II",
+      "description": "闇属性キャラの攻撃力上昇(大)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-ii",
+        "elementCode": "6"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "235",
       "name": "先制の炎刃",
       "description": "バトル開始時から8ターンの間火属性キャラの攻撃力上昇",
@@ -1355,6 +1484,15 @@
       "skillId": "239",
       "name": "先制の光刃",
       "description": "バトル開始時から8ターンの間光属性キャラの攻撃力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "240",
+      "name": "先制の闇刃",
+      "description": "バトル開始時から8ターンの間闇属性キャラの攻撃力上昇",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1451,6 +1589,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "260",
+      "name": "闇の治癒",
+      "description": "闇属性キャラの回復上限上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "261",
       "name": "業火の治癒",
       "description": "火属性キャラの回復上限上昇(中)",
@@ -1496,6 +1643,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "266",
+      "name": "憎悪の治癒",
+      "description": "闇属性キャラの回復上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "268",
       "name": "霧氷の治癒",
       "description": "水属性キャラの回復上限上昇(大)",
@@ -1526,6 +1682,15 @@
       "skillId": "271",
       "name": "天光の治癒",
       "description": "光属性キャラの回復上限上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "272",
+      "name": "奈落の治癒",
+      "description": "闇属性キャラの回復上限上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1716,6 +1881,22 @@
       "normalAttackAmountTable": {
         "tableId": "normal-medium",
         "elementCode": "5"
+      },
+      "unsupportedEffects": [
+        "クリティカル確率上昇（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "327",
+      "name": "憎悪の刹那",
+      "description": "闇属性キャラの攻撃力上昇(中)/クリティカル確率上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "6"
       },
       "unsupportedEffects": [
         "クリティカル確率上昇（中）"
@@ -2008,6 +2189,22 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "387",
+      "name": "憎悪の羅刹",
+      "description": "闇属性キャラの攻撃力上昇(中)/ダブルアタック確率-10%",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "6"
+      },
+      "unsupportedEffects": [
+        "ダブルアタック確率-10%"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "389",
       "name": "霧氷の括目",
       "description": "水属性キャラが稀に回避カウンター(ダメージ大)/ダブルアタック確率上昇(小)",
@@ -2115,6 +2312,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "419",
+      "name": "闇の堅守",
+      "description": "闇属性キャラのHPが少ないほど防御力上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "420",
       "name": "業火の堅守",
       "description": "火属性キャラのHPが少ないほど防御力上昇(中)",
@@ -2156,7 +2362,8 @@
       "description": "闇属性キャラのHPが少ないほど防御力上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-malice-majestas.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "426",
@@ -2198,6 +2405,15 @@
       "skillId": "430",
       "name": "天光の堅守",
       "description": "光属性キャラのHPが少ないほど防御力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "431",
+      "name": "奈落の堅守",
+      "description": "闇属性キャラのHPが少ないほど防御力上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2261,6 +2477,15 @@
       "skillId": "478",
       "name": "反逆の光刃",
       "description": "被ダメージで光属性キャラの攻撃力上昇(累積)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "479",
+      "name": "反逆の闇刃",
+      "description": "被ダメージで闇属性キャラの攻撃力上昇(累積)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2346,6 +2571,15 @@
       "skillId": "506",
       "name": "天光の渾身",
       "description": "光属性キャラのHPが多いほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "507",
+      "name": "奈落の渾身",
+      "description": "闇属性キャラのHPが多いほど攻撃力が上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2480,6 +2714,22 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "521",
+      "name": "憎悪の冥護",
+      "description": "闇属性キャラの最大HP上昇(中)/回復上限上昇(中)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-medium",
+        "elementCode": "6"
+      },
+      "unsupportedEffects": [
+        "回復上限上昇（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "534",
       "name": "聖騎士の誇り",
       "description": "水属性キャラの防御力上昇",
@@ -2561,9 +2811,36 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "546",
+      "name": "奔放の稀人",
+      "description": "主人公のみトリプルアタック確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "558",
+      "name": "凶獣の三爪",
+      "description": "主人公のみトリプルアタック確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "559",
       "name": "忠義の瞬刃",
       "description": "主人公のみダブルアタック確率上昇(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "579",
+      "name": "血啜りの一閃",
+      "description": "被ダメージ時に確率でカウンター ◆メイン装備時/主人公のみ",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2778,6 +3055,24 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "637",
+      "name": "闇の三手",
+      "description": "闇属性キャラの連続攻撃確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "638",
+      "name": "肉体修復",
+      "description": "メイン装備時に主人公のみ再生効果",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "639",
       "name": "火の秘奥",
       "description": "火属性キャラの奥義ダメージUP(小)",
@@ -2823,6 +3118,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "644",
+      "name": "闇の秘奥",
+      "description": "闇属性キャラの奥義ダメージUP(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "646",
       "name": "渦潮の秘奥",
       "description": "水属性キャラの奥義ダメージUP(中)",
@@ -2844,6 +3148,15 @@
       "skillId": "649",
       "name": "雷電の秘奥",
       "description": "光属性キャラの奥義ダメージUP(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "650",
+      "name": "憎悪の秘奥",
+      "description": "闇属性キャラの奥義ダメージUP(中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2895,9 +3208,27 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "656",
+      "name": "奈落の秘奥",
+      "description": "闇属性キャラの奥義ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "661",
       "name": "光の庇護",
       "description": "光属性キャラの弱体耐性UP(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "676",
+      "name": "狂恋の抱擁",
+      "description": "トリプルアタック確率上昇 ◆主人公のみ",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3127,6 +3458,22 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "776",
+      "name": "憎悪の無双",
+      "description": "闇属性キャラの攻撃力上昇(中)/ダブルアタック確率上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "6"
+      },
+      "unsupportedEffects": [
+        "ダブルアタック確率上昇（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "777",
       "name": "イクシード・ファイア",
       "description": "火属性キャラの奥義ダメージ上限上昇",
@@ -3190,6 +3537,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "801",
+      "name": "禁忌の悲恋",
+      "description": "闇属性キャラの光属性ダメージ軽減",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "803",
       "name": "天を統べる強風",
       "description": "風属性キャラのアビリティダメージ上限UP",
@@ -3238,6 +3594,15 @@
       "skillId": "826",
       "name": "未完の錬金術",
       "description": "モードゲージ減少量UP ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "833",
+      "name": "叛逆の烽火",
+      "description": "暗闇状態の敵に対して、ダブルアタック確率UP ◆メイン装備時/主人公のみ",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3538,6 +3903,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "919",
+      "name": "憎悪の渾身",
+      "description": "闇属性キャラのHPが多いほど攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "921",
       "name": "神秘の前奏曲",
       "description": "味方全体の弱体成功率UP ◆メイン装備時",
@@ -3784,6 +4158,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1003",
+      "name": "変幻自在の剣技",
+      "description": "闇属性キャラのアビリティダメージUP/アビリティダメージ上限UP ◆メイン装備時",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1004",
       "name": "胡蝶の剣舞",
       "description": "奥義ゲージ上昇量UP ◆メイン装備時/主人公のみ",
@@ -3868,6 +4251,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1060",
+      "name": "闇夜の訪問者",
+      "description": "敵の数が少ないほど自分の攻撃力UP ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1064",
       "name": "夢へのトビラ",
       "description": "味方全体が魅了状態の敵に対してダブルアタック確率UP ◆メイン装備時",
@@ -3931,6 +4323,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1086",
+      "name": "闇の必殺",
+      "description": "闇属性キャラの奥義ダメージUP(小)/奥義ダメージ上限上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1087",
       "name": "業火の必殺",
       "description": "火属性キャラの奥義ダメージUP(中)/奥義ダメージ上限上昇(中)",
@@ -3958,6 +4359,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1092",
+      "name": "憎悪の必殺",
+      "description": "闇属性キャラの奥義ダメージUP(中)/奥義ダメージ上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1097",
       "name": "天光の必殺",
       "description": "光属性キャラの奥義ダメージUP(大)/奥義ダメージ上限上昇(大)",
@@ -3967,9 +4377,36 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1098",
+      "name": "奈落の必殺",
+      "description": "闇属性キャラの奥義ダメージUP(大)/奥義ダメージ上限上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1102",
       "name": "風の克己",
       "description": "風属性キャラのダブルアタック確率上昇(小)/クリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1104",
+      "name": "闇の克己",
+      "description": "闇属性キャラのダブルアタック確率上昇(小)/クリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1114",
+      "name": "ファム・ファタール",
+      "description": "通常攻撃時に確率で敵の防御DOWN(累積)/◆メイン装備時/主人公のみ",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3997,6 +4434,22 @@
       "skillId": "1127",
       "name": "日輪の御導き",
       "description": "フィールド効果「フレア」発生時にダブルアタック確率UP ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1128",
+      "name": "奈落の呪印",
+      "description": "闇属性キャラの攻撃力上昇(大)/毎ターンダメージを受ける",
+      "normalAttackAmountTable": {
+        "tableId": "normal-large",
+        "elementCode": "6"
+      },
+      "unsupportedEffects": [
+        "毎ターンダメージを受ける"
+      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -4042,6 +4495,15 @@
       "skillId": "1172",
       "name": "霧氷の英傑",
       "description": "水属性キャラの奥義性能UP(大)/チェインバースト性能UP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1176",
+      "name": "奈落の英傑",
+      "description": "闇属性キャラの奥義性能UP(大)/チェインバースト性能UP(大)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -4122,6 +4584,31 @@
       "unsupportedEffects": [
         "弱体耐性UP（中）"
       ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1182",
+      "name": "憎悪の恩寵",
+      "description": "闇属性キャラの最大HP上昇(中)/弱体耐性UP(中)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-medium",
+        "elementCode": "6"
+      },
+      "unsupportedEffects": [
+        "弱体耐性UP（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1188",
+      "name": "絶望の胎動",
+      "description": "闇属性キャラのアビリティダメージ上限UP",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -4389,6 +4876,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1265",
+      "name": "憎悪の三手",
+      "description": "闇属性キャラの連続攻撃確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1275",
       "name": "双剣の資質(エンブレム枠 / Dual Blade's ―)",
       "description": "効果量・計算枠は要検証",
@@ -4462,6 +4958,24 @@
       "skillId": "1300",
       "name": "光の渾身",
       "description": "光属性キャラのHPが多いほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1301",
+      "name": "闇の渾身",
+      "description": "闇属性キャラのHPが多いほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1302",
+      "name": "グラファイト・アーツ",
+      "description": "闇属性キャラのアビリティダメージ上限UP",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -4571,7 +5085,8 @@
       "description": "経過ターンに応じて闇属性キャラの闇属性攻撃力が上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-ennead-abydos.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1358",
@@ -4586,6 +5101,15 @@
       "skillId": "1359",
       "name": "英雄の体躯",
       "description": "光属性キャラのダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1361",
+      "name": "パープル・ブロウ",
+      "description": "闇属性キャラがトリプルアタック発動時に3回目の攻撃に闇属性追撃効果",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -4698,6 +5222,22 @@
       "normalHpAmountTable": {
         "tableId": "normal-aegis-small",
         "elementCode": "5"
+      },
+      "unsupportedEffects": [
+        "弱体耐性UP（小）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1433",
+      "name": "闇の恩寵",
+      "description": "闇属性キャラの最大HP上昇(小)/弱体耐性UP(小)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-small",
+        "elementCode": "6"
       },
       "unsupportedEffects": [
         "弱体耐性UP（小）"
@@ -4942,6 +5482,22 @@
       "normalAttackAmountTable": {
         "tableId": "normal-medium",
         "elementCode": "5"
+      },
+      "unsupportedEffects": [
+        "トリプルアタック確率上昇（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1511",
+      "name": "憎悪の乱舞",
+      "description": "闇属性キャラの攻撃力上昇(中)/トリプルアタック確率上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "6"
       },
       "unsupportedEffects": [
         "トリプルアタック確率上昇（中）"
@@ -5303,6 +5859,22 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1655",
+      "name": "奈落の修羅",
+      "description": "闇属性キャラの攻撃力上昇(大)/バトル開始時に最大HPの20%のダメージ",
+      "normalAttackAmountTable": {
+        "tableId": "normal-large",
+        "elementCode": "6"
+      },
+      "unsupportedEffects": [
+        "バトル開始時に最大HPの20%のダメージ"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1656",
       "name": "スカーレット・クラフト",
       "description": "火属性キャラがクリティカル発動時に与ダメージ上昇",
@@ -5342,6 +5914,15 @@
       "skillId": "1660",
       "name": "ゴールデン・クラフト",
       "description": "光属性キャラがクリティカル発動時に与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1661",
+      "name": "グラファイト・クラフト",
+      "description": "闇属性キャラがクリティカル発動時に与ダメージ上昇",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -5476,7 +6057,8 @@
       "description": "闇属性キャラのアビリティの与ダメージ上昇",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-menace-agonize.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1749",
@@ -5498,6 +6080,15 @@
       "skillId": "1751",
       "name": "凪の剛毅",
       "description": "風属性キャラのHPが少ないほど与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1753",
+      "name": "煉の剛毅",
+      "description": "闇属性キャラのHPが少ないほど与ダメージ上昇",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -5604,7 +6195,8 @@
       "description": "闇属性キャラのHPが多いほど与ダメージ上昇",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-ennead-abydos.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1820",
@@ -5750,6 +6342,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1867",
+      "name": "煉の至妙",
+      "description": "闇属性キャラのHPが少ないほどアビリティの与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1869",
       "name": "雪の慈雨",
       "description": "水属性キャラのHPが多いほど奥義の与ダメージ上昇",
@@ -5770,6 +6371,15 @@
       "skillId": "1872",
       "name": "煌の慈雨",
       "description": "光属性キャラのHPが多いほど奥義の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1873",
+      "name": "煉の慈雨",
+      "description": "闇属性キャラのHPが多いほど奥義の与ダメージ上昇",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -5797,6 +6407,15 @@
       "skillId": "1878",
       "name": "煌の雄飛",
       "description": "光属性キャラの奥義ダメージ特殊上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1879",
+      "name": "煉の雄飛",
+      "description": "闇属性キャラの奥義ダメージ特殊上限UP",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -5963,6 +6582,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/wind-ssr-revans-sette-di-spada-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1995",
+      "name": "レイジ・オブ・ガントレット",
+      "description": "装備している「格闘」の数が多いほど攻撃力/最大HP/連続攻撃確率上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "2010",
@@ -6724,6 +7352,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "2485",
+      "name": "闇の鋭鋒",
+      "description": "闇属性キャラのトリプルアタック確率上昇(小)/クリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "2503",
       "name": "土の冥護",
       "description": "土属性キャラの最大HP上昇(小)/回復上限上昇(小)",
@@ -6746,6 +7383,22 @@
       "normalHpAmountTable": {
         "tableId": "normal-aegis-small",
         "elementCode": "5"
+      },
+      "unsupportedEffects": [
+        "回復上限上昇（小）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "2506",
+      "name": "闇の冥護",
+      "description": "闇属性キャラの最大HP上昇(小)/回復上限上昇(小)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-small",
+        "elementCode": "6"
       },
       "unsupportedEffects": [
         "回復上限上昇（小）"

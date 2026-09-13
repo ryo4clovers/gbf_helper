@@ -6,7 +6,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
   assert.equal(catalog.weapons.size, 2971);
-  assert.equal(catalog.skills.size, 678);
+  assert.equal(catalog.skills.size, 740);
   assert.deepEqual(catalog.weapons.get("1020500200")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1" },
   ]);
@@ -28,6 +28,14 @@ test("loads the initial incremental weapon and skill catalog", () => {
   );
   assert.equal(fireMightEffects.some((effect) => effect.skillLevel === 16), false);
   const normalAttackTableCases = [
+    ["18", [[10, 12], [15, 14.5], [20, 16]]],
+    ["213", [[10, 16], [15, 20], [20, 22]]],
+    ["327", [[10, 12], [15, 14.5], [20, 16]]],
+    ["387", [[10, 12], [15, 14.5], [20, 16]]],
+    ["776", [[10, 12], [15, 14.5], [20, 16]]],
+    ["1128", [[10, 15], [15, 18], [20, 20]]],
+    ["1511", [[10, 12], [15, 14.5], [20, 16]]],
+    ["1655", [[10, 15], [15, 18], [20, 20]]],
     ["17", [[10, 12], [15, 14.5], [20, 16]]],
     ["385", [[10, 12], [15, 14.5], [20, 16]]],
     ["767", [[10, 12], [15, 14.5], [20, 15.5]]],
@@ -122,6 +130,13 @@ test("loads the initial incremental weapon and skill catalog", () => {
     assert.equal(effects.every((effect) => effect.verificationStatus === "下書き"), true);
   }
   const normalHpTableCases = [
+    ["12", [[10, 12], [15, 14], [20, 16]]],
+    ["24", [[10, 15], [15, 17]]],
+    ["36", [[10, 18], [15, 21], [20, 24]]],
+    ["521", [[10, 15], [15, 17]]],
+    ["1182", [[10, 15], [15, 17]]],
+    ["1433", [[10, 12], [15, 14], [20, 16]]],
+    ["2506", [[10, 12], [15, 14], [20, 16]]],
     ["10", [[10, 12], [15, 14], [20, 16]]],
     ["11", [[10, 12], [15, 14], [20, 16]]],
     ["22", [[10, 15], [15, 17]]],
@@ -196,6 +211,17 @@ test("loads the initial incremental weapon and skill catalog", () => {
   assert.equal(catalog.weapons.get("1040622100")?.name, "第五辰行肌護油");
   assert.equal(catalog.skills.get("385")?.confirmedAt, "2026-09-13");
   assert.equal(catalog.skills.get("1499")?.confirmedAt, "2026-09-13");
+  assert.deepEqual(catalog.weapons.get("1040022100")?.skillSlots, [
+    { sourceKey: "skill1", skillId: "776" },
+    { sourceKey: "skill2", skillId: "79" },
+  ]);
+  assert.deepEqual(catalog.weapons.get("1040221300")?.skillSlots, [
+    { sourceKey: "skill1", skillId: "769" },
+    { sourceKey: "skill2", skillId: "419" },
+  ]);
+  assert.equal(catalog.weapons.get("1040022100")?.name, "ライトニング・シュヴァルツ");
+  assert.equal(catalog.weapons.get("1040221300")?.name, "マッシブ・メンター・ドリル");
+  assert.equal(catalog.skills.get("213")?.confirmedAt, "2026-09-13");
   assert.deepEqual(catalog.weapons.get("1040201400")?.skillSlots, [
     { sourceKey: "skill1", skillId: "25" },
     { sourceKey: "skill2", skillId: "74" },
