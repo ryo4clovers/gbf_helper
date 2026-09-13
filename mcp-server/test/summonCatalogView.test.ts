@@ -6,7 +6,7 @@ test("creates a deterministic browser-safe summon catalog", () => {
   const catalog = createSelectableSummonCatalog();
 
   assert.equal(catalog.schemaVersion, 1);
-  assert.equal(catalog.summons.length, 122);
+  assert.equal(catalog.summons.length, 123);
   assert.deepEqual(
     catalog.summons.map((summon) => `${summon.name}:${summon.summonId}`),
     [...catalog.summons]

@@ -138,6 +138,7 @@
 | [wind-ssr-grimnir-normal.md](./wind-ssr-grimnir-normal.md) | グリームニル / Grimnir | SSR | 風 | 下書き |
 | [wind-ssr-raphael-normal.md](./wind-ssr-raphael-normal.md) | ラファエル / Raphael | SSR | 風 | 下書き |
 | [wind-ssr-ewiyar-normal.md](./wind-ssr-ewiyar-normal.md) | イーウィヤ / Ewiyar | SSR | 風 | 下書き |
+| [wind-ssr-wedges-of-the-sky-normal.md](./wind-ssr-wedges-of-the-sky-normal.md) | 蒼空の楔 / Wedges of the Sky | SSR | 風 | 下書き |
 | [wind-ssr-judgement-normal.md](./wind-ssr-judgement-normal.md) | ジャッジメント / Judgement | SSR | 風 | 下書き |
 | [wind-ssr-zephyrus-normal.md](./wind-ssr-zephyrus-normal.md) | ゼピュロス / Zephyrus | SSR | 風 | 下書き |
 | [wind-ssr-morrigna-normal.md](./wind-ssr-morrigna-normal.md) | バイヴカハ / Morrigna | SSR | 風 | 下書き |

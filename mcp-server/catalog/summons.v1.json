@@ -5333,6 +5333,93 @@
       }
     },
     {
+      "summonId": "2040430000",
+      "name": "蒼空の楔",
+      "elementCode": "4",
+      "rarityCode": "4",
+      "auraName": "六竜の加護",
+      "auraDescription": "全属性攻撃力が140%UP/全属性キャラのHPを25000上昇 / サブ加護: スキル「機炎方陣」「海神方陣」「創樹方陣」「嵐竜方陣」「騎解方陣」「黒霧方陣」の効果が30%UP",
+      "auraEffects": [
+        {
+          "kind": "utility",
+          "description": "メイン加護の全属性攻撃力140%UPと全属性キャラHP25000上昇は数値計算への構造化未対応"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "1",
+          "amountPercent": 30,
+          "boostGroup": "magna",
+          "targetSkillNamePrefixes": ["機炎方陣"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「機炎方陣」の効果が30%UP"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "2",
+          "amountPercent": 30,
+          "boostGroup": "magna",
+          "targetSkillNamePrefixes": ["海神方陣"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「海神方陣」の効果が30%UP"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "3",
+          "amountPercent": 30,
+          "boostGroup": "magna",
+          "targetSkillNamePrefixes": ["創樹方陣"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「創樹方陣」の効果が30%UP"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "4",
+          "amountPercent": 30,
+          "boostGroup": "magna",
+          "targetSkillNamePrefixes": ["嵐竜方陣"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「嵐竜方陣」の効果が30%UP"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "5",
+          "amountPercent": 30,
+          "boostGroup": "magna",
+          "targetSkillNamePrefixes": ["騎解方陣"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「騎解方陣」の効果が30%UP"
+        },
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "6",
+          "amountPercent": 30,
+          "boostGroup": "magna",
+          "targetSkillNamePrefixes": ["黒霧方陣"],
+          "activation": "sub-only",
+          "description": "サブ装備時、スキル「黒霧方陣」の効果が30%UP"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "supportSelectable": false,
+      "source": "ユーザー提供のゲーム内所持召喚石詳細・ニーラカンタ編成レスポンス（2026-09-14）。4凸サブ加護30%と火属性方陣効果への加算を実機確認",
+      "confirmedAt": "2026-09-14",
+      "levelStats": {
+        "maximumLevel": 150,
+        "points": [
+          { "level": 1, "uncapLevel": 0, "attack": 277, "hp": 109 },
+          { "level": 100, "uncapLevel": 3, "attack": 1740, "hp": 668 },
+          { "level": 150, "uncapLevel": 4, "attack": 2106, "hp": 808 }
+        ]
+      },
+      "selectionDefaults": {
+        "level": 150,
+        "uncapLevel": 4,
+        "plusMark": 0,
+        "attack": 2106,
+        "hp": 808
+      }
+    },
+    {
       "summonId": "2040431000",
       "name": "ミリム・ナーヴァ",
       "elementCode": "6",

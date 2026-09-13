@@ -11,7 +11,7 @@ test("loads the initial non-damage summon aura", () => {
   const catalog = loadIncrementalSummonCatalog();
   const summon = catalog.summons.get("2030051000");
 
-  assert.equal(catalog.summons.size, 122);
+  assert.equal(catalog.summons.size, 123);
   assert.equal(summon?.name, "シルフィードベル");
   assert.equal(summon?.verificationStatus, "検証済み");
   assert.equal(summon?.supportSelectable, true);
@@ -169,6 +169,40 @@ test("loads the verified Colossus Magna boost for magna weapon skills", () => {
     attack: 2665,
     hp: 1064,
   });
+});
+
+test("loads Wedges of the Sky's all-element magna sub aura", () => {
+  const summon = loadIncrementalSummonCatalog().summons.get("2040430000");
+  const expected = [
+    ["1", "機炎方陣"],
+    ["2", "海神方陣"],
+    ["3", "創樹方陣"],
+    ["4", "嵐竜方陣"],
+    ["5", "騎解方陣"],
+    ["6", "黒霧方陣"],
+  ];
+  const boosts = summon?.auraEffects.filter((effect) => effect.kind === "normal-skill-boost");
+
+  assert.equal(summon?.name, "蒼空の楔");
+  assert.equal(summon?.verificationStatus, "検証済み");
+  assert.equal(summon?.supportSelectable, false);
+  assert.deepEqual(summon?.selectionDefaults, {
+    level: 150,
+    uncapLevel: 4,
+    plusMark: 0,
+    attack: 2106,
+    hp: 808,
+  });
+  assert.deepEqual(
+    boosts?.map((effect) => [
+      effect.elementCode,
+      effect.targetSkillNamePrefixes[0],
+      effect.amountPercent,
+      effect.boostGroup,
+      effect.activation,
+    ]),
+    expected.map(([elementCode, prefix]) => [elementCode, prefix, 30, "magna", "sub-only"]),
+  );
 });
 
 test("loads the verified fire character HP sub auras with one stacking group", () => {

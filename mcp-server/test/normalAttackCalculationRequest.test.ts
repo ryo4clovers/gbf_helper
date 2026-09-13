@@ -323,6 +323,44 @@ test("applies Colossus Magna's 170% aura to Nilakantha at full HP", () => {
   assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 5054);
 });
 
+test("adds Wedges of the Sky's 30% sub aura to Colossus Magna for Nilakantha", () => {
+  const normalInput = derivedNilakanthaRequest(false, "1");
+  normalInput.deckConfig.protagonist.attackOverride = 16328;
+  normalInput.deckConfig.protagonist.hpOverride = 3954;
+  normalInput.deckConfig.summons = [
+    {
+      slot: 1,
+      position: "main" as const,
+      summonId: "2040034000",
+      level: 250,
+      uncapLevel: 6,
+    },
+    {
+      slot: 1,
+      position: "sub" as const,
+      summonId: "2040430000",
+      level: 150,
+      uncapLevel: 4,
+    },
+  ];
+  const advantageInput = structuredClone(normalInput);
+  advantageInput.enemy.elementCode = "4";
+  advantageInput.modifiers.targetElementDamagePercent = 5;
+
+  const normal = calculateNormalAttackFromRequest(normalInput);
+  const advantage = calculateNormalAttackFromRequest(advantageInput);
+
+  assert.equal(normal.result.attackPower.baseAttack, 16328);
+  assert.equal(normal.result.protagonistHp?.hp, 5674);
+  assert.equal(
+    Math.round(normal.result.hpDependentAttack.totalEffectiveMagnaStaminaPercent * 100) / 100,
+    45.01,
+  );
+  assert.equal(normal.result.protagonistHp?.weaponSkillHpPercent, 43.5);
+  assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, 3454);
+  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 5216);
+});
+
 test("resolves protagonist DA and TA rates from the selected job", () => {
   const response = calculateNormalAttackFromRequest(agniRequest());
 
