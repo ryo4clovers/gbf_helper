@@ -323,7 +323,7 @@ test("reproduces the combined displayed attack and critical values after a 30% b
   );
 });
 
-test("uses a provisional critical value at SLv10 while retaining an effect-level warning", () => {
+test("uses provisional attack and critical values at SLv10 while retaining an effect-level warning", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,
     format: "gbf-helper-calculator-deck",
@@ -342,7 +342,10 @@ test("uses a provisional critical value at SLv10 while retaining an effect-level
 
   assert.deepEqual(
     result.deck.effectiveWeaponSkillEffects?.map((effect) => [effect.sourceSkillId, effect.kind, effect.baseAmountPercent]),
-    [["74", "critical-rate-up", 2]],
+    [
+      ["25", "normal-attack-up", 15],
+      ["74", "critical-rate-up", 2],
+    ],
   );
   assert.equal(
     result.deck.effectiveWeaponSkillEffects?.[0]?.verificationStatus,
@@ -457,6 +460,45 @@ test("reproduces Fire's Might small SLv1 through 3 with Agni's 170% boost", () =
     );
     assert.equal(result.issues.some((issue) => issue.code === "unverified-weapon-skill-effect"), false);
   }
+});
+
+test("applies provisional Godmight small SLv20 attack while warning that its HP part is unsupported", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 2,
+        position: "grid",
+        weaponId: "1040614300",
+        level: 200,
+        skillLevel: 20,
+        attackOverride: 3098,
+        hpOverride: 327,
+      },
+    ],
+    summons: [
+      {
+        slot: 1,
+        position: "main",
+        summonId: "2040094000",
+        level: 250,
+        uncapLevel: 6,
+        attackOverride: 4157,
+        hpOverride: 1414,
+      },
+    ],
+  });
+
+  assert.deepEqual(
+    result.deck.effectiveWeaponSkillEffects
+      ?.filter((effect) => effect.sourceSkillId === "375")
+      .map((effect) => [effect.baseAmountPercent, effect.effectiveAmountPercent, effect.verificationStatus]),
+    [[12.5, 33.75, "下書き"]],
+  );
+  assert.equal(result.issues.some((issue) => issue.code === "unverified-weapon-skill-effect"), true);
+  assert.equal(result.issues.some((issue) => issue.code === "weapon-skill-partially-supported"), true);
 });
 
 test("reports missing stat overrides with precise config paths", () => {

@@ -1,6 +1,10 @@
 import { readFileSync } from "node:fs";
 import { z } from "zod";
-import type { WeaponMasterCatalogEntry, WeaponSkillCatalogEntry } from "./types.js";
+import type {
+  WeaponMasterCatalogEntry,
+  WeaponSkillCatalogEntry,
+  WeaponSkillEffectDefinition,
+} from "./types.js";
 
 const statusSchema = z.enum(["検証済み", "下書き"]);
 const effectSchema = z
@@ -96,19 +100,42 @@ const weaponsFileSchema = z
   })
   .strict();
 
+const normalAttackAmountTableAssignmentSchema = z.object({
+  tableId: z.string().min(1),
+  elementCode: z.string().min(1),
+}).strict();
+
+const skillEntrySchema = z
+  .object({
+    skillId: z.string().min(1),
+    name: z.string().min(1),
+    description: z.string().min(1),
+    effects: z.array(effectSchema),
+    normalAttackAmountTable: normalAttackAmountTableAssignmentSchema.optional(),
+    unsupportedEffects: z.array(z.string().min(1)).min(1).optional(),
+    ...sourceFields,
+  })
+  .strict();
+
 const skillsFileSchema = z
   .object({
     schemaVersion: z.literal(1),
-    skills: z.array(
-      z
-        .object({
-          skillId: z.string().min(1),
-          name: z.string().min(1),
-          description: z.string().min(1),
-          effects: z.array(effectSchema),
-          ...sourceFields,
-        })
-        .strict(),
+    skills: z.array(skillEntrySchema),
+  })
+  .strict();
+
+const normalAttackAmountTablesFileSchema = z
+  .object({
+    schemaVersion: z.literal(1),
+    tables: z.array(
+      z.object({
+        tableId: z.string().min(1),
+        values: z.array(z.object({
+          skillLevel: z.number().int().min(1).max(99),
+          amountPercent: z.number().finite(),
+        }).strict()).min(1),
+        ...sourceFields,
+      }).strict(),
     ),
   })
   .strict();
@@ -138,8 +165,42 @@ function uniqueMap<T>(items: T[], getId: (item: T) => string, label: string): Ma
 export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
   const weaponFile = weaponsFileSchema.parse(readJson("weapons.v1.json"));
   const skillFile = skillsFileSchema.parse(readJson("weapon-skills.v1.json"));
+  const normalAttackTableFile = normalAttackAmountTablesFileSchema.parse(
+    readJson("weapon-skill-normal-attack-tables.v1.json"),
+  );
   const weapons = uniqueMap(weaponFile.weapons, (weapon) => weapon.weaponId, "weapon");
-  const skills = uniqueMap(skillFile.skills, (skill) => skill.skillId, "weapon skill");
+  const normalAttackTables = uniqueMap(
+    normalAttackTableFile.tables,
+    (table) => table.tableId,
+    "normal attack amount table",
+  );
+  const expandedSkills = skillFile.skills.map((skill): WeaponSkillCatalogEntry => {
+    const { normalAttackAmountTable, ...baseSkill } = skill;
+    if (normalAttackAmountTable === undefined) return baseSkill;
+
+    const table = normalAttackTables.get(normalAttackAmountTable.tableId);
+    if (table === undefined) {
+      throw new Error(
+        `weapon skill ${skill.skillId} references unknown normal attack amount table ${normalAttackAmountTable.tableId}`,
+      );
+    }
+    const generatedEffects: WeaponSkillEffectDefinition[] = table.values
+      .filter((value) => !baseSkill.effects.some(
+        (effect) => effect.kind === "normal-attack-up" && effect.skillLevel === value.skillLevel,
+      ))
+      .map((value) => ({
+        kind: "normal-attack-up",
+        elementCode: normalAttackAmountTable.elementCode,
+        amountPercent: value.amountPercent,
+        skillLevel: value.skillLevel,
+        boostGroup: "normal",
+        verificationStatus: table.verificationStatus,
+        source: table.source,
+        ...(table.confirmedAt === undefined ? {} : { confirmedAt: table.confirmedAt }),
+      }));
+    return { ...baseSkill, effects: [...baseSkill.effects, ...generatedEffects] };
+  });
+  const skills = uniqueMap(expandedSkills, (skill) => skill.skillId, "weapon skill");
 
   for (const weapon of weapons.values()) {
     for (const slot of weapon.skillSlots) {

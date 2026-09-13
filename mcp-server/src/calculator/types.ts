@@ -86,6 +86,8 @@ export interface WeaponSkillCatalogEntry {
   name: string;
   description: string;
   effects: WeaponSkillEffectDefinition[];
+  /** Skill components intentionally left out of calculation until their numeric rules are known. */
+  unsupportedEffects?: string[];
   verificationStatus: "検証済み" | "下書き";
   source: string;
   confirmedAt?: string;

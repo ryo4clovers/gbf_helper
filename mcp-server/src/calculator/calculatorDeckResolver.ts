@@ -23,6 +23,7 @@ export type CalculatorDeckResolutionIssueCode =
   | "weapon-skill-data-unresolved"
   | "unverified-weapon-skill"
   | "unverified-weapon-skill-effect"
+  | "weapon-skill-partially-supported"
   | "weapon-skill-level-unresolved"
   | "multiple-weapon-skill-boosts-assumed-additive"
   | "summon-aura-unresolved"
@@ -164,26 +165,37 @@ export function resolveCalculatorDeckConfig(
           path: `weapons.${index}.weaponId`,
           message: `Weapon skill ${slot.skillId} is not registered in the incremental catalog.`,
         });
-      } else if (skill.verificationStatus !== "検証済み") {
+      } else {
+        if (skill.verificationStatus !== "検証済み") {
+          issues.push({
+            severity: "warning",
+            code: "unverified-weapon-skill",
+            path: `weapons.${index}.weaponId`,
+            message: `Weapon skill ${skill.skillId} (${skill.name}) is ${skill.verificationStatus}.`,
+          });
+        }
+        if (
+          skill.effects.some(
+            (effect) =>
+              effect.verificationStatus !== undefined &&
+              effect.verificationStatus !== "検証済み" &&
+              (effect.skillLevel === undefined || weapon.skillLevel === effect.skillLevel),
+          )
+        ) {
+          issues.push({
+            severity: "warning",
+            code: "unverified-weapon-skill-effect",
+            path: `weapons.${index}.weaponId`,
+            message: `Weapon skill ${skill.skillId} (${skill.name}) has a provisional numeric effect at SLv${weapon.skillLevel ?? "unknown"}.`,
+          });
+        }
+      }
+      if (skill?.unsupportedEffects !== undefined) {
         issues.push({
           severity: "warning",
-          code: "unverified-weapon-skill",
+          code: "weapon-skill-partially-supported",
           path: `weapons.${index}.weaponId`,
-          message: `Weapon skill ${skill.skillId} (${skill.name}) is ${skill.verificationStatus}.`,
-        });
-      } else if (
-        skill.effects.some(
-          (effect) =>
-            effect.verificationStatus !== undefined &&
-            effect.verificationStatus !== "検証済み" &&
-            (effect.skillLevel === undefined || weapon.skillLevel === effect.skillLevel),
-        )
-      ) {
-        issues.push({
-          severity: "warning",
-          code: "unverified-weapon-skill-effect",
-          path: `weapons.${index}.weaponId`,
-          message: `Weapon skill ${skill.skillId} (${skill.name}) has a provisional numeric effect at SLv${weapon.skillLevel ?? "unknown"}.`,
+          message: `Weapon skill ${skill.skillId} (${skill.name}) does not yet calculate: ${skill.unsupportedEffects.join(", ")}.`,
         });
       }
     });
