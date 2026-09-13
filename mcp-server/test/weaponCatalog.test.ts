@@ -208,6 +208,17 @@ test("loads the initial incremental weapon and skill catalog", () => {
     assert.equal(effects.every((effect) => effect.verificationStatus === "下書き"), true);
   }
   assert.equal(catalog.skills.get("375")?.unsupportedEffects, undefined);
+  const brahmanMusou = catalog.skills.get("928");
+  assert.equal(brahmanMusou?.unsupportedEffects, undefined);
+  assert.deepEqual(
+    brahmanMusou?.effects
+      .filter((effect) => effect.skillLevel === 15)
+      .map((effect) => [effect.kind, effect.amountPercent, effect.boostGroup, effect.verificationStatus]),
+    [
+      ["normal-attack-up", 14.5, "magna", "検証済み"],
+      ["double-attack-rate-up", 5, "magna", "検証済み"],
+    ],
+  );
   assert.deepEqual(catalog.weapons.get("1040611800")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1089" },
     { sourceKey: "skill2", skillId: "1337" },

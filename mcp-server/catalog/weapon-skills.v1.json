@@ -4452,12 +4452,31 @@
       "skillId": "928",
       "name": "機炎方陣・無双II",
       "description": "火属性キャラの攻撃力上昇(中)/ダブルアタック確率上昇(中)",
-      "effects": [],
-      "verificationStatus": "下書き",
-      "source": "knowledge/fire-ssr-regalia-brahman-scimitar.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
-      "unsupportedEffects": [
-        "方陣スキル加護"
+      "effects": [
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 14.5,
+          "skillLevel": 15,
+          "boostGroup": "magna",
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供のブラフマンシミターSLv15編成レスポンス（2026-09-14）。コロッサス・マグナ170%時の方陣攻刃表示39.15%を実機確認",
+          "confirmedAt": "2026-09-14"
+        },
+        {
+          "kind": "double-attack-rate-up",
+          "elementCode": "1",
+          "amountPercent": 5,
+          "skillLevel": 15,
+          "boostGroup": "magna",
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供のブラフマンシミターSLv15編成レスポンス（2026-09-14）。コロッサス・マグナ170%時のDA率表示13.5%を実機確認",
+          "confirmedAt": "2026-09-14"
+        }
       ],
+      "verificationStatus": "下書き",
+      "source": "knowledge/fire-ssr-regalia-brahman-scimitar.mdおよびユーザー提供の実機編成レスポンス（2026-09-14）。SLv15の攻刃・DA効果量と方陣加護を確認",
+      "confirmedAt": "2026-09-14",
       "doubleAttackRateAmountTable": {
         "tableId": "multiattack-medium",
         "elementCode": "1",

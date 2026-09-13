@@ -323,6 +323,41 @@ test("applies Colossus Magna's 170% aura to Nilakantha at full HP", () => {
   assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 5054);
 });
 
+test("reproduces Brahman Scimitar's magna attack, DA, HP and damage displays", () => {
+  const input = derivedNilakanthaRequest(false, "1");
+  input.deckConfig.protagonist.attackOverride = 20391;
+  input.deckConfig.protagonist.hpOverride = 4285;
+  input.deckConfig.weapons.push({
+    slot: 3,
+    position: "grid",
+    weaponId: "1040015000",
+    level: 150,
+    skillLevel: 15,
+  });
+  input.deckConfig.summons = [{
+    slot: 1,
+    position: "main",
+    summonId: "2040034000",
+    level: 250,
+    uncapLevel: 6,
+  }];
+  const { supportSummon: _unusedSupportSummon, ...normalInput } = input;
+  const advantageInput = structuredClone(normalInput);
+  advantageInput.enemy.elementCode = "4";
+  advantageInput.modifiers.targetElementDamagePercent = 5;
+
+  const normal = calculateNormalAttackFromRequest(normalInput);
+  const advantage = calculateNormalAttackFromRequest(advantageInput);
+
+  assert.equal(normal.result.attackPower.totalEffectiveNormalAttackPercent, 39.15);
+  assert.equal(normal.result.protagonistHp?.weaponSkillHpPercent, 78.3);
+  assert.equal(normal.result.protagonistHp?.hp, 7641);
+  assert.equal(normal.result.multiattackRates.weaponSkillDoubleAttackRatePercent, 13.5);
+  assert.equal(normal.result.multiattackRates.doubleAttackRatePercent, 27);
+  assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, 5815);
+  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 8782);
+});
+
 test("adds Wedges of the Sky's 30% sub aura to Colossus Magna for Nilakantha", () => {
   const normalInput = derivedNilakanthaRequest(false, "1");
   normalInput.deckConfig.protagonist.attackOverride = 16328;
