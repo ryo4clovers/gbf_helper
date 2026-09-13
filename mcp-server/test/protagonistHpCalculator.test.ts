@@ -78,3 +78,23 @@ test("applies boosted normal HP weapon skills before character HP summon auras",
   assert.equal(result?.appliedWeaponSkillEffects.length, 1);
   assert.deepEqual(result?.issues, ["weapon-skill-hp-baseline-unresolved"]);
 });
+
+test("rounds the observed Froga HP result to the nearest integer", () => {
+  const input = deck();
+  input.protagonist.hp = 4434;
+  input.effectiveWeaponSkillEffects = [{
+    sourceWeaponSlot: 2,
+    sourceWeaponId: "1040024600",
+    sourceSkillId: "19",
+    sourceSkillName: "業火の守護",
+    kind: "normal-hp-up",
+    elementCode: "1",
+    baseAmountPercent: 17,
+    effectiveAmountPercent: 74.8,
+    skillLevel: 15,
+    verificationStatus: "下書き",
+    appliedModifiers: [],
+  }];
+
+  assert.equal(calculateProtagonistHp(input)?.hp, 7751);
+});

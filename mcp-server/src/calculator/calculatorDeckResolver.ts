@@ -11,9 +11,11 @@ import type {
   DeckJobMultiattackRateBonus,
   DeckSnapshot,
   ResolvedSupportSummon,
+  SummonMasterCatalogEntry,
   WeaponMasterCatalogEntry,
 } from "./types.js";
 import { calculateEquipmentLevelStats } from "../../web/equipment-level-stats.js";
+import { calculateProtagonistDisplayedStats } from "../../web/protagonist-displayed-stats.js";
 
 export type CalculatorDeckResolutionIssueCode =
   | "missing-stat-override"
@@ -38,9 +40,42 @@ export interface CalculatorDeckResolutionIssue {
 
 export interface CalculatorDeckResolution {
   schemaVersion: 1;
-  mode: "catalog-with-overrides";
+  mode: "catalog-derived" | "catalog-with-overrides";
   deck: DeckSnapshot;
   issues: CalculatorDeckResolutionIssue[];
+}
+
+function calculateCatalogSummonStats(
+  summon: CalculatorDeckConfig["summons"][number],
+  master: SummonMasterCatalogEntry | undefined,
+): { attack: number; hp: number } | undefined {
+  if (master?.levelStats === undefined || summon.level === undefined) return undefined;
+  const minimumLevel = master.levelStats.points[0]?.level;
+  if (minimumLevel === undefined || summon.level < minimumLevel || summon.level > master.levelStats.maximumLevel) {
+    return undefined;
+  }
+  return calculateEquipmentLevelStats(master.levelStats, summon.level, summon.plusMark ?? 0, {
+    attack: 5,
+    hp: 1,
+  });
+}
+
+function jobGrowthStats(
+  selectedJob: ReturnType<typeof createSelectableJobCatalog>["jobs"][number] | undefined,
+  protagonist: CalculatorDeckConfig["protagonist"],
+): { attack: number; hp: number } {
+  if (selectedJob === undefined) return { attack: 0, hp: 0 };
+  const active = [
+    ...selectedJob.jobLevelBonuses.filter((bonus) => bonus.level <= (protagonist.jobLevel ?? 0)),
+    ...selectedJob.masterLevelBonuses.filter((bonus) => bonus.level <= (protagonist.masterLevel ?? 0)),
+    ...selectedJob.perfectionProofBonuses.filter(
+      (bonus) => bonus.level <= (protagonist.perfectionProofLevel ?? 0),
+    ),
+  ];
+  return active.reduce(
+    (total, bonus) => ({ attack: total.attack + bonus.attack, hp: total.hp + bonus.hp }),
+    { attack: 0, hp: 0 },
+  );
 }
 
 function appendMissingStatIssues(
@@ -104,6 +139,55 @@ export function resolveCalculatorDeckConfig(
   const summonCatalog = loadIncrementalSummonCatalog();
   const issues: CalculatorDeckResolutionIssue[] = [];
   const selectedJob = jobCatalog.jobs.find((job) => job.jobId === config.protagonist.jobId);
+  const resolvedWeaponStats = config.weapons.map((weapon) => {
+    const master = catalog.weapons.get(weapon.weaponId);
+    const fallbackMaster = weapon.isJobFallback
+      ? fallbackWeaponCatalog.byWeaponId.get(weapon.weaponId)
+      : undefined;
+    const stats = calculateCatalogWeaponStats(weapon, master) ?? (
+      weapon.attackOverride === undefined || weapon.hpOverride === undefined
+        ? undefined
+        : { attack: weapon.attackOverride, hp: weapon.hpOverride }
+    );
+    return { stats, weaponKindCode: master?.weaponKindCode ?? fallbackMaster?.weaponKindCode };
+  });
+  const resolvedSummonStats = config.summons.map((summon) => {
+    const master = summonCatalog.summons.get(summon.summonId);
+    return calculateCatalogSummonStats(summon, master) ?? (
+      summon.attackOverride === undefined || summon.hpOverride === undefined
+        ? undefined
+        : { attack: summon.attackOverride, hp: summon.hpOverride }
+    );
+  });
+  const contributingSummonIndexes = config.summons.flatMap((summon, index) =>
+    summon.position === "main" || summon.position === "grid" ? [index] : []
+  );
+  const canDeriveDisplayedStats =
+    config.protagonist.rank !== undefined &&
+    selectedJob !== undefined &&
+    config.protagonist.masterBonusAttackPercent !== undefined &&
+    config.protagonist.masterBonusHpPercent !== undefined &&
+    config.protagonist.mainWeaponCompletionAttackContribution !== undefined &&
+    resolvedWeaponStats.every((entry) => entry.stats !== undefined && entry.weaponKindCode !== undefined) &&
+    contributingSummonIndexes.every((index) => resolvedSummonStats[index] !== undefined);
+  const growthStats = jobGrowthStats(selectedJob, config.protagonist);
+  const displayedStats = canDeriveDisplayedStats
+    ? calculateProtagonistDisplayedStats({
+        rank: config.protagonist.rank!,
+        jobGrowthAttack: growthStats.attack,
+        jobGrowthHp: growthStats.hp,
+        completionAttackPercent: config.protagonist.masterBonusAttackPercent!,
+        completionHpPercent: config.protagonist.masterBonusHpPercent!,
+        mainWeaponCompletionAttack: config.protagonist.mainWeaponCompletionAttackContribution!,
+        jobWeaponKindCodes: selectedJob!.weaponKinds.map((weaponKind) => weaponKind.code),
+        weapons: resolvedWeaponStats.map((entry) => ({
+          attack: entry.stats!.attack,
+          hp: entry.stats!.hp,
+          weaponKindCode: entry.weaponKindCode,
+        })),
+        summons: contributingSummonIndexes.map((index) => resolvedSummonStats[index]!),
+      })
+    : undefined;
   const jobVerificationStatus: "検証済み" | "下書き" =
     selectedJob?.verificationStatus === "検証済み" ? "検証済み" : "下書き";
   const multiattackRateBonuses: DeckJobMultiattackRateBonus[] = selectedJob === undefined
@@ -123,8 +207,8 @@ export function resolveCalculatorDeckConfig(
   appendMissingStatIssues(
     issues,
     "protagonist",
-    config.protagonist.attackOverride,
-    config.protagonist.hpOverride,
+    displayedStats?.attack ?? config.protagonist.attackOverride,
+    displayedStats?.hp ?? config.protagonist.hpOverride,
   );
   if (config.protagonist.jobId !== undefined) {
     issues.push({
@@ -137,12 +221,12 @@ export function resolveCalculatorDeckConfig(
 
   config.weapons.forEach((weapon, index) => {
     const master = catalog.weapons.get(weapon.weaponId);
-    const calculatedStats = calculateCatalogWeaponStats(weapon, master);
+    const calculatedStats = resolvedWeaponStats[index]?.stats;
     appendMissingStatIssues(
       issues,
       `weapons.${index}`,
-      calculatedStats?.attack ?? weapon.attackOverride,
-      calculatedStats?.hp ?? weapon.hpOverride,
+      calculatedStats?.attack,
+      calculatedStats?.hp,
     );
     const fallbackMaster = weapon.isJobFallback
       ? fallbackWeaponCatalog.byWeaponId.get(weapon.weaponId)
@@ -226,7 +310,8 @@ export function resolveCalculatorDeckConfig(
     }
   }
   config.summons.forEach((summon, index) => {
-    appendMissingStatIssues(issues, `summons.${index}`, summon.attackOverride, summon.hpOverride);
+    const calculatedStats = resolvedSummonStats[index];
+    appendMissingStatIssues(issues, `summons.${index}`, calculatedStats?.attack, calculatedStats?.hp);
     if (!summonCatalog.summons.has(summon.summonId)) {
       issues.push({
         severity: "warning",
@@ -251,8 +336,8 @@ export function resolveCalculatorDeckConfig(
     name: config.name,
     protagonist: {
       elementCode: config.protagonist.elementCode,
-      attack: config.protagonist.attackOverride,
-      hp: config.protagonist.hpOverride,
+      attack: displayedStats?.attack ?? config.protagonist.attackOverride,
+      hp: displayedStats?.hp ?? config.protagonist.hpOverride,
       job:
         config.protagonist.jobId === undefined
           ? undefined
@@ -273,9 +358,9 @@ export function resolveCalculatorDeckConfig(
               perfectionProofLevel: config.protagonist.perfectionProofLevel,
             },
     },
-    weapons: config.weapons.map((weapon) => {
+    weapons: config.weapons.map((weapon, index) => {
       const master = catalog.weapons.get(weapon.weaponId);
-      const calculatedStats = calculateCatalogWeaponStats(weapon, master);
+      const calculatedStats = resolvedWeaponStats[index]?.stats;
       const fallbackMaster = weapon.isJobFallback
         ? fallbackWeaponCatalog.byWeaponId.get(weapon.weaponId)
         : undefined;
@@ -311,13 +396,14 @@ export function resolveCalculatorDeckConfig(
         uncapLevel: weapon.uncapLevel,
         plusMark: weapon.plusMark,
         awakening: weapon.awakening,
-        attack: calculatedStats?.attack ?? weapon.attackOverride,
-        hp: calculatedStats?.hp ?? weapon.hpOverride,
+        attack: calculatedStats?.attack,
+        hp: calculatedStats?.hp,
         skills,
       };
     }),
-    summons: config.summons.map((summon) => {
+    summons: config.summons.map((summon, index) => {
       const master = summonCatalog.summons.get(summon.summonId);
+      const calculatedStats = resolvedSummonStats[index];
       const resolvedAura =
         master === undefined ? undefined : resolveCatalogSummonAura(master, summon.uncapLevel);
       return {
@@ -330,8 +416,8 @@ export function resolveCalculatorDeckConfig(
         level: summon.level,
         uncapLevel: summon.uncapLevel,
         plusMark: summon.plusMark,
-        attack: summon.attackOverride,
-        hp: summon.hpOverride,
+        attack: calculatedStats?.attack,
+        hp: calculatedStats?.hp,
         aura:
           master === undefined
             ? undefined
@@ -377,5 +463,10 @@ export function resolveCalculatorDeckConfig(
     })),
   );
 
-  return { schemaVersion: 1, mode: "catalog-with-overrides", deck, issues };
+  return {
+    schemaVersion: 1,
+    mode: displayedStats === undefined ? "catalog-with-overrides" : "catalog-derived",
+    deck,
+    issues,
+  };
 }

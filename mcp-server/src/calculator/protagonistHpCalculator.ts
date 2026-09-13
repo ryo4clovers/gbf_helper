@@ -49,7 +49,7 @@ export function calculateProtagonistHp(deck: DeckSnapshot): ProtagonistHpResult 
     baseHp,
     weaponSkillHpPercent,
     summonAuraPercent,
-    hp: Math.floor(unroundedHp),
+    hp: Math.round(unroundedHp),
     appliedWeaponSkillEffects,
     appliedAuras,
     issues,

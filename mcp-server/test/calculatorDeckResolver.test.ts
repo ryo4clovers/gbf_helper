@@ -196,6 +196,60 @@ test("resolves an override-backed calculator config without inventing instance I
   );
 });
 
+test("derives Froga protagonist display stats instead of retaining stale overrides", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: {
+      rank: 425,
+      elementCode: "1",
+      jobId: "110001",
+      jobLevel: 20,
+      masterLevel: 0,
+      perfectionProofLevel: 0,
+      masterBonusAttackPercent: 24,
+      masterBonusHpPercent: 20,
+      mainWeaponCompletionAttackContribution: 4,
+      attackOverride: 10885,
+      hpOverride: 2885,
+    },
+    weapons: [
+      {
+        slot: 1,
+        position: "main",
+        weaponId: "1010000400",
+        isJobFallback: true,
+        level: 1,
+        attackOverride: 70,
+        hpOverride: 6,
+      },
+      {
+        slot: 2,
+        position: "grid",
+        weaponId: "1040024600",
+        level: 150,
+        skillLevel: 15,
+      },
+    ],
+    summons: [
+      {
+        slot: 1,
+        position: "main",
+        summonId: "2040094000",
+        level: 250,
+        uncapLevel: 6,
+      },
+    ],
+    characters: [],
+  });
+
+  assert.equal(result.mode, "catalog-derived");
+  assert.equal(result.deck.protagonist.attack, 19498);
+  assert.equal(result.deck.protagonist.hp, 4434);
+  assert.equal(result.deck.weapons[1]?.attack, 3045);
+  assert.equal(result.deck.summons[0]?.attack, 4157);
+});
+
 test("warns without removing a main weapon that the selected job cannot equip", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,

@@ -1,0 +1,88 @@
+export const MAX_SUPPORTED_PLAYER_RANK = 425;
+
+function assertSupportedRank(rank) {
+  if (!Number.isInteger(rank) || rank < 1 || rank > MAX_SUPPORTED_PLAYER_RANK) {
+    throw new Error(`Rankは1〜${MAX_SUPPORTED_PLAYER_RANK}の整数で入力してください`);
+  }
+}
+
+/** Returns the provisional Rank base stats documented in protagonist-base-stats.md. */
+export function calculateProtagonistRankBaseStats(rank) {
+  assertSupportedRank(rank);
+  let attack;
+  if (rank === 1) attack = 1_000;
+  else if (rank <= 100) attack = 1_000 + rank * 40;
+  else if (rank <= 175) attack = 5_000 + (rank - 100) * 20;
+  else if (rank <= 190) attack = 6_500 + (rank - 175) * 10;
+  else attack = 6_650 + (rank - 190) * 5;
+
+  let hp;
+  if (rank === 1) hp = 600;
+  else if (rank === 2) hp = 616;
+  else if (rank === 3 || rank === 4) hp = 624;
+  else if (rank <= 100) hp = 600 + rank * 8;
+  else if (rank <= 175) hp = 1_400 + (rank - 100) * 4;
+  else if (rank <= 190) hp = 1_700 + (rank - 175) * 2;
+  else hp = 1_730 + (rank - 190);
+  // Rank 425 HP is a community-derived correction and remains provisional.
+  if (rank === 425) hp = 1_964;
+
+  return { rank, attack, hp, verificationStatus: "下書き" };
+}
+
+function statTotal(entries, key) {
+  return entries.reduce((total, entry) => total + entry[key], 0);
+}
+
+function proficiencyContribution(weapons, jobWeaponKindCodes, key) {
+  return weapons.reduce((total, weapon) => {
+    const matchCount = jobWeaponKindCodes.filter((code) => code === weapon.weaponKindCode).length;
+    return total + Math.round(weapon[key] * 0.2 * matchCount);
+  }, 0);
+}
+
+/** Builds the protagonist's pre-skill displayed ATK/HP from catalog-resolved components. */
+export function calculateProtagonistDisplayedStats(input) {
+  const rank = calculateProtagonistRankBaseStats(input.rank);
+  const weaponAttack = statTotal(input.weapons, "attack");
+  const weaponHp = statTotal(input.weapons, "hp");
+  const summonAttack = statTotal(input.summons, "attack");
+  const summonHp = statTotal(input.summons, "hp");
+  const proficiencyAttack = proficiencyContribution(input.weapons, input.jobWeaponKindCodes, "attack");
+  const proficiencyHp = proficiencyContribution(input.weapons, input.jobWeaponKindCodes, "hp");
+  const attackSubtotal = rank.attack
+    + input.jobGrowthAttack
+    + weaponAttack
+    + proficiencyAttack
+    + input.mainWeaponCompletionAttack
+    + summonAttack;
+  const hpSubtotal = rank.hp
+    + input.jobGrowthHp
+    + weaponHp
+    + proficiencyHp
+    + summonHp;
+
+  return {
+    schemaVersion: 1,
+    source: "derived",
+    attack: Math.round(attackSubtotal * (1 + input.completionAttackPercent / 100)),
+    hp: Math.round(hpSubtotal * (1 + input.completionHpPercent / 100)),
+    breakdown: {
+      rankAttack: rank.attack,
+      rankHp: rank.hp,
+      jobGrowthAttack: input.jobGrowthAttack,
+      jobGrowthHp: input.jobGrowthHp,
+      weaponAttack,
+      weaponHp,
+      proficiencyAttack,
+      proficiencyHp,
+      mainWeaponCompletionAttack: input.mainWeaponCompletionAttack,
+      summonAttack,
+      summonHp,
+      attackSubtotal,
+      hpSubtotal,
+      completionAttackPercent: input.completionAttackPercent,
+      completionHpPercent: input.completionHpPercent,
+    },
+  };
+}

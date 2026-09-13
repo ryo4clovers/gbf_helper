@@ -111,6 +111,82 @@ function agniRequest() {
   };
 }
 
+function derivedFrogaRequest(enemyElementCode: "1" | "4", targetElementDamagePercent: number) {
+  return {
+    schemaVersion: 1 as const,
+    protagonistCurrentHpPercent: 100,
+    supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
+    deckConfig: {
+      schemaVersion: 1 as const,
+      format: "gbf-helper-calculator-deck" as const,
+      protagonist: {
+        rank: 425,
+        elementCode: "1",
+        jobId: "110001",
+        jobLevel: 20,
+        masterLevel: 0,
+        perfectionProofLevel: 0,
+        jobCompletionDoubleAttackRate: 7,
+        jobCompletionTripleAttackRate: 5,
+        masterBonusAttackPercent: 24,
+        masterBonusHpPercent: 20,
+        mainWeaponCompletionAttackContribution: 4,
+        attackOverride: 10885,
+        hpOverride: 2885,
+      },
+      weapons: [
+        {
+          slot: 1,
+          position: "main" as const,
+          weaponId: "1010000400",
+          isJobFallback: true,
+          level: 1,
+          attackOverride: 70,
+          hpOverride: 6,
+        },
+        {
+          slot: 2,
+          position: "grid" as const,
+          weaponId: "1040024600",
+          level: 150,
+          skillLevel: 15,
+        },
+      ],
+      summons: [
+        {
+          slot: 1,
+          position: "main" as const,
+          summonId: "2040094000",
+          level: 250,
+          uncapLevel: 6,
+        },
+      ],
+      characters: [],
+    },
+    enemy: { elementCode: enemyElementCode, defense: 10 },
+    modifiers: {
+      allElementAttackPercent: 3,
+      elementAttackPercent: 10,
+      shipAttackPercent: 10,
+      furnaceAttackPercent: 10,
+      jobNormalAttackDamagePercent: 3,
+      damageDealtPercent: 3.6,
+      targetElementDamagePercent,
+    },
+  };
+}
+
+test("derives Froga display stats and reproduces the game calculator estimates", () => {
+  const normal = calculateNormalAttackFromRequest(derivedFrogaRequest("1", 0));
+  const advantage = calculateNormalAttackFromRequest(derivedFrogaRequest("4", 5));
+
+  assert.equal(normal.result.attackPower.baseAttack, 19498);
+  assert.equal(normal.result.protagonistHp?.baseHp, 4434);
+  assert.equal(normal.result.protagonistHp?.hp, 7751);
+  assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, 7342);
+  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 10374);
+});
+
 test("resolves protagonist DA and TA rates from the selected job", () => {
   const response = calculateNormalAttackFromRequest(agniRequest());
 
