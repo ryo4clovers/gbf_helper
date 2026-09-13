@@ -7670,16 +7670,15 @@
           }
         ]
       },
-      "skillSlots": [],
-      "listedSkills": [
+      "skillSlots": [
         {
           "sourceKey": "skill1",
-          "name": "Fire's Might",
-          "description": "Small boost to fire allies' ATK"
+          "skillId": "1"
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンスでID・名称・属性・武器種・Lv1ステータス・火の攻刃(skill id 1)を確認。Lv40ステータスはgbf.wiki Cargo由来のため要検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "weaponId": "1020500300",

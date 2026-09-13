@@ -412,6 +412,47 @@ test("reproduces Agni's observed 170% boost and main-only elemental attack aura"
   assert.deepEqual(attackPower.issues, []);
 });
 
+test("reproduces Fire's Might small SLv1 at 2.7% with Agni's 170% boost", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 2,
+        position: "grid",
+        weaponId: "1020500200",
+        level: 1,
+        skillLevel: 1,
+        attackOverride: 215,
+        hpOverride: 11,
+      },
+    ],
+    summons: [
+      {
+        slot: 1,
+        position: "main",
+        summonId: "2040094000",
+        level: 250,
+        uncapLevel: 6,
+        attackOverride: 4157,
+        hpOverride: 1414,
+      },
+    ],
+  });
+
+  assert.deepEqual(
+    result.deck.effectiveWeaponSkillEffects?.map((effect) => [
+      effect.sourceSkillId,
+      effect.baseAmountPercent,
+      effect.effectiveAmountPercent,
+      effect.verificationStatus,
+    ]),
+    [["1", 1, 2.7, "検証済み"]],
+  );
+  assert.equal(result.issues.some((issue) => issue.code === "unverified-weapon-skill-effect"), false);
+});
+
 test("reports missing stat overrides with precise config paths", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,

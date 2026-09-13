@@ -9,6 +9,17 @@
         {
           "kind": "normal-attack-up",
           "elementCode": "1",
+          "amountPercent": 1,
+          "skillLevel": 1,
+          "boostGroup": "normal",
+          "note": "グレネード単体の基礎1%へ通常スキル強化170%を適用し、表示2.7%となることを確認",
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供のゲーム内武器詳細・deck.damage_info",
+          "confirmedAt": "2026-09-13"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
           "amountPercent": 12,
           "skillLevel": 15,
           "boostGroup": "normal",
@@ -16,8 +27,8 @@
         }
       ],
       "verificationStatus": "検証済み",
-      "source": "ゲーム内deck.damage_infoの攻刃表示差分から確認",
-      "confirmedAt": "2026-09-07"
+      "source": "ゲーム内deck.damage_infoの攻刃表示からSLv1・15を確認",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "3",

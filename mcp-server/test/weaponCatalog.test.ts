@@ -7,6 +7,18 @@ test("loads the initial incremental weapon and skill catalog", () => {
 
   assert.equal(catalog.weapons.size, 2970);
   assert.equal(catalog.skills.size, 298);
+  assert.deepEqual(catalog.weapons.get("1020500200")?.skillSlots, [
+    { sourceKey: "skill1", skillId: "1" },
+  ]);
+  assert.deepEqual(
+    catalog.skills.get("1")?.effects
+      .filter((effect) => effect.kind === "normal-attack-up")
+      .map((effect) => [effect.skillLevel, effect.amountPercent, effect.verificationStatus]),
+    [
+      [1, 1, "検証済み"],
+      [15, 12, undefined],
+    ],
+  );
   assert.deepEqual(catalog.weapons.get("1040201400")?.skillSlots, [
     { sourceKey: "skill1", skillId: "25" },
     { sourceKey: "skill2", skillId: "74" },
