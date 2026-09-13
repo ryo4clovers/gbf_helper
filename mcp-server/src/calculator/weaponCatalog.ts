@@ -323,7 +323,9 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
             elementCode: assignment.elementCode,
             amountPercent: value.amountPercent,
             skillLevel: value.skillLevel,
-            boostGroup: "boostGroup" in assignment ? assignment.boostGroup : "normal",
+            boostGroup: "boostGroup" in assignment
+              ? assignment.boostGroup
+              : kind.startsWith("magna-") ? "magna" : "normal",
             ...("hpDependentCurve" in table
               ? {
                   hpDependentCurve:

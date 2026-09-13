@@ -148,6 +148,29 @@ test("loads the verified Agni main aura", () => {
   assert.equal(summon?.verificationStatus, "検証済み");
 });
 
+test("loads the verified Colossus Magna boost for magna weapon skills", () => {
+  const summon = loadIncrementalSummonCatalog().summons.get("2040034000");
+  const boost = summon?.auraEffects.find((effect) => effect.kind === "normal-skill-boost");
+
+  assert.deepEqual(boost, {
+    kind: "normal-skill-boost",
+    elementCode: "1",
+    amountPercent: 170,
+    boostGroup: "magna",
+    targetSkillNamePrefixes: ["機炎方陣"],
+    activation: "always",
+    description: "スキル「機炎方陣」の効果が170%UP",
+  });
+  assert.equal(summon?.verificationStatus, "検証済み");
+  assert.deepEqual(summon?.selectionDefaults, {
+    level: 250,
+    uncapLevel: 6,
+    plusMark: 0,
+    attack: 2665,
+    hp: 1064,
+  });
+});
+
 test("loads the verified fire character HP sub auras with one stacking group", () => {
   const catalog = loadIncrementalSummonCatalog();
   const expected = [

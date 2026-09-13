@@ -64,7 +64,10 @@ function matchesBoost(target: EffectSource, boost: EffectSource): boolean {
 }
 
 function matchesSummonBoost(target: EffectSource, boost: SummonBoostSource): boolean {
-  if (target.effect.kind === "normal-skill-boost" || target.effect.boostGroup !== "normal") return false;
+  if (
+    target.effect.kind === "normal-skill-boost" ||
+    target.effect.boostGroup !== (boost.effect.boostGroup ?? "normal")
+  ) return false;
   if (
     target.effect.elementCode !== undefined &&
     target.effect.elementCode !== boost.effect.elementCode
@@ -77,6 +80,7 @@ function matchesSummonBoost(target: EffectSource, boost: SummonBoostSource): boo
 function subAuraIdentity(boost: SummonBoostSource): string {
   return [
     boost.effect.elementCode,
+    boost.effect.boostGroup ?? "normal",
     [...boost.effect.targetSkillNamePrefixes].sort().join("\u0000"),
   ].join("\u0001");
 }

@@ -122,6 +122,8 @@ export type SummonAuraEffectDefinition =
       kind: "normal-skill-boost";
       elementCode: string;
       amountPercent: number;
+      /** Defaults to normal for backward compatibility with existing primal auras. */
+      boostGroup?: "normal" | "magna";
       targetSkillNamePrefixes: string[];
       activation: "always" | "main-only" | "sub-only";
       description: string;

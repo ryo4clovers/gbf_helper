@@ -21,6 +21,7 @@ const auraEffectSchema = z.discriminatedUnion("kind", [
       kind: z.literal("normal-skill-boost"),
       elementCode: z.string().min(1),
       amountPercent: z.number().finite(),
+      boostGroup: z.enum(["normal", "magna"]).optional(),
       targetSkillNamePrefixes: z.array(z.string().min(1)).min(1),
       activation: z.enum(["always", "main-only", "sub-only"]),
       description: z.string().min(1),

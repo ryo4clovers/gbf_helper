@@ -124,6 +124,54 @@ test("does not apply a normal skill boost to a magna rate table effect", () => {
   assert.deepEqual(result.effects[1]?.appliedModifiers, []);
 });
 
+test("applies a magna summon boost only to matching magna effects", () => {
+  const effects = resolveEffectiveWeaponSkillEffects(
+    [{
+      slot: 1,
+      position: "main",
+      masterId: "magna-weapon",
+      skillLevel: 15,
+      skills: [{
+        sourceKey: "skill1",
+        id: "1213",
+        name: "機炎方陣・渾身III",
+        verificationStatus: "下書き",
+        effects: [{
+          kind: "magna-stamina-up",
+          elementCode: "1",
+          amountPercent: 15,
+          skillLevel: 15,
+          boostGroup: "magna",
+          verificationStatus: "下書き",
+        }],
+      }],
+    }],
+    [{
+      slot: 1,
+      position: "main",
+      masterId: "2040034000",
+      aura: {
+        name: "コロッサス・マグナの加護",
+        description: "スキル「機炎方陣」の効果が170%UP",
+        verificationStatus: "検証済み",
+        source: "test",
+        effects: [{
+          kind: "normal-skill-boost",
+          elementCode: "1",
+          amountPercent: 170,
+          boostGroup: "magna",
+          targetSkillNamePrefixes: ["機炎方陣"],
+          activation: "always",
+          description: "スキル「機炎方陣」の効果が170%UP",
+        }],
+      },
+    }],
+  );
+
+  assert.equal(effects.effects[0]?.effectiveAmountPercent, 40.5);
+  assert.equal(effects.effects[0]?.appliedModifiers[0]?.amountPercent, 170);
+});
+
 test("does not guess effects for a different or missing skill level", () => {
   const result = resolveEffectiveWeaponSkillEffects([
     weaponWithSkill({

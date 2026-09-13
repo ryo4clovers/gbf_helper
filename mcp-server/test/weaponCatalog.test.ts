@@ -43,6 +43,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
     assert.equal(effects.find((effect) => effect.skillLevel === 1)?.amountPercent, 7.64);
     assert.equal(effects.find((effect) => effect.skillLevel === 15)?.amountPercent, 15);
     assert.equal(effects.every((effect) => effect.elementCode === String(offset + 1)), true);
+    assert.equal(effects.every((effect) => effect.boostGroup === "magna"), true);
   }
   const normalAttackTableCases = [
     ["18", [[10, 12], [15, 14.5], [20, 16]]],

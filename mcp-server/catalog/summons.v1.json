@@ -520,14 +520,25 @@
       "auraDescription": "スキル「機炎方陣」の効果が170%UP / サブ加護: 火属性キャラの攻防10%UP",
       "auraEffects": [
         {
+          "kind": "normal-skill-boost",
+          "elementCode": "1",
+          "amountPercent": 170,
+          "boostGroup": "magna",
+          "targetSkillNamePrefixes": [
+            "機炎方陣"
+          ],
+          "activation": "always",
+          "description": "スキル「機炎方陣」の効果が170%UP"
+        },
+        {
           "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「機炎方陣」の効果が170%UP / サブ加護: 火属性キャラの攻防10%UP"
+          "description": "サブ装備時、火属性キャラの攻防10%UP（攻防の計算段階は未対応）"
         }
       ],
-      "verificationStatus": "下書き",
+      "verificationStatus": "検証済み",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
-      "confirmedAt": "2026-09-09",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細・ニーラカンタ編成レスポンス（2026-09-14）。Lv250加護170%、方陣渾身40.51%、方陣守護39.15%を実機確認",
+      "confirmedAt": "2026-09-14",
       "levelStats": {
         "maximumLevel": 250,
         "points": [
