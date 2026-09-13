@@ -101,6 +101,21 @@ test("only weapon and summon picker thumbnails use the source image aspect ratio
   assert.doesNotMatch(styles, /\.weapon-art \{[^}]*aspect-ratio: 7 \/ 4;/u);
 });
 
+test("weapon and summon pickers expose remove actions while protecting the main summon", async () => {
+  const [html, app, styles] = await Promise.all([
+    readFile(new URL("../web/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../web/app.js", import.meta.url), "utf8"),
+    readFile(new URL("../web/styles.css", import.meta.url), "utf8"),
+  ]);
+  assert.match(html, /id="remove-weapon"[^>]*>外す<\/button>/u);
+  assert.match(html, /id="remove-summon"[^>]*>外す<\/button>/u);
+  assert.match(app, /removeButton\.disabled = position === "main" \|\| !summonForSlot/u);
+  assert.match(app, /if \(position === "main"\) return;/u);
+  assert.match(styles, /\.weapon-picker\[open\] \{[^}]*display: flex;[^}]*flex-direction: column;/u);
+  assert.match(styles, /\.weapon-results \{[^}]*min-height: 0;[^}]*flex: 1 1 430px;[^}]*overflow-y: auto;/u);
+  assert.match(styles, /\.picker-footer \{[^}]*flex: 0 0 auto;/u);
+});
+
 test("job picker exposes class filter controls below search", async () => {
   const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
   const searchPosition = html.indexOf('id="job-search"');

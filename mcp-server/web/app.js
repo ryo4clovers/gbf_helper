@@ -1715,7 +1715,9 @@ function openSummonPicker(position, slot) {
   $("summon-search").value = "";
   selectedSummonElementCode = "";
   selectedSummonRarity = "";
-  $("remove-summon").disabled = !summonForSlot(readDeckConfig(), position, slot);
+  const removeButton = $("remove-summon");
+  removeButton.disabled = position === "main" || !summonForSlot(readDeckConfig(), position, slot);
+  removeButton.title = position === "main" ? "メイン召喚石は外せません" : "";
   renderSummonFilters();
   renderSummonResults();
   $("summon-picker").showModal();
@@ -1729,6 +1731,7 @@ function openSupportSummonPicker() {
   selectedSummonElementCode = "";
   selectedSummonRarity = "";
   $("remove-summon").disabled = selectedSupportSummon === null;
+  $("remove-summon").title = "";
   renderSummonFilters();
   renderSummonResults();
   $("summon-picker").showModal();
@@ -1779,6 +1782,7 @@ function removeSelectedSummon() {
     return;
   }
   const { position, slot } = editingSummonSlot;
+  if (position === "main") return;
   const config = readDeckConfig();
   const previousSummons = [...config.summons];
   config.summons = config.summons.filter((summon) => summon.position !== position || summon.slot !== slot);
