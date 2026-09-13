@@ -18,7 +18,10 @@ import {
   upsertCalculatorProfile,
 } from "/calculator-state-storage.js?v=2";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
-import { calculateEquipmentLevelStats } from "/equipment-level-stats.js";
+import {
+  calculateEquipmentLevelStats,
+  calculateEquipmentSelectionDefaultStats,
+} from "/equipment-level-stats.js";
 import { createEquipmentLevelOptions } from "/equipment-level-options.js";
 import {
   rebaseProtagonistForCompletionBonusChange,
@@ -1127,15 +1130,22 @@ function weaponForSlot(config, slot) {
 }
 
 function applyCatalogWeaponLevelStats(weapon, master) {
-  if (!master?.levelStats || weapon.level == null) return false;
-  const minimumLevel = master.levelStats.points[0]?.level;
-  if (minimumLevel == null || weapon.level < minimumLevel || weapon.level > master.levelStats.maximumLevel) return false;
-  const stats = calculateEquipmentLevelStats(
-    master.levelStats,
-    weapon.level,
-    weapon.plusMark ?? 0,
-    { attack: equipmentPlusBonus.attackPerMark, hp: equipmentPlusBonus.hpPerMark },
-  );
+  if (!master || weapon.level == null) return false;
+  const plusBonus = { attack: equipmentPlusBonus.attackPerMark, hp: equipmentPlusBonus.hpPerMark };
+  let stats;
+  if (master.levelStats) {
+    const minimumLevel = master.levelStats.points[0]?.level;
+    if (minimumLevel == null || weapon.level < minimumLevel || weapon.level > master.levelStats.maximumLevel) return false;
+    stats = calculateEquipmentLevelStats(master.levelStats, weapon.level, weapon.plusMark ?? 0, plusBonus);
+  } else {
+    stats = calculateEquipmentSelectionDefaultStats(
+      master.selectionDefaults,
+      weapon.level,
+      weapon.plusMark ?? 0,
+      plusBonus,
+    );
+    if (!stats) return false;
+  }
   weapon.attackOverride = stats.attack;
   weapon.hpOverride = stats.hp;
   return true;

@@ -21,3 +21,9 @@ export function calculateEquipmentLevelStats(
   plusBonus?: EquipmentPlusBonus,
 ): { attack: number; hp: number };
 
+export function calculateEquipmentSelectionDefaultStats(
+  selectionDefaults: { level?: number; attack?: number; hp?: number } | undefined,
+  level: number | undefined,
+  plusMark?: number,
+  plusBonus?: EquipmentPlusBonus,
+): { attack: number; hp: number } | undefined;

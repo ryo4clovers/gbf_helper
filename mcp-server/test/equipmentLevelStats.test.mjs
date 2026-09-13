@@ -1,6 +1,9 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { calculateEquipmentLevelStats } from "../web/equipment-level-stats.js";
+import {
+  calculateEquipmentLevelStats,
+  calculateEquipmentSelectionDefaultStats,
+} from "../web/equipment-level-stats.js";
 
 const forbiddenSpear = {
   maximumLevel: 150,
@@ -116,4 +119,23 @@ test("accepts verified breakpoint data up to level 250 but rejects guesses beyon
   };
   assert.deepEqual(calculateEquipmentLevelStats(progression, 225), { attack: 235, hp: 117 });
   assert.throws(() => calculateEquipmentLevelStats(progression, 251), /1〜250/);
+});
+
+test("restores selection-default stats at the matching level and applies plus marks", () => {
+  const defaults = { level: 150, attack: 2590, hp: 260 };
+  assert.deepEqual(
+    calculateEquipmentSelectionDefaultStats(defaults, 150, 3, { attack: 5, hp: 1 }),
+    { attack: 2605, hp: 263 },
+  );
+});
+
+test("does not reuse selection-default stats at a different or incomplete level", () => {
+  assert.equal(
+    calculateEquipmentSelectionDefaultStats({ level: 150, attack: 2590, hp: 260 }, 100),
+    undefined,
+  );
+  assert.equal(
+    calculateEquipmentSelectionDefaultStats({ level: 150, attack: 2590 }, 150),
+    undefined,
+  );
 });

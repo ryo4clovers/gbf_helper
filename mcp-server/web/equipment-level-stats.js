@@ -58,3 +58,29 @@ export function calculateEquipmentLevelStats(progression, level, plusMark = 0, p
     hp: hp + plusMark * plusBonus.hp,
   };
 }
+
+/**
+ * Restores catalog stats when only a verified selection default is available.
+ * The default must match the equipped level; applying a max-level value to an
+ * arbitrary imported level would silently produce incorrect stats.
+ */
+export function calculateEquipmentSelectionDefaultStats(
+  selectionDefaults,
+  level,
+  plusMark = 0,
+  plusBonus = { attack: 0, hp: 0 },
+) {
+  if (
+    selectionDefaults?.level !== level
+    || !Number.isInteger(selectionDefaults.attack)
+    || selectionDefaults.attack < 0
+    || !Number.isInteger(selectionDefaults.hp)
+    || selectionDefaults.hp < 0
+  ) return undefined;
+  requireInteger(plusMark, "プラスボーナス", 0, 99);
+
+  return {
+    attack: selectionDefaults.attack + plusMark * plusBonus.attack,
+    hp: selectionDefaults.hp + plusMark * plusBonus.hp,
+  };
+}
