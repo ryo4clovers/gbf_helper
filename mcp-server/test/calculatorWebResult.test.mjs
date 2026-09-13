@@ -89,6 +89,14 @@ test("catalog pickers expose element and rarity filters below search", async () 
   }
 });
 
+test("weapon picker exposes weapon kind filters after rarity", async () => {
+  const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
+  const rarityPosition = html.indexOf('id="weapon-rarity-filters"');
+  const weaponKindPosition = html.indexOf('id="weapon-kind-filters"');
+  const resultPosition = html.indexOf('id="weapon-results"');
+  assert.ok(rarityPosition >= 0 && rarityPosition < weaponKindPosition && weaponKindPosition < resultPosition);
+});
+
 test("separates personal environment inputs from enemy battle conditions", async () => {
   const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
   const section = (id) => {

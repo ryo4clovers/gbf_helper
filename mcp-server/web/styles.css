@@ -208,9 +208,9 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .catalog-filter-row { display: flex; align-items: center; gap: 10px; }
 .catalog-filter-label { width: 62px; flex: 0 0 62px; color: var(--ink-soft); font-size: .74rem; font-weight: 800; }
 .catalog-filter-options { display: flex; flex-wrap: wrap; gap: 7px; }
-.element-filter-button, .rarity-filter-button { --filter-accent: var(--primary); --filter-bg: var(--primary-container); min-width: 46px; min-height: 34px; padding: 6px 12px; border: 1px solid var(--outline-soft); border-radius: 999px; color: var(--ink-soft); background: white; font-size: .78rem; font-weight: 800; transition: color .16s, border-color .16s, background .16s; }
-.element-filter-button:hover, .rarity-filter-button:hover { border-color: var(--filter-accent); color: var(--filter-accent); }
-.element-filter-button[aria-pressed="true"], .rarity-filter-button[aria-pressed="true"] { border-color: var(--filter-accent); color: var(--filter-accent); background: var(--filter-bg); }
+.element-filter-button, .rarity-filter-button, .weapon-kind-filter-button { --filter-accent: var(--primary); --filter-bg: var(--primary-container); min-width: 46px; min-height: 34px; padding: 6px 12px; border: 1px solid var(--outline-soft); border-radius: 999px; color: var(--ink-soft); background: white; font-size: .78rem; font-weight: 800; transition: color .16s, border-color .16s, background .16s; }
+.element-filter-button:hover, .rarity-filter-button:hover, .weapon-kind-filter-button:hover { border-color: var(--filter-accent); color: var(--filter-accent); }
+.element-filter-button[aria-pressed="true"], .rarity-filter-button[aria-pressed="true"], .weapon-kind-filter-button[aria-pressed="true"] { border-color: var(--filter-accent); color: var(--filter-accent); background: var(--filter-bg); }
 .element-filter-button.fire { --filter-accent: #a33226; --filter-bg: #ffdad4; }
 .element-filter-button.water { --filter-accent: #245aa8; --filter-bg: #d6e3ff; }
 .element-filter-button.earth { --filter-accent: #76531d; --filter-bg: #f6dfb5; }

@@ -52,6 +52,7 @@ import {
 } from "/job-picker-filter.js?v=1";
 import {
   CATALOG_ELEMENT_ORDER,
+  WEAPON_KIND_FILTER_OPTIONS,
   catalogRarityFilterOptions,
   filterAndSortCatalog,
 } from "/catalog-picker-filter.js?v=1";
@@ -93,6 +94,7 @@ let weaponCatalog = [];
 let fallbackWeaponCatalog = [];
 let selectedWeaponElementCode = "";
 let selectedWeaponRarity = "";
+let selectedWeaponKindCode = "";
 let editingWeaponSlot = null;
 let summonCatalog = [];
 let selectedSummonElementCode = "";
@@ -1265,6 +1267,7 @@ function renderWeaponResults(query = "") {
     selectedWeaponElementCode,
     selectedWeaponRarity,
     "weaponId",
+    selectedWeaponKindCode,
   );
   const results = $("weapon-results");
   results.replaceChildren();
@@ -1314,6 +1317,35 @@ function renderWeaponFilters() {
       renderWeaponResults($("weapon-search").value);
     },
   });
+
+  const weaponKindContainer = $("weapon-kind-filters");
+  weaponKindContainer.replaceChildren();
+  for (const weaponKind of WEAPON_KIND_FILTER_OPTIONS) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "weapon-kind-filter-button";
+    button.textContent = weaponKind.name;
+    button.setAttribute("aria-pressed", String(selectedWeaponKindCode === weaponKind.code));
+    button.addEventListener("click", () => {
+      selectedWeaponKindCode = selectedWeaponKindCode === weaponKind.code ? "" : weaponKind.code;
+      renderWeaponFilters();
+      renderWeaponResults($("weapon-search").value);
+    });
+    weaponKindContainer.append(button);
+  }
+
+  const elementLabel = selectedWeaponElementCode === ""
+    ? "全属性"
+    : elementMeta[selectedWeaponElementCode]?.name ?? "属性不明";
+  const rarityLabel = selectedWeaponRarity === "" ? "全レアリティ" : selectedWeaponRarity;
+  const weaponKindLabel = selectedWeaponKindCode === ""
+    ? "全武器種"
+    : WEAPON_KIND_FILTER_OPTIONS.find((weaponKind) => weaponKind.code === selectedWeaponKindCode)?.name ?? "武器種不明";
+  $("weapon-filter-status").textContent = selectedWeaponElementCode === ""
+    && selectedWeaponRarity === ""
+    && selectedWeaponKindCode === ""
+    ? "すべての属性・レアリティ・武器種を表示"
+    : `選択中: ${elementLabel}・${rarityLabel}・${weaponKindLabel}`;
 }
 
 function openWeaponPicker(slot) {
@@ -1322,6 +1354,7 @@ function openWeaponPicker(slot) {
   $("weapon-search").value = "";
   selectedWeaponElementCode = "";
   selectedWeaponRarity = "";
+  selectedWeaponKindCode = "";
   const currentWeapon = weaponForSlot(readDeckConfig(), slot);
   $("remove-weapon").disabled = !currentWeapon || currentWeapon.isJobFallback === true;
   renderWeaponFilters();
