@@ -8044,6 +8044,26 @@
         {
           "kind": "ability-damage-cap-up",
           "elementCode": "1",
+          "amountPercent": 1.3,
+          "skillLevel": 1,
+          "boostGroup": "magna",
+          "note": "攻略サイト掲載値。アビリティダメージ上限枠（合算上限100%）",
+          "verificationStatus": "下書き",
+          "source": "GameWith『コロッサスボンバー・イラの評価/性能検証まとめ』（2026-09-14閲覧）"
+        },
+        {
+          "kind": "ability-damage-cap-up",
+          "elementCode": "1",
+          "amountPercent": 4,
+          "skillLevel": 10,
+          "boostGroup": "magna",
+          "note": "攻略サイト掲載値。アビリティダメージ上限枠（合算上限100%）",
+          "verificationStatus": "下書き",
+          "source": "GameWith『コロッサスボンバー・イラの評価/性能検証まとめ』（2026-09-14閲覧）"
+        },
+        {
+          "kind": "ability-damage-cap-up",
+          "elementCode": "1",
           "amountPercent": 5.5,
           "skillLevel": 15,
           "boostGroup": "magna",
@@ -8051,6 +8071,26 @@
           "verificationStatus": "検証済み",
           "source": "コロッサスボンバー・イラLv150・SLv15編成レスポンスのdamage_info（2026-09-14）",
           "confirmedAt": "2026-09-14"
+        },
+        {
+          "kind": "ability-supplemental-damage",
+          "elementCode": "1",
+          "amountFlat": 11000,
+          "skillLevel": 1,
+          "boostGroup": "magna",
+          "note": "攻略サイト掲載値。1hitごとに加算（合算上限20万、敵最大HPの1%上限）",
+          "verificationStatus": "下書き",
+          "source": "GameWith『コロッサスボンバー・イラの評価/性能検証まとめ』（2026-09-14閲覧）"
+        },
+        {
+          "kind": "ability-supplemental-damage",
+          "elementCode": "1",
+          "amountFlat": 20000,
+          "skillLevel": 10,
+          "boostGroup": "magna",
+          "note": "攻略サイト掲載値。1hitごとに加算（合算上限20万、敵最大HPの1%上限）",
+          "verificationStatus": "下書き",
+          "source": "GameWith『コロッサスボンバー・イラの評価/性能検証まとめ』（2026-09-14閲覧）"
         },
         {
           "kind": "ability-supplemental-damage",

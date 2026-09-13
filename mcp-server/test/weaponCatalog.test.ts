@@ -560,7 +560,11 @@ test("loads the initial incremental weapon and skill catalog", () => {
       ],
     ),
     [
+      ["ability-damage-cap-up", 1, 1.3, undefined, "magna", "下書き"],
+      ["ability-damage-cap-up", 10, 4, undefined, "magna", "下書き"],
       ["ability-damage-cap-up", 15, 5.5, undefined, "magna", "検証済み"],
+      ["ability-supplemental-damage", 1, undefined, 11000, "magna", "下書き"],
+      ["ability-supplemental-damage", 10, undefined, 20000, "magna", "下書き"],
       ["ability-supplemental-damage", 15, undefined, 25000, "magna", "検証済み"],
     ],
   );
