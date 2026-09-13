@@ -140,6 +140,21 @@ test("reproduces Froga skill 1296's observed displays at HP25 and HP75", () => {
   }
 });
 
+test("reproduces Froga skill 1296's observed absence at HP20 and 9.71% at HP30", () => {
+  const checkpoints = [
+    { hpPercent: 20, expectedEffectivePercent: 0, expectedDisplayPercent: 0 },
+    { hpPercent: 30, expectedEffectivePercent: 9.707364, expectedDisplayPercent: 9.71 },
+  ];
+  for (const checkpoint of checkpoints) {
+    const stamina = calculateFrogaAtHp(checkpoint.hpPercent).result.hpDependentAttack;
+    assert.equal(stamina.staminaContributions[0]?.effectiveAmountPercent, checkpoint.expectedEffectivePercent);
+    assert.equal(
+      Math.round(stamina.totalEffectiveNormalStaminaPercent * 100) / 100,
+      checkpoint.expectedDisplayPercent,
+    );
+  }
+});
+
 function calculateCrimsonStingerAtHp(protagonistCurrentHpPercent: number) {
   return calculateNormalAttackFromRequest({
     schemaVersion: 1,
