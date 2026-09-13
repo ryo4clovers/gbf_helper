@@ -187,18 +187,29 @@ test("derives Froga display stats and reproduces the game calculator estimates",
   assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 10374);
 });
 
-function derivedNilakanthaRequest(includeFroga: boolean, enemyElementCode: "1" | "4") {
+function derivedNilakanthaRequest(
+  includeFroga: boolean,
+  enemyElementCode: "1" | "4",
+  protagonistCurrentHpPercent = 100,
+  skillLevel = 15,
+) {
   const request = derivedFrogaRequest(enemyElementCode, enemyElementCode === "4" ? 5 : 0);
-  request.deckConfig.protagonist.attackOverride = includeFroga ? 22709 : 18178;
-  request.deckConfig.protagonist.hpOverride = includeFroga ? 4746 : 4374;
+  request.protagonistCurrentHpPercent = protagonistCurrentHpPercent;
+  request.deckConfig.protagonist.attackOverride = includeFroga
+    ? 22709
+    : skillLevel === 1 ? 15380 : 18178;
+  request.deckConfig.protagonist.hpOverride = includeFroga
+    ? 4746
+    : skillLevel === 1 ? 4111 : 4374;
   request.deckConfig.weapons = [
     request.deckConfig.weapons[0],
     {
       slot: 2,
       position: "grid" as const,
       weaponId: "1040417900",
-      level: 150,
-      skillLevel: 15,
+      level: skillLevel === 1 ? 1 : 150,
+      skillLevel,
+      ...(skillLevel === 1 ? { attackOverride: 333, hpOverride: 41 } : {}),
     },
     ...(includeFroga ? [{
       slot: 3,
@@ -231,6 +242,56 @@ test("reproduces Nilakantha and proves normal/magna stamina multiply as separate
     combined.result.baseDamage.stages.some((stage) => stage.stage === "magna-stamina"),
     true,
   );
+});
+
+test("reproduces Nilakantha SLv15 estimates at HP50 and HP75", () => {
+  const checkpoints = [
+    { hpPercent: 75, normalDamage: 3612, advantageDamage: 5104, staminaDisplay: 7.7 },
+    { hpPercent: 50, normalDamage: 3483, advantageDamage: 4920, staminaDisplay: 3.83 },
+  ];
+
+  for (const checkpoint of checkpoints) {
+    const normal = calculateNormalAttackFromRequest(
+      derivedNilakanthaRequest(false, "1", checkpoint.hpPercent),
+    );
+    const advantage = calculateNormalAttackFromRequest(
+      derivedNilakanthaRequest(false, "4", checkpoint.hpPercent),
+    );
+    assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, checkpoint.normalDamage);
+    assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, checkpoint.advantageDamage);
+    assert.equal(
+      Math.round(
+        (normal.result.hpDependentAttack.totalEffectiveMagnaStaminaPercent + Number.EPSILON) * 100,
+      ) / 100,
+      checkpoint.staminaDisplay,
+    );
+  }
+});
+
+test("reproduces Nilakantha SLv1 estimates at HP100, HP75 and HP50", () => {
+  const checkpoints = [
+    { hpPercent: 100, normalDamage: 3056, advantageDamage: 4318, staminaDisplay: 7.64 },
+    { hpPercent: 75, normalDamage: 2967, advantageDamage: 4192, staminaDisplay: 4.51 },
+    { hpPercent: 50, normalDamage: 2920, advantageDamage: 4125, staminaDisplay: 2.84 },
+  ];
+
+  for (const checkpoint of checkpoints) {
+    const normal = calculateNormalAttackFromRequest(
+      derivedNilakanthaRequest(false, "1", checkpoint.hpPercent, 1),
+    );
+    const advantage = calculateNormalAttackFromRequest(
+      derivedNilakanthaRequest(false, "4", checkpoint.hpPercent, 1),
+    );
+    assert.equal(normal.result.protagonistHp?.hp, 4235);
+    assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, checkpoint.normalDamage);
+    assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, checkpoint.advantageDamage);
+    assert.equal(
+      Math.round(
+        (normal.result.hpDependentAttack.totalEffectiveMagnaStaminaPercent + Number.EPSILON) * 100,
+      ) / 100,
+      checkpoint.staminaDisplay,
+    );
+  }
 });
 
 test("resolves protagonist DA and TA rates from the selected job", () => {

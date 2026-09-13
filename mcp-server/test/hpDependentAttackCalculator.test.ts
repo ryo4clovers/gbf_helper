@@ -21,6 +21,27 @@ test("reproduces published stamina and enmity checkpoints", () => {
   assert.equal(calculateEnmityAmountPercent(7, 1), 20.6514);
 });
 
+test("reproduces observed Nilakantha magna-stamina checkpoints", () => {
+  const checkpoints = [
+    { skillLevel: 15, hpPercent: 100, expectedDisplayPercent: 15 },
+    { skillLevel: 15, hpPercent: 75, expectedDisplayPercent: 7.7 },
+    { skillLevel: 15, hpPercent: 50, expectedDisplayPercent: 3.83 },
+    { skillLevel: 1, hpPercent: 100, expectedDisplayPercent: 7.64 },
+    { skillLevel: 1, hpPercent: 75, expectedDisplayPercent: 4.51 },
+    { skillLevel: 1, hpPercent: 50, expectedDisplayPercent: 2.84 },
+  ];
+
+  for (const checkpoint of checkpoints) {
+    assert.equal(
+      Math.round(
+        (calculateStaminaAmountPercent(56.4, checkpoint.skillLevel, checkpoint.hpPercent)
+          + Number.EPSILON) * 100,
+      ) / 100,
+      checkpoint.expectedDisplayPercent,
+    );
+  }
+});
+
 test("adds same-frame skills and multiplies normal stamina and enmity as separate frames", () => {
   const effects: EffectiveWeaponSkillEffect[] = [
     {

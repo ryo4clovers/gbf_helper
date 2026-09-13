@@ -1237,6 +1237,16 @@
         {
           "kind": "magna-hp-up",
           "elementCode": "1",
+          "amountPercent": 3,
+          "skillLevel": 1,
+          "boostGroup": "magna",
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供のニーラカンタSLv1・HP100/75/50%編成レスポンス（2026-09-14）。効果量表示3%と最終HP4,235を実機確認",
+          "confirmedAt": "2026-09-14"
+        },
+        {
+          "kind": "magna-hp-up",
+          "elementCode": "1",
           "amountPercent": 14.5,
           "skillLevel": 15,
           "boostGroup": "magna",
@@ -1246,7 +1256,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "knowledge/fire-ssr-regalia-brahman-scimitar.mdおよびgbf.wiki (2026-09-09照合)。SLv15効果量はユーザー提供実機編成（2026-09-14）で追加確認",
+      "source": "knowledge/fire-ssr-regalia-brahman-scimitar.mdおよびgbf.wiki (2026-09-09照合)。SLv1・15効果量はユーザー提供実機編成（2026-09-14）で追加確認",
       "confirmedAt": "2026-09-14"
     },
     {
