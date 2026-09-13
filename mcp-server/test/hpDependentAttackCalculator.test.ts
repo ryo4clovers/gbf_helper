@@ -15,6 +15,7 @@ test("reproduces published stamina and enmity checkpoints", () => {
   assert.equal(calculateStaminaAmountPercent(80, 15, 24.99), 0);
 
   assert.equal(calculateEnmityAmountPercent(7, 100), 0);
+  assert.equal(calculateEnmityAmountPercent(0.5, 50), 0.5);
   assert.equal(calculateEnmityAmountPercent(7, 50), 7);
   assert.equal(calculateEnmityAmountPercent(7, 25), 13.125);
   assert.equal(calculateEnmityAmountPercent(7, 1), 20.6514);
@@ -67,10 +68,10 @@ test("adds same-frame skills and multiplies normal stamina and enmity as separat
   assert.equal(result.normalEnmityMultiplier, 1.308);
 });
 
-test("connects Froga skill 1296 to the 340% Agni aura at full HP", () => {
-  const response = calculateNormalAttackFromRequest({
+function calculateFrogaAtHp(protagonistCurrentHpPercent: number) {
+  return calculateNormalAttackFromRequest({
     schemaVersion: 1,
-    protagonistCurrentHpPercent: 100,
+    protagonistCurrentHpPercent,
     supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
     deckConfig: {
       schemaVersion: 1,
@@ -99,6 +100,10 @@ test("connects Froga skill 1296 to the 340% Agni aura at full HP", () => {
     enemy: { elementCode: "1", defense: 10 },
     modifiers: {},
   });
+}
+
+test("connects Froga skill 1296 to the 340% Agni aura at full HP", () => {
+  const response = calculateFrogaAtHp(100);
 
   const stamina = response.result.hpDependentAttack;
   assert.equal(stamina.staminaContributions[0]?.sourceSkillId, "1296");
@@ -112,10 +117,18 @@ test("connects Froga skill 1296 to the 340% Agni aura at full HP", () => {
   );
 });
 
-test("keeps Crimson Stinger skill 118 inactive at full HP", () => {
-  const response = calculateNormalAttackFromRequest({
+test("reproduces Froga skill 1296's observed 11.3% display at HP50", () => {
+  const stamina = calculateFrogaAtHp(50).result.hpDependentAttack;
+  assert.equal(stamina.staminaContributions[0]?.sourceSkillId, "1296");
+  assert.equal(stamina.staminaContributions[0]?.baseAmountPercent, 2.57);
+  assert.equal(stamina.staminaContributions[0]?.effectiveAmountPercent, 11.308);
+  assert.equal(Math.floor((stamina.totalEffectiveNormalStaminaPercent + Number.EPSILON) * 100) / 100, 11.3);
+});
+
+function calculateCrimsonStingerAtHp(protagonistCurrentHpPercent: number) {
+  return calculateNormalAttackFromRequest({
     schemaVersion: 1,
-    protagonistCurrentHpPercent: 100,
+    protagonistCurrentHpPercent,
     supportSummon: { summonId: "2040094000", nameHint: "アグニス" },
     deckConfig: {
       schemaVersion: 1,
@@ -155,10 +168,22 @@ test("keeps Crimson Stinger skill 118 inactive at full HP", () => {
     enemy: { elementCode: "1", defense: 10 },
     modifiers: {},
   });
+}
+
+test("keeps Crimson Stinger skill 118 inactive at full HP", () => {
+  const response = calculateCrimsonStingerAtHp(100);
 
   const enmity = response.result.hpDependentAttack;
   assert.equal(enmity.enmityContributions[0]?.sourceSkillId, "118");
   assert.equal(enmity.enmityContributions[0]?.skillLevel, 1);
   assert.equal(enmity.enmityContributions[0]?.effectiveAmountPercent, 0);
   assert.equal(enmity.normalEnmityMultiplier, 1);
+});
+
+test("reproduces Crimson Stinger skill 118's observed 2.2% display at HP50", () => {
+  const enmity = calculateCrimsonStingerAtHp(50).result.hpDependentAttack;
+  assert.equal(enmity.enmityContributions[0]?.sourceSkillId, "118");
+  assert.equal(enmity.enmityContributions[0]?.baseAmountPercent, 0.5);
+  assert.equal(enmity.enmityContributions[0]?.effectiveAmountPercent, 2.2);
+  assert.equal(enmity.totalEffectiveNormalEnmityPercent, 2.2);
 });
