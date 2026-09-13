@@ -46,7 +46,10 @@ const staticFiles: Record<string, { file: string; contentType: string }> = {
 function securityHeaders(response: ServerResponse): void {
   response.setHeader("X-Content-Type-Options", "nosniff");
   response.setHeader("Referrer-Policy", "no-referrer");
-  response.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'self'");
+  response.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://prd-game-a-granbluefantasy.akamaized.net; connect-src 'self'; base-uri 'none'; form-action 'self'",
+  );
 }
 
 function json(response: ServerResponse, status: number, body: unknown): void {

@@ -563,6 +563,24 @@ function createText(className, text) {
   return element;
 }
 
+function createJobArt(className, job) {
+  const art = document.createElement("span");
+  art.className = className;
+  art.append(createText("job-art-fallback", "◆"));
+  if (!job?.imageUrl) return art;
+
+  const image = document.createElement("img");
+  image.className = "job-thumbnail";
+  image.src = job.imageUrl;
+  image.alt = `${job.name}のジョブ画像`;
+  image.loading = "lazy";
+  image.decoding = "async";
+  image.addEventListener("load", () => art.classList.add("image-loaded"));
+  image.addEventListener("error", () => image.remove());
+  art.append(image);
+  return art;
+}
+
 function updateEquipmentPlusMark(equipment, nextPlusMark) {
   const previousPlusMark = equipment.plusMark ?? 0;
   const difference = nextPlusMark - previousPlusMark;
@@ -652,7 +670,9 @@ function renderJobEditor(config) {
   choice.className = "job-choice";
   choice.addEventListener("click", openJobPicker);
   choice.setAttribute("aria-label", "主人公ジョブを選択");
-  const icon = createText("job-symbol", jobId ? "◆" : "+");
+  const icon = jobId && job
+    ? createJobArt("job-symbol", job)
+    : createText("job-symbol", jobId ? "◆" : "+");
   const details = document.createElement("span");
   details.className = "job-details";
   const heading = document.createElement("span");
@@ -713,7 +733,7 @@ function renderJobResults(query = "") {
     button.type = "button";
     button.className = "catalog-weapon-card catalog-job-card";
     button.addEventListener("click", () => selectJob(job));
-    const icon = createText("catalog-art job-catalog-art", "◆");
+    const icon = createJobArt("catalog-art job-catalog-art", job);
     const details = document.createElement("span");
     details.className = "catalog-weapon-details";
     details.append(

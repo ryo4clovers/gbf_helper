@@ -31,6 +31,7 @@ const weaponKindCodes: Record<string, string> = {
 
 export interface SelectableJobCatalogEntry {
   jobId: string;
+  imageUrl: string;
   name: string;
   nameEn: string;
   classTier: string;
@@ -140,6 +141,7 @@ export function createSelectableJobCatalog(
       });
       return {
         jobId: frontmatter.job_id,
+        imageUrl: `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/${frontmatter.job_id}_01.jpg`,
         name: frontmatter.name_jp,
         nameEn: frontmatter.name_en,
         classTier: frontmatter.class_tier,

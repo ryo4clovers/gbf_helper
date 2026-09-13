@@ -63,6 +63,15 @@ test("web server exposes every root-relative module imported by the calculator",
   }
 });
 
+test("web server permits the known job thumbnail host without widening other CSP directives", async () => {
+  const webServer = await readFile(new URL("../src/webServer.ts", import.meta.url), "utf8");
+  assert.match(
+    webServer,
+    /img-src 'self' data: https:\/\/prd-game-a-granbluefantasy\.akamaized\.net;/u,
+  );
+  assert.match(webServer, /connect-src 'self';/u);
+});
+
 test("job picker exposes class filter controls below search", async () => {
   const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
   const searchPosition = html.indexOf('id="job-search"');

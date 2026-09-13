@@ -9,6 +9,10 @@ test("creates a deterministic browser-safe catalog from all job knowledge", () =
   assert.equal(catalog.jobs.length, 80);
   const fighterOrigin = catalog.jobs.find((job) => job.jobId === "100501");
   assert.equal(fighterOrigin?.name, "ファイター・オリジン");
+  assert.equal(
+    fighterOrigin?.imageUrl,
+    "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/100501_01.jpg",
+  );
   assert.equal(fighterOrigin?.classTier, "オリジン");
   assert.deepEqual(fighterOrigin?.weaponKinds, [
     { code: "1", name: "剣" },
