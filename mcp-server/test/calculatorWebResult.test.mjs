@@ -72,6 +72,13 @@ test("web server permits the known job thumbnail host without widening other CSP
   assert.match(webServer, /connect-src 'self';/u);
 });
 
+test("job thumbnails retain the source image aspect ratio at larger sizes", async () => {
+  const styles = await readFile(new URL("../web/styles.css", import.meta.url), "utf8");
+  assert.match(styles, /\.job-symbol \{[^}]*width: 140px;[^}]*height: 80px;[^}]*aspect-ratio: 7 \/ 4;/u);
+  assert.match(styles, /\.job-catalog-art \{[^}]*width: 140px;[^}]*height: 80px;[^}]*aspect-ratio: 7 \/ 4;/u);
+  assert.match(styles, /\.job-thumbnail \{[^}]*object-fit: contain;/u);
+});
+
 test("job picker exposes class filter controls below search", async () => {
   const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
   const searchPosition = html.indexOf('id="job-search"');
