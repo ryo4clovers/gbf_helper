@@ -35,6 +35,8 @@ export type WeaponSkillEffectKind =
   | "critical-rate-up"
   | "double-attack-rate-up"
   | "triple-attack-rate-up"
+  | "healing-cap-up"
+  | "debuff-resistance-up"
   | "elemental-pursuit"
   | "normal-skill-boost";
 

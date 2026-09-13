@@ -2162,6 +2162,14 @@ function renderLocalResult(result) {
   $("multiattack-rate-note").textContent = multiattackNotes.length === 0
     ? "ジョブ・武器スキル"
     : multiattackNotes.join("・");
+
+  const otherSkills = result.otherWeaponSkills;
+  $("healing-cap-rate").textContent = `+${numberFormat.format(otherSkills.healingCap.effectivePercent)}%`;
+  $("healing-cap-note").textContent = otherSkills.healingCap.uncappedPercent > otherSkills.healingCap.effectivePercent
+    ? `合計 ${numberFormat.format(otherSkills.healingCap.uncappedPercent)}%・上限100%適用`
+    : "スキルによるHP回復の上限・合算上限100%";
+  $("debuff-resistance-rate").textContent = `+${numberFormat.format(otherSkills.debuffResistance.effectivePercent)}%`;
+  $("debuff-resistance-note").textContent = `成功率100%の弱体を受ける確率 ${numberFormat.format(otherSkills.incomingDebuffSuccessRateAt100Percent)}%（暫定）`;
 }
 
 function selectWeaponCritical() {

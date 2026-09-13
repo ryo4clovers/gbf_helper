@@ -105,6 +105,91 @@
       ],
       "verificationStatus": "下書き",
       "source": "GameWithの武器スキル表（2026-09-13閲覧、実機未検証）"
+    },
+    {
+      "tableId": "healing-cap-small",
+      "values": [
+        { "skillLevel": 1, "amountPercent": 1 },
+        { "skillLevel": 2, "amountPercent": 1.5 },
+        { "skillLevel": 3, "amountPercent": 2 },
+        { "skillLevel": 4, "amountPercent": 2.4 },
+        { "skillLevel": 5, "amountPercent": 2.8 },
+        { "skillLevel": 6, "amountPercent": 3.2 },
+        { "skillLevel": 7, "amountPercent": 3.6 },
+        { "skillLevel": 8, "amountPercent": 4 },
+        { "skillLevel": 9, "amountPercent": 4.5 },
+        { "skillLevel": 10, "amountPercent": 5 },
+        { "skillLevel": 11, "amountPercent": 5.5 },
+        { "skillLevel": 12, "amountPercent": 6 },
+        { "skillLevel": 13, "amountPercent": 6.5 },
+        { "skillLevel": 14, "amountPercent": 7 },
+        { "skillLevel": 15, "amountPercent": 7.5 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "神ゲー攻略『治癒スキルまとめ』およびユーザー提供表画像（2026-09-14閲覧、実機未検証箇所を含む）"
+    },
+    {
+      "tableId": "healing-cap-medium",
+      "values": [
+        { "skillLevel": 1, "amountPercent": 3 },
+        { "skillLevel": 2, "amountPercent": 3.5 },
+        { "skillLevel": 3, "amountPercent": 4 },
+        { "skillLevel": 4, "amountPercent": 4.5 },
+        { "skillLevel": 5, "amountPercent": 5 },
+        { "skillLevel": 6, "amountPercent": 5.5 },
+        { "skillLevel": 7, "amountPercent": 6 },
+        { "skillLevel": 8, "amountPercent": 6.5 },
+        { "skillLevel": 9, "amountPercent": 7 },
+        { "skillLevel": 10, "amountPercent": 7.5 },
+        { "skillLevel": 15, "amountPercent": 10 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "神ゲー攻略『治癒スキルまとめ』およびユーザー提供表画像（2026-09-14閲覧、実機未検証）"
+    },
+    {
+      "tableId": "healing-cap-large",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 10 },
+        { "skillLevel": 15, "amountPercent": 15 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "神ゲー攻略『治癒スキルまとめ』およびユーザー提供表画像（2026-09-14閲覧、SLv15は別途実機照合）"
+    },
+    {
+      "tableId": "omega-healing-cap-ii",
+      "values": [
+        { "skillLevel": 1, "amountPercent": 5 },
+        { "skillLevel": 2, "amountPercent": 5.5 },
+        { "skillLevel": 3, "amountPercent": 6 },
+        { "skillLevel": 4, "amountPercent": 6.5 },
+        { "skillLevel": 5, "amountPercent": 7 },
+        { "skillLevel": 6, "amountPercent": 7.5 },
+        { "skillLevel": 7, "amountPercent": 8 },
+        { "skillLevel": 8, "amountPercent": 8.5 },
+        { "skillLevel": 9, "amountPercent": 9 },
+        { "skillLevel": 10, "amountPercent": 10 },
+        { "skillLevel": 11, "amountPercent": 11 },
+        { "skillLevel": 12, "amountPercent": 12 },
+        { "skillLevel": 13, "amountPercent": 13 },
+        { "skillLevel": 14, "amountPercent": 14 },
+        { "skillLevel": 15, "amountPercent": 15 },
+        { "skillLevel": 16, "amountPercent": 15.5 },
+        { "skillLevel": 17, "amountPercent": 16 },
+        { "skillLevel": 18, "amountPercent": 16.5 },
+        { "skillLevel": 19, "amountPercent": 17 },
+        { "skillLevel": 20, "amountPercent": 17.5 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "神ゲー攻略『治癒スキルまとめ』およびユーザー提供表画像（2026-09-14閲覧、実機未検証）"
+    },
+    {
+      "tableId": "debuff-resistance-small",
+      "values": [
+        { "skillLevel": 15, "amountPercent": 4 }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のコロッサスバスター・イラ実機編成（方陣強化170%時10.8%から基礎4%を確認）",
+      "confirmedAt": "2026-09-14"
     }
   ]
 }

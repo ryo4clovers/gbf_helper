@@ -14,6 +14,12 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
     assert.match(html, new RegExp(`id=["']${id}["']`));
     assert.match(app, new RegExp(`\\$\\(["']${id}["']\\)`));
   }
+  for (const id of ["healing-cap-rate", "debuff-resistance-rate"]) {
+    assert.match(html, new RegExp(`id=["']${id}["']`));
+    assert.match(app, new RegExp(`\\$\\(["']${id}["']\\)`));
+  }
+  assert.match(html, /<h3 id="other-skill-results-title">その他スキル<\/h3>/u);
+  assert.match(app, /incomingDebuffSuccessRateAt100Percent/u);
   assert.match(html, /<p>連撃率<\/p>/u);
   assert.match(html, /Rank基礎値から主人公の表示ATK・HPを自動計算します/u);
   assert.match(app, /武器スキル \+\$\{numberFormat\.format\(hp\.weaponSkillHpPercent\)\}%/u);

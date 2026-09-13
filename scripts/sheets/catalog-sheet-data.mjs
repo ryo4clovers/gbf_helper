@@ -111,6 +111,8 @@ export const EFFECT_KIND_LABELS = Object.freeze({
   "critical-rate-up": "クリティカル確率UP",
   "double-attack-rate-up": "ダブルアタック確率UP",
   "triple-attack-rate-up": "トリプルアタック確率UP",
+  "healing-cap-up": "回復上限UP",
+  "debuff-resistance-up": "弱体耐性UP",
   "elemental-pursuit": "属性追撃",
 });
 

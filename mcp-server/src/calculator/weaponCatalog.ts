@@ -19,6 +19,8 @@ const effectSchema = z
       "critical-rate-up",
       "double-attack-rate-up",
       "triple-attack-rate-up",
+      "healing-cap-up",
+      "debuff-resistance-up",
       "elemental-pursuit",
       "normal-skill-boost",
     ]),
@@ -133,6 +135,8 @@ const skillEntrySchema = z
     criticalRateAmountTable: rateAmountTableAssignmentSchema.optional(),
     doubleAttackRateAmountTable: rateAmountTableAssignmentSchema.optional(),
     tripleAttackRateAmountTable: rateAmountTableAssignmentSchema.optional(),
+    healingCapAmountTable: rateAmountTableAssignmentSchema.optional(),
+    debuffResistanceAmountTable: rateAmountTableAssignmentSchema.optional(),
     unsupportedEffects: z.array(z.string().min(1)).min(1).optional(),
     ...sourceFields,
   })
@@ -246,6 +250,8 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
       criticalRateAmountTable,
       doubleAttackRateAmountTable,
       tripleAttackRateAmountTable,
+      healingCapAmountTable,
+      debuffResistanceAmountTable,
       ...baseSkill
     } = skill;
     const assignments = [
@@ -302,6 +308,18 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
         assignment: tripleAttackRateAmountTable,
         tables: rateTables,
         label: "triple attack rate",
+      },
+      {
+        kind: "healing-cap-up" as const,
+        assignment: healingCapAmountTable,
+        tables: rateTables,
+        label: "healing cap",
+      },
+      {
+        kind: "debuff-resistance-up" as const,
+        assignment: debuffResistanceAmountTable,
+        tables: rateTables,
+        label: "debuff resistance",
       },
     ];
     const generatedEffects: WeaponSkillEffectDefinition[] = [];

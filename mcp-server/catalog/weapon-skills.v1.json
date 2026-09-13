@@ -8037,9 +8037,25 @@
       "skillId": "2373",
       "name": "機炎方陣・治癒III",
       "description": "火属性キャラの回復上限上昇(大)",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "healing-cap-up",
+          "elementCode": "1",
+          "amountPercent": 15,
+          "skillLevel": 15,
+          "boostGroup": "magna",
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供の実機編成で方陣強化170%時40.5%を確認",
+          "confirmedAt": "2026-09-14"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "knowledge/fire-ssr-magna-reverse-colossus-buster-ira.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/fire-ssr-magna-reverse-colossus-buster-ira.md、神ゲー攻略、ユーザー提供の実機編成（2026-09-14照合）",
+      "healingCapAmountTable": {
+        "tableId": "healing-cap-large",
+        "elementCode": "1",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "2378",
@@ -8047,7 +8063,16 @@
       "description": "火属性キャラの最大HP上昇(小)/弱体耐性UP(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/fire-ssr-magna-reverse-colossus-buster-ira.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/fire-ssr-magna-reverse-colossus-buster-ira.md、ユーザー提供の実機編成（2026-09-14照合）",
+      "magnaHpAmountTable": {
+        "tableId": "magna-hp-small",
+        "elementCode": "1"
+      },
+      "debuffResistanceAmountTable": {
+        "tableId": "debuff-resistance-small",
+        "elementCode": "1",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "2389",

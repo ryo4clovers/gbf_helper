@@ -23,6 +23,8 @@ test("コードをシート向け表示名へ変換する", () => {
   assert.equal(displayCode("10", WEAPON_KIND_LABELS, "weaponKindCode"), "刀");
   assert.equal(displayCode("4", RARITY_LABELS, "rarityCode"), "SSR");
   assert.equal(displayCode("critical-rate-up", EFFECT_KIND_LABELS, "effect.kind"), "クリティカル確率UP");
+  assert.equal(displayCode("healing-cap-up", EFFECT_KIND_LABELS, "effect.kind"), "回復上限UP");
+  assert.equal(displayCode("debuff-resistance-up", EFFECT_KIND_LABELS, "effect.kind"), "弱体耐性UP");
   assert.equal(displayCode("character-hp-up", EFFECT_KIND_LABELS, "effect.kind"), "キャラHPUP");
   assert.equal(displayCode("dark opus", WIKI_SERIES_LABELS, "wiki.series"), "終末の神器");
 });

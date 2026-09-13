@@ -522,4 +522,22 @@ test("loads the initial incremental weapon and skill catalog", () => {
   assert.equal(catalog.skills.get("323")?.unsupportedEffects, undefined);
   assert.equal(catalog.skills.get("867")?.unsupportedEffects, undefined);
   assert.deepEqual(catalog.skills.get("2915")?.unsupportedEffects, ["攻撃力上昇（大）のSLv曲線"]);
+  assert.deepEqual(
+    catalog.skills.get("2373")?.effects
+      .filter((effect) => effect.kind === "healing-cap-up")
+      .map((effect) => [effect.skillLevel, effect.amountPercent, effect.boostGroup, effect.verificationStatus]),
+    [
+      [15, 15, "magna", "検証済み"],
+      [10, 10, "magna", "下書き"],
+    ],
+  );
+  assert.deepEqual(
+    catalog.skills.get("2378")?.effects
+      .filter((effect) => effect.skillLevel === 15)
+      .map((effect) => [effect.kind, effect.amountPercent, effect.boostGroup, effect.verificationStatus]),
+    [
+      ["magna-hp-up", 12, "magna", "下書き"],
+      ["debuff-resistance-up", 4, "magna", "検証済み"],
+    ],
+  );
 });

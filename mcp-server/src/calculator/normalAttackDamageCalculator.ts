@@ -36,6 +36,10 @@ import {
   calculateHpDependentAttack,
   type HpDependentAttackResult,
 } from "./hpDependentAttackCalculator.js";
+import {
+  calculateOtherWeaponSkills,
+  type OtherWeaponSkillResult,
+} from "./otherWeaponSkillCalculator.js";
 
 export interface NormalAttackDamageOptions {
   baseDamageModel?: BaseDamageCalculationModel;
@@ -72,6 +76,7 @@ export interface NormalAttackDamageResult {
   pursuitDamage?: EffectivePursuitDamageResult;
   protagonistHp?: ProtagonistHpResult;
   multiattackRates: ProtagonistMultiattackRateResult;
+  otherWeaponSkills: OtherWeaponSkillResult;
   totalDamageDistribution: CombinedNormalAttackDistribution;
   issues: Array<
     | "damage-cap-unresolved"
@@ -160,6 +165,7 @@ export function calculateNormalAttackDamage(
     pursuitDamage,
     protagonistHp: calculateProtagonistHp(input.deck),
     multiattackRates: calculateProtagonistMultiattackRates(input.deck),
+    otherWeaponSkills: calculateOtherWeaponSkills(input.deck),
     totalDamageDistribution: {
       schemaVersion: 1,
       model: "independent-discrete-components",

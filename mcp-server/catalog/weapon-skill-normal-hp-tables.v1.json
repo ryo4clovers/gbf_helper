@@ -101,6 +101,17 @@
       ],
       "verificationStatus": "下書き",
       "source": "ユーザー提供の攻略サイト表画像（2026-09-13、種族条件とskill_idは未確認）"
+    },
+    {
+      "tableId": "magna-hp-small",
+      "values": [
+        { "skillLevel": 1, "amountPercent": 1 },
+        { "skillLevel": 10, "amountPercent": 10 },
+        { "skillLevel": 15, "amountPercent": 12 },
+        { "skillLevel": 20, "amountPercent": 12.5 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の神威・守護量表（2026-09-13、恩寵の守護部分として要検証）"
     }
   ]
 }
