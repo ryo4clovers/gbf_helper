@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "tables": [
+    {
+      "tableId": "critical-small",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 2 },
+        { "skillLevel": 15, "amountPercent": 3 },
+        { "skillLevel": 20, "amountPercent": 4 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証箇所を含む）"
+    },
+    {
+      "tableId": "critical-medium",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 5 },
+        { "skillLevel": 15, "amountPercent": 6.5 },
+        { "skillLevel": 20, "amountPercent": 7.5 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証箇所を含む）"
+    },
+    {
+      "tableId": "critical-large",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 8 },
+        { "skillLevel": 15, "amountPercent": 10 },
+        { "skillLevel": 20, "amountPercent": 11 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証）"
+    },
+    {
+      "tableId": "critical-ii",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 10 },
+        { "skillLevel": 15, "amountPercent": 12 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証）"
+    },
+    {
+      "tableId": "double-attack-small",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 2.5 },
+        { "skillLevel": 15, "amountPercent": 3.5 },
+        { "skillLevel": 20, "amountPercent": 4.5 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証）"
+    },
+    {
+      "tableId": "multiattack-small",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 2 },
+        { "skillLevel": 15, "amountPercent": 3.5 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証）"
+    },
+    {
+      "tableId": "multiattack-medium",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 3.5 },
+        { "skillLevel": 15, "amountPercent": 5 },
+        { "skillLevel": 20, "amountPercent": 6 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証）"
+    },
+    {
+      "tableId": "multiattack-large",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 5 },
+        { "skillLevel": 15, "amountPercent": 7 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証箇所を含む）"
+    },
+    {
+      "tableId": "fandango-small",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 1.35 },
+        { "skillLevel": 15, "amountPercent": 2 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWithの武器スキル表（2026-09-13閲覧、実機未検証）"
+    },
+    {
+      "tableId": "fandango-medium",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 2.15 },
+        { "skillLevel": 15, "amountPercent": 2.9 },
+        { "skillLevel": 20, "amountPercent": 3.65 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWithの武器スキル表（2026-09-13閲覧、実機未検証）"
+    },
+    {
+      "tableId": "fandango-large",
+      "values": [
+        { "skillLevel": 10, "amountPercent": 3.45 },
+        { "skillLevel": 15, "amountPercent": 4.2 }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWithの武器スキル表（2026-09-13閲覧、実機未検証）"
+    }
+  ]
+}

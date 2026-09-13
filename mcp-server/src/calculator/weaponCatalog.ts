@@ -21,7 +21,7 @@ const effectSchema = z
     elementCode: z.string().min(1).optional(),
     amountPercent: z.number().finite(),
     skillLevel: z.number().int().nonnegative().optional(),
-    boostGroup: z.literal("normal").optional(),
+    boostGroup: z.enum(["normal", "magna"]).optional(),
     targetSkillNamePrefixes: z.array(z.string().min(1)).optional(),
     note: z.string().min(1).optional(),
     verificationStatus: statusSchema.optional(),
@@ -106,6 +106,10 @@ const skillAmountTableAssignmentSchema = z.object({
   elementCode: z.string().min(1),
 }).strict();
 
+const rateAmountTableAssignmentSchema = skillAmountTableAssignmentSchema.extend({
+  boostGroup: z.enum(["normal", "magna"]),
+}).strict();
+
 const skillEntrySchema = z
   .object({
     skillId: z.string().min(1),
@@ -114,6 +118,9 @@ const skillEntrySchema = z
     effects: z.array(effectSchema),
     normalAttackAmountTable: skillAmountTableAssignmentSchema.optional(),
     normalHpAmountTable: skillAmountTableAssignmentSchema.optional(),
+    criticalRateAmountTable: rateAmountTableAssignmentSchema.optional(),
+    doubleAttackRateAmountTable: rateAmountTableAssignmentSchema.optional(),
+    tripleAttackRateAmountTable: rateAmountTableAssignmentSchema.optional(),
     unsupportedEffects: z.array(z.string().min(1)).min(1).optional(),
     ...sourceFields,
   })
@@ -173,6 +180,9 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
   const normalHpTableFile = skillAmountTablesFileSchema.parse(
     readJson("weapon-skill-normal-hp-tables.v1.json"),
   );
+  const rateTableFile = skillAmountTablesFileSchema.parse(
+    readJson("weapon-skill-rate-tables.v1.json"),
+  );
   const weapons = uniqueMap(weaponFile.weapons, (weapon) => weapon.weaponId, "weapon");
   const normalAttackTables = uniqueMap(
     normalAttackTableFile.tables,
@@ -184,8 +194,16 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
     (table) => table.tableId,
     "normal HP amount table",
   );
+  const rateTables = uniqueMap(rateTableFile.tables, (table) => table.tableId, "rate amount table");
   const expandedSkills = skillFile.skills.map((skill): WeaponSkillCatalogEntry => {
-    const { normalAttackAmountTable, normalHpAmountTable, ...baseSkill } = skill;
+    const {
+      normalAttackAmountTable,
+      normalHpAmountTable,
+      criticalRateAmountTable,
+      doubleAttackRateAmountTable,
+      tripleAttackRateAmountTable,
+      ...baseSkill
+    } = skill;
     const assignments = [
       {
         kind: "normal-attack-up" as const,
@@ -198,6 +216,24 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
         assignment: normalHpAmountTable,
         tables: normalHpTables,
         label: "normal HP",
+      },
+      {
+        kind: "critical-rate-up" as const,
+        assignment: criticalRateAmountTable,
+        tables: rateTables,
+        label: "critical rate",
+      },
+      {
+        kind: "double-attack-rate-up" as const,
+        assignment: doubleAttackRateAmountTable,
+        tables: rateTables,
+        label: "double attack rate",
+      },
+      {
+        kind: "triple-attack-rate-up" as const,
+        assignment: tripleAttackRateAmountTable,
+        tables: rateTables,
+        label: "triple attack rate",
       },
     ];
     const generatedEffects: WeaponSkillEffectDefinition[] = [];
@@ -219,7 +255,7 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
             elementCode: assignment.elementCode,
             amountPercent: value.amountPercent,
             skillLevel: value.skillLevel,
-            boostGroup: "normal",
+            boostGroup: "boostGroup" in assignment ? assignment.boostGroup : "normal",
             verificationStatus: table.verificationStatus,
             source: table.source,
             ...(table.confirmedAt === undefined ? {} : { confirmedAt: table.confirmedAt }),

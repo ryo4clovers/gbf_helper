@@ -39,7 +39,7 @@ export interface WeaponSkillEffectDefinition {
   elementCode?: string;
   amountPercent: number;
   skillLevel?: number;
-  boostGroup?: "normal";
+  boostGroup?: "normal" | "magna";
   targetSkillNamePrefixes?: string[];
   note?: string;
   /** Verification is recorded per numeric effect, so one skill may mix confirmed and provisional levels. */

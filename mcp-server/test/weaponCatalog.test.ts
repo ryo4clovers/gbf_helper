@@ -468,4 +468,29 @@ test("loads the initial incremental weapon and skill catalog", () => {
     catalog.skills.get("1547")?.effects[0]?.source,
     "ユーザー提供の攻略Wiki表画像（2026-09-09）",
   );
+
+  const sharedRateTableCases = [
+    ["75", "critical-rate-up", "normal", [[10, 2], [15, 3], [20, 4]]],
+    ["293", "critical-rate-up", "magna", [[10, 8], [15, 10], [20, 11]]],
+    ["46", "double-attack-rate-up", "normal", [[10, 2.5], [15, 3.5], [20, 4.5]]],
+    ["632", "double-attack-rate-up", "normal", [[10, 2], [15, 3.5]]],
+    ["632", "triple-attack-rate-up", "normal", [[10, 2], [15, 3.5]]],
+    ["867", "triple-attack-rate-up", "normal", [[10, 1.35], [15, 2]]],
+    ["1507", "triple-attack-rate-up", "normal", [[10, 2.15], [15, 2.9], [20, 3.65]]],
+    ["931", "triple-attack-rate-up", "magna", [[10, 1.35], [15, 2]]],
+    ["2915", "triple-attack-rate-up", "normal", [[10, 3.45], [15, 4.2]]],
+  ] as const;
+  for (const [skillId, kind, boostGroup, expected] of sharedRateTableCases) {
+    const effects = catalog.skills.get(skillId)?.effects.filter((effect) => effect.kind === kind) ?? [];
+    assert.deepEqual(
+      effects.map((effect) => [effect.skillLevel, effect.amountPercent]),
+      expected,
+      `${kind} table for skill ${skillId}`,
+    );
+    assert.equal(effects.every((effect) => effect.boostGroup === boostGroup), true);
+    assert.equal(effects.every((effect) => effect.verificationStatus === "下書き"), true);
+  }
+  assert.equal(catalog.skills.get("323")?.unsupportedEffects, undefined);
+  assert.equal(catalog.skills.get("867")?.unsupportedEffects, undefined);
+  assert.deepEqual(catalog.skills.get("2915")?.unsupportedEffects, ["攻撃力上昇（大）のSLv曲線"]);
 });

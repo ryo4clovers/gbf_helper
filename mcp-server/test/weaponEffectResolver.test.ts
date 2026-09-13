@@ -84,6 +84,46 @@ test("calculates boosted effects while preserving the base value and modifier pr
   assert.deepEqual(result.issues, []);
 });
 
+test("does not apply a normal skill boost to a magna rate table effect", () => {
+  const result = resolveEffectiveWeaponSkillEffects([
+    weaponWithSkill({
+      slot: 1,
+      skillLevel: 15,
+      skillId: "boost",
+      skillName: "オプティマスブースト・ファイア",
+      effects: [
+        {
+          kind: "normal-skill-boost",
+          elementCode: "1",
+          amountPercent: 30,
+          skillLevel: 15,
+          boostGroup: "normal",
+          targetSkillNamePrefixes: ["機炎方陣"],
+        },
+      ],
+    }),
+    weaponWithSkill({
+      slot: 2,
+      skillLevel: 15,
+      skillId: "magna-critical",
+      skillName: "機炎方陣・技巧",
+      effects: [
+        {
+          kind: "critical-rate-up",
+          elementCode: "1",
+          amountPercent: 3,
+          skillLevel: 15,
+          boostGroup: "magna",
+        },
+      ],
+    }),
+  ]);
+
+  assert.equal(result.effects[1]?.baseAmountPercent, 3);
+  assert.equal(result.effects[1]?.effectiveAmountPercent, 3);
+  assert.deepEqual(result.effects[1]?.appliedModifiers, []);
+});
+
 test("does not guess effects for a different or missing skill level", () => {
   const result = resolveEffectiveWeaponSkillEffects([
     weaponWithSkill({

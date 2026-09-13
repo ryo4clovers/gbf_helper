@@ -671,7 +671,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "double-attack-small",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "48",
@@ -680,7 +685,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "double-attack-small",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "50",
@@ -689,7 +699,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "double-attack-small",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "51",
@@ -698,7 +713,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "double-attack-small",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "52",
@@ -707,7 +727,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "53",
@@ -716,7 +741,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "54",
@@ -725,7 +755,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "55",
@@ -734,7 +769,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "57",
@@ -743,7 +783,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "58",
@@ -752,7 +797,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "61",
@@ -761,7 +811,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "62",
@@ -770,7 +825,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "64",
@@ -853,7 +913,12 @@
       ],
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoの単体編成表示で確認 武器詳細レスポンスで名称・効果文を再確認（2026-09-13）。",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "75",
@@ -862,7 +927,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "76",
@@ -871,7 +941,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "77",
@@ -880,7 +955,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "78",
@@ -889,7 +969,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "79",
@@ -898,7 +983,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "80",
@@ -939,7 +1029,12 @@
       ],
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoのクリティカル表示差分から確認 武器詳細レスポンスで名称・効果文を再確認（2026-09-13）。",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "81",
@@ -948,7 +1043,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "82",
@@ -957,7 +1057,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "83",
@@ -966,7 +1071,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "84",
@@ -975,7 +1085,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "85",
@@ -984,7 +1099,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "86",
@@ -993,7 +1113,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-large",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "87",
@@ -1002,7 +1127,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-large",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "88",
@@ -1042,7 +1172,12 @@
       ],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-large",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "89",
@@ -1051,7 +1186,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-large",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "90",
@@ -1060,7 +1200,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-large",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "91",
@@ -1069,7 +1214,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-large",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "92",
@@ -1745,7 +1895,15 @@
       "description": "水属性キャラのクリティカル確率上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/water-ssr-magna-levian-spear.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/water-ssr-magna-levian-spear.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-large",
+        "elementCode": "2",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "306",
@@ -1824,7 +1982,12 @@
       ],
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoの攻刃・クリティカル表示(2026-09-09)とgbf.wikiのSLv15効果量をクロスチェック 武器詳細レスポンスで名称・効果文を再確認（2026-09-13）。",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "323",
@@ -1834,13 +1997,15 @@
         "tableId": "normal-medium",
         "elementCode": "2"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "324",
@@ -1850,13 +2015,15 @@
         "tableId": "normal-medium",
         "elementCode": "3"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "325",
@@ -1866,13 +2033,15 @@
         "tableId": "normal-medium",
         "elementCode": "4"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "326",
@@ -1882,13 +2051,15 @@
         "tableId": "normal-medium",
         "elementCode": "5"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "327",
@@ -1898,13 +2069,15 @@
         "tableId": "normal-medium",
         "elementCode": "6"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "335",
@@ -2026,7 +2199,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      },
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "370",
@@ -2035,7 +2218,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      },
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "371",
@@ -2044,7 +2237,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      },
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "373",
@@ -2053,7 +2256,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      },
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "375",
@@ -2237,7 +2450,17 @@
       ],
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoのDA表示と通常スキル強化合計から確認 武器詳細レスポンスで名称・効果文を再確認（2026-09-13）。",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "399",
@@ -2246,7 +2469,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "400",
@@ -2255,7 +2488,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "401",
@@ -2264,7 +2507,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "414",
@@ -2643,7 +2896,17 @@
       ],
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoのDA/TA表示と通常スキル強化合計から確認",
-      "confirmedAt": "2026-09-07"
+      "confirmedAt": "2026-09-07",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "511",
@@ -2652,7 +2915,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "512",
@@ -2661,7 +2934,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "513",
@@ -2670,7 +2953,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "514",
@@ -2679,7 +2972,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "518",
@@ -3025,7 +3328,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "633",
@@ -3034,7 +3347,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "635",
@@ -3043,7 +3366,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "636",
@@ -3052,7 +3385,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "637",
@@ -3061,7 +3404,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "638",
@@ -3385,13 +3738,15 @@
         "tableId": "normal-medium",
         "elementCode": "1"
       },
-      "unsupportedEffects": [
-        "ダブルアタック確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "772",
@@ -3401,13 +3756,15 @@
         "tableId": "normal-medium",
         "elementCode": "2"
       },
-      "unsupportedEffects": [
-        "ダブルアタック確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "773",
@@ -3417,13 +3774,15 @@
         "tableId": "normal-medium",
         "elementCode": "3"
       },
-      "unsupportedEffects": [
-        "ダブルアタック確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "774",
@@ -3433,13 +3792,15 @@
         "tableId": "normal-medium",
         "elementCode": "4"
       },
-      "unsupportedEffects": [
-        "ダブルアタック確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "775",
@@ -3449,13 +3810,15 @@
         "tableId": "normal-medium",
         "elementCode": "5"
       },
-      "unsupportedEffects": [
-        "ダブルアタック確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "776",
@@ -3465,13 +3828,15 @@
         "tableId": "normal-medium",
         "elementCode": "6"
       },
-      "unsupportedEffects": [
-        "ダブルアタック確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "777",
@@ -3677,7 +4042,12 @@
       ],
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoでイフリートハルベルト単体編成とオーバーライド同時編成を比較",
-      "confirmedAt": "2026-09-05"
+      "confirmedAt": "2026-09-05",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "846",
@@ -3687,13 +4057,15 @@
         "tableId": "normal-small",
         "elementCode": "2"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "847",
@@ -3703,13 +4075,15 @@
         "tableId": "normal-small",
         "elementCode": "3"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "848",
@@ -3719,13 +4093,15 @@
         "tableId": "normal-small",
         "elementCode": "4"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "849",
@@ -3735,13 +4111,15 @@
         "tableId": "normal-small",
         "elementCode": "5"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "850",
@@ -3751,13 +4129,15 @@
         "tableId": "normal-small",
         "elementCode": "6"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "859",
@@ -3776,13 +4156,15 @@
         "tableId": "normal-small",
         "elementCode": "1"
       },
-      "unsupportedEffects": [
-        "トリプルアタック確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-small",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "869",
@@ -3792,13 +4174,15 @@
         "tableId": "normal-small",
         "elementCode": "3"
       },
-      "unsupportedEffects": [
-        "トリプルアタック確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-small",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "870",
@@ -3808,13 +4192,15 @@
         "tableId": "normal-small",
         "elementCode": "4"
       },
-      "unsupportedEffects": [
-        "トリプルアタック確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-small",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "871",
@@ -3824,13 +4210,15 @@
         "tableId": "normal-small",
         "elementCode": "5"
       },
-      "unsupportedEffects": [
-        "トリプルアタック確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-small",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "872",
@@ -3840,13 +4228,15 @@
         "tableId": "normal-small",
         "elementCode": "6"
       },
-      "unsupportedEffects": [
-        "トリプルアタック確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-small",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "913",
@@ -3942,7 +4332,15 @@
       "description": "火属性キャラの攻撃力上昇(中)/ダブルアタック確率上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/fire-ssr-regalia-brahman-scimitar.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/fire-ssr-regalia-brahman-scimitar.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "1",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "929",
@@ -3966,7 +4364,15 @@
       "description": "水属性キャラの攻撃力上昇(中)/トリプルアタック確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/water-ssr-regalia-tyros-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/water-ssr-regalia-tyros-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-small",
+        "elementCode": "2",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "932",
@@ -3991,7 +4397,15 @@
       "description": "土属性キャラのクリティカル確率上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/earth-ssr-regalia-nibelung-horn.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/earth-ssr-regalia-nibelung-horn.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-large",
+        "elementCode": "3",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "935",
@@ -4007,7 +4421,15 @@
       "description": "風属性キャラの最大HP上昇(中)/ダブルアタック確率上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/wind-ssr-regalia-last-storm-blade.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/wind-ssr-regalia-last-storm-blade.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "4",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "937",
@@ -4031,7 +4453,15 @@
       "description": "風属性キャラのクリティカル確率上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/wind-ssr-regalia-last-storm-harp.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/wind-ssr-regalia-last-storm-harp.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-large",
+        "elementCode": "4",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "940",
@@ -4055,7 +4485,15 @@
       "description": "光属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-regalia-mithra-sword.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/light-ssr-regalia-mithra-sword.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "5",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "943",
@@ -4079,7 +4517,15 @@
       "description": "光属性キャラが稀に回避カウンター(ダメージ中)/クリティカル確率上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-regalia-mithra-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/light-ssr-regalia-mithra-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "5",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "946",
@@ -4095,7 +4541,20 @@
       "description": "闇属性キャラのダブルアタック確率上昇(中)/クリティカル確率上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-regalia-abyss-rook.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/dark-ssr-regalia-abyss-rook.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "6",
+        "boostGroup": "magna"
+      },
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "6",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "948",
@@ -4217,13 +4676,15 @@
         "tableId": "normal-aegis-small",
         "elementCode": "1"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1037",
@@ -4233,13 +4694,15 @@
         "tableId": "normal-aegis-small",
         "elementCode": "3"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（小）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1053",
@@ -4392,7 +4855,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      },
+      "doubleAttackRateAmountTable": {
+        "tableId": "double-attack-small",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1104",
@@ -4401,7 +4874,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      },
+      "doubleAttackRateAmountTable": {
+        "tableId": "double-attack-small",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1114",
@@ -4662,7 +5145,15 @@
       "description": "土属性キャラの連続攻撃確率上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/earth-ssr-regalia-gokushinken.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/earth-ssr-regalia-gokushinken.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "3",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "1228",
@@ -4855,7 +5346,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1263",
@@ -4864,7 +5365,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1264",
@@ -4873,7 +5384,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1265",
@@ -4882,7 +5403,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1275",
@@ -5149,7 +5680,12 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-ii",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1417",
@@ -5159,13 +5695,15 @@
         "tableId": "normal-large",
         "elementCode": "2"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（大）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-large",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1422",
@@ -5175,13 +5713,15 @@
         "tableId": "normal-ii",
         "elementCode": "1"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（大）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、攻刃量は攻略サイト表由来",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-ii",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1426",
@@ -5191,13 +5731,15 @@
         "tableId": "normal-ii",
         "elementCode": "5"
       },
-      "unsupportedEffects": [
-        "クリティカル確率上昇（大）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-ii",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1429",
@@ -5425,7 +5967,12 @@
       ],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-medium",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1507",
@@ -5435,13 +5982,15 @@
         "tableId": "normal-medium",
         "elementCode": "2"
       },
-      "unsupportedEffects": [
-        "トリプルアタック確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-medium",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1508",
@@ -5451,13 +6000,15 @@
         "tableId": "normal-medium",
         "elementCode": "3"
       },
-      "unsupportedEffects": [
-        "トリプルアタック確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-medium",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1509",
@@ -5467,13 +6018,15 @@
         "tableId": "normal-medium",
         "elementCode": "4"
       },
-      "unsupportedEffects": [
-        "トリプルアタック確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-medium",
+        "elementCode": "4",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1510",
@@ -5483,13 +6036,15 @@
         "tableId": "normal-medium",
         "elementCode": "5"
       },
-      "unsupportedEffects": [
-        "トリプルアタック確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-medium",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1511",
@@ -5499,13 +6054,15 @@
         "tableId": "normal-medium",
         "elementCode": "6"
       },
-      "unsupportedEffects": [
-        "トリプルアタック確率上昇（中）"
-      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-medium",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "1526",
@@ -5699,7 +6256,15 @@
       "description": "水属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/water-ssr-regalia-spirit-of-mana.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/water-ssr-regalia-spirit-of-mana.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "2",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "1572",
@@ -5723,7 +6288,20 @@
       "description": "風属性キャラのダブルアタック確率上昇(中)/クリティカル確率上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/wind-ssr-regalia-kiragosensen.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/wind-ssr-regalia-kiragosensen.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "4",
+        "boostGroup": "magna"
+      },
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "4",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "1575",
@@ -5731,7 +6309,15 @@
       "description": "光属性キャラのクリティカル確率上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-regalia-pillar-of-flame.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/light-ssr-regalia-pillar-of-flame.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-large",
+        "elementCode": "5",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "1586",
@@ -7107,7 +7693,15 @@
       "description": "光属性キャラの攻撃力上昇(大)/トリプルアタック確率上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-magna-reverse-chevalier-saber-credo.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/light-ssr-magna-reverse-chevalier-saber-credo.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-large",
+        "elementCode": "5",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "2315",
@@ -7115,7 +7709,20 @@
       "description": "光属性キャラの連続攻撃確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-magna-reverse-chevalier-saber-credo.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/light-ssr-magna-reverse-chevalier-saber-credo.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "5",
+        "boostGroup": "magna"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "5",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "2321",
@@ -7229,7 +7836,15 @@
       "description": "闇属性キャラのクリティカル確率上昇(中)/回復上限上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-magna-reverse-celeste-dagger-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/dark-ssr-magna-reverse-celeste-dagger-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "6",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "2409",
@@ -7237,7 +7852,15 @@
       "description": "闇属性キャラのクリティカル確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-magna-reverse-celeste-saber-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/dark-ssr-magna-reverse-celeste-saber-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "6",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "2430",
@@ -7245,7 +7868,20 @@
       "description": "水属性キャラのトリプルアタック確率上昇(小)/クリティカル確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/water-ssr-magna-reverse-levian-head-mare.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/water-ssr-magna-reverse-levian-head-mare.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "2",
+        "boostGroup": "magna"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "2",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "2436",
@@ -7253,7 +7889,15 @@
       "description": "水属性キャラの最大HP上昇(中)/トリプルアタック確率上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/water-ssr-magna-reverse-levian-blade-mare.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/water-ssr-magna-reverse-levian-blade-mare.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "2",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "2444",
@@ -7269,7 +7913,15 @@
       "description": "土属性キャラのトリプルアタック確率上昇(中)/回復上限上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-string-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-string-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "3",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "2461",
@@ -7277,7 +7929,20 @@
       "description": "土属性キャラのダブルアタック確率上昇(小)/クリティカル確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-trunk-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-trunk-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "方陣スキル加護"
+      ],
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "3",
+        "boostGroup": "magna"
+      },
+      "doubleAttackRateAmountTable": {
+        "tableId": "multiattack-medium",
+        "elementCode": "3",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "2465",
@@ -7331,7 +7996,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "1",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "2481",
@@ -7340,7 +8015,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "2484",
@@ -7349,7 +8034,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "5",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "2485",
@@ -7358,7 +8053,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-small",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      },
+      "tripleAttackRateAmountTable": {
+        "tableId": "multiattack-small",
+        "elementCode": "6",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "2503",
@@ -7439,13 +8144,17 @@
       "description": "土属性キャラの攻撃力上昇(中)/クリティカル確率上昇(中)/防御力-10%",
       "unsupportedEffects": [
         "攻撃力上昇（中）のSLv曲線",
-        "クリティカル確率上昇（中）",
         "防御力-10%"
       ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "criticalRateAmountTable": {
+        "tableId": "critical-medium",
+        "elementCode": "3",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "2578",
@@ -7666,13 +8375,17 @@
       "name": "霧氷の乱舞",
       "description": "水属性キャラの攻撃力上昇(大)/トリプルアタック確率上昇(大)",
       "unsupportedEffects": [
-        "攻撃力上昇（大）のSLv曲線",
-        "トリプルアタック確率上昇（大）"
+        "攻撃力上昇（大）のSLv曲線"
       ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "tripleAttackRateAmountTable": {
+        "tableId": "fandango-large",
+        "elementCode": "2",
+        "boostGroup": "normal"
+      }
     },
     {
       "skillId": "2949",
