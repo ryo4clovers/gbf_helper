@@ -1,7 +1,7 @@
 # ダメージ計算式
 
 > ステータス: 下書き
-> 最終更新: 2026-09-06
+> 最終更新: 2026-09-14
 > 出典: ゲーム内HELP(実機、`draft/ゲーム内HELP/キャラクター・編成.json`・`draft/ゲーム内HELP/バトル.json`、ユーザー提供、2026-09-06)の該当トピック(キャラクター・編成.json id=1「攻撃力」、id=26「予測ダメージ」、バトル.json id=18「ダメージログ」、id=61「複数回ヒットする通常攻撃について」)。数式候補は日本語Wiki「システム仕様関連」、英語Wiki「Detailed Damage Formula」、GBFTUの実装を参照(いずれも非公式・未検証、2026-09-05参照)。
 
 ## 概要
@@ -90,6 +90,7 @@
 - [protagonist-base-stats.md](./protagonist-base-stats.md) — 主人公のRank別基礎ステータスと、外部ソースによる攻撃力/HP計算式
 - [elements.md](./elements.md) — 属性有利不利によるダメージ増減
 - [damage-cap-modifiers.md](./damage-cap-modifiers.md) — ダメージ上限に関わる効果
+- [damage-attenuation.md](./damage-attenuation.md) — ダメージ種別ごとの多段階減衰ラインと通過率
 - [charge-attack-chain-burst.md](./charge-attack-chain-burst.md) — 奥義・チェインバーストのダメージ
 - [team-building-basics.md](./team-building-basics.md) — 武器・召喚石構成の基本
 

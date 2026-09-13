@@ -15,6 +15,7 @@
 | --- | --- | --- |
 | [elements.md](./elements.md) | 属性システム(火/水/土/風/光/闇、有利不利) | 下書き |
 | [damage-calculation.md](./damage-calculation.md) | ダメージ計算式 | 下書き |
+| [damage-attenuation.md](./damage-attenuation.md) | 通常攻撃・奥義・チェインバースト・アビリティの多段階減衰 | 下書き |
 | [charge-attack-chain-burst.md](./charge-attack-chain-burst.md) | 奥義ゲージ・チェインバースト | 下書き |
 | [abilities.md](./abilities.md) | アビリティ・EXアビリティ・奥義効果 | 下書き |
 | [job-master-level-kyokuchi.md](./job-master-level-kyokuchi.md) | ジョブのマスターレベル・極致の証(Class.IV/EX II限定の追加強化) | 下書き |
