@@ -53,7 +53,7 @@ test("marks fractional HP rounding as unresolved", () => {
   assert.deepEqual(result?.issues, ["fractional-rounding-unresolved"]);
 });
 
-test("applies boosted normal HP weapon skills before character HP summon auras", () => {
+test("adds boosted weapon and summon HP percentages in one stage", () => {
   const input = deck(20);
   input.protagonist.hp = 1000;
   input.effectiveWeaponSkillEffects = [{
@@ -74,7 +74,7 @@ test("applies boosted normal HP weapon skills before character HP summon auras",
 
   assert.equal(result?.weaponSkillHpPercent, 33.75);
   assert.equal(result?.summonAuraPercent, 20);
-  assert.equal(result?.hp, 1605);
+  assert.equal(result?.hp, 1538);
   assert.equal(result?.appliedWeaponSkillEffects.length, 1);
   assert.deepEqual(result?.issues, [
     "fractional-rounding-unresolved",

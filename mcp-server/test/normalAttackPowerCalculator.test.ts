@@ -106,6 +106,59 @@ test("applies a resolved elemental main-summon aura as a separate multiplier", (
   assert.equal(result.summonAuraAdjustedAttack, 1500);
 });
 
+test("applies character attack and elemental attack sub auras in separate frames", () => {
+  const deck = {
+    schemaVersion: 1,
+    protagonist: { attack: 1000, elementCode: "1" },
+    characters: [],
+    weapons: [],
+    summons: [
+      {
+        slot: 2,
+        position: "grid",
+        masterId: "colossus",
+        aura: {
+          name: "コロッサス・マグナの加護",
+          description: "火属性キャラの攻撃力が10%UP",
+          effects: [{
+            kind: "character-attack-up",
+            elementCode: "1",
+            amountPercent: 10,
+            activation: "sub-only",
+            description: "火属性キャラの攻撃力が10%UP",
+          }],
+          verificationStatus: "検証済み",
+          source: "test",
+        },
+      },
+      {
+        slot: 3,
+        position: "grid",
+        masterId: "agni",
+        aura: {
+          name: "アグニスの加護",
+          description: "火属性攻撃力が20%UP",
+          effects: [{
+            kind: "elemental-attack-up",
+            elementCode: "1",
+            amountPercent: 20,
+            activation: "sub-only",
+            description: "火属性攻撃力が20%UP",
+          }],
+          verificationStatus: "検証済み",
+          source: "test",
+        },
+      },
+    ],
+  } satisfies DeckSnapshot;
+
+  const result = calculateNormalAttackPower(deck);
+  assert.equal(result.characterAttackSummonAuraMultiplier, 1.1);
+  assert.equal(result.characterAttackSummonAuraAdjustedAttack, 1100);
+  assert.equal(result.summonAuraMultiplier, 1.2);
+  assert.equal(result.summonAuraAdjustedAttack, 1320);
+});
+
 test("does not apply a dark support aura to a fire protagonist", () => {
   const deck = {
     schemaVersion: 1,

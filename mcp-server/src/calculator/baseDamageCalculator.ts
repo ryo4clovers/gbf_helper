@@ -210,7 +210,9 @@ export function calculateDefenseAdjustedBaseDamage(
       (aura): DamageModifier => ({
         stage: "elemental-attack",
         amountPercent: aura.amountPercent,
-        sourceType: aura.sourcePosition === "main" ? "main-summon" : "support-summon",
+        sourceType: aura.sourcePosition === "main"
+          ? "main-summon"
+          : aura.sourcePosition === "sub" ? "sub-summon" : "support-summon",
         sourceId: aura.sourceSummonId,
         sourceName: aura.sourceSummonName ?? aura.auraName,
         elementCode: aura.elementCode,
@@ -229,6 +231,18 @@ export function calculateDefenseAdjustedBaseDamage(
       verificationStatus: "下書き",
     });
   }
+  const characterAttackSummonAuraContributions = attackPower.characterAttackSummonAuraContributions ?? [];
+  const characterAttackContributions: DamageModifier[] = characterAttackSummonAuraContributions.map(
+    (aura): DamageModifier => ({
+      stage: "character-attack",
+      amountPercent: aura.amountPercent,
+      sourceType: aura.sourcePosition === "main" ? "main-summon" : "sub-summon",
+      sourceId: aura.sourceSummonId,
+      sourceName: aura.sourceSummonName ?? aura.auraName,
+      elementCode: aura.elementCode,
+      verificationStatus: aura.verificationStatus,
+    }),
+  );
 
   const stageDefinitions: Array<{
     stage: BaseDamageStage;
@@ -257,6 +271,13 @@ export function calculateDefenseAdjustedBaseDamage(
       contributions: attackPower.contributions,
       totalPercentOverride: attackPower.totalEffectiveNormalAttackPercent,
     },
+    ...(characterAttackContributions.length === 0
+      ? []
+      : [{
+          stage: "character-attack" as const,
+          contributions: characterAttackContributions,
+          totalPercentOverride: attackPower.totalCharacterAttackSummonAuraPercent ?? 0,
+        }]),
     ...(hpDependentAttack === undefined || hpDependentAttack.staminaContributions.length === 0
       ? []
       : [{

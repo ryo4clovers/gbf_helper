@@ -157,12 +157,27 @@ export function calculateArticleBaseDamage(
   } = crewSteps;
 
   const weaponSkillRaw = crewAdjustedAttack * (1 + attackPower.totalEffectiveNormalAttackPercent / 100);
+  const characterAttackSummonAuraContributions = attackPower.characterAttackSummonAuraContributions ?? [];
+  const characterAttackPercent = attackPower.totalCharacterAttackSummonAuraPercent ?? 0;
+  const characterAttackContributions: DamageModifier[] = characterAttackSummonAuraContributions.map(
+    (aura): DamageModifier => ({
+      stage: "character-attack",
+      amountPercent: aura.amountPercent,
+      sourceType: aura.sourcePosition === "main" ? "main-summon" : "sub-summon",
+      sourceId: aura.sourceSummonId,
+      sourceName: aura.sourceSummonName ?? aura.auraName,
+      elementCode: aura.elementCode,
+      verificationStatus: aura.verificationStatus,
+    }),
+  );
   const elementalContributions: DamageModifier[] = [
     ...attackPower.elementalSummonAuraContributions.map(
       (aura): DamageModifier => ({
         stage: "elemental-attack",
         amountPercent: aura.amountPercent,
-        sourceType: aura.sourcePosition === "main" ? "main-summon" : "support-summon",
+        sourceType: aura.sourcePosition === "main"
+          ? "main-summon"
+          : aura.sourcePosition === "sub" ? "sub-summon" : "support-summon",
         sourceId: aura.sourceSummonId,
         sourceName: aura.sourceSummonName ?? aura.auraName,
         elementCode: aura.elementCode,
@@ -186,7 +201,8 @@ export function calculateArticleBaseDamage(
     (sum, contribution) => sum + contribution.amountPercent,
     0,
   );
-  const staminaRaw = weaponSkillRaw * (hpDependentAttack?.normalStaminaMultiplier ?? 1);
+  const characterAttackRaw = weaponSkillRaw * (1 + characterAttackPercent / 100);
+  const staminaRaw = characterAttackRaw * (hpDependentAttack?.normalStaminaMultiplier ?? 1);
   const magnaStaminaRaw = staminaRaw * (hpDependentAttack?.magnaStaminaMultiplier ?? 1);
   const enmityRaw = magnaStaminaRaw * (hpDependentAttack?.normalEnmityMultiplier ?? 1);
   const elementalRaw = enmityRaw * (1 + elementalPercent / 100);
@@ -240,11 +256,22 @@ export function calculateArticleBaseDamage(
       "none",
       attackPower.contributions,
     ),
+    ...(characterAttackContributions.length === 0
+      ? []
+      : [stage(
+          "character-attack",
+          weaponSkillRaw,
+          characterAttackPercent,
+          characterAttackRaw,
+          characterAttackRaw,
+          "none",
+          characterAttackContributions,
+        )]),
     ...(hpDependentAttack === undefined || hpDependentAttack.staminaContributions.length === 0
       ? []
       : [stage(
           "normal-stamina",
-          weaponSkillRaw,
+          characterAttackRaw,
           hpDependentAttack.totalEffectiveNormalStaminaPercent,
           staminaRaw,
           staminaRaw,

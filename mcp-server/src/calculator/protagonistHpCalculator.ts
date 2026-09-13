@@ -41,13 +41,13 @@ export function calculateProtagonistHp(deck: DeckSnapshot): ProtagonistHpResult 
   const summonAuraPercent = roundPercentage(
     appliedAuras.reduce((sum, aura) => sum + aura.amountPercent, 0),
   );
-  const weaponSkillAdjustedHpRaw = baseHp * (1 + weaponSkillHpPercent / 100);
-  // Two weapon-skill observations with fractional results both match ceil. Character-HP
-  // summon auras retain their separately observed floor at the following stage.
-  const weaponSkillAdjustedHp = appliedWeaponSkillEffects.length === 0
-    ? baseHp
-    : Math.ceil(weaponSkillAdjustedHpRaw);
-  const unroundedHp = weaponSkillAdjustedHp * (1 + summonAuraPercent / 100);
+  const unroundedHp = baseHp * (1 + (weaponSkillHpPercent + summonAuraPercent) / 100);
+  // Weapon HP skills and percentage summon HP auras share one additive stage in the
+  // observed mixed setup. A weapon-skill fractional result rounds up; summon-only
+  // observations retain their separately verified floor.
+  const percentageAdjustedHp = appliedWeaponSkillEffects.length === 0
+    ? Math.floor(unroundedHp)
+    : Math.ceil(unroundedHp);
   const hasFraction = !Number.isInteger(unroundedHp);
   const summonAuraFlatHp = appliedFlatAuras.reduce((sum, aura) => sum + aura.amount, 0);
   const issues: ProtagonistHpResult["issues"] = [];
@@ -60,7 +60,7 @@ export function calculateProtagonistHp(deck: DeckSnapshot): ProtagonistHpResult 
     baseHp,
     weaponSkillHpPercent,
     summonAuraPercent,
-    hp: Math.floor(unroundedHp) + summonAuraFlatHp,
+    hp: percentageAdjustedHp + summonAuraFlatHp,
     appliedWeaponSkillEffects,
     appliedAuras,
     ...(summonAuraFlatHp === 0 ? {} : { summonAuraFlatHp, appliedFlatAuras }),

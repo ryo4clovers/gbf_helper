@@ -107,6 +107,7 @@ export interface WeaponSkillCatalogEntry {
 export type SummonAuraEffectKind =
   | "elemental-attack-up"
   | "normal-skill-boost"
+  | "character-attack-up"
   | "character-hp-up"
   | "character-hp-flat"
   | "utility";
@@ -126,6 +127,13 @@ export type SummonAuraEffectDefinition =
       /** Defaults to normal for backward compatibility with existing primal auras. */
       boostGroup?: "normal" | "magna";
       targetSkillNamePrefixes: string[];
+      activation: "always" | "main-only" | "sub-only";
+      description: string;
+    }
+  | {
+      kind: "character-attack-up";
+      elementCode: string;
+      amountPercent: number;
       activation: "always" | "main-only" | "sub-only";
       description: string;
     }
@@ -264,6 +272,7 @@ export interface DeckAwakening {
 
 export type DamageModifierStage =
   | "elemental-attack"
+  | "character-attack"
   | "crew-ship"
   | "crew-furnace"
   | "normal-attack-damage"
@@ -280,6 +289,7 @@ export interface DamageModifier {
     | "account-item"
     | "job-master-bonus"
     | "main-summon"
+    | "sub-summon"
     | "support-summon"
     | "user-input"
     | "formula";

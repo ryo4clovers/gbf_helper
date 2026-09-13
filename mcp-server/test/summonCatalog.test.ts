@@ -143,6 +143,7 @@ test("loads the verified Agni main aura", () => {
       ["normal-skill-boost", 170],
       ["elemental-attack-up", 30],
       ["character-hp-up", 20],
+      ["elemental-attack-up", 20],
     ],
   );
   assert.equal(summon?.verificationStatus, "検証済み");
@@ -162,6 +163,16 @@ test("loads the verified Colossus Magna boost for magna weapon skills", () => {
     description: "スキル「機炎方陣」の効果が170%UP",
   });
   assert.equal(summon?.verificationStatus, "検証済み");
+  assert.deepEqual(
+    summon?.auraEffects.find((effect) => effect.kind === "character-attack-up"),
+    {
+      kind: "character-attack-up",
+      elementCode: "1",
+      amountPercent: 10,
+      activation: "sub-only",
+      description: "サブ装備時、火属性キャラの攻撃力が10%UP",
+    },
+  );
   assert.deepEqual(summon?.selectionDefaults, {
     level: 250,
     uncapLevel: 6,

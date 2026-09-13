@@ -24,9 +24,20 @@ export interface ElementalSummonAuraContribution {
   sourceSummonSlot: number;
   sourceSummonId: string;
   sourceSummonName?: string;
-  sourcePosition: "main" | "support";
+  sourcePosition: "main" | "sub" | "support";
   auraName: string;
   elementCode?: string;
+  amountPercent: number;
+  verificationStatus: "検証済み" | "下書き";
+}
+
+export interface CharacterAttackSummonAuraContribution {
+  sourceSummonSlot: number;
+  sourceSummonId: string;
+  sourceSummonName?: string;
+  sourcePosition: "main" | "sub";
+  auraName: string;
+  elementCode: string;
   amountPercent: number;
   verificationStatus: "検証済み" | "下書き";
 }
@@ -40,6 +51,10 @@ export interface NormalAttackPowerResult {
   totalEffectiveNormalAttackPercent: number;
   normalAttackSkillMultiplier: number;
   normalSkillAdjustedAttack: number;
+  characterAttackSummonAuraContributions: CharacterAttackSummonAuraContribution[];
+  totalCharacterAttackSummonAuraPercent: number;
+  characterAttackSummonAuraMultiplier: number;
+  characterAttackSummonAuraAdjustedAttack: number;
   elementalSummonAuraContributions: ElementalSummonAuraContribution[];
   totalElementalSummonAuraPercent: number;
   summonAuraMultiplier: number;
@@ -71,12 +86,49 @@ export function calculateNormalAttackPower(
   );
   const normalAttackSkillMultiplier = roundCalculation(1 + totalEffectiveNormalAttackPercent / 100);
   const normalSkillAdjustedAttack = roundCalculation(baseAttack * normalAttackSkillMultiplier);
+  const characterAttackSummonAuraContributions = deck.summons.flatMap((summon) => {
+    if (summon.aura === undefined) return [];
+    const aura = summon.aura;
+    return aura.effects.flatMap((effect): CharacterAttackSummonAuraContribution[] => {
+      if (effect.kind !== "character-attack-up") return [];
+      const appliesFromPosition = summon.position === "main"
+        ? effect.activation !== "sub-only"
+        : effect.activation === "sub-only";
+      if (
+        !appliesFromPosition ||
+        (elementCode !== undefined && effect.elementCode !== "0" && effect.elementCode !== elementCode)
+      ) return [];
+      return [{
+        sourceSummonSlot: summon.slot,
+        sourceSummonId: summon.masterId,
+        sourceSummonName: summon.name,
+        sourcePosition: summon.position === "main" ? "main" : "sub",
+        auraName: aura.name,
+        elementCode: effect.elementCode,
+        amountPercent: effect.amountPercent,
+        verificationStatus: aura.verificationStatus,
+      }];
+    });
+  });
+  const totalCharacterAttackSummonAuraPercent = roundCalculation(
+    characterAttackSummonAuraContributions.reduce((sum, aura) => sum + aura.amountPercent, 0),
+  );
+  const characterAttackSummonAuraMultiplier = roundCalculation(
+    1 + totalCharacterAttackSummonAuraPercent / 100,
+  );
+  const characterAttackSummonAuraAdjustedAttack = roundCalculation(
+    normalSkillAdjustedAttack * characterAttackSummonAuraMultiplier,
+  );
   const elementalSummonAuraContributions = deck.summons.flatMap((summon) => {
-    if (summon.position !== "main" || summon.aura === undefined) return [];
+    if (summon.aura === undefined) return [];
     const aura = summon.aura;
     return aura.effects.flatMap((effect): ElementalSummonAuraContribution[] => {
+      if (effect.kind !== "elemental-attack-up") return [];
+      const appliesFromPosition = summon.position === "main"
+        ? effect.activation !== "sub-only"
+        : effect.activation === "sub-only";
       if (
-        effect.kind !== "elemental-attack-up" ||
+        !appliesFromPosition ||
         (elementCode !== undefined && effect.elementCode !== "0" && effect.elementCode !== elementCode)
       ) {
         return [];
@@ -86,7 +138,7 @@ export function calculateNormalAttackPower(
           sourceSummonSlot: summon.slot,
           sourceSummonId: summon.masterId,
           sourceSummonName: summon.name,
-          sourcePosition: "main",
+          sourcePosition: summon.position === "main" ? "main" : "sub",
           auraName: aura.name,
           elementCode: effect.elementCode,
           amountPercent: effect.amountPercent,
@@ -125,7 +177,7 @@ export function calculateNormalAttackPower(
     elementalSummonAuraContributions.reduce((sum, aura) => sum + aura.amountPercent, 0),
   );
   const summonAuraMultiplier = roundCalculation(1 + totalElementalSummonAuraPercent / 100);
-  const summonAuraAdjustedAttack = roundCalculation(normalSkillAdjustedAttack * summonAuraMultiplier);
+  const summonAuraAdjustedAttack = roundCalculation(characterAttackSummonAuraAdjustedAttack * summonAuraMultiplier);
   const issues: NormalAttackPowerIssue[] = [];
   if (contributions.some((effect) => effect.verificationStatus !== "検証済み")) {
     issues.push({
@@ -139,6 +191,12 @@ export function calculateNormalAttackPower(
       message: "Elemental attack calculation contains draft summon aura data.",
     });
   }
+  if (characterAttackSummonAuraContributions.some((aura) => aura.verificationStatus !== "検証済み")) {
+    issues.push({
+      code: "unverified-summon-aura",
+      message: "Character attack calculation contains draft summon aura data.",
+    });
+  }
   return {
     schemaVersion: 1,
     stage: "normal-weapon-skill-frame",
@@ -147,6 +205,10 @@ export function calculateNormalAttackPower(
     totalEffectiveNormalAttackPercent,
     normalAttackSkillMultiplier,
     normalSkillAdjustedAttack,
+    characterAttackSummonAuraContributions,
+    totalCharacterAttackSummonAuraPercent,
+    characterAttackSummonAuraMultiplier,
+    characterAttackSummonAuraAdjustedAttack,
     elementalSummonAuraContributions,
     totalElementalSummonAuraPercent,
     summonAuraMultiplier,

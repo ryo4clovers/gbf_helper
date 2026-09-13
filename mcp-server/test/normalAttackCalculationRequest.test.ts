@@ -391,6 +391,52 @@ test("applies Wedges of the Sky's elemental attack and flat HP main aura", () =>
   assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 7366);
 });
 
+test("applies Colossus Magna's attack sub aura without applying its magna boost", () => {
+  const normalInput = derivedNilakanthaRequest(false, "1");
+  normalInput.deckConfig.protagonist.attackOverride = 18940;
+  normalInput.deckConfig.protagonist.hpOverride = 4924;
+  normalInput.deckConfig.summons = [
+    { slot: 1, position: "main", summonId: "2040430000", level: 150, uncapLevel: 4 },
+    { slot: 2, position: "grid", summonId: "2040034000", level: 250, uncapLevel: 6 },
+  ];
+  const advantageInput = structuredClone(normalInput);
+  advantageInput.enemy.elementCode = "4";
+  advantageInput.modifiers.targetElementDamagePercent = 5;
+
+  const normal = calculateNormalAttackFromRequest(normalInput);
+  const advantage = calculateNormalAttackFromRequest(advantageInput);
+
+  assert.equal(normal.result.attackPower.totalCharacterAttackSummonAuraPercent, 10);
+  assert.equal(normal.result.hpDependentAttack.totalEffectiveMagnaStaminaPercent, 15.003247);
+  assert.equal(normal.result.protagonistHp?.hp, 30638);
+  assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, 7824);
+  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 9809);
+});
+
+test("combines Colossus attack and Agni elemental/HP sub auras", () => {
+  const normalInput = derivedNilakanthaRequest(false, "1");
+  normalInput.deckConfig.protagonist.attackOverride = 24094;
+  normalInput.deckConfig.protagonist.hpOverride = 6620;
+  normalInput.deckConfig.summons = [
+    { slot: 1, position: "main", summonId: "2040430000", level: 150, uncapLevel: 4 },
+    { slot: 2, position: "grid", summonId: "2040034000", level: 250, uncapLevel: 6 },
+    { slot: 3, position: "grid", summonId: "2040094000", level: 250, uncapLevel: 6 },
+  ];
+  const advantageInput = structuredClone(normalInput);
+  advantageInput.enemy.elementCode = "4";
+  advantageInput.modifiers.targetElementDamagePercent = 5;
+
+  const normal = calculateNormalAttackFromRequest(normalInput);
+  const advantage = calculateNormalAttackFromRequest(advantageInput);
+
+  assert.equal(normal.result.attackPower.totalCharacterAttackSummonAuraPercent, 10);
+  assert.equal(normal.result.attackPower.totalElementalSummonAuraPercent, 160);
+  assert.equal(normal.result.protagonistHp?.summonAuraPercent, 20);
+  assert.equal(normal.result.protagonistHp?.hp, 33904);
+  assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, 10739);
+  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 13302);
+});
+
 test("resolves protagonist DA and TA rates from the selected job", () => {
   const response = calculateNormalAttackFromRequest(agniRequest());
 

@@ -531,13 +531,20 @@
           "description": "スキル「機炎方陣」の効果が170%UP"
         },
         {
+          "kind": "character-attack-up",
+          "elementCode": "1",
+          "amountPercent": 10,
+          "activation": "sub-only",
+          "description": "サブ装備時、火属性キャラの攻撃力が10%UP"
+        },
+        {
           "kind": "utility",
-          "description": "サブ装備時、火属性キャラの攻防10%UP（攻防の計算段階は未対応）"
+          "description": "サブ装備時、火属性キャラの防御力が10%UP（防御計算は未対応）"
         }
       ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細・ニーラカンタ編成レスポンス（2026-09-14）。Lv250加護170%、方陣渾身40.51%、方陣守護39.15%を実機確認",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細・ニーラカンタ編成レスポンス（2026-09-14）。Lv250メイン加護170%と、サブ配置時の火属性キャラ攻撃10%を実機確認",
       "confirmedAt": "2026-09-14",
       "levelStats": {
         "maximumLevel": 250,
@@ -1093,11 +1100,18 @@
           "activation": "sub-only",
           "stackingGroup": "fire-character-hp",
           "description": "サブ装備時、火属性キャラのHPが20%UP"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "1",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "description": "サブ装備時、火属性キャラの火属性攻撃力が20%UP"
         }
       ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内deckレスポンスで主加護と、別編成比較でサブ加護HP20%・同系統非重複を確認",
+      "source": "ユーザー提供のゲーム内deckレスポンスで主加護と、別編成比較でサブ加護の火属性攻撃20%・HP20%・同系統HP非重複を確認",
       "confirmedAt": "2026-09-10",
       "levelStats": {
         "maximumLevel": 250,
