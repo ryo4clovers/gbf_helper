@@ -183,6 +183,26 @@
       "source": "knowledge/dark-ssr-menace-agonize.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "7",
+      "name": "火の守護",
+      "description": "火属性キャラの最大HP上昇(小)",
+      "normalHpAmountTable": { "tableId": "normal-aegis-small", "elementCode": "1" },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量は攻略サイト表由来",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "19",
+      "name": "業火の守護",
+      "description": "火属性キャラの最大HP上昇(中)",
+      "normalHpAmountTable": { "tableId": "normal-aegis-medium", "elementCode": "1" },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量は攻略サイト表由来",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "25",
       "name": "紅蓮の攻刃",
       "description": "火属性キャラの攻撃力上昇(大)",
@@ -583,6 +603,16 @@
       "source": "knowledge/dark-ssr-regalia-abyss-striker.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
     },
     {
+      "skillId": "208",
+      "name": "紅蓮の攻刃II",
+      "description": "火属性キャラの攻撃力上昇(大)",
+      "normalAttackAmountTable": { "tableId": "normal-ii", "elementCode": "1" },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量は攻略サイト表由来",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "322",
       "name": "業火の刹那",
       "description": "火属性キャラの攻撃力上昇(中)/クリティカル確率上昇(中)",
@@ -778,6 +808,16 @@
       "source": "knowledge/light-ssr-revans-simmetria-rebuild.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "494",
+      "name": "紅蓮の呪印・弐",
+      "description": "2番目に配置された火属性キャラの攻撃力上昇(大)/毎ターンダメージを受ける",
+      "unsupportedEffects": ["2番目に配置された火属性キャラの攻撃力上昇（大）", "毎ターンダメージ"],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、対象条件と効果量は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "502",
       "name": "紅蓮の渾身",
       "description": "火属性キャラのHPが多いほど攻撃力が上昇(大)",
@@ -828,6 +868,15 @@
       "confirmedAt": "2026-09-07"
     },
     {
+      "skillId": "601",
+      "name": "南朱の真髄",
+      "description": "火属性キャラのダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "626",
       "name": "紅蓮の攻刃III",
       "description": "火属性キャラの攻撃力上昇(特大)",
@@ -835,6 +884,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/fire-ssr-limited-benedia.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "632",
+      "name": "火の三手",
+      "description": "火属性キャラの連続攻撃確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "639",
@@ -862,6 +920,17 @@
       "source": "knowledge/omega-ssr-sword.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "764",
+      "name": "業火の神威",
+      "description": "火属性キャラの攻撃力と最大HPが上昇(中)",
+      "normalAttackAmountTable": { "tableId": "normal-godmight-medium", "elementCode": "1" },
+      "normalHpAmountTable": { "tableId": "normal-godmight-medium", "elementCode": "1" },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量は攻略サイト表由来",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "765",
       "name": "渦潮の神威",
       "description": "水属性キャラの攻撃力と最大HPが上昇(中)",
@@ -880,6 +949,28 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/dark-ssr-malice-majestas.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "770",
+      "name": "紅蓮の呪印",
+      "description": "火属性キャラの攻撃力上昇(大)/毎ターンダメージを受ける",
+      "normalAttackAmountTable": { "tableId": "normal-large", "elementCode": "1" },
+      "unsupportedEffects": ["毎ターンダメージ"],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、攻刃量は攻略サイト表由来",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "771",
+      "name": "業火の無双",
+      "description": "火属性キャラの攻撃力上昇(中)/ダブルアタック確率上昇(中)",
+      "normalAttackAmountTable": { "tableId": "normal-medium", "elementCode": "1" },
+      "unsupportedEffects": ["ダブルアタック確率上昇（中）"],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、攻刃量は攻略サイト表由来",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "772",
@@ -1355,6 +1446,15 @@
       "source": "knowledge/water-ssr-ennead-uraeus.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "1296",
+      "name": "火の渾身",
+      "description": "火属性キャラのHPが多いほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1316",
       "name": "アンバー・アーツ",
       "description": "土属性キャラのアビリティダメージ上限UP",
@@ -1393,6 +1493,17 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/dark-ssr-ennead-abydos.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1422",
+      "name": "紅蓮の刹那II",
+      "description": "火属性キャラの攻撃力上昇(大)/クリティカル確率上昇(大)",
+      "normalAttackAmountTable": { "tableId": "normal-ii", "elementCode": "1" },
+      "unsupportedEffects": ["クリティカル確率上昇（大）"],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、攻刃量は攻略サイト表由来",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1452",
@@ -1753,6 +1864,15 @@
       "source": "knowledge/light-ssr-malice-seyfert.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "1664",
+      "name": "紅蓮の極意",
+      "description": "火属性キャラの奥義の与ダメージ上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1684",
       "name": "焔の極意",
       "description": "火属性キャラの奥義の与ダメージ上昇",
@@ -2007,6 +2127,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/water-ssr-revans-schrodinger-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1913",
+      "name": "スカーレット・コンバージェンス",
+      "description": "同じ武器種の武器を4つ以上装備している時、火属性キャラの攻撃力/防御力/ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1947",
