@@ -43902,7 +43902,10 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "1646" },
+        { "sourceKey": "skill2", "skillId": "869" }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -43916,7 +43919,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
     },
     {
       "weaponId": "1040021000",
@@ -47322,7 +47325,11 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "2572" },
+        { "sourceKey": "skill2", "skillId": "2578" },
+        { "sourceKey": "skill3", "skillId": "2584" }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -47341,7 +47348,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
     },
     {
       "weaponId": "1040028600",
@@ -52198,7 +52205,10 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "1031" },
+        { "sourceKey": "skill2", "skillId": "1037" }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -52212,7 +52222,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
     },
     {
       "weaponId": "1040110700",
@@ -54905,7 +54915,10 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "1947" },
+        { "sourceKey": "skill2", "skillId": "376" }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -54919,7 +54932,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
     },
     {
       "weaponId": "1040116500",
@@ -60825,7 +60838,10 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "210" },
+        { "sourceKey": "skill2", "skillId": "779" }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -60839,7 +60855,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
     },
     {
       "weaponId": "1040208200",
@@ -69227,7 +69243,10 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "27" },
+        { "sourceKey": "skill2", "skillId": "120" }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -69241,7 +69260,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
     },
     {
       "weaponId": "1040305900",
@@ -72492,7 +72511,10 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "1201" },
+        { "sourceKey": "skill2", "skillId": "766" }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -72506,7 +72528,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
     },
     {
       "weaponId": "1040313000",
@@ -90003,7 +90025,10 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "337" },
+        { "sourceKey": "skill2", "skillId": "371" }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -90017,7 +90042,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
     },
     {
       "weaponId": "1040506200",
@@ -102536,7 +102561,11 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "324" },
+        { "sourceKey": "skill2", "skillId": "1316" },
+        { "sourceKey": "skill3", "skillId": "1658" }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -102555,7 +102584,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
     },
     {
       "weaponId": "1040616100",
@@ -113926,7 +113955,10 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "376" },
+        { "sourceKey": "skill2", "skillId": "384" }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -113940,7 +113972,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
     },
     {
       "weaponId": "1040803700",
@@ -125078,7 +125110,10 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        { "sourceKey": "skill1", "skillId": "628" },
+        { "sourceKey": "skill2", "skillId": "916" }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -125092,7 +125127,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
     },
     {
       "weaponId": "1040910100",
