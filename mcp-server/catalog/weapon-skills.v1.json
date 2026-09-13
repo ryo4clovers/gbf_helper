@@ -20,14 +20,147 @@
         {
           "kind": "normal-attack-up",
           "elementCode": "1",
+          "amountPercent": 2,
+          "skillLevel": 2,
+          "boostGroup": "normal",
+          "note": "グレネード単体の基礎2%へ通常スキル強化170%を適用し、表示5.4%となることを確認",
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供のゲーム内deck.damage_info",
+          "confirmedAt": "2026-09-13"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 3,
+          "skillLevel": 3,
+          "boostGroup": "normal",
+          "note": "グレネード単体の基礎3%へ通常スキル強化170%を適用し、表示8.1%となることを確認",
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供のゲーム内deck.damage_info",
+          "confirmedAt": "2026-09-13"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 4,
+          "skillLevel": 4,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 5,
+          "skillLevel": 5,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 6,
+          "skillLevel": 6,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 7,
+          "skillLevel": 7,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 8,
+          "skillLevel": 8,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 9,
+          "skillLevel": 9,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 10,
+          "skillLevel": 10,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 10.4,
+          "skillLevel": 11,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 10.8,
+          "skillLevel": 12,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 11.2,
+          "skillLevel": 13,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 11.6,
+          "skillLevel": 14,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
           "amountPercent": 12,
           "skillLevel": 15,
           "boostGroup": "normal",
-          "note": "既存攻刃30%へ加算し、通常スキル強化4.7倍で表示197%となる差分から確認"
+          "note": "既存攻刃30%へ加算し、通常スキル強化4.7倍で表示197%となる差分から確認",
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供のゲーム内deck.damage_info",
+          "confirmedAt": "2026-09-07"
+        },
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 13,
+          "skillLevel": 20,
+          "boostGroup": "normal",
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の通常攻刃SLv表画像（2026-09-13、出典未確認）"
         }
       ],
       "verificationStatus": "検証済み",
-      "source": "ゲーム内deck.damage_infoの攻刃表示からSLv1・15を確認",
+      "source": "ゲーム内deck.damage_infoの攻刃表示からSLv1〜3・15を確認。その他の登録SLvはユーザー提供画像由来",
       "confirmedAt": "2026-09-13"
     },
     {

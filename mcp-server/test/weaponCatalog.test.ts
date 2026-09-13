@@ -10,15 +10,23 @@ test("loads the initial incremental weapon and skill catalog", () => {
   assert.deepEqual(catalog.weapons.get("1020500200")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1" },
   ]);
+  const fireMightEffects = catalog.skills.get("1")?.effects
+    .filter((effect) => effect.kind === "normal-attack-up") ?? [];
   assert.deepEqual(
-    catalog.skills.get("1")?.effects
-      .filter((effect) => effect.kind === "normal-attack-up")
-      .map((effect) => [effect.skillLevel, effect.amountPercent, effect.verificationStatus]),
+    [1, 2, 3, 4, 15, 20].map((skillLevel) => {
+      const effect = fireMightEffects.find((candidate) => candidate.skillLevel === skillLevel);
+      return [skillLevel, effect?.amountPercent, effect?.verificationStatus];
+    }),
     [
       [1, 1, "検証済み"],
-      [15, 12, undefined],
+      [2, 2, "検証済み"],
+      [3, 3, "検証済み"],
+      [4, 4, "下書き"],
+      [15, 12, "検証済み"],
+      [20, 13, "下書き"],
     ],
   );
+  assert.equal(fireMightEffects.some((effect) => effect.skillLevel === 16), false);
   assert.deepEqual(catalog.weapons.get("1040201400")?.skillSlots, [
     { sourceKey: "skill1", skillId: "25" },
     { sourceKey: "skill2", skillId: "74" },
