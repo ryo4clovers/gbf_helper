@@ -25,6 +25,7 @@
 | [protagonist-base-stats.md](./protagonist-base-stats.md) | 主人公のRank別基礎HP/攻撃力とステータス計算式 | 下書き |
 | [equipment-level-stats.md](./equipment-level-stats.md) | 武器・召喚石のレベル別HP/攻撃力計算 | 下書き |
 | [weapon-normal-attack-skills.md](./weapon-normal-attack-skills.md) | 通常攻刃系武器スキルの攻撃力上昇量 | 下書き |
+| [weapon-skill-id-collection.md](./weapon-skill-id-collection.md) | 通常攻刃系weapon skill_idの属性別収集状況 | 下書き |
 | [weapon-critical-skills.md](./weapon-critical-skills.md) | 通常技巧系武器スキルのクリティカル率 | 下書き |
 | [weapon-master-id.md](./weapon-master-id.md) | 武器マスターIDのレアリティ・武器種・内部番号構造 | 下書き |
 | [summon-master-id.md](./summon-master-id.md) | 召喚石マスターIDのレアリティ・内部番号構造 | 下書き |
