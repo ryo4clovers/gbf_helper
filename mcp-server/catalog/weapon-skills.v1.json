@@ -165,6 +165,19 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "2",
+      "name": "水の攻刃",
+      "description": "水属性キャラの攻撃力上昇(小)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-small",
+        "elementCode": "2"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "3",
       "name": "土の攻刃",
       "description": "土属性キャラの攻撃力上昇(小)",
@@ -190,6 +203,19 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量は攻略サイト表由来",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "14",
+      "name": "渦潮の攻刃",
+      "description": "水属性キャラの攻撃力上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "2"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
     },
     {
@@ -220,6 +246,19 @@
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoの単体編成表示で確認",
       "confirmedAt": "2026-09-05"
+    },
+    {
+      "skillId": "32",
+      "name": "霧氷の守護",
+      "description": "水属性キャラの最大HP上昇(大)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-large",
+        "elementCode": "2"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "41",
@@ -378,6 +417,15 @@
       "confirmedAt": "2026-09-07"
     },
     {
+      "skillId": "81",
+      "name": "渦潮の技巧",
+      "description": "水属性キャラのクリティカル確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "88",
       "name": "地裂の技巧",
       "description": "土属性キャラのクリティカル確率上昇(大)",
@@ -515,6 +563,15 @@
       "confirmedAt": "2026-09-09"
     },
     {
+      "skillId": "119",
+      "name": "水の背水",
+      "description": "水属性キャラのHPが少ないほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "125",
       "name": "渦潮の背水",
       "description": "水属性キャラのHPが少ないほど攻撃力が上昇(中)",
@@ -539,6 +596,29 @@
       "source": "knowledge/wind-ssr-malice-hatsuoi-ilhal.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "208",
+      "name": "紅蓮の攻刃II",
+      "description": "火属性キャラの攻撃力上昇(大)",
+      "normalAttackAmountTable": { "tableId": "normal-ii", "elementCode": "1" },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量は攻略サイト表由来",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "209",
+      "name": "霧氷の攻刃II",
+      "description": "水属性キャラの攻撃力上昇(大)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-ii",
+        "elementCode": "2"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "235",
       "name": "先制の炎刃",
       "description": "バトル開始時から8ターンの間火属性キャラの攻撃力上昇",
@@ -561,6 +641,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/fire-ssr-menace-magma-stream.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "268",
+      "name": "霧氷の治癒",
+      "description": "水属性キャラの回復上限上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "277",
@@ -601,16 +690,6 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/dark-ssr-regalia-abyss-striker.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
-    },
-    {
-      "skillId": "208",
-      "name": "紅蓮の攻刃II",
-      "description": "火属性キャラの攻撃力上昇(大)",
-      "normalAttackAmountTable": { "tableId": "normal-ii", "elementCode": "1" },
-      "effects": [],
-      "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量は攻略サイト表由来",
-      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "322",
@@ -674,6 +753,22 @@
       "confirmedAt": "2026-09-07"
     },
     {
+      "skillId": "336",
+      "name": "霧氷の暴君",
+      "description": "水属性キャラの攻撃力上昇(大)/水属性キャラの最大HP-10%",
+      "normalAttackAmountTable": {
+        "tableId": "normal-large",
+        "elementCode": "2"
+      },
+      "unsupportedEffects": [
+        "水属性キャラの最大HP-10%"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "366",
       "name": "水の神威",
       "description": "水属性キャラの攻撃力と最大HPが上昇(小)",
@@ -690,6 +785,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/fire-ssr-limited-benedia.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "370",
+      "name": "渦潮の克己",
+      "description": "水属性キャラのダブルアタック確率上昇(中)/クリティカル確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "375",
@@ -766,6 +870,15 @@
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoのDA表示と通常スキル強化合計から確認",
       "confirmedAt": "2026-09-07"
+    },
+    {
+      "skillId": "415",
+      "name": "水の堅守",
+      "description": "水属性キャラのHPが少ないほど防御力上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "421",
@@ -886,12 +999,34 @@
       "source": "knowledge/fire-ssr-limited-benedia.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "627",
+      "name": "霧氷の攻刃III",
+      "description": "水属性キャラの攻撃力上昇(特大)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-iii",
+        "elementCode": "2"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "632",
       "name": "火の三手",
       "description": "火属性キャラの連続攻撃確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "633",
+      "name": "水の三手",
+      "description": "水属性キャラの連続攻撃確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
     },
     {
@@ -1023,6 +1158,15 @@
       "source": "knowledge/light-ssr-ennead-horakhty.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "783",
+      "name": "チェインフォース",
+      "description": "チェインバーストのダメージがUP/チェインバーストのダメージ上限がUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "845",
       "name": "火の刹那",
       "description": "火属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
@@ -1071,6 +1215,22 @@
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoでイフリートハルベルト単体編成とオーバーライド同時編成を比較",
       "confirmedAt": "2026-09-05"
+    },
+    {
+      "skillId": "846",
+      "name": "水の刹那",
+      "description": "水属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-small",
+        "elementCode": "2"
+      },
+      "unsupportedEffects": [
+        "クリティカル確率上昇（小）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "917",
@@ -1280,6 +1440,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/earth-ssr-regalia-gokushinken.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1009",
+      "name": "不死をも殺す神弓II",
+      "description": "ダメージアビリティが2回発動する/アビリティダメージUP/アビリティダメージ上限UP ◆メイン装備時/主人公のみ/再使用不可のアビリティを除く",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1213",
@@ -1495,6 +1664,22 @@
       "source": "knowledge/dark-ssr-ennead-abydos.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "1417",
+      "name": "霧氷の刹那",
+      "description": "水属性キャラの攻撃力上昇(大)/クリティカル確率上昇(大)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-large",
+        "elementCode": "2"
+      },
+      "unsupportedEffects": [
+        "クリティカル確率上昇（大）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1422",
       "name": "紅蓮の刹那II",
       "description": "火属性キャラの攻撃力上昇(大)/クリティカル確率上昇(大)",
@@ -1634,6 +1819,22 @@
       ],
       "verificationStatus": "下書き",
       "source": "ゲーム内deckレスポンスでスキル名・説明・75%上限到達を確認。基礎1.2%は要追加検証"
+    },
+    {
+      "skillId": "1507",
+      "name": "渦潮の乱舞",
+      "description": "水属性キャラの攻撃力上昇(中)/トリプルアタック確率上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "2"
+      },
+      "unsupportedEffects": [
+        "トリプルアタック確率上昇（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1526",
@@ -1846,6 +2047,22 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/light-ssr-regalia-pillar-of-flame.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1651",
+      "name": "霧氷の修羅",
+      "description": "水属性キャラの攻撃力上昇(大)/バトル開始時に最大HPの20%のダメージ",
+      "normalAttackAmountTable": {
+        "tableId": "normal-large",
+        "elementCode": "2"
+      },
+      "unsupportedEffects": [
+        "バトル開始時に最大HPの20%のダメージ"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1656",
@@ -2418,6 +2635,15 @@
       "source": "ゲーム内表示値と実測追撃からの逆算。基礎効果量は要追加検証"
     },
     {
+      "skillId": "2175",
+      "name": "霧氷の襲刃",
+      "description": "水属性キャラに水属性追撃効果(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "2192",
       "name": "紅蓮の神醒(通常版)",
       "description": "火属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
@@ -2826,6 +3052,33 @@
       "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-trunk-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
     },
     {
+      "skillId": "2466",
+      "name": "ストライク・ウォータ",
+      "description": "水属性キャラの通常攻撃ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "2481",
+      "name": "水の鋭鋒",
+      "description": "水属性キャラのトリプルアタック確率上昇(小)/クリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "2558",
+      "name": "雪の武技",
+      "description": "水属性キャラの通常攻撃の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "2588",
       "name": "復讐者の巧匠",
       "description": "「血の誓印効果中、トリプルアタック発動時に敵に自属性ダメージ ◆メイン装備時」",
@@ -3002,6 +3255,19 @@
       "verificationStatus": "下書き",
       "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。効果量は未検証",
       "confirmedAt": "2026-09-08"
+    },
+    {
+      "skillId": "2915",
+      "name": "霧氷の乱舞",
+      "description": "水属性キャラの攻撃力上昇(大)/トリプルアタック確率上昇(大)",
+      "unsupportedEffects": [
+        "攻撃力上昇（大）のSLv曲線",
+        "トリプルアタック確率上昇（大）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     }
   ]
 }
