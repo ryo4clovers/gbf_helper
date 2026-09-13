@@ -17,6 +17,12 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
   assert.match(html, /<p>連撃率<\/p>/u);
   assert.match(app, /武器スキル \+\$\{numberFormat\.format\(hp\.weaponSkillHpPercent\)\}%/u);
   assert.match(app, /基礎HPの基準は要検証/u);
+  const hpSliderPosition = html.indexOf('id="protagonist-hp-percent"');
+  assert.ok(html.indexOf('class="surface result-group local-result-group"') < hpSliderPosition);
+  assert.ok(hpSliderPosition < html.indexOf('id="weapon-critical-toggle"'));
+  assert.match(html, /id="protagonist-hp-percent" type="range" value="100" min="1" max="100" step="1"/u);
+  assert.match(html, /id="protagonist-hp-percent-value" for="protagonist-hp-percent">100%<\/output>/u);
+  assert.match(app, /\$\("protagonist-hp-percent"\)\.addEventListener\("change", \(\) => void calculate\(\)\)/u);
   assert.ok(html.indexOf('id="weapon-critical-toggle"') < html.indexOf('id="include-extinction-crest-local"'));
   assert.ok(html.indexOf('id="include-extinction-crest-local"') < html.indexOf('class="metric-grid local-result-grid"'));
   assert.doesNotMatch(html, /<details class="advanced-settings memorial-settings" open>/u);
@@ -183,9 +189,11 @@ test("separates personal environment inputs from enemy battle conditions", async
   assert.doesNotMatch(environment, /id=["'](?:ship|furnace)["']/u);
   assert.match(environment, /<details class="advanced-settings crew-support-settings">/u);
   assert.doesNotMatch(environment, /<details class="advanced-settings crew-support-settings" open>/u);
-  for (const id of ["protagonist-hp-percent", "enemy-name", "enemy-defense", "enemy-element"]) {
+  for (const id of ["enemy-name", "enemy-defense", "enemy-element"]) {
     assert.match(battle, new RegExp(`id=["']${id}["']`));
     assert.doesNotMatch(environment, new RegExp(`id=["']${id}["']`));
   }
+  assert.doesNotMatch(battle, /id=["']protagonist-hp-percent["']/u);
+  assert.doesNotMatch(environment, /id=["']protagonist-hp-percent["']/u);
   assert.ok(html.indexOf('id="personal-environment-panel"') < html.indexOf('id="battle-conditions-panel"'));
 });

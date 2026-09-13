@@ -199,12 +199,7 @@
               <h2>戦闘条件</h2>
             </div>
           </div>
-          <div class="field-grid four-columns">
-            <label class="number-field">
-              <span>主人公の現在HP</span>
-              <input id="protagonist-hp-percent" type="number" value="100" min="1" max="100" step="1" required />
-              <em>%</em>
-            </label>
+          <div class="field-grid three-columns">
             <label class="text-field">
               <span>敵名（任意）</span>
               <input id="enemy-name" type="text" value="オールド・木人" maxlength="100" />
@@ -258,6 +253,15 @@
         <section class="surface result-group local-result-group">
           <div class="section-heading compact">
             <div><span class="step">B</span><h2>ローカル計算機結果表示</h2></div>
+          </div>
+          <div class="hp-slider-control">
+            <div class="hp-slider-heading">
+              <label for="protagonist-hp-percent">主人公の現在HP</label>
+              <output id="protagonist-hp-percent-value" for="protagonist-hp-percent">100%</output>
+            </div>
+            <input id="protagonist-hp-percent" type="range" value="100" min="1" max="100" step="1" />
+            <div class="hp-slider-scale" aria-hidden="true"><span>1%</span><span>100%</span></div>
+            <small>通常渾身・通常背水の計算に反映します</small>
           </div>
           <label class="critical-switch" for="weapon-critical-toggle">
             <span class="switch-copy">

@@ -2236,9 +2236,14 @@ function applyRequestToForm(request) {
   $("enemy-defense").value = String(request.enemy.defense);
   $("enemy-name").value = request.enemy.name || "";
   $("protagonist-hp-percent").value = String(request.protagonistCurrentHpPercent ?? 100);
+  renderProtagonistHpPercent();
   $("random-min").value = String(request.random?.minimum ?? 0.95);
   $("random-max").value = String(request.random?.maximum ?? 1.05);
   $("random-step").value = String(request.random?.step ?? 0.001);
+}
+
+function renderProtagonistHpPercent() {
+  $("protagonist-hp-percent-value").textContent = `${$("protagonist-hp-percent").value}%`;
 }
 
 function conciseResult(response) {
@@ -2366,6 +2371,11 @@ form.addEventListener("submit", (event) => {
 });
 form.addEventListener("input", schedulePersistence);
 form.addEventListener("change", schedulePersistence);
+$("protagonist-hp-percent").addEventListener("input", () => {
+  renderProtagonistHpPercent();
+  schedulePersistence();
+});
+$("protagonist-hp-percent").addEventListener("change", () => void calculate());
 $("memorial-item-editor").addEventListener("change", () => {
   renderMemorialItemEditor(readMemorialItemSettings());
   void calculate();
