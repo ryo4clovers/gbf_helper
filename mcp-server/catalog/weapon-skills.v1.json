@@ -272,6 +272,32 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "10",
+      "name": "風の守護",
+      "description": "風属性キャラの最大HP上昇(小)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-small",
+        "elementCode": "4"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "11",
+      "name": "光の守護",
+      "description": "光属性キャラの最大HP上昇(小)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-small",
+        "elementCode": "5"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "13",
       "name": "業火の攻刃",
       "description": "火属性キャラの攻撃力上昇(中)",
@@ -324,6 +350,19 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "17",
+      "name": "雷電の攻刃",
+      "description": "光属性キャラの攻撃力上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "5"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "19",
       "name": "業火の守護",
       "description": "火属性キャラの最大HP上昇(中)",
@@ -356,6 +395,32 @@
       "normalHpAmountTable": {
         "tableId": "normal-aegis-medium",
         "elementCode": "3"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "22",
+      "name": "竜巻の守護",
+      "description": "風属性キャラの最大HP上昇(中)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-medium",
+        "elementCode": "4"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "23",
+      "name": "雷電の守護",
+      "description": "光属性キャラの最大HP上昇(中)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-medium",
+        "elementCode": "5"
       },
       "effects": [],
       "verificationStatus": "下書き",
@@ -515,6 +580,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "37",
+      "name": "癒しの力",
+      "description": "回復タイプの回復効果上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "41",
       "name": "嵐竜方陣・攻刃II",
       "description": "風属性キャラの攻撃力上昇(中)",
@@ -557,6 +631,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "50",
+      "name": "光の二手",
+      "description": "光属性キャラのダブルアタック確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "52",
       "name": "業火の二手",
       "description": "火属性キャラのダブルアタック確率上昇(中)",
@@ -584,9 +667,36 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "55",
+      "name": "竜巻の二手",
+      "description": "風属性キャラのダブルアタック確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "58",
       "name": "紅蓮の二手",
       "description": "火属性キャラのダブルアタック確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "61",
+      "name": "乱気の二手",
+      "description": "風属性キャラのダブルアタック確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "62",
+      "name": "天光の二手",
+      "description": "光属性キャラのダブルアタック確率上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -694,12 +804,22 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "77",
+      "name": "風の技巧",
+      "description": "風属性キャラのクリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "78",
       "name": "光の技巧",
       "description": "光属性キャラのクリティカル確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-malice-seyfert.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "80",
@@ -770,6 +890,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "84",
+      "name": "雷電の技巧",
+      "description": "光属性キャラのクリティカル確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "86",
       "name": "紅蓮の技巧",
       "description": "火属性キャラのクリティカル確率上昇(大)",
@@ -823,6 +952,24 @@
           "source": "ユーザー提供の攻略Wiki表画像（2026-09-09）"
         }
       ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "89",
+      "name": "乱気の技巧",
+      "description": "風属性キャラのクリティカル確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "90",
+      "name": "天光の技巧",
+      "description": "光属性キャラのクリティカル確率上昇(大)",
+      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -944,6 +1091,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "121",
+      "name": "風の背水",
+      "description": "風属性キャラのHPが少ないほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "122",
       "name": "光の背水",
       "description": "光属性キャラのHPが少ないほど攻撃力が上昇(小)",
@@ -1010,7 +1166,17 @@
       "description": "風属性キャラのHPが少ないほど攻撃力が上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/wind-ssr-malice-hatsuoi-ilhal.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "134",
+      "name": "天光の背水",
+      "description": "光属性キャラのHPが少ないほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "135",
@@ -1061,6 +1227,24 @@
       "skillId": "144",
       "name": "大地の見切",
       "description": "土属性キャラが稀に回避カウンター(ダメージ中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "145",
+      "name": "竜巻の見切",
+      "description": "風属性キャラが稀に回避カウンター(ダメージ中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "146",
+      "name": "雷電の見切",
+      "description": "光属性キャラが稀に回避カウンター(ダメージ中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1164,7 +1348,17 @@
       "description": "バトル開始時から8ターンの間風属性キャラの攻撃力上昇",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/wind-ssr-ennead-abu-simbel.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "239",
+      "name": "先制の光刃",
+      "description": "バトル開始時から8ターンの間光属性キャラの攻撃力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "241",
@@ -1188,6 +1382,24 @@
       "skillId": "243",
       "name": "先制の岩壁",
       "description": "バトル開始時から8ターンの間土属性キャラの防御力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "244",
+      "name": "先制の雲壁",
+      "description": "バトル開始時から8ターンの間風属性キャラの防御力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "245",
+      "name": "先制の白壁",
+      "description": "バトル開始時から8ターンの間光属性キャラの防御力上昇",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1221,6 +1433,24 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "258",
+      "name": "風の治癒",
+      "description": "風属性キャラの回復上限上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "259",
+      "name": "光の治癒",
+      "description": "光属性キャラの回復上限上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "261",
       "name": "業火の治癒",
       "description": "火属性キャラの回復上限上昇(中)",
@@ -1248,6 +1478,24 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "264",
+      "name": "竜巻の治癒",
+      "description": "風属性キャラの回復上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "265",
+      "name": "雷電の治癒",
+      "description": "光属性キャラの回復上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "268",
       "name": "霧氷の治癒",
       "description": "水属性キャラの回復上限上昇(大)",
@@ -1260,6 +1508,24 @@
       "skillId": "269",
       "name": "地裂の治癒",
       "description": "土属性キャラの回復上限上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "270",
+      "name": "乱気の治癒",
+      "description": "風属性キャラの回復上限上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "271",
+      "name": "天光の治癒",
+      "description": "光属性キャラの回復上限上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1600,6 +1866,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "373",
+      "name": "雷電の克己",
+      "description": "光属性キャラのダブルアタック確率上昇(中)/クリティカル確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "375",
       "name": "火の神威",
       "description": "火属性キャラの攻撃力と最大HPが上昇(小)",
@@ -1717,6 +1992,22 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "385",
+      "name": "竜巻の羅刹",
+      "description": "風属性キャラの攻撃力上昇(中)/ダブルアタック確率-10%",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "4"
+      },
+      "unsupportedEffects": [
+        "ダブルアタック確率-10%"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "389",
       "name": "霧氷の括目",
       "description": "水属性キャラが稀に回避カウンター(ダメージ大)/ダブルアタック確率上昇(小)",
@@ -1749,6 +2040,24 @@
       ],
       "verificationStatus": "検証済み",
       "source": "ゲーム内deck.damage_infoのDA表示と通常スキル強化合計から確認 武器詳細レスポンスで名称・効果文を再確認（2026-09-13）。",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "399",
+      "name": "乱気の三手",
+      "description": "風属性キャラの連続攻撃確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "400",
+      "name": "天光の三手",
+      "description": "光属性キャラの連続攻撃確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
     },
     {
@@ -1788,6 +2097,24 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "417",
+      "name": "風の堅守",
+      "description": "風属性キャラのHPが少ないほど防御力上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "418",
+      "name": "光の堅守",
+      "description": "光属性キャラのHPが少ないほど防御力上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "420",
       "name": "業火の堅守",
       "description": "火属性キャラのHPが少ないほど防御力上昇(中)",
@@ -1809,6 +2136,15 @@
       "skillId": "422",
       "name": "大地の堅守",
       "description": "土属性キャラのHPが少ないほど防御力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "424",
+      "name": "雷電の堅守",
+      "description": "光属性キャラのHPが少ないほど防御力上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1864,7 +2200,26 @@
       "description": "光属性キャラのHPが少ないほど防御力上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-revans-simmetria-rebuild.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "457",
+      "name": "魔女の結界",
+      "description": "メイン装備時弱体耐性UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "458",
+      "name": "七宝石の結界",
+      "description": "通常攻撃をした時、主人公のみ確率でカウンター効果(回避/1回)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "472",
@@ -1897,6 +2252,24 @@
       "skillId": "476",
       "name": "反逆の地刃",
       "description": "被ダメージで土属性キャラの攻撃力上昇(累積)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "478",
+      "name": "反逆の光刃",
+      "description": "被ダメージで光属性キャラの攻撃力上昇(累積)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "486",
+      "name": "呪われし矜持",
+      "description": "確率で被ダメージカット/◆メイン装備時/主人公のみ",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1964,6 +2337,24 @@
       "skillId": "503",
       "name": "霧氷の渾身",
       "description": "水属性キャラのHPが多いほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "506",
+      "name": "天光の渾身",
+      "description": "光属性キャラのHPが多いほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "508",
+      "name": "精霊の庇護",
+      "description": "光属性キャラの闇属性ダメージ軽減",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2048,12 +2439,37 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "514",
+      "name": "天光の三手",
+      "description": "光属性キャラの連続攻撃確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "518",
       "name": "大地の冥護",
       "description": "土属性キャラの最大HP上昇(中)/回復上限上昇(中)",
       "normalHpAmountTable": {
         "tableId": "normal-aegis-medium",
         "elementCode": "3"
+      },
+      "unsupportedEffects": [
+        "回復上限上昇（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "520",
+      "name": "雷電の冥護",
+      "description": "光属性キャラの最大HP上昇(中)/回復上限上昇(中)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-medium",
+        "elementCode": "5"
       },
       "unsupportedEffects": [
         "回復上限上昇（中）"
@@ -2082,6 +2498,24 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "536",
+      "name": "艶美の術数",
+      "description": "主人公のみ弱体成功率UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "537",
+      "name": "貴顕の防衛策",
+      "description": "バトルの最初のターン開始時、光属性キャラに弱体効果無効効果(1回)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "538",
       "name": "半獣の咆哮",
       "description": "敵の攻撃行動のターゲットになった場合にダブルアタック確率UP(累積)/敵対心UP/◆メイン装備時/主人公のみ",
@@ -2100,9 +2534,27 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "541",
+      "name": "大胆不敵",
+      "description": "HPが少ないほど攻撃力が上昇(小) ◆主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "542",
       "name": "未来の幻視",
       "description": "土属性キャラのアビリティダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "545",
+      "name": "深緑の装い",
+      "description": "主人公のみ弱体耐性UP",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2130,6 +2582,15 @@
       "skillId": "601",
       "name": "南朱の真髄",
       "description": "火属性キャラのダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "605",
+      "name": "聖女の行進",
+      "description": "再生効果 ◆メイン装備時/主人公のみ",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2173,6 +2634,15 @@
       "skillId": "616",
       "name": "靂天の極致",
       "description": "闇属性キャラのダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "620",
+      "name": "跳姫の妙技",
+      "description": "風属性キャラの弱体成功率UP",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2290,6 +2760,24 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "635",
+      "name": "風の三手",
+      "description": "風属性キャラの連続攻撃確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "636",
+      "name": "光の三手",
+      "description": "光属性キャラの連続攻撃確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "639",
       "name": "火の秘奥",
       "description": "火属性キャラの奥義ダメージUP(小)",
@@ -2317,9 +2805,45 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "642",
+      "name": "風の秘奥",
+      "description": "風属性キャラの奥義ダメージUP(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "643",
+      "name": "光の秘奥",
+      "description": "光属性キャラの奥義ダメージUP(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "646",
       "name": "渦潮の秘奥",
       "description": "水属性キャラの奥義ダメージUP(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "648",
+      "name": "竜巻の秘奥",
+      "description": "風属性キャラの奥義ダメージUP(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "649",
+      "name": "雷電の秘奥",
+      "description": "光属性キャラの奥義ダメージUP(中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2347,6 +2871,33 @@
       "skillId": "653",
       "name": "地裂の秘奥",
       "description": "土属性キャラの奥義ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "654",
+      "name": "乱気の秘奥",
+      "description": "風属性キャラの奥義ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "655",
+      "name": "天光の秘奥",
+      "description": "光属性キャラの奥義ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "661",
+      "name": "光の庇護",
+      "description": "光属性キャラの弱体耐性UP(小)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2422,6 +2973,40 @@
       "normalHpAmountTable": {
         "tableId": "normal-godmight-medium",
         "elementCode": "3"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "767",
+      "name": "竜巻の神威",
+      "description": "風属性キャラの攻撃力と最大HPが上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-godmight-medium",
+        "elementCode": "4"
+      },
+      "normalHpAmountTable": {
+        "tableId": "normal-godmight-medium",
+        "elementCode": "4"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "768",
+      "name": "雷電の神威",
+      "description": "光属性キャラの攻撃力と最大HPが上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-godmight-medium",
+        "elementCode": "5"
+      },
+      "normalHpAmountTable": {
+        "tableId": "normal-godmight-medium",
+        "elementCode": "5"
       },
       "effects": [],
       "verificationStatus": "下書き",
@@ -2526,6 +3111,22 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "775",
+      "name": "雷電の無双",
+      "description": "光属性キャラの攻撃力上昇(中)/ダブルアタック確率上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "5"
+      },
+      "unsupportedEffects": [
+        "ダブルアタック確率上昇（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "777",
       "name": "イクシード・ファイア",
       "description": "火属性キャラの奥義ダメージ上限上昇",
@@ -2558,7 +3159,8 @@
       "description": "風属性キャラの奥義ダメージ上限上昇",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/wind-ssr-malice-hatsuoi-ilhal.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "781",
@@ -2566,7 +3168,8 @@
       "description": "光属性キャラの奥義ダメージ上限上昇",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-ennead-horakhty.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "782",
@@ -2581,6 +3184,15 @@
       "skillId": "783",
       "name": "チェインフォース",
       "description": "チェインバーストのダメージがUP/チェインバーストのダメージ上限がUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "803",
+      "name": "天を統べる強風",
+      "description": "風属性キャラのアビリティダメージ上限UP",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2614,9 +3226,27 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "825",
+      "name": "雷迅卿の剣技",
+      "description": "連続攻撃確率上昇 ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "826",
       "name": "未完の錬金術",
       "description": "モードゲージ減少量UP ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "836",
+      "name": "英雄たる証明",
+      "description": "風属性キャラの奥義ダメージUP ◆メイン装備時",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2717,6 +3347,22 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "848",
+      "name": "風の刹那",
+      "description": "風属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-small",
+        "elementCode": "4"
+      },
+      "unsupportedEffects": [
+        "クリティカル確率上昇（小）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "849",
       "name": "光の刹那",
       "description": "光属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
@@ -2743,6 +3389,15 @@
       "unsupportedEffects": [
         "クリティカル確率上昇（小）"
       ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "859",
+      "name": "トレジャートリック",
+      "description": "敵のトレハンLvに応じてダブルアタック確率UP ◆メイン装備時/主人公のみ",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2870,12 +3525,22 @@
       "description": "風属性キャラのHPが多いほど攻撃力が上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/wind-ssr-menace-black-whirlwind.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "918",
       "name": "雷電の渾身",
       "description": "光属性キャラのHPが多いほど攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "921",
+      "name": "神秘の前奏曲",
+      "description": "味方全体の弱体成功率UP ◆メイン装備時",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3101,6 +3766,24 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "996",
+      "name": "神託の御旗",
+      "description": "風属性キャラのダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "998",
+      "name": "ゼロ・トゥ・ヒーロー",
+      "description": "得意武器が「弓」のキャラのトリプルアタック確率UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1004",
       "name": "胡蝶の剣舞",
       "description": "奥義ゲージ上昇量UP ◆メイン装備時/主人公のみ",
@@ -3239,6 +3922,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1084",
+      "name": "風の必殺",
+      "description": "風属性キャラの奥義ダメージUP(小)/奥義ダメージ上限上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1087",
       "name": "業火の必殺",
       "description": "火属性キャラの奥義ダメージUP(中)/奥義ダメージ上限上昇(中)",
@@ -3251,6 +3943,33 @@
       "skillId": "1089",
       "name": "大地の必殺",
       "description": "土属性キャラの奥義ダメージUP(中)/奥義ダメージ上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1091",
+      "name": "雷電の必殺",
+      "description": "光属性キャラの奥義ダメージUP(中)/奥義ダメージ上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1097",
+      "name": "天光の必殺",
+      "description": "光属性キャラの奥義ダメージUP(大)/奥義ダメージ上限上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1102",
+      "name": "風の克己",
+      "description": "風属性キャラのダブルアタック確率上昇(小)/クリティカル確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3278,6 +3997,33 @@
       "skillId": "1127",
       "name": "日輪の御導き",
       "description": "フィールド効果「フレア」発生時にダブルアタック確率UP ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1139",
+      "name": "三矢一体",
+      "description": "トリプルアタック発動時に自分に与ダメージ上昇効果(累積/最大3回)/◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1155",
+      "name": "ロックオンハート",
+      "description": "敵が魅了状態の時、通常攻撃に光属性追撃効果 ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1166",
+      "name": "ゴールデン・アーツ",
+      "description": "光属性キャラのアビリティダメージ上限UP",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3344,6 +4090,47 @@
       "unsupportedEffects": [
         "弱体耐性UP（中）"
       ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1180",
+      "name": "竜巻の恩寵",
+      "description": "風属性キャラの最大HP上昇(中)/弱体耐性UP(中)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-medium",
+        "elementCode": "4"
+      },
+      "unsupportedEffects": [
+        "弱体耐性UP（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1181",
+      "name": "雷電の恩寵",
+      "description": "光属性キャラの最大HP上昇(中)/弱体耐性UP(中)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-medium",
+        "elementCode": "5"
+      },
+      "unsupportedEffects": [
+        "弱体耐性UP（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1197",
+      "name": "深山遊狐",
+      "description": "風属性キャラが回避成功時HPを回復 ◆メイン装備時",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3566,9 +4353,27 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1257",
+      "name": "竜巻の星晶",
+      "description": "風属性キャラの星晶獣の攻撃力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1261",
       "name": "渦潮の三手",
       "description": "水属性キャラの連続攻撃確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1263",
+      "name": "竜巻の三手",
+      "description": "風属性キャラの連続攻撃確率上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3645,9 +4450,36 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1299",
+      "name": "風の渾身",
+      "description": "風属性キャラのHPが多いほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1300",
+      "name": "光の渾身",
+      "description": "光属性キャラのHPが多いほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1316",
       "name": "アンバー・アーツ",
       "description": "土属性キャラのアビリティダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1318",
+      "name": "レゾナンス・スタッフ",
+      "description": "装備している「杖」の数が多いほど連続攻撃確率上昇",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3730,7 +4562,8 @@
       "description": "経過ターンに応じて光属性キャラの光属性攻撃力が上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-ennead-harsiesis.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1357",
@@ -3744,6 +4577,42 @@
       "skillId": "1358",
       "name": "海神の予言",
       "description": "装備している「杖」の数が多いほど最大HP上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1359",
+      "name": "英雄の体躯",
+      "description": "光属性キャラのダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1362",
+      "name": "ワンナイ・パーリー",
+      "description": "得意武器が「斧」のキャラの攻撃力上昇(小)/トリプルアタック確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1369",
+      "name": "無明衰滅",
+      "description": "得意武器が「弓」のキャラの攻撃力と最大HPが上昇(中)/◆メイン装備時",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1409",
+      "name": "騎士の血脈",
+      "description": "得意武器が「剣」のキャラの攻撃力上昇(小)/トリプルアタック確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3895,6 +4764,15 @@
       "source": "knowledge/dark-ssr-draconic-origin-gun.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
     },
     {
+      "skillId": "1471",
+      "name": "ジェイド・アーツ",
+      "description": "風属性キャラのアビリティダメージ上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1472",
       "name": "紅炎の支配者",
       "description": "火属性キャラの攻撃力上昇(極大)",
@@ -3966,7 +4844,26 @@
       "description": "風属性キャラがトリプルアタック発動時に3回目の攻撃に風属性追撃効果",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/wind-ssr-menace-black-whirlwind.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1499",
+      "name": "ライト・ブロウ",
+      "description": "光属性キャラがトリプルアタック発動時に3回目の攻撃に光属性追撃効果",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1503",
+      "name": "ジェイド・ハント",
+      "description": "風属性キャラがトレハン状態の敵に対して風属性追撃効果",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1506",
@@ -4029,6 +4926,22 @@
       "normalAttackAmountTable": {
         "tableId": "normal-medium",
         "elementCode": "4"
+      },
+      "unsupportedEffects": [
+        "トリプルアタック確率上昇（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1510",
+      "name": "雷電の乱舞",
+      "description": "光属性キャラの攻撃力上昇(中)/トリプルアタック確率上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "5"
       },
       "unsupportedEffects": [
         "トリプルアタック確率上昇（中）"
@@ -4265,6 +5178,15 @@
       "source": "knowledge/light-ssr-regalia-pillar-of-flame.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
     },
     {
+      "skillId": "1586",
+      "name": "シャインオブアームズ",
+      "description": "光属性キャラの攻撃力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1644",
       "name": "紅蓮の技錬",
       "description": "火属性キャラのアビリティダメージ上限UP(大)/アビリティの与ダメージ上昇(大)",
@@ -4349,6 +5271,38 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1653",
+      "name": "乱気の修羅",
+      "description": "風属性キャラの攻撃力上昇(大)/バトル開始時に最大HPの20%のダメージ",
+      "normalAttackAmountTable": {
+        "tableId": "normal-large",
+        "elementCode": "4"
+      },
+      "unsupportedEffects": [
+        "バトル開始時に最大HPの20%のダメージ"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1654",
+      "name": "天光の修羅",
+      "description": "光属性キャラの攻撃力上昇(大)/バトル開始時に最大HPの20%のダメージ",
+      "normalAttackAmountTable": {
+        "tableId": "normal-large",
+        "elementCode": "5"
+      },
+      "unsupportedEffects": [
+        "バトル開始時に最大HPの20%のダメージ"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1656",
       "name": "スカーレット・クラフト",
       "description": "火属性キャラがクリティカル発動時に与ダメージ上昇",
@@ -4390,12 +5344,22 @@
       "description": "光属性キャラがクリティカル発動時に与ダメージ上昇",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-malice-seyfert.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1662",
       "name": "癒紅の薫風",
       "description": "業火の刻印が5の場合、ターン終了時に敵全体に火属性ダメージ/味方全体のHPを回復 ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1663",
+      "name": "ルージュ・ピエール・テンペスト",
+      "description": "HPが80%以上の場合、ターン終了時に敵に4回風属性ダメージ ◆メイン装備時/主人公のみ",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -4451,7 +5415,8 @@
       "description": "光属性キャラの奥義の与ダメージ上昇",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-ennead-horakhty.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1690",
@@ -4497,6 +5462,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1745",
+      "name": "凪の妙技",
+      "description": "風属性キャラのアビリティの与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1747",
       "name": "煉の妙技",
       "description": "闇属性キャラのアビリティの与ダメージ上昇",
@@ -4526,7 +5500,8 @@
       "description": "風属性キャラのHPが少ないほど与ダメージ上昇",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/wind-ssr-ennead-abu-simbel.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1754",
@@ -4538,9 +5513,45 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1755",
+      "name": "破邪顕正",
+      "description": "極光の刻印が5の場合、ターン終了時に敵全体に光属性ダメージ/味方全体の奥義ゲージUP(10％) ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1760",
       "name": "フラッドオブネイルズ",
       "description": "水属性キャラの攻撃力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1779",
+      "name": "術法の拵え",
+      "description": "アビリティダメージUP ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1784",
+      "name": "煌の真髄",
+      "description": "光属性キャラのダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1794",
+      "name": "ボルテージ・オブ・アックスII",
+      "description": "装備している「斧」の数が多いほど攻撃力上昇",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -4584,7 +5595,8 @@
       "description": "光属性キャラのHPが多いほど与ダメージ上昇",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/light-ssr-ennead-harsiesis.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1819",
@@ -4593,6 +5605,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/dark-ssr-ennead-abydos.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1820",
+      "name": "チックホーリーナイト",
+      "description": "ダメージを受けなかった場合、ターン終了時にターゲットに関わらず4回光属性ダメージ ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1821",
@@ -4720,12 +5741,39 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1859",
+      "name": "凪の邁進",
+      "description": "風属性キャラのHPが多いほど連続攻撃確率上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1869",
       "name": "雪の慈雨",
       "description": "水属性キャラのHPが多いほど奥義の与ダメージ上昇",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/water-ssr-revans-schrodinger-rebuild.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1871",
+      "name": "凪の慈雨",
+      "description": "風属性キャラのHPが多いほど奥義の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1872",
+      "name": "煌の慈雨",
+      "description": "光属性キャラのHPが多いほど奥義の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1874",
@@ -4740,6 +5788,24 @@
       "skillId": "1875",
       "name": "雪の雄飛",
       "description": "水属性キャラの奥義ダメージ特殊上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1878",
+      "name": "煌の雄飛",
+      "description": "光属性キャラの奥義ダメージ特殊上限UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1880",
+      "name": "斬姫の如く",
+      "description": "奥義ゲージ上昇量UP/◆メイン装備時/主人公のみ",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -4776,6 +5842,15 @@
       "skillId": "1930",
       "name": "稲妻の連撃",
       "description": "バトル開始時と味方全体でターゲット中の敵に40回以上の攻撃を与えたターンの終了時、主人公に攻撃大幅UP/稲妻の連撃Lvが1上昇(最大2) ◆メイン装備時/主人公のみ/稲妻の連撃Lvが2の時、Lvをリセットし対象が風属性キャラに変化",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1942",
+      "name": "レイジ・オブ・アックス",
+      "description": "装備している「斧」の数が多いほど攻撃力/最大HP/連続攻撃確率上昇",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -4849,6 +5924,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1973",
+      "name": "ブラックナイトフィーバー",
+      "description": "風属性キャラの攻撃力上昇(大)/◆金曜日の15:00～23:59のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1977",
       "name": "嵐竜方陣・修羅III",
       "description": "風属性キャラの攻撃力上昇(大)/バトル開始時に最大HPの20%のダメージ",
@@ -4895,6 +5979,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/fire-ssr-menace-magma-stream.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2016",
+      "name": "雷電の技錬",
+      "description": "光属性キャラのアビリティダメージ上限UP(中)/アビリティの与ダメージ上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "2025",
@@ -5586,6 +6679,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "2469",
+      "name": "ストライク・ライト",
+      "description": "光属性キャラの通常攻撃ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "2471",
       "name": "リトゥス・ミスティクム",
       "description": "通常攻撃の2ヒット目がランダムターゲットで2回発生、3ヒット目がランダムターゲットで3回発生する ◆メイン装備時/主人公のみ",
@@ -5613,12 +6715,37 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "2484",
+      "name": "光の鋭鋒",
+      "description": "光属性キャラのトリプルアタック確率上昇(小)/クリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "2503",
       "name": "土の冥護",
       "description": "土属性キャラの最大HP上昇(小)/回復上限上昇(小)",
       "normalHpAmountTable": {
         "tableId": "normal-aegis-small",
         "elementCode": "3"
+      },
+      "unsupportedEffects": [
+        "回復上限上昇（小）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "2505",
+      "name": "光の冥護",
+      "description": "光属性キャラの最大HP上昇(小)/回復上限上昇(小)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-small",
+        "elementCode": "5"
       },
       "unsupportedEffects": [
         "回復上限上昇（小）"
@@ -5871,6 +6998,15 @@
       "verificationStatus": "下書き",
       "source": "ゲーム内武器詳細レスポンスで名称と説明を確認。効果量は未検証",
       "confirmedAt": "2026-09-08"
+    },
+    {
+      "skillId": "2882",
+      "name": "極金の輝き",
+      "description": "敵のトレハンLvに応じて風属性キャラの攻撃力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "2915",
