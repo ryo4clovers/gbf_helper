@@ -63529,7 +63529,8 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "実機由来knowledge/fire-ssr-regalia-brahman-trident.mdとgbf.wiki「Trident of Brahman」を2026-09-09にID・最終HP/ATKの一致確認。効果量は未検証"
+      "source": "実機由来knowledge/fire-ssr-regalia-brahman-trident.mdとgbf.wiki「Trident of Brahman」でID・最終HP/ATKを確認。2026-09-14の実機編成でSLv15効果量を確認",
+      "confirmedAt": "2026-09-14"
     },
     {
       "weaponId": "1040210500",

@@ -190,6 +190,15 @@
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のコロッサスバスター・イラ実機編成（方陣強化170%時10.8%から基礎4%を確認）",
       "confirmedAt": "2026-09-14"
+    },
+    {
+      "tableId": "destruction-triple-attack-small",
+      "values": [
+        { "skillLevel": 15, "amountPercent": 2.5 }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のブラフマントライデント実機編成（方陣強化170%時6.75%から基礎2.5%を確認）",
+      "confirmedAt": "2026-09-14"
     }
   ]
 }

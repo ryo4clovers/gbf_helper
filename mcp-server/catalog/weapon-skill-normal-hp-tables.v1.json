@@ -105,13 +105,12 @@
     {
       "tableId": "magna-hp-small",
       "values": [
-        { "skillLevel": 1, "amountPercent": 1 },
-        { "skillLevel": 10, "amountPercent": 10 },
-        { "skillLevel": 15, "amountPercent": 12 },
-        { "skillLevel": 20, "amountPercent": 12.5 }
+        { "skillLevel": 10, "amountPercent": 12 },
+        { "skillLevel": 15, "amountPercent": 14 },
+        { "skillLevel": 20, "amountPercent": 16 }
       ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供の神威・守護量表（2026-09-13、恩寵の守護部分として要検証）"
+      "source": "ユーザー提供の守護量表（2026-09-13）。恩寵SLv15は2026-09-14の実機編成表示116%との一致を確認"
     }
   ]
 }

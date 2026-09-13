@@ -1225,9 +1225,21 @@
       "skillId": "92",
       "name": "機炎方陣・攻刃II",
       "description": "火属性キャラの攻撃力上昇(中)",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 14.5,
+          "skillLevel": 15,
+          "boostGroup": "magna",
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供のブラフマントライデントSLv15編成レスポンス（方陣強化170%時39.15%を確認）",
+          "confirmedAt": "2026-09-14"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "knowledge/fire-ssr-regalia-brahman-trident.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/fire-ssr-regalia-brahman-trident.mdおよびユーザー提供の実機編成レスポンス（2026-09-14）。SLv15の方陣攻刃量を確認",
+      "confirmedAt": "2026-09-14"
     },
     {
       "skillId": "93",
@@ -4489,7 +4501,13 @@
       "description": "火属性キャラのトリプルアタック確率上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/fire-ssr-regalia-brahman-trident.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/fire-ssr-regalia-brahman-trident.mdおよびユーザー提供の実機編成レスポンス（2026-09-14）。SLv15のTA率を確認",
+      "confirmedAt": "2026-09-14",
+      "tripleAttackRateAmountTable": {
+        "tableId": "destruction-triple-attack-small",
+        "elementCode": "1",
+        "boostGroup": "magna"
+      }
     },
     {
       "skillId": "930",
@@ -8061,7 +8079,18 @@
       "skillId": "2378",
       "name": "機炎方陣・恩寵",
       "description": "火属性キャラの最大HP上昇(小)/弱体耐性UP(小)",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "magna-hp-up",
+          "elementCode": "1",
+          "amountPercent": 14,
+          "skillLevel": 15,
+          "boostGroup": "magna",
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供のブラフマントライデント編成で方陣強化170%後37.8%、HPスキル合計116.1%を確認",
+          "confirmedAt": "2026-09-14"
+        }
+      ],
       "verificationStatus": "下書き",
       "source": "knowledge/fire-ssr-magna-reverse-colossus-buster-ira.md、ユーザー提供の実機編成（2026-09-14照合）",
       "magnaHpAmountTable": {

@@ -536,8 +536,20 @@ test("loads the initial incremental weapon and skill catalog", () => {
       .filter((effect) => effect.skillLevel === 15)
       .map((effect) => [effect.kind, effect.amountPercent, effect.boostGroup, effect.verificationStatus]),
     [
-      ["magna-hp-up", 12, "magna", "下書き"],
+      ["magna-hp-up", 14, "magna", "検証済み"],
       ["debuff-resistance-up", 4, "magna", "検証済み"],
     ],
+  );
+  assert.deepEqual(
+    catalog.skills.get("92")?.effects.map(
+      (effect) => [effect.kind, effect.skillLevel, effect.amountPercent, effect.boostGroup, effect.verificationStatus],
+    ),
+    [["normal-attack-up", 15, 14.5, "magna", "検証済み"]],
+  );
+  assert.deepEqual(
+    catalog.skills.get("929")?.effects.map(
+      (effect) => [effect.kind, effect.skillLevel, effect.amountPercent, effect.boostGroup, effect.verificationStatus],
+    ),
+    [["triple-attack-rate-up", 15, 2.5, "magna", "検証済み"]],
   );
 });

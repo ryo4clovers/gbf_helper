@@ -358,6 +358,41 @@ test("reproduces Brahman Scimitar's magna attack, DA, HP and damage displays", (
   assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 8782);
 });
 
+test("reproduces Brahman Trident's magna attack, TA, HP and damage displays", () => {
+  const input = derivedNilakanthaRequest(false, "1");
+  input.deckConfig.protagonist.attackOverride = 28315;
+  input.deckConfig.protagonist.hpOverride = 5035;
+  input.deckConfig.weapons.push(
+    { slot: 3, position: "grid", weaponId: "1040015000", level: 150, skillLevel: 15 },
+    { slot: 4, position: "grid", weaponId: "1040026100", level: 150, skillLevel: 15 },
+    { slot: 5, position: "grid", weaponId: "1040210400", level: 150, skillLevel: 15 },
+  );
+  input.deckConfig.summons = [{
+    slot: 1,
+    position: "main",
+    summonId: "2040034000",
+    level: 250,
+    uncapLevel: 6,
+  }];
+  const { supportSummon: _unusedSupportSummon, ...normalInput } = input;
+  const advantageInput = structuredClone(normalInput);
+  advantageInput.enemy.elementCode = "4";
+  advantageInput.modifiers.targetElementDamagePercent = 5;
+
+  const normal = calculateNormalAttackFromRequest(normalInput);
+  const advantage = calculateNormalAttackFromRequest(advantageInput);
+
+  assert.equal(normal.result.attackPower.totalEffectiveNormalAttackPercent, 78.3);
+  assert.equal(normal.result.protagonistHp?.weaponSkillHpPercent, 116.1);
+  assert.equal(normal.result.protagonistHp?.hp, 10881);
+  assert.equal(normal.result.multiattackRates.weaponSkillDoubleAttackRatePercent, 13.5);
+  assert.equal(normal.result.multiattackRates.weaponSkillTripleAttackRatePercent, 6.75);
+  assert.equal(normal.result.otherWeaponSkills.healingCap.effectivePercent, 40.5);
+  assert.equal(normal.result.otherWeaponSkills.debuffResistance.effectivePercent, 10.8);
+  assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, 10346);
+  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 15623);
+});
+
 test("adds Wedges of the Sky's 30% sub aura to Colossus Magna for Nilakantha", () => {
   const normalInput = derivedNilakanthaRequest(false, "1");
   normalInput.deckConfig.protagonist.attackOverride = 16328;
