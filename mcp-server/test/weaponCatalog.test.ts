@@ -6,7 +6,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
   assert.equal(catalog.weapons.size, 2971);
-  assert.equal(catalog.skills.size, 740);
+  assert.equal(catalog.skills.size, 743);
   assert.deepEqual(catalog.weapons.get("1020500200")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1" },
   ]);
@@ -27,6 +27,23 @@ test("loads the initial incremental weapon and skill catalog", () => {
     ],
   );
   assert.equal(fireMightEffects.some((effect) => effect.skillLevel === 16), false);
+  const magnaStaminaSkillNames = [
+    "機炎方陣・渾身III",
+    "海神方陣・渾身III",
+    "創樹方陣・渾身III",
+    "嵐竜方陣・渾身III",
+    "騎解方陣・渾身III",
+    "黒霧方陣・渾身III",
+  ];
+  for (let offset = 0; offset < magnaStaminaSkillNames.length; offset += 1) {
+    const skillId = String(1213 + offset);
+    const skill = catalog.skills.get(skillId);
+    assert.equal(skill?.name, magnaStaminaSkillNames[offset]);
+    const effects = skill?.effects.filter((effect) => effect.kind === "magna-stamina-up") ?? [];
+    assert.equal(effects.find((effect) => effect.skillLevel === 1)?.amountPercent, 7.64);
+    assert.equal(effects.find((effect) => effect.skillLevel === 15)?.amountPercent, 15);
+    assert.equal(effects.every((effect) => effect.elementCode === String(offset + 1)), true);
+  }
   const normalAttackTableCases = [
     ["18", [[10, 12], [15, 14.5], [20, 16]]],
     ["213", [[10, 16], [15, 20], [20, 22]]],

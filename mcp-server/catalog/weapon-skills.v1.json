@@ -5255,16 +5255,65 @@
       "name": "海神方陣・渾身III",
       "description": "水属性キャラのHPが多いほど攻撃力が上昇(大)",
       "effects": [],
+      "magnaStaminaAmountTable": {
+        "tableId": "normal-stamina-large",
+        "elementCode": "2"
+      },
       "verificationStatus": "下書き",
-      "source": "knowledge/water-ssr-magna-reverse-levian-head-mare.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/water-ssr-magna-reverse-levian-head-mare.mdおよびgbf.wiki (2026-09-09照合)。skill_id 1213〜1218の属性順はユーザー確認（2026-09-14）。効果量・HP曲線は火属性実測からの横展開で要検証",
+      "confirmedAt": "2026-09-14"
+    },
+    {
+      "skillId": "1215",
+      "name": "創樹方陣・渾身III",
+      "description": "土属性キャラのHPが多いほど攻撃力が上昇(大)",
+      "effects": [],
+      "magnaStaminaAmountTable": {
+        "tableId": "normal-stamina-large",
+        "elementCode": "3"
+      },
+      "verificationStatus": "下書き",
+      "source": "ユーザー確認のskill_id 1213〜1218属性順（2026-09-14）。名称・効果文・効果量・HP曲線は同系列からの横展開で要検証",
+      "confirmedAt": "2026-09-14"
+    },
+    {
+      "skillId": "1216",
+      "name": "嵐竜方陣・渾身III",
+      "description": "風属性キャラのHPが多いほど攻撃力が上昇(大)",
+      "effects": [],
+      "magnaStaminaAmountTable": {
+        "tableId": "normal-stamina-large",
+        "elementCode": "4"
+      },
+      "verificationStatus": "下書き",
+      "source": "ユーザー確認のskill_id 1213〜1218属性順（2026-09-14）。名称・効果文・効果量・HP曲線は同系列からの横展開で要検証",
+      "confirmedAt": "2026-09-14"
+    },
+    {
+      "skillId": "1217",
+      "name": "騎解方陣・渾身III",
+      "description": "光属性キャラのHPが多いほど攻撃力が上昇(大)",
+      "effects": [],
+      "magnaStaminaAmountTable": {
+        "tableId": "normal-stamina-large",
+        "elementCode": "5"
+      },
+      "verificationStatus": "下書き",
+      "source": "ユーザー確認のskill_id 1213〜1218属性順（2026-09-14）。名称・効果文・効果量・HP曲線は同系列からの横展開で要検証",
+      "confirmedAt": "2026-09-14"
     },
     {
       "skillId": "1218",
       "name": "黒霧方陣・渾身III",
       "description": "闇属性キャラのHPが多いほど攻撃力が上昇(大)",
       "effects": [],
+      "magnaStaminaAmountTable": {
+        "tableId": "normal-stamina-large",
+        "elementCode": "6"
+      },
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-regalia-zechariah.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/dark-ssr-regalia-zechariah.mdおよびgbf.wiki (2026-09-09照合)。skill_id 1213〜1218の属性順はユーザー確認（2026-09-14）。効果量・HP曲線は火属性実測からの横展開で要検証",
+      "confirmedAt": "2026-09-14"
     },
     {
       "skillId": "1225",
