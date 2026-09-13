@@ -72,14 +72,20 @@ test("job picker exposes class filter controls below search", async () => {
   assert.match(html, /id="job-class-filter-status"/u);
 });
 
-test("catalog pickers expose element filter controls below search", async () => {
+test("catalog pickers expose element and rarity filters below search", async () => {
   const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
   for (const catalog of ["weapon", "summon", "character"]) {
     const searchPosition = html.indexOf(`id="${catalog}-search"`);
-    const filterPosition = html.indexOf(`id="${catalog}-element-filters"`);
+    const elementPosition = html.indexOf(`id="${catalog}-element-filters"`);
+    const rarityPosition = html.indexOf(`id="${catalog}-rarity-filters"`);
     const resultPosition = html.indexOf(`id="${catalog}-results"`);
-    assert.ok(searchPosition >= 0 && searchPosition < filterPosition && filterPosition < resultPosition);
-    assert.match(html, new RegExp(`id="${catalog}-element-filter-status"`, "u"));
+    assert.ok(
+      searchPosition >= 0
+      && searchPosition < elementPosition
+      && elementPosition < rarityPosition
+      && rarityPosition < resultPosition,
+    );
+    assert.match(html, new RegExp(`id="${catalog}-filter-status"`, "u"));
   }
 });
 

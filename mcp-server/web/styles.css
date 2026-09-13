@@ -204,11 +204,13 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .job-class-filter { min-height: 34px; padding: 6px 11px; border: 1px solid var(--outline-soft); border-radius: 999px; color: var(--ink-soft); background: white; font-size: .75rem; font-weight: 800; transition: color .16s, border-color .16s, background .16s; }
 .job-class-filter:hover { border-color: var(--primary); color: var(--primary); }
 .job-class-filter[aria-pressed="true"] { border-color: var(--primary); color: var(--on-primary); background: var(--primary); }
-.catalog-element-filter-wrap { margin: 0 28px 16px; display: grid; gap: 8px; }
-.catalog-element-filters { display: flex; flex-wrap: wrap; gap: 7px; }
-.element-filter-button { --filter-accent: var(--primary); --filter-bg: var(--primary-container); min-width: 46px; min-height: 34px; padding: 6px 12px; border: 1px solid var(--outline-soft); border-radius: 999px; color: var(--ink-soft); background: white; font-size: .78rem; font-weight: 800; transition: color .16s, border-color .16s, background .16s; }
-.element-filter-button:hover { border-color: var(--filter-accent); color: var(--filter-accent); }
-.element-filter-button[aria-pressed="true"] { border-color: var(--filter-accent); color: var(--filter-accent); background: var(--filter-bg); }
+.catalog-filter-wrap { margin: 0 28px 16px; display: grid; gap: 8px; }
+.catalog-filter-row { display: flex; align-items: center; gap: 10px; }
+.catalog-filter-label { width: 62px; flex: 0 0 62px; color: var(--ink-soft); font-size: .74rem; font-weight: 800; }
+.catalog-filter-options { display: flex; flex-wrap: wrap; gap: 7px; }
+.element-filter-button, .rarity-filter-button { --filter-accent: var(--primary); --filter-bg: var(--primary-container); min-width: 46px; min-height: 34px; padding: 6px 12px; border: 1px solid var(--outline-soft); border-radius: 999px; color: var(--ink-soft); background: white; font-size: .78rem; font-weight: 800; transition: color .16s, border-color .16s, background .16s; }
+.element-filter-button:hover, .rarity-filter-button:hover { border-color: var(--filter-accent); color: var(--filter-accent); }
+.element-filter-button[aria-pressed="true"], .rarity-filter-button[aria-pressed="true"] { border-color: var(--filter-accent); color: var(--filter-accent); background: var(--filter-bg); }
 .element-filter-button.fire { --filter-accent: #a33226; --filter-bg: #ffdad4; }
 .element-filter-button.water { --filter-accent: #245aa8; --filter-bg: #d6e3ff; }
 .element-filter-button.earth { --filter-accent: #76531d; --filter-bg: #f6dfb5; }
@@ -391,7 +393,9 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
   .catalog-weapon-card .verification-chip { display: none; }
   .weapon-results { padding: 0 16px; }
   .picker-header, .picker-footer { padding-left: 18px; padding-right: 18px; }
-  .search-field, .job-class-filter-wrap, .catalog-element-filter-wrap { margin-left: 18px; margin-right: 18px; }
+  .search-field, .job-class-filter-wrap, .catalog-filter-wrap { margin-left: 18px; margin-right: 18px; }
+  .catalog-filter-row { align-items: flex-start; }
+  .catalog-filter-label { width: 56px; flex-basis: 56px; padding-top: 8px; }
 }
 @media (max-width: 420px) {
   .three-columns, .modifier-grid, .metric-grid { grid-template-columns: 1fr; }

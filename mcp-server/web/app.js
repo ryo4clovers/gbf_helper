@@ -52,8 +52,9 @@ import {
 } from "/job-picker-filter.js?v=1";
 import {
   CATALOG_ELEMENT_ORDER,
-  filterAndSortCatalogByElement,
-} from "/catalog-element-filter.js?v=1";
+  catalogRarityFilterOptions,
+  filterAndSortCatalog,
+} from "/catalog-picker-filter.js?v=1";
 
 const $ = (id) => document.getElementById(id);
 const form = $("calculator-form");
@@ -86,13 +87,16 @@ let jobCatalog = [];
 let selectedJobClassTier = "";
 let characterCatalog = [];
 let selectedCharacterElementCode = "";
+let selectedCharacterRarity = "";
 let editingCharacterSlot = null;
 let weaponCatalog = [];
 let fallbackWeaponCatalog = [];
 let selectedWeaponElementCode = "";
+let selectedWeaponRarity = "";
 let editingWeaponSlot = null;
 let summonCatalog = [];
 let selectedSummonElementCode = "";
+let selectedSummonRarity = "";
 let editingSummonSlot = null;
 let selectedSupportSummon = null;
 let latestDamageResult = null;
@@ -104,10 +108,19 @@ let selectedProfileId = "";
 
 deckField.value = JSON.stringify(DEFAULT_CALCULATOR_DECK, null, 2);
 
-function renderCatalogElementFilters({ catalog, selectedElementCode, containerId, statusId, onChange }) {
+function renderCatalogFilters({
+  catalog,
+  selectedElementCode,
+  selectedRarity,
+  rarities,
+  elementContainerId,
+  rarityContainerId,
+  statusId,
+  onChange,
+}) {
   const availableElements = new Set(catalog.map((entry) => String(entry.elementCode)));
-  const container = $(containerId);
-  container.replaceChildren();
+  const elementContainer = $(elementContainerId);
+  elementContainer.replaceChildren();
   for (const elementCode of CATALOG_ELEMENT_ORDER.filter((code) => availableElements.has(code))) {
     const element = elementMeta[elementCode];
     const button = document.createElement("button");
@@ -115,12 +128,35 @@ function renderCatalogElementFilters({ catalog, selectedElementCode, containerId
     button.className = `element-filter-button ${element?.className ?? "unknown"}`;
     button.textContent = element?.name ?? "属性不明";
     button.setAttribute("aria-pressed", String(selectedElementCode === elementCode));
-    button.addEventListener("click", () => onChange(selectedElementCode === elementCode ? "" : elementCode));
-    container.append(button);
+    button.addEventListener("click", () => onChange({
+      elementCode: selectedElementCode === elementCode ? "" : elementCode,
+      rarity: selectedRarity,
+    }));
+    elementContainer.append(button);
   }
-  $(statusId).textContent = selectedElementCode === ""
-    ? "すべての属性を表示"
-    : `選択中: ${elementMeta[selectedElementCode]?.name ?? "属性不明"}`;
+
+  const rarityContainer = $(rarityContainerId);
+  rarityContainer.replaceChildren();
+  for (const rarity of rarities) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "rarity-filter-button";
+    button.textContent = rarity;
+    button.setAttribute("aria-pressed", String(selectedRarity === rarity));
+    button.addEventListener("click", () => onChange({
+      elementCode: selectedElementCode,
+      rarity: selectedRarity === rarity ? "" : rarity,
+    }));
+    rarityContainer.append(button);
+  }
+
+  const elementLabel = selectedElementCode === ""
+    ? "全属性"
+    : elementMeta[selectedElementCode]?.name ?? "属性不明";
+  const rarityLabel = selectedRarity === "" ? "全レアリティ" : selectedRarity;
+  $(statusId).textContent = selectedElementCode === "" && selectedRarity === ""
+    ? "すべての属性・レアリティを表示"
+    : `選択中: ${elementLabel}・${rarityLabel}`;
 }
 
 function renderCrewSupportEditor(settings) {
@@ -873,7 +909,7 @@ function normalizeCharacterSearch(value) {
 
 function renderCharacterResults(query = "") {
   const normalized = normalizeCharacterSearch(query.trim());
-  const matches = filterAndSortCatalogByElement(
+  const matches = filterAndSortCatalog(
     characterCatalog.filter((character) => {
       const element = elementMeta[character.elementCode]?.name ?? "";
       return normalizeCharacterSearch(
@@ -881,6 +917,7 @@ function renderCharacterResults(query = "") {
       ).includes(normalized);
     }),
     selectedCharacterElementCode,
+    selectedCharacterRarity,
     "characterId",
   );
   const visibleMatches = matches.slice(0, characterPickerResultLimit);
@@ -917,15 +954,19 @@ function renderCharacterResults(query = "") {
     : `${matches.length} / ${characterCatalog.length}件`;
 }
 
-function renderCharacterElementFilters() {
-  renderCatalogElementFilters({
+function renderCharacterFilters() {
+  renderCatalogFilters({
     catalog: characterCatalog,
     selectedElementCode: selectedCharacterElementCode,
-    containerId: "character-element-filters",
-    statusId: "character-element-filter-status",
-    onChange: (elementCode) => {
+    selectedRarity: selectedCharacterRarity,
+    rarities: catalogRarityFilterOptions("character"),
+    elementContainerId: "character-element-filters",
+    rarityContainerId: "character-rarity-filters",
+    statusId: "character-filter-status",
+    onChange: ({ elementCode, rarity }) => {
       selectedCharacterElementCode = elementCode;
-      renderCharacterElementFilters();
+      selectedCharacterRarity = rarity;
+      renderCharacterFilters();
       renderCharacterResults($("character-search").value);
     },
   });
@@ -936,8 +977,9 @@ function openCharacterPicker(slot) {
   $("character-picker-slot-label").textContent = slot <= 3 ? `前衛 ${slot}を変更` : `サブ ${slot - 3}を変更`;
   $("character-search").value = "";
   selectedCharacterElementCode = "";
+  selectedCharacterRarity = "";
   $("remove-character").disabled = !characterForSlot(readDeckConfig(), slot);
-  renderCharacterElementFilters();
+  renderCharacterFilters();
   renderCharacterResults();
   $("character-picker").showModal();
   $("character-search").focus();
@@ -1215,12 +1257,13 @@ function renderWeaponEditor() {
 
 function renderWeaponResults(query = "") {
   const normalized = query.trim().toLocaleLowerCase("ja");
-  const matches = filterAndSortCatalogByElement(
+  const matches = filterAndSortCatalog(
     weaponCatalog.filter((weapon) => {
       const searchable = [weapon.name, weapon.nameEn, weapon.weaponId, ...weapon.skills.map((skill) => skill.name)].filter(Boolean).join(" ").toLocaleLowerCase("ja");
       return searchable.includes(normalized);
     }),
     selectedWeaponElementCode,
+    selectedWeaponRarity,
     "weaponId",
   );
   const results = $("weapon-results");
@@ -1255,15 +1298,19 @@ function renderWeaponResults(query = "") {
   $("catalog-count").textContent = `${displayed}件表示 / 該当${matches.length}件 / 全${weaponCatalog.length}件`;
 }
 
-function renderWeaponElementFilters() {
-  renderCatalogElementFilters({
+function renderWeaponFilters() {
+  renderCatalogFilters({
     catalog: weaponCatalog,
     selectedElementCode: selectedWeaponElementCode,
-    containerId: "weapon-element-filters",
-    statusId: "weapon-element-filter-status",
-    onChange: (elementCode) => {
+    selectedRarity: selectedWeaponRarity,
+    rarities: catalogRarityFilterOptions("weapon"),
+    elementContainerId: "weapon-element-filters",
+    rarityContainerId: "weapon-rarity-filters",
+    statusId: "weapon-filter-status",
+    onChange: ({ elementCode, rarity }) => {
       selectedWeaponElementCode = elementCode;
-      renderWeaponElementFilters();
+      selectedWeaponRarity = rarity;
+      renderWeaponFilters();
       renderWeaponResults($("weapon-search").value);
     },
   });
@@ -1274,9 +1321,10 @@ function openWeaponPicker(slot) {
   $("picker-slot-label").textContent = slot === 1 ? "メイン武器を変更" : `武器枠 ${slot}を変更`;
   $("weapon-search").value = "";
   selectedWeaponElementCode = "";
+  selectedWeaponRarity = "";
   const currentWeapon = weaponForSlot(readDeckConfig(), slot);
   $("remove-weapon").disabled = !currentWeapon || currentWeapon.isJobFallback === true;
-  renderWeaponElementFilters();
+  renderWeaponFilters();
   renderWeaponResults();
   $("weapon-picker").showModal();
   $("weapon-search").focus();
@@ -1509,7 +1557,7 @@ function renderSupportSummonEditor() {
 function renderSummonResults(query = "") {
   const normalized = query.trim().toLocaleLowerCase("ja");
   const availableSummons = availableSummonsForPicker();
-  const matches = filterAndSortCatalogByElement(
+  const matches = filterAndSortCatalog(
     availableSummons.filter((summon) =>
       [summon.name, summon.summonId, summon.auraName, summon.auraDescription]
         .join(" ")
@@ -1517,6 +1565,7 @@ function renderSummonResults(query = "") {
         .includes(normalized),
     ),
     selectedSummonElementCode,
+    selectedSummonRarity,
     "summonId",
   );
   const results = $("summon-results");
@@ -1556,15 +1605,19 @@ function availableSummonsForPicker() {
     : summonCatalog;
 }
 
-function renderSummonElementFilters() {
-  renderCatalogElementFilters({
+function renderSummonFilters() {
+  renderCatalogFilters({
     catalog: availableSummonsForPicker(),
     selectedElementCode: selectedSummonElementCode,
-    containerId: "summon-element-filters",
-    statusId: "summon-element-filter-status",
-    onChange: (elementCode) => {
+    selectedRarity: selectedSummonRarity,
+    rarities: catalogRarityFilterOptions("summon"),
+    elementContainerId: "summon-element-filters",
+    rarityContainerId: "summon-rarity-filters",
+    statusId: "summon-filter-status",
+    onChange: ({ elementCode, rarity }) => {
       selectedSummonElementCode = elementCode;
-      renderSummonElementFilters();
+      selectedSummonRarity = rarity;
+      renderSummonFilters();
       renderSummonResults($("summon-search").value);
     },
   });
@@ -1575,8 +1628,9 @@ function openSummonPicker(position, slot) {
   $("summon-picker-slot-label").textContent = `${summonSlotLabel(position, slot)}を変更`;
   $("summon-search").value = "";
   selectedSummonElementCode = "";
+  selectedSummonRarity = "";
   $("remove-summon").disabled = !summonForSlot(readDeckConfig(), position, slot);
-  renderSummonElementFilters();
+  renderSummonFilters();
   renderSummonResults();
   $("summon-picker").showModal();
   $("summon-search").focus();
@@ -1587,8 +1641,9 @@ function openSupportSummonPicker() {
   $("summon-picker-slot-label").textContent = "クエスト開始前に選ぶサポート召喚石を変更";
   $("summon-search").value = "";
   selectedSummonElementCode = "";
+  selectedSummonRarity = "";
   $("remove-summon").disabled = selectedSupportSummon === null;
-  renderSummonElementFilters();
+  renderSummonFilters();
   renderSummonResults();
   $("summon-picker").showModal();
   $("summon-search").focus();
