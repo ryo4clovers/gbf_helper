@@ -6,7 +6,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
   assert.equal(catalog.weapons.size, 2970);
-  assert.equal(catalog.skills.size, 415);
+  assert.equal(catalog.skills.size, 463);
   assert.deepEqual(catalog.weapons.get("1020500200")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1" },
   ]);
@@ -28,6 +28,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
   );
   assert.equal(fireMightEffects.some((effect) => effect.skillLevel === 16), false);
   const normalAttackTableCases = [
+    ["13", [[10, 12], [15, 14.5], [20, 16]]],
     ["375", [[10, 10], [15, 12], [20, 12.5]]],
     ["765", [[10, 12], [15, 14.5], [20, 15.5]]],
     ["1228", [[10, 15], [15, 18], [20, 20]]],
@@ -47,6 +48,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
     ["1417", [[10, 15], [15, 18], [20, 20]]],
     ["1507", [[10, 12], [15, 14.5], [20, 16]]],
     ["1651", [[10, 15], [15, 18], [20, 20]]],
+    ["1650", [[10, 15], [15, 18], [20, 20]]],
     ["27", [[10, 15], [15, 18], [20, 20]]],
     ["210", [[10, 16], [15, 20], [20, 22]]],
     ["324", [[10, 12], [15, 14.5], [20, 16]]],
@@ -55,6 +57,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
     ["628", [[10, 17], [15, 22]]],
     ["766", [[10, 12], [15, 14.5], [20, 15.5]]],
     ["869", [[10, 10], [15, 12], [20, 13]]],
+    ["867", [[10, 10], [15, 12], [20, 13]]],
     ["1031", [[10, 16], [15, 20], [20, 22]]],
     ["5", [[10, 10], [15, 12], [20, 13]]],
     ["29", [[10, 15], [15, 18], [20, 20]]],
@@ -108,6 +111,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
     ["19", [[10, 15], [15, 17]]],
     ["764", [[1, 3], [10, 12], [15, 14.5], [20, 15.5]]],
     ["32", [[10, 18], [15, 21], [20, 24]]],
+    ["31", [[10, 18], [15, 21], [20, 24]]],
     ["766", [[1, 3], [10, 12], [15, 14.5], [20, 15.5]]],
     ["1037", [[10, 12], [15, 14], [20, 16]]],
     ["378", [[1, 1], [10, 10], [15, 12], [20, 12.5]]],
@@ -274,6 +278,19 @@ test("loads the initial incremental weapon and skill catalog", () => {
     { sourceKey: "skill1", skillId: "1506" },
     { sourceKey: "skill2", skillId: "639" },
   ]);
+  const sharedFireGachaWeaponSkillSlots = new Map([
+    ["1040000000", [["skill1", "25"], ["skill2", "498"]]],
+    ["1040004400", [["skill1", "25"], ["skill2", "241"], ["skill3", "824"]]],
+    ["1040915800", [["skill1", "1171"]]],
+  ]);
+  for (const [weaponId, expected] of sharedFireGachaWeaponSkillSlots) {
+    assert.deepEqual(
+      catalog.weapons.get(weaponId)?.skillSlots.map(({ sourceKey, skillId }) => [sourceKey, skillId]),
+      expected,
+      `skill slots for fire gacha weapon ${weaponId}`,
+    );
+  }
+  assert.equal(catalog.skills.get("498")?.confirmedAt, "2026-09-13");
   assert.deepEqual(catalog.weapons.get("1040220800")?.skillSlots, [
     { sourceKey: "skill1", skillId: "2801" },
     { sourceKey: "skill2", skillId: "2807" },
