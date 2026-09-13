@@ -1316,7 +1316,7 @@ function renderWeaponResults(query = "") {
     const element = elementMeta[weapon.elementCode];
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "catalog-weapon-card";
+    button.className = "catalog-weapon-card catalog-equipment-card";
     button.addEventListener("click", () => selectWeapon(weapon));
     const art = createEquipmentArt(
       `catalog-art ${element?.className ?? "unknown"}`,
@@ -1657,7 +1657,7 @@ function renderSummonResults(query = "") {
     const element = elementMeta[summon.elementCode];
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "catalog-weapon-card catalog-summon-card";
+    button.className = "catalog-weapon-card catalog-equipment-card catalog-summon-card";
     button.addEventListener("click", () => selectSummon(summon));
     const art = createEquipmentArt(
       `catalog-art summon-catalog-art ${element?.className ?? "unknown"}`,

@@ -90,6 +90,17 @@ test("weapon and summon thumbnails retain the existing calculator art size", asy
   assert.match(styles, /\.image-loaded \.equipment-art-fallback \{[^}]*visibility: hidden;/u);
 });
 
+test("only weapon and summon picker thumbnails use the source image aspect ratio", async () => {
+  const [app, styles] = await Promise.all([
+    readFile(new URL("../web/app.js", import.meta.url), "utf8"),
+    readFile(new URL("../web/styles.css", import.meta.url), "utf8"),
+  ]);
+  assert.match(app, /button\.className = "catalog-weapon-card catalog-equipment-card";/u);
+  assert.match(app, /button\.className = "catalog-weapon-card catalog-equipment-card catalog-summon-card";/u);
+  assert.match(styles, /\.catalog-equipment-card \.catalog-art \{[^}]*width: 119px;[^}]*height: 68px;[^}]*aspect-ratio: 7 \/ 4;/u);
+  assert.doesNotMatch(styles, /\.weapon-art \{[^}]*aspect-ratio: 7 \/ 4;/u);
+});
+
 test("job picker exposes class filter controls below search", async () => {
   const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
   const searchPosition = html.indexOf('id="job-search"');

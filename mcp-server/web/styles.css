@@ -225,8 +225,10 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .element-filter-button.dark { --filter-accent: #613496; --filter-bg: #ecd9ff; }
 .weapon-results { max-height: 430px; padding: 0 28px; display: grid; gap: 10px; overflow-y: auto; }
 .catalog-weapon-card { width: 100%; min-height: 92px; padding: 10px; border: 1px solid var(--outline-soft); border-radius: 23px 15px 23px 15px; display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; align-items: center; gap: 13px; color: inherit; background: white; text-align: left; transition: transform .16s, border-color .16s, background .16s; }
+.catalog-weapon-card.catalog-equipment-card { grid-template-columns: 119px minmax(0, 1fr) auto; }
 .catalog-weapon-card:hover { transform: translateX(3px); border-color: var(--primary); background: #fbf9ff; }
 .catalog-art { position: relative; align-self: stretch; min-height: 68px; border-radius: 17px 11px 17px 11px; display: grid; place-items: center; color: white; overflow: hidden; }
+.catalog-equipment-card .catalog-art { align-self: center; width: 119px; height: 68px; min-height: 0; aspect-ratio: 7 / 4; }
 .catalog-weapon-details { min-width: 0; }
 .catalog-weapon-name, .catalog-weapon-meta, .catalog-skill-list { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .catalog-weapon-name { font-size: .96rem; font-weight: 800; }
@@ -396,6 +398,8 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
   .main-slot .weapon-choice { display: grid; grid-template-columns: 42% 1fr; align-items: stretch; }
   .main-slot .weapon-slot-info { align-self: center; }
   .catalog-weapon-card { grid-template-columns: 60px minmax(0, 1fr); }
+  .catalog-weapon-card.catalog-equipment-card { grid-template-columns: 98px minmax(0, 1fr); }
+  .catalog-equipment-card .catalog-art { width: 98px; height: 56px; }
   .catalog-weapon-card.catalog-job-card { grid-template-columns: 112px minmax(0, 1fr); }
   .job-catalog-art { width: 112px; height: 64px; }
   .catalog-weapon-card .verification-chip { display: none; }
