@@ -21,6 +21,7 @@ const requestSchema = z
       .enum(["article-2026-07", "defense-first-provisional", "article-2026-07-experimental"])
       .optional(),
     deckConfig: z.unknown(),
+    protagonistCurrentHpPercent: z.number().finite().min(1).max(100).default(100),
     supportSummon: z
       .object({
         summonId: z.string().min(1),
@@ -205,6 +206,7 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
     deck: resolution.deck,
     battle,
     targetEnemySlot: 1,
+    protagonistCurrentHpPercent: request.protagonistCurrentHpPercent,
     accountBonuses,
     crewModifiers: {
       shipAttackPercent: request.modifiers.shipAttackPercent,

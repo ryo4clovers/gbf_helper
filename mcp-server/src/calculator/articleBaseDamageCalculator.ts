@@ -5,6 +5,7 @@ import {
   type DefenseAdjustedBaseDamageResult,
 } from "./baseDamageCalculator.js";
 import type { NormalAttackPowerResult } from "./normalAttackPowerCalculator.js";
+import type { HpDependentAttackResult } from "./hpDependentAttackCalculator.js";
 import type {
   DamageCalculationInput,
   DamageModifier,
@@ -125,6 +126,7 @@ function requireTarget(input: DamageCalculationInput): EnemyTarget & { defense: 
 export function calculateArticleBaseDamage(
   input: DamageCalculationInput,
   attackPower: NormalAttackPowerResult,
+  hpDependentAttack?: HpDependentAttackResult,
 ): DefenseAdjustedBaseDamageResult {
   const target = requireTarget(input);
   const protagonistElementCode = input.deck.protagonist.elementCode;
@@ -184,7 +186,9 @@ export function calculateArticleBaseDamage(
     (sum, contribution) => sum + contribution.amountPercent,
     0,
   );
-  const elementalRaw = weaponSkillRaw * (1 + elementalPercent / 100);
+  const staminaRaw = weaponSkillRaw * (hpDependentAttack?.normalStaminaMultiplier ?? 1);
+  const enmityRaw = staminaRaw * (hpDependentAttack?.normalEnmityMultiplier ?? 1);
+  const elementalRaw = enmityRaw * (1 + elementalPercent / 100);
   const prePostCapDamage = elementalRaw / target.defense;
 
   const postCapContributions = [
@@ -235,9 +239,31 @@ export function calculateArticleBaseDamage(
       "none",
       attackPower.contributions,
     ),
+    ...(hpDependentAttack === undefined || hpDependentAttack.staminaContributions.length === 0
+      ? []
+      : [stage(
+          "normal-stamina",
+          weaponSkillRaw,
+          hpDependentAttack.totalEffectiveNormalStaminaPercent,
+          staminaRaw,
+          staminaRaw,
+          "none",
+          hpDependentAttack.staminaContributions,
+        )]),
+    ...(hpDependentAttack === undefined || hpDependentAttack.enmityContributions.length === 0
+      ? []
+      : [stage(
+          "normal-enmity",
+          staminaRaw,
+          hpDependentAttack.totalEffectiveNormalEnmityPercent,
+          enmityRaw,
+          enmityRaw,
+          "none",
+          hpDependentAttack.enmityContributions,
+        )]),
     stage(
       "elemental-attack",
-      weaponSkillRaw,
+      enmityRaw,
       elementalPercent,
       elementalRaw,
       elementalRaw,

@@ -1,4 +1,5 @@
 import type { NormalAttackPowerResult } from "./normalAttackPowerCalculator.js";
+import type { HpDependentAttackResult } from "./hpDependentAttackCalculator.js";
 import type {
   DamageCalculationInput,
   DamageModifier,
@@ -7,7 +8,11 @@ import type {
   EnemyTarget,
 } from "./types.js";
 
-export type BaseDamageStage = DamageModifierStage | "normal-weapon-skill";
+export type BaseDamageStage =
+  | DamageModifierStage
+  | "normal-weapon-skill"
+  | "normal-stamina"
+  | "normal-enmity";
 export type StageRounding = "none" | "floor" | "ceil";
 export type BaseDamageCalculationModel =
   | "defense-first-provisional"
@@ -166,6 +171,7 @@ function userInputModifier(
 export function calculateDefenseAdjustedBaseDamage(
   input: DamageCalculationInput,
   attackPower: NormalAttackPowerResult,
+  hpDependentAttack?: HpDependentAttackResult,
 ): DefenseAdjustedBaseDamageResult {
   const target = input.battle.enemies.find((enemy) => enemy.slot === input.targetEnemySlot);
   if (target === undefined) throw new Error(`target enemy slot ${input.targetEnemySlot} was not found`);
@@ -250,6 +256,20 @@ export function calculateDefenseAdjustedBaseDamage(
       contributions: attackPower.contributions,
       totalPercentOverride: attackPower.totalEffectiveNormalAttackPercent,
     },
+    ...(hpDependentAttack === undefined || hpDependentAttack.staminaContributions.length === 0
+      ? []
+      : [{
+          stage: "normal-stamina" as const,
+          contributions: hpDependentAttack.staminaContributions,
+          totalPercentOverride: hpDependentAttack.totalEffectiveNormalStaminaPercent,
+        }]),
+    ...(hpDependentAttack === undefined || hpDependentAttack.enmityContributions.length === 0
+      ? []
+      : [{
+          stage: "normal-enmity" as const,
+          contributions: hpDependentAttack.enmityContributions,
+          totalPercentOverride: hpDependentAttack.totalEffectiveNormalEnmityPercent,
+        }]),
     {
       stage: "crew-furnace",
       contributions: userInputModifier("crew-furnace", input.crewModifiers?.furnaceAttackPercent),

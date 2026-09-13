@@ -11,6 +11,8 @@ const effectSchema = z
   .object({
     kind: z.enum([
       "normal-attack-up",
+      "normal-stamina-up",
+      "normal-enmity-up",
       "normal-hp-up",
       "critical-rate-up",
       "double-attack-rate-up",
@@ -23,6 +25,10 @@ const effectSchema = z
     skillLevel: z.number().int().nonnegative().optional(),
     boostGroup: z.enum(["normal", "magna"]).optional(),
     targetSkillNamePrefixes: z.array(z.string().min(1)).optional(),
+    hpDependentCurve: z.discriminatedUnion("kind", [
+      z.object({ kind: z.literal("stamina"), coefficient: z.number().finite().positive() }).strict(),
+      z.object({ kind: z.literal("enmity") }).strict(),
+    ]).optional(),
     note: z.string().min(1).optional(),
     verificationStatus: statusSchema.optional(),
     source: z.string().min(1).optional(),
@@ -117,6 +123,8 @@ const skillEntrySchema = z
     description: z.string().min(1),
     effects: z.array(effectSchema),
     normalAttackAmountTable: skillAmountTableAssignmentSchema.optional(),
+    normalStaminaAmountTable: skillAmountTableAssignmentSchema.optional(),
+    normalEnmityAmountTable: skillAmountTableAssignmentSchema.optional(),
     normalHpAmountTable: skillAmountTableAssignmentSchema.optional(),
     criticalRateAmountTable: rateAmountTableAssignmentSchema.optional(),
     doubleAttackRateAmountTable: rateAmountTableAssignmentSchema.optional(),
@@ -139,6 +147,26 @@ const skillAmountTablesFileSchema = z
     tables: z.array(
       z.object({
         tableId: z.string().min(1),
+        values: z.array(z.object({
+          skillLevel: z.number().int().min(1).max(99),
+          amountPercent: z.number().finite(),
+        }).strict()).min(1),
+        ...sourceFields,
+      }).strict(),
+    ),
+  })
+  .strict();
+
+const hpDependentAmountTablesFileSchema = z
+  .object({
+    schemaVersion: z.literal(1),
+    tables: z.array(
+      z.object({
+        tableId: z.string().min(1),
+        hpDependentCurve: z.discriminatedUnion("kind", [
+          z.object({ kind: z.literal("stamina"), coefficient: z.number().finite().positive() }).strict(),
+          z.object({ kind: z.literal("enmity") }).strict(),
+        ]),
         values: z.array(z.object({
           skillLevel: z.number().int().min(1).max(99),
           amountPercent: z.number().finite(),
@@ -183,6 +211,9 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
   const rateTableFile = skillAmountTablesFileSchema.parse(
     readJson("weapon-skill-rate-tables.v1.json"),
   );
+  const hpDependentTableFile = hpDependentAmountTablesFileSchema.parse(
+    readJson("weapon-skill-hp-dependent-attack-tables.v1.json"),
+  );
   const weapons = uniqueMap(weaponFile.weapons, (weapon) => weapon.weaponId, "weapon");
   const normalAttackTables = uniqueMap(
     normalAttackTableFile.tables,
@@ -195,9 +226,16 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
     "normal HP amount table",
   );
   const rateTables = uniqueMap(rateTableFile.tables, (table) => table.tableId, "rate amount table");
+  const hpDependentTables = uniqueMap(
+    hpDependentTableFile.tables,
+    (table) => table.tableId,
+    "HP-dependent attack amount table",
+  );
   const expandedSkills = skillFile.skills.map((skill): WeaponSkillCatalogEntry => {
     const {
       normalAttackAmountTable,
+      normalStaminaAmountTable,
+      normalEnmityAmountTable,
       normalHpAmountTable,
       criticalRateAmountTable,
       doubleAttackRateAmountTable,
@@ -210,6 +248,18 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
         assignment: normalAttackAmountTable,
         tables: normalAttackTables,
         label: "normal attack",
+      },
+      {
+        kind: "normal-stamina-up" as const,
+        assignment: normalStaminaAmountTable,
+        tables: hpDependentTables,
+        label: "normal stamina",
+      },
+      {
+        kind: "normal-enmity-up" as const,
+        assignment: normalEnmityAmountTable,
+        tables: hpDependentTables,
+        label: "normal enmity",
       },
       {
         kind: "normal-hp-up" as const,
@@ -256,6 +306,12 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
             amountPercent: value.amountPercent,
             skillLevel: value.skillLevel,
             boostGroup: "boostGroup" in assignment ? assignment.boostGroup : "normal",
+            ...("hpDependentCurve" in table
+              ? {
+                  hpDependentCurve:
+                    table.hpDependentCurve as WeaponSkillEffectDefinition["hpDependentCurve"],
+                }
+              : {}),
             verificationStatus: table.verificationStatus,
             source: table.source,
             ...(table.confirmedAt === undefined ? {} : { confirmedAt: table.confirmedAt }),

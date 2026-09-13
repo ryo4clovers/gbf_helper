@@ -32,6 +32,10 @@ import {
   calculateProtagonistHp,
   type ProtagonistHpResult,
 } from "./protagonistHpCalculator.js";
+import {
+  calculateHpDependentAttack,
+  type HpDependentAttackResult,
+} from "./hpDependentAttackCalculator.js";
 
 export interface NormalAttackDamageOptions {
   baseDamageModel?: BaseDamageCalculationModel;
@@ -61,6 +65,7 @@ export interface NormalAttackDamageResult {
   schemaVersion: 1;
   status: "provisional";
   attackPower: NormalAttackPowerResult;
+  hpDependentAttack: HpDependentAttackResult;
   baseDamage: DefenseAdjustedBaseDamageResult;
   bodyDamageDistribution: DamageDistributionSummary;
   criticalBodyDamage?: CriticalBodyDamageResult;
@@ -99,11 +104,15 @@ export function calculateNormalAttackDamage(
   options: NormalAttackDamageOptions = {},
 ): NormalAttackDamageResult {
   const attackPower = calculateBattleNormalAttackPower(input.deck, input.battle);
+  const hpDependentAttack = calculateHpDependentAttack(
+    input.deck,
+    input.protagonistCurrentHpPercent ?? 100,
+  );
   const baseDamageModel = options.baseDamageModel ?? "article-2026-07";
   const useArticleModel = usesArticleBaseDamageModel(baseDamageModel);
   const baseDamage = useArticleModel
-    ? calculateArticleBaseDamage(input, attackPower)
-    : calculateDefenseAdjustedBaseDamage(input, attackPower);
+    ? calculateArticleBaseDamage(input, attackPower, hpDependentAttack)
+    : calculateDefenseAdjustedBaseDamage(input, attackPower, hpDependentAttack);
   const sharedRandomOptions = {
     multiplierMin: options.multiplierMin,
     multiplierMax: options.multiplierMax,
@@ -144,6 +153,7 @@ export function calculateNormalAttackDamage(
     schemaVersion: 1,
     status: "provisional",
     attackPower,
+    hpDependentAttack,
     baseDamage,
     bodyDamageDistribution,
     criticalBodyDamage,

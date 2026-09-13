@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 1,
+  "tables": [
+    {
+      "tableId": "normal-stamina-small",
+      "hpDependentCurve": {
+        "kind": "stamina",
+        "coefficient": 80
+      },
+      "values": [
+        {
+          "skillLevel": 1,
+          "amountPercent": 4.08
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 4.16
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 4.23
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 4.32
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 4.4
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 4.49
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 4.59
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 4.69
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 4.8
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 4.91
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 5.03
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 5.16
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 5.29
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 5.44
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 5.59
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の効果量表とHP依存式（2026-09-13閲覧）。二次情報のため要検証。小の係数80は掲載されたHP100%値から逆算"
+    },
+    {
+      "tableId": "normal-stamina-medium",
+      "hpDependentCurve": {
+        "kind": "stamina",
+        "coefficient": 65
+      },
+      "values": [
+        {
+          "skillLevel": 1,
+          "amountPercent": 5.75
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 5.92
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 6.1
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 6.29
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 6.5
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 6.72
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 6.95
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 7.2
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 7.47
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 7.76
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 8.07
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 8.4
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 8.76
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 9.15
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 9.56
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 9.74
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 9.92
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 10.11
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 10.3
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 10.5
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の効果量表とHP依存式（2026-09-13閲覧）。二次情報のため要検証"
+    },
+    {
+      "tableId": "normal-stamina-large",
+      "hpDependentCurve": {
+        "kind": "stamina",
+        "coefficient": 56.4
+      },
+      "values": [
+        {
+          "skillLevel": 1,
+          "amountPercent": 7.64
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 7.94
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 8.27
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 8.62
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 8.99
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 9.39
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 9.83
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 10.3
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 10.81
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 11.37
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 11.98
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 12.63
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 13.35
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 14.14
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 15
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 15.37
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 15.75
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 16.15
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 16.57
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 17
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の効果量表とHP依存式（2026-09-13閲覧）。二次情報のため要検証"
+    },
+    {
+      "tableId": "normal-enmity-small",
+      "hpDependentCurve": {
+        "kind": "enmity"
+      },
+      "values": [
+        {
+          "skillLevel": 1,
+          "amountPercent": 0.5
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 1.1
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 1.7
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 2.3
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 2.9
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 3.5
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 4.09
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 4.7
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 5.3
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 6.2
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 6.4
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 6.6
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 6.8
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 7
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の効果量表とHP依存式（2026-09-13閲覧）。二次情報のため要検証"
+    },
+    {
+      "tableId": "normal-enmity-medium",
+      "hpDependentCurve": {
+        "kind": "enmity"
+      },
+      "values": [
+        {
+          "skillLevel": 1,
+          "amountPercent": 0.7
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 1.46
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 2.26
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 3.06
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 3.86
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 4.66
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 5.46
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 6.26
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 7.06
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 8
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 8.4
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 8.79
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 9.2
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 9.6
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 10
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の効果量表とHP依存式（2026-09-13閲覧）。二次情報のため要検証"
+    },
+    {
+      "tableId": "normal-enmity-large",
+      "hpDependentCurve": {
+        "kind": "enmity"
+      },
+      "values": [
+        {
+          "skillLevel": 1,
+          "amountPercent": 0.83
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 1.83
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 2.83
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 3.83
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 4.83
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 5.83
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 6.83
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 7.83
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 8.83
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 10.5
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 11
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 11.5
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 12
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 12.5
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 13.5
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "GameWith・神ゲー攻略の効果量表とHP依存式（2026-09-13閲覧）。二次情報のため要検証"
+    }
+  ]
+}

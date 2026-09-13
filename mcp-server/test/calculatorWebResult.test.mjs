@@ -183,7 +183,7 @@ test("separates personal environment inputs from enemy battle conditions", async
   assert.doesNotMatch(environment, /id=["'](?:ship|furnace)["']/u);
   assert.match(environment, /<details class="advanced-settings crew-support-settings">/u);
   assert.doesNotMatch(environment, /<details class="advanced-settings crew-support-settings" open>/u);
-  for (const id of ["enemy-name", "enemy-defense", "enemy-element"]) {
+  for (const id of ["protagonist-hp-percent", "enemy-name", "enemy-defense", "enemy-element"]) {
     assert.match(battle, new RegExp(`id=["']${id}["']`));
     assert.doesNotMatch(environment, new RegExp(`id=["']${id}["']`));
   }

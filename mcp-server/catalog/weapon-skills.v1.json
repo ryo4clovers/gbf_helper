@@ -1317,7 +1317,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-small",
+        "elementCode": "1"
+      }
     },
     {
       "skillId": "119",
@@ -1326,7 +1330,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-small",
+        "elementCode": "2"
+      }
     },
     {
       "skillId": "120",
@@ -1335,7 +1343,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-small",
+        "elementCode": "3"
+      }
     },
     {
       "skillId": "121",
@@ -1344,7 +1356,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-small",
+        "elementCode": "4"
+      }
     },
     {
       "skillId": "122",
@@ -1353,7 +1369,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-small",
+        "elementCode": "5"
+      }
     },
     {
       "skillId": "123",
@@ -1362,7 +1382,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-small",
+        "elementCode": "6"
+      }
     },
     {
       "skillId": "124",
@@ -1371,7 +1395,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-medium",
+        "elementCode": "1"
+      }
     },
     {
       "skillId": "125",
@@ -1379,7 +1407,11 @@
       "description": "水属性キャラのHPが少ないほど攻撃力が上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/water-ssr-ennead-esna.md。効果量・計算枠は未検証"
+      "source": "knowledge/water-ssr-ennead-esna.md。効果量・計算枠は未検証",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-medium",
+        "elementCode": "2"
+      }
     },
     {
       "skillId": "129",
@@ -1388,7 +1420,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-medium",
+        "elementCode": "6"
+      }
     },
     {
       "skillId": "130",
@@ -1397,7 +1433,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-large",
+        "elementCode": "1"
+      }
     },
     {
       "skillId": "131",
@@ -1406,7 +1446,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-large",
+        "elementCode": "2"
+      }
     },
     {
       "skillId": "132",
@@ -1415,7 +1459,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-large",
+        "elementCode": "3"
+      }
     },
     {
       "skillId": "133",
@@ -1424,7 +1472,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-large",
+        "elementCode": "4"
+      }
     },
     {
       "skillId": "134",
@@ -1433,7 +1485,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-large",
+        "elementCode": "5"
+      }
     },
     {
       "skillId": "135",
@@ -1442,7 +1498,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalEnmityAmountTable": {
+        "tableId": "normal-enmity-large",
+        "elementCode": "6"
+      }
     },
     {
       "skillId": "136",
@@ -2809,7 +2869,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-large",
+        "elementCode": "1"
+      }
     },
     {
       "skillId": "503",
@@ -2818,7 +2882,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-large",
+        "elementCode": "2"
+      }
     },
     {
       "skillId": "506",
@@ -2827,7 +2895,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-large",
+        "elementCode": "5"
+      }
     },
     {
       "skillId": "507",
@@ -2836,7 +2908,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-large",
+        "elementCode": "6"
+      }
     },
     {
       "skillId": "508",
@@ -4254,7 +4330,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-medium",
+        "elementCode": "1"
+      }
     },
     {
       "skillId": "915",
@@ -4263,7 +4343,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-medium",
+        "elementCode": "2"
+      }
     },
     {
       "skillId": "916",
@@ -4272,7 +4356,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-medium",
+        "elementCode": "3"
+      }
     },
     {
       "skillId": "917",
@@ -4281,7 +4369,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-medium",
+        "elementCode": "4"
+      }
     },
     {
       "skillId": "918",
@@ -4290,7 +4382,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-medium",
+        "elementCode": "5"
+      }
     },
     {
       "skillId": "919",
@@ -4299,7 +4395,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-medium",
+        "elementCode": "6"
+      }
     },
     {
       "skillId": "921",
@@ -5456,7 +5556,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-small",
+        "elementCode": "1"
+      }
     },
     {
       "skillId": "1297",
@@ -5465,7 +5569,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-small",
+        "elementCode": "2"
+      }
     },
     {
       "skillId": "1298",
@@ -5474,7 +5582,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-small",
+        "elementCode": "3"
+      }
     },
     {
       "skillId": "1299",
@@ -5483,7 +5595,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-small",
+        "elementCode": "4"
+      }
     },
     {
       "skillId": "1300",
@@ -5492,7 +5608,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-small",
+        "elementCode": "5"
+      }
     },
     {
       "skillId": "1301",
@@ -5501,7 +5621,11 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "confirmedAt": "2026-09-13",
+      "normalStaminaAmountTable": {
+        "tableId": "normal-stamina-small",
+        "elementCode": "6"
+      }
     },
     {
       "skillId": "1302",

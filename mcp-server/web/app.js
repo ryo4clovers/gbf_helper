@@ -1929,6 +1929,7 @@ function buildRequest() {
   return {
     schemaVersion: 1,
     deckConfig,
+    protagonistCurrentHpPercent: numberValue("protagonist-hp-percent"),
     supportSummon: selectedSupportSummon ?? undefined,
     enemy: {
       name: $("enemy-name").value.trim() || undefined,
@@ -2023,6 +2024,8 @@ function predictionRequests(request) {
 
 const stageNames = {
   "normal-weapon-skill": "通常攻刃",
+  "normal-stamina": "通常渾身",
+  "normal-enmity": "通常背水",
   "elemental-attack": "属性攻撃",
   "crew-ship": "船",
   "crew-furnace": "炉",
@@ -2232,6 +2235,7 @@ function applyRequestToForm(request) {
   $("enemy-element").value = request.enemy.elementCode;
   $("enemy-defense").value = String(request.enemy.defense);
   $("enemy-name").value = request.enemy.name || "";
+  $("protagonist-hp-percent").value = String(request.protagonistCurrentHpPercent ?? 100);
   $("random-min").value = String(request.random?.minimum ?? 0.95);
   $("random-max").value = String(request.random?.maximum ?? 1.05);
   $("random-step").value = String(request.random?.step ?? 0.001);
@@ -2264,6 +2268,7 @@ function registerWebMcpTool() {
         properties: {
           schemaVersion: { const: 1 },
           deckConfig: { type: "object" },
+          protagonistCurrentHpPercent: { type: "number", minimum: 1, maximum: 100, default: 100 },
           supportSummon: {
             type: "object",
             properties: {

@@ -219,6 +219,7 @@ export function resolveEffectiveWeaponSkillEffects(
       elementCode: source.effect.elementCode,
       baseAmountPercent: source.effect.amountPercent,
       effectiveAmountPercent: roundPercentage(source.effect.amountPercent * (1 + boostPercent / 100)),
+      hpDependentCurve: source.effect.hpDependentCurve,
       skillLevel: source.effect.skillLevel,
       verificationStatus: source.effect.verificationStatus ?? source.skill.verificationStatus ?? "下書き",
       appliedModifiers,

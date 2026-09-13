@@ -27,12 +27,18 @@ export interface DeckSkill {
 
 export type WeaponSkillEffectKind =
   | "normal-attack-up"
+  | "normal-stamina-up"
+  | "normal-enmity-up"
   | "normal-hp-up"
   | "critical-rate-up"
   | "double-attack-rate-up"
   | "triple-attack-rate-up"
   | "elemental-pursuit"
   | "normal-skill-boost";
+
+export type HpDependentAttackCurve =
+  | { kind: "stamina"; coefficient: number }
+  | { kind: "enmity" };
 
 export interface WeaponSkillEffectDefinition {
   kind: WeaponSkillEffectKind;
@@ -41,6 +47,8 @@ export interface WeaponSkillEffectDefinition {
   skillLevel?: number;
   boostGroup?: "normal" | "magna";
   targetSkillNamePrefixes?: string[];
+  /** Converts the table's reference amount into an amount at the configured current HP. */
+  hpDependentCurve?: HpDependentAttackCurve;
   note?: string;
   /** Verification is recorded per numeric effect, so one skill may mix confirmed and provisional levels. */
   verificationStatus?: "検証済み" | "下書き";
@@ -218,6 +226,7 @@ export interface EffectiveWeaponSkillEffect {
   elementCode?: string;
   baseAmountPercent: number;
   effectiveAmountPercent: number;
+  hpDependentCurve?: HpDependentAttackCurve;
   skillLevel?: number;
   verificationStatus: "検証済み" | "下書き";
   appliedModifiers: AppliedWeaponSkillModifier[];
@@ -540,6 +549,8 @@ export interface DamageCalculationInput {
   deck: DeckSnapshot;
   battle: BattleSnapshot;
   targetEnemySlot: number;
+  /** Current protagonist HP as a percentage of maximum HP. Defaults to 100. */
+  protagonistCurrentHpPercent?: number;
   accountBonuses?: AccountBonusSnapshot;
   crewModifiers?: CrewDamageModifierInput;
 }

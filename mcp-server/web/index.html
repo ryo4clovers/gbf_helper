@@ -199,7 +199,12 @@
               <h2>戦闘条件</h2>
             </div>
           </div>
-          <div class="field-grid three-columns">
+          <div class="field-grid four-columns">
+            <label class="number-field">
+              <span>主人公の現在HP</span>
+              <input id="protagonist-hp-percent" type="number" value="100" min="1" max="100" step="1" required />
+              <em>%</em>
+            </label>
             <label class="text-field">
               <span>敵名（任意）</span>
               <input id="enemy-name" type="text" value="オールド・木人" maxlength="100" />
