@@ -393,48 +393,51 @@ test("reproduces Brahman Trident's magna attack, TA, HP and damage displays", ()
   assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 15623);
 });
 
-test("boosts Dark Opus Magna Majesty and applies damage dealt after defense", () => {
-  const result = calculateNormalAttackFromRequest({
-    schemaVersion: 1,
-    deckConfig: {
-      schemaVersion: 1,
-      format: "gbf-helper-calculator-deck",
-      protagonist: { elementCode: "1", attackOverride: 10000, hpOverride: 1001 },
-      weapons: [{
-        slot: 1,
-        position: "main",
-        weaponId: "1040310700",
-        level: 250,
-        skillLevel: 25,
-        attackOverride: 4440,
-        hpOverride: 318,
-      }],
-      summons: [{
-        slot: 1,
-        position: "main",
-        summonId: "2040034000",
-        level: 250,
-        uncapLevel: 6,
-      }],
-      characters: [],
+test("reproduces Dark Opus Magna Majesty's attack, HP, and post-defense damage displays", () => {
+  const input = derivedFrogaRequest("1", 0);
+  input.deckConfig.protagonist.attackOverride = 18622;
+  input.deckConfig.protagonist.hpOverride = 4024;
+  input.deckConfig.weapons = [
+    input.deckConfig.weapons[0],
+    {
+      slot: 2,
+      position: "grid",
+      weaponId: "1040310700",
+      level: 250,
+      skillLevel: 25,
+      attackOverride: 4440,
+      hpOverride: 318,
     },
-    enemy: { elementCode: "1", defense: 10 },
-    modifiers: {},
-  }).result;
+  ];
+  input.deckConfig.summons = [{
+    slot: 1,
+    position: "main",
+    summonId: "2040034000",
+    level: 250,
+    uncapLevel: 6,
+  }];
+  const { supportSummon: _unusedSupportSummon, ...normalInput } = input;
+  const advantageInput = structuredClone(normalInput);
+  advantageInput.enemy.elementCode = "4";
+  advantageInput.modifiers.targetElementDamagePercent = 5;
+
+  const result = calculateNormalAttackFromRequest(normalInput).result;
+  const advantageResult = calculateNormalAttackFromRequest(advantageInput).result;
   const damageDealtStage = result.baseDamage.stages.find((stage) => stage.stage === "damage-dealt");
 
   assert.equal(result.attackPower.totalEffectiveNormalAttackPercent, 64.8);
   assert.equal(result.protagonistHp?.weaponSkillHpPercent, 64.8);
-  assert.equal(result.protagonistHp?.hp, 1650);
+  assert.equal(result.protagonistHp?.hp, 6632);
   assert.equal(result.otherWeaponSkills.damageDealt.effectivePercent, 5.4);
-  assert.equal(damageDealtStage?.totalPercent, 5.4);
+  assert.equal(damageDealtStage?.totalPercent, 12);
   assert.equal(
     damageDealtStage?.contributions.some(
       (contribution) => "kind" in contribution && contribution.kind === "damage-dealt-up",
     ),
     true,
   );
-  assert.equal(result.baseDamage.damageBeforeRandomAndCap, 1737);
+  assert.equal(result.baseDamage.damageBeforeRandomAndCap, 4704);
+  assert.equal(advantageResult.baseDamage.damageBeforeRandomAndCap, 7088);
 });
 
 test("adds Wedges of the Sky's 30% sub aura to Colossus Magna for Nilakantha", () => {

@@ -7715,8 +7715,8 @@
           "skillLevel": 25,
           "boostGroup": "magna",
           "note": "Lv250神醒IIIの方陣攻刃（大）。方陣加護対象",
-          "verificationStatus": "下書き",
-          "source": "永遠拒絶の大鎌Lv250・SLv25武器詳細とGameWithのLv250神醒効果量（2026-09-14参照）。方陣版の編成表示は要検証",
+          "verificationStatus": "検証済み",
+          "source": "永遠拒絶の大鎌Lv250・SLv25編成レスポンス（2026-09-14）。コロッサス・マグナ170%時64.8%から基礎24%を確認",
           "confirmedAt": "2026-09-14"
         },
         {
@@ -7726,8 +7726,8 @@
           "skillLevel": 25,
           "boostGroup": "magna",
           "note": "Lv250神醒IIIの最大HP（大）。方陣加護対象",
-          "verificationStatus": "下書き",
-          "source": "永遠拒絶の大鎌Lv250・SLv25武器詳細とGameWithのLv250神醒効果量（2026-09-14参照）。方陣版の編成表示は要検証",
+          "verificationStatus": "検証済み",
+          "source": "永遠拒絶の大鎌Lv250・SLv25編成レスポンス（2026-09-14）。コロッサス・マグナ170%時64.8%と最終HP6632を確認",
           "confirmedAt": "2026-09-14"
         },
         {
@@ -7737,13 +7737,13 @@
           "skillLevel": 25,
           "boostGroup": "magna",
           "note": "Lv230時点は1.75%、Lv250で2%。減衰処理後にヒットごとに適用し、方陣加護対象",
-          "verificationStatus": "下書き",
-          "source": "ユーザー提供の永遠拒絶の大鎌Lv250・SLv25武器詳細とGameWithのLv250神醒効果量（2026-09-14参照）。方陣加護後の実機編成は要検証",
+          "verificationStatus": "検証済み",
+          "source": "永遠拒絶の大鎌Lv250・SLv25編成レスポンス（2026-09-14）。コロッサス・マグナ170%時5.4%と予測ダメージを確認",
           "confirmedAt": "2026-09-14"
         }
       ],
-      "verificationStatus": "下書き",
-      "source": "ユーザー提供の永遠拒絶の大鎌Lv250・SLv25武器詳細（2026-09-14）。skill_id・構成は実機確認、数値と方陣加護後表示は要検証",
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供の永遠拒絶の大鎌Lv250・SLv25武器詳細・編成レスポンス（2026-09-14）。skill_id、基礎量、方陣加護後表示、HP・予測ダメージを確認",
       "confirmedAt": "2026-09-14"
     },
     {

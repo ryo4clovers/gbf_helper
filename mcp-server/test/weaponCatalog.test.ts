@@ -224,9 +224,9 @@ test("loads the initial incremental weapon and skill catalog", () => {
       .filter((effect) => effect.skillLevel === 25)
       .map((effect) => [effect.kind, effect.amountPercent, effect.boostGroup, effect.verificationStatus]),
     [
-      ["normal-attack-up", 24, "magna", "下書き"],
-      ["magna-hp-up", 24, "magna", "下書き"],
-      ["damage-dealt-up", 2, "magna", "下書き"],
+      ["normal-attack-up", 24, "magna", "検証済み"],
+      ["magna-hp-up", 24, "magna", "検証済み"],
+      ["damage-dealt-up", 2, "magna", "検証済み"],
     ],
   );
   assert.deepEqual(catalog.weapons.get("1040310700")?.selectionDefaults, {
