@@ -6,7 +6,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
   assert.equal(catalog.weapons.size, 2970);
-  assert.equal(catalog.skills.size, 463);
+  assert.equal(catalog.skills.size, 511);
   assert.deepEqual(catalog.weapons.get("1020500200")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1" },
   ]);
@@ -29,6 +29,9 @@ test("loads the initial incremental weapon and skill catalog", () => {
   assert.equal(fireMightEffects.some((effect) => effect.skillLevel === 16), false);
   const normalAttackTableCases = [
     ["13", [[10, 12], [15, 14.5], [20, 16]]],
+    ["26", [[10, 15], [15, 18], [20, 20]]],
+    ["323", [[10, 12], [15, 14.5], [20, 16]]],
+    ["383", [[10, 12], [15, 14.5], [20, 16]]],
     ["375", [[10, 10], [15, 12], [20, 12.5]]],
     ["765", [[10, 12], [15, 14.5], [20, 15.5]]],
     ["1228", [[10, 15], [15, 18], [20, 20]]],
@@ -104,6 +107,13 @@ test("loads the initial incremental weapon and skill catalog", () => {
     assert.equal(effects.every((effect) => effect.verificationStatus === "下書き"), true);
   }
   const normalHpTableCases = [
+    ["8", [[10, 12], [15, 14], [20, 16]]],
+    ["20", [[10, 15], [15, 17]]],
+    ["35", [[10, 18], [15, 21], [20, 24]]],
+    ["1035", [[10, 12], [15, 14], [20, 16]]],
+    ["1177", [[10, 15], [15, 17]]],
+    ["1178", [[10, 15], [15, 17]]],
+    ["1429", [[10, 12], [15, 14], [20, 16]]],
     ["375", [[1, 1], [10, 10], [15, 12], [20, 12.5]]],
     ["765", [[1, 3], [10, 12], [15, 14.5], [20, 15.5]]],
     ["1228", [[1, 6], [10, 15], [15, 18], [20, 20]]],
@@ -291,6 +301,19 @@ test("loads the initial incremental weapon and skill catalog", () => {
     );
   }
   assert.equal(catalog.skills.get("498")?.confirmedAt, "2026-09-13");
+  const sharedWaterGachaWeaponSkillSlots = new Map([
+    ["1040000100", [["skill1", "26"], ["skill2", "81"]]],
+    ["1040122900", [["skill1", "323"], ["skill2", "1657"], ["skill3", "2949"]]],
+    ["1040918900", [["skill1", "652"], ["skill2", "1286"], ["skill3", "778"]]],
+  ]);
+  for (const [weaponId, expected] of sharedWaterGachaWeaponSkillSlots) {
+    assert.deepEqual(
+      catalog.weapons.get(weaponId)?.skillSlots.map(({ sourceKey, skillId }) => [sourceKey, skillId]),
+      expected,
+      `skill slots for water gacha weapon ${weaponId}`,
+    );
+  }
+  assert.equal(catalog.skills.get("2949")?.confirmedAt, "2026-09-13");
   assert.deepEqual(catalog.weapons.get("1040220800")?.skillSlots, [
     { sourceKey: "skill1", skillId: "2801" },
     { sourceKey: "skill2", skillId: "2807" },
