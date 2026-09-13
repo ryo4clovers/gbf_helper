@@ -3,6 +3,7 @@ import type { SummonAuraEffectDefinition } from "./types.js";
 
 export interface SelectableSummonCatalogEntry {
   summonId: string;
+  imageUrl: string;
   name: string;
   elementCode: string;
   rarityCode: string;
@@ -36,6 +37,7 @@ export function createSelectableSummonCatalog(): SelectableSummonCatalog {
     .map(
       (summon): SelectableSummonCatalogEntry => ({
         summonId: summon.summonId,
+        imageUrl: `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/summon/m/${summon.summonId}.jpg`,
         name: summon.name,
         elementCode: summon.elementCode,
         rarityCode: summon.rarityCode,

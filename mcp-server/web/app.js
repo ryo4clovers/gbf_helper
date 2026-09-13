@@ -581,6 +581,24 @@ function createJobArt(className, job) {
   return art;
 }
 
+function createEquipmentArt(className, equipment, fallback, altText) {
+  const art = document.createElement("span");
+  art.className = className;
+  art.append(createText("weapon-symbol equipment-art-fallback", fallback));
+  if (!equipment?.imageUrl) return art;
+
+  const image = document.createElement("img");
+  image.className = "equipment-thumbnail";
+  image.src = equipment.imageUrl;
+  image.alt = altText;
+  image.loading = "lazy";
+  image.decoding = "async";
+  image.addEventListener("load", () => art.classList.add("image-loaded"));
+  image.addEventListener("error", () => image.remove());
+  art.append(image);
+  return art;
+}
+
 function updateEquipmentPlusMark(equipment, nextPlusMark) {
   const previousPlusMark = equipment.plusMark ?? 0;
   const difference = nextPlusMark - previousPlusMark;
@@ -1148,12 +1166,15 @@ function createWeaponSlot(config, slot) {
   choice.setAttribute("aria-label", `${slot === 1 ? "メイン武器" : `武器${slot}`}を選択`);
   choice.addEventListener("click", () => openWeaponPicker(slot));
 
-  const art = document.createElement("span");
-  art.className = `weapon-art ${isJobFallback ? "unknown" : (element?.className ?? "unknown")}`;
-  art.append(
+  const art = createEquipmentArt(
+    `weapon-art ${isJobFallback ? "unknown" : (element?.className ?? "unknown")}`,
+    weapon && !isJobFallback ? master : undefined,
+    weapon && !isJobFallback ? (weaponKindSymbols[master?.weaponKindCode] ?? "◆") : "+",
+    `${master?.name ?? weapon?.nameHint ?? weapon?.weaponId ?? "武器"}の武器画像`,
+  );
+  art.prepend(
     createText("slot-badge", slot === 1 ? "MAIN" : String(slot)),
     createText("rarity-badge", isJobFallback ? "未選択" : master?.rarityCode === "4" ? "SSR" : master?.rarityCode === "3" ? "SR" : master?.rarityCode === "2" ? "R" : "—"),
-    createText("weapon-symbol", weapon && !isJobFallback ? (weaponKindSymbols[master?.weaponKindCode] ?? "◆") : "+"),
   );
   choice.append(art);
 
@@ -1297,9 +1318,12 @@ function renderWeaponResults(query = "") {
     button.type = "button";
     button.className = "catalog-weapon-card";
     button.addEventListener("click", () => selectWeapon(weapon));
-    const art = document.createElement("span");
-    art.className = `catalog-art ${element?.className ?? "unknown"}`;
-    art.append(createText("weapon-symbol", weaponKindSymbols[weapon.weaponKindCode] ?? "◆"));
+    const art = createEquipmentArt(
+      `catalog-art ${element?.className ?? "unknown"}`,
+      weapon,
+      weaponKindSymbols[weapon.weaponKindCode] ?? "◆",
+      `${weapon.name}の武器画像`,
+    );
     const details = document.createElement("span");
     details.className = "catalog-weapon-details";
     details.append(
@@ -1473,12 +1497,15 @@ function createSummonSlot(config, position, slot) {
   choice.className = "weapon-choice";
   choice.setAttribute("aria-label", `${summonSlotLabel(position, slot)}を選択`);
   choice.addEventListener("click", () => openSummonPicker(position, slot));
-  const art = document.createElement("span");
-  art.className = `weapon-art summon-art ${element?.className ?? "unknown"}`;
-  art.append(
+  const art = createEquipmentArt(
+    `weapon-art summon-art ${element?.className ?? "unknown"}`,
+    master,
+    summon ? "✦" : "+",
+    `${master?.name ?? summon?.nameHint ?? summon?.summonId ?? "召喚石"}の召喚石画像`,
+  );
+  art.prepend(
     createText("slot-badge", position === "main" ? "MAIN" : position === "sub" ? `SUB ${slot}` : String(slot)),
     createText("rarity-badge", master?.rarityCode === "4" ? "SSR" : master?.rarityCode === "3" ? "SR" : master?.rarityCode === "2" ? "R" : "—"),
-    createText("weapon-symbol", summon ? "✦" : "+"),
   );
   const info = document.createElement("span");
   info.className = "weapon-slot-info";
@@ -1579,12 +1606,15 @@ function renderSupportSummonEditor() {
   choice.className = "weapon-choice";
   choice.setAttribute("aria-label", "サポート召喚石を選択");
   choice.addEventListener("click", openSupportSummonPicker);
-  const art = document.createElement("span");
-  art.className = `weapon-art summon-art ${element?.className ?? "unknown"}`;
-  art.append(
+  const art = createEquipmentArt(
+    `weapon-art summon-art ${element?.className ?? "unknown"}`,
+    master,
+    master ? "✦" : "+",
+    `${master?.name ?? "召喚石"}の召喚石画像`,
+  );
+  art.prepend(
     createText("slot-badge", "SUPPORT"),
     createText("rarity-badge", master?.rarityCode === "4" ? "SSR" : master?.rarityCode === "3" ? "SR" : master?.rarityCode === "2" ? "R" : "—"),
-    createText("weapon-symbol", master ? "✦" : "+"),
   );
   const info = document.createElement("span");
   info.className = "weapon-slot-info";
@@ -1629,9 +1659,12 @@ function renderSummonResults(query = "") {
     button.type = "button";
     button.className = "catalog-weapon-card catalog-summon-card";
     button.addEventListener("click", () => selectSummon(summon));
-    const art = document.createElement("span");
-    art.className = `catalog-art summon-catalog-art ${element?.className ?? "unknown"}`;
-    art.append(createText("weapon-symbol", "✦"));
+    const art = createEquipmentArt(
+      `catalog-art summon-catalog-art ${element?.className ?? "unknown"}`,
+      summon,
+      "✦",
+      `${summon.name}の召喚石画像`,
+    );
     const details = document.createElement("span");
     details.className = "catalog-weapon-details";
     details.append(

@@ -155,6 +155,8 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .slot-badge { left: 8px; }
 .rarity-badge { right: 8px; color: #4e3100; background: #ffe18a; }
 .weapon-symbol { position: relative; z-index: 1; font-size: 2.15rem; font-weight: 900; text-shadow: 0 3px 12px rgba(0,0,0,.25); }
+.equipment-thumbnail { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.image-loaded .equipment-art-fallback { visibility: hidden; }
 .main-slot .weapon-symbol { font-size: 4rem; }
 .weapon-slot-info { width: 100%; min-width: 0; padding: 10px 11px 8px; }
 .weapon-slot-name, .weapon-slot-meta { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

@@ -2,6 +2,7 @@ import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 
 export interface SelectableWeaponCatalogEntry {
   weaponId: string;
+  imageUrl: string;
   name: string;
   nameEn?: string;
   elementCode: string;
@@ -39,6 +40,7 @@ export function createSelectableWeaponCatalog(): SelectableWeaponCatalog {
   const weapons = [...catalog.weapons.values()]
     .map((weapon): SelectableWeaponCatalogEntry => ({
       weaponId: weapon.weaponId,
+      imageUrl: `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/weapon/m/${weapon.weaponId}.jpg`,
       name: weapon.name,
       ...(weapon.nameEn ? { nameEn: weapon.nameEn } : {}),
       elementCode: weapon.elementCode,

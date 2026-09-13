@@ -17,6 +17,10 @@ test("creates a deterministic browser-safe summon catalog", () => {
   const agni = catalog.summons.find((summon) => summon.summonId === "2040094000");
   const wilnas = catalog.summons.find((summon) => summon.summonId === "2040398000");
   const versusia = catalog.summons.find((summon) => summon.summonId === "2040448000");
+  assert.equal(
+    agni?.imageUrl,
+    "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/summon/m/2040094000.jpg",
+  );
   assert.equal(hades?.auraEffects.length, 2);
   assert.equal(hades?.auraEffects[0]?.kind, "normal-skill-boost");
   assert.equal(hades?.supportSelectable, true);

@@ -79,6 +79,17 @@ test("job thumbnails retain the source image aspect ratio at larger sizes", asyn
   assert.match(styles, /\.job-thumbnail \{[^}]*object-fit: contain;/u);
 });
 
+test("weapon and summon thumbnails retain the existing calculator art size", async () => {
+  const [app, styles] = await Promise.all([
+    readFile(new URL("../web/app.js", import.meta.url), "utf8"),
+    readFile(new URL("../web/styles.css", import.meta.url), "utf8"),
+  ]);
+  assert.match(app, /function createEquipmentArt\(/u);
+  assert.match(app, /image\.className = "equipment-thumbnail";/u);
+  assert.match(styles, /\.equipment-thumbnail \{[^}]*position: absolute;[^}]*width: 100%;[^}]*height: 100%;[^}]*object-fit: contain;/u);
+  assert.match(styles, /\.image-loaded \.equipment-art-fallback \{[^}]*visibility: hidden;/u);
+});
+
 test("job picker exposes class filter controls below search", async () => {
   const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
   const searchPosition = html.indexOf('id="job-search"');
