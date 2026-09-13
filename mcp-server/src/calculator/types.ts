@@ -38,6 +38,8 @@ export type WeaponSkillEffectKind =
   | "healing-cap-up"
   | "debuff-resistance-up"
   | "damage-dealt-up"
+  | "ability-damage-cap-up"
+  | "ability-supplemental-damage"
   | "elemental-pursuit"
   | "normal-skill-boost";
 
@@ -48,7 +50,9 @@ export type HpDependentAttackCurve =
 export interface WeaponSkillEffectDefinition {
   kind: WeaponSkillEffectKind;
   elementCode?: string;
-  amountPercent: number;
+  /** Percentage effects use this field; fixed per-hit effects use amountFlat. */
+  amountPercent?: number;
+  amountFlat?: number;
   skillLevel?: number;
   boostGroup?: "normal" | "magna";
   targetSkillNamePrefixes?: string[];
@@ -262,6 +266,8 @@ export interface EffectiveWeaponSkillEffect {
   elementCode?: string;
   baseAmountPercent: number;
   effectiveAmountPercent: number;
+  baseAmountFlat?: number;
+  effectiveAmountFlat?: number;
   hpDependentCurve?: HpDependentAttackCurve;
   skillLevel?: number;
   verificationStatus: "検証済み" | "下書き";

@@ -8040,9 +8040,33 @@
       "skillId": "2335",
       "name": "機炎方陣・技錬III",
       "description": "火属性キャラのアビリティダメージ上限UP(大)/アビリティの与ダメージ上昇(大)",
-      "effects": [],
-      "verificationStatus": "下書き",
-      "source": "knowledge/fire-ssr-magna-reverse-colossus-bomber-ira.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "effects": [
+        {
+          "kind": "ability-damage-cap-up",
+          "elementCode": "1",
+          "amountPercent": 5.5,
+          "skillLevel": 15,
+          "boostGroup": "magna",
+          "note": "方陣加護170%時14.85%。アビリティダメージ上限枠",
+          "verificationStatus": "検証済み",
+          "source": "コロッサスボンバー・イラLv150・SLv15編成レスポンスのdamage_info（2026-09-14）",
+          "confirmedAt": "2026-09-14"
+        },
+        {
+          "kind": "ability-supplemental-damage",
+          "elementCode": "1",
+          "amountFlat": 25000,
+          "skillLevel": 15,
+          "boostGroup": "magna",
+          "note": "方陣加護170%時1hitあたり67500。減衰・上限処理後の固定加算",
+          "verificationStatus": "検証済み",
+          "source": "コロッサスボンバー・イラLv150・SLv15編成レスポンスと3種のアビリティ実測（2026-09-14）",
+          "confirmedAt": "2026-09-14"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のコロッサスボンバー・イラLv150・SLv15武器詳細・編成・アビリティ実測（2026-09-14）",
+      "confirmedAt": "2026-09-14"
     },
     {
       "skillId": "2338",
@@ -8082,9 +8106,22 @@
       "skillId": "2367",
       "name": "機炎方陣・攻刃",
       "description": "火属性キャラの攻撃力上昇(小)",
-      "effects": [],
-      "verificationStatus": "下書き",
-      "source": "knowledge/fire-ssr-magna-reverse-colossus-bomber-ira.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "effects": [
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "1",
+          "amountPercent": 12,
+          "skillLevel": 15,
+          "boostGroup": "magna",
+          "note": "方陣攻刃（小）。方陣加護170%時32.4%",
+          "verificationStatus": "検証済み",
+          "source": "コロッサスボンバー・イラLv150・SLv15編成レスポンスのdamage_info（2026-09-14）",
+          "confirmedAt": "2026-09-14"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のコロッサスボンバー・イラLv150・SLv15武器詳細・編成レスポンス（2026-09-14）",
+      "confirmedAt": "2026-09-14"
     },
     {
       "skillId": "2373",

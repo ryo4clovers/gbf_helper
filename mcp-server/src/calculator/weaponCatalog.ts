@@ -22,11 +22,14 @@ const effectSchema = z
       "healing-cap-up",
       "debuff-resistance-up",
       "damage-dealt-up",
+      "ability-damage-cap-up",
+      "ability-supplemental-damage",
       "elemental-pursuit",
       "normal-skill-boost",
     ]),
     elementCode: z.string().min(1).optional(),
-    amountPercent: z.number().finite(),
+    amountPercent: z.number().finite().optional(),
+    amountFlat: z.number().finite().nonnegative().optional(),
     skillLevel: z.number().int().nonnegative().optional(),
     boostGroup: z.enum(["normal", "magna"]).optional(),
     targetSkillNamePrefixes: z.array(z.string().min(1)).optional(),
@@ -39,7 +42,22 @@ const effectSchema = z
     source: z.string().min(1).optional(),
     confirmedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
   })
-  .strict();
+  .strict()
+  .superRefine((effect, context) => {
+    const isFlat = effect.kind === "ability-supplemental-damage";
+    if (isFlat && effect.amountFlat === undefined) {
+      context.addIssue({ code: "custom", message: `${effect.kind} requires amountFlat` });
+    }
+    if (isFlat && effect.amountPercent !== undefined) {
+      context.addIssue({ code: "custom", message: `${effect.kind} must not use amountPercent` });
+    }
+    if (!isFlat && effect.amountPercent === undefined) {
+      context.addIssue({ code: "custom", message: `${effect.kind} requires amountPercent` });
+    }
+    if (!isFlat && effect.amountFlat !== undefined) {
+      context.addIssue({ code: "custom", message: `${effect.kind} must not use amountFlat` });
+    }
+  });
 
 const sourceFields = {
   verificationStatus: statusSchema,

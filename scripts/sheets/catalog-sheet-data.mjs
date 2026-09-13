@@ -114,6 +114,8 @@ export const EFFECT_KIND_LABELS = Object.freeze({
   "healing-cap-up": "回復上限UP",
   "debuff-resistance-up": "弱体耐性UP",
   "damage-dealt-up": "与ダメージUP",
+  "ability-damage-cap-up": "アビリティダメージ上限UP",
+  "ability-supplemental-damage": "アビリティ与ダメージ上昇",
   "elemental-pursuit": "属性追撃",
 });
 
@@ -150,7 +152,7 @@ export const WEAPON_SKILL_HEADERS = Object.freeze([
   "効果種別",
   "属性",
   "SLv",
-  "値(%)",
+  "値(%/固定)",
   "効果の確度",
   "効果の出典",
   "確認日",
@@ -324,7 +326,7 @@ function buildSkillEffectRow(skill, effect = undefined) {
     displayCode(effect?.kind, EFFECT_KIND_LABELS, "effect.kind"),
     displayCode(effect?.elementCode, ELEMENT_LABELS, "effect.elementCode"),
     asCellValue(effect?.skillLevel),
-    asCellValue(effect?.amountPercent),
+    asCellValue(effect?.amountPercent ?? effect?.amountFlat),
     asCellValue(effect?.verificationStatus ?? (effect ? skill.verificationStatus : undefined)),
     asCellValue(effect?.source ?? (effect ? skill.source : undefined)),
     asCellValue(effect?.confirmedAt ?? (effect ? skill.confirmedAt : undefined)),

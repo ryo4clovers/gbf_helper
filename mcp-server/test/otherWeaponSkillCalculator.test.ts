@@ -103,3 +103,46 @@ test("reports post-cap damage dealt from weapon skills", () => {
   assert.equal(result.damageDealt.effectivePercent, 2);
   assert.equal(result.damageDealt.contributions[0]?.sourceSkillId, "2198");
 });
+
+test("reports Colossus Bomber Ira's boosted ability cap and per-hit supplemental damage", () => {
+  const resolution = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 16800, hpOverride: 3896 },
+    weapons: [
+      {
+        slot: 1,
+        position: "main",
+        weaponId: "1010000400",
+        isJobFallback: true,
+        level: 1,
+        attackOverride: 70,
+        hpOverride: 6,
+      },
+      {
+        slot: 2,
+        position: "grid",
+        weaponId: "1040317400",
+        level: 150,
+        skillLevel: 15,
+        attackOverride: 2970,
+        hpOverride: 212,
+      },
+    ],
+    summons: [
+      {
+        slot: 1,
+        position: "main",
+        summonId: "2040034000",
+        level: 250,
+        uncapLevel: 6,
+      },
+    ],
+  });
+
+  const result = calculateOtherWeaponSkills(resolution.deck);
+  assert.equal(result.abilityDamageCap.effectivePercent, 14.85);
+  assert.equal(result.abilityDamageCap.contributions[0]?.sourceSkillId, "2335");
+  assert.equal(result.abilitySupplementalDamage.effectiveAmount, 67_500);
+  assert.equal(result.abilitySupplementalDamage.contributions[0]?.sourceSkillId, "2335");
+});

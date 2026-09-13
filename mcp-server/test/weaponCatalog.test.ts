@@ -549,6 +549,28 @@ test("loads the initial incremental weapon and skill catalog", () => {
     ],
   );
   assert.deepEqual(
+    catalog.skills.get("2335")?.effects.map(
+      (effect) => [
+        effect.kind,
+        effect.skillLevel,
+        effect.amountPercent,
+        effect.amountFlat,
+        effect.boostGroup,
+        effect.verificationStatus,
+      ],
+    ),
+    [
+      ["ability-damage-cap-up", 15, 5.5, undefined, "magna", "検証済み"],
+      ["ability-supplemental-damage", 15, undefined, 25000, "magna", "検証済み"],
+    ],
+  );
+  assert.deepEqual(
+    catalog.skills.get("2367")?.effects.map(
+      (effect) => [effect.kind, effect.skillLevel, effect.amountPercent, effect.boostGroup, effect.verificationStatus],
+    ),
+    [["normal-attack-up", 15, 12, "magna", "検証済み"]],
+  );
+  assert.deepEqual(
     catalog.skills.get("2378")?.effects
       .filter((effect) => effect.skillLevel === 15)
       .map((effect) => [effect.kind, effect.amountPercent, effect.boostGroup, effect.verificationStatus]),

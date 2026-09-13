@@ -194,7 +194,7 @@ export function resolveEffectiveWeaponSkillEffects(
           sourceWeaponSlot: boost.weapon.slot,
           sourceSkillId: boost.skill.id ?? "unknown",
           sourceSkillName: boost.skill.name ?? "unknown",
-          amountPercent: boost.effect.amountPercent,
+          amountPercent: boost.effect.amountPercent ?? 0,
           verificationStatus: boost.skill.verificationStatus ?? "下書き",
         }),
       ),
@@ -207,12 +207,14 @@ export function resolveEffectiveWeaponSkillEffects(
           sourceSummonId: boost.summonId,
           sourceSummonName: boost.summonName,
           sourceAuraName: boost.auraName,
-          amountPercent: boost.effect.amountPercent,
+          amountPercent: boost.effect.amountPercent ?? 0,
           verificationStatus: boost.verificationStatus,
         }),
       ),
     ];
     const boostPercent = appliedModifiers.reduce((sum, modifier) => sum + modifier.amountPercent, 0);
+    const baseAmountPercent = source.effect.amountPercent ?? 0;
+    const baseAmountFlat = source.effect.amountFlat;
 
     return {
       sourceWeaponSlot: source.weapon.slot,
@@ -221,8 +223,14 @@ export function resolveEffectiveWeaponSkillEffects(
       sourceSkillName: source.skill.name ?? "unknown",
       kind: source.effect.kind,
       elementCode: source.effect.elementCode,
-      baseAmountPercent: source.effect.amountPercent,
-      effectiveAmountPercent: roundPercentage(source.effect.amountPercent * (1 + boostPercent / 100)),
+      baseAmountPercent,
+      effectiveAmountPercent: roundPercentage(baseAmountPercent * (1 + boostPercent / 100)),
+      ...(baseAmountFlat === undefined
+        ? {}
+        : {
+            baseAmountFlat,
+            effectiveAmountFlat: roundPercentage(baseAmountFlat * (1 + boostPercent / 100)),
+          }),
       hpDependentCurve: source.effect.hpDependentCurve,
       skillLevel: source.effect.skillLevel,
       verificationStatus: source.effect.verificationStatus ?? source.skill.verificationStatus ?? "下書き",

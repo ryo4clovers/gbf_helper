@@ -14,7 +14,12 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
     assert.match(html, new RegExp(`id=["']${id}["']`));
     assert.match(app, new RegExp(`\\$\\(["']${id}["']\\)`));
   }
-  for (const id of ["healing-cap-rate", "debuff-resistance-rate"]) {
+  for (const id of [
+    "ability-supplemental-damage",
+    "ability-damage-note",
+    "healing-cap-rate",
+    "debuff-resistance-rate",
+  ]) {
     assert.match(html, new RegExp(`id=["']${id}["']`));
     assert.match(app, new RegExp(`\\$\\(["']${id}["']\\)`));
   }
@@ -24,6 +29,8 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
   assert.match(html, /Rank基礎値から主人公の表示ATK・HPを自動計算します/u);
   assert.match(app, /武器スキル \+\$\{numberFormat\.format\(hp\.weaponSkillHpPercent\)\}%/u);
   assert.match(app, /otherSkills\.damageDealt\.effectivePercent/u);
+  assert.match(app, /otherSkills\.abilitySupplementalDamage\.effectiveAmount/u);
+  assert.match(app, /otherSkills\.abilityDamageCap\.effectivePercent/u);
   assert.match(html, /id="damage-dealt-rate"/u);
   assert.match(app, /召喚石固定HP \+\$\{formatDamage\(hp\.summonAuraFlatHp\)\}/u);
   assert.match(app, /基礎HPの基準は要検証/u);

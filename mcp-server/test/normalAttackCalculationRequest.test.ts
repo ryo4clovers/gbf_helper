@@ -440,6 +440,45 @@ test("reproduces Dark Opus Magna Majesty's attack, HP, and post-defense damage d
   assert.equal(advantageResult.baseDamage.damageBeforeRandomAndCap, 7088);
 });
 
+test("reproduces Colossus Bomber Ira's attack and ability-skill displays", () => {
+  const input = derivedFrogaRequest("1", 0);
+  input.deckConfig.protagonist.masterLevel = 1;
+  input.deckConfig.protagonist.attackOverride = 16800;
+  input.deckConfig.protagonist.hpOverride = 3896;
+  input.deckConfig.weapons = [
+    input.deckConfig.weapons[0],
+    {
+      slot: 2,
+      position: "grid",
+      weaponId: "1040317400",
+      level: 150,
+      skillLevel: 15,
+      attackOverride: 2970,
+      hpOverride: 212,
+    },
+  ];
+  input.deckConfig.summons = [{
+    slot: 1,
+    position: "main",
+    summonId: "2040034000",
+    level: 250,
+    uncapLevel: 6,
+  }];
+  const { supportSummon: _unusedSupportSummon, ...normalInput } = input;
+  const advantageInput = structuredClone(normalInput);
+  advantageInput.enemy.elementCode = "4";
+  advantageInput.modifiers.targetElementDamagePercent = 5;
+
+  const result = calculateNormalAttackFromRequest(normalInput).result;
+  const advantageResult = calculateNormalAttackFromRequest(advantageInput).result;
+
+  assert.equal(result.attackPower.totalEffectiveNormalAttackPercent, 32.4);
+  assert.equal(result.otherWeaponSkills.abilityDamageCap.effectivePercent, 14.85);
+  assert.equal(result.otherWeaponSkills.abilitySupplementalDamage.effectiveAmount, 67_500);
+  assert.equal(result.baseDamage.damageBeforeRandomAndCap, 3244);
+  assert.equal(advantageResult.baseDamage.damageBeforeRandomAndCap, 4899);
+});
+
 test("adds Wedges of the Sky's 30% sub aura to Colossus Magna for Nilakantha", () => {
   const normalInput = derivedNilakanthaRequest(false, "1");
   normalInput.deckConfig.protagonist.attackOverride = 16328;

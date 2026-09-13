@@ -2164,6 +2164,8 @@ function renderLocalResult(result) {
     : multiattackNotes.join("・");
 
   const otherSkills = result.otherWeaponSkills;
+  $("ability-supplemental-damage").textContent = `+${formatDamage(otherSkills.abilitySupplementalDamage.effectiveAmount)} / hit`;
+  $("ability-damage-note").textContent = `アビ上限 +${numberFormat.format(otherSkills.abilityDamageCap.effectivePercent)}%・予測ダメージは減衰式を検証中`;
   $("damage-dealt-rate").textContent = `+${numberFormat.format(otherSkills.damageDealt.effectivePercent)}%`;
   $("damage-dealt-note").textContent = "武器スキル・加護後／減衰後段（ダメージ上限は未解決）";
   $("healing-cap-rate").textContent = `+${numberFormat.format(otherSkills.healingCap.effectivePercent)}%`;
