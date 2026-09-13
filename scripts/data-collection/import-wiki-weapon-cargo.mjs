@@ -167,8 +167,8 @@ function calculatorListedSkills(entry) {
 
 function calculatorEntry(entry) {
   if (!entry.weaponId) return undefined;
-  const elementCode = ELEMENT_CODES.get(entry.element);
-  const weaponKindCode = WEAPON_KIND_CODES.get(entry.weaponType);
+  const elementCode = ELEMENT_CODES.get(entry.element?.toLowerCase());
+  const weaponKindCode = WEAPON_KIND_CODES.get(entry.weaponType?.toLowerCase());
   const rarityCode = RARITY_CODES.get(entry.rarity);
   if (!elementCode || !weaponKindCode || !rarityCode) return undefined;
   const lastPoint = entry.statPoints.at(-1);

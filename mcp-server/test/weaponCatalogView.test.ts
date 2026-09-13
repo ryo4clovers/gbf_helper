@@ -6,7 +6,7 @@ test("creates a deterministic browser-safe weapon catalog", () => {
   const catalog = createSelectableWeaponCatalog();
 
   assert.equal(catalog.schemaVersion, 1);
-  assert.equal(catalog.weapons.length, 2970);
+  assert.equal(catalog.weapons.length, 2971);
   assert.deepEqual(
     catalog.weapons.map((weapon) => weapon.name),
     [...catalog.weapons].map((weapon) => weapon.name).sort((left, right) => left.localeCompare(right, "ja")),

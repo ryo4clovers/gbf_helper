@@ -5,8 +5,8 @@ import { loadIncrementalWeaponCatalog } from "../src/calculator/weaponCatalog.ts
 test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
-  assert.equal(catalog.weapons.size, 2970);
-  assert.equal(catalog.skills.size, 511);
+  assert.equal(catalog.weapons.size, 2971);
+  assert.equal(catalog.skills.size, 565);
   assert.deepEqual(catalog.weapons.get("1020500200")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1" },
   ]);
@@ -28,6 +28,12 @@ test("loads the initial incremental weapon and skill catalog", () => {
   );
   assert.equal(fireMightEffects.some((effect) => effect.skillLevel === 16), false);
   const normalAttackTableCases = [
+    ["15", [[10, 12], [15, 14.5], [20, 16]]],
+    ["773", [[10, 12], [15, 14.5], [20, 16]]],
+    ["847", [[10, 10], [15, 12], [20, 13]]],
+    ["1508", [[10, 12], [15, 14.5], [20, 16]]],
+    ["1652", [[10, 15], [15, 18], [20, 20]]],
+    ["2519", [[10, 15], [15, 18], [20, 20]]],
     ["13", [[10, 12], [15, 14.5], [20, 16]]],
     ["26", [[10, 15], [15, 18], [20, 20]]],
     ["323", [[10, 12], [15, 14.5], [20, 16]]],
@@ -107,6 +113,12 @@ test("loads the initial incremental weapon and skill catalog", () => {
     assert.equal(effects.every((effect) => effect.verificationStatus === "下書き"), true);
   }
   const normalHpTableCases = [
+    ["9", [[10, 12], [15, 14], [20, 16]]],
+    ["21", [[10, 15], [15, 17]]],
+    ["33", [[10, 18], [15, 21], [20, 24]]],
+    ["518", [[10, 15], [15, 17]]],
+    ["1179", [[10, 15], [15, 17]]],
+    ["2503", [[10, 12], [15, 14], [20, 16]]],
     ["8", [[10, 12], [15, 14], [20, 16]]],
     ["20", [[10, 15], [15, 17]]],
     ["35", [[10, 18], [15, 21], [20, 24]]],
@@ -144,6 +156,14 @@ test("loads the initial incremental weapon and skill catalog", () => {
     assert.equal(effects.every((effect) => effect.verificationStatus === "下書き"), true);
   }
   assert.equal(catalog.skills.get("375")?.unsupportedEffects, undefined);
+  assert.deepEqual(catalog.weapons.get("1040611800")?.skillSlots, [
+    { sourceKey: "skill1", skillId: "1089" },
+    { sourceKey: "skill2", skillId: "1337" },
+  ]);
+  assert.equal(catalog.weapons.get("1040611800")?.name, "ニーベルン・グラス");
+  assert.equal(catalog.weapons.get("1040320100")?.name, "アイナ・アラカイ");
+  assert.equal(catalog.weapons.get("1040622200")?.name, "神狼暗牙");
+  assert.equal(catalog.skills.get("1089")?.confirmedAt, "2026-09-13");
   assert.deepEqual(catalog.weapons.get("1040201400")?.skillSlots, [
     { sourceKey: "skill1", skillId: "25" },
     { sourceKey: "skill2", skillId: "74" },

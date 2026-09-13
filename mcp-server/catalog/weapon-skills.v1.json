@@ -190,7 +190,8 @@
       },
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/earth-ssr-menace-kensei-fukuro-shinai.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "4",
@@ -258,6 +259,19 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "9",
+      "name": "土の守護",
+      "description": "土属性キャラの最大HP上昇(小)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-small",
+        "elementCode": "3"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "13",
       "name": "業火の攻刃",
       "description": "火属性キャラの攻撃力上昇(中)",
@@ -277,6 +291,19 @@
       "normalAttackAmountTable": {
         "tableId": "normal-medium",
         "elementCode": "2"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "15",
+      "name": "大地の攻刃",
+      "description": "土属性キャラの攻撃力上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "3"
       },
       "effects": [],
       "verificationStatus": "下書き",
@@ -316,6 +343,19 @@
       "normalHpAmountTable": {
         "tableId": "normal-aegis-medium",
         "elementCode": "2"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "21",
+      "name": "大地の守護",
+      "description": "土属性キャラの最大HP上昇(中)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-medium",
+        "elementCode": "3"
       },
       "effects": [],
       "verificationStatus": "下書き",
@@ -436,6 +476,19 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "33",
+      "name": "地裂の守護",
+      "description": "土属性キャラの最大HP上昇(大)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-large",
+        "elementCode": "3"
+      },
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "34",
       "name": "乱気の守護",
       "description": "風属性キャラの最大HP上昇(大)",
@@ -495,6 +548,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "48",
+      "name": "土の二手",
+      "description": "土属性キャラのダブルアタック確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "52",
       "name": "業火の二手",
       "description": "火属性キャラのダブルアタック確率上昇(中)",
@@ -507,6 +569,15 @@
       "skillId": "53",
       "name": "渦潮の二手",
       "description": "水属性キャラのダブルアタック確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "54",
+      "name": "大地の二手",
+      "description": "土属性キャラのダブルアタック確率上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -614,6 +685,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "76",
+      "name": "土の技巧",
+      "description": "土属性キャラのクリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "78",
       "name": "光の技巧",
       "description": "光属性キャラのクリティカル確率上昇(小)",
@@ -666,6 +746,15 @@
       "skillId": "81",
       "name": "渦潮の技巧",
       "description": "水属性キャラのクリティカル確率上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "82",
+      "name": "大地の技巧",
+      "description": "土属性キャラのクリティカル確率上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -735,7 +824,8 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "knowledge/earth-ssr-menace-kensei-fukuro-shinai.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "92",
@@ -906,6 +996,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "132",
+      "name": "地裂の背水",
+      "description": "土属性キャラのHPが少ないほど攻撃力が上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "133",
       "name": "乱気の背水",
       "description": "風属性キャラのHPが少ないほど攻撃力が上昇(大)",
@@ -953,6 +1052,15 @@
       "skillId": "142",
       "name": "業火の見切",
       "description": "火属性キャラが稀に回避カウンター(ダメージ中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "144",
+      "name": "大地の見切",
+      "description": "土属性キャラが稀に回避カウンター(ダメージ中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1042,6 +1150,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "237",
+      "name": "先制の地刃",
+      "description": "バトル開始時から8ターンの間土属性キャラの攻撃力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "238",
       "name": "先制の風刃",
       "description": "バトル開始時から8ターンの間風属性キャラの攻撃力上昇",
@@ -1068,6 +1185,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "243",
+      "name": "先制の岩壁",
+      "description": "バトル開始時から8ターンの間土属性キャラの防御力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "255",
       "name": "火の治癒",
       "description": "火属性キャラの回復上限上昇(小)",
@@ -1080,6 +1206,15 @@
       "skillId": "256",
       "name": "水の治癒",
       "description": "水属性キャラの回復上限上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "257",
+      "name": "土の治癒",
+      "description": "土属性キャラの回復上限上昇(小)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1104,6 +1239,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "263",
+      "name": "大地の治癒",
+      "description": "土属性キャラの回復上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "268",
       "name": "霧氷の治癒",
       "description": "水属性キャラの回復上限上昇(大)",
@@ -1113,9 +1257,27 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "269",
+      "name": "地裂の治癒",
+      "description": "土属性キャラの回復上限上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "274",
       "name": "先制の青の結界",
       "description": "バトル開始時、水属性キャラにバリア効果",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "275",
+      "name": "先制の黄の結界",
+      "description": "バトル開始時、土属性キャラにバリア効果",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1468,7 +1630,8 @@
       },
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/earth-ssr-nwf-binds-of-the-hanged-man.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "377",
@@ -1616,6 +1779,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "416",
+      "name": "土の堅守",
+      "description": "土属性キャラのHPが少ないほど防御力上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "420",
       "name": "業火の堅守",
       "description": "火属性キャラのHPが少ないほど防御力上昇(中)",
@@ -1628,6 +1800,15 @@
       "skillId": "421",
       "name": "渦潮の堅守",
       "description": "水属性キャラのHPが少ないほど防御力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "422",
+      "name": "大地の堅守",
+      "description": "土属性キャラのHPが少ないほど防御力上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1665,7 +1846,8 @@
       "description": "土属性キャラのHPが少ないほど防御力上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/earth-ssr-menace-no-face.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "429",
@@ -1706,6 +1888,24 @@
       "skillId": "475",
       "name": "反逆の氷刃",
       "description": "被ダメージで水属性キャラの攻撃力上昇(累積)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "476",
+      "name": "反逆の地刃",
+      "description": "被ダメージで土属性キャラの攻撃力上昇(累積)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "487",
+      "name": "賢者の加護",
+      "description": "土属性キャラのダメージ上限上昇",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1770,6 +1970,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "509",
+      "name": "創られし従僕",
+      "description": "主人公のみダブルアタック確率上昇(特大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "510",
       "name": "紅蓮の三手",
       "description": "火属性キャラの連続攻撃確率上昇(大)",
@@ -1821,9 +2030,34 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "512",
+      "name": "地裂の三手",
+      "description": "土属性キャラの連続攻撃確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "513",
       "name": "乱気の三手",
       "description": "風属性キャラの連続攻撃確率上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "518",
+      "name": "大地の冥護",
+      "description": "土属性キャラの最大HP上昇(中)/回復上限上昇(中)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-medium",
+        "elementCode": "3"
+      },
+      "unsupportedEffects": [
+        "回復上限上昇（中）"
+      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -1860,6 +2094,15 @@
       "skillId": "539",
       "name": "炎の背骨",
       "description": "火属性キャラの攻撃力上昇(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "542",
+      "name": "未来の幻視",
+      "description": "土属性キャラのアビリティダメージ上限UP",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2065,6 +2308,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "641",
+      "name": "土の秘奥",
+      "description": "土属性キャラの奥義ダメージUP(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "646",
       "name": "渦潮の秘奥",
       "description": "水属性キャラの奥義ダメージUP(中)",
@@ -2086,6 +2338,15 @@
       "skillId": "652",
       "name": "霧氷の秘奥",
       "description": "水属性キャラの奥義ダメージUP(大)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "653",
+      "name": "地裂の秘奥",
+      "description": "土属性キャラの奥義ダメージUP(大)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2233,6 +2494,22 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "773",
+      "name": "大地の無双",
+      "description": "土属性キャラの攻撃力上昇(中)/ダブルアタック確率上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "3"
+      },
+      "unsupportedEffects": [
+        "ダブルアタック確率上昇（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "774",
       "name": "竜巻の無双",
       "description": "風属性キャラの攻撃力上昇(中)/ダブルアタック確率上昇(中)",
@@ -2272,7 +2549,8 @@
       "description": "土属性キャラの奥義ダメージ上限上昇",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/earth-ssr-regalia-nibelung-messer.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "780",
@@ -2303,6 +2581,15 @@
       "skillId": "783",
       "name": "チェインフォース",
       "description": "チェインバーストのダメージがUP/チェインバーストのダメージ上限がUP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "808",
+      "name": "竜穿の一撃",
+      "description": "ダブルアタック確率上昇 ◆メイン装備時/主人公のみ",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2404,6 +2691,22 @@
       "normalAttackAmountTable": {
         "tableId": "normal-small",
         "elementCode": "2"
+      },
+      "unsupportedEffects": [
+        "クリティカル確率上昇（小）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "847",
+      "name": "土の刹那",
+      "description": "土属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-small",
+        "elementCode": "3"
       },
       "unsupportedEffects": [
         "クリティカル確率上昇（小）"
@@ -2789,6 +3092,24 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "962",
+      "name": "魔蛇の凶牙",
+      "description": "主人公のみトリプルアタック確率上昇(大)/弱体効果「石化」無効",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1004",
+      "name": "胡蝶の剣舞",
+      "description": "奥義ゲージ上昇量UP ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1007",
       "name": "好機到来II",
       "description": "敵ブレイク時必ずトリプルアタック/与ダメージ上昇 ◆メイン装備時/主人公のみ",
@@ -2855,9 +3176,27 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1053",
+      "name": "老境の流儀",
+      "description": "防御力UP/敵対心UP ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1064",
       "name": "夢へのトビラ",
       "description": "味方全体が魅了状態の敵に対してダブルアタック確率UP ◆メイン装備時",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1069",
+      "name": "壊崩の一撃",
+      "description": "土属性キャラのアビリティダメージ上限UP",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2891,9 +3230,27 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1083",
+      "name": "土の必殺",
+      "description": "土属性キャラの奥義ダメージUP(小)/奥義ダメージ上限上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1087",
       "name": "業火の必殺",
       "description": "火属性キャラの奥義ダメージUP(中)/奥義ダメージ上限上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1089",
+      "name": "大地の必殺",
+      "description": "土属性キャラの奥義ダメージUP(中)/奥義ダメージ上限上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -2967,6 +3324,22 @@
       "normalHpAmountTable": {
         "tableId": "normal-aegis-medium",
         "elementCode": "2"
+      },
+      "unsupportedEffects": [
+        "弱体耐性UP（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1179",
+      "name": "大地の恩寵",
+      "description": "土属性キャラの最大HP上昇(中)/弱体耐性UP(中)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-medium",
+        "elementCode": "3"
       },
       "unsupportedEffects": [
         "弱体耐性UP（中）"
@@ -3064,7 +3437,8 @@
       },
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/earth-ssr-draconic-origin-bow.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1231",
@@ -3183,6 +3557,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1256",
+      "name": "大地の星晶",
+      "description": "土属性キャラの星晶獣の攻撃力上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1261",
       "name": "渦潮の三手",
       "description": "水属性キャラの連続攻撃確率上昇(中)",
@@ -3217,6 +3600,15 @@
       "source": "knowledge/fire-ssr-job-chrysaor.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "1284",
+      "name": "オブリガート・レゾナンス",
+      "description": "土属性キャラの水属性ダメージ軽減",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1286",
       "name": "コバルト・アーツ",
       "description": "水属性キャラのアビリティダメージ上限UP",
@@ -3244,12 +3636,22 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1298",
+      "name": "土の渾身",
+      "description": "土属性キャラのHPが多いほど攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1316",
       "name": "アンバー・アーツ",
       "description": "土属性キャラのアビリティダメージ上限UP",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/earth-ssr-ennead-ished.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1320",
@@ -3264,6 +3666,15 @@
       "skillId": "1331",
       "name": "業火の英傑",
       "description": "火属性キャラの奥義性能UP(中)/チェインバースト性能UP(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1337",
+      "name": "不可侵楽園",
+      "description": "土属性キャラに水属性ダメージカットが付与されている時、ダブルアタック確率UP/◆メイン装備時",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3291,6 +3702,15 @@
       "skillId": "1353",
       "name": "渦潮の進境",
       "description": "経過ターンに応じて水属性キャラの水属性攻撃力が上昇(中)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1354",
+      "name": "大地の進境",
+      "description": "経過ターンに応じて土属性キャラの土属性攻撃力が上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -3532,6 +3952,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1497",
+      "name": "イエロー・ブロウ",
+      "description": "土属性キャラがトリプルアタック発動時に3回目の攻撃に土属性追撃効果",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1498",
       "name": "グリーン・ブロウ",
       "description": "風属性キャラがトリプルアタック発動時に3回目の攻撃に風属性追撃効果",
@@ -3568,6 +3997,22 @@
       "normalAttackAmountTable": {
         "tableId": "normal-medium",
         "elementCode": "2"
+      },
+      "unsupportedEffects": [
+        "トリプルアタック確率上昇（中）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1508",
+      "name": "大地の乱舞",
+      "description": "土属性キャラの攻撃力上昇(中)/トリプルアタック確率上昇(中)",
+      "normalAttackAmountTable": {
+        "tableId": "normal-medium",
+        "elementCode": "3"
       },
       "unsupportedEffects": [
         "トリプルアタック確率上昇（中）"
@@ -3771,6 +4216,15 @@
       "source": "knowledge/earth-ssr-job-monk.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "1570",
+      "name": "古代の闘術",
+      "description": "装備している「格闘」の数が多いほど攻撃力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1571",
       "name": "海神方陣・刹那",
       "description": "水属性キャラの攻撃力上昇(小)/クリティカル確率上昇(小)",
@@ -3869,6 +4323,22 @@
       "normalAttackAmountTable": {
         "tableId": "normal-large",
         "elementCode": "2"
+      },
+      "unsupportedEffects": [
+        "バトル開始時に最大HPの20%のダメージ"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "1652",
+      "name": "地裂の修羅",
+      "description": "土属性キャラの攻撃力上昇(大)/バトル開始時に最大HPの20%のダメージ",
+      "normalAttackAmountTable": {
+        "tableId": "normal-large",
+        "elementCode": "3"
       },
       "unsupportedEffects": [
         "バトル開始時に最大HPの20%のダメージ"
@@ -3984,6 +4454,15 @@
       "source": "knowledge/light-ssr-ennead-horakhty.md。効果量・計算枠は未検証"
     },
     {
+      "skillId": "1690",
+      "name": "ボルテージ・オブ・ソード",
+      "description": "装備している「剣」の数が多いほど攻撃力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "1697",
       "name": "ボルテージ・オブ・ボウ",
       "description": "装備している「弓」の数が多いほど攻撃力上昇",
@@ -4007,6 +4486,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-trunk-arbos.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1744",
+      "name": "界の妙技",
+      "description": "土属性キャラのアビリティの与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1747",
@@ -4204,6 +4692,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/fire-ssr-nwf-heat-of-the-sun.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "1844",
+      "name": "ボルテージ・オブ・スタッフII",
+      "description": "装備している「杖」の数が多いほど攻撃力上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "1852",
@@ -4973,6 +5470,15 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "2357",
+      "name": "土の進境",
+      "description": "経過ターンに応じて土属性キャラの土属性攻撃力が上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "2367",
       "name": "機炎方陣・攻刃",
       "description": "火属性キャラの攻撃力上昇(小)",
@@ -5071,6 +5577,24 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "2467",
+      "name": "ストライク・アース",
+      "description": "土属性キャラの通常攻撃ダメージ上限上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "2471",
+      "name": "リトゥス・ミスティクム",
+      "description": "通常攻撃の2ヒット目がランダムターゲットで2回発生、3ヒット目がランダムターゲットで3回発生する ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
       "skillId": "2480",
       "name": "火の鋭鋒",
       "description": "火属性キャラのトリプルアタック確率上昇(小)/クリティカル確率上昇(小)",
@@ -5083,6 +5607,38 @@
       "skillId": "2481",
       "name": "水の鋭鋒",
       "description": "水属性キャラのトリプルアタック確率上昇(小)/クリティカル確率上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "2503",
+      "name": "土の冥護",
+      "description": "土属性キャラの最大HP上昇(小)/回復上限上昇(小)",
+      "normalHpAmountTable": {
+        "tableId": "normal-aegis-small",
+        "elementCode": "3"
+      },
+      "unsupportedEffects": [
+        "回復上限上昇（小）"
+      ],
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "2519",
+      "name": "地裂の呪印",
+      "description": "土属性キャラの攻撃力上昇(大)/毎ターンダメージを受ける",
+      "normalAttackAmountTable": {
+        "tableId": "normal-large",
+        "elementCode": "3"
+      },
+      "unsupportedEffects": [
+        "毎ターンダメージを受ける"
+      ],
       "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
@@ -5152,6 +5708,15 @@
       "effects": [],
       "verificationStatus": "下書き",
       "source": "knowledge/water-ssr-job-boogeyman.md。効果量・計算枠は未検証"
+    },
+    {
+      "skillId": "2605",
+      "name": "レイジ・オブ・スタッフ",
+      "description": "装備している「杖」の数が多いほど攻撃力/最大HP/連続攻撃確率上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-09-13"
     },
     {
       "skillId": "2620",

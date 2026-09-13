@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(scriptDirectory, "../..");
+const wikiCatalogPath = path.join(repositoryRoot, "knowledge/weapons/wiki-catalog.v1.json");
 const weaponCatalogPath = path.join(repositoryRoot, "mcp-server/catalog/weapons.v1.json");
 const skillCatalogPath = path.join(repositoryRoot, "mcp-server/catalog/weapon-skills.v1.json");
 const skillKeys = ["skill1", "skill2", "skill3", "skill4"];
@@ -53,6 +54,48 @@ function appendSource(source, addition) {
   return `${source} ${addition}`;
 }
 
+function wikiListedSkills(entry) {
+  return (entry?.skills ?? []).flatMap((skill) => {
+    const stage = skill.upgraded?.name ? skill.upgraded : skill.initial;
+    if (!stage?.name) return [];
+    return [{
+      sourceKey: `skill${skill.slot}`,
+      name: stage.name,
+      description: stage.description ?? "効果量・計算枠は要検証",
+    }];
+  });
+}
+
+function newWeaponFromWiki(row, wiki, date) {
+  const points = wiki?.statPoints ?? [];
+  const lastPoint = points.at(-1);
+  const listedSkills = wikiListedSkills(wiki);
+  return {
+    weaponId: String(row.master.id),
+    name: normalizeText(row.master.name),
+    ...(wiki?.nameEn ? { nameEn: wiki.nameEn } : {}),
+    elementCode: String(row.master.attribute),
+    weaponKindCode: String(row.master.kind),
+    rarityCode: String(row.master.rarity),
+    ...(lastPoint ? {
+      selectionDefaults: {
+        level: lastPoint.level,
+        ...(wiki?.uncaps?.maximum !== null && wiki?.uncaps?.maximum !== undefined
+          ? { uncapLevel: wiki.uncaps.maximum }
+          : {}),
+        attack: lastPoint.attack,
+        hp: lastPoint.hp,
+      },
+    } : {}),
+    ...(points.length >= 2 ? { levelStats: { maximumLevel: lastPoint.level, points } } : {}),
+    skillSlots: [],
+    ...(listedSkills.length > 0 ? { listedSkills } : {}),
+    verificationStatus: "下書き",
+    source: `ゲーム内武器詳細レスポンス（${date}）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等は既存の公開Wiki由来データのため要検証`,
+    confirmedAt: date,
+  };
+}
+
 const inputArgument = argumentValue("--input-dir");
 if (!inputArgument) {
   console.error("usage: node scripts/data-collection/import-weapon-skill-details.mjs --input-dir <dir> [--date YYYY-MM-DD] [--apply]");
@@ -93,12 +136,17 @@ for (const entry of rows) {
 
 const weaponCatalog = JSON.parse(await readFile(weaponCatalogPath, "utf8"));
 const skillCatalog = JSON.parse(await readFile(skillCatalogPath, "utf8"));
+const wikiCatalog = JSON.parse(await readFile(wikiCatalogPath, "utf8"));
 const weaponsById = new Map(weaponCatalog.weapons.map((weapon) => [weapon.weaponId, weapon]));
 const skillsById = new Map(skillCatalog.skills.map((skill) => [skill.skillId, skill]));
+const wikiWeaponsById = new Map(
+  wikiCatalog.weapons.filter((weapon) => weapon.weaponId).map((weapon) => [weapon.weaponId, weapon]),
+);
 const report = {
   files: files.length,
   duplicateFiles: duplicateFiles.length,
   uniqueWeapons: uniqueRows.size,
+  addedWeapons: 0,
   updatedWeapons: 0,
   uniqueSkills: 0,
   addedSkills: 0,
@@ -117,8 +165,17 @@ for (const [weaponId, { file, row }] of uniqueRows) {
     weaponKindCode: String(row.master?.kind ?? ""),
     rarityCode: String(row.master?.rarity ?? ""),
   };
-  const weapon = weaponsById.get(weaponId);
-  if (!weapon) throw new Error(`${file}: weapon ${weaponId} is missing from weapons.v1.json`);
+  let weapon = weaponsById.get(weaponId);
+  const weaponAlreadyExisted = weapon !== undefined;
+  if (!weapon) {
+    const wikiWeapon = wikiWeaponsById.get(weaponId);
+    if (!wikiWeapon) {
+      throw new Error(`${file}: weapon ${weaponId} is missing from weapons.v1.json and wiki-catalog.v1.json`);
+    }
+    weapon = newWeaponFromWiki(row, wikiWeapon, date);
+    weaponsById.set(weaponId, weapon);
+    report.addedWeapons += 1;
+  }
   for (const key of Object.keys(observed)) {
     if (String(weapon[key]) !== observed[key]) {
       report.weaponConflicts.push({ file, weaponId, field: key, catalog: weapon[key], observed: observed[key] });
@@ -132,7 +189,7 @@ for (const [weaponId, { file, row }] of uniqueRows) {
     ? appendSource(weapon.source, detailSource)
     : `${detailSource}武器種・上限解放境界ステータス等は既存の公開Wiki由来データのため要検証`;
   weapon.confirmedAt = date;
-  report.updatedWeapons += 1;
+  if (weaponAlreadyExisted) report.updatedWeapons += 1;
 
   for (const observedSkill of skills) {
     observedSkillIds.add(observedSkill.skillId);
