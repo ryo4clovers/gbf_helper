@@ -1,12 +1,20 @@
 export type NominalDamagePreparation = "none" | "floor" | "ceil" | "nearest";
 export type FinalDamageRounding = "floor" | "ceil" | "nearest";
 
+export interface DamageValueTransform {
+  /** Stable diagnostic identifier; the callback itself is never serialized. */
+  id: string;
+  apply: (damage: number) => number;
+}
+
 export interface RandomMultiplierInferenceOptions {
   multiplierMin?: number;
   multiplierMax?: number;
   multiplierStep?: number;
   nominalPreparation?: NominalDamagePreparation;
   finalRounding?: FinalDamageRounding;
+  /** Applied after the random multiplier and before final integer rounding. */
+  damageTransform?: DamageValueTransform;
 }
 
 export interface ObservedMultiplierCandidates {
@@ -23,6 +31,7 @@ export interface RandomMultiplierInferenceResult {
   preparedNominalDamage: number;
   nominalPreparation: NominalDamagePreparation;
   finalRounding: FinalDamageRounding;
+  damageTransformId?: string;
   multiplierMin: number;
   multiplierMax: number;
   multiplierStep: number;
@@ -39,6 +48,7 @@ export interface DamageDistributionSummary {
   preparedNominalDamage: number;
   nominalPreparation: NominalDamagePreparation;
   finalRounding: FinalDamageRounding;
+  damageTransformId?: string;
   multiplierMin: number;
   multiplierMax: number;
   multiplierStep: number;
@@ -71,7 +81,18 @@ function resolveConfiguration(options: RandomMultiplierInferenceOptions) {
     multiplierStep: options.multiplierStep ?? 0.001,
     nominalPreparation: options.nominalPreparation ?? "none",
     finalRounding: options.finalRounding ?? "ceil",
+    damageTransform: options.damageTransform,
   };
+}
+
+function transformDamage(value: number, transform: DamageValueTransform | undefined): number {
+  if (transform === undefined) return value;
+  if (transform.id.trim() === "") throw new Error("damageTransform.id must not be empty");
+  const transformed = transform.apply(value);
+  if (!Number.isFinite(transformed) || transformed < 0) {
+    throw new Error("damageTransform.apply must return a finite non-negative number");
+  }
+  return transformed;
 }
 
 function validateConfiguration(
@@ -111,13 +132,13 @@ export function summarizeDamageDistribution(
   nominalDamage: number,
   options: RandomMultiplierInferenceOptions = {},
 ): DamageDistributionSummary {
-  const { multiplierMin, multiplierMax, multiplierStep, nominalPreparation, finalRounding } =
+  const { multiplierMin, multiplierMax, multiplierStep, nominalPreparation, finalRounding, damageTransform } =
     resolveConfiguration(options);
   validateConfiguration(nominalDamage, multiplierMin, multiplierMax, multiplierStep);
   const multipliers = enumerateRandomMultipliers(multiplierMin, multiplierMax, multiplierStep);
   const preparedNominalDamage = prepareNominalDamage(nominalDamage, nominalPreparation);
   const damageValues = multipliers.map((multiplier) =>
-    roundFinalDamage(preparedNominalDamage * multiplier, finalRounding),
+    roundFinalDamage(transformDamage(preparedNominalDamage * multiplier, damageTransform), finalRounding),
   );
 
   return {
@@ -127,6 +148,7 @@ export function summarizeDamageDistribution(
     preparedNominalDamage,
     nominalPreparation,
     finalRounding,
+    damageTransformId: damageTransform?.id,
     multiplierMin,
     multiplierMax,
     multiplierStep,
@@ -147,7 +169,7 @@ export function inferRandomMultiplierCandidates(
   observedDamageValues: number[],
   options: RandomMultiplierInferenceOptions = {},
 ): RandomMultiplierInferenceResult {
-  const { multiplierMin, multiplierMax, multiplierStep, nominalPreparation, finalRounding } =
+  const { multiplierMin, multiplierMax, multiplierStep, nominalPreparation, finalRounding, damageTransform } =
     resolveConfiguration(options);
   validateConfiguration(nominalDamage, multiplierMin, multiplierMax, multiplierStep);
   if (observedDamageValues.some((value) => !Number.isFinite(value) || value < 0)) {
@@ -158,7 +180,11 @@ export function inferRandomMultiplierCandidates(
 
   const observations = observedDamageValues.map((observedDamage, index) => {
     const candidates = multipliers.filter(
-      (multiplier) => roundFinalDamage(preparedNominalDamage * multiplier, finalRounding) === observedDamage,
+      (multiplier) =>
+        roundFinalDamage(
+          transformDamage(preparedNominalDamage * multiplier, damageTransform),
+          finalRounding,
+        ) === observedDamage,
     );
     return {
       index,
@@ -178,6 +204,7 @@ export function inferRandomMultiplierCandidates(
     preparedNominalDamage,
     nominalPreparation,
     finalRounding,
+    damageTransformId: damageTransform?.id,
     multiplierMin,
     multiplierMax,
     multiplierStep,

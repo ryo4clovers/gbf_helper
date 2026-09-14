@@ -49,7 +49,7 @@ function assertFiniteNonNegative(value: number, label: string): void {
 	}
 }
 
-function validateProfile(profile: DamageAttenuationProfile): void {
+export function validateDamageAttenuationProfile(profile: DamageAttenuationProfile): void {
 	if (profile.id.trim() === "") throw new Error("profile.id must not be empty");
 	let previousThreshold = 0;
 	profile.lines.forEach((line, index) => {
@@ -102,7 +102,7 @@ export function calculateDamageAttenuation(
 	options: DamageAttenuationOptions = {},
 ): DamageAttenuationResult {
 	assertFiniteNonNegative(inputDamage, "inputDamage");
-	validateProfile(profile);
+	validateDamageAttenuationProfile(profile);
 	const damageCapUpPercent = options.damageCapUpPercent ?? 0;
 	assertFiniteNonNegative(damageCapUpPercent, "damageCapUpPercent");
 	const rounding = options.rounding ?? "none";

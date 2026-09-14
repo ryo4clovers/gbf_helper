@@ -60,3 +60,24 @@ test("rejects invalid multiplier configuration", () => {
     /multiplier range and step/,
   );
 });
+
+test("applies a named damage transform after randomness and before final rounding", () => {
+  const damageTransform = { id: "test-soft-cap", apply: (damage: number) => damage * 0.5 + 0.4 };
+  const summary = summarizeDamageDistribution(1000, {
+    multiplierMin: 1,
+    multiplierMax: 1,
+    damageTransform,
+    finalRounding: "ceil",
+  });
+  const inference = inferRandomMultiplierCandidates(1000, [501], {
+    multiplierMin: 1,
+    multiplierMax: 1,
+    damageTransform,
+    finalRounding: "ceil",
+  });
+
+  assert.equal(summary.damageTransformId, "test-soft-cap");
+  assert.equal(summary.minimumDamage, 501);
+  assert.equal(inference.damageTransformId, "test-soft-cap");
+  assert.deepEqual(inference.observations[0].candidates, [1]);
+});

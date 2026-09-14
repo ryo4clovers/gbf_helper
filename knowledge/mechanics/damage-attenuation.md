@@ -55,7 +55,45 @@
 
 ### 計算機での処理境界
 
-`mcp-server/src/calculator/damageAttenuationCalculator.ts`は、減衰前ダメージと任意個数のラインを受け取る純粋関数として実装する。各区間の入力、通過率、出力を診断情報として返す。固定与ダメージ上昇・割合与ダメージUP・追撃・特殊上限はこの関数へ含めず、後続の独立ステージで扱う。
+`mcp-server/src/calculator/damageAttenuationCalculator.ts`は、減衰前ダメージと任意個数のラインを受け取る純粋関数として実装した。各区間の入力、通過率、出力を診断情報として返す。固定与ダメージ上昇・割合与ダメージUP・追撃・特殊上限はこの関数へ含めず、後続の独立ステージで扱う。
+
+通常攻撃本体は`乱数 → 多段階減衰 → 与ダメージUP等の後段割合 → 最終整数丸め`の順で計算する。`damage-cap`と`normal-attack-damage-cap`の有効な補正は合算して全減衰ラインを伸長する。通常攻撃の暫定標準表は通常攻撃本体へ接続済み。クリティカル時、追撃、特殊上限の減衰処理は未接続のため別途警告を保持する。
+
+### アビリティ用プロファイル形式
+
+`mcp-server/src/calculator/abilityDamageProfile.ts`に、JSON化できる`schemaVersion: 1`形式を定義した。倍率は固定値も範囲も`multiplier.min/max`で表し、多段アビリティは`hitCount`を保持する。減衰表が未確認のときは推測値を埋めず`attenuation.status: unresolved`とし、確認後に`resolved`と個別の多段階プロファイルを設定する。
+
+```json
+{
+  "schemaVersion": 1,
+  "abilityId": "2040",
+  "name": "ドライブバースト",
+  "element": "own",
+  "targeting": "single",
+  "variants": [
+    {
+      "id": "overdrive",
+      "condition": { "type": "enemy-mode", "mode": "overdrive" },
+      "multiplier": { "min": 3, "max": 3 },
+      "hitCount": 1,
+      "attenuation": { "status": "unresolved" },
+      "verificationStatus": "下書き",
+      "source": "secondary-source-and-user-observation"
+    },
+    {
+      "id": "default",
+      "condition": { "type": "always" },
+      "multiplier": { "min": 1.5, "max": 1.5 },
+      "hitCount": 1,
+      "attenuation": { "status": "unresolved" },
+      "verificationStatus": "下書き",
+      "source": "user-observation"
+    }
+  ]
+}
+```
+
+条件付きvariantを先、必須の`always`フォールバックを最後に置く。現時点の条件は敵モード（通常・OD・ブレイク）、コンパニオンウェポン装備有無、複数条件のANDを表現できる。これによりディストリームの通常5hit／コンパニオンウェポン時10hitも同じ形式で保持できる。検証済みvariantには`confirmedAt: YYYY-MM-DD`を必須とし、倍率・hit数・減衰表の確度をアビリティ単位で混同しない。
 
 ## 具体例
 
@@ -70,6 +108,7 @@
 ## 未確認・要検証事項
 
 - 暫定標準表の現在の実機挙動、端点処理、途中・最終丸め。
+- 通常攻撃のクリティカル時、追撃、特殊上限へ減衰を適用する正確な順序。
 - ファイア、ドライブバースト、ディストリーム固有の減衰ラインと通過率。
 - 奥義ごとの個別上限、十天衆など標準表と異なるプロファイル。
 - 大ダメージ特殊上限、上限緩和、原子崩壊を適用する正確な順序と式。

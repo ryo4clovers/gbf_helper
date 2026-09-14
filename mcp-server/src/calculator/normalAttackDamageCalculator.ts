@@ -40,6 +40,12 @@ import {
   calculateOtherWeaponSkills,
   type OtherWeaponSkillResult,
 } from "./otherWeaponSkillCalculator.js";
+import {
+  calculateDamageAttenuation,
+  PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES,
+  type DamageAttenuationProfile,
+} from "./damageAttenuationCalculator.js";
+import type { DamageModifier } from "./types.js";
 
 export interface NormalAttackDamageOptions {
   baseDamageModel?: BaseDamageCalculationModel;
@@ -65,12 +71,24 @@ export interface CombinedNormalAttackDistribution {
   expectedDamage: number;
 }
 
+export interface NormalAttackBodyAttenuationResult {
+  schemaVersion: 1;
+  profile: DamageAttenuationProfile;
+  damageCapUpPercent: number;
+  capModifiers: DamageModifier[];
+  postAttenuationPercent: number;
+  /** The current article model groups every post-cap percentage additively. */
+  postAttenuationModel: "additive-percent" | "already-applied-provisional";
+  verificationStatus: "下書き";
+}
+
 export interface NormalAttackDamageResult {
   schemaVersion: 1;
   status: "provisional";
   attackPower: NormalAttackPowerResult;
   hpDependentAttack: HpDependentAttackResult;
   baseDamage: DefenseAdjustedBaseDamageResult;
+  bodyDamageAttenuation: NormalAttackBodyAttenuationResult;
   bodyDamageDistribution: DamageDistributionSummary;
   criticalBodyDamage?: CriticalBodyDamageResult;
   pursuitDamage?: EffectivePursuitDamageResult;
@@ -79,10 +97,11 @@ export interface NormalAttackDamageResult {
   otherWeaponSkills: OtherWeaponSkillResult;
   totalDamageDistribution: CombinedNormalAttackDistribution;
   issues: Array<
-    | "damage-cap-unresolved"
+    | "damage-attenuation-profile-provisional"
     | "rounding-order-unresolved"
     | "independent-component-randomness-provisional"
     | "critical-probability-unresolved"
+    | "critical-damage-attenuation-unresolved"
   >;
 }
 
@@ -123,13 +142,39 @@ export function calculateNormalAttackDamage(
     multiplierMax: options.multiplierMax,
     multiplierStep: options.multiplierStep,
   };
-  const bodyDamageDistribution = summarizeDamageDistribution(baseDamage.unroundedDamageBeforeRandomAndCap, {
+  const bodyAttenuationProfile = PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES.normalAttack;
+  const bodyDamageCapUpPercent = baseDamage.deferredCapModifiers.reduce(
+    (sum, modifier) => sum + modifier.amountPercent,
+    0,
+  );
+  const preAttenuationNominalDamage = baseDamage.articleTrace?.prePostCapDamage
+    ?? baseDamage.unroundedDamageBeforeRandomAndCap;
+  const postAttenuationPercent = baseDamage.articleTrace?.postCapDamagePercent ?? 0;
+  const bodyDamageAttenuation: NormalAttackBodyAttenuationResult = {
+    schemaVersion: 1,
+    profile: bodyAttenuationProfile,
+    damageCapUpPercent: bodyDamageCapUpPercent,
+    capModifiers: baseDamage.deferredCapModifiers,
+    postAttenuationPercent,
+    postAttenuationModel:
+      baseDamage.articleTrace === undefined ? "already-applied-provisional" : "additive-percent",
+    verificationStatus: "下書き",
+  };
+  const bodyAttenuationTransform = {
+    id: `damage-attenuation:${bodyAttenuationProfile.id}`,
+    apply: (damage: number) =>
+      calculateDamageAttenuation(damage, bodyAttenuationProfile, {
+        damageCapUpPercent: bodyDamageCapUpPercent,
+      }).damage * (1 + postAttenuationPercent / 100),
+  };
+  const bodyDamageDistribution = summarizeDamageDistribution(preAttenuationNominalDamage, {
     ...sharedRandomOptions,
     nominalPreparation: options.bodyNominalPreparation ?? "none",
     finalRounding:
       options.bodyFinalRounding ??
       options.finalRounding ??
       (useArticleModel ? "ceil" : "floor"),
+    damageTransform: bodyAttenuationTransform,
   });
   const pursuitDamage = hasSelectedPursuit(input, options.pursuitSourceSkillId)
     ? calculateEffectivePursuitDamage(input.deck, baseDamage.damageBeforeRandomAndCap, {
@@ -160,6 +205,7 @@ export function calculateNormalAttackDamage(
     attackPower,
     hpDependentAttack,
     baseDamage,
+    bodyDamageAttenuation,
     bodyDamageDistribution,
     criticalBodyDamage,
     pursuitDamage,
@@ -176,12 +222,13 @@ export function calculateNormalAttackDamage(
       expectedDamage: distributions.reduce((sum, distribution) => sum + distribution.expectedDamage, 0),
     },
     issues: [
-      "damage-cap-unresolved",
+      "damage-attenuation-profile-provisional",
       ...(baseDamage.unresolvedStages.includes("rounding")
         ? (["rounding-order-unresolved"] as const)
         : []),
       ...(pursuitDamage === undefined ? [] : (["independent-component-randomness-provisional"] as const)),
       ...(criticalBodyDamage === undefined ? [] : (["critical-probability-unresolved"] as const)),
+      ...(criticalBodyDamage === undefined ? [] : (["critical-damage-attenuation-unresolved"] as const)),
     ],
   };
 }

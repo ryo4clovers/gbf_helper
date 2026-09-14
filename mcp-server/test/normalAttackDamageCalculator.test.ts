@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { parseAccountBonusResponse } from "../src/calculator/accountBonusParser.ts";
 import { resolveCalculatorDeckConfig } from "../src/calculator/calculatorDeckResolver.ts";
 import { calculateNormalAttackDamage } from "../src/calculator/normalAttackDamageCalculator.ts";
+import { calculateDamageAttenuation } from "../src/calculator/damageAttenuationCalculator.ts";
 import type { DamageCalculationInput } from "../src/calculator/types.ts";
 
 function makeCurrentInput(): DamageCalculationInput {
@@ -101,7 +102,8 @@ test("connects staged base damage to independent 101-pattern body and pursuit di
 
   assert.equal(result.baseDamage.model, "article-2026-07");
   assert.equal(result.baseDamage.damageBeforeRandomAndCap, 3950);
-  assert.equal(result.bodyDamageDistribution.nominalDamage, 3949.8298658000003);
+  assert.equal(result.bodyDamageDistribution.nominalDamage, 3705.2813);
+  assert.equal(result.bodyDamageAttenuation.postAttenuationPercent, 6.6);
   assert.equal(result.bodyDamageDistribution.finalRounding, "ceil");
   assert.equal(result.bodyDamageDistribution.patternCount, 101);
   assert.equal(result.bodyDamageDistribution.minimumDamage, 3753);
@@ -168,4 +170,41 @@ test("contains all 12 reacquired body and pursuit observations", () => {
     assert.ok(body + pursuit >= result.totalDamageDistribution.minimumDamage);
     assert.ok(body + pursuit <= result.totalDamageDistribution.maximumDamage);
   }
+});
+
+test("applies the normal-attack attenuation profile and cap modifiers to every random pattern", () => {
+  const input = makeCurrentInput();
+  input.deck.protagonist.attack = 5_000_000;
+  const result = calculateNormalAttackDamage(input, {
+    multiplierMin: 0.95,
+    multiplierMax: 1.05,
+    multiplierStep: 0.1,
+  });
+  const profile = result.bodyDamageAttenuation.profile;
+  const capUp = result.bodyDamageAttenuation.damageCapUpPercent;
+  const nominal = result.bodyDamageDistribution.preparedNominalDamage;
+
+  assert.equal(capUp, 5);
+  assert.deepEqual(
+    result.bodyDamageAttenuation.capModifiers.map((modifier) => modifier.stage),
+    ["normal-attack-damage-cap"],
+  );
+  assert.equal(result.bodyDamageDistribution.damageTransformId, `damage-attenuation:${profile.id}`);
+  assert.equal(
+    result.bodyDamageDistribution.minimumDamage,
+    Math.ceil(
+      calculateDamageAttenuation(nominal * 0.95, profile, { damageCapUpPercent: capUp }).damage
+        * (1 + result.bodyDamageAttenuation.postAttenuationPercent / 100),
+    ),
+  );
+  assert.equal(
+    result.bodyDamageDistribution.maximumDamage,
+    Math.ceil(
+      calculateDamageAttenuation(nominal * 1.05, profile, { damageCapUpPercent: capUp }).damage
+        * (1 + result.bodyDamageAttenuation.postAttenuationPercent / 100),
+    ),
+  );
+  assert.ok(result.bodyDamageDistribution.maximumDamage < nominal * 1.05);
+  assert.ok(result.issues.includes("damage-attenuation-profile-provisional"));
+  assert.ok(!result.issues.includes("damage-cap-unresolved" as never));
 });
