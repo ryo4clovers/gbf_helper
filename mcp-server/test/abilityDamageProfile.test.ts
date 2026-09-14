@@ -170,3 +170,33 @@ test("reproduces all 21 observed protagonist normal-attack hits below attenuatio
   assert.deepEqual(reproduced, observations);
   assert.equal(commonPreNormalDamage * Math.max(...randomMultipliers), 21_436.7554876332);
 });
+
+test("reproduces grid 02 normal attacks and Drive Burst with one pre-attenuation base", () => {
+  // The final ceil leaves an interval; its midpoint reproduces every observed hit.
+  const inferredCommonPreDamage = (31_232.302529943638 + 31_232.307846757973) / 2;
+  const normalObservations = [
+    33_993, 33_794, 34_326, 34_459, 32_429, 34_160, 33_560, 32_029, 32_994, 33_094, 33_760,
+  ];
+  const normalRandomMultipliers = [
+    1.021, 1.015, 1.031, 1.035, 0.974, 1.026, 1.008, 0.962, 0.991, 0.994, 1.014,
+  ];
+  const abilityObservations = [
+    58_644, 59_715, 59_180, 62_395, 58_406, 58_406, 62_156, 60_311, 60_727, 61_561, 58_941,
+  ];
+  const abilityRandomMultipliers = [
+    0.985, 1.003, 0.994, 1.048, 0.981, 0.981, 1.044, 1.013, 1.02, 1.034, 0.99,
+  ];
+
+  assert.deepEqual(
+    normalRandomMultipliers.map((randomMultiplier) =>
+      Math.ceil(inferredCommonPreDamage * randomMultiplier * 1.066),
+    ),
+    normalObservations,
+  );
+  assert.deepEqual(
+    abilityRandomMultipliers.map((randomMultiplier) =>
+      Math.ceil(inferredCommonPreDamage * 1.84 * randomMultiplier * 1.036),
+    ),
+    abilityObservations,
+  );
+});
