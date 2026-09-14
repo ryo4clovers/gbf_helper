@@ -63,6 +63,8 @@
 
 `mcp-server/src/calculator/abilityDamageProfile.ts`に、JSON化できる`schemaVersion: 1`形式を定義した。倍率はアカウント補正前の固有値を`multiplier.min/max`で表し、アビリティダメージUPは割合ポイントを固有倍率へ加算する。多段アビリティは`hitCount`を保持する。減衰表が未確認のときは推測値を埋めず`attenuation.status: unresolved`、途中のラインまで確認できた場合は`partial`、全ライン確認後は`resolved`として個別の多段階プロファイルを設定する。
 
+アビリティ間の比較・収集進捗は、[ダメージアビリティ基礎プロファイル](../abilities/damage-profiles.md)の表へ集約する。
+
 ```json
 {
   "schemaVersion": 1,
