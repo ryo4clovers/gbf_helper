@@ -3,7 +3,7 @@ import { getAllApiCalls, getAllAssets, clearAll } from "./db.js";
 const theadRow = document.getElementById("theadRow");
 const tbody = document.getElementById("tbody");
 const summary = document.getElementById("summary");
-const filterInput = document.getElementById("filter");
+const filterInputs = [...document.querySelectorAll(".filter")];
 const tabApiBtn = document.getElementById("tabApi");
 const tabAssetsBtn = document.getElementById("tabAssets");
 
@@ -123,19 +123,35 @@ async function loadAll() {
   [apiCalls, assets] = await Promise.all([getAllApiCalls(), getAllAssets()]);
   apiCalls.sort((a, b) => b.timestamp - a.timestamp);
   assets.sort((a, b) => b.timestamp - a.timestamp);
-  summary.textContent = `apiCalls: ${apiCalls.length}件 / assets: ${assets.length}件`;
   render();
+}
+
+function currentFilters() {
+  return filterInputs.map((input) => input.value.trim().toLowerCase()).filter(Boolean);
+}
+
+function filteredList(list) {
+  const filters = currentFilters();
+  if (filters.length === 0) return list;
+  return list.filter((record) => {
+    const url = record.url.toLowerCase();
+    return filters.some((filter) => url.includes(filter));
+  });
 }
 
 function currentList() {
   const list = currentTab === "api" ? apiCalls : assets;
-  const filter = filterInput.value.trim().toLowerCase();
-  if (!filter) return list;
-  return list.filter((r) => r.url.toLowerCase().includes(filter));
+  return filteredList(list);
 }
 
 function render() {
   const list = currentList();
+  const apiFilteredCount = filteredList(apiCalls).length;
+  const assetsFilteredCount = filteredList(assets).length;
+  const hasFilters = currentFilters().length > 0;
+  summary.textContent = hasFilters
+    ? `絞り込み結果: apiCalls ${apiFilteredCount}/${apiCalls.length}件 / assets ${assetsFilteredCount}/${assets.length}件`
+    : `apiCalls: ${apiCalls.length}件 / assets: ${assets.length}件`;
   theadRow.innerHTML = "<th>時刻</th><th>status</th><th>type</th><th>mimeType</th><th class='url'>URL</th>";
   tbody.innerHTML = "";
   for (const record of list) {
@@ -204,7 +220,7 @@ function setTab(tab) {
 
 tabApiBtn.addEventListener("click", () => setTab("api"));
 tabAssetsBtn.addEventListener("click", () => setTab("assets"));
-filterInput.addEventListener("input", render);
+for (const filterInput of filterInputs) filterInput.addEventListener("input", render);
 document.getElementById("reload").addEventListener("click", loadAll);
 
 document.getElementById("export").addEventListener("click", async () => {
@@ -215,6 +231,16 @@ document.getElementById("export").addEventListener("click", async () => {
   };
   const blob = new Blob([JSON.stringify(exportObj)], { type: "application/json" });
   downloadBlob(blob, `gbf-network-recorder-export-${Date.now()}.json`);
+});
+
+document.getElementById("exportFiltered").addEventListener("click", () => {
+  const exportObj = {
+    exportedAt: new Date().toISOString(),
+    apiCalls: filteredList(apiCalls),
+    assets: filteredList(assets),
+  };
+  const blob = new Blob([JSON.stringify(exportObj)], { type: "application/json" });
+  downloadBlob(blob, `gbf-network-recorder-filtered-export-${Date.now()}.json`);
 });
 
 document.getElementById("clear").addEventListener("click", async () => {
