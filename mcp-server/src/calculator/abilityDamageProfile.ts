@@ -13,6 +13,8 @@ export type AbilityDamageCondition =
 
 export type AbilityDamageAttenuation =
   | { status: "unresolved" }
+  /** Known lines are usable only through the tested range; later lines remain unknown. */
+  | { status: "partial"; profile: DamageAttenuationProfile }
   | { status: "resolved"; profile: DamageAttenuationProfile };
 
 export interface AbilityDamageVariant {
@@ -97,7 +99,7 @@ export function validateAbilityDamageProfile(profile: AbilityDamageProfile): voi
     if (variant.verificationStatus === "検証済み" && !/^\d{4}-\d{2}-\d{2}$/.test(variant.confirmedAt ?? "")) {
       throw new Error(`profile.variants[${index}].confirmedAt is required for verified data`);
     }
-    if (variant.attenuation.status === "resolved") {
+    if (variant.attenuation.status !== "unresolved") {
       validateDamageAttenuationProfile(variant.attenuation.profile);
     }
   });

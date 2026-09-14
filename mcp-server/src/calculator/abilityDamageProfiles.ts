@@ -27,11 +27,18 @@ export const ABILITY_DAMAGE_PROFILES = {
         condition: { type: "enemy-mode", mode: "normal" },
         multiplier: { min: 1.84, max: 1.84 },
         hitCount: 1,
-        attenuation: { status: "unresolved" },
+        attenuation: {
+          status: "partial",
+          profile: {
+            id: "ability-2040-normal-partial",
+            name: "ドライブバースト 通常モード（一部検証済み）",
+            lines: [{ threshold: 117_000, passRate: 0.6 }],
+          },
+        },
         verificationStatus: "検証済み",
-        source: "in-game-observations-2026-09-14",
-        confirmedAt: "2026-09-14",
-        notes: "11/11件を再現。減衰前39,028.434までは減衰なし。",
+        source: "in-game-observations-2026-09-14-to-2026-09-15",
+        confirmedAt: "2026-09-15",
+        notes: "編成④の15/15件から第1ライン117,000・超過分60%通過を確認。第2ライン以降は未検証。",
       },
       {
         id: "non-normal-fallback",

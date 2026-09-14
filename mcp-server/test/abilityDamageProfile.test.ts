@@ -10,6 +10,7 @@ import {
   ABILITY_DAMAGE_PROFILES,
   findAbilityDamageProfile,
 } from "../src/calculator/abilityDamageProfiles.js";
+import { calculateDamageAttenuation } from "../src/calculator/damageAttenuationCalculator.js";
 
 function makeDriveBurstProfile(): AbilityDamageProfile {
   return {
@@ -116,7 +117,10 @@ test("registers the observed normal-mode Drive Burst profile", () => {
 
   assert.deepEqual(variant.multiplier, { min: 1.84, max: 1.84 });
   assert.equal(variant.verificationStatus, "検証済み");
-  assert.equal(variant.attenuation.status, "unresolved");
+  assert.equal(variant.attenuation.status, "partial");
+  if (variant.attenuation.status === "partial") {
+    assert.deepEqual(variant.attenuation.profile.lines, [{ threshold: 117_000, passRate: 0.6 }]);
+  }
 });
 
 test("keeps the calculator profile identical to the knowledge entry", () => {
@@ -230,6 +234,50 @@ test("reproduces grid 03 normal attacks and Drive Burst with one pre-attenuation
     abilityRandomMultipliers.map((randomMultiplier) =>
       Math.ceil(inferredCommonPreDamage * 1.84 * randomMultiplier * 1.036),
     ),
+    abilityObservations,
+  );
+});
+
+test("reproduces grid 04 and identifies Drive Burst's first attenuation line", () => {
+  // Any value in the normal-hit-derived interval reproduces both series; use one near its lower edge.
+  const inferredCommonPreDamage = 81_089.311;
+  const normalObservations = [
+    82_379, 88_516, 88_949, 85_232, 82_898, 88_171, 87_911, 87_306, 83_589, 85_059, 82_984,
+    89_899, 86_269, 88_862, 82_379,
+  ];
+  const normalRandomMultipliers = [
+    0.953, 1.024, 1.029, 0.986, 0.959, 1.02, 1.017, 1.01, 0.967, 0.984, 0.96, 1.04, 0.998,
+    1.028, 0.953,
+  ];
+  const abilityObservations = [
+    145_868, 142_622, 139_747, 143_271, 137_706, 141_323, 141_416, 136_686, 141_602, 137_428,
+    139_283, 143_642, 138_819, 140_211, 137_521,
+  ];
+  const abilityRandomMultipliers = [
+    1.05, 1.015, 0.984, 1.022, 0.962, 1.001, 1.002, 0.951, 1.004, 0.959, 0.979, 1.026,
+    0.974, 0.989, 0.96,
+  ];
+  const variant = resolveAbilityDamageVariant(ABILITY_DAMAGE_PROFILES["2040"], {
+    enemyMode: "normal",
+  });
+  assert.equal(variant.attenuation.status, "partial");
+  if (variant.attenuation.status !== "partial") return;
+
+  assert.deepEqual(
+    normalRandomMultipliers.map((randomMultiplier) =>
+      Math.ceil(inferredCommonPreDamage * randomMultiplier * 1.066),
+    ),
+    normalObservations,
+  );
+  assert.deepEqual(
+    abilityRandomMultipliers.map((randomMultiplier) => {
+      const preAttenuationDamage = inferredCommonPreDamage * 1.84 * randomMultiplier;
+      const attenuated = calculateDamageAttenuation(
+        preAttenuationDamage,
+        variant.attenuation.profile,
+      );
+      return Math.ceil(attenuated.damage * 1.036);
+    }),
     abilityObservations,
   );
 });

@@ -109,7 +109,7 @@
 }
 ```
 
-`damage_profile`は計算機の`AbilityDamageProfile`と同じ形式を使う。`variants[]`は条件、倍率、hit数、減衰表の確認状態、効果単位の確度と出典を保持する。実機で確認できていない減衰表は`attenuation.status: unresolved`とし、減衰未到達を確認した最大値はvariantの`notes`へ記録する。
+`damage_profile`は計算機の`AbilityDamageProfile`と同じ形式を使う。`variants[]`は条件、倍率、hit数、減衰表の確認状態、効果単位の確度と出典を保持する。実機で確認できていない減衰表は`attenuation.status: unresolved`、途中のラインまで確認できた場合は`partial`、全ライン確認後は`resolved`とする。減衰未到達を確認した最大値や未確認の後続ラインはvariantの`notes`へ記録する。
 
 ## ability-effects.json の紐付け方法・進捗
 
