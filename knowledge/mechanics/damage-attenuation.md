@@ -81,13 +81,23 @@
       "source": "secondary-source-and-user-observation"
     },
     {
-      "id": "default",
+      "id": "normal-mode",
+      "condition": { "type": "enemy-mode", "mode": "normal" },
+      "multiplier": { "min": 1.84, "max": 1.84 },
+      "hitCount": 1,
+      "attenuation": { "status": "unresolved" },
+      "verificationStatus": "検証済み",
+      "source": "in-game-observations-2026-09-14",
+      "confirmedAt": "2026-09-14"
+    },
+    {
+      "id": "non-normal-fallback",
       "condition": { "type": "always" },
-      "multiplier": { "min": 1.5, "max": 1.5 },
+      "multiplier": { "min": 1.84, "max": 1.84 },
       "hitCount": 1,
       "attenuation": { "status": "unresolved" },
       "verificationStatus": "下書き",
-      "source": "user-observation"
+      "source": "normal-mode-observation-extrapolation"
     }
   ]
 }
@@ -99,6 +109,8 @@
 
 コロッサスボンバー・イラ検証で使用したファイア、ドライブバースト、ディストリームは減衰前の倍率・技錬固定加算を確認できたが、各アビリティの減衰ラインは未確認。技錬の固定加算が減衰後に入るため、減衰表の検証では技錬武器を外した状態を基準とする。
 
+ドライブバースト（action ID `2040`）の通常モードを、アビ上限UP・固定与ダメージ上昇なしの編成で11回検証した。通常攻撃21hitがすべて既存式と0.001刻み乱数で一致する共通基礎値20,513.64161496を基準にすると、`ceil(基礎値 × 1.84 × 乱数 × 1.036)`でアビリティ11hitすべてを再現した。対応乱数は0.961〜1.034。よって通常モード倍率1.84倍を検証済みとする。最大試行は減衰前39,028.434、後段与ダメージ3.6%適用後40,434で線形式と一致したため、この範囲までは減衰なし。最初の減衰ラインは未到達である。
+
 ## 関連トピック
 
 - [damage-calculation.md](./damage-calculation.md) — 減衰前までの攻撃・防御計算
@@ -109,7 +121,7 @@
 
 - 暫定標準表の現在の実機挙動、端点処理、途中・最終丸め。
 - 通常攻撃のクリティカル時、追撃、特殊上限へ減衰を適用する正確な順序。
-- ファイア、ドライブバースト、ディストリーム固有の減衰ラインと通過率。
+- ファイア、ディストリーム、ドライブバーストの39,028.434超にある固有減衰ラインと通過率。
 - 奥義ごとの個別上限、十天衆など標準表と異なるプロファイル。
 - 大ダメージ特殊上限、上限緩和、原子崩壊を適用する正確な順序と式。
 - 与ダメージ上昇、与ダメージUP、追撃を含めた全ダメージ種別の最終丸め順。

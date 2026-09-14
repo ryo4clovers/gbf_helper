@@ -99,12 +99,17 @@
       "name_jp", "name_en",                // gbf.wiki 突き合わせ用
       "source": "gbf.wiki" 等, "source_url",
       "effects": [ "25% ATK Up (3T)", ... ],// 記載のまま(倍率・%・ターン)
-      "multiplier", "damage_cap",           // ダメージアビリティの場合
+      "multiplier", "damage_cap",           // 外部資料由来の既存ダメージ項目
+      "damage_profile": {                    // 実機検証を条件別variantで構造化
+        "schemaVersion", "element", "targeting", "variants"
+      },
       "notes"
     }
   }
 }
 ```
+
+`damage_profile`は計算機の`AbilityDamageProfile`と同じ形式を使う。`variants[]`は条件、倍率、hit数、減衰表の確認状態、効果単位の確度と出典を保持する。実機で確認できていない減衰表は`attenuation.status: unresolved`とし、減衰未到達を確認した最大値はvariantの`notes`へ記録する。
 
 ## ability-effects.json の紐付け方法・進捗
 

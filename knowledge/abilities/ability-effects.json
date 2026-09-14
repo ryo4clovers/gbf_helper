@@ -12,7 +12,8 @@
    "duration": "効果時間",
    "cooldown": "使用間隔",
    "match_confidence": "high=名称・効果・習得Lvが一致 / medium=効果内容から推定 / low=要再確認",
-   "notes": "補足・不一致点"
+   "notes": "補足・不一致点",
+   "damage_profile": "実機検証済みの倍率・hit数・条件別variant・減衰確認範囲"
   },
   "todo": "未特定EX10件: オーラ(20)/羅喉阿修羅陣(270)/かばう(302)/ミンストレルソング(152)/メディク(3120)/士気向上(3130)/闘気(4100)/トレジャーハント(6000-6002)。medium判定の再確認、枠(frame)の付与も今後。",
   "confidence_note": "high 259 / medium 39 / low 1"
@@ -485,7 +486,47 @@
    "effect": "OD中の敵に300%自属性ダメージ",
    "duration": "-",
    "cooldown": "6T",
-   "match_confidence": "high"
+   "match_confidence": "high",
+   "damage_profile": {
+    "schemaVersion": 1,
+    "abilityId": "2040",
+    "name": "ドライブバースト",
+    "element": "own",
+    "targeting": "single",
+    "variants": [
+     {
+      "id": "overdrive",
+      "condition": { "type": "enemy-mode", "mode": "overdrive" },
+      "multiplier": { "min": 3, "max": 3 },
+      "hitCount": 1,
+      "attenuation": { "status": "unresolved" },
+      "verificationStatus": "下書き",
+      "source": "in-game-effect-text",
+      "notes": "効果文の3倍は確認済みだが、OD中の実ダメージは未取得。"
+     },
+     {
+      "id": "normal-mode",
+      "condition": { "type": "enemy-mode", "mode": "normal" },
+      "multiplier": { "min": 1.84, "max": 1.84 },
+      "hitCount": 1,
+      "attenuation": { "status": "unresolved" },
+      "verificationStatus": "検証済み",
+      "confirmedAt": "2026-09-14",
+      "source": "in-game-observations-2026-09-14",
+      "notes": "11/11件を再現。減衰前39,028.434までは減衰なし。"
+     },
+     {
+      "id": "non-normal-fallback",
+      "condition": { "type": "always" },
+      "multiplier": { "min": 1.84, "max": 1.84 },
+      "hitCount": 1,
+      "attenuation": { "status": "unresolved" },
+      "verificationStatus": "下書き",
+      "source": "normal-mode-observation-extrapolation",
+      "notes": "ブレイク中は未検証。normal-mode variantの観測値を暫定使用。"
+     }
+    ]
+   }
   },
   "2041": {
    "name_jp": "ドライブバーストII",

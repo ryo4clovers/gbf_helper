@@ -1,10 +1,15 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import {
   type AbilityDamageProfile,
   resolveAbilityDamageVariant,
   validateAbilityDamageProfile,
 } from "../src/calculator/abilityDamageProfile.js";
+import {
+  ABILITY_DAMAGE_PROFILES,
+  findAbilityDamageProfile,
+} from "../src/calculator/abilityDamageProfiles.js";
 
 function makeDriveBurstProfile(): AbilityDamageProfile {
   return {
@@ -26,7 +31,7 @@ function makeDriveBurstProfile(): AbilityDamageProfile {
       {
         id: "default",
         condition: { type: "always" },
-        multiplier: { min: 1.5, max: 1.5 },
+        multiplier: { min: 1.84, max: 1.84 },
         hitCount: 1,
         attenuation: { status: "unresolved" },
         verificationStatus: "下書き",
@@ -102,4 +107,46 @@ test("supports a companion-weapon variant for multi-hit abilities", () => {
 
   assert.equal(resolveAbilityDamageVariant(profile, { companionWeaponEquipped: true }).hitCount, 10);
   assert.equal(resolveAbilityDamageVariant(profile).hitCount, 5);
+});
+
+test("registers the observed normal-mode Drive Burst profile", () => {
+  const profile = findAbilityDamageProfile("2040");
+  assert.equal(profile, ABILITY_DAMAGE_PROFILES["2040"]);
+  const variant = resolveAbilityDamageVariant(profile, { enemyMode: "normal" });
+
+  assert.deepEqual(variant.multiplier, { min: 1.84, max: 1.84 });
+  assert.equal(variant.verificationStatus, "検証済み");
+  assert.equal(variant.attenuation.status, "unresolved");
+});
+
+test("keeps the calculator profile identical to the knowledge entry", () => {
+  const knowledgePath = new URL("../../knowledge/abilities/ability-effects.json", import.meta.url);
+  const knowledge = JSON.parse(readFileSync(knowledgePath, "utf8")) as {
+    abilities: Record<string, { damage_profile?: AbilityDamageProfile }>;
+  };
+
+  assert.deepEqual(knowledge.abilities["2040"].damage_profile, ABILITY_DAMAGE_PROFILES["2040"]);
+  assert.doesNotThrow(() =>
+    validateAbilityDamageProfile(knowledge.abilities["2040"].damage_profile as AbilityDamageProfile),
+  );
+});
+
+test("reproduces all 11 observed non-OD Drive Burst hits", () => {
+  const variant = resolveAbilityDamageVariant(ABILITY_DAMAGE_PROFILES["2040"], {
+    enemyMode: "normal",
+  });
+  const commonPreAbilityDamage = 20_513.64161496;
+  const postAttenuationDamageDealtMultiplier = 1.036;
+  const observations = [39_300, 40_238, 37_579, 40_434, 39_144, 40_278, 39_417, 39_495, 37_618, 37_618, 39_417];
+  const randomMultipliers = [1.005, 1.029, 0.961, 1.034, 1.001, 1.03, 1.008, 1.01, 0.962, 0.962, 1.008];
+
+  const reproduced = randomMultipliers.map((randomMultiplier) =>
+    Math.ceil(
+      commonPreAbilityDamage
+        * variant.multiplier.min
+        * randomMultiplier
+        * postAttenuationDamageDealtMultiplier,
+    ),
+  );
+  assert.deepEqual(reproduced, observations);
 });
