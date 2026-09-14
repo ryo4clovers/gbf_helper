@@ -150,3 +150,23 @@ test("reproduces all 11 observed non-OD Drive Burst hits", () => {
   );
   assert.deepEqual(reproduced, observations);
 });
+
+test("reproduces all 21 observed protagonist normal-attack hits below attenuation", () => {
+  const commonPreNormalDamage = 20_513.64161496;
+  const postAttenuationDamageDealtMultiplier = 1.066;
+  const observations = [
+    21_103, 21_146, 21_168, 21_278, 21_321, 21_321, 21_343, 21_409, 21_474, 21_562, 21_584,
+    21_737, 21_868, 22_130, 22_218, 22_349, 22_415, 22_458, 22_480, 22_568, 22_852,
+  ];
+  const randomMultipliers = [
+    0.965, 0.967, 0.968, 0.973, 0.975, 0.975, 0.976, 0.979, 0.982, 0.986, 0.987, 0.994,
+    1, 1.012, 1.016, 1.022, 1.025, 1.027, 1.028, 1.032, 1.045,
+  ];
+
+  const reproduced = randomMultipliers.map((randomMultiplier) =>
+    Math.ceil(commonPreNormalDamage * randomMultiplier * postAttenuationDamageDealtMultiplier),
+  );
+
+  assert.deepEqual(reproduced, observations);
+  assert.equal(commonPreNormalDamage * Math.max(...randomMultipliers), 21_436.7554876332);
+});
