@@ -369,3 +369,46 @@ test("fits grid 06 with the provisional second Drive Burst attenuation line", ()
     abilityObservations,
   );
 });
+
+test("fits grid 07 with a provisional third Drive Burst attenuation line", () => {
+  const inferredCommonPreDamage = (215_539.7349929809 + 215_539.7932605755) / 2;
+  const normalObservations = [
+    228_158, 221_494, 239_876, 223_332, 227_238, 238_037, 238_727, 224_711, 224_481,
+    240_565, 227_928, 228_847,
+  ];
+  const normalRandomMultipliers = [
+    0.993, 0.964, 1.044, 0.972, 0.989, 1.036, 1.039, 0.978, 0.977, 1.047, 0.992, 0.996,
+  ];
+  const abilityObservations = [
+    233_055, 236_753, 233_918, 233_466, 233_301, 235_849, 234_370, 234_452, 235_479,
+    236_054, 234_534, 236_383,
+  ];
+  const abilityRandomMultipliers = [
+    0.952, 1.042, 0.973, 0.962, 0.958, 1.02, 0.984, 0.986, 1.011, 1.025, 0.988, 1.033,
+  ];
+  const provisionalProfile = {
+    id: "ability-2040-normal-third-line-hypothesis",
+    name: "ドライブバースト 通常モード（第3ライン仮説）",
+    lines: [
+      { threshold: 117_000, passRate: 0.6 },
+      { threshold: 234_000, passRate: 0.3 },
+      // 351,000 is the natural candidate but differs by at most one under unresolved rounding.
+      { threshold: 351_001, passRate: 0.1 },
+    ],
+  } as const;
+
+  assert.deepEqual(
+    normalRandomMultipliers.map((randomMultiplier) =>
+      Math.ceil(inferredCommonPreDamage * randomMultiplier * 1.066),
+    ),
+    normalObservations,
+  );
+  assert.deepEqual(
+    abilityRandomMultipliers.map((randomMultiplier) => {
+      const preAttenuationDamage = inferredCommonPreDamage * 1.84 * randomMultiplier;
+      const attenuated = calculateDamageAttenuation(preAttenuationDamage, provisionalProfile);
+      return Math.ceil(attenuated.damage * 1.036);
+    }),
+    abilityObservations,
+  );
+});
