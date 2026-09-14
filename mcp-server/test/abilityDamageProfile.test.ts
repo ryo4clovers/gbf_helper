@@ -324,3 +324,48 @@ test("reproduces grid 05 within Drive Burst's first attenuation segment", () => 
     abilityObservations,
   );
 });
+
+test("fits grid 06 with the provisional second Drive Burst attenuation line", () => {
+  const inferredCommonPreDamage = (150_942.68211580365 + 150_942.6934153595) / 2;
+  const normalObservations = [
+    167_342, 165_411, 167_503, 167_020, 159_457, 159_296, 153_986, 164_928, 156_239,
+    167_503, 153_021, 163_480, 156_078, 157_205, 165_250, 159_457, 165_893, 158_170,
+    167_663,
+  ];
+  const normalRandomMultipliers = [
+    1.04, 1.028, 1.041, 1.038, 0.991, 0.99, 0.957, 1.025, 0.971, 1.041, 0.951, 1.016,
+    0.97, 0.977, 1.027, 0.991, 1.031, 0.983, 1.042,
+  ];
+  const abilityObservations = [
+    203_993, 208_050, 209_863, 209_431, 207_360, 205_115, 208_396, 205_461, 205_720,
+    205_029, 210_381, 207_619, 207_273, 208_568, 204_425, 209_172, 205_029, 205_547,
+    210_381,
+  ];
+  const abilityRandomMultipliers = [
+    0.959, 1.006, 1.027, 1.022, 0.998, 0.972, 1.01, 0.976, 0.979, 0.971, 1.033, 1.001,
+    0.997, 1.012, 0.964, 1.019, 0.971, 0.977, 1.033,
+  ];
+  const provisionalProfile = {
+    id: "ability-2040-normal-second-line-hypothesis",
+    name: "ドライブバースト 通常モード（第2ライン仮説）",
+    lines: [
+      { threshold: 117_000, passRate: 0.6 },
+      { threshold: 234_000, passRate: 0.3 },
+    ],
+  } as const;
+
+  assert.deepEqual(
+    normalRandomMultipliers.map((randomMultiplier) =>
+      Math.ceil(inferredCommonPreDamage * randomMultiplier * 1.066),
+    ),
+    normalObservations,
+  );
+  assert.deepEqual(
+    abilityRandomMultipliers.map((randomMultiplier) => {
+      const preAttenuationDamage = inferredCommonPreDamage * 1.84 * randomMultiplier;
+      const attenuated = calculateDamageAttenuation(preAttenuationDamage, provisionalProfile);
+      return Math.ceil(attenuated.damage * 1.036);
+    }),
+    abilityObservations,
+  );
+});
