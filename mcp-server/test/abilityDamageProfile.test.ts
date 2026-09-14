@@ -281,3 +281,46 @@ test("reproduces grid 04 and identifies Drive Burst's first attenuation line", (
     abilityObservations,
   );
 });
+
+test("reproduces grid 05 within Drive Burst's first attenuation segment", () => {
+  const inferredCommonPreDamage = (114_137.26619542827 + 114_137.31155278417) / 2;
+  const normalObservations = [
+    117_656, 119_116, 124_713, 121_914, 124_834, 116_561, 119_846, 118_994, 121_184,
+    124_591, 117_899, 118_142, 117_291, 119_846, 119_846, 120_332,
+  ];
+  const normalRandomMultipliers = [
+    0.967, 0.979, 1.025, 1.002, 1.026, 0.958, 0.985, 0.978, 0.996, 1.024, 0.969, 0.971,
+    0.964, 0.985, 0.985, 0.989,
+  ];
+  const abilityObservations = [
+    185_034, 185_034, 177_202, 173_024, 175_504, 175_766, 176_027, 179_682, 184_512,
+    183_729, 179_551, 183_207, 173_024, 178_246, 176_157,
+  ];
+  const abilityRandomMultipliers = [
+    1.046, 1.046, 0.986, 0.954, 0.973, 0.975, 0.977, 1.005, 1.042, 1.036, 1.004, 1.032,
+    0.954, 0.994, 0.978,
+  ];
+  const variant = resolveAbilityDamageVariant(ABILITY_DAMAGE_PROFILES["2040"], {
+    enemyMode: "normal",
+  });
+  assert.equal(variant.attenuation.status, "partial");
+  if (variant.attenuation.status !== "partial") return;
+
+  assert.deepEqual(
+    normalRandomMultipliers.map((randomMultiplier) =>
+      Math.ceil(inferredCommonPreDamage * randomMultiplier * 1.066),
+    ),
+    normalObservations,
+  );
+  assert.deepEqual(
+    abilityRandomMultipliers.map((randomMultiplier) => {
+      const preAttenuationDamage = inferredCommonPreDamage * 1.84 * randomMultiplier;
+      const attenuated = calculateDamageAttenuation(
+        preAttenuationDamage,
+        variant.attenuation.profile,
+      );
+      return Math.ceil(attenuated.damage * 1.036);
+    }),
+    abilityObservations,
+  );
+});
