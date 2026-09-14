@@ -20,7 +20,7 @@ export type AbilityDamageAttenuation =
 export interface AbilityDamageVariant {
   id: string;
   condition: AbilityDamageCondition;
-  /** A fixed multiplier uses the same value for min and max. */
+  /** Intrinsic ability multiplier before account-wide ability-damage bonuses. */
   multiplier: { min: number; max: number };
   /** Each hit evaluates attenuation independently. */
   hitCount: number;
@@ -29,6 +29,24 @@ export interface AbilityDamageVariant {
   source: string;
   confirmedAt?: string;
   notes?: string;
+}
+
+/**
+ * Ability-damage bonuses add percentage points to the intrinsic ability multiplier.
+ * Example: a 1.5x ability with +34% ability damage becomes 1.84x, not 2.01x.
+ */
+export function calculateEffectiveAbilityMultiplier(
+  baseMultiplier: AbilityDamageVariant["multiplier"],
+  abilityDamageUpPercent: number,
+): AbilityDamageVariant["multiplier"] {
+  if (!Number.isFinite(abilityDamageUpPercent) || abilityDamageUpPercent < 0) {
+    throw new Error("abilityDamageUpPercent must be a finite non-negative number");
+  }
+  const additiveMultiplier = abilityDamageUpPercent / 100;
+  return {
+    min: baseMultiplier.min + additiveMultiplier,
+    max: baseMultiplier.max + additiveMultiplier,
+  };
 }
 
 /** JSON-friendly, versioned input format for an individual damage ability. */

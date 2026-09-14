@@ -507,7 +507,7 @@
      {
       "id": "normal-mode",
       "condition": { "type": "enemy-mode", "mode": "normal" },
-      "multiplier": { "min": 1.84, "max": 1.84 },
+      "multiplier": { "min": 1.5, "max": 1.5 },
       "hitCount": 1,
       "attenuation": {
        "status": "partial",
@@ -520,17 +520,17 @@
       "verificationStatus": "検証済み",
       "confirmedAt": "2026-09-15",
       "source": "in-game-observations-2026-09-14-to-2026-09-15",
-      "notes": "基礎第1ライン100,000・60%を、上限補正17%込みの実効117,000で確認。基礎第2候補200,000・30%、第3候補300,000・10%、第4候補400,000・5%は要検証。上限補正17%込みの実効117,000/234,000/351,000/468,000は実測と最大1ダメージ差。"
+      "notes": "固有倍率1.5倍にアカウント由来のアビダメUP34%を加算した実効1.84倍で実測を再現。基礎第1ライン100,000・60%を、上限補正17%込みの実効117,000で確認。基礎第2候補200,000・30%、第3候補300,000・10%、第4候補400,000・5%は要検証。"
      },
      {
       "id": "non-normal-fallback",
       "condition": { "type": "always" },
-      "multiplier": { "min": 1.84, "max": 1.84 },
+      "multiplier": { "min": 1.5, "max": 1.5 },
       "hitCount": 1,
       "attenuation": { "status": "unresolved" },
       "verificationStatus": "下書き",
       "source": "normal-mode-observation-extrapolation",
-      "notes": "ブレイク中は未検証。normal-mode variantの観測値を暫定使用。"
+      "notes": "ブレイク中は未検証。normal-mode variantの固有倍率を暫定使用。"
      }
     ]
    }

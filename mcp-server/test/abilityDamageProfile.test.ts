@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   type AbilityDamageProfile,
+  calculateEffectiveAbilityMultiplier,
   resolveAbilityDamageVariant,
   validateAbilityDamageProfile,
 } from "../src/calculator/abilityDamageProfile.js";
@@ -14,6 +15,18 @@ import {
   calculateDamageAttenuation,
   PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES,
 } from "../src/calculator/damageAttenuationCalculator.js";
+
+const OBSERVED_ABILITY_DAMAGE_UP_PERCENT = 34;
+
+function observedDriveBurstMultiplier(): number {
+  const variant = resolveAbilityDamageVariant(ABILITY_DAMAGE_PROFILES["2040"], {
+    enemyMode: "normal",
+  });
+  return calculateEffectiveAbilityMultiplier(
+    variant.multiplier,
+    OBSERVED_ABILITY_DAMAGE_UP_PERCENT,
+  ).min;
+}
 
 function makeDriveBurstProfile(): AbilityDamageProfile {
   return {
@@ -35,7 +48,7 @@ function makeDriveBurstProfile(): AbilityDamageProfile {
       {
         id: "default",
         condition: { type: "always" },
-        multiplier: { min: 1.84, max: 1.84 },
+        multiplier: { min: 1.5, max: 1.5 },
         hitCount: 1,
         attenuation: { status: "unresolved" },
         verificationStatus: "下書き",
@@ -116,12 +129,27 @@ test("supports a companion-weapon variant for multi-hit abilities", () => {
   assert.equal(resolveAbilityDamageVariant(profile).hitCount, 5);
 });
 
+test("adds account ability-damage bonuses to the intrinsic multiplier", () => {
+  assert.deepEqual(calculateEffectiveAbilityMultiplier({ min: 1.5, max: 1.5 }, 34), {
+    min: 1.84,
+    max: 1.84,
+  });
+  assert.throws(
+    () => calculateEffectiveAbilityMultiplier({ min: 1.5, max: 1.5 }, -1),
+    /finite non-negative/,
+  );
+});
+
 test("registers the observed normal-mode Drive Burst profile", () => {
   const profile = findAbilityDamageProfile("2040");
   assert.equal(profile, ABILITY_DAMAGE_PROFILES["2040"]);
   const variant = resolveAbilityDamageVariant(profile, { enemyMode: "normal" });
 
-  assert.deepEqual(variant.multiplier, { min: 1.84, max: 1.84 });
+  assert.deepEqual(variant.multiplier, { min: 1.5, max: 1.5 });
+  assert.equal(
+    calculateEffectiveAbilityMultiplier(variant.multiplier, OBSERVED_ABILITY_DAMAGE_UP_PERCENT).min,
+    1.84,
+  );
   assert.equal(variant.verificationStatus, "検証済み");
   assert.equal(variant.attenuation.status, "partial");
   if (variant.attenuation.status === "partial") {
@@ -149,6 +177,10 @@ test("reproduces all 11 observed non-OD Drive Burst hits", () => {
   });
   const commonPreAbilityDamage = 20_513.64161496;
   const postAttenuationDamageDealtMultiplier = 1.036;
+  const effectiveAbilityMultiplier = calculateEffectiveAbilityMultiplier(
+    variant.multiplier,
+    OBSERVED_ABILITY_DAMAGE_UP_PERCENT,
+  ).min;
   const observations = [
     39_300, 40_238, 37_579, 40_434, 39_144, 40_278, 39_417, 39_495, 37_618, 37_618, 39_417,
   ];
@@ -159,7 +191,7 @@ test("reproduces all 11 observed non-OD Drive Burst hits", () => {
   const reproduced = randomMultipliers.map((randomMultiplier) =>
     Math.ceil(
       commonPreAbilityDamage *
-        variant.multiplier.min *
+        effectiveAbilityMultiplier *
         randomMultiplier *
         postAttenuationDamageDealtMultiplier,
     ),
@@ -211,7 +243,7 @@ test("reproduces grid 02 normal attacks and Drive Burst with one pre-attenuation
   );
   assert.deepEqual(
     abilityRandomMultipliers.map((randomMultiplier) =>
-      Math.ceil(inferredCommonPreDamage * 1.84 * randomMultiplier * 1.036),
+      Math.ceil(inferredCommonPreDamage * observedDriveBurstMultiplier() * randomMultiplier * 1.036),
     ),
     abilityObservations,
   );
@@ -243,7 +275,7 @@ test("reproduces grid 03 normal attacks and Drive Burst with one pre-attenuation
   );
   assert.deepEqual(
     abilityRandomMultipliers.map((randomMultiplier) =>
-      Math.ceil(inferredCommonPreDamage * 1.84 * randomMultiplier * 1.036),
+      Math.ceil(inferredCommonPreDamage * observedDriveBurstMultiplier() * randomMultiplier * 1.036),
     ),
     abilityObservations,
   );
@@ -282,7 +314,8 @@ test("reproduces grid 04 and identifies Drive Burst's first attenuation line", (
   );
   assert.deepEqual(
     abilityRandomMultipliers.map((randomMultiplier) => {
-      const preAttenuationDamage = inferredCommonPreDamage * 1.84 * randomMultiplier;
+      const preAttenuationDamage =
+        inferredCommonPreDamage * observedDriveBurstMultiplier() * randomMultiplier;
       const attenuated = calculateDamageAttenuation(
         preAttenuationDamage,
         variant.attenuation.profile,
@@ -328,7 +361,8 @@ test("reproduces grid 05 within Drive Burst's first attenuation segment", () => 
   );
   assert.deepEqual(
     abilityRandomMultipliers.map((randomMultiplier) => {
-      const preAttenuationDamage = inferredCommonPreDamage * 1.84 * randomMultiplier;
+      const preAttenuationDamage =
+        inferredCommonPreDamage * observedDriveBurstMultiplier() * randomMultiplier;
       const attenuated = calculateDamageAttenuation(
         preAttenuationDamage,
         variant.attenuation.profile,
@@ -377,7 +411,8 @@ test("fits grid 06 with the provisional second Drive Burst attenuation line", ()
   );
   assert.deepEqual(
     abilityRandomMultipliers.map((randomMultiplier) => {
-      const preAttenuationDamage = inferredCommonPreDamage * 1.84 * randomMultiplier;
+      const preAttenuationDamage =
+        inferredCommonPreDamage * observedDriveBurstMultiplier() * randomMultiplier;
       const attenuated = calculateDamageAttenuation(preAttenuationDamage, provisionalProfile, {
         damageCapUpPercent: 17,
       });
@@ -422,7 +457,8 @@ test("fits grid 07 with a provisional third Drive Burst attenuation line", () =>
   );
   assert.deepEqual(
     abilityRandomMultipliers.map((randomMultiplier) => {
-      const preAttenuationDamage = inferredCommonPreDamage * 1.84 * randomMultiplier;
+      const preAttenuationDamage =
+        inferredCommonPreDamage * observedDriveBurstMultiplier() * randomMultiplier;
       const attenuated = calculateDamageAttenuation(preAttenuationDamage, provisionalProfile, {
         damageCapUpPercent: 17,
       });
@@ -471,7 +507,8 @@ test("fits grid 08 just below normal attenuation and within provisional Drive Bu
   assert.ok(inferredCommonPreDamage * Math.max(...normalRandomMultipliers) < 300_000);
   assert.deepEqual(
     abilityRandomMultipliers.map((randomMultiplier) => {
-      const preAttenuationDamage = inferredCommonPreDamage * 1.84 * randomMultiplier;
+      const preAttenuationDamage =
+        inferredCommonPreDamage * observedDriveBurstMultiplier() * randomMultiplier;
       const attenuated = calculateDamageAttenuation(preAttenuationDamage, provisionalProfile, {
         damageCapUpPercent: 17,
       });
@@ -526,7 +563,7 @@ test("fits grid 09 after normal attenuation and continues within provisional Dri
 
   const abilityDifferences = abilityRandomMultipliers.map((randomMultiplier, index) => {
     const attenuated = calculateDamageAttenuation(
-      inferredCommonPreDamage * 1.84 * randomMultiplier,
+      inferredCommonPreDamage * observedDriveBurstMultiplier() * randomMultiplier,
       provisionalAbilityProfile,
       { damageCapUpPercent: 17 },
     );
