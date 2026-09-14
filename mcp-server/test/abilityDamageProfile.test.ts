@@ -412,3 +412,50 @@ test("fits grid 07 with a provisional third Drive Burst attenuation line", () =>
     abilityObservations,
   );
 });
+
+test("fits grid 08 just below normal attenuation and within provisional Drive Burst line four", () => {
+  const inferredCommonPreDamage = (286_153.11039988225 + 286_153.1659704234) / 2;
+  const normalObservations = [
+    293_143, 290_398, 293_143, 302_904, 319_377, 291_313, 294_973, 314_191, 315_106,
+    311_141, 307_175, 303_820, 309_615, 316_326, 299_854, 306_870,
+  ];
+  const normalRandomMultipliers = [
+    0.961, 0.952, 0.961, 0.993, 1.047, 0.955, 0.967, 1.03, 1.033, 1.02, 1.007, 0.996,
+    1.015, 1.037, 0.983, 1.006,
+  ];
+  const abilityObservations = [
+    245_565, 245_811, 244_611, 246_138, 245_374, 244_856, 244_092, 245_729, 244_829,
+    244_311, 246_138, 246_793, 245_593, 244_611, 246_520, 246_465,
+  ];
+  const abilityRandomMultipliers = [
+    1.004, 1.013, 0.969, 1.025, 0.997, 0.978, 0.95, 1.01, 0.977, 0.958, 1.025, 1.049,
+    1.005, 0.969, 1.039, 1.037,
+  ];
+  const provisionalProfile = {
+    id: "ability-2040-normal-fourth-line-hypothesis",
+    name: "ドライブバースト 通常モード（第4ライン仮説）",
+    lines: [
+      { threshold: 117_000, passRate: 0.6 },
+      { threshold: 234_000, passRate: 0.3 },
+      { threshold: 351_000, passRate: 0.1 },
+      // 468,000 is the natural candidate; 468,004 is exact under unresolved rounding.
+      { threshold: 468_004, passRate: 0.05 },
+    ],
+  } as const;
+
+  assert.deepEqual(
+    normalRandomMultipliers.map((randomMultiplier) =>
+      Math.ceil(inferredCommonPreDamage * randomMultiplier * 1.066),
+    ),
+    normalObservations,
+  );
+  assert.ok(inferredCommonPreDamage * Math.max(...normalRandomMultipliers) < 300_000);
+  assert.deepEqual(
+    abilityRandomMultipliers.map((randomMultiplier) => {
+      const preAttenuationDamage = inferredCommonPreDamage * 1.84 * randomMultiplier;
+      const attenuated = calculateDamageAttenuation(preAttenuationDamage, provisionalProfile);
+      return Math.ceil(attenuated.damage * 1.036);
+    }),
+    abilityObservations,
+  );
+});
