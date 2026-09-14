@@ -200,3 +200,36 @@ test("reproduces grid 02 normal attacks and Drive Burst with one pre-attenuation
     abilityObservations,
   );
 });
+
+test("reproduces grid 03 normal attacks and Drive Burst with one pre-attenuation base", () => {
+  // The final ceil leaves an interval; its midpoint reproduces every observed hit.
+  const inferredCommonPreDamage = (51_773.72065159788 + 51_773.82748490804) / 2;
+  const normalObservations = [
+    53_039, 54_639, 56_074, 55_412, 53_812, 55_798, 56_019, 52_984, 55_467, 52_708, 54_419,
+    56_130, 56_019,
+  ];
+  const normalRandomMultipliers = [
+    0.961, 0.99, 1.016, 1.004, 0.975, 1.011, 1.015, 0.96, 1.005, 0.955, 0.986, 1.017, 1.015,
+  ];
+  const abilityObservations = [
+    101_951, 98_891, 94_647, 102_148, 102_543, 96_424, 100_668, 102_247, 101_852, 101_260,
+    95_634, 102_740, 94_549,
+  ];
+  const abilityRandomMultipliers = [
+    1.033, 1.002, 0.959, 1.035, 1.039, 0.977, 1.02, 1.036, 1.032, 1.026, 0.969, 1.041,
+    0.958,
+  ];
+
+  assert.deepEqual(
+    normalRandomMultipliers.map((randomMultiplier) =>
+      Math.ceil(inferredCommonPreDamage * randomMultiplier * 1.066),
+    ),
+    normalObservations,
+  );
+  assert.deepEqual(
+    abilityRandomMultipliers.map((randomMultiplier) =>
+      Math.ceil(inferredCommonPreDamage * 1.84 * randomMultiplier * 1.036),
+    ),
+    abilityObservations,
+  );
+});
