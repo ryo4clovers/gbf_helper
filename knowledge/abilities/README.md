@@ -10,7 +10,7 @@
 | [free-slot-candidates.json](./free-slot-candidates.json) | 主人公の自由選択枠にセット可能なアビリティ候補一覧(全77ジョブ、`action_id`で名寄せ) | 下書き(実機レスポンス由来、倍率・効果量は外部ソースから紐付け中) |
 | [status-effects.json](./status-effects.json) | ステータス効果ID(内部コード)カタログ。302種、`status`→名称/説明/派生バリアント/traits/使用アビリティ | 下書き(説明文は実機テキストのまま) |
 | [ability-effects.json](./ability-effects.json) | 各アビリティの倍率・効果量・効果時間(gbf.wiki等の外部ソースから)。`action_id`で free-slot-candidates.json と結合 | 下書き(ジョブアビリティ 293/309件。リミット239・極致・ベース10は全件、EXは60中44件) |
-| [damage-profiles.md](./damage-profiles.md) | ダメージアビリティの固有倍率・hit数・4段階減衰ライン・通過率・減衰値の基礎一覧 | 下書き（ドライブバースト非ODを収録、第2〜第4ラインは要検証） |
+| [damage-profiles.md](./damage-profiles.md) | ダメージアビリティの固有倍率・hit数・4段階減衰ライン・通過率・減衰値の基礎一覧 | 下書き（ドライブバースト・アーマーブレイク通常モードを収録、未確定の減衰ラインは要検証） |
 | [_sources/gbfwiki-class-skills-2026-09-07.md](./_sources/gbfwiki-class-skills-2026-09-07.md) | gbf.wiki『Class Skills』の全文抜粋(ジョブアビリティ400件超の効果量・倍率・CT)。ability-effects.json の一次資料 | 参考資料 |
 
 ## free-slot-candidates.json の構造

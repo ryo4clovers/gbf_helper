@@ -348,7 +348,52 @@
    "effect": "敵に100%自属性ダメージ / 20% DEF Down",
    "duration": "180s",
    "cooldown": "5T",
-   "match_confidence": "high"
+   "match_confidence": "high",
+   "damage_profile": {
+    "schemaVersion": 1,
+    "abilityId": "1000",
+    "name": "アーマーブレイク",
+    "element": "own",
+    "targeting": "single",
+    "variants": [
+     {
+      "id": "normal-mode",
+      "condition": {
+       "type": "enemy-mode",
+       "mode": "normal"
+      },
+      "multiplier": {
+       "min": 1,
+       "max": 1
+      },
+      "hitCount": 1,
+      "attenuation": {
+       "status": "unresolved"
+      },
+      "verificationStatus": "検証済み",
+      "confirmedAt": "2026-09-15",
+      "source": "in-game-observations-2026-09-15",
+      "notes": "編成②〜⑦の70hitから固有1.0倍＋アビダメUP34%（実効1.34倍）を確認。減衰未到達の最大入力は約301,532。編成⑧11hitで第1段階、編成⑨10hitで第2段階への到達を検出。基礎第1候補300,000・70%、第2候補400,000・40%、上限UP17%、後段与ダメージUP3.6%で最大1差。ライン位置・途中丸めは要検証。"
+     },
+     {
+      "id": "non-normal-fallback",
+      "condition": {
+       "type": "always"
+      },
+      "multiplier": {
+       "min": 1,
+       "max": 1
+      },
+      "hitCount": 1,
+      "attenuation": {
+       "status": "unresolved"
+      },
+      "verificationStatus": "下書き",
+      "source": "normal-mode-observation-extrapolation",
+      "notes": "OD・ブレイク中は未検証。通常モードの固有倍率を暫定使用。"
+     }
+    ]
+   }
   },
   "1096": {
    "name_jp": "アーマーブレイクII",
