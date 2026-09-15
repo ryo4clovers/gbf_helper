@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="GBF通常攻撃ダメージのローカル計算画面" />
     <title>GBF Damage Lab</title>
-    <link rel="stylesheet" href="/styles.css?v=6" />
-    <script type="module" src="/app.js?v=10"></script>
+    <link rel="stylesheet" href="/styles.css?v=7" />
+    <script type="module" src="/app.js?v=11"></script>
   </head>
   <body>
     <header class="top-app-bar">
@@ -47,7 +47,7 @@
               <div>
                 <span class="field-label">主人公ジョブ</span>
               </div>
-              <span class="supporting-text">ジョブと育成Lvを設定</span>
+              <span class="supporting-text">右クリックまたは強化設定で育成・LBを入力</span>
             </div>
             <div id="job-editor" class="job-editor"></div>
             <div id="weapon-compatibility-warning" class="compatibility-warning" role="alert" hidden></div>
@@ -368,6 +368,12 @@
         </section>
       </aside>
     </main>
+    <dialog id="protagonist-strengthening" class="weapon-picker" aria-labelledby="protagonist-strengthening-title">
+      <form method="dialog"><button class="tonal-button" aria-label="強化設定を閉じる">閉じる</button></form>
+      <h2 id="protagonist-strengthening-title">主人公の強化設定</h2>
+      <p class="settings-help">変更は保存して計算へ反映します。攻撃力・HP LBは累計値にコンプリート補正を適用します。LBの初期値は★0です。LBは自動入力されないため、現在の振り分けを設定してください。</p>
+      <div id="protagonist-strengthening-fields"></div>
+    </dialog>
     <dialog id="weapon-picker" class="weapon-picker" aria-labelledby="weapon-picker-title">
       <div class="picker-header">
         <div>

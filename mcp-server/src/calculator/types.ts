@@ -457,6 +457,8 @@ export interface DeckSnapshot {
 }
 
 export interface CalculatorDeckProtagonistConfig {
+  attackLimitBonusLevel?: number;
+  hpLimitBonusLevel?: number;
   rank?: number;
   elementCode?: string;
   jobId?: string;

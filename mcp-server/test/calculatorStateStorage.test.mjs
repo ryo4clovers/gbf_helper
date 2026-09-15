@@ -70,6 +70,16 @@ function request() {
   };
 }
 
+test("preserves protagonist LB selections in formation save and reload", () => {
+  const current = request();
+  current.deckConfig.protagonist.attackLimitBonusLevel = 2;
+  current.deckConfig.protagonist.hpLimitBonusLevel = 3;
+  const saved = parseCalculatorFormation(serializeCalculatorFormation(createCalculatorFormation(current)));
+  const restored = mergeCalculatorFormation(request(), saved);
+  assert.equal(restored.deckConfig.protagonist.attackLimitBonusLevel, 2);
+  assert.equal(restored.deckConfig.protagonist.hpLimitBonusLevel, 3);
+});
+
 test("persists only formation choices including the support summon", () => {
   const formation = createCalculatorFormation(request());
   const serialized = serializeCalculatorFormation(formation);

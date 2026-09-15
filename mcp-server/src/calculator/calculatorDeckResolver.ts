@@ -21,6 +21,7 @@ import { calculateEquipmentLevelStats } from "../../web/equipment-level-stats.js
 import { calculateProtagonistDisplayedStats } from "../../web/protagonist-displayed-stats.js";
 
 export type CalculatorDeckResolutionIssueCode =
+  | "protagonist-lb-components-unresolved"
   | "missing-stat-override"
   | "job-master-data-unresolved"
   | "main-weapon-incompatible-with-job"
@@ -179,6 +180,8 @@ export function resolveCalculatorDeckConfig(
         rank: config.protagonist.rank!,
         jobGrowthAttack: growthStats.attack,
         jobGrowthHp: growthStats.hp,
+        attackLimitBonusLevel: config.protagonist.attackLimitBonusLevel,
+        hpLimitBonusLevel: config.protagonist.hpLimitBonusLevel,
         completionAttackPercent: config.protagonist.masterBonusAttackPercent!,
         completionHpPercent: config.protagonist.masterBonusHpPercent!,
         mainWeaponCompletionAttack: config.protagonist.mainWeaponCompletionAttackContribution!,
@@ -193,6 +196,14 @@ export function resolveCalculatorDeckConfig(
     : undefined;
   const jobVerificationStatus: "検証済み" | "下書き" =
     selectedJob?.verificationStatus === "検証済み" ? "検証済み" : "下書き";
+  if (displayedStats === undefined && ((config.protagonist.attackLimitBonusLevel ?? 0) > 0 || (config.protagonist.hpLimitBonusLevel ?? 0) > 0)) {
+    issues.push({
+      severity: "warning",
+      code: "protagonist-lb-components-unresolved",
+      path: "protagonist",
+      message: "LBを反映するにはRank・ジョブ・装備ステータス・コンプリートボーナスを設定してください。表示ATK/HPの直接入力にはLBを追加加算しません。",
+    });
+  }
   const multiattackRateBonuses: DeckJobMultiattackRateBonus[] = selectedJob === undefined
     ? []
     : [

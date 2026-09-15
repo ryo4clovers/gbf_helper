@@ -3,6 +3,26 @@ import assert from "node:assert/strict";
 import { resolveCalculatorDeckConfig } from "../src/calculator/calculatorDeckResolver.ts";
 import { calculateNormalAttackPower } from "../src/calculator/normalAttackPowerCalculator.ts";
 
+test("resolves protagonist LB before completion bonuses and replaces stale imported stats", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1, format: "gbf-helper-calculator-deck",
+    protagonist: {
+      rank: 425, elementCode: "1", jobId: "110001", jobLevel: 20,
+      masterLevel: 0, perfectionProofLevel: 0,
+      masterBonusAttackPercent: 24, masterBonusHpPercent: 20,
+      mainWeaponCompletionAttackContribution: 4,
+      attackLimitBonusLevel: 3, hpLimitBonusLevel: 3,
+      attackOverride: 18687, hpOverride: 5262,
+    },
+    weapons: [{ slot: 1, position: "main", weaponId: "1010000400", isJobFallback: true, level: 1, attackOverride: 70, hpOverride: 6 }],
+    summons: [{ slot: 1, position: "main", summonId: "2040094000", level: 250, uncapLevel: 6 }],
+    characters: [],
+  });
+  assert.equal(result.mode, "catalog-derived");
+  assert.equal(result.deck.protagonist.attack, 18687);
+  assert.equal(result.deck.protagonist.hp, 5262);
+});
+
 test("derives verified weapon stats from level and applies plus marks afterward", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,

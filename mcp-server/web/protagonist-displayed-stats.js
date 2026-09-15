@@ -1,5 +1,17 @@
 export const MAX_SUPPORTED_PLAYER_RANK = 425;
 
+export const PROTAGONIST_LIMIT_BONUS_VALUES = Object.freeze({
+  attack: Object.freeze([0, 500, 1500, 3000]),
+  hp: Object.freeze([0, 300, 600, 1000]),
+});
+
+function limitBonusValue(kind, level = 0) {
+  if (!Number.isInteger(level) || level < 0 || level > 3) {
+    throw new Error("攻撃力・HP LBは0〜3の整数で入力してください");
+  }
+  return PROTAGONIST_LIMIT_BONUS_VALUES[kind][level];
+}
+
 function assertSupportedRank(rank) {
   if (!Number.isInteger(rank) || rank < 1 || rank > MAX_SUPPORTED_PLAYER_RANK) {
     throw new Error(`Rankは1〜${MAX_SUPPORTED_PLAYER_RANK}の整数で入力してください`);
@@ -44,6 +56,8 @@ function proficiencyContribution(weapons, jobWeaponKindCodes, key) {
 /** Builds the protagonist's pre-skill displayed ATK/HP from catalog-resolved components. */
 export function calculateProtagonistDisplayedStats(input) {
   const rank = calculateProtagonistRankBaseStats(input.rank);
+  const limitBonusAttack = limitBonusValue("attack", input.attackLimitBonusLevel);
+  const limitBonusHp = limitBonusValue("hp", input.hpLimitBonusLevel);
   const weaponAttack = statTotal(input.weapons, "attack");
   const weaponHp = statTotal(input.weapons, "hp");
   const summonAttack = statTotal(input.summons, "attack");
@@ -51,12 +65,14 @@ export function calculateProtagonistDisplayedStats(input) {
   const proficiencyAttack = proficiencyContribution(input.weapons, input.jobWeaponKindCodes, "attack");
   const proficiencyHp = proficiencyContribution(input.weapons, input.jobWeaponKindCodes, "hp");
   const attackSubtotal = rank.attack
+    + limitBonusAttack
     + input.jobGrowthAttack
     + weaponAttack
     + proficiencyAttack
     + input.mainWeaponCompletionAttack
     + summonAttack;
   const hpSubtotal = rank.hp
+    + limitBonusHp
     + input.jobGrowthHp
     + weaponHp
     + proficiencyHp
@@ -70,6 +86,8 @@ export function calculateProtagonistDisplayedStats(input) {
     breakdown: {
       rankAttack: rank.attack,
       rankHp: rank.hp,
+      limitBonusAttack,
+      limitBonusHp,
       jobGrowthAttack: input.jobGrowthAttack,
       jobGrowthHp: input.jobGrowthHp,
       weaponAttack,

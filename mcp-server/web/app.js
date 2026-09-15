@@ -16,8 +16,9 @@ import {
   serializeCalculatorFormation,
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
-} from "/calculator-state-storage.js?v=2";
+} from "/calculator-state-storage.js?v=3";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
+import { PROTAGONIST_LIMIT_BONUS_VALUES } from "/protagonist-displayed-stats.js?v=2";
 import {
   calculateEquipmentLevelStats,
   calculateEquipmentSelectionDefaultStats,
@@ -660,11 +661,14 @@ function createJobLevelField(config, job, key, label, maximum, minimum = 0) {
   input.setAttribute("aria-label", `${label}を変更`);
   input.addEventListener("change", () => {
     const value = Number(input.value);
-    if (!Number.isInteger(value) || value < minimum || value > maximum) return;
+    const valid = input.value !== "" && Number.isInteger(value) && value >= minimum && value <= maximum;
+    input.setCustomValidity(valid ? "" : `${minimum}〜${maximum}の整数を入力してください`);
+    if (!valid) { input.reportValidity(); return; }
     config.protagonist[key] = value;
     normalizeJobGrowthLevels(config.protagonist, job);
     writeDeckConfig(config);
     renderJobEditor(config);
+    $("protagonist-strengthening-fields").querySelector(`[aria-label="${label}を変更"]`)?.focus();
     void calculate();
   });
   field.append(input);
@@ -691,6 +695,11 @@ function renderJobEditor(config) {
   choice.type = "button";
   choice.className = "job-choice";
   choice.addEventListener("click", openJobPicker);
+  card.addEventListener("contextmenu", (event) => {
+    if (!jobId) return;
+    event.preventDefault();
+    $("protagonist-strengthening").showModal();
+  });
   choice.setAttribute("aria-label", "主人公ジョブを選択");
   const icon = jobId && job
     ? createJobArt("job-symbol", job)
@@ -729,10 +738,36 @@ function renderJobEditor(config) {
     const controls = document.createElement("div");
     controls.className = "job-level-controls";
     controls.append(
-      createJobLevelField(config, job, "jobLevel", "Lv", job?.maximumJobLevel ?? 20, 1),
-      createJobLevelField(config, job, "masterLevel", "ML", job?.maximumMasterLevel ?? 0, job?.maximumMasterLevel ? 1 : 0),
-      createJobLevelField(config, job, "perfectionProofLevel", "極致", job?.maximumPerfectionProofLevel ?? 0),
+      createJobLevelField(config, job, "jobLevel", "ジョブLv", job?.maximumJobLevel ?? 20, 1),
+      createJobLevelField(config, job, "masterLevel", "マスターレベル（ML）", job?.maximumMasterLevel ?? 0, job?.maximumMasterLevel ? 1 : 0),
+      createJobLevelField(config, job, "perfectionProofLevel", "極致の証", job?.maximumPerfectionProofLevel ?? 0),
     );
+    for (const [key, kind, name] of [
+      ["attackLimitBonusLevel", "attack", "攻撃力LB"],
+      ["hpLimitBonusLevel", "hp", "HP LB"],
+    ]) {
+      const label = document.createElement("label");
+      label.textContent = name;
+      const select = document.createElement("select");
+      select.setAttribute("aria-label", name);
+      PROTAGONIST_LIMIT_BONUS_VALUES[kind].forEach((amount, level) => {
+        const option = document.createElement("option");
+        option.value = String(level);
+        option.textContent = `★${level}（+${numberFormat.format(amount)}）`;
+        select.append(option);
+      });
+      select.value = String(config.protagonist[key] ?? 0);
+      select.addEventListener("change", () => {
+        const current = readDeckConfig();
+        current.protagonist[key] = Number(select.value);
+        writeDeckConfig(current);
+        renderJobEditor(current);
+        $("protagonist-strengthening-fields").querySelector(`[aria-label="${name}"]`)?.focus();
+        void calculate();
+      });
+      label.append(select);
+      controls.append(label);
+    }
     const growth = calculateJobGrowthBonuses(job, config.protagonist);
     const summaryText = [
       jobGrowthStageSummary("Lv", growth.jobLevel),
@@ -741,7 +776,17 @@ function renderJobEditor(config) {
     ].filter(Boolean).join(" ｜ ");
     const summary = createText("job-growth-summary", summaryText || "現在の段階に計算対象ボーナスはありません");
     controls.append(summary);
-    card.append(controls);
+    $("protagonist-strengthening-fields").replaceChildren(controls);
+    $("protagonist-strengthening-title").textContent = `${job?.name ?? "主人公"}の強化設定`;
+    const edit = document.createElement("button");
+    edit.type = "button";
+    edit.className = "tonal-button";
+    edit.textContent = "強化設定";
+    edit.addEventListener("click", () => $("protagonist-strengthening").showModal());
+    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0}`));
+  } else {
+    $("protagonist-strengthening-fields").replaceChildren();
+    if ($("protagonist-strengthening").open) $("protagonist-strengthening").close();
   }
   $("job-editor").replaceChildren(card);
 }
@@ -811,6 +856,8 @@ function openJobPicker() {
 function selectJob(job) {
   const config = readDeckConfig();
   if (config.protagonist.jobId !== job.jobId) {
+    delete config.protagonist.attackLimitBonusLevel;
+    delete config.protagonist.hpLimitBonusLevel;
     delete config.protagonist.jobLevel;
     delete config.protagonist.masterLevel;
     delete config.protagonist.perfectionProofLevel;

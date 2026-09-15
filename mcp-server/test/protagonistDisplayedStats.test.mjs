@@ -5,6 +5,30 @@ import {
   calculateProtagonistRankBaseStats,
 } from "../web/protagonist-displayed-stats.js";
 
+test("reproduces every observed Knight attack and HP LB stage without double counting", () => {
+  const input = {
+    rank: 425, jobGrowthAttack: 0, jobGrowthHp: 0,
+    completionAttackPercent: 24, completionHpPercent: 20,
+    mainWeaponCompletionAttack: 4, jobWeaponKindCodes: ["1", "3"],
+    weapons: [{ attack: 70, hp: 6, weaponKindCode: "1" }],
+    summons: [{ attack: 4157, hp: 1414 }],
+  };
+  const attackObservations = [14967, 15587, 16827, 18687];
+  const hpObservations = [4062, 4422, 4782, 5262];
+  for (let level = 0; level <= 3; level++) {
+    const attack = calculateProtagonistDisplayedStats({ ...input, attackLimitBonusLevel: level });
+    const hp = calculateProtagonistDisplayedStats({ ...input, hpLimitBonusLevel: level });
+    assert.equal(attack.attack, attackObservations[level]);
+    assert.equal(attack.hp, 4062);
+    assert.equal(hp.hp, hpObservations[level]);
+    assert.equal(hp.attack, 14967);
+    const combined = calculateProtagonistDisplayedStats({ ...input, attackLimitBonusLevel: level, hpLimitBonusLevel: level });
+    assert.equal(combined.attack, attackObservations[level]);
+    assert.equal(combined.hp, hpObservations[level]);
+  }
+  assert.equal(calculateProtagonistDisplayedStats(input).attack, 14967);
+});
+
 test("returns the provisional Rank 425 base stats", () => {
   assert.deepEqual(calculateProtagonistRankBaseStats(425), {
     rank: 425,
@@ -35,6 +59,8 @@ test("derives the observed Froga protagonist ATK and pre-skill HP from component
   assert.deepEqual(result.breakdown, {
     rankAttack: 7825,
     rankHp: 1964,
+    limitBonusAttack: 0,
+    limitBonusHp: 0,
     jobGrowthAttack: 0,
     jobGrowthHp: 0,
     weaponAttack: 3115,
