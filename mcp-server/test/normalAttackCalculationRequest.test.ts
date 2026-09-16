@@ -319,7 +319,43 @@ test("reproduces the observed independent protagonist critical LB proc at one pe
   );
 });
 
-test("keeps the three protagonist critical LB items as independent draft rolls", () => {
+test("reproduces all observed protagonist critical LB procs at five percent", () => {
+  const input = fireAttackLimitBonusRequest(0);
+  input.deckConfig.protagonist.criticalRateLimitBonusLevel = 3;
+  input.enemy.elementCode = "4";
+  input.modifiers.targetElementDamagePercent = 5;
+  const result = calculateNormalAttackFromRequest(input).result;
+  const critical = result.protagonistLimitBonusCritical;
+
+  assert.ok(critical !== undefined);
+  assert.equal(critical.damageMultiplier, 1.05);
+  assert.equal(critical.nominalDamage, 4098);
+  assert.equal(critical.sources[0]?.verificationStatus, "検証済み");
+
+  const observedCriticalHits = [
+    4119, 3984, 4271, 4000, 4111, 4090, 4197, 4172, 4258,
+    3918, 4029, 4254, 4135, 4160, 4250, 4090, 4246,
+  ];
+  const trace = result.baseDamage.articleTrace!;
+  const inference = inferRandomMultiplierCandidates(trace.prePostCapDamage, observedCriticalHits, {
+    finalRounding: "ceil",
+    damageTransform: {
+      id: "observed-protagonist-critical-lb-star3",
+      apply: (damage) => calculateDamageAttenuation(
+        damage * critical.damageMultiplier,
+        result.bodyDamageAttenuation.profile,
+        { damageCapUpPercent: result.bodyDamageAttenuation.damageCapUpPercent },
+      ).damage * (1 + trace.postCapDamagePercent / 100),
+    },
+  });
+  assert.deepEqual(
+    inference.observations.map((observation) => observation.candidates),
+    [[1.005], [0.972], [1.042], [0.976], [1.003], [0.998], [1.024], [1.018], [1.039],
+      [0.956], [0.983], [1.038], [1.009], [1.015], [1.037], [0.998], [1.036]],
+  );
+});
+
+test("keeps the three protagonist critical LB items as independent rolls with per-stage verification", () => {
   const input = fireAttackLimitBonusRequest(0);
   Object.assign(input.deckConfig.protagonist, {
     criticalRateLimitBonusLevel: 3,
@@ -334,7 +370,7 @@ test("keeps the three protagonist critical LB items as independent draft rolls",
   assert.equal(critical.sources.length, 3);
   assert.deepEqual(critical.sources.map((source) => source.triggerRatePercent), [5, 5, 5]);
   assert.deepEqual(critical.sources.map((source) => source.damageBonusPercent), [5, 5, 5]);
-  assert.deepEqual(critical.sources.map((source) => source.verificationStatus), ["下書き", "下書き", "下書き"]);
+  assert.deepEqual(critical.sources.map((source) => source.verificationStatus), ["検証済み", "下書き", "下書き"]);
   assert.equal(critical.damageMultiplier, 1.15);
 });
 
