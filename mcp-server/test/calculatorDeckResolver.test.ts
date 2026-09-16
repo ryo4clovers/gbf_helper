@@ -31,12 +31,12 @@ test("resolves protagonist LB before completion bonuses and replaces stale impor
     {
       stage: "elemental-attack", amountPercent: 5, sourceType: "job-limit-bonus",
       sourceId: "fire-attack-limit-bonus-2", sourceName: "火属性攻撃力LB II",
-      elementCode: "1", verificationStatus: "下書き",
+      elementCode: "1", verificationStatus: "検証済み",
     },
     {
       stage: "elemental-attack", amountPercent: 5, sourceType: "job-limit-bonus",
       sourceId: "fire-attack-limit-bonus-3", sourceName: "火属性攻撃力LB III",
-      elementCode: "1", verificationStatus: "下書き",
+      elementCode: "1", verificationStatus: "検証済み",
     },
   ]);
 });

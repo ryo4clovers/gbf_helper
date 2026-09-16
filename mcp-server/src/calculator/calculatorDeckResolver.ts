@@ -39,13 +39,13 @@ function fireAttackLimitBonusModifiers(
       level: protagonist.fireAttackLimitBonus2Level ?? 0,
       sourceId: "fire-attack-limit-bonus-2",
       sourceName: "火属性攻撃力LB II",
-      verificationStatus: "下書き" as const,
+      verificationStatus: "検証済み" as const,
     },
     {
       level: protagonist.fireAttackLimitBonus3Level ?? 0,
       sourceId: "fire-attack-limit-bonus-3",
       sourceName: "火属性攻撃力LB III",
-      verificationStatus: "下書き" as const,
+      verificationStatus: "検証済み" as const,
     },
   ].flatMap(({ level, sourceId, sourceName, verificationStatus }) => level === 0 ? [] : [{
     stage: "elemental-attack" as const,

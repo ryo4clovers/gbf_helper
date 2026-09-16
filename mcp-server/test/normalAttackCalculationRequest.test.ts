@@ -264,19 +264,23 @@ test("reproduces all observed fire attack LB game-calculator estimates", () => {
   }
 });
 
-test("reproduces every observed neutral hit with fire attack LB at zero and five percent", () => {
-  const observations = new Map<number, number[]>([
-    [0, [
+test("reproduces every observed neutral hit with fire attack LB at zero, five, and fifteen percent", () => {
+  const observations = [
+    { levels: [0, 0, 0], hits: [
       2743, 2672, 2713, 2752, 2768, 2879, 2658, 2724, 2743, 2666,
       2633, 2754, 2801, 2870, 2868, 2705, 2721, 2859, 2732, 2674,
-    ]],
-    [3, [
+    ] },
+    { levels: [3, 0, 0], hits: [
       2731, 2991, 2988, 2839, 2794, 2825, 2985, 2916, 2879, 2748, 2951,
       2731, 2939, 2819, 2822, 2868, 2942, 2802, 2822, 2859, 2931, 2739,
-    ]],
-  ]);
-  for (const [level, hits] of observations) {
-    const result = calculateNormalAttackFromRequest(fireAttackLimitBonusRequest(level)).result;
+    ] },
+    { levels: [3, 3, 3], hits: [
+      3132, 2988, 3007, 3016, 3065, 3059, 3025, 2943,
+      3159, 3184, 3141, 3202, 2955, 3068, 2955, 3107,
+    ] },
+  ];
+  for (const { levels, hits } of observations) {
+    const result = calculateNormalAttackFromRequest(fireAttackLimitBonusRequest(...levels)).result;
     const trace = result.baseDamage.articleTrace!;
     const inference = inferRandomMultiplierCandidates(trace.prePostCapDamage, hits, {
       finalRounding: "ceil",
