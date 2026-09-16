@@ -461,6 +461,8 @@ export interface CalculatorDeckProtagonistConfig {
   attackLimitBonusLevel?: number;
   hpLimitBonusLevel?: number;
   fireAttackLimitBonusLevel?: number;
+  fireAttackLimitBonus2Level?: number;
+  fireAttackLimitBonus3Level?: number;
   rank?: number;
   elementCode?: string;
   jobId?: string;

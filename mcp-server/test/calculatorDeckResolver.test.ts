@@ -11,7 +11,8 @@ test("resolves protagonist LB before completion bonuses and replaces stale impor
       masterLevel: 0, perfectionProofLevel: 0,
       masterBonusAttackPercent: 24, masterBonusHpPercent: 20,
       mainWeaponCompletionAttackContribution: 4,
-      attackLimitBonusLevel: 3, hpLimitBonusLevel: 3, fireAttackLimitBonusLevel: 3,
+      attackLimitBonusLevel: 3, hpLimitBonusLevel: 3,
+      fireAttackLimitBonusLevel: 3, fireAttackLimitBonus2Level: 3, fireAttackLimitBonus3Level: 3,
       attackOverride: 18687, hpOverride: 5262,
     },
     weapons: [{ slot: 1, position: "main", weaponId: "1010000400", isJobFallback: true, level: 1, attackOverride: 70, hpOverride: 6 }],
@@ -21,15 +22,23 @@ test("resolves protagonist LB before completion bonuses and replaces stale impor
   assert.equal(result.mode, "catalog-derived");
   assert.equal(result.deck.protagonist.attack, 18687);
   assert.equal(result.deck.protagonist.hp, 5262);
-  assert.deepEqual(result.deck.protagonist.job?.damageModifiers, [{
-    stage: "elemental-attack",
-    amountPercent: 5,
-    sourceType: "job-limit-bonus",
-    sourceId: "fire-attack-limit-bonus",
-    sourceName: "火属性攻撃力LB",
-    elementCode: "1",
-    verificationStatus: "検証済み",
-  }]);
+  assert.deepEqual(result.deck.protagonist.job?.damageModifiers, [
+    {
+      stage: "elemental-attack", amountPercent: 5, sourceType: "job-limit-bonus",
+      sourceId: "fire-attack-limit-bonus", sourceName: "火属性攻撃力LB",
+      elementCode: "1", verificationStatus: "検証済み",
+    },
+    {
+      stage: "elemental-attack", amountPercent: 5, sourceType: "job-limit-bonus",
+      sourceId: "fire-attack-limit-bonus-2", sourceName: "火属性攻撃力LB II",
+      elementCode: "1", verificationStatus: "下書き",
+    },
+    {
+      stage: "elemental-attack", amountPercent: 5, sourceType: "job-limit-bonus",
+      sourceId: "fire-attack-limit-bonus-3", sourceName: "火属性攻撃力LB III",
+      elementCode: "1", verificationStatus: "下書き",
+    },
+  ]);
 });
 
 test("derives verified weapon stats from level and applies plus marks afterward", () => {

@@ -210,7 +210,7 @@ test("adds fire attack LB to the elemental frame only for a fire protagonist", (
   );
 });
 
-function fireAttackLimitBonusRequest(level: number) {
+function fireAttackLimitBonusRequest(level: number, level2 = 0, level3 = 0) {
   return {
     schemaVersion: 1 as const,
     deckConfig: {
@@ -222,6 +222,8 @@ function fireAttackLimitBonusRequest(level: number) {
         masterBonusAttackPercent: 24, masterBonusHpPercent: 20,
         mainWeaponCompletionAttackContribution: 4,
         fireAttackLimitBonusLevel: level,
+        fireAttackLimitBonus2Level: level2,
+        fireAttackLimitBonus3Level: level3,
       },
       weapons: [{
         slot: 1, position: "main" as const, weaponId: "1010000400",
@@ -289,6 +291,25 @@ test("reproduces every observed neutral hit with fire attack LB at zero and five
     });
     assert.equal(inference.resolvedObservationCount, hits.length);
     assert.deepEqual(inference.unresolvedObservationIndexes, []);
+  }
+});
+
+test("adds fire attack LB II and III in the same elemental frame", () => {
+  const expected = [
+    { levels: [3, 0, 0], normal: 2859, advantage: 4004 },
+    { levels: [3, 3, 0], normal: 2956, advantage: 4106 },
+    { levels: [3, 3, 3], normal: 3052, advantage: 4207 },
+  ];
+  for (const observation of expected) {
+    const [level, level2, level3] = observation.levels;
+    const request = fireAttackLimitBonusRequest(level, level2, level3);
+    const normal = calculateNormalAttackFromRequest(request);
+    const advantageRequest = structuredClone(request);
+    advantageRequest.enemy.elementCode = "4";
+    advantageRequest.modifiers.targetElementDamagePercent = 5;
+    const advantage = calculateNormalAttackFromRequest(advantageRequest);
+    assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, observation.normal);
+    assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, observation.advantage);
   }
 });
 

@@ -11,6 +11,8 @@ import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 import { resolveEffectiveWeaponSkillEffects } from "./weaponEffectResolver.js";
 import type {
   CalculatorDeckConfig,
+  CalculatorDeckProtagonistConfig,
+  DamageModifier,
   DeckJobMultiattackRateBonus,
   DeckSnapshot,
   ResolvedSupportSummon,
@@ -22,6 +24,39 @@ import {
   calculateProtagonistDisplayedStats,
   PROTAGONIST_LIMIT_BONUS_VALUES,
 } from "../../web/protagonist-displayed-stats.js";
+
+function fireAttackLimitBonusModifiers(
+  protagonist: CalculatorDeckProtagonistConfig,
+): DamageModifier[] {
+  return [
+    {
+      level: protagonist.fireAttackLimitBonusLevel ?? 0,
+      sourceId: "fire-attack-limit-bonus",
+      sourceName: "火属性攻撃力LB",
+      verificationStatus: "検証済み" as const,
+    },
+    {
+      level: protagonist.fireAttackLimitBonus2Level ?? 0,
+      sourceId: "fire-attack-limit-bonus-2",
+      sourceName: "火属性攻撃力LB II",
+      verificationStatus: "下書き" as const,
+    },
+    {
+      level: protagonist.fireAttackLimitBonus3Level ?? 0,
+      sourceId: "fire-attack-limit-bonus-3",
+      sourceName: "火属性攻撃力LB III",
+      verificationStatus: "下書き" as const,
+    },
+  ].flatMap(({ level, sourceId, sourceName, verificationStatus }) => level === 0 ? [] : [{
+    stage: "elemental-attack" as const,
+    amountPercent: PROTAGONIST_LIMIT_BONUS_VALUES.fireAttack[level],
+    sourceType: "job-limit-bonus" as const,
+    sourceId,
+    sourceName,
+    elementCode: "1",
+    verificationStatus,
+  }]);
+}
 
 export type CalculatorDeckResolutionIssueCode =
   | "protagonist-lb-components-unresolved"
@@ -373,19 +408,7 @@ export function resolveCalculatorDeckConfig(
               level: config.protagonist.jobLevel,
               masterLevel: config.protagonist.masterLevel,
               perfectionProofLevel: config.protagonist.perfectionProofLevel,
-              damageModifiers: (config.protagonist.fireAttackLimitBonusLevel ?? 0) === 0
-                ? []
-                : [{
-                    stage: "elemental-attack",
-                    amountPercent: PROTAGONIST_LIMIT_BONUS_VALUES.fireAttack[
-                      config.protagonist.fireAttackLimitBonusLevel!
-                    ],
-                    sourceType: "job-limit-bonus",
-                    sourceId: "fire-attack-limit-bonus",
-                    sourceName: "火属性攻撃力LB",
-                    elementCode: "1",
-                    verificationStatus: "検証済み",
-                  }],
+              damageModifiers: fireAttackLimitBonusModifiers(config.protagonist),
             },
     },
     weapons: config.weapons.map((weapon, index) => {

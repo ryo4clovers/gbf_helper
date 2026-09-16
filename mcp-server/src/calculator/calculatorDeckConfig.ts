@@ -65,6 +65,8 @@ const protagonistSchema = z
     attackLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     hpLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     fireAttackLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
+    fireAttackLimitBonus2Level: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
+    fireAttackLimitBonus3Level: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     rank: playerRankSchema.optional(),
     elementCode: idSchema.optional(),
     jobId: idSchema.optional(),
