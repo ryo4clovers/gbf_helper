@@ -87,18 +87,53 @@ function criticalBodyDamage(result, multiplier) {
   return Math.floor(roundCalculation(afterCriticalFloor * targetMultiplier));
 }
 
+function limitBonusCriticalBodyDamage(result, multiplier, criticalDamageBonusPercent) {
+  const attenuation = result.bodyDamageAttenuation;
+  const inputDamage = (
+    result.baseDamage.articleTrace?.prePostCapDamage
+    ?? result.baseDamage.unroundedDamageBeforeRandomAndCap
+  ) * multiplier * (1 + criticalDamageBonusPercent / 100);
+  const thresholdMultiplier = 1 + attenuation.damageCapUpPercent / 100;
+  let inputStart = 0;
+  let attenuatedDamage = 0;
+  for (let index = 0; inputStart < inputDamage; index += 1) {
+    const line = attenuation.profile.lines[index];
+    const inputEnd = Math.min(
+      inputDamage,
+      line === undefined ? inputDamage : line.threshold * thresholdMultiplier,
+    );
+    const passRate = index === 0 ? 1 : attenuation.profile.lines[index - 1].passRate;
+    attenuatedDamage += (inputEnd - inputStart) * passRate;
+    inputStart = inputEnd;
+  }
+  const finalDamage = attenuatedDamage * (1 + attenuation.postAttenuationPercent / 100);
+  return result.bodyDamageDistribution.finalRounding === "ceil"
+    ? Math.ceil(finalDamage)
+    : Math.floor(finalDamage);
+}
+
 function damagePacketsForHit(result, request, mode, note) {
   const bodyMultiplier = randomMultiplier(request, mode);
-  const bodyRounding = result.bodyDamageDistribution.finalRounding;
   const critical = result.criticalBodyDamage;
-  const criticalTriggered = critical !== undefined
+  const weaponCriticalTriggered = critical !== undefined
     && resolveCritical(mode, critical.weaponSkillCriticalRatePercent);
-  const bodyRaw = result.baseDamage.unroundedDamageBeforeRandomAndCap * bodyMultiplier;
-  const bodyDamage = criticalTriggered
+  const limitBonusCriticalSources = result.protagonistLimitBonusCritical?.sources ?? [];
+  const triggeredLimitBonusCriticals = limitBonusCriticalSources.filter(
+    (source) => resolveCritical(mode, source.triggerRatePercent),
+  );
+  const criticalDamageBonusPercent =
+    (weaponCriticalTriggered ? (critical.criticalDamageMultiplier - 1) * 100 : 0) +
+    triggeredLimitBonusCriticals.reduce((sum, source) => sum + source.damageBonusPercent, 0);
+  const criticalTriggered = criticalDamageBonusPercent > 0;
+  const bodyDamage = weaponCriticalTriggered && triggeredLimitBonusCriticals.length === 0
     ? criticalBodyDamage(result, bodyMultiplier)
-    : bodyRounding === "ceil" ? Math.ceil(bodyRaw) : Math.floor(bodyRaw);
+    : triggeredLimitBonusCriticals.length > 0
+      ? limitBonusCriticalBodyDamage(result, bodyMultiplier, criticalDamageBonusPercent)
+      : result.bodyDamageDistribution.finalRounding === "ceil"
+        ? Math.ceil(result.baseDamage.unroundedDamageBeforeRandomAndCap * bodyMultiplier)
+        : Math.floor(result.baseDamage.unroundedDamageBeforeRandomAndCap * bodyMultiplier);
   const criticalNote = criticalTriggered
-    ? `・クリティカル ×${critical.criticalDamageMultiplier}`
+    ? `・クリティカル ×${numberFormat.format(1 + criticalDamageBonusPercent / 100)}`
     : "";
   const packets = [{
     kind: "damage",

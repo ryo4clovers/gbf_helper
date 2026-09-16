@@ -7,6 +7,7 @@ export const PROTAGONIST_LIMIT_BONUS_VALUES = Object.freeze({
   elementAttack: Object.freeze([0, 1, 3, 5]),
   proficiencyAttack: Object.freeze([0, 1, 3, 5]),
   multiattack: Object.freeze([0, 1, 3, 5]),
+  critical: Object.freeze([0, 1, 3, 5]),
 });
 
 const ELEMENT_ATTACK_LIMIT_BONUS_ELEMENTS = [
@@ -62,6 +63,12 @@ export const PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS = Object.freeze([
   Object.freeze({ fieldKey: "partyHpLimitBonusLevel", label: "味方全体HP", limitBonusId: "28" }),
   Object.freeze({ fieldKey: "partyHpLimitBonus2Level", label: "味方全体HP II", limitBonusId: "40" }),
   Object.freeze({ fieldKey: "partyHpLimitBonus3Level", label: "味方全体HP III", limitBonusId: "73" }),
+]);
+
+export const PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS = Object.freeze([
+  Object.freeze({ fieldKey: "criticalRateLimitBonusLevel", label: "クリティカル確率", limitBonusId: "27", sourceId: "critical-limit-bonus" }),
+  Object.freeze({ fieldKey: "criticalRateLimitBonus2Level", label: "クリティカル確率 II", limitBonusId: "38", sourceId: "critical-limit-bonus-2" }),
+  Object.freeze({ fieldKey: "criticalRateLimitBonus3Level", label: "クリティカル確率 III", limitBonusId: "99", sourceId: "critical-limit-bonus-3" }),
 ]);
 
 function limitBonusValue(kind, level = 0) {

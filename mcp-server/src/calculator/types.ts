@@ -393,6 +393,7 @@ export interface DeckJob {
   /** Account-wide completed-job HP bonus, despite being nested under the equipped job response. */
   masterBonusHpPercent?: number;
   multiattackRateBonuses?: DeckJobMultiattackRateBonus[];
+  criticalRateBonuses?: DeckJobCriticalRateBonus[];
   level?: number;
   masterLevel?: number;
   perfectionProofLevel?: number;
@@ -405,6 +406,15 @@ export interface DeckJobMultiattackRateBonus {
   level: number;
   doubleAttackRatePercent: number;
   tripleAttackRatePercent: number;
+  verificationStatus: "検証済み" | "下書き";
+}
+
+export interface DeckJobCriticalRateBonus {
+  sourceId: string;
+  sourceName: string;
+  level: number;
+  triggerRatePercent: number;
+  damageBonusPercent: number;
   verificationStatus: "検証済み" | "下書き";
 }
 
@@ -464,6 +474,9 @@ export interface CalculatorDeckProtagonistConfig {
   partyHpLimitBonusLevel?: number;
   partyHpLimitBonus2Level?: number;
   partyHpLimitBonus3Level?: number;
+  criticalRateLimitBonusLevel?: number;
+  criticalRateLimitBonus2Level?: number;
+  criticalRateLimitBonus3Level?: number;
   doubleAttackRateLimitBonusLevel?: number;
   doubleAttackRateLimitBonus2Level?: number;
   doubleAttackRateLimitBonus3Level?: number;

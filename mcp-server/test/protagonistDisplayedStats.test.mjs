@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS,
   calculateProtagonistDisplayedStats,
   calculateProtagonistRankBaseStats,
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
@@ -36,6 +37,13 @@ test("registers all observed party HP LB IDs", () => {
   assert.deepEqual(
     PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS.map(({ limitBonusId }) => limitBonusId),
     ["28", "40", "73"],
+  );
+});
+
+test("registers all observed protagonist critical LB IDs", () => {
+  assert.deepEqual(
+    PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS.map(({ limitBonusId }) => limitBonusId),
+    ["27", "38", "99"],
   );
 });
 

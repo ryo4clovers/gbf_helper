@@ -10,7 +10,7 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
     readFile(new URL("../web/app.js", import.meta.url), "utf8"),
   ]);
 
-  for (const id of ["protagonist-hp", "critical-rate", "da-rate", "ta-rate", "include-extinction-crest-local"]) {
+  for (const id of ["protagonist-hp", "critical-rate", "da-rate", "ta-rate", "limit-bonus-critical-toggle", "include-extinction-crest-local"]) {
     assert.match(html, new RegExp(`id=["']${id}["']`));
     assert.match(app, new RegExp(`\\$\\(["']${id}["']\\)`));
   }
@@ -40,7 +40,8 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
   assert.match(html, /id="protagonist-hp-percent" type="range" value="100" min="1" max="100" step="1"/u);
   assert.match(html, /id="protagonist-hp-percent-value" for="protagonist-hp-percent">100%<\/output>/u);
   assert.match(app, /\$\("protagonist-hp-percent"\)\.addEventListener\("change", \(\) => void calculate\(\)\)/u);
-  assert.ok(html.indexOf('id="weapon-critical-toggle"') < html.indexOf('id="include-extinction-crest-local"'));
+  assert.ok(html.indexOf('id="weapon-critical-toggle"') < html.indexOf('id="limit-bonus-critical-toggle"'));
+  assert.ok(html.indexOf('id="limit-bonus-critical-toggle"') < html.indexOf('id="include-extinction-crest-local"'));
   assert.ok(html.indexOf('id="include-extinction-crest-local"') < html.indexOf('class="metric-grid local-result-grid"'));
   assert.doesNotMatch(html, /<details class="advanced-settings memorial-settings" open>/u);
 });

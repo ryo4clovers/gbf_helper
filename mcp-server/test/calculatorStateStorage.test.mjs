@@ -77,6 +77,9 @@ test("preserves protagonist LB selections in formation save and reload", () => {
   current.deckConfig.protagonist.partyHpLimitBonusLevel = 3;
   current.deckConfig.protagonist.partyHpLimitBonus2Level = 2;
   current.deckConfig.protagonist.partyHpLimitBonus3Level = 1;
+  current.deckConfig.protagonist.criticalRateLimitBonusLevel = 1;
+  current.deckConfig.protagonist.criticalRateLimitBonus2Level = 2;
+  current.deckConfig.protagonist.criticalRateLimitBonus3Level = 3;
   current.deckConfig.protagonist.doubleAttackRateLimitBonusLevel = 3;
   current.deckConfig.protagonist.tripleAttackRateLimitBonus2Level = 2;
   current.deckConfig.protagonist.proficiency1AttackLimitBonusLevel = 3;
@@ -99,6 +102,9 @@ test("preserves protagonist LB selections in formation save and reload", () => {
   assert.equal(restored.deckConfig.protagonist.partyHpLimitBonusLevel, 3);
   assert.equal(restored.deckConfig.protagonist.partyHpLimitBonus2Level, 2);
   assert.equal(restored.deckConfig.protagonist.partyHpLimitBonus3Level, 1);
+  assert.equal(restored.deckConfig.protagonist.criticalRateLimitBonusLevel, 1);
+  assert.equal(restored.deckConfig.protagonist.criticalRateLimitBonus2Level, 2);
+  assert.equal(restored.deckConfig.protagonist.criticalRateLimitBonus3Level, 3);
   assert.equal(restored.deckConfig.protagonist.doubleAttackRateLimitBonusLevel, 3);
   assert.equal(restored.deckConfig.protagonist.tripleAttackRateLimitBonus2Level, 2);
   assert.equal(restored.deckConfig.protagonist.proficiency1AttackLimitBonusLevel, 3);

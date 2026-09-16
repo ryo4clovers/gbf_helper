@@ -16,15 +16,16 @@ import {
   serializeCalculatorFormation,
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
-} from "/calculator-state-storage.js?v=8";
+} from "/calculator-state-storage.js?v=9";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
 import {
+  PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_LIMIT_BONUS_VALUES,
   PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
-} from "/protagonist-displayed-stats.js?v=8";
+} from "/protagonist-displayed-stats.js?v=9";
 import {
   calculateEquipmentLevelStats,
   calculateEquipmentSelectionDefaultStats,
@@ -113,6 +114,7 @@ let editingSummonSlot = null;
 let selectedSupportSummon = null;
 let latestDamageResult = null;
 let weaponCriticalManuallySelected = false;
+let limitBonusCriticalManuallySelected = false;
 let persistenceReady = false;
 let persistenceTimer = null;
 let savedProfiles = [];
@@ -755,6 +757,8 @@ function renderJobEditor(config) {
       ["hpLimitBonusLevel", "hp", "HP LB", ""],
       ...PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS
         .map(({ fieldKey, label }) => [fieldKey, "hp", label, ""]),
+      ...PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS
+        .map(({ fieldKey, label }) => [fieldKey, "critical", label, "%"]),
       ...PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS
         .map(({ fieldKey, label }) => [fieldKey, "proficiencyAttack", label, "%"]),
       ...PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS
@@ -824,7 +828,10 @@ function renderJobEditor(config) {
     const partyHpSummary = PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS
       .map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0)
       .join("/");
-    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0} / 全体HP LB ★${partyHpSummary} / 得意1 ★${proficiency1Summary}・得意2 ★${proficiency2Summary}・1・2 ★${proficiencyBothSummary} / ${multiattackSummary} / ${elementAttackSummary}`));
+    const criticalSummary = PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS
+      .map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0)
+      .join("/");
+    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0} / 全体HP LB ★${partyHpSummary} / クリLB ★${criticalSummary} / 得意1 ★${proficiency1Summary}・得意2 ★${proficiency2Summary}・1・2 ★${proficiencyBothSummary} / ${multiattackSummary} / ${elementAttackSummary}`));
   } else {
     $("protagonist-strengthening-fields").replaceChildren();
     if ($("protagonist-strengthening").open) $("protagonist-strengthening").close();
@@ -900,6 +907,9 @@ function selectJob(job) {
     delete config.protagonist.attackLimitBonusLevel;
     delete config.protagonist.hpLimitBonusLevel;
     for (const { fieldKey } of PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS) {
+      delete config.protagonist[fieldKey];
+    }
+    for (const { fieldKey } of PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS) {
       delete config.protagonist[fieldKey];
     }
     for (const { fieldKey } of PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS) {
@@ -2208,19 +2218,32 @@ function calculationBreakdownRows(baseDamage) {
 function renderLocalResult(result) {
   const body = result.bodyDamageDistribution;
   const critical = result.criticalBodyDamage;
-  const criticalToggle = $("weapon-critical-toggle");
-  const useCritical = criticalToggle.checked && critical !== undefined;
-  const distribution = useCritical ? critical.damageDistribution : body;
+  const limitBonusCritical = result.protagonistLimitBonusCritical;
+  const useWeaponCritical = $("weapon-critical-toggle").checked && critical !== undefined;
+  const useLimitBonusCritical = $("limit-bonus-critical-toggle").checked && limitBonusCritical !== undefined;
+  const selectedCritical = useLimitBonusCritical
+    ? useWeaponCritical
+      ? limitBonusCritical.combinedWithWeaponSkill
+      : limitBonusCritical
+    : useWeaponCritical
+      ? critical
+      : undefined;
+  const distribution = selectedCritical?.damageDistribution ?? body;
 
-  $("body-card").classList.toggle("critical-mode", useCritical);
-  $("body-icon").textContent = useCritical ? `×${numberFormat.format(critical.criticalDamageMultiplier)}` : "◇";
+  $("body-card").classList.toggle("critical-mode", selectedCritical !== undefined);
+  $("body-icon").textContent = selectedCritical === undefined
+    ? "◇"
+    : `×${numberFormat.format(selectedCritical.damageMultiplier ?? selectedCritical.criticalDamageMultiplier)}`;
   $("body-expected").textContent = formatDamage(
-    useCritical ? critical.nominalDamage : result.baseDamage.damageBeforeRandomAndCap,
+    selectedCritical?.nominalDamage ?? result.baseDamage.damageBeforeRandomAndCap,
   );
   $("body-range").textContent = `${formatDamage(distribution.minimumDamage)} — ${formatDamage(distribution.maximumDamage)}`;
-  $("body-note").hidden = !useCritical;
-  if (useCritical) {
-    $("body-note").textContent = `武器スキル発生率 ${numberFormat.format(critical.weaponSkillCriticalRatePercent)}%`;
+  $("body-note").hidden = selectedCritical === undefined;
+  if (selectedCritical !== undefined) {
+    const notes = [];
+    if (useWeaponCritical) notes.push(`武器 ${numberFormat.format(critical.weaponSkillCriticalRatePercent)}%`);
+    if (useLimitBonusCritical) notes.push("主人公LBは選択項目がすべて発動した場合");
+    $("body-note").textContent = notes.join("・");
   }
 
   const hp = result.protagonistHp;
@@ -2247,10 +2270,14 @@ function renderLocalResult(result) {
   }
 
   const criticalRate = critical?.weaponSkillCriticalRatePercent ?? 0;
-  $("critical-rate").textContent = `${numberFormat.format(criticalRate)}%`;
-  $("critical-rate-note").textContent = critical === undefined
+  const limitBonusRates = limitBonusCritical?.sources.map((source) => source.triggerRatePercent) ?? [];
+  $("critical-rate").textContent = [
+    ...(criticalRate === 0 ? [] : [`武器 ${numberFormat.format(criticalRate)}%`]),
+    ...(limitBonusRates.length === 0 ? [] : [`LB ${limitBonusRates.map((rate) => numberFormat.format(rate)).join("/")}%`]),
+  ].join(" / ") || "0%";
+  $("critical-rate-note").textContent = critical === undefined && limitBonusCritical === undefined
     ? "現在の敵属性では発動なし"
-    : "武器スキル・有利属性時";
+    : "武器枠と主人公LBは独立抽選・有利属性時";
 
   const multiattack = result.multiattackRates;
   $("da-rate").textContent = `${numberFormat.format(multiattack.doubleAttackRatePercent)}%`;
@@ -2282,10 +2309,18 @@ function selectWeaponCritical() {
   renderLocalResult(latestDamageResult);
 }
 
+function selectLimitBonusCritical() {
+  if (latestDamageResult === null) return;
+  limitBonusCriticalManuallySelected = true;
+  renderLocalResult(latestDamageResult);
+}
+
 function render(response, predictions) {
   const result = response.result;
   const critical = result.criticalBodyDamage;
   const criticalToggle = $("weapon-critical-toggle");
+  const limitBonusCritical = result.protagonistLimitBonusCritical;
+  const limitBonusCriticalToggle = $("limit-bonus-critical-toggle");
   const advantageCritical = predictions.advantage.result.criticalBodyDamage;
   const advantageUsesCritical =
     advantageCritical !== undefined && advantageCritical.weaponSkillCriticalRatePercent >= 100;
@@ -2315,6 +2350,17 @@ function render(response, predictions) {
   } else {
     if (!weaponCriticalManuallySelected) criticalToggle.checked = false;
     $("critical-switch-note").textContent = `発生率 ${numberFormat.format(critical.weaponSkillCriticalRatePercent)}%`;
+  }
+
+  limitBonusCriticalToggle.disabled = limitBonusCritical === undefined;
+  if (limitBonusCritical === undefined) {
+    limitBonusCriticalToggle.checked = false;
+    limitBonusCriticalManuallySelected = false;
+    $("limit-bonus-critical-switch-note").textContent = "有利属性かつ対象LBがある場合に利用できます";
+  } else {
+    if (!limitBonusCriticalManuallySelected) limitBonusCriticalToggle.checked = false;
+    const rates = limitBonusCritical.sources.map((source) => `${numberFormat.format(source.triggerRatePercent)}%`);
+    $("limit-bonus-critical-switch-note").textContent = `独立抽選 ${rates.join(" / ")}・ONで全項目発動時`;
   }
 
   renderLocalResult(result);
@@ -2609,6 +2655,7 @@ $("open-battle").addEventListener("click", () => {
 $("visual-tab").addEventListener("click", () => setEditorMode("visual"));
 $("json-tab").addEventListener("click", () => setEditorMode("json"));
 $("weapon-critical-toggle").addEventListener("change", selectWeaponCritical);
+$("limit-bonus-critical-toggle").addEventListener("change", selectLimitBonusCritical);
 $("close-job-picker").addEventListener("click", () => $("job-picker").close());
 $("remove-job").addEventListener("click", removeSelectedJob);
 $("job-search").addEventListener("input", (event) => renderJobResults(event.target.value));

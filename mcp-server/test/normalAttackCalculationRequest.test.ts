@@ -279,6 +279,65 @@ test("reproduces all observed fire attack LB game-calculator estimates", () => {
   }
 });
 
+test("reproduces the observed independent protagonist critical LB proc at one percent", () => {
+  const input = fireAttackLimitBonusRequest(0);
+  input.deckConfig.protagonist.criticalRateLimitBonusLevel = 1;
+  input.enemy.elementCode = "4";
+  input.modifiers.targetElementDamagePercent = 5;
+  const result = calculateNormalAttackFromRequest(input).result;
+  const critical = result.protagonistLimitBonusCritical;
+
+  assert.ok(critical !== undefined);
+  assert.equal(result.criticalBodyDamage, undefined);
+  assert.equal(critical.probabilityModel, "independent-per-limit-bonus");
+  assert.equal(critical.damageMultiplier, 1.01);
+  assert.equal(critical.nominalDamage, 3942);
+  assert.deepEqual(critical.sources, [{
+    sourceId: "critical-limit-bonus",
+    sourceName: "クリティカル確率 LB",
+    level: 1,
+    triggerRatePercent: 1,
+    damageBonusPercent: 1,
+    verificationStatus: "検証済み",
+  }]);
+
+  const trace = result.baseDamage.articleTrace!;
+  const inference = inferRandomMultiplierCandidates(trace.prePostCapDamage, [3919, 3840, 4037], {
+    finalRounding: "ceil",
+    damageTransform: {
+      id: "observed-protagonist-critical-lb-star1",
+      apply: (damage) => calculateDamageAttenuation(
+        damage * critical.damageMultiplier,
+        result.bodyDamageAttenuation.profile,
+        { damageCapUpPercent: result.bodyDamageAttenuation.damageCapUpPercent },
+      ).damage * (1 + trace.postCapDamagePercent / 100),
+    },
+  });
+  assert.deepEqual(
+    inference.observations.map((observation) => observation.candidates),
+    [[0.994], [0.974], [1.024]],
+  );
+});
+
+test("keeps the three protagonist critical LB items as independent draft rolls", () => {
+  const input = fireAttackLimitBonusRequest(0);
+  Object.assign(input.deckConfig.protagonist, {
+    criticalRateLimitBonusLevel: 3,
+    criticalRateLimitBonus2Level: 3,
+    criticalRateLimitBonus3Level: 3,
+  });
+  input.enemy.elementCode = "4";
+  input.modifiers.targetElementDamagePercent = 5;
+  const critical = calculateNormalAttackFromRequest(input).result.protagonistLimitBonusCritical;
+
+  assert.ok(critical !== undefined);
+  assert.equal(critical.sources.length, 3);
+  assert.deepEqual(critical.sources.map((source) => source.triggerRatePercent), [5, 5, 5]);
+  assert.deepEqual(critical.sources.map((source) => source.damageBonusPercent), [5, 5, 5]);
+  assert.deepEqual(critical.sources.map((source) => source.verificationStatus), ["下書き", "下書き", "下書き"]);
+  assert.equal(critical.damageMultiplier, 1.15);
+});
+
 test("reproduces every observed neutral hit with fire attack LB at zero, five, and fifteen percent", () => {
   const observations = [
     { levels: [0, 0, 0], hits: [

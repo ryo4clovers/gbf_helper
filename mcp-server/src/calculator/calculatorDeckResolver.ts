@@ -13,6 +13,7 @@ import type {
   CalculatorDeckConfig,
   CalculatorDeckProtagonistConfig,
   DamageModifier,
+  DeckJobCriticalRateBonus,
   DeckJobMultiattackRateBonus,
   DeckSnapshot,
   ResolvedSupportSummon,
@@ -22,6 +23,7 @@ import type {
 import { calculateEquipmentLevelStats } from "../../web/equipment-level-stats.js";
 import {
   calculateProtagonistDisplayedStats,
+  PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_LIMIT_BONUS_VALUES,
   PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS,
@@ -62,6 +64,25 @@ function multiattackLimitBonuses(
       doubleAttackRatePercent: definition.kind === "double" ? amountPercent : 0,
       tripleAttackRatePercent: definition.kind === "triple" ? amountPercent : 0,
       verificationStatus: "下書き" as const,
+    }];
+  });
+}
+
+function criticalLimitBonuses(
+  protagonist: CalculatorDeckProtagonistConfig,
+): DeckJobCriticalRateBonus[] {
+  return PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS.flatMap((definition) => {
+    const level = protagonist[definition.fieldKey] ?? 0;
+    if (level === 0) return [];
+    const amountPercent = PROTAGONIST_LIMIT_BONUS_VALUES.critical[level];
+    return [{
+      sourceId: definition.sourceId,
+      sourceName: `${definition.label} LB`,
+      level,
+      triggerRatePercent: amountPercent,
+      damageBonusPercent: amountPercent,
+      verificationStatus:
+        definition.limitBonusId === "27" && level === 1 ? "検証済み" as const : "下書き" as const,
     }];
   });
 }
@@ -433,6 +454,7 @@ export function resolveCalculatorDeckConfig(
               jobCompletionDoubleAttackRate: config.protagonist.jobCompletionDoubleAttackRate,
               jobCompletionTripleAttackRate: config.protagonist.jobCompletionTripleAttackRate,
               multiattackRateBonuses,
+              criticalRateBonuses: criticalLimitBonuses(config.protagonist),
               level: config.protagonist.jobLevel,
               masterLevel: config.protagonist.masterLevel,
               perfectionProofLevel: config.protagonist.perfectionProofLevel,

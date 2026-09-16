@@ -45,7 +45,7 @@ import {
   PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES,
   type DamageAttenuationProfile,
 } from "./damageAttenuationCalculator.js";
-import type { DamageModifier } from "./types.js";
+import type { DamageModifier, DeckJobCriticalRateBonus } from "./types.js";
 
 export interface NormalAttackDamageOptions {
   baseDamageModel?: BaseDamageCalculationModel;
@@ -82,6 +82,21 @@ export interface NormalAttackBodyAttenuationResult {
   verificationStatus: "下書き";
 }
 
+export interface ProtagonistLimitBonusCriticalScenario {
+  damageBonusPercent: number;
+  damageMultiplier: number;
+  nominalDamage: number;
+  damageDistribution: DamageDistributionSummary;
+}
+
+export interface ProtagonistLimitBonusCriticalResult extends ProtagonistLimitBonusCriticalScenario {
+  schemaVersion: 1;
+  status: "provisional";
+  probabilityModel: "independent-per-limit-bonus";
+  sources: DeckJobCriticalRateBonus[];
+  combinedWithWeaponSkill?: ProtagonistLimitBonusCriticalScenario;
+}
+
 export interface NormalAttackDamageResult {
   schemaVersion: 1;
   status: "provisional";
@@ -91,6 +106,7 @@ export interface NormalAttackDamageResult {
   bodyDamageAttenuation: NormalAttackBodyAttenuationResult;
   bodyDamageDistribution: DamageDistributionSummary;
   criticalBodyDamage?: CriticalBodyDamageResult;
+  protagonistLimitBonusCritical?: ProtagonistLimitBonusCriticalResult;
   pursuitDamage?: EffectivePursuitDamageResult;
   protagonistHp?: ProtagonistHpResult;
   multiattackRates: ProtagonistMultiattackRateResult;
@@ -194,6 +210,56 @@ export function calculateNormalAttackDamage(
         multiplierStep: options.multiplierStep,
       })
     : undefined;
+  const criticalLimitBonusSources = canWeaponSkillCritical
+    ? (input.deck.protagonist.job?.criticalRateBonuses ?? [])
+    : [];
+  const criticalScenario = (damageBonusPercent: number): ProtagonistLimitBonusCriticalScenario => {
+    const damageMultiplier = 1 + damageBonusPercent / 100;
+    const distributionOptions = {
+      nominalPreparation: options.bodyNominalPreparation ?? "none" as const,
+      finalRounding:
+        options.bodyFinalRounding ??
+        options.finalRounding ??
+        (useArticleModel ? "ceil" as const : "floor" as const),
+      damageTransform: {
+        id: `protagonist-critical:${damageBonusPercent}`,
+        apply: (damage: number) => bodyAttenuationTransform.apply(damage * damageMultiplier),
+      },
+    };
+    const damageDistribution = summarizeDamageDistribution(preAttenuationNominalDamage, {
+      ...sharedRandomOptions,
+      ...distributionOptions,
+    });
+    const nominalDamage = summarizeDamageDistribution(preAttenuationNominalDamage, {
+      multiplierMin: 1,
+      multiplierMax: 1,
+      multiplierStep: 1,
+      ...distributionOptions,
+    }).minimumDamage;
+    return { damageBonusPercent, damageMultiplier, nominalDamage, damageDistribution };
+  };
+  const protagonistLimitBonusCritical = criticalLimitBonusSources.length === 0
+    ? undefined
+    : (() => {
+        const damageBonusPercent = criticalLimitBonusSources.reduce(
+          (sum, source) => sum + source.damageBonusPercent,
+          0,
+        );
+        const limitBonusScenario = criticalScenario(damageBonusPercent);
+        const weaponDamageBonusPercent = criticalBodyDamage === undefined
+          ? 0
+          : (criticalBodyDamage.criticalDamageMultiplier - 1) * 100;
+        return {
+          schemaVersion: 1 as const,
+          status: "provisional" as const,
+          probabilityModel: "independent-per-limit-bonus" as const,
+          sources: criticalLimitBonusSources,
+          ...limitBonusScenario,
+          ...(criticalBodyDamage === undefined
+            ? {}
+            : { combinedWithWeaponSkill: criticalScenario(damageBonusPercent + weaponDamageBonusPercent) }),
+        };
+      })();
   const distributions = [
     bodyDamageDistribution,
     ...(pursuitDamage === undefined ? [] : [pursuitDamage.damageDistribution]),
@@ -208,6 +274,7 @@ export function calculateNormalAttackDamage(
     bodyDamageAttenuation,
     bodyDamageDistribution,
     criticalBodyDamage,
+    protagonistLimitBonusCritical,
     pursuitDamage,
     protagonistHp: calculateProtagonistHp(input.deck),
     multiattackRates: calculateProtagonistMultiattackRates(input.deck),
@@ -227,8 +294,12 @@ export function calculateNormalAttackDamage(
         ? (["rounding-order-unresolved"] as const)
         : []),
       ...(pursuitDamage === undefined ? [] : (["independent-component-randomness-provisional"] as const)),
-      ...(criticalBodyDamage === undefined ? [] : (["critical-probability-unresolved"] as const)),
-      ...(criticalBodyDamage === undefined ? [] : (["critical-damage-attenuation-unresolved"] as const)),
+      ...(criticalBodyDamage === undefined && protagonistLimitBonusCritical === undefined
+        ? []
+        : (["critical-probability-unresolved"] as const)),
+      ...(criticalBodyDamage === undefined && protagonistLimitBonusCritical === undefined
+        ? []
+        : (["critical-damage-attenuation-unresolved"] as const)),
     ],
   };
 }
