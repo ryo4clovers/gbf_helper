@@ -75,8 +75,11 @@ test("preserves protagonist LB selections in formation save and reload", () => {
   current.deckConfig.protagonist.attackLimitBonusLevel = 2;
   current.deckConfig.protagonist.hpLimitBonusLevel = 3;
   current.deckConfig.protagonist.proficiency1AttackLimitBonusLevel = 3;
+  current.deckConfig.protagonist.proficiency2AttackLimitBonusLevel = 1;
   current.deckConfig.protagonist.proficiency1AttackLimitBonus2Level = 2;
+  current.deckConfig.protagonist.proficiency2AttackLimitBonus2Level = 2;
   current.deckConfig.protagonist.proficiency1AttackLimitBonus3Level = 1;
+  current.deckConfig.protagonist.proficiency2AttackLimitBonus3Level = 3;
   current.deckConfig.protagonist.proficiencyBothAttackLimitBonusLevel = 2;
   current.deckConfig.protagonist.proficiencyBothAttackLimitBonus2Level = 3;
   current.deckConfig.protagonist.fireAttackLimitBonusLevel = 1;
@@ -89,8 +92,11 @@ test("preserves protagonist LB selections in formation save and reload", () => {
   assert.equal(restored.deckConfig.protagonist.attackLimitBonusLevel, 2);
   assert.equal(restored.deckConfig.protagonist.hpLimitBonusLevel, 3);
   assert.equal(restored.deckConfig.protagonist.proficiency1AttackLimitBonusLevel, 3);
+  assert.equal(restored.deckConfig.protagonist.proficiency2AttackLimitBonusLevel, 1);
   assert.equal(restored.deckConfig.protagonist.proficiency1AttackLimitBonus2Level, 2);
+  assert.equal(restored.deckConfig.protagonist.proficiency2AttackLimitBonus2Level, 2);
   assert.equal(restored.deckConfig.protagonist.proficiency1AttackLimitBonus3Level, 1);
+  assert.equal(restored.deckConfig.protagonist.proficiency2AttackLimitBonus3Level, 3);
   assert.equal(restored.deckConfig.protagonist.proficiencyBothAttackLimitBonusLevel, 2);
   assert.equal(restored.deckConfig.protagonist.proficiencyBothAttackLimitBonus2Level, 3);
   assert.equal(restored.deckConfig.protagonist.fireAttackLimitBonusLevel, 1);

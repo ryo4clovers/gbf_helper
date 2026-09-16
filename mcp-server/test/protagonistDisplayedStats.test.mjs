@@ -16,10 +16,10 @@ test("registers all in-game elemental attack LB IDs and fields", () => {
   assert.equal(new Set(PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey)).size, 18);
 });
 
-test("registers the observed proficiency-1 attack LB IDs and targets", () => {
+test("registers all observed proficiency attack LB IDs and targets", () => {
   assert.deepEqual(
     PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ limitBonusId, target }) => [limitBonusId, target]),
-    [["22", "first"], ["30", "first"], ["64", "first"], ["83", "both"], ["97", "both"]],
+    [["22", "first"], ["23", "second"], ["30", "first"], ["31", "second"], ["64", "first"], ["65", "second"], ["83", "both"], ["97", "both"]],
   );
 });
 
@@ -68,6 +68,29 @@ test("reproduces every observed Knight proficiency-1 attack LB stage", () => {
     assert.equal(result.attack, attack);
     assert.equal(result.breakdown.proficiencyLimitBonusAttack, contribution);
   }
+});
+
+test("keeps proficiency-2 LB off the first weapon kind and applies it to the second", () => {
+  const input = {
+    rank: 425, jobGrowthAttack: 0, jobGrowthHp: 0,
+    completionAttackPercent: 24, completionHpPercent: 20,
+    mainWeaponCompletionAttack: 4, jobWeaponKindCodes: ["1", "3"],
+    weapons: [{ attack: 70, hp: 6, weaponKindCode: "1" }],
+    summons: [{ attack: 4157, hp: 1414 }],
+    proficiency2AttackLimitBonusLevel: 3,
+    proficiency2AttackLimitBonus2Level: 3,
+    proficiency2AttackLimitBonus3Level: 3,
+  };
+  const firstWeaponResult = calculateProtagonistDisplayedStats(input);
+  assert.equal(firstWeaponResult.attack, 14967);
+  assert.equal(firstWeaponResult.breakdown.proficiencyLimitBonusAttack, 0);
+
+  const secondWeaponResult = calculateProtagonistDisplayedStats({
+    ...input,
+    weapons: [{ attack: 70, hp: 6, weaponKindCode: "3" }],
+  });
+  assert.equal(secondWeaponResult.attack, 14980);
+  assert.equal(secondWeaponResult.breakdown.proficiencyLimitBonusAttack, 11);
 });
 
 test("returns the provisional Rank 425 base stats", () => {

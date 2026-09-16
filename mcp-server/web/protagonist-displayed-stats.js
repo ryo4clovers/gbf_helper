@@ -40,8 +40,11 @@ export const PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS = Object.freeze(
 
 export const PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS = Object.freeze([
   Object.freeze({ fieldKey: "proficiency1AttackLimitBonusLevel", label: "得意武器攻撃1", limitBonusId: "22", target: "first" }),
+  Object.freeze({ fieldKey: "proficiency2AttackLimitBonusLevel", label: "得意武器攻撃2", limitBonusId: "23", target: "second" }),
   Object.freeze({ fieldKey: "proficiency1AttackLimitBonus2Level", label: "得意武器攻撃1 II", limitBonusId: "30", target: "first" }),
+  Object.freeze({ fieldKey: "proficiency2AttackLimitBonus2Level", label: "得意武器攻撃2 II", limitBonusId: "31", target: "second" }),
   Object.freeze({ fieldKey: "proficiency1AttackLimitBonus3Level", label: "得意武器攻撃1 III", limitBonusId: "64", target: "first" }),
+  Object.freeze({ fieldKey: "proficiency2AttackLimitBonus3Level", label: "得意武器攻撃2 III", limitBonusId: "65", target: "second" }),
   Object.freeze({ fieldKey: "proficiencyBothAttackLimitBonusLevel", label: "得意武器攻撃1・2", limitBonusId: "83", target: "both" }),
   Object.freeze({ fieldKey: "proficiencyBothAttackLimitBonus2Level", label: "得意武器攻撃1・2 II", limitBonusId: "97", target: "both" }),
 ]);
@@ -96,13 +99,16 @@ function proficiencyContribution(weapons, jobWeaponKindCodes, key) {
 
 function proficiencyLimitBonusAttackContribution(input) {
   const firstWeaponKindCode = input.jobWeaponKindCodes[0];
+  const secondWeaponKindCode = input.jobWeaponKindCodes[1];
   const proficientWeaponKindCodes = new Set(input.jobWeaponKindCodes);
   return input.weapons.reduce((total, weapon) => {
     const amountPercent = PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS.reduce(
       (sum, definition) => {
         const applies = definition.target === "first"
           ? firstWeaponKindCode !== undefined && weapon.weaponKindCode === firstWeaponKindCode
-          : weapon.weaponKindCode !== undefined && proficientWeaponKindCodes.has(weapon.weaponKindCode);
+          : definition.target === "second"
+            ? secondWeaponKindCode !== undefined && weapon.weaponKindCode === secondWeaponKindCode
+            : weapon.weaponKindCode !== undefined && proficientWeaponKindCodes.has(weapon.weaponKindCode);
         return applies
           ? sum + limitBonusValue("proficiencyAttack", input[definition.fieldKey])
           : sum;

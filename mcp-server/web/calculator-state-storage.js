@@ -1,7 +1,7 @@
 import {
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
-} from "./protagonist-displayed-stats.js?v=5";
+} from "./protagonist-displayed-stats.js?v=6";
 
 export const CALCULATOR_FORMATION_STORAGE_KEY = "gbf-helper-calculator-formation-v2";
 export const CALCULATOR_FORMATION_FORMAT = "gbf-helper-calculator-formation";

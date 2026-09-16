@@ -368,6 +368,42 @@ test("reproduces the observed proficiency-1 attack LB display and battle damage"
   assert.deepEqual(inference.unresolvedObservationIndexes, []);
 });
 
+test("reproduces the observed inactive proficiency-2 and shared LB stages on a first-kind weapon", () => {
+  const request = fireAttackLimitBonusRequest(0);
+  Object.assign(request.deckConfig.protagonist, {
+    proficiency2AttackLimitBonusLevel: 3,
+    proficiency2AttackLimitBonus2Level: 3,
+    proficiency2AttackLimitBonus3Level: 3,
+    proficiencyBothAttackLimitBonusLevel: 3,
+    proficiencyBothAttackLimitBonus2Level: 3,
+  });
+  const normal = calculateNormalAttackFromRequest(request);
+  const advantageRequest = structuredClone(request);
+  advantageRequest.enemy.elementCode = "4";
+  advantageRequest.modifiers.targetElementDamagePercent = 5;
+  const advantage = calculateNormalAttackFromRequest(advantageRequest);
+
+  assert.equal(normal.result.attackPower.baseAttack, 14975);
+  assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, 2764);
+  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 3905);
+
+  const hits = [2645, 2676, 2734, 2784, 2864, 2701, 2825, 2720, 2684, 2806, 2797, 2839, 2847, 2712, 2839, 2676, 2759, 2900, 2836, 2839, 2712, 2869, 2737, 2866, 2844, 2842];
+  const trace = normal.result.baseDamage.articleTrace!;
+  const inference = inferRandomMultiplierCandidates(trace.prePostCapDamage, hits, {
+    finalRounding: "ceil",
+    damageTransform: {
+      id: "observed-proficiency2-lb-normal-attack",
+      apply: (damage) => calculateDamageAttenuation(
+        damage,
+        normal.result.bodyDamageAttenuation.profile,
+        { damageCapUpPercent: normal.result.bodyDamageAttenuation.damageCapUpPercent },
+      ).damage * (1 + trace.postCapDamagePercent / 100),
+    },
+  });
+  assert.equal(inference.resolvedObservationCount, hits.length);
+  assert.deepEqual(inference.unresolvedObservationIndexes, []);
+});
+
 test("derives Froga display stats and reproduces the game calculator estimates", () => {
   const normal = calculateNormalAttackFromRequest(derivedFrogaRequest("1", 0));
   const advantage = calculateNormalAttackFromRequest(derivedFrogaRequest("4", 5));

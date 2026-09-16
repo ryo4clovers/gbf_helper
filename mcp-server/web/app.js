@@ -22,7 +22,7 @@ import {
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_LIMIT_BONUS_VALUES,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
-} from "/protagonist-displayed-stats.js?v=5";
+} from "/protagonist-displayed-stats.js?v=6";
 import {
   calculateEquipmentLevelStats,
   calculateEquipmentSelectionDefaultStats,
@@ -803,7 +803,11 @@ function renderJobEditor(config) {
       .filter(({ target }) => target === "both")
       .map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0)
       .join("/");
-    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0} / 得意1LB ★${proficiency1Summary}・1・2 ★${proficiencyBothSummary} / ${elementAttackSummary}`));
+    const proficiency2Summary = PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS
+      .filter(({ target }) => target === "second")
+      .map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0)
+      .join("/");
+    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0} / 得意1 ★${proficiency1Summary}・得意2 ★${proficiency2Summary}・1・2 ★${proficiencyBothSummary} / ${elementAttackSummary}`));
   } else {
     $("protagonist-strengthening-fields").replaceChildren();
     if ($("protagonist-strengthening").open) $("protagonist-strengthening").close();

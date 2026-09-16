@@ -11,8 +11,11 @@ export interface ProtagonistDisplayedStatsInput {
   attackLimitBonusLevel?: number;
   hpLimitBonusLevel?: number;
   proficiency1AttackLimitBonusLevel?: number;
+  proficiency2AttackLimitBonusLevel?: number;
   proficiency1AttackLimitBonus2Level?: number;
+  proficiency2AttackLimitBonus2Level?: number;
   proficiency1AttackLimitBonus3Level?: number;
+  proficiency2AttackLimitBonus3Level?: number;
   proficiencyBothAttackLimitBonusLevel?: number;
   proficiencyBothAttackLimitBonus2Level?: number;
   completionAttackPercent: number;
@@ -77,15 +80,18 @@ export const PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS: ReadonlyArray<R
 }>>;
 export type ProtagonistProficiencyAttackLimitBonusFieldKey =
   | "proficiency1AttackLimitBonusLevel"
+  | "proficiency2AttackLimitBonusLevel"
   | "proficiency1AttackLimitBonus2Level"
+  | "proficiency2AttackLimitBonus2Level"
   | "proficiency1AttackLimitBonus3Level"
+  | "proficiency2AttackLimitBonus3Level"
   | "proficiencyBothAttackLimitBonusLevel"
   | "proficiencyBothAttackLimitBonus2Level";
 export const PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS: ReadonlyArray<Readonly<{
   fieldKey: ProtagonistProficiencyAttackLimitBonusFieldKey;
   label: string;
   limitBonusId: string;
-  target: "first" | "both";
+  target: "first" | "second" | "both";
 }>>;
 export function calculateProtagonistRankBaseStats(rank: number): {
   rank: number;
