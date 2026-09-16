@@ -6,6 +6,7 @@ export interface MultiattackRateContribution {
     | "job-level"
     | "master-level"
     | "perfection-proof"
+    | "job-limit-bonus"
     | "job-completion"
     | "memorial-item"
     | "weapon-skill";
@@ -77,7 +78,7 @@ export function calculateProtagonistMultiattackRates(
   for (const bonus of job?.multiattackRateBonuses ?? []) {
     contributions.push({
       sourceType: bonus.sourceType,
-      sourceName: `${job?.name ?? job?.masterId ?? "ジョブ"} ${bonus.sourceType} Lv${bonus.level}`,
+      sourceName: bonus.sourceName ?? `${job?.name ?? job?.masterId ?? "ジョブ"} ${bonus.sourceType} Lv${bonus.level}`,
       doubleAttackRatePercent: bonus.doubleAttackRatePercent,
       tripleAttackRatePercent: bonus.tripleAttackRatePercent,
       verificationStatus: bonus.verificationStatus,

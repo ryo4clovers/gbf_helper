@@ -74,6 +74,8 @@ test("preserves protagonist LB selections in formation save and reload", () => {
   const current = request();
   current.deckConfig.protagonist.attackLimitBonusLevel = 2;
   current.deckConfig.protagonist.hpLimitBonusLevel = 3;
+  current.deckConfig.protagonist.doubleAttackRateLimitBonusLevel = 3;
+  current.deckConfig.protagonist.tripleAttackRateLimitBonus2Level = 2;
   current.deckConfig.protagonist.proficiency1AttackLimitBonusLevel = 3;
   current.deckConfig.protagonist.proficiency2AttackLimitBonusLevel = 1;
   current.deckConfig.protagonist.proficiency1AttackLimitBonus2Level = 2;
@@ -91,6 +93,8 @@ test("preserves protagonist LB selections in formation save and reload", () => {
   const restored = mergeCalculatorFormation(request(), saved);
   assert.equal(restored.deckConfig.protagonist.attackLimitBonusLevel, 2);
   assert.equal(restored.deckConfig.protagonist.hpLimitBonusLevel, 3);
+  assert.equal(restored.deckConfig.protagonist.doubleAttackRateLimitBonusLevel, 3);
+  assert.equal(restored.deckConfig.protagonist.tripleAttackRateLimitBonus2Level, 2);
   assert.equal(restored.deckConfig.protagonist.proficiency1AttackLimitBonusLevel, 3);
   assert.equal(restored.deckConfig.protagonist.proficiency2AttackLimitBonusLevel, 1);
   assert.equal(restored.deckConfig.protagonist.proficiency1AttackLimitBonus2Level, 2);

@@ -400,7 +400,8 @@ export interface DeckJob {
 }
 
 export interface DeckJobMultiattackRateBonus {
-  sourceType: "job-level" | "master-level" | "perfection-proof";
+  sourceType: "job-level" | "master-level" | "perfection-proof" | "job-limit-bonus";
+  sourceName?: string;
   level: number;
   doubleAttackRatePercent: number;
   tripleAttackRatePercent: number;
@@ -460,6 +461,11 @@ export interface DeckSnapshot {
 export interface CalculatorDeckProtagonistConfig {
   attackLimitBonusLevel?: number;
   hpLimitBonusLevel?: number;
+  doubleAttackRateLimitBonusLevel?: number;
+  doubleAttackRateLimitBonus2Level?: number;
+  doubleAttackRateLimitBonus3Level?: number;
+  tripleAttackRateLimitBonusLevel?: number;
+  tripleAttackRateLimitBonus2Level?: number;
   proficiency1AttackLimitBonusLevel?: number;
   proficiency2AttackLimitBonusLevel?: number;
   proficiency1AttackLimitBonus2Level?: number;

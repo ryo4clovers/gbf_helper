@@ -844,6 +844,35 @@ test("resolves protagonist DA and TA rates from the selected job", () => {
   });
 });
 
+test("adds protagonist DA and TA limit bonuses to the selected job rates", () => {
+  const input = agniRequest();
+  Object.assign(input.deckConfig.protagonist, {
+    doubleAttackRateLimitBonusLevel: 3,
+    doubleAttackRateLimitBonus2Level: 3,
+    doubleAttackRateLimitBonus3Level: 3,
+    tripleAttackRateLimitBonusLevel: 3,
+    tripleAttackRateLimitBonus2Level: 3,
+  });
+  const response = calculateNormalAttackFromRequest(input);
+
+  assert.equal(response.result.multiattackRates.doubleAttackRatePercent, 29);
+  assert.equal(response.result.multiattackRates.tripleAttackRatePercent, 18);
+  const limitBonusContributions = response.result.multiattackRates.contributions
+    .filter((contribution) => contribution.sourceType === "job-limit-bonus");
+  assert.deepEqual(
+    limitBonusContributions.map(({ sourceName, doubleAttackRatePercent, tripleAttackRatePercent, verificationStatus }) => ({
+      sourceName, doubleAttackRatePercent, tripleAttackRatePercent, verificationStatus,
+    })),
+    [
+      { sourceName: "ダブルアタック確率 LB", doubleAttackRatePercent: 5, tripleAttackRatePercent: 0, verificationStatus: "下書き" },
+      { sourceName: "ダブルアタック確率 II LB", doubleAttackRatePercent: 5, tripleAttackRatePercent: 0, verificationStatus: "下書き" },
+      { sourceName: "トリプルアタック確率 LB", doubleAttackRatePercent: 0, tripleAttackRatePercent: 5, verificationStatus: "下書き" },
+      { sourceName: "トリプルアタック確率 II LB", doubleAttackRatePercent: 0, tripleAttackRatePercent: 5, verificationStatus: "下書き" },
+      { sourceName: "ダブルアタック確率 III LB", doubleAttackRatePercent: 5, tripleAttackRatePercent: 0, verificationStatus: "下書き" },
+    ],
+  );
+});
+
 test("adds God Extinction Crest DA and TA rates as an account-item contribution", () => {
   const input = agniRequest();
   const response = calculateNormalAttackFromRequest({

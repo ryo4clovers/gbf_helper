@@ -64,6 +64,11 @@ const protagonistSchema = z
   .object({
     attackLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     hpLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
+    doubleAttackRateLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
+    doubleAttackRateLimitBonus2Level: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
+    doubleAttackRateLimitBonus3Level: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
+    tripleAttackRateLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
+    tripleAttackRateLimitBonus2Level: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     proficiency1AttackLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     proficiency2AttackLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     proficiency1AttackLimitBonus2Level: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),

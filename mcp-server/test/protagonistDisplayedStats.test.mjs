@@ -4,6 +4,7 @@ import {
   calculateProtagonistDisplayedStats,
   calculateProtagonistRankBaseStats,
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
+  PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
 } from "../web/protagonist-displayed-stats.js";
 
@@ -20,6 +21,13 @@ test("registers all observed proficiency attack LB IDs and targets", () => {
   assert.deepEqual(
     PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ limitBonusId, target }) => [limitBonusId, target]),
     [["22", "first"], ["23", "second"], ["30", "first"], ["31", "second"], ["64", "first"], ["65", "second"], ["83", "both"], ["97", "both"]],
+  );
+});
+
+test("registers all observed protagonist multiattack LB IDs and kinds", () => {
+  assert.deepEqual(
+    PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS.map(({ limitBonusId, kind }) => [limitBonusId, kind]),
+    [["24", "double"], ["33", "double"], ["34", "triple"], ["88", "triple"], ["102", "double"]],
   );
 });
 

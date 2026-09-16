@@ -60,6 +60,7 @@ export const PROTAGONIST_LIMIT_BONUS_VALUES: Readonly<{
   fireAttack: readonly number[];
   elementAttack: readonly number[];
   proficiencyAttack: readonly number[];
+  multiattack: readonly number[];
 }>;
 export type ProtagonistElementAttackLimitBonusFieldKey =
   | "fireAttackLimitBonusLevel" | "fireAttackLimitBonus2Level" | "fireAttackLimitBonus3Level"
@@ -92,6 +93,18 @@ export const PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS: ReadonlyArr
   label: string;
   limitBonusId: string;
   target: "first" | "second" | "both";
+}>>;
+export type ProtagonistMultiattackLimitBonusFieldKey =
+  | "doubleAttackRateLimitBonusLevel"
+  | "doubleAttackRateLimitBonus2Level"
+  | "doubleAttackRateLimitBonus3Level"
+  | "tripleAttackRateLimitBonusLevel"
+  | "tripleAttackRateLimitBonus2Level";
+export const PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS: ReadonlyArray<Readonly<{
+  fieldKey: ProtagonistMultiattackLimitBonusFieldKey;
+  label: string;
+  limitBonusId: string;
+  kind: "double" | "triple";
 }>>;
 export function calculateProtagonistRankBaseStats(rank: number): {
   rank: number;

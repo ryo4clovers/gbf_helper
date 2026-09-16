@@ -6,6 +6,7 @@ export const PROTAGONIST_LIMIT_BONUS_VALUES = Object.freeze({
   fireAttack: Object.freeze([0, 1, 3, 5]),
   elementAttack: Object.freeze([0, 1, 3, 5]),
   proficiencyAttack: Object.freeze([0, 1, 3, 5]),
+  multiattack: Object.freeze([0, 1, 3, 5]),
 });
 
 const ELEMENT_ATTACK_LIMIT_BONUS_ELEMENTS = [
@@ -47,6 +48,14 @@ export const PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS = Object.fre
   Object.freeze({ fieldKey: "proficiency2AttackLimitBonus3Level", label: "得意武器攻撃2 III", limitBonusId: "65", target: "second" }),
   Object.freeze({ fieldKey: "proficiencyBothAttackLimitBonusLevel", label: "得意武器攻撃1・2", limitBonusId: "83", target: "both" }),
   Object.freeze({ fieldKey: "proficiencyBothAttackLimitBonus2Level", label: "得意武器攻撃1・2 II", limitBonusId: "97", target: "both" }),
+]);
+
+export const PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS = Object.freeze([
+  Object.freeze({ fieldKey: "doubleAttackRateLimitBonusLevel", label: "ダブルアタック確率", limitBonusId: "24", kind: "double" }),
+  Object.freeze({ fieldKey: "doubleAttackRateLimitBonus2Level", label: "ダブルアタック確率 II", limitBonusId: "33", kind: "double" }),
+  Object.freeze({ fieldKey: "tripleAttackRateLimitBonusLevel", label: "トリプルアタック確率", limitBonusId: "34", kind: "triple" }),
+  Object.freeze({ fieldKey: "tripleAttackRateLimitBonus2Level", label: "トリプルアタック確率 II", limitBonusId: "88", kind: "triple" }),
+  Object.freeze({ fieldKey: "doubleAttackRateLimitBonus3Level", label: "ダブルアタック確率 III", limitBonusId: "102", kind: "double" }),
 ]);
 
 function limitBonusValue(kind, level = 0) {

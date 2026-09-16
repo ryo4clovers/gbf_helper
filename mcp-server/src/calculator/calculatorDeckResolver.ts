@@ -24,6 +24,7 @@ import {
   calculateProtagonistDisplayedStats,
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_LIMIT_BONUS_VALUES,
+  PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
 } from "../../web/protagonist-displayed-stats.js";
 
@@ -44,6 +45,24 @@ function elementAttackLimitBonusModifiers(
         verificationStatus: definition.verificationStatus,
       }];
     });
+}
+
+function multiattackLimitBonuses(
+  protagonist: CalculatorDeckProtagonistConfig,
+): DeckJobMultiattackRateBonus[] {
+  return PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS.flatMap((definition) => {
+    const level = protagonist[definition.fieldKey] ?? 0;
+    if (level === 0) return [];
+    const amountPercent = PROTAGONIST_LIMIT_BONUS_VALUES.multiattack[level];
+    return [{
+      sourceType: "job-limit-bonus" as const,
+      sourceName: `${definition.label} LB`,
+      level,
+      doubleAttackRatePercent: definition.kind === "double" ? amountPercent : 0,
+      tripleAttackRatePercent: definition.kind === "triple" ? amountPercent : 0,
+      verificationStatus: "下書き" as const,
+    }];
+  });
 }
 
 export type CalculatorDeckResolutionIssueCode =
@@ -255,6 +274,7 @@ export function resolveCalculatorDeckConfig(
         ...selectedJob.perfectionProofMultiattackBonuses
           .filter((bonus) => bonus.level <= (config.protagonist.perfectionProofLevel ?? 0))
           .map((bonus) => ({ ...bonus, sourceType: "perfection-proof" as const, verificationStatus: jobVerificationStatus })),
+        ...multiattackLimitBonuses(config.protagonist),
       ];
 
   appendMissingStatIssues(
