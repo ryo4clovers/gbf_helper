@@ -461,6 +461,9 @@ export interface DeckSnapshot {
 export interface CalculatorDeckProtagonistConfig {
   attackLimitBonusLevel?: number;
   hpLimitBonusLevel?: number;
+  partyHpLimitBonusLevel?: number;
+  partyHpLimitBonus2Level?: number;
+  partyHpLimitBonus3Level?: number;
   doubleAttackRateLimitBonusLevel?: number;
   doubleAttackRateLimitBonus2Level?: number;
   doubleAttackRateLimitBonus3Level?: number;

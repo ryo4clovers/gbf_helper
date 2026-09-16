@@ -1,8 +1,9 @@
 import {
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS,
+  PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
-} from "./protagonist-displayed-stats.js?v=7";
+} from "./protagonist-displayed-stats.js?v=8";
 
 export const CALCULATOR_FORMATION_STORAGE_KEY = "gbf-helper-calculator-formation-v2";
 export const CALCULATOR_FORMATION_FORMAT = "gbf-helper-calculator-formation";
@@ -25,6 +26,7 @@ function pick(source, keys) {
 
 const protagonistKeys = [
   "attackLimitBonusLevel", "hpLimitBonusLevel",
+  ...PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
   ...PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
   ...PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
   ...PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),

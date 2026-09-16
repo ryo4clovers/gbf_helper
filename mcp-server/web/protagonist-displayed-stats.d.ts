@@ -10,6 +10,9 @@ export interface ProtagonistDisplayedStatsInput {
   jobGrowthHp: number;
   attackLimitBonusLevel?: number;
   hpLimitBonusLevel?: number;
+  partyHpLimitBonusLevel?: number;
+  partyHpLimitBonus2Level?: number;
+  partyHpLimitBonus3Level?: number;
   proficiency1AttackLimitBonusLevel?: number;
   proficiency2AttackLimitBonusLevel?: number;
   proficiency1AttackLimitBonus2Level?: number;
@@ -36,6 +39,7 @@ export interface ProtagonistDisplayedStatsResult {
     rankHp: number;
     limitBonusAttack: number;
     limitBonusHp: number;
+    partyLimitBonusHp: number;
     jobGrowthAttack: number;
     jobGrowthHp: number;
     weaponAttack: number;
@@ -105,6 +109,15 @@ export const PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS: ReadonlyArray<Read
   label: string;
   limitBonusId: string;
   kind: "double" | "triple";
+}>>;
+export type ProtagonistPartyHpLimitBonusFieldKey =
+  | "partyHpLimitBonusLevel"
+  | "partyHpLimitBonus2Level"
+  | "partyHpLimitBonus3Level";
+export const PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS: ReadonlyArray<Readonly<{
+  fieldKey: ProtagonistPartyHpLimitBonusFieldKey;
+  label: string;
+  limitBonusId: string;
 }>>;
 export function calculateProtagonistRankBaseStats(rank: number): {
   rank: number;

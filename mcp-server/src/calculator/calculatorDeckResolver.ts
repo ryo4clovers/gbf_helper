@@ -25,6 +25,7 @@ import {
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_LIMIT_BONUS_VALUES,
   PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS,
+  PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
 } from "../../web/protagonist-displayed-stats.js";
 
@@ -227,6 +228,9 @@ export function resolveCalculatorDeckConfig(
         jobGrowthHp: growthStats.hp,
         attackLimitBonusLevel: config.protagonist.attackLimitBonusLevel,
         hpLimitBonusLevel: config.protagonist.hpLimitBonusLevel,
+        partyHpLimitBonusLevel: config.protagonist.partyHpLimitBonusLevel,
+        partyHpLimitBonus2Level: config.protagonist.partyHpLimitBonus2Level,
+        partyHpLimitBonus3Level: config.protagonist.partyHpLimitBonus3Level,
         proficiency1AttackLimitBonusLevel: config.protagonist.proficiency1AttackLimitBonusLevel,
         proficiency2AttackLimitBonusLevel: config.protagonist.proficiency2AttackLimitBonusLevel,
         proficiency1AttackLimitBonus2Level: config.protagonist.proficiency1AttackLimitBonus2Level,
@@ -251,6 +255,9 @@ export function resolveCalculatorDeckConfig(
     selectedJob?.verificationStatus === "検証済み" ? "検証済み" : "下書き";
   const hasDisplayedStatLimitBonus = (config.protagonist.attackLimitBonusLevel ?? 0) > 0
     || (config.protagonist.hpLimitBonusLevel ?? 0) > 0
+    || PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS.some(
+      ({ fieldKey }) => (config.protagonist[fieldKey] ?? 0) > 0,
+    )
     || PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS.some(
       ({ fieldKey }) => (config.protagonist[fieldKey] ?? 0) > 0,
     );

@@ -16,14 +16,15 @@ import {
   serializeCalculatorFormation,
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
-} from "/calculator-state-storage.js?v=7";
+} from "/calculator-state-storage.js?v=8";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
 import {
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_LIMIT_BONUS_VALUES,
   PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS,
+  PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
-} from "/protagonist-displayed-stats.js?v=7";
+} from "/protagonist-displayed-stats.js?v=8";
 import {
   calculateEquipmentLevelStats,
   calculateEquipmentSelectionDefaultStats,
@@ -752,6 +753,8 @@ function renderJobEditor(config) {
     for (const [key, kind, name, unit] of [
       ["attackLimitBonusLevel", "attack", "攻撃力LB", ""],
       ["hpLimitBonusLevel", "hp", "HP LB", ""],
+      ...PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS
+        .map(({ fieldKey, label }) => [fieldKey, "hp", label, ""]),
       ...PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS
         .map(({ fieldKey, label }) => [fieldKey, "proficiencyAttack", label, "%"]),
       ...PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS
@@ -818,7 +821,10 @@ function renderJobEditor(config) {
         .join("/");
       return `${abbreviation} LB ★${levels}`;
     }).join("・");
-    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0} / 得意1 ★${proficiency1Summary}・得意2 ★${proficiency2Summary}・1・2 ★${proficiencyBothSummary} / ${multiattackSummary} / ${elementAttackSummary}`));
+    const partyHpSummary = PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS
+      .map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0)
+      .join("/");
+    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0} / 全体HP LB ★${partyHpSummary} / 得意1 ★${proficiency1Summary}・得意2 ★${proficiency2Summary}・1・2 ★${proficiencyBothSummary} / ${multiattackSummary} / ${elementAttackSummary}`));
   } else {
     $("protagonist-strengthening-fields").replaceChildren();
     if ($("protagonist-strengthening").open) $("protagonist-strengthening").close();
@@ -893,6 +899,9 @@ function selectJob(job) {
   if (config.protagonist.jobId !== job.jobId) {
     delete config.protagonist.attackLimitBonusLevel;
     delete config.protagonist.hpLimitBonusLevel;
+    for (const { fieldKey } of PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS) {
+      delete config.protagonist[fieldKey];
+    }
     for (const { fieldKey } of PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS) {
       delete config.protagonist[fieldKey];
     }

@@ -12,6 +12,7 @@ test("resolves protagonist LB before completion bonuses and replaces stale impor
       masterBonusAttackPercent: 24, masterBonusHpPercent: 20,
       mainWeaponCompletionAttackContribution: 4,
       attackLimitBonusLevel: 3, hpLimitBonusLevel: 3,
+      partyHpLimitBonusLevel: 3, partyHpLimitBonus2Level: 3, partyHpLimitBonus3Level: 3,
       fireAttackLimitBonusLevel: 3, fireAttackLimitBonus2Level: 3, fireAttackLimitBonus3Level: 3,
       attackOverride: 18687, hpOverride: 5262,
     },
@@ -21,7 +22,7 @@ test("resolves protagonist LB before completion bonuses and replaces stale impor
   });
   assert.equal(result.mode, "catalog-derived");
   assert.equal(result.deck.protagonist.attack, 18687);
-  assert.equal(result.deck.protagonist.hp, 5262);
+  assert.equal(result.deck.protagonist.hp, 8862);
   assert.deepEqual(result.deck.protagonist.job?.damageModifiers, [
     {
       stage: "elemental-attack", amountPercent: 5, sourceType: "job-limit-bonus",

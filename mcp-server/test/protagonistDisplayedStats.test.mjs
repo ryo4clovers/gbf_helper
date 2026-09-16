@@ -5,6 +5,7 @@ import {
   calculateProtagonistRankBaseStats,
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS,
+  PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
 } from "../web/protagonist-displayed-stats.js";
 
@@ -31,6 +32,13 @@ test("registers all observed protagonist multiattack LB IDs and kinds", () => {
   );
 });
 
+test("registers all observed party HP LB IDs", () => {
+  assert.deepEqual(
+    PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS.map(({ limitBonusId }) => limitBonusId),
+    ["28", "40", "73"],
+  );
+});
+
 test("reproduces every observed Knight attack and HP LB stage without double counting", () => {
   const input = {
     rank: 425, jobGrowthAttack: 0, jobGrowthHp: 0,
@@ -53,6 +61,30 @@ test("reproduces every observed Knight attack and HP LB stage without double cou
     assert.equal(combined.hp, hpObservations[level]);
   }
   assert.equal(calculateProtagonistDisplayedStats(input).attack, 14967);
+});
+
+test("reproduces every observed Knight party HP LB stage", () => {
+  const input = {
+    rank: 425, jobGrowthAttack: 0, jobGrowthHp: 0,
+    completionAttackPercent: 24, completionHpPercent: 20,
+    mainWeaponCompletionAttack: 4, jobWeaponKindCodes: ["1", "3"],
+    weapons: [{ attack: 70, hp: 6, weaponKindCode: "1" }],
+    summons: [{ attack: 4157, hp: 1414 }],
+  };
+  const stages = [
+    [{}, 4062, 0],
+    [{ partyHpLimitBonusLevel: 1 }, 4422, 300],
+    [{ partyHpLimitBonusLevel: 2 }, 4782, 600],
+    [{ partyHpLimitBonusLevel: 3 }, 5262, 1000],
+    [{ partyHpLimitBonusLevel: 3, partyHpLimitBonus2Level: 3 }, 6462, 2000],
+    [{ partyHpLimitBonusLevel: 3, partyHpLimitBonus2Level: 3, partyHpLimitBonus3Level: 3 }, 7662, 3000],
+  ];
+  for (const [levels, hp, contribution] of stages) {
+    const result = calculateProtagonistDisplayedStats({ ...input, ...levels });
+    assert.equal(result.hp, hp);
+    assert.equal(result.attack, 14967);
+    assert.equal(result.breakdown.partyLimitBonusHp, contribution);
+  }
 });
 
 test("reproduces every observed Knight proficiency-1 attack LB stage", () => {
@@ -133,6 +165,7 @@ test("derives the observed Froga protagonist ATK and pre-skill HP from component
     rankHp: 1964,
     limitBonusAttack: 0,
     limitBonusHp: 0,
+    partyLimitBonusHp: 0,
     jobGrowthAttack: 0,
     jobGrowthHp: 0,
     weaponAttack: 3115,

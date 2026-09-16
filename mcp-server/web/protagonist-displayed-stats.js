@@ -58,6 +58,12 @@ export const PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS = Object.freeze([
   Object.freeze({ fieldKey: "doubleAttackRateLimitBonus3Level", label: "ダブルアタック確率 III", limitBonusId: "102", kind: "double" }),
 ]);
 
+export const PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS = Object.freeze([
+  Object.freeze({ fieldKey: "partyHpLimitBonusLevel", label: "味方全体HP", limitBonusId: "28" }),
+  Object.freeze({ fieldKey: "partyHpLimitBonus2Level", label: "味方全体HP II", limitBonusId: "40" }),
+  Object.freeze({ fieldKey: "partyHpLimitBonus3Level", label: "味方全体HP III", limitBonusId: "73" }),
+]);
+
 function limitBonusValue(kind, level = 0) {
   if (!Number.isInteger(level) || level < 0 || level > 3) {
     throw new Error("LBは0〜3の整数で入力してください");
@@ -133,6 +139,10 @@ export function calculateProtagonistDisplayedStats(input) {
   const rank = calculateProtagonistRankBaseStats(input.rank);
   const limitBonusAttack = limitBonusValue("attack", input.attackLimitBonusLevel);
   const limitBonusHp = limitBonusValue("hp", input.hpLimitBonusLevel);
+  const partyLimitBonusHp = PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS.reduce(
+    (sum, definition) => sum + limitBonusValue("hp", input[definition.fieldKey]),
+    0,
+  );
   const weaponAttack = statTotal(input.weapons, "attack");
   const weaponHp = statTotal(input.weapons, "hp");
   const summonAttack = statTotal(input.summons, "attack");
@@ -150,6 +160,7 @@ export function calculateProtagonistDisplayedStats(input) {
     + summonAttack;
   const hpSubtotal = rank.hp
     + limitBonusHp
+    + partyLimitBonusHp
     + input.jobGrowthHp
     + weaponHp
     + proficiencyHp
@@ -165,6 +176,7 @@ export function calculateProtagonistDisplayedStats(input) {
       rankHp: rank.hp,
       limitBonusAttack,
       limitBonusHp,
+      partyLimitBonusHp,
       jobGrowthAttack: input.jobGrowthAttack,
       jobGrowthHp: input.jobGrowthHp,
       weaponAttack,
