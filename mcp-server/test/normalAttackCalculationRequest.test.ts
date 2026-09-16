@@ -176,6 +176,87 @@ function derivedFrogaRequest(enemyElementCode: "1" | "4", targetElementDamagePer
   };
 }
 
+test("adds fire attack LB to the elemental frame only for a fire protagonist", () => {
+  const baselineRequest = agniRequest();
+  const fireRequest = structuredClone(baselineRequest);
+  fireRequest.deckConfig.protagonist.fireAttackLimitBonusLevel = 3;
+  const baseline = calculateNormalAttackFromRequest(baselineRequest);
+  const fire = calculateNormalAttackFromRequest(fireRequest);
+  const baselineStage = baseline.result.baseDamage.stages.find((stage) => stage.stage === "elemental-attack");
+  const fireStage = fire.result.baseDamage.stages.find((stage) => stage.stage === "elemental-attack");
+  assert.equal(fireStage?.totalPercent, (baselineStage?.totalPercent ?? 0) + 5);
+  assert.equal(
+    fireStage?.contributions.some(
+      (contribution) => "sourceId" in contribution && contribution.sourceId === "fire-attack-limit-bonus",
+    ),
+    true,
+  );
+
+  const waterBaselineRequest = agniRequest();
+  waterBaselineRequest.deckConfig.protagonist.elementCode = "2";
+  waterBaselineRequest.deckConfig.weapons = [{
+    slot: 1, position: "main", weaponId: "1040101500", level: 150, skillLevel: 15,
+    plusMark: 0, attackOverride: 2520, hpOverride: 255,
+  }];
+  waterBaselineRequest.deckConfig.summons = [];
+  const waterRequest = structuredClone(waterBaselineRequest);
+  waterRequest.deckConfig.protagonist.fireAttackLimitBonusLevel = 3;
+  const waterBaseline = calculateNormalAttackFromRequest(waterBaselineRequest);
+  const water = calculateNormalAttackFromRequest(waterRequest);
+  assert.equal(
+    water.result.baseDamage.stages.find((stage) => stage.stage === "elemental-attack")?.totalPercent,
+    waterBaseline.result.baseDamage.stages.find((stage) => stage.stage === "elemental-attack")?.totalPercent,
+  );
+});
+
+test("reproduces all observed fire attack LB game-calculator estimates", () => {
+  const expected = [
+    { normal: 2763, advantage: 3903 },
+    { normal: 2782, advantage: 3924 },
+    { normal: 2821, advantage: 3964 },
+    { normal: 2859, advantage: 4004 },
+  ];
+  for (let level = 0; level <= 3; level++) {
+    const request = {
+      schemaVersion: 1 as const,
+      deckConfig: {
+        schemaVersion: 1 as const,
+        format: "gbf-helper-calculator-deck" as const,
+        protagonist: {
+          rank: 425, elementCode: "1", jobId: "110001", jobLevel: 20,
+          masterLevel: 0, perfectionProofLevel: 0,
+          masterBonusAttackPercent: 24, masterBonusHpPercent: 20,
+          mainWeaponCompletionAttackContribution: 4,
+          fireAttackLimitBonusLevel: level,
+        },
+        weapons: [{
+          slot: 1, position: "main" as const, weaponId: "1010000400",
+          isJobFallback: true, level: 1, attackOverride: 70, hpOverride: 6,
+        }],
+        summons: [{
+          slot: 1, position: "main" as const, summonId: "2040094000", level: 250, uncapLevel: 6,
+        }],
+        characters: [],
+      },
+      enemy: { elementCode: "1", defense: 10 },
+      modifiers: {
+        allElementAttackPercent: 3, elementAttackPercent: 10,
+        shipAttackPercent: 10, furnaceAttackPercent: 10,
+        jobNormalAttackDamagePercent: 3, damageDealtPercent: 3.6,
+        targetElementDamagePercent: 0,
+      },
+    };
+    const normal = calculateNormalAttackFromRequest(request);
+    const advantageRequest = structuredClone(request);
+    advantageRequest.enemy.elementCode = "4";
+    advantageRequest.modifiers.targetElementDamagePercent = 5;
+    const advantage = calculateNormalAttackFromRequest(advantageRequest);
+    assert.equal(normal.result.attackPower.baseAttack, 14967);
+    assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, expected[level].normal);
+    assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, expected[level].advantage);
+  }
+});
+
 test("derives Froga display stats and reproduces the game calculator estimates", () => {
   const normal = calculateNormalAttackFromRequest(derivedFrogaRequest("1", 0));
   const advantage = calculateNormalAttackFromRequest(derivedFrogaRequest("4", 5));

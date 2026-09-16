@@ -229,6 +229,7 @@ export function calculateDefenseAdjustedBaseDamage(
       }),
     ),
     ...accountModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
+    ...jobModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
   ];
   if (superiorityPercent !== 0) {
     elementalContributions.push({

@@ -3,6 +3,7 @@ export const MAX_SUPPORTED_PLAYER_RANK = 425;
 export const PROTAGONIST_LIMIT_BONUS_VALUES = Object.freeze({
   attack: Object.freeze([0, 500, 1500, 3000]),
   hp: Object.freeze([0, 300, 600, 1000]),
+  fireAttack: Object.freeze([0, 1, 3, 5]),
 });
 
 function limitBonusValue(kind, level = 0) {

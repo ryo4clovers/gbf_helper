@@ -190,6 +190,7 @@ export function calculateArticleBaseDamage(
       }),
     ),
     ...accountModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
+    ...jobModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
   ];
   const superiorityPercent = elementalSuperiorityPercent(protagonistElementCode, target.elementCode);
   if (superiorityPercent !== 0) {

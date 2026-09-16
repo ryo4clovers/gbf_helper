@@ -16,9 +16,9 @@ import {
   serializeCalculatorFormation,
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
-} from "/calculator-state-storage.js?v=3";
+} from "/calculator-state-storage.js?v=4";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
-import { PROTAGONIST_LIMIT_BONUS_VALUES } from "/protagonist-displayed-stats.js?v=2";
+import { PROTAGONIST_LIMIT_BONUS_VALUES } from "/protagonist-displayed-stats.js?v=3";
 import {
   calculateEquipmentLevelStats,
   calculateEquipmentSelectionDefaultStats,
@@ -742,9 +742,10 @@ function renderJobEditor(config) {
       createJobLevelField(config, job, "masterLevel", "マスターレベル（ML）", job?.maximumMasterLevel ?? 0, job?.maximumMasterLevel ? 1 : 0),
       createJobLevelField(config, job, "perfectionProofLevel", "極致の証", job?.maximumPerfectionProofLevel ?? 0),
     );
-    for (const [key, kind, name] of [
-      ["attackLimitBonusLevel", "attack", "攻撃力LB"],
-      ["hpLimitBonusLevel", "hp", "HP LB"],
+    for (const [key, kind, name, unit] of [
+      ["attackLimitBonusLevel", "attack", "攻撃力LB", ""],
+      ["hpLimitBonusLevel", "hp", "HP LB", ""],
+      ["fireAttackLimitBonusLevel", "fireAttack", "火属性攻撃LB", "%"],
     ]) {
       const label = document.createElement("label");
       label.textContent = name;
@@ -753,7 +754,7 @@ function renderJobEditor(config) {
       PROTAGONIST_LIMIT_BONUS_VALUES[kind].forEach((amount, level) => {
         const option = document.createElement("option");
         option.value = String(level);
-        option.textContent = `★${level}（+${numberFormat.format(amount)}）`;
+        option.textContent = `★${level}（+${numberFormat.format(amount)}${unit}）`;
         select.append(option);
       });
       select.value = String(config.protagonist[key] ?? 0);
@@ -783,7 +784,7 @@ function renderJobEditor(config) {
     edit.className = "tonal-button";
     edit.textContent = "強化設定";
     edit.addEventListener("click", () => $("protagonist-strengthening").showModal());
-    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0}`));
+    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0} / 火攻撃LB ★${config.protagonist.fireAttackLimitBonusLevel ?? 0}`));
   } else {
     $("protagonist-strengthening-fields").replaceChildren();
     if ($("protagonist-strengthening").open) $("protagonist-strengthening").close();
@@ -858,6 +859,7 @@ function selectJob(job) {
   if (config.protagonist.jobId !== job.jobId) {
     delete config.protagonist.attackLimitBonusLevel;
     delete config.protagonist.hpLimitBonusLevel;
+    delete config.protagonist.fireAttackLimitBonusLevel;
     delete config.protagonist.jobLevel;
     delete config.protagonist.masterLevel;
     delete config.protagonist.perfectionProofLevel;

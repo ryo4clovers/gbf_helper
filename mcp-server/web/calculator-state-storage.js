@@ -18,7 +18,7 @@ function pick(source, keys) {
 }
 
 const protagonistKeys = [
-  "attackLimitBonusLevel", "hpLimitBonusLevel",
+  "attackLimitBonusLevel", "hpLimitBonusLevel", "fireAttackLimitBonusLevel",
   "elementCode", "jobId", "jobNameHint", "jobLevel", "masterLevel", "perfectionProofLevel",
 ];
 const weaponKeys = [

@@ -297,6 +297,7 @@ export interface DamageModifier {
   sourceType:
     | "account-item"
     | "job-master-bonus"
+    | "job-limit-bonus"
     | "main-summon"
     | "sub-summon"
     | "support-summon"
@@ -459,6 +460,7 @@ export interface DeckSnapshot {
 export interface CalculatorDeckProtagonistConfig {
   attackLimitBonusLevel?: number;
   hpLimitBonusLevel?: number;
+  fireAttackLimitBonusLevel?: number;
   rank?: number;
   elementCode?: string;
   jobId?: string;

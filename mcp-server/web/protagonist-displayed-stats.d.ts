@@ -45,7 +45,11 @@ export interface ProtagonistDisplayedStatsResult {
 }
 
 export const MAX_SUPPORTED_PLAYER_RANK: 425;
-export const PROTAGONIST_LIMIT_BONUS_VALUES: Readonly<{ attack: readonly number[]; hp: readonly number[] }>;
+export const PROTAGONIST_LIMIT_BONUS_VALUES: Readonly<{
+  attack: readonly number[];
+  hp: readonly number[];
+  fireAttack: readonly number[];
+}>;
 export function calculateProtagonistRankBaseStats(rank: number): {
   rank: number;
   attack: number;

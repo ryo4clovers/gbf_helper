@@ -18,7 +18,10 @@ import type {
   WeaponMasterCatalogEntry,
 } from "./types.js";
 import { calculateEquipmentLevelStats } from "../../web/equipment-level-stats.js";
-import { calculateProtagonistDisplayedStats } from "../../web/protagonist-displayed-stats.js";
+import {
+  calculateProtagonistDisplayedStats,
+  PROTAGONIST_LIMIT_BONUS_VALUES,
+} from "../../web/protagonist-displayed-stats.js";
 
 export type CalculatorDeckResolutionIssueCode =
   | "protagonist-lb-components-unresolved"
@@ -370,6 +373,19 @@ export function resolveCalculatorDeckConfig(
               level: config.protagonist.jobLevel,
               masterLevel: config.protagonist.masterLevel,
               perfectionProofLevel: config.protagonist.perfectionProofLevel,
+              damageModifiers: (config.protagonist.fireAttackLimitBonusLevel ?? 0) === 0
+                ? []
+                : [{
+                    stage: "elemental-attack",
+                    amountPercent: PROTAGONIST_LIMIT_BONUS_VALUES.fireAttack[
+                      config.protagonist.fireAttackLimitBonusLevel!
+                    ],
+                    sourceType: "job-limit-bonus",
+                    sourceId: "fire-attack-limit-bonus",
+                    sourceName: "火属性攻撃力LB",
+                    elementCode: "1",
+                    verificationStatus: "下書き",
+                  }],
             },
     },
     weapons: config.weapons.map((weapon, index) => {

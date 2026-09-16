@@ -5,10 +5,13 @@ import {
   parseCalculatorDeckConfig,
 } from "../src/calculator/calculatorDeckConfig.ts";
 
-test("accepts only zero through three for protagonist attack and HP LB", () => {
-  const config = (level: unknown) => ({ schemaVersion: 1, format: "gbf-helper-calculator-deck", protagonist: { attackLimitBonusLevel: level, hpLimitBonusLevel: level }, weapons: [], summons: [] });
+test("accepts only zero through three for protagonist LB levels", () => {
+  const config = (level: unknown) => ({ schemaVersion: 1, format: "gbf-helper-calculator-deck", protagonist: { attackLimitBonusLevel: level, hpLimitBonusLevel: level, fireAttackLimitBonusLevel: level }, weapons: [], summons: [] });
   for (const level of [0, 1, 2, 3, "2"]) {
-    assert.equal(parseCalculatorDeckConfig(config(level)).protagonist.attackLimitBonusLevel, Number(level));
+    const protagonist = parseCalculatorDeckConfig(config(level)).protagonist;
+    assert.equal(protagonist.attackLimitBonusLevel, Number(level));
+    assert.equal(protagonist.hpLimitBonusLevel, Number(level));
+    assert.equal(protagonist.fireAttackLimitBonusLevel, Number(level));
   }
   for (const level of [-1, 4, 1.5]) assert.throws(() => parseCalculatorDeckConfig(config(level)));
 });
