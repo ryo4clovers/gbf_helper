@@ -16,12 +16,13 @@ import {
   serializeCalculatorFormation,
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
-} from "/calculator-state-storage.js?v=6";
+} from "/calculator-state-storage.js?v=7";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
 import {
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_LIMIT_BONUS_VALUES,
-} from "/protagonist-displayed-stats.js?v=4";
+  PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
+} from "/protagonist-displayed-stats.js?v=5";
 import {
   calculateEquipmentLevelStats,
   calculateEquipmentSelectionDefaultStats,
@@ -750,6 +751,8 @@ function renderJobEditor(config) {
     for (const [key, kind, name, unit] of [
       ["attackLimitBonusLevel", "attack", "攻撃力LB", ""],
       ["hpLimitBonusLevel", "hp", "HP LB", ""],
+      ...PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS
+        .map(({ fieldKey, label }) => [fieldKey, "proficiencyAttack", label, "%"]),
       ...elementAttackLimitBonuses.map(({ fieldKey, label }) => [fieldKey, "elementAttack", label, "%"]),
     ]) {
       const label = document.createElement("label");
@@ -792,7 +795,15 @@ function renderJobEditor(config) {
     const elementAttackSummary = elementAttackLimitBonuses.length === 0
       ? "属性攻撃LB —"
       : `${elementAttackLimitBonuses[0].elementName}攻撃LB ★${elementAttackLimitBonuses.map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0).join("/")}`;
-    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0} / ${elementAttackSummary}`));
+    const proficiency1Summary = PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS
+      .filter(({ target }) => target === "first")
+      .map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0)
+      .join("/");
+    const proficiencyBothSummary = PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS
+      .filter(({ target }) => target === "both")
+      .map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0)
+      .join("/");
+    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0} / 得意1LB ★${proficiency1Summary}・1・2 ★${proficiencyBothSummary} / ${elementAttackSummary}`));
   } else {
     $("protagonist-strengthening-fields").replaceChildren();
     if ($("protagonist-strengthening").open) $("protagonist-strengthening").close();
@@ -867,6 +878,9 @@ function selectJob(job) {
   if (config.protagonist.jobId !== job.jobId) {
     delete config.protagonist.attackLimitBonusLevel;
     delete config.protagonist.hpLimitBonusLevel;
+    for (const { fieldKey } of PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS) {
+      delete config.protagonist[fieldKey];
+    }
     for (const { fieldKey } of PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS) {
       delete config.protagonist[fieldKey];
     }

@@ -24,6 +24,7 @@ import {
   calculateProtagonistDisplayedStats,
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_LIMIT_BONUS_VALUES,
+  PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
 } from "../../web/protagonist-displayed-stats.js";
 
 function elementAttackLimitBonusModifiers(
@@ -207,6 +208,11 @@ export function resolveCalculatorDeckConfig(
         jobGrowthHp: growthStats.hp,
         attackLimitBonusLevel: config.protagonist.attackLimitBonusLevel,
         hpLimitBonusLevel: config.protagonist.hpLimitBonusLevel,
+        proficiency1AttackLimitBonusLevel: config.protagonist.proficiency1AttackLimitBonusLevel,
+        proficiency1AttackLimitBonus2Level: config.protagonist.proficiency1AttackLimitBonus2Level,
+        proficiency1AttackLimitBonus3Level: config.protagonist.proficiency1AttackLimitBonus3Level,
+        proficiencyBothAttackLimitBonusLevel: config.protagonist.proficiencyBothAttackLimitBonusLevel,
+        proficiencyBothAttackLimitBonus2Level: config.protagonist.proficiencyBothAttackLimitBonus2Level,
         completionAttackPercent: config.protagonist.masterBonusAttackPercent!,
         completionHpPercent: config.protagonist.masterBonusHpPercent!,
         mainWeaponCompletionAttack: config.protagonist.mainWeaponCompletionAttackContribution!,
@@ -221,7 +227,12 @@ export function resolveCalculatorDeckConfig(
     : undefined;
   const jobVerificationStatus: "検証済み" | "下書き" =
     selectedJob?.verificationStatus === "検証済み" ? "検証済み" : "下書き";
-  if (displayedStats === undefined && ((config.protagonist.attackLimitBonusLevel ?? 0) > 0 || (config.protagonist.hpLimitBonusLevel ?? 0) > 0)) {
+  const hasDisplayedStatLimitBonus = (config.protagonist.attackLimitBonusLevel ?? 0) > 0
+    || (config.protagonist.hpLimitBonusLevel ?? 0) > 0
+    || PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS.some(
+      ({ fieldKey }) => (config.protagonist[fieldKey] ?? 0) > 0,
+    );
+  if (displayedStats === undefined && hasDisplayedStatLimitBonus) {
     issues.push({
       severity: "warning",
       code: "protagonist-lb-components-unresolved",

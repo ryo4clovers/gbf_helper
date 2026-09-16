@@ -460,6 +460,11 @@ export interface DeckSnapshot {
 export interface CalculatorDeckProtagonistConfig {
   attackLimitBonusLevel?: number;
   hpLimitBonusLevel?: number;
+  proficiency1AttackLimitBonusLevel?: number;
+  proficiency1AttackLimitBonus2Level?: number;
+  proficiency1AttackLimitBonus3Level?: number;
+  proficiencyBothAttackLimitBonusLevel?: number;
+  proficiencyBothAttackLimitBonus2Level?: number;
   fireAttackLimitBonusLevel?: number;
   fireAttackLimitBonus2Level?: number;
   fireAttackLimitBonus3Level?: number;

@@ -4,6 +4,7 @@ import {
   calculateProtagonistDisplayedStats,
   calculateProtagonistRankBaseStats,
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
+  PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
 } from "../web/protagonist-displayed-stats.js";
 
 test("registers all in-game elemental attack LB IDs and fields", () => {
@@ -13,6 +14,13 @@ test("registers all in-game elemental attack LB IDs and fields", () => {
     ["9", "67", "106", "10", "68", "107", "11", "69", "108", "12", "70", "109", "13", "71", "110", "14", "72", "111"],
   );
   assert.equal(new Set(PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey)).size, 18);
+});
+
+test("registers the observed proficiency-1 attack LB IDs and targets", () => {
+  assert.deepEqual(
+    PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ limitBonusId, target }) => [limitBonusId, target]),
+    [["22", "first"], ["30", "first"], ["64", "first"], ["83", "both"], ["97", "both"]],
+  );
 });
 
 test("reproduces every observed Knight attack and HP LB stage without double counting", () => {
@@ -37,6 +45,29 @@ test("reproduces every observed Knight attack and HP LB stage without double cou
     assert.equal(combined.hp, hpObservations[level]);
   }
   assert.equal(calculateProtagonistDisplayedStats(input).attack, 14967);
+});
+
+test("reproduces every observed Knight proficiency-1 attack LB stage", () => {
+  const input = {
+    rank: 425, jobGrowthAttack: 0, jobGrowthHp: 0,
+    completionAttackPercent: 24, completionHpPercent: 20,
+    mainWeaponCompletionAttack: 4, jobWeaponKindCodes: ["1", "3"],
+    weapons: [{ attack: 70, hp: 6, weaponKindCode: "1" }],
+    summons: [{ attack: 4157, hp: 1414 }],
+  };
+  const stages = [
+    [{}, 14967, 0],
+    [{ proficiency1AttackLimitBonusLevel: 3 }, 14972, 4],
+    [{ proficiency1AttackLimitBonusLevel: 3, proficiency1AttackLimitBonus2Level: 3 }, 14975, 7],
+    [{ proficiency1AttackLimitBonusLevel: 3, proficiency1AttackLimitBonus2Level: 3, proficiency1AttackLimitBonus3Level: 3 }, 14980, 11],
+    [{ proficiency1AttackLimitBonusLevel: 3, proficiency1AttackLimitBonus2Level: 3, proficiency1AttackLimitBonus3Level: 3, proficiencyBothAttackLimitBonusLevel: 3 }, 14984, 14],
+    [{ proficiency1AttackLimitBonusLevel: 3, proficiency1AttackLimitBonus2Level: 3, proficiency1AttackLimitBonus3Level: 3, proficiencyBothAttackLimitBonusLevel: 3, proficiencyBothAttackLimitBonus2Level: 3 }, 14989, 18],
+  ];
+  for (const [levels, attack, contribution] of stages) {
+    const result = calculateProtagonistDisplayedStats({ ...input, ...levels });
+    assert.equal(result.attack, attack);
+    assert.equal(result.breakdown.proficiencyLimitBonusAttack, contribution);
+  }
 });
 
 test("returns the provisional Rank 425 base stats", () => {
@@ -77,6 +108,7 @@ test("derives the observed Froga protagonist ATK and pre-skill HP from component
     weaponHp: 264,
     proficiencyAttack: 623,
     proficiencyHp: 53,
+    proficiencyLimitBonusAttack: 0,
     mainWeaponCompletionAttack: 4,
     summonAttack: 4157,
     summonHp: 1414,

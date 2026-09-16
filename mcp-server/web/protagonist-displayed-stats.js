@@ -5,6 +5,7 @@ export const PROTAGONIST_LIMIT_BONUS_VALUES = Object.freeze({
   hp: Object.freeze([0, 300, 600, 1000]),
   fireAttack: Object.freeze([0, 1, 3, 5]),
   elementAttack: Object.freeze([0, 1, 3, 5]),
+  proficiencyAttack: Object.freeze([0, 1, 3, 5]),
 });
 
 const ELEMENT_ATTACK_LIMIT_BONUS_ELEMENTS = [
@@ -37,9 +38,17 @@ export const PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS = Object.freeze(
   ),
 );
 
+export const PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS = Object.freeze([
+  Object.freeze({ fieldKey: "proficiency1AttackLimitBonusLevel", label: "得意武器攻撃1", limitBonusId: "22", target: "first" }),
+  Object.freeze({ fieldKey: "proficiency1AttackLimitBonus2Level", label: "得意武器攻撃1 II", limitBonusId: "30", target: "first" }),
+  Object.freeze({ fieldKey: "proficiency1AttackLimitBonus3Level", label: "得意武器攻撃1 III", limitBonusId: "64", target: "first" }),
+  Object.freeze({ fieldKey: "proficiencyBothAttackLimitBonusLevel", label: "得意武器攻撃1・2", limitBonusId: "83", target: "both" }),
+  Object.freeze({ fieldKey: "proficiencyBothAttackLimitBonus2Level", label: "得意武器攻撃1・2 II", limitBonusId: "97", target: "both" }),
+]);
+
 function limitBonusValue(kind, level = 0) {
   if (!Number.isInteger(level) || level < 0 || level > 3) {
-    throw new Error("攻撃力・HP LBは0〜3の整数で入力してください");
+    throw new Error("LBは0〜3の整数で入力してください");
   }
   return PROTAGONIST_LIMIT_BONUS_VALUES[kind][level];
 }
@@ -85,6 +94,25 @@ function proficiencyContribution(weapons, jobWeaponKindCodes, key) {
   }, 0);
 }
 
+function proficiencyLimitBonusAttackContribution(input) {
+  const firstWeaponKindCode = input.jobWeaponKindCodes[0];
+  const proficientWeaponKindCodes = new Set(input.jobWeaponKindCodes);
+  return input.weapons.reduce((total, weapon) => {
+    const amountPercent = PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS.reduce(
+      (sum, definition) => {
+        const applies = definition.target === "first"
+          ? firstWeaponKindCode !== undefined && weapon.weaponKindCode === firstWeaponKindCode
+          : weapon.weaponKindCode !== undefined && proficientWeaponKindCodes.has(weapon.weaponKindCode);
+        return applies
+          ? sum + limitBonusValue("proficiencyAttack", input[definition.fieldKey])
+          : sum;
+      },
+      0,
+    );
+    return total + Math.round(weapon.attack * amountPercent / 100);
+  }, 0);
+}
+
 /** Builds the protagonist's pre-skill displayed ATK/HP from catalog-resolved components. */
 export function calculateProtagonistDisplayedStats(input) {
   const rank = calculateProtagonistRankBaseStats(input.rank);
@@ -96,11 +124,13 @@ export function calculateProtagonistDisplayedStats(input) {
   const summonHp = statTotal(input.summons, "hp");
   const proficiencyAttack = proficiencyContribution(input.weapons, input.jobWeaponKindCodes, "attack");
   const proficiencyHp = proficiencyContribution(input.weapons, input.jobWeaponKindCodes, "hp");
+  const proficiencyLimitBonusAttack = proficiencyLimitBonusAttackContribution(input);
   const attackSubtotal = rank.attack
     + limitBonusAttack
     + input.jobGrowthAttack
     + weaponAttack
     + proficiencyAttack
+    + proficiencyLimitBonusAttack
     + input.mainWeaponCompletionAttack
     + summonAttack;
   const hpSubtotal = rank.hp
@@ -126,6 +156,7 @@ export function calculateProtagonistDisplayedStats(input) {
       weaponHp,
       proficiencyAttack,
       proficiencyHp,
+      proficiencyLimitBonusAttack,
       mainWeaponCompletionAttack: input.mainWeaponCompletionAttack,
       summonAttack,
       summonHp,

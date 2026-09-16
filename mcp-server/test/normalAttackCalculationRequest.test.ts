@@ -332,6 +332,42 @@ test("adds fire attack LB II and III in the same elemental frame", () => {
   }
 });
 
+test("reproduces the observed proficiency-1 attack LB display and battle damage", () => {
+  const request = fireAttackLimitBonusRequest(0);
+  Object.assign(request.deckConfig.protagonist, {
+    proficiency1AttackLimitBonusLevel: 3,
+    proficiency1AttackLimitBonus2Level: 3,
+    proficiency1AttackLimitBonus3Level: 3,
+    proficiencyBothAttackLimitBonusLevel: 3,
+    proficiencyBothAttackLimitBonus2Level: 3,
+  });
+  const normal = calculateNormalAttackFromRequest(request);
+  const advantageRequest = structuredClone(request);
+  advantageRequest.enemy.elementCode = "4";
+  advantageRequest.modifiers.targetElementDamagePercent = 5;
+  const advantage = calculateNormalAttackFromRequest(advantageRequest);
+
+  assert.equal(normal.result.attackPower.baseAttack, 14989);
+  assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, 2766);
+  assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 3908);
+
+  const hits = [2644, 2774, 2661, 2691, 2871, 2713, 2644, 2829, 2738, 2818, 2766, 2874, 2893, 2710, 2727, 2799, 2708, 2708];
+  const trace = normal.result.baseDamage.articleTrace!;
+  const inference = inferRandomMultiplierCandidates(trace.prePostCapDamage, hits, {
+    finalRounding: "ceil",
+    damageTransform: {
+      id: "observed-proficiency1-lb-normal-attack",
+      apply: (damage) => calculateDamageAttenuation(
+        damage,
+        normal.result.bodyDamageAttenuation.profile,
+        { damageCapUpPercent: normal.result.bodyDamageAttenuation.damageCapUpPercent },
+      ).damage * (1 + trace.postCapDamagePercent / 100),
+    },
+  });
+  assert.equal(inference.resolvedObservationCount, hits.length);
+  assert.deepEqual(inference.unresolvedObservationIndexes, []);
+});
+
 test("derives Froga display stats and reproduces the game calculator estimates", () => {
   const normal = calculateNormalAttackFromRequest(derivedFrogaRequest("1", 0));
   const advantage = calculateNormalAttackFromRequest(derivedFrogaRequest("4", 5));

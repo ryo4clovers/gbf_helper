@@ -10,6 +10,11 @@ export interface ProtagonistDisplayedStatsInput {
   jobGrowthHp: number;
   attackLimitBonusLevel?: number;
   hpLimitBonusLevel?: number;
+  proficiency1AttackLimitBonusLevel?: number;
+  proficiency1AttackLimitBonus2Level?: number;
+  proficiency1AttackLimitBonus3Level?: number;
+  proficiencyBothAttackLimitBonusLevel?: number;
+  proficiencyBothAttackLimitBonus2Level?: number;
   completionAttackPercent: number;
   completionHpPercent: number;
   mainWeaponCompletionAttack: number;
@@ -34,6 +39,7 @@ export interface ProtagonistDisplayedStatsResult {
     weaponHp: number;
     proficiencyAttack: number;
     proficiencyHp: number;
+    proficiencyLimitBonusAttack: number;
     mainWeaponCompletionAttack: number;
     summonAttack: number;
     summonHp: number;
@@ -50,6 +56,7 @@ export const PROTAGONIST_LIMIT_BONUS_VALUES: Readonly<{
   hp: readonly number[];
   fireAttack: readonly number[];
   elementAttack: readonly number[];
+  proficiencyAttack: readonly number[];
 }>;
 export type ProtagonistElementAttackLimitBonusFieldKey =
   | "fireAttackLimitBonusLevel" | "fireAttackLimitBonus2Level" | "fireAttackLimitBonus3Level"
@@ -67,6 +74,18 @@ export const PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS: ReadonlyArray<R
   limitBonusId: string;
   sourceId: string;
   verificationStatus: "検証済み" | "下書き";
+}>>;
+export type ProtagonistProficiencyAttackLimitBonusFieldKey =
+  | "proficiency1AttackLimitBonusLevel"
+  | "proficiency1AttackLimitBonus2Level"
+  | "proficiency1AttackLimitBonus3Level"
+  | "proficiencyBothAttackLimitBonusLevel"
+  | "proficiencyBothAttackLimitBonus2Level";
+export const PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS: ReadonlyArray<Readonly<{
+  fieldKey: ProtagonistProficiencyAttackLimitBonusFieldKey;
+  label: string;
+  limitBonusId: string;
+  target: "first" | "both";
 }>>;
 export function calculateProtagonistRankBaseStats(rank: number): {
   rank: number;

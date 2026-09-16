@@ -4,7 +4,15 @@ import {
   convertDeckResponseToCalculatorDeckConfig,
   parseCalculatorDeckConfig,
 } from "../src/calculator/calculatorDeckConfig.ts";
-import { PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS } from "../web/protagonist-displayed-stats.js";
+import {
+  PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
+  PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
+} from "../web/protagonist-displayed-stats.js";
+
+const protagonistLimitBonusDefinitions = [
+  ...PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
+  ...PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
+];
 
 test("accepts only zero through three for protagonist LB levels", () => {
   const config = (level: unknown) => ({
@@ -13,7 +21,7 @@ test("accepts only zero through three for protagonist LB levels", () => {
     protagonist: {
       attackLimitBonusLevel: level,
       hpLimitBonusLevel: level,
-      ...Object.fromEntries(PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => [fieldKey, level])),
+      ...Object.fromEntries(protagonistLimitBonusDefinitions.map(({ fieldKey }) => [fieldKey, level])),
     },
     weapons: [],
     summons: [],
@@ -22,7 +30,7 @@ test("accepts only zero through three for protagonist LB levels", () => {
     const protagonist = parseCalculatorDeckConfig(config(level)).protagonist;
     assert.equal(protagonist.attackLimitBonusLevel, Number(level));
     assert.equal(protagonist.hpLimitBonusLevel, Number(level));
-    for (const { fieldKey } of PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS) {
+    for (const { fieldKey } of protagonistLimitBonusDefinitions) {
       assert.equal(protagonist[fieldKey], Number(level));
     }
   }
