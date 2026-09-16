@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { calculateNormalAttackFromRequest } from "../src/calculator/normalAttackCalculationRequest.ts";
 import { inferRandomMultiplierCandidates } from "../src/calculator/randomMultiplierInference.ts";
 import { calculateCriticalBodyDamageAtMultiplier } from "../src/calculator/criticalBodyDamageCalculator.ts";
+import { calculateDamageAttenuation } from "../src/calculator/damageAttenuationCalculator.ts";
 
 function request() {
   return {
@@ -209,6 +210,38 @@ test("adds fire attack LB to the elemental frame only for a fire protagonist", (
   );
 });
 
+function fireAttackLimitBonusRequest(level: number) {
+  return {
+    schemaVersion: 1 as const,
+    deckConfig: {
+      schemaVersion: 1 as const,
+      format: "gbf-helper-calculator-deck" as const,
+      protagonist: {
+        rank: 425, elementCode: "1", jobId: "110001", jobLevel: 20,
+        masterLevel: 0, perfectionProofLevel: 0,
+        masterBonusAttackPercent: 24, masterBonusHpPercent: 20,
+        mainWeaponCompletionAttackContribution: 4,
+        fireAttackLimitBonusLevel: level,
+      },
+      weapons: [{
+        slot: 1, position: "main" as const, weaponId: "1010000400",
+        isJobFallback: true, level: 1, attackOverride: 70, hpOverride: 6,
+      }],
+      summons: [{
+        slot: 1, position: "main" as const, summonId: "2040094000", level: 250, uncapLevel: 6,
+      }],
+      characters: [],
+    },
+    enemy: { elementCode: "1", defense: 10 },
+    modifiers: {
+      allElementAttackPercent: 3, elementAttackPercent: 10,
+      shipAttackPercent: 10, furnaceAttackPercent: 10,
+      jobNormalAttackDamagePercent: 3, damageDealtPercent: 3.6,
+      targetElementDamagePercent: 0,
+    },
+  };
+}
+
 test("reproduces all observed fire attack LB game-calculator estimates", () => {
   const expected = [
     { normal: 2763, advantage: 3903 },
@@ -217,35 +250,7 @@ test("reproduces all observed fire attack LB game-calculator estimates", () => {
     { normal: 2859, advantage: 4004 },
   ];
   for (let level = 0; level <= 3; level++) {
-    const request = {
-      schemaVersion: 1 as const,
-      deckConfig: {
-        schemaVersion: 1 as const,
-        format: "gbf-helper-calculator-deck" as const,
-        protagonist: {
-          rank: 425, elementCode: "1", jobId: "110001", jobLevel: 20,
-          masterLevel: 0, perfectionProofLevel: 0,
-          masterBonusAttackPercent: 24, masterBonusHpPercent: 20,
-          mainWeaponCompletionAttackContribution: 4,
-          fireAttackLimitBonusLevel: level,
-        },
-        weapons: [{
-          slot: 1, position: "main" as const, weaponId: "1010000400",
-          isJobFallback: true, level: 1, attackOverride: 70, hpOverride: 6,
-        }],
-        summons: [{
-          slot: 1, position: "main" as const, summonId: "2040094000", level: 250, uncapLevel: 6,
-        }],
-        characters: [],
-      },
-      enemy: { elementCode: "1", defense: 10 },
-      modifiers: {
-        allElementAttackPercent: 3, elementAttackPercent: 10,
-        shipAttackPercent: 10, furnaceAttackPercent: 10,
-        jobNormalAttackDamagePercent: 3, damageDealtPercent: 3.6,
-        targetElementDamagePercent: 0,
-      },
-    };
+    const request = fireAttackLimitBonusRequest(level);
     const normal = calculateNormalAttackFromRequest(request);
     const advantageRequest = structuredClone(request);
     advantageRequest.enemy.elementCode = "4";
@@ -254,6 +259,36 @@ test("reproduces all observed fire attack LB game-calculator estimates", () => {
     assert.equal(normal.result.attackPower.baseAttack, 14967);
     assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, expected[level].normal);
     assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, expected[level].advantage);
+  }
+});
+
+test("reproduces every observed neutral hit with fire attack LB at zero and five percent", () => {
+  const observations = new Map<number, number[]>([
+    [0, [
+      2743, 2672, 2713, 2752, 2768, 2879, 2658, 2724, 2743, 2666,
+      2633, 2754, 2801, 2870, 2868, 2705, 2721, 2859, 2732, 2674,
+    ]],
+    [3, [
+      2731, 2991, 2988, 2839, 2794, 2825, 2985, 2916, 2879, 2748, 2951,
+      2731, 2939, 2819, 2822, 2868, 2942, 2802, 2822, 2859, 2931, 2739,
+    ]],
+  ]);
+  for (const [level, hits] of observations) {
+    const result = calculateNormalAttackFromRequest(fireAttackLimitBonusRequest(level)).result;
+    const trace = result.baseDamage.articleTrace!;
+    const inference = inferRandomMultiplierCandidates(trace.prePostCapDamage, hits, {
+      finalRounding: "ceil",
+      damageTransform: {
+        id: "observed-fire-lb-normal-attack",
+        apply: (damage) => calculateDamageAttenuation(
+          damage,
+          result.bodyDamageAttenuation.profile,
+          { damageCapUpPercent: result.bodyDamageAttenuation.damageCapUpPercent },
+        ).damage * (1 + trace.postCapDamagePercent / 100),
+      },
+    });
+    assert.equal(inference.resolvedObservationCount, hits.length);
+    assert.deepEqual(inference.unresolvedObservationIndexes, []);
   }
 });
 

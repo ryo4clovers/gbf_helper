@@ -384,7 +384,7 @@ export function resolveCalculatorDeckConfig(
                     sourceId: "fire-attack-limit-bonus",
                     sourceName: "火属性攻撃力LB",
                     elementCode: "1",
-                    verificationStatus: "下書き",
+                    verificationStatus: "検証済み",
                   }],
             },
     },

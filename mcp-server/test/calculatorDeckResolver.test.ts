@@ -28,7 +28,7 @@ test("resolves protagonist LB before completion bonuses and replaces stale impor
     sourceId: "fire-attack-limit-bonus",
     sourceName: "火属性攻撃力LB",
     elementCode: "1",
-    verificationStatus: "下書き",
+    verificationStatus: "検証済み",
   }]);
 });
 
