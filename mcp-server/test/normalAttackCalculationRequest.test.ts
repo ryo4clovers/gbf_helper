@@ -355,6 +355,41 @@ test("reproduces all observed protagonist critical LB procs at five percent", ()
   );
 });
 
+test("reproduces the observed simultaneous procs from two five-percent critical LBs", () => {
+  const input = fireAttackLimitBonusRequest(0);
+  input.deckConfig.protagonist.criticalRateLimitBonusLevel = 3;
+  input.deckConfig.protagonist.criticalRateLimitBonus2Level = 3;
+  input.enemy.elementCode = "4";
+  input.modifiers.targetElementDamagePercent = 5;
+  const result = calculateNormalAttackFromRequest(input).result;
+  const critical = result.protagonistLimitBonusCritical;
+
+  assert.ok(critical !== undefined);
+  assert.equal(critical.damageMultiplier, 1.1);
+  assert.deepEqual(critical.sources.map((source) => source.verificationStatus), ["検証済み", "検証済み"]);
+
+  const observedDoubleProcHits = [4122, 4341, 4126];
+  const trace = result.baseDamage.articleTrace!;
+  const candidatesAt = (damageBonusPercent: number) => inferRandomMultiplierCandidates(
+    trace.prePostCapDamage,
+    observedDoubleProcHits,
+    {
+      finalRounding: "ceil",
+      damageTransform: {
+        id: `observed-protagonist-critical-lb:${damageBonusPercent}`,
+        apply: (damage) => calculateDamageAttenuation(
+          damage * (1 + damageBonusPercent / 100),
+          result.bodyDamageAttenuation.profile,
+          { damageCapUpPercent: result.bodyDamageAttenuation.damageCapUpPercent },
+        ).damage * (1 + trace.postCapDamagePercent / 100),
+      },
+    },
+  ).observations.map((observation) => observation.candidates);
+
+  assert.deepEqual(candidatesAt(10), [[0.96], [1.011], [0.961]]);
+  assert.deepEqual(candidatesAt(5), [[], [], []]);
+});
+
 test("keeps the three protagonist critical LB items as independent rolls with per-stage verification", () => {
   const input = fireAttackLimitBonusRequest(0);
   Object.assign(input.deckConfig.protagonist, {
@@ -370,7 +405,7 @@ test("keeps the three protagonist critical LB items as independent rolls with pe
   assert.equal(critical.sources.length, 3);
   assert.deepEqual(critical.sources.map((source) => source.triggerRatePercent), [5, 5, 5]);
   assert.deepEqual(critical.sources.map((source) => source.damageBonusPercent), [5, 5, 5]);
-  assert.deepEqual(critical.sources.map((source) => source.verificationStatus), ["検証済み", "下書き", "下書き"]);
+  assert.deepEqual(critical.sources.map((source) => source.verificationStatus), ["検証済み", "検証済み", "下書き"]);
   assert.equal(critical.damageMultiplier, 1.15);
 });
 
