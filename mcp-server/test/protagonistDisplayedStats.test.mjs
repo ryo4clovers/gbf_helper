@@ -3,7 +3,17 @@ import test from "node:test";
 import {
   calculateProtagonistDisplayedStats,
   calculateProtagonistRankBaseStats,
+  PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
 } from "../web/protagonist-displayed-stats.js";
+
+test("registers all in-game elemental attack LB IDs and fields", () => {
+  assert.equal(PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS.length, 18);
+  assert.deepEqual(
+    PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ limitBonusId }) => limitBonusId),
+    ["9", "67", "106", "10", "68", "107", "11", "69", "108", "12", "70", "109", "13", "71", "110", "14", "72", "111"],
+  );
+  assert.equal(new Set(PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey)).size, 18);
+});
 
 test("reproduces every observed Knight attack and HP LB stage without double counting", () => {
   const input = {

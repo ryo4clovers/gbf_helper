@@ -177,7 +177,7 @@ function derivedFrogaRequest(enemyElementCode: "1" | "4", targetElementDamagePer
   };
 }
 
-test("adds fire attack LB to the elemental frame only for a fire protagonist", () => {
+test("adds only the protagonist's matching elemental attack LB to the elemental frame", () => {
   const baselineRequest = agniRequest();
   const fireRequest = structuredClone(baselineRequest);
   fireRequest.deckConfig.protagonist.fireAttackLimitBonusLevel = 3;
@@ -202,11 +202,26 @@ test("adds fire attack LB to the elemental frame only for a fire protagonist", (
   waterBaselineRequest.deckConfig.summons = [];
   const waterRequest = structuredClone(waterBaselineRequest);
   waterRequest.deckConfig.protagonist.fireAttackLimitBonusLevel = 3;
+  waterRequest.deckConfig.protagonist.waterAttackLimitBonusLevel = 3;
   const waterBaseline = calculateNormalAttackFromRequest(waterBaselineRequest);
   const water = calculateNormalAttackFromRequest(waterRequest);
+  const waterBaselineStage = waterBaseline.result.baseDamage.stages.find((stage) => stage.stage === "elemental-attack");
+  const waterStage = water.result.baseDamage.stages.find((stage) => stage.stage === "elemental-attack");
   assert.equal(
-    water.result.baseDamage.stages.find((stage) => stage.stage === "elemental-attack")?.totalPercent,
-    waterBaseline.result.baseDamage.stages.find((stage) => stage.stage === "elemental-attack")?.totalPercent,
+    waterStage?.totalPercent,
+    (waterBaselineStage?.totalPercent ?? 0) + 5,
+  );
+  assert.equal(
+    waterStage?.contributions.some(
+      (contribution) => "sourceId" in contribution && contribution.sourceId === "water-attack-limit-bonus",
+    ),
+    true,
+  );
+  assert.equal(
+    waterStage?.contributions.some(
+      (contribution) => "sourceId" in contribution && contribution.sourceId === "fire-attack-limit-bonus",
+    ),
+    false,
   );
 });
 

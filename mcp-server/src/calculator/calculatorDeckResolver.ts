@@ -22,40 +22,27 @@ import type {
 import { calculateEquipmentLevelStats } from "../../web/equipment-level-stats.js";
 import {
   calculateProtagonistDisplayedStats,
+  PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_LIMIT_BONUS_VALUES,
 } from "../../web/protagonist-displayed-stats.js";
 
-function fireAttackLimitBonusModifiers(
+function elementAttackLimitBonusModifiers(
   protagonist: CalculatorDeckProtagonistConfig,
 ): DamageModifier[] {
-  return [
-    {
-      level: protagonist.fireAttackLimitBonusLevel ?? 0,
-      sourceId: "fire-attack-limit-bonus",
-      sourceName: "火属性攻撃力LB",
-      verificationStatus: "検証済み" as const,
-    },
-    {
-      level: protagonist.fireAttackLimitBonus2Level ?? 0,
-      sourceId: "fire-attack-limit-bonus-2",
-      sourceName: "火属性攻撃力LB II",
-      verificationStatus: "検証済み" as const,
-    },
-    {
-      level: protagonist.fireAttackLimitBonus3Level ?? 0,
-      sourceId: "fire-attack-limit-bonus-3",
-      sourceName: "火属性攻撃力LB III",
-      verificationStatus: "検証済み" as const,
-    },
-  ].flatMap(({ level, sourceId, sourceName, verificationStatus }) => level === 0 ? [] : [{
-    stage: "elemental-attack" as const,
-    amountPercent: PROTAGONIST_LIMIT_BONUS_VALUES.fireAttack[level],
-    sourceType: "job-limit-bonus" as const,
-    sourceId,
-    sourceName,
-    elementCode: "1",
-    verificationStatus,
-  }]);
+  return PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS
+    .filter((definition) => definition.elementCode === protagonist.elementCode)
+    .flatMap((definition) => {
+      const level = protagonist[definition.fieldKey] ?? 0;
+      return level === 0 ? [] : [{
+        stage: "elemental-attack" as const,
+        amountPercent: PROTAGONIST_LIMIT_BONUS_VALUES.elementAttack[level],
+        sourceType: "job-limit-bonus" as const,
+        sourceId: definition.sourceId,
+        sourceName: definition.sourceName,
+        elementCode: definition.elementCode,
+        verificationStatus: definition.verificationStatus,
+      }];
+    });
 }
 
 export type CalculatorDeckResolutionIssueCode =
@@ -408,7 +395,7 @@ export function resolveCalculatorDeckConfig(
               level: config.protagonist.jobLevel,
               masterLevel: config.protagonist.masterLevel,
               perfectionProofLevel: config.protagonist.perfectionProofLevel,
-              damageModifiers: fireAttackLimitBonusModifiers(config.protagonist),
+              damageModifiers: elementAttackLimitBonusModifiers(config.protagonist),
             },
     },
     weapons: config.weapons.map((weapon, index) => {

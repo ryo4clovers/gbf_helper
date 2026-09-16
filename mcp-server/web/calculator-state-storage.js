@@ -1,3 +1,5 @@
+import { PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS } from "./protagonist-displayed-stats.js?v=4";
+
 export const CALCULATOR_FORMATION_STORAGE_KEY = "gbf-helper-calculator-formation-v2";
 export const CALCULATOR_FORMATION_FORMAT = "gbf-helper-calculator-formation";
 export const CALCULATOR_ENVIRONMENT_STORAGE_KEY = "gbf-helper-calculator-environment-v1";
@@ -19,7 +21,7 @@ function pick(source, keys) {
 
 const protagonistKeys = [
   "attackLimitBonusLevel", "hpLimitBonusLevel",
-  "fireAttackLimitBonusLevel", "fireAttackLimitBonus2Level", "fireAttackLimitBonus3Level",
+  ...PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
   "elementCode", "jobId", "jobNameHint", "jobLevel", "masterLevel", "perfectionProofLevel",
 ];
 const weaponKeys = [

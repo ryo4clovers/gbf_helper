@@ -77,6 +77,8 @@ test("preserves protagonist LB selections in formation save and reload", () => {
   current.deckConfig.protagonist.fireAttackLimitBonusLevel = 1;
   current.deckConfig.protagonist.fireAttackLimitBonus2Level = 2;
   current.deckConfig.protagonist.fireAttackLimitBonus3Level = 3;
+  current.deckConfig.protagonist.waterAttackLimitBonusLevel = 3;
+  current.deckConfig.protagonist.darkAttackLimitBonus3Level = 2;
   const saved = parseCalculatorFormation(serializeCalculatorFormation(createCalculatorFormation(current)));
   const restored = mergeCalculatorFormation(request(), saved);
   assert.equal(restored.deckConfig.protagonist.attackLimitBonusLevel, 2);
@@ -84,6 +86,8 @@ test("preserves protagonist LB selections in formation save and reload", () => {
   assert.equal(restored.deckConfig.protagonist.fireAttackLimitBonusLevel, 1);
   assert.equal(restored.deckConfig.protagonist.fireAttackLimitBonus2Level, 2);
   assert.equal(restored.deckConfig.protagonist.fireAttackLimitBonus3Level, 3);
+  assert.equal(restored.deckConfig.protagonist.waterAttackLimitBonusLevel, 3);
+  assert.equal(restored.deckConfig.protagonist.darkAttackLimitBonus3Level, 2);
 });
 
 test("persists only formation choices including the support summon", () => {

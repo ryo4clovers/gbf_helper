@@ -4,7 +4,38 @@ export const PROTAGONIST_LIMIT_BONUS_VALUES = Object.freeze({
   attack: Object.freeze([0, 500, 1500, 3000]),
   hp: Object.freeze([0, 300, 600, 1000]),
   fireAttack: Object.freeze([0, 1, 3, 5]),
+  elementAttack: Object.freeze([0, 1, 3, 5]),
 });
+
+const ELEMENT_ATTACK_LIMIT_BONUS_ELEMENTS = [
+  { elementCode: "1", elementName: "火", fieldPrefix: "fire", sourcePrefix: "fire" },
+  { elementCode: "2", elementName: "水", fieldPrefix: "water", sourcePrefix: "water" },
+  { elementCode: "3", elementName: "土", fieldPrefix: "earth", sourcePrefix: "earth" },
+  { elementCode: "4", elementName: "風", fieldPrefix: "wind", sourcePrefix: "wind" },
+  { elementCode: "5", elementName: "光", fieldPrefix: "light", sourcePrefix: "light" },
+  { elementCode: "6", elementName: "闇", fieldPrefix: "dark", sourcePrefix: "dark" },
+];
+
+const ELEMENT_ATTACK_LIMIT_BONUS_TIERS = [
+  { labelSuffix: "", fieldSuffix: "Level", sourceSuffix: "", firstId: 9 },
+  { labelSuffix: " II", fieldSuffix: "2Level", sourceSuffix: "-2", firstId: 67 },
+  { labelSuffix: " III", fieldSuffix: "3Level", sourceSuffix: "-3", firstId: 106 },
+];
+
+export const PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS = Object.freeze(
+  ELEMENT_ATTACK_LIMIT_BONUS_ELEMENTS.flatMap((element, elementIndex) =>
+    ELEMENT_ATTACK_LIMIT_BONUS_TIERS.map((tier) => Object.freeze({
+      elementCode: element.elementCode,
+      elementName: element.elementName,
+      fieldKey: `${element.fieldPrefix}AttackLimitBonus${tier.fieldSuffix}`,
+      label: `${element.elementName}属性攻撃LB${tier.labelSuffix}`,
+      sourceName: `${element.elementName}属性攻撃力LB${tier.labelSuffix}`,
+      limitBonusId: String(tier.firstId + elementIndex),
+      sourceId: `${element.sourcePrefix}-attack-limit-bonus${tier.sourceSuffix}`,
+      verificationStatus: element.elementCode === "1" ? "検証済み" : "下書き",
+    })),
+  ),
+);
 
 function limitBonusValue(kind, level = 0) {
   if (!Number.isInteger(level) || level < 0 || level > 3) {
