@@ -83,7 +83,7 @@ function criticalLimitBonuses(
       damageBonusPercent: amountPercent,
       verificationStatus:
         (definition.limitBonusId === "27" && (level === 1 || level === 3)) ||
-        (definition.limitBonusId === "38" && level === 3)
+        ((definition.limitBonusId === "38" || definition.limitBonusId === "99") && level === 3)
           ? "検証済み" as const
           : "下書き" as const,
     }];

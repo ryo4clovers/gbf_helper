@@ -402,7 +402,7 @@ test("distinguishes additive double procs from multiplicative critical LB damage
 
   assert.ok(critical !== undefined);
   assert.equal(critical.damageMultiplier, 1.15);
-  assert.deepEqual(critical.sources.map((source) => source.verificationStatus), ["検証済み", "検証済み", "下書き"]);
+  assert.deepEqual(critical.sources.map((source) => source.verificationStatus), ["検証済み", "検証済み", "検証済み"]);
 
   const observedDoubleProcHits = [4251, 4152];
   const trace = result.baseDamage.articleTrace!;
@@ -426,6 +426,42 @@ test("distinguishes additive double procs from multiplicative critical LB damage
   assert.deepEqual(candidatesAt(10.25), [[], []]);
 });
 
+test("reproduces every observed standalone critical LB III proc at five percent", () => {
+  const input = fireAttackLimitBonusRequest(0);
+  input.deckConfig.protagonist.criticalRateLimitBonus3Level = 3;
+  input.enemy.elementCode = "4";
+  input.modifiers.targetElementDamagePercent = 5;
+  const result = calculateNormalAttackFromRequest(input).result;
+  const critical = result.protagonistLimitBonusCritical;
+
+  assert.ok(critical !== undefined);
+  assert.equal(critical.damageMultiplier, 1.05);
+  assert.equal(critical.sources[0]?.sourceId, "critical-limit-bonus-3");
+  assert.equal(critical.sources[0]?.verificationStatus, "検証済み");
+
+  const observedCriticalHits = [
+    3947, 4000, 4082, 4246, 4041, 4246, 4144, 4062,
+    4172, 4008, 4152, 4205, 3926, 3963, 3971,
+  ];
+  const trace = result.baseDamage.articleTrace!;
+  const inference = inferRandomMultiplierCandidates(trace.prePostCapDamage, observedCriticalHits, {
+    finalRounding: "ceil",
+    damageTransform: {
+      id: "observed-protagonist-critical-lb-3-star3",
+      apply: (damage) => calculateDamageAttenuation(
+        damage * critical.damageMultiplier,
+        result.bodyDamageAttenuation.profile,
+        { damageCapUpPercent: result.bodyDamageAttenuation.damageCapUpPercent },
+      ).damage * (1 + trace.postCapDamagePercent / 100),
+    },
+  });
+  assert.deepEqual(
+    inference.observations.map((observation) => observation.candidates),
+    [[0.963], [0.976], [0.996], [1.036], [0.986], [1.036], [1.011], [0.991],
+      [1.018], [0.978], [1.013], [1.026], [0.958], [0.967], [0.969]],
+  );
+});
+
 test("keeps the three protagonist critical LB items as independent rolls with per-stage verification", () => {
   const input = fireAttackLimitBonusRequest(0);
   Object.assign(input.deckConfig.protagonist, {
@@ -441,7 +477,7 @@ test("keeps the three protagonist critical LB items as independent rolls with pe
   assert.equal(critical.sources.length, 3);
   assert.deepEqual(critical.sources.map((source) => source.triggerRatePercent), [5, 5, 5]);
   assert.deepEqual(critical.sources.map((source) => source.damageBonusPercent), [5, 5, 5]);
-  assert.deepEqual(critical.sources.map((source) => source.verificationStatus), ["検証済み", "検証済み", "下書き"]);
+  assert.deepEqual(critical.sources.map((source) => source.verificationStatus), ["検証済み", "検証済み", "検証済み"]);
   assert.equal(critical.damageMultiplier, 1.15);
 });
 
