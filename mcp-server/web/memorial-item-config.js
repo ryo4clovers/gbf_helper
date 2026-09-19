@@ -84,6 +84,8 @@ export function calculateMemorialItemModifiers(settings, protagonistElementCode,
     extinctionCrestDoubleAttackRatePercent: 0,
     extinctionCrestTripleAttackRatePercent: 0,
     chainBurstPerformancePercent: 0,
+    defensePercent: 0,
+    incomingElementalDamageReductionPercents: [],
   };
   for (const definition of MEMORIAL_ITEM_DEFINITIONS) {
     const state = activeSetting(settings, definition);
@@ -93,12 +95,22 @@ export function calculateMemorialItemModifiers(settings, protagonistElementCode,
       if (state.level >= 5) result.elementAttackPercent += 5;
       if (state.level >= 7 && definition.targetElementCode === enemyElementCode) result.targetElementDamagePercent += 5;
       if (state.level >= 8) result.normalAttackDamageCapPercent += 5;
+      if (state.level >= 2) result.defensePercent += 5;
+      if (state.level >= 6) result.defensePercent += 5;
     }
     if (
       definition.kind === "extinction-crest" &&
       definition.elementCode === protagonistElementCode &&
       (settings?.includeExtinctionCrestInLocalResults ?? true)
     ) {
+      if (state.level >= 2) result.defensePercent += 3;
+      if (state.level >= 6) result.defensePercent += 3;
+      if (state.level >= 11) result.defensePercent += 3;
+      if (state.level >= 17) result.defensePercent += 3;
+      if (ADVANTAGE_TARGETS[definition.elementCode] === enemyElementCode) {
+        if (state.level >= 1) result.incomingElementalDamageReductionPercents.push(5);
+        if (state.level >= 20) result.incomingElementalDamageReductionPercents.push(5);
+      }
       if (state.level >= 3) result.extinctionCrestDoubleAttackRatePercent += 3;
       if (state.level >= 13) result.extinctionCrestDoubleAttackRatePercent += 3;
       if (state.level >= 7) result.extinctionCrestTripleAttackRatePercent += 3;

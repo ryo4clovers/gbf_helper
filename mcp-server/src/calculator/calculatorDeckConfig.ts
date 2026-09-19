@@ -119,6 +119,7 @@ const protagonistSchema = z
     jobCompletionTripleAttackRate: ratePercentSchema.optional(),
     masterBonusAttackPercent: ratePercentSchema.optional(),
     masterBonusHpPercent: ratePercentSchema.optional(),
+    masterBonusDefensePercent: ratePercentSchema.optional(),
     completedJobIds: z.array(idSchema).optional(),
     mainWeaponCompletionAttackContribution: nonNegativeNumberSchema.optional(),
     jobGrowthAttackContribution: nonNegativeNumberSchema.optional(),

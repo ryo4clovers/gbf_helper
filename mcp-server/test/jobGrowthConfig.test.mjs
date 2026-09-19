@@ -11,6 +11,7 @@ const growthRow = (level, attack = 0, hp = 0, da = 0, ta = 0) => ({
   hp,
   doubleAttackRatePercent: da,
   tripleAttackRatePercent: ta,
+  defensePercent: 0,
   description: "test",
 });
 
@@ -58,5 +59,6 @@ test("aggregates only bonuses reached at the current levels", () => {
     hp: 0,
     doubleAttackRatePercent: 0,
     tripleAttackRatePercent: 2,
+    defensePercent: 0,
   });
 });

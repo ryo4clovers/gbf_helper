@@ -46,7 +46,8 @@ function stageTotals(rows, currentLevel) {
       hp: totals.hp + row.hp,
       doubleAttackRatePercent: totals.doubleAttackRatePercent + row.doubleAttackRatePercent,
       tripleAttackRatePercent: totals.tripleAttackRatePercent + row.tripleAttackRatePercent,
-    }), { attack: 0, hp: 0, doubleAttackRatePercent: 0, tripleAttackRatePercent: 0 });
+      defensePercent: totals.defensePercent + (row.defensePercent ?? 0),
+    }), { attack: 0, hp: 0, doubleAttackRatePercent: 0, tripleAttackRatePercent: 0, defensePercent: 0 });
 }
 
 /** Returns current flat ATK/HP and multiattack totals for each growth system. */
@@ -72,6 +73,7 @@ export function calculateJobGrowthBonuses(job, protagonist) {
         jobLevel.tripleAttackRatePercent
         + masterLevel.tripleAttackRatePercent
         + perfectionProof.tripleAttackRatePercent,
+      defensePercent: jobLevel.defensePercent + masterLevel.defensePercent + perfectionProof.defensePercent,
     },
   };
 }

@@ -229,10 +229,10 @@ function mainWeaponCompletionAttackContribution(config, amountPercent) {
   return Math.round(main.attackOverride * amountPercent / 100);
 }
 
-function renderJobCompletionSummary(completedJobIds, config) {
+function renderJobCompletionSummary(completedJobIds, config, currentHpPercent = 100) {
   const selectedJob = catalogJob(config.protagonist.jobId);
   const result = calculateJobCompletionBonuses(
-    completedJobIds, jobCatalog, selectedJob, currentMainWeaponKindCode(config),
+    completedJobIds, jobCatalog, selectedJob, currentMainWeaponKindCode(config), currentHpPercent,
   );
   const labels = {
     attack: "攻撃力", hp: "HP", da: "DA率", ta: "TA率", normalAttackDamage: "通常攻撃与ダメージ",
@@ -244,7 +244,7 @@ function renderJobCompletionSummary(completedJobIds, config) {
   };
   const summary = $("job-completion-summary");
   summary.replaceChildren();
-  const connectedKeys = new Set(["attack", "hp", "da", "ta", "normalAttackDamage", "mainWeaponAttack"]);
+  const connectedKeys = new Set(["attack", "hp", "defense", "da", "ta", "normalAttackDamage", "mainWeaponAttack"]);
   for (const [key, amount] of Object.entries(result.totals)) {
     const chip = document.createElement("span");
     chip.className = connectedKeys.has(key) ? "connected" : "pending";
@@ -693,6 +693,7 @@ function jobGrowthStageSummary(label, totals) {
     totals.hp > 0 ? `HP +${numberFormat.format(totals.hp)}` : "",
     totals.doubleAttackRatePercent > 0 ? `DA +${totals.doubleAttackRatePercent}%` : "",
     totals.tripleAttackRatePercent > 0 ? `TA +${totals.tripleAttackRatePercent}%` : "",
+    totals.defensePercent > 0 ? `防御 +${totals.defensePercent}%` : "",
   ].filter(Boolean);
   return values.length > 0 ? `${label}: ${values.join(" / ")}` : "";
 }
@@ -706,6 +707,7 @@ function configuredOtherLimitBonusCount(protagonist) {
 
 const LIMIT_BONUS_STATUS_LABELS = Object.freeze({
   connected: "計算接続済み",
+  mixed: "一部計算接続",
   unconnected: "入力・保存のみ",
 });
 const PROTAGONIST_LIMIT_BONUS_GROUP_ORDER = Object.freeze([
@@ -782,7 +784,8 @@ function createOtherLimitBonusField(config, definition) {
   meta.className = "other-limit-bonus-meta";
   meta.textContent = `ID ${definition.id}・${definition.requiredRank === 1 ? "初期解放" : `Rank ${definition.requiredRank}`}`;
   const select = document.createElement("select");
-  select.setAttribute("aria-label", `${definition.label}（計算未接続）`);
+  const connectionLabel = definition.connected ? "計算接続済み" : "計算未接続";
+  select.setAttribute("aria-label", `${definition.label}（${connectionLabel}）`);
   definition.values.forEach((amount, level) => {
     const option = document.createElement("option");
     option.value = String(level);
@@ -799,12 +802,15 @@ function createOtherLimitBonusField(config, definition) {
     if (Object.keys(levels).length === 0) delete current.protagonist.otherLimitBonusLevels;
     else current.protagonist.otherLimitBonusLevels = levels;
     writeDeckConfig(current);
-    persistCurrentState("その他LBをこの端末に自動保存済み（計算未接続）");
+    persistCurrentState(definition.connected
+      ? "その他LBをこの端末に自動保存し、計算へ反映しました"
+      : "その他LBをこの端末に自動保存済み（計算未接続）");
     renderJobEditor(current);
     const replacement = $("protagonist-strengthening-fields")
-      .querySelector(`[aria-label="${definition.label}（計算未接続）"]`);
+      .querySelector(`[aria-label="${definition.label}（${connectionLabel}）"]`);
     replacement?.closest(`[data-limit-bonus-group="${definition.category}"]`)?.setAttribute("open", "");
     replacement?.focus();
+    if (definition.connected) void calculate();
   });
   field.append(heading, meta, select);
   return field;
@@ -821,7 +827,9 @@ function createOtherLimitBonusGroup(config, category) {
     icon: category.icon,
     fields: definitions.map((definition) => createOtherLimitBonusField(config, definition)),
     configuredCount,
-    status: "unconnected",
+    status: definitions.every(({ connected }) => connected)
+      ? "connected"
+      : definitions.some(({ connected }) => connected) ? "mixed" : "unconnected",
   });
 }
 
@@ -2211,9 +2219,10 @@ function buildRequest() {
   const selectedJob = catalogJob(deckConfig.protagonist.jobId);
   normalizeJobGrowthLevels(deckConfig.protagonist, selectedJob);
   const growth = calculateJobGrowthBonuses(selectedJob, deckConfig.protagonist);
+  const currentHpPercent = numberValue("protagonist-hp-percent");
   deckConfig.protagonist.memorialItems = readMemorialItemSettings();
   deckConfig.protagonist.crewSupport = readCrewSupportSettings();
-  const completion = renderJobCompletionSummary(readCompletedJobIds(), deckConfig);
+  const completion = renderJobCompletionSummary(readCompletedJobIds(), deckConfig, currentHpPercent);
   deckConfig.protagonist.completedJobIds = completion.selectedJobIds;
   rebaseProtagonistForCompletionBonusChange(
     deckConfig,
@@ -2225,6 +2234,7 @@ function buildRequest() {
   );
   deckConfig.protagonist.masterBonusAttackPercent = completion.totals.attack ?? 0;
   deckConfig.protagonist.masterBonusHpPercent = completion.totals.hp ?? 0;
+  deckConfig.protagonist.masterBonusDefensePercent = completion.totals.defense ?? 0;
   deckConfig.protagonist.jobCompletionDoubleAttackRate = completion.totals.da ?? 0;
   deckConfig.protagonist.jobCompletionTripleAttackRate = completion.totals.ta ?? 0;
   writeDeckConfig(deckConfig);
@@ -2233,22 +2243,56 @@ function buildRequest() {
     deckConfig.protagonist.elementCode,
     $("enemy-element").value,
   );
+  const {
+    defensePercent: memorialDefensePercent,
+    incomingElementalDamageReductionPercents: memorialReductionPercents,
+    ...outgoingMemorialModifiers
+  } = memorialModifiers;
   const crewSupportEffects = calculateCrewSupportEffects(deckConfig.protagonist.crewSupport);
+  const otherLevels = deckConfig.protagonist.otherLimitBonusLevels ?? {};
+  const otherLimitBonusAmount = (id) => {
+    const definition = PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find((entry) => entry.id === id);
+    return definition?.values[otherLevels[id] ?? 0] ?? 0;
+  };
+  const defenseLimitBonusPercent = ["2", "29", "81", "98"].reduce(
+    (sum, id) => sum + otherLimitBonusAmount(id),
+    0,
+  );
+  const reductionIdsByElement = {
+    "1": ["15", "75", "112"], "2": ["16", "76", "113"],
+    "3": ["17", "77", "114"], "4": ["18", "78", "115"],
+    "5": ["19", "79", "116"], "6": ["20", "80", "117"],
+  };
+  const incomingElementalDamageReductionPercents = (reductionIdsByElement[$("enemy-element").value] ?? [])
+    .flatMap((id) => {
+      const amount = otherLimitBonusAmount(id);
+      return amount > 0 ? [amount] : [];
+    });
   return {
     schemaVersion: 1,
     deckConfig,
-    protagonistCurrentHpPercent: numberValue("protagonist-hp-percent"),
+    protagonistCurrentHpPercent: currentHpPercent,
     supportSummon: selectedSupportSummon ?? undefined,
     enemy: {
       name: $("enemy-name").value.trim() || undefined,
       elementCode: $("enemy-element").value,
       defense: numberValue("enemy-defense"),
+      attack: 10_000,
     },
     modifiers: {
-      ...memorialModifiers,
+      ...outgoingMemorialModifiers,
       shipAttackPercent: crewSupportEffects.shipAttackPercent,
       furnaceAttackPercent: crewSupportEffects.furnaceAttackPercent,
       jobNormalAttackDamagePercent: completion.totals.normalAttackDamage ?? 0,
+      protagonistDefensePercent:
+        growth.totals.defensePercent
+        + (completion.totals.defense ?? 0)
+        + defenseLimitBonusPercent
+        + memorialDefensePercent,
+      incomingElementalDamageReductionPercents: [
+        ...incomingElementalDamageReductionPercents,
+        ...memorialReductionPercents,
+      ],
     },
     random: {
       minimum: numberValue("random-min"),
@@ -2483,6 +2527,15 @@ function renderLocalResult(result) {
     : multiattackNotes.join("・");
 
   const otherSkills = result.otherWeaponSkills;
+  const incoming = result.incomingDamage;
+  $("protagonist-defense-rate").textContent = incoming === undefined
+    ? "—"
+    : `+${numberFormat.format(incoming.defensePercent)}%`;
+  $("protagonist-defense-note").textContent = "ジョブ・コンプリート・LB・大事なもの";
+  $("incoming-damage").textContent = incoming === undefined ? "—" : formatDamage(incoming.nominalDamage);
+  $("incoming-damage-note").textContent = incoming === undefined
+    ? "敵攻撃10,000・乱数範囲 —"
+    : `敵攻撃 ${numberFormat.format(incoming.enemyAttack)}・${formatDamage(incoming.minimumDamage)} — ${formatDamage(incoming.maximumDamage)}・属性軽減 ${numberFormat.format(incoming.effectiveElementalDamageReductionPercent)}%`;
   $("ability-supplemental-damage").textContent = `+${formatDamage(otherSkills.abilitySupplementalDamage.effectiveAmount)} / hit`;
   $("ability-damage-note").textContent = `アビ上限 +${numberFormat.format(otherSkills.abilityDamageCap.effectivePercent)}%・予測ダメージは減衰式を検証中`;
   $("damage-dealt-rate").textContent = `+${numberFormat.format(otherSkills.damageDealt.effectivePercent)}%`;
@@ -2602,6 +2655,11 @@ function applyRequestToForm(request) {
   $("enemy-element").value = request.enemy.elementCode;
   $("enemy-defense").value = String(request.enemy.defense);
   $("enemy-name").value = request.enemy.name || "";
+  $("enemy-preset").value = request.enemy.name === "ユーズド・木人" && request.enemy.defense === 10
+    ? "used-training-dummy"
+    : request.enemy.name === "オールド・木人" && request.enemy.defense === 10
+      ? "old-training-dummy"
+      : "custom";
   $("protagonist-hp-percent").value = String(request.protagonistCurrentHpPercent ?? 100);
   renderProtagonistHpPercent();
   $("random-min").value = String(request.random?.minimum ?? 0.95);
@@ -2655,6 +2713,7 @@ function registerWebMcpTool() {
               id: { type: "string" }, name: { type: "string" },
               elementCode: { type: "string", enum: ["1", "2", "3", "4", "5", "6"] },
               defense: { type: "number", exclusiveMinimum: 0 },
+              attack: { type: "number", minimum: 0, default: 10000 },
             },
             required: ["elementCode", "defense"], additionalProperties: false,
           },
@@ -2673,6 +2732,10 @@ function registerWebMcpTool() {
               extinctionCrestDoubleAttackRatePercent: { type: "number", minimum: 0, maximum: 1000 },
               extinctionCrestTripleAttackRatePercent: { type: "number", minimum: 0, maximum: 1000 },
               chainBurstPerformancePercent: { type: "number", minimum: 0, maximum: 1000 },
+              protagonistDefensePercent: { type: "number", minimum: 0, maximum: 1000 },
+              incomingElementalDamageReductionPercents: {
+                type: "array", items: { type: "number", minimum: 0, maximum: 100 }, maxItems: 20,
+              },
             },
             additionalProperties: false,
           },
@@ -2743,6 +2806,19 @@ $("protagonist-hp-percent").addEventListener("input", () => {
   schedulePersistence();
 });
 $("protagonist-hp-percent").addEventListener("change", () => void calculate());
+$("enemy-preset").addEventListener("change", (event) => {
+  if (event.target.value === "old-training-dummy") {
+    $("enemy-name").value = "オールド・木人";
+    $("enemy-defense").value = "10";
+  } else if (event.target.value === "used-training-dummy") {
+    $("enemy-name").value = "ユーズド・木人";
+    $("enemy-defense").value = "10";
+  }
+  if (event.target.value !== "custom") void calculate();
+});
+for (const id of ["enemy-name", "enemy-defense"]) {
+  $(id).addEventListener("input", () => { $("enemy-preset").value = "custom"; });
+}
 $("memorial-item-editor").addEventListener("change", () => {
   renderMemorialItemEditor(readMemorialItemSettings());
   void calculate();

@@ -23,6 +23,10 @@ import {
   type FinalDamageRounding,
   type NominalDamagePreparation,
 } from "./randomMultiplierInference.js";
+import {
+  calculateIncomingDamagePrediction,
+  type IncomingDamagePredictionResult,
+} from "./incomingDamageCalculator.js";
 import type { DamageCalculationInput } from "./types.js";
 import {
   calculateProtagonistMultiattackRates,
@@ -111,6 +115,7 @@ export interface NormalAttackDamageResult {
   protagonistHp?: ProtagonistHpResult;
   multiattackRates: ProtagonistMultiattackRateResult;
   otherWeaponSkills: OtherWeaponSkillResult;
+  incomingDamage?: IncomingDamagePredictionResult;
   totalDamageDistribution: CombinedNormalAttackDistribution;
   issues: Array<
     | "damage-attenuation-profile-provisional"
@@ -279,6 +284,14 @@ export function calculateNormalAttackDamage(
     protagonistHp: calculateProtagonistHp(input.deck),
     multiattackRates: calculateProtagonistMultiattackRates(input.deck),
     otherWeaponSkills: calculateOtherWeaponSkills(input.deck),
+    incomingDamage: input.incomingDamage === undefined
+      ? undefined
+      : calculateIncomingDamagePrediction(
+          input.incomingDamage.enemyAttack,
+          input.incomingDamage.defensePercent,
+          input.incomingDamage.elementalDamageReductionPercents,
+          { minimum: options.multiplierMin, maximum: options.multiplierMax },
+        ),
     totalDamageDistribution: {
       schemaVersion: 1,
       model: "independent-discrete-components",

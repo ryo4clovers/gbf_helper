@@ -19,6 +19,8 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
     "ability-damage-note",
     "healing-cap-rate",
     "debuff-resistance-rate",
+    "protagonist-defense-rate",
+    "incoming-damage",
   ]) {
     assert.match(html, new RegExp(`id=["']${id}["']`));
     assert.match(app, new RegExp(`\\$\\(["']${id}["']\\)`));
@@ -32,6 +34,8 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
   assert.match(app, /otherSkills\.abilitySupplementalDamage\.effectiveAmount/u);
   assert.match(app, /otherSkills\.abilityDamageCap\.effectivePercent/u);
   assert.match(html, /id="damage-dealt-rate"/u);
+  assert.match(html, /id="enemy-preset"/u);
+  assert.match(html, /ユーズド・木人/u);
   assert.match(app, /召喚石固定HP \+\$\{formatDamage\(hp\.summonAuraFlatHp\)\}/u);
   assert.match(app, /基礎HPの基準は要検証/u);
   const hpSliderPosition = html.indexOf('id="protagonist-hp-percent"');

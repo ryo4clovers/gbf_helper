@@ -324,7 +324,7 @@ export function resolveCalculatorDeckConfig(
       severity: "warning",
       code: "job-master-data-unresolved",
       path: "protagonist.jobId",
-      message: `ジョブ ${selectedJob?.name ?? config.protagonist.jobId} の得意武器と育成段階のATK・HP・連続攻撃率は解決済みですが、防御・上限・アビリティ等は未解決です。`,
+      message: `ジョブ ${selectedJob?.name ?? config.protagonist.jobId} の得意武器と育成段階のATK・HP・防御・連続攻撃率は解決済みですが、上限・アビリティ等は未解決です。`,
     });
   }
 

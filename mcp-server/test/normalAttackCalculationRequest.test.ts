@@ -1993,3 +1993,15 @@ test("rejects unknown request fields and invalid enemy defense", () => {
     /greater than 0/,
   );
 });
+
+test("returns incoming damage from additive defense and independent elemental reductions", () => {
+  const input = request();
+  input.enemy.attack = 10_000;
+  input.modifiers.protagonistDefensePercent = 73;
+  input.modifiers.incomingElementalDamageReductionPercents = [5, 5, 5];
+  const incoming = calculateNormalAttackFromRequest(input).result.incomingDamage;
+  const raw = 10_000 / 1.73 * 0.95 ** 3;
+  assert.equal(incoming?.nominalDamage, Math.ceil(raw));
+  assert.equal(incoming?.minimumDamage, Math.ceil(raw * 0.95));
+  assert.equal(incoming?.maximumDamage, Math.ceil(raw * 1.05));
+});

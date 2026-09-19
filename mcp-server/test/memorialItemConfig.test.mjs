@@ -18,6 +18,8 @@ test("applies the matching Four Saints item and fixed account items", () => {
   assert.equal(result.damageCapPercent, 3);
   assert.equal(result.damageDealtPercent, 3.6);
   assert.equal(result.chainBurstPerformancePercent, 5);
+  assert.equal(result.defensePercent, 22);
+  assert.deepEqual(result.incomingElementalDamageReductionPercents, [5, 5]);
 });
 
 test("uses the requested game-like groups and Other ordering", () => {
@@ -47,6 +49,8 @@ test("uses crest level thresholds and supports local-result exclusion", () => {
   result = calculateMemorialItemModifiers(settings, "1", "4");
   assert.equal(result.extinctionCrestDoubleAttackRatePercent, 0);
   assert.equal(result.extinctionCrestTripleAttackRatePercent, 0);
+  assert.equal(result.defensePercent, 10);
+  assert.deepEqual(result.incomingElementalDamageReductionPercents, []);
 });
 
 test("disabling an item removes only that item's effect", () => {

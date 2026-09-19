@@ -113,15 +113,16 @@ export function normalizeCompletedJobIds(value, jobCatalog) {
   return [...new Set(value.filter((id) => typeof id === "string" && knownIds.has(id)))];
 }
 
-function applies(effectEntry, selectedJob, mainWeaponKindCode) {
+function applies(effectEntry, selectedJob, mainWeaponKindCode, currentHpPercent) {
   if (effectEntry.condition === NON_CLASS_V) return selectedJob?.classTier !== "ClassV";
+  if (effectEntry.condition === "full-hp") return currentHpPercent === 100;
   if (effectEntry.condition?.startsWith("main-")) {
     return effectEntry.condition === weaponConditionByCode[mainWeaponKindCode];
   }
   return true;
 }
 
-export function calculateJobCompletionBonuses(completedJobIds, jobCatalog, selectedJob, mainWeaponKindCode) {
+export function calculateJobCompletionBonuses(completedJobIds, jobCatalog, selectedJob, mainWeaponKindCode, currentHpPercent = 100) {
   const selectedIds = new Set(normalizeCompletedJobIds(completedJobIds, jobCatalog));
   const catalogByName = new Map(jobCatalog.map((job) => [job.name, job]));
   const totals = {};
@@ -130,7 +131,7 @@ export function calculateJobCompletionBonuses(completedJobIds, jobCatalog, selec
     const job = catalogByName.get(definition.name);
     if (!job || !selectedIds.has(job.jobId)) continue;
     for (const effectEntry of definition.effects) {
-      if (!applies(effectEntry, selectedJob, mainWeaponKindCode)) {
+      if (!applies(effectEntry, selectedJob, mainWeaponKindCode, currentHpPercent)) {
         inactiveConditionalEffects.push({ jobName: definition.name, ...effectEntry });
         continue;
       }

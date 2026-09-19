@@ -57,12 +57,12 @@ const weaponKeys = [
 const summonKeys = ["slot", "position", "summonId", "nameHint", "level", "uncapLevel", "plusMark"];
 const characterKeys = ["slot", "position", "characterId", "nameHint", "level", "uncapLevel", "plusMark"];
 const personalProtagonistKeys = [
-  "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
+  "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent", "masterBonusDefensePercent",
   "attackOverride", "hpOverride", "memorialItems", "crewSupport", "completedJobIds", "mainWeaponCompletionAttackContribution",
   "jobGrowthAttackContribution", "jobGrowthHpContribution",
 ];
 const environmentProtagonistKeys = [
-  "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent",
+  "rank", "jobCompletionDoubleAttackRate", "jobCompletionTripleAttackRate", "masterBonusAttackPercent", "masterBonusHpPercent", "masterBonusDefensePercent",
 ];
 const modifierKeys = [
   "shipAttackPercent", "furnaceAttackPercent", "jobNormalAttackDamagePercent",

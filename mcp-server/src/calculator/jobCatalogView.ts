@@ -53,6 +53,7 @@ export interface SelectableJobCatalogEntry {
 export interface JobGrowthBonus extends MultiattackRateBonus {
   attack: number;
   hp: number;
+  defensePercent: number;
   description: string;
 }
 
@@ -81,6 +82,11 @@ function rateInText(text: string, label: "ダブルアタック" | "トリプル
   return match === null ? 0 : Number(match[1]);
 }
 
+function defenseRateInText(text: string): number {
+  const match = text.match(/防御力\s*\+?\s*(\d+(?:\.\d+)?)\s*[%％]/u);
+  return match === null ? 0 : Number(match[1]);
+}
+
 function multiattackBonusRows(markdownSection: string): MultiattackRateBonus[] {
   return growthBonusRows(markdownSection)
     .map(({ level, doubleAttackRatePercent, tripleAttackRatePercent }) => ({
@@ -101,6 +107,7 @@ function growthBonusRows(markdownSection: string): JobGrowthBonus[] {
     level: Number(match[1]),
     attack: flatStatInText(match[2], "攻撃力"),
     hp: flatStatInText(match[2], "HP"),
+    defensePercent: defenseRateInText(match[2]),
     doubleAttackRatePercent: rateInText(match[2], "ダブルアタック"),
     tripleAttackRatePercent: rateInText(match[2], "トリプルアタック"),
     description: match[2].trim(),

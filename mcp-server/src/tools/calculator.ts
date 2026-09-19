@@ -109,6 +109,7 @@ export function registerCalculatorTools(server: McpServer): void {
             name: z.string().min(1).max(100).optional(),
             elementCode: z.enum(["1", "2", "3", "4", "5", "6"]),
             defense: z.number().finite().positive().max(10000),
+            attack: z.number().finite().nonnegative().max(1_000_000_000).default(10_000),
           })
           .strict(),
         modifiers: z
@@ -120,6 +121,8 @@ export function registerCalculatorTools(server: McpServer): void {
             jobNormalAttackDamagePercent: z.number().finite().min(0).max(1000).optional(),
             damageDealtPercent: z.number().finite().min(0).max(1000).optional(),
             targetElementDamagePercent: z.number().finite().min(0).max(1000).optional(),
+            protagonistDefensePercent: z.number().finite().min(0).max(1000).optional(),
+            incomingElementalDamageReductionPercents: z.array(z.number().finite().min(0).max(100)).max(20).optional(),
           })
           .strict()
           .default({}),

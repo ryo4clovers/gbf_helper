@@ -28,6 +28,10 @@ test("creates a deterministic browser-safe catalog from all job knowledge", () =
   assert.equal(knight?.maximumMasterLevel, 0);
   assert.equal(knight?.maximumPerfectionProofLevel, 0);
   assert.deepEqual(knight?.jobLevelMultiattackBonuses, []);
+  assert.equal(
+    knight?.jobLevelBonuses.reduce((sum, bonus) => sum + bonus.defensePercent, 0),
+    10,
+  );
 
   const relicBuster = catalog.jobs.find((job) => job.jobId === "450301");
   assert.deepEqual(relicBuster?.jobLevelMultiattackBonuses, [

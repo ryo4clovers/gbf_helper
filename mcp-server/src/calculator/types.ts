@@ -392,6 +392,8 @@ export interface DeckJob {
   masterBonusAttackPercent?: number;
   /** Account-wide completed-job HP bonus, despite being nested under the equipped job response. */
   masterBonusHpPercent?: number;
+  /** Account-wide completed-job defense bonus for the current HP/job conditions. */
+  masterBonusDefensePercent?: number;
   multiattackRateBonuses?: DeckJobMultiattackRateBonus[];
   criticalRateBonuses?: DeckJobCriticalRateBonus[];
   level?: number;
@@ -524,6 +526,7 @@ export interface CalculatorDeckProtagonistConfig {
   jobCompletionTripleAttackRate?: number;
   masterBonusAttackPercent?: number;
   masterBonusHpPercent?: number;
+  masterBonusDefensePercent?: number;
   completedJobIds?: string[];
   mainWeaponCompletionAttackContribution?: number;
   jobGrowthAttackContribution?: number;
@@ -652,6 +655,11 @@ export interface DamageCalculationInput {
   protagonistCurrentHpPercent?: number;
   accountBonuses?: AccountBonusSnapshot;
   crewModifiers?: CrewDamageModifierInput;
+  incomingDamage?: {
+    enemyAttack: number;
+    defensePercent: number;
+    elementalDamageReductionPercents: number[];
+  };
 }
 
 export type BattleActionKind =

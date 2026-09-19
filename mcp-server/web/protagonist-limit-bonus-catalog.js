@@ -1,7 +1,7 @@
 const STANDARD_PERCENT_VALUES = Object.freeze([0, 1, 3, 5]);
 const HIGH_PERCENT_VALUES = Object.freeze([0, 5, 10, 15]);
 
-function definition(id, label, category, requiredRank, values = STANDARD_PERCENT_VALUES, unit = "%") {
+function definition(id, label, category, requiredRank, values = STANDARD_PERCENT_VALUES, unit = "%", connected = false) {
   return Object.freeze({
     id: String(id),
     label,
@@ -9,6 +9,7 @@ function definition(id, label, category, requiredRank, values = STANDARD_PERCENT
     requiredRank,
     values,
     unit,
+    connected,
   });
 }
 
@@ -19,22 +20,22 @@ const elementalReductionDefinitions = [
   [112, "火", 415, " III"], [113, "水", 415, " III"], [114, "土", 415, " III"],
   [115, "風", 415, " III"], [116, "光", 415, " III"], [117, "闇", 415, " III"],
 ].map(([id, element, rank, suffix = ""]) =>
-  definition(id, `${element}属性軽減${suffix}`, "element-reduction", rank));
+  definition(id, `${element}属性軽減${suffix}`, "element-reduction", rank, STANDARD_PERCENT_VALUES, "%", true));
 
 /**
- * Limit Bonus entries that can be entered and persisted but are not connected
- * to a calculator formula yet. Values come from knowledge/mechanics/limit-bonus.md.
+ * Limit Bonus entries outside the primary displayed-stat groups. `connected`
+ * identifies entries already used by a local calculator formula.
  */
 export const PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS = Object.freeze([
-  definition(2, "防御力", "defense-evasion", 1),
+  definition(2, "防御力", "defense-evasion", 1, STANDARD_PERCENT_VALUES, "%", true),
   definition(4, "回復性能", "healing", 1),
   definition(7, "弱体耐性", "debuff", 1),
   ...elementalReductionDefinitions,
-  definition(29, "防御力 II", "defense-evasion", 155),
+  definition(29, "防御力 II", "defense-evasion", 155, STANDARD_PERCENT_VALUES, "%", true),
   definition(59, "回避率", "defense-evasion", 176, Object.freeze([0, 1, 2, 3])),
-  definition(81, "防御力 III", "defense-evasion", 225),
+  definition(81, "防御力 III", "defense-evasion", 225, STANDARD_PERCENT_VALUES, "%", true),
   definition(90, "回復性能 II", "healing", 280, HIGH_PERCENT_VALUES),
-  definition(98, "防御力 IV", "defense-evasion", 315),
+  definition(98, "防御力 IV", "defense-evasion", 315, STANDARD_PERCENT_VALUES, "%", true),
   definition(101, "回復性能 III", "healing", 340, HIGH_PERCENT_VALUES),
   definition(104, "弱体耐性 II", "debuff", 365),
 

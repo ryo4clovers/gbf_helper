@@ -22,6 +22,8 @@ test("all 80 completed jobs reproduce the verified account-wide totals", () => {
   assert.equal(result.totals.da, 7);
   assert.equal(result.totals.ta, 5);
   assert.equal(result.totals.normalAttackDamage, 3);
+  assert.equal(result.totals.defense, 21);
+  assert.equal(calculateJobCompletionBonuses(ids, catalog, catalog.find((job) => job.name === "ナイト"), undefined, 99).totals.defense, 18);
 });
 
 test("King normal attack damage is inactive while a Class V job is selected", () => {
