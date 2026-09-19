@@ -5,6 +5,7 @@ import {
   PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
 } from "./protagonist-displayed-stats.js?v=9";
+import { PROTAGONIST_OTHER_LIMIT_BONUS_IDS } from "./protagonist-limit-bonus-catalog.js?v=1";
 
 export const CALCULATOR_FORMATION_STORAGE_KEY = "gbf-helper-calculator-formation-v2";
 export const CALCULATOR_FORMATION_FORMAT = "gbf-helper-calculator-formation";
@@ -26,7 +27,7 @@ function pick(source, keys) {
 }
 
 const protagonistKeys = [
-  "attackLimitBonusLevel", "hpLimitBonusLevel",
+  "attackLimitBonusLevel", "hpLimitBonusLevel", "otherLimitBonusLevels",
   ...PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
   ...PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
   ...PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
@@ -34,6 +35,22 @@ const protagonistKeys = [
   ...PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
   "elementCode", "jobId", "jobNameHint", "jobLevel", "masterLevel", "perfectionProofLevel",
 ];
+
+function sanitizeOtherLimitBonusLevels(value) {
+  if (value === undefined) return undefined;
+  if (!isRecord(value)) throw new Error("その他LBの設定が正しくありません");
+  const levels = {};
+  for (const [id, level] of Object.entries(value)) {
+    if (!PROTAGONIST_OTHER_LIMIT_BONUS_IDS.has(id)
+      || !Number.isInteger(level)
+      || level < 0
+      || level > 3) {
+      throw new Error(`その他LB.${id} は既知の項目に対する0〜3の整数である必要があります`);
+    }
+    if (level > 0) levels[id] = level;
+  }
+  return levels;
+}
 const weaponKeys = [
   "slot", "position", "weaponId", "isJobFallback", "nameHint", "level", "skillLevel", "uncapLevel", "plusMark", "awakening",
 ];
@@ -143,7 +160,17 @@ function assertFormation(formation) {
   if (formation.supportSummon !== undefined && !isRecord(formation.supportSummon)) {
     throw new Error("保存データのサポート召喚石形式が正しくありません");
   }
-  return formation;
+  const otherLimitBonusLevels = sanitizeOtherLimitBonusLevels(deck.protagonist.otherLimitBonusLevels);
+  return {
+    ...formation,
+    deckConfig: {
+      ...deck,
+      protagonist: {
+        ...deck.protagonist,
+        ...(otherLimitBonusLevels === undefined ? {} : { otherLimitBonusLevels }),
+      },
+    },
+  };
 }
 
 /** Extracts formation choices without calculated stats, account environment, enemy, or random settings. */

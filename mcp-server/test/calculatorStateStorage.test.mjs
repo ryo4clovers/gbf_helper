@@ -74,6 +74,7 @@ test("preserves protagonist LB selections in formation save and reload", () => {
   const current = request();
   current.deckConfig.protagonist.attackLimitBonusLevel = 2;
   current.deckConfig.protagonist.hpLimitBonusLevel = 3;
+  current.deckConfig.protagonist.otherLimitBonusLevels = { "2": 3, "36": 2, "118": 1 };
   current.deckConfig.protagonist.partyHpLimitBonusLevel = 3;
   current.deckConfig.protagonist.partyHpLimitBonus2Level = 2;
   current.deckConfig.protagonist.partyHpLimitBonus3Level = 1;
@@ -99,6 +100,7 @@ test("preserves protagonist LB selections in formation save and reload", () => {
   const restored = mergeCalculatorFormation(request(), saved);
   assert.equal(restored.deckConfig.protagonist.attackLimitBonusLevel, 2);
   assert.equal(restored.deckConfig.protagonist.hpLimitBonusLevel, 3);
+  assert.deepEqual(restored.deckConfig.protagonist.otherLimitBonusLevels, { "2": 3, "36": 2, "118": 1 });
   assert.equal(restored.deckConfig.protagonist.partyHpLimitBonusLevel, 3);
   assert.equal(restored.deckConfig.protagonist.partyHpLimitBonus2Level, 2);
   assert.equal(restored.deckConfig.protagonist.partyHpLimitBonus3Level, 1);
@@ -120,6 +122,16 @@ test("preserves protagonist LB selections in formation save and reload", () => {
   assert.equal(restored.deckConfig.protagonist.fireAttackLimitBonus3Level, 3);
   assert.equal(restored.deckConfig.protagonist.waterAttackLimitBonusLevel, 3);
   assert.equal(restored.deckConfig.protagonist.darkAttackLimitBonus3Level, 2);
+});
+
+test("rejects unknown or out-of-range other LB selections in formation storage", () => {
+  const unknown = request();
+  unknown.deckConfig.protagonist.otherLimitBonusLevels = { "999": 1 };
+  assert.throws(() => createCalculatorFormation(unknown));
+
+  const outOfRange = request();
+  outOfRange.deckConfig.protagonist.otherLimitBonusLevels = { "2": 4 };
+  assert.throws(() => createCalculatorFormation(outOfRange));
 });
 
 test("persists only formation choices including the support summon", () => {

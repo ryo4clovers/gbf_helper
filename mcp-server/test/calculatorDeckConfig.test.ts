@@ -27,6 +27,7 @@ test("accepts only zero through three for protagonist LB levels", () => {
     protagonist: {
       attackLimitBonusLevel: level,
       hpLimitBonusLevel: level,
+      otherLimitBonusLevels: { "2": level, "118": level },
       ...Object.fromEntries(protagonistLimitBonusDefinitions.map(({ fieldKey }) => [fieldKey, level])),
     },
     weapons: [],
@@ -36,11 +37,22 @@ test("accepts only zero through three for protagonist LB levels", () => {
     const protagonist = parseCalculatorDeckConfig(config(level)).protagonist;
     assert.equal(protagonist.attackLimitBonusLevel, Number(level));
     assert.equal(protagonist.hpLimitBonusLevel, Number(level));
+    assert.deepEqual(protagonist.otherLimitBonusLevels, { "2": Number(level), "118": Number(level) });
     for (const { fieldKey } of protagonistLimitBonusDefinitions) {
       assert.equal(protagonist[fieldKey], Number(level));
     }
   }
   for (const level of [-1, 4, 1.5]) assert.throws(() => parseCalculatorDeckConfig(config(level)));
+});
+
+test("rejects malformed IDs in the persisted other LB map", () => {
+  assert.throws(() => parseCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { otherLimitBonusLevels: { defense: 3 } },
+    weapons: [],
+    summons: [],
+  }));
 });
 
 test("parses a user-authored calculator deck and normalizes IDs and numeric strings", () => {

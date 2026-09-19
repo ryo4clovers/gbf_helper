@@ -64,6 +64,10 @@ const protagonistSchema = z
   .object({
     attackLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     hpLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
+    otherLimitBonusLevels: z.record(
+      z.string().regex(/^\d+$/),
+      nonNegativeIntegerSchema.refine((value) => value <= 3),
+    ).optional(),
     partyHpLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     partyHpLimitBonus2Level: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     partyHpLimitBonus3Level: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),

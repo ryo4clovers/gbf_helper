@@ -471,6 +471,8 @@ export interface DeckSnapshot {
 export interface CalculatorDeckProtagonistConfig {
   attackLimitBonusLevel?: number;
   hpLimitBonusLevel?: number;
+  /** LB levels keyed by in-game bonus ID. These are persisted but not yet applied to calculation formulas. */
+  otherLimitBonusLevels?: Record<string, number>;
   partyHpLimitBonusLevel?: number;
   partyHpLimitBonus2Level?: number;
   partyHpLimitBonus3Level?: number;
