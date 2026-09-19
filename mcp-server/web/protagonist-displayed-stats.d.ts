@@ -10,6 +10,7 @@ export interface ProtagonistDisplayedStatsInput {
   jobGrowthHp: number;
   attackLimitBonusLevel?: number;
   hpLimitBonusLevel?: number;
+  hp2LimitBonusLevel?: number;
   partyHpLimitBonusLevel?: number;
   partyHpLimitBonus2Level?: number;
   partyHpLimitBonus3Level?: number;
@@ -39,6 +40,7 @@ export interface ProtagonistDisplayedStatsResult {
     rankHp: number;
     limitBonusAttack: number;
     limitBonusHp: number;
+    hp2LimitBonusHp: number;
     partyLimitBonusHp: number;
     jobGrowthAttack: number;
     jobGrowthHp: number;

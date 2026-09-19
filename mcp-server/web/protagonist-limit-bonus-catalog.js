@@ -36,7 +36,6 @@ export const PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS = Object.freeze([
   definition(90, "回復性能 II", "healing", 280, HIGH_PERCENT_VALUES),
   definition(98, "防御力 IV", "defense-evasion", 315),
   definition(101, "回復性能 III", "healing", 340, HIGH_PERCENT_VALUES),
-  definition(103, "HP II", "base-stats", 355, Object.freeze([0, 300, 600, 1000]), ""),
   definition(104, "弱体耐性 II", "debuff", 365),
 
   definition(5, "アビリティダメージ", "damage-multiplier", 1),
@@ -75,5 +74,5 @@ export const PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES = Object.freeze([
 ]);
 
 export const PROTAGONIST_OTHER_LIMIT_BONUS_IDS = new Set(
-  PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.map(({ id }) => id),
+  [...PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.map(({ id }) => id), "103"],
 );

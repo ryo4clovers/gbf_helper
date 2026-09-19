@@ -27,6 +27,7 @@ test("accepts only zero through three for protagonist LB levels", () => {
     protagonist: {
       attackLimitBonusLevel: level,
       hpLimitBonusLevel: level,
+      hp2LimitBonusLevel: level,
       otherLimitBonusLevels: { "2": level, "118": level },
       ...Object.fromEntries(protagonistLimitBonusDefinitions.map(({ fieldKey }) => [fieldKey, level])),
     },
@@ -37,6 +38,7 @@ test("accepts only zero through three for protagonist LB levels", () => {
     const protagonist = parseCalculatorDeckConfig(config(level)).protagonist;
     assert.equal(protagonist.attackLimitBonusLevel, Number(level));
     assert.equal(protagonist.hpLimitBonusLevel, Number(level));
+    assert.equal(protagonist.hp2LimitBonusLevel, Number(level));
     assert.deepEqual(protagonist.otherLimitBonusLevels, { "2": Number(level), "118": Number(level) });
     for (const { fieldKey } of protagonistLimitBonusDefinitions) {
       assert.equal(protagonist[fieldKey], Number(level));

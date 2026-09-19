@@ -146,6 +146,7 @@ export function calculateProtagonistDisplayedStats(input) {
   const rank = calculateProtagonistRankBaseStats(input.rank);
   const limitBonusAttack = limitBonusValue("attack", input.attackLimitBonusLevel);
   const limitBonusHp = limitBonusValue("hp", input.hpLimitBonusLevel);
+  const hp2LimitBonusHp = limitBonusValue("hp", input.hp2LimitBonusLevel);
   const partyLimitBonusHp = PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS.reduce(
     (sum, definition) => sum + limitBonusValue("hp", input[definition.fieldKey]),
     0,
@@ -167,6 +168,7 @@ export function calculateProtagonistDisplayedStats(input) {
     + summonAttack;
   const hpSubtotal = rank.hp
     + limitBonusHp
+    + hp2LimitBonusHp
     + partyLimitBonusHp
     + input.jobGrowthHp
     + weaponHp
@@ -183,6 +185,7 @@ export function calculateProtagonistDisplayedStats(input) {
       rankHp: rank.hp,
       limitBonusAttack,
       limitBonusHp,
+      hp2LimitBonusHp,
       partyLimitBonusHp,
       jobGrowthAttack: input.jobGrowthAttack,
       jobGrowthHp: input.jobGrowthHp,

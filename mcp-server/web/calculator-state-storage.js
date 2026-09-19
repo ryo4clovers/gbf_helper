@@ -4,7 +4,7 @@ import {
   PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
-} from "./protagonist-displayed-stats.js?v=9";
+} from "./protagonist-displayed-stats.js?v=10";
 import { PROTAGONIST_OTHER_LIMIT_BONUS_IDS } from "./protagonist-limit-bonus-catalog.js?v=1";
 
 export const CALCULATOR_FORMATION_STORAGE_KEY = "gbf-helper-calculator-formation-v2";
@@ -27,7 +27,7 @@ function pick(source, keys) {
 }
 
 const protagonistKeys = [
-  "attackLimitBonusLevel", "hpLimitBonusLevel", "otherLimitBonusLevels",
+  "attackLimitBonusLevel", "hpLimitBonusLevel", "hp2LimitBonusLevel", "otherLimitBonusLevels",
   ...PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
   ...PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
   ...PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
@@ -161,14 +161,22 @@ function assertFormation(formation) {
     throw new Error("保存データのサポート召喚石形式が正しくありません");
   }
   const otherLimitBonusLevels = sanitizeOtherLimitBonusLevels(deck.protagonist.otherLimitBonusLevels);
+  const normalizedProtagonist = { ...deck.protagonist };
+  if (normalizedProtagonist.hp2LimitBonusLevel === undefined
+    && otherLimitBonusLevels?.["103"] !== undefined) {
+    normalizedProtagonist.hp2LimitBonusLevel = otherLimitBonusLevels["103"];
+  }
+  if (otherLimitBonusLevels !== undefined) delete otherLimitBonusLevels["103"];
+  if (otherLimitBonusLevels !== undefined && Object.keys(otherLimitBonusLevels).length > 0) {
+    normalizedProtagonist.otherLimitBonusLevels = otherLimitBonusLevels;
+  } else {
+    delete normalizedProtagonist.otherLimitBonusLevels;
+  }
   return {
     ...formation,
     deckConfig: {
       ...deck,
-      protagonist: {
-        ...deck.protagonist,
-        ...(otherLimitBonusLevels === undefined ? {} : { otherLimitBonusLevels }),
-      },
+      protagonist: normalizedProtagonist,
     },
   };
 }

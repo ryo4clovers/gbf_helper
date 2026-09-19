@@ -16,7 +16,7 @@ import {
   serializeCalculatorFormation,
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
-} from "/calculator-state-storage.js?v=9";
+} from "/calculator-state-storage.js?v=10";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
 import {
   PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS,
@@ -25,7 +25,7 @@ import {
   PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS,
-} from "/protagonist-displayed-stats.js?v=9";
+} from "/protagonist-displayed-stats.js?v=10";
 import {
   PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES,
   PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS,
@@ -706,7 +706,6 @@ function configuredOtherLimitBonusCount(protagonist) {
 
 const LIMIT_BONUS_STATUS_LABELS = Object.freeze({
   connected: "計算接続済み",
-  mixed: "一部未接続",
   unconnected: "入力・保存のみ",
 });
 const PROTAGONIST_LIMIT_BONUS_GROUP_ORDER = Object.freeze([
@@ -895,19 +894,24 @@ function renderJobEditor(config) {
     controls.append(growthSection);
     const currentElementAttackLimitBonuses = PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS
       .filter((definition) => definition.elementCode === config.protagonist.elementCode);
-    const hp2LimitBonus = PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS
-      .find(({ id }) => id === "103");
+    if (config.protagonist.hp2LimitBonusLevel === undefined
+      && config.protagonist.otherLimitBonusLevels?.["103"] !== undefined) {
+      config.protagonist.hp2LimitBonusLevel = config.protagonist.otherLimitBonusLevels["103"];
+      delete config.protagonist.otherLimitBonusLevels["103"];
+      if (Object.keys(config.protagonist.otherLimitBonusLevels).length === 0) {
+        delete config.protagonist.otherLimitBonusLevels;
+      }
+    }
     const connectedGroups = [
       {
         key: "base-stats", label: "基礎ステータス", icon: "💪", defaultOpen: true,
         definitions: [
           ["attackLimitBonusLevel", "attack", "攻撃力LB", ""],
           ["hpLimitBonusLevel", "hp", "HP LB", ""],
+          ["hp2LimitBonusLevel", "hp", "HP II", ""],
           ...PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS
             .map(({ fieldKey, label }) => [fieldKey, "hp", label, ""]),
         ],
-        otherDefinitions: hp2LimitBonus ? [hp2LimitBonus] : [],
-        status: "mixed",
       },
       {
         key: "critical", label: "クリティカル", icon: "✦",
@@ -1012,7 +1016,7 @@ function renderJobEditor(config) {
       .map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0)
       .join("/");
     const otherLimitBonusSummary = configuredOtherLimitBonusCount(config.protagonist);
-    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0} / 全体HP LB ★${partyHpSummary} / クリLB ★${criticalSummary} / 得意1 ★${proficiency1Summary}・得意2 ★${proficiency2Summary}・1・2 ★${proficiencyBothSummary} / ${multiattackSummary} / ${elementAttackSummary} / その他LB ${otherLimitBonusSummary}項目`));
+    card.append(edit, createText("job-growth-summary", `Lv ${config.protagonist.jobLevel ?? "—"} / ML ${config.protagonist.masterLevel ?? 0} / 極致 ${config.protagonist.perfectionProofLevel ?? 0} / 攻撃LB ★${config.protagonist.attackLimitBonusLevel ?? 0} / HP LB ★${config.protagonist.hpLimitBonusLevel ?? 0}/${config.protagonist.hp2LimitBonusLevel ?? 0} / 全体HP LB ★${partyHpSummary} / クリLB ★${criticalSummary} / 得意1 ★${proficiency1Summary}・得意2 ★${proficiency2Summary}・1・2 ★${proficiencyBothSummary} / ${multiattackSummary} / ${elementAttackSummary} / その他LB ${otherLimitBonusSummary}項目`));
   } else {
     $("protagonist-strengthening-fields").replaceChildren();
     if ($("protagonist-strengthening").open) $("protagonist-strengthening").close();
@@ -1087,6 +1091,7 @@ function selectJob(job) {
   if (config.protagonist.jobId !== job.jobId) {
     delete config.protagonist.attackLimitBonusLevel;
     delete config.protagonist.hpLimitBonusLevel;
+    delete config.protagonist.hp2LimitBonusLevel;
     for (const { fieldKey } of PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS) {
       delete config.protagonist[fieldKey];
     }

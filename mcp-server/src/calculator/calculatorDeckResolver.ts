@@ -252,6 +252,8 @@ export function resolveCalculatorDeckConfig(
         jobGrowthHp: growthStats.hp,
         attackLimitBonusLevel: config.protagonist.attackLimitBonusLevel,
         hpLimitBonusLevel: config.protagonist.hpLimitBonusLevel,
+        hp2LimitBonusLevel: config.protagonist.hp2LimitBonusLevel
+          ?? config.protagonist.otherLimitBonusLevels?.["103"],
         partyHpLimitBonusLevel: config.protagonist.partyHpLimitBonusLevel,
         partyHpLimitBonus2Level: config.protagonist.partyHpLimitBonus2Level,
         partyHpLimitBonus3Level: config.protagonist.partyHpLimitBonus3Level,
@@ -279,6 +281,9 @@ export function resolveCalculatorDeckConfig(
     selectedJob?.verificationStatus === "検証済み" ? "検証済み" : "下書き";
   const hasDisplayedStatLimitBonus = (config.protagonist.attackLimitBonusLevel ?? 0) > 0
     || (config.protagonist.hpLimitBonusLevel ?? 0) > 0
+    || (config.protagonist.hp2LimitBonusLevel
+      ?? config.protagonist.otherLimitBonusLevels?.["103"]
+      ?? 0) > 0
     || PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS.some(
       ({ fieldKey }) => (config.protagonist[fieldKey] ?? 0) > 0,
     )

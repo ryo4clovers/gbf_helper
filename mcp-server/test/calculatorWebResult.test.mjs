@@ -169,13 +169,11 @@ test("protagonist LB editor groups inputs with icons and connection status", asy
   for (const label of ["基礎ステータス", "クリティカル", "得意武器攻撃", "連続攻撃", "属性攻撃"]) {
     assert.match(app, new RegExp(`label: ["']${label}["']`, "u"));
   }
-  assert.match(app, /mixed: "一部未接続"/u);
   assert.match(app, /PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS\s*\.map/u);
-  assert.match(app, /find\(\(\{ id \}\) => id === "103"\)/u);
+  assert.match(app, /\["hp2LimitBonusLevel", "hp", "HP II", ""\]/u);
   assert.match(app, /createText\("limit-bonus-group-icon", icon\)/u);
   assert.match(styles, /\.limit-bonus-group > summary/u);
   assert.match(styles, /\.limit-bonus-status\.connected/u);
-  assert.match(styles, /\.limit-bonus-status\.mixed/u);
   assert.match(styles, /\.limit-bonus-status\.unconnected/u);
   const orderStart = app.indexOf("const PROTAGONIST_LIMIT_BONUS_GROUP_ORDER");
   const orderSource = app.slice(orderStart, app.indexOf("]);", orderStart) + 3);

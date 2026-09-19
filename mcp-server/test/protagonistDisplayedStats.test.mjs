@@ -12,11 +12,12 @@ import {
 import {
   PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES,
   PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS,
+  PROTAGONIST_OTHER_LIMIT_BONUS_IDS,
 } from "../web/protagonist-limit-bonus-catalog.js";
 
 test("registers every calculator-unconnected protagonist LB with unique IDs", () => {
-  assert.equal(PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.length, 49);
-  assert.equal(new Set(PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.map(({ id }) => id)).size, 49);
+  assert.equal(PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.length, 48);
+  assert.equal(new Set(PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.map(({ id }) => id)).size, 48);
   assert.deepEqual(
     PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES.map(({ key, label }) => [key, label]),
     [
@@ -34,14 +35,8 @@ test("registers every calculator-unconnected protagonist LB with unique IDs", ()
     PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find(({ id }) => id === "36")?.values,
     [0, 3, 6, 10],
   );
-  assert.deepEqual(
-    PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find(({ id }) => id === "103")?.values,
-    [0, 300, 600, 1000],
-  );
-  assert.equal(
-    PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find(({ id }) => id === "103")?.category,
-    "base-stats",
-  );
+  assert.equal(PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.some(({ id }) => id === "103"), false);
+  assert.equal(PROTAGONIST_OTHER_LIMIT_BONUS_IDS.has("103"), true);
   for (const id of ["5", "21", "32", "35", "37", "41", "74", "91"]) {
     assert.equal(
       PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find((definition) => definition.id === id)?.category,
@@ -152,6 +147,21 @@ test("reproduces every observed Knight party HP LB stage", () => {
   }
 });
 
+test("reproduces the observed Knight HP II difference before completion HP", () => {
+  const input = {
+    rank: 425, jobGrowthAttack: 0, jobGrowthHp: 0,
+    completionAttackPercent: 24, completionHpPercent: 20,
+    mainWeaponCompletionAttack: 4, jobWeaponKindCodes: ["1", "3"],
+    weapons: [{ attack: 70, hp: 6, weaponKindCode: "1" }],
+    summons: [{ attack: 4157, hp: 1414 }],
+  };
+  const baseline = calculateProtagonistDisplayedStats(input);
+  const hp2 = calculateProtagonistDisplayedStats({ ...input, hp2LimitBonusLevel: 3 });
+  assert.equal(hp2.hp - baseline.hp, 1200);
+  assert.equal(hp2.attack, baseline.attack);
+  assert.equal(hp2.breakdown.hp2LimitBonusHp, 1000);
+});
+
 test("reproduces every observed Knight proficiency-1 attack LB stage", () => {
   const input = {
     rank: 425, jobGrowthAttack: 0, jobGrowthHp: 0,
@@ -230,6 +240,7 @@ test("derives the observed Froga protagonist ATK and pre-skill HP from component
     rankHp: 1964,
     limitBonusAttack: 0,
     limitBonusHp: 0,
+    hp2LimitBonusHp: 0,
     partyLimitBonusHp: 0,
     jobGrowthAttack: 0,
     jobGrowthHp: 0,
