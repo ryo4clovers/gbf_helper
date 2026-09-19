@@ -500,6 +500,34 @@ test("adds critical LB damage to an overcritical weapon-skill proc", () => {
   assert.equal(multiplicative.resolvedObservationCount, 0);
 });
 
+test("adds critical LB damage to a sub-100-percent weapon-skill proc", () => {
+  const profile = calculateWeaponSkillCriticalProfile(82.15);
+  assert.deepEqual(profile, {
+    effectiveRatePercent: 82.15,
+    overcriticalRatePercent: 0,
+    overcriticalDamageDisplayPercent: 0,
+    criticalDamageBonusPercent: 50,
+    criticalDamageMultiplier: 1.5,
+  });
+
+  // Ten actions (15 hits) are outside both the weapon-only 1.5x band and
+  // the multiplicative 1.575x band, while every hit resolves at additive 1.55x.
+  const baseNominalDamage = 40_809.27556628592;
+  const observedCombinedHits = [
+    60155, 61104, 61610, 64014, 61737, 63381, 63318, 63951,
+    61927, 64710, 61484, 63128, 64077, 63318, 62496,
+  ];
+  const resolvedCountAt = (multiplier: number) => inferRandomMultiplierCandidates(
+    baseNominalDamage * multiplier,
+    observedCombinedHits,
+    { finalRounding: "ceil" },
+  ).resolvedObservationCount;
+
+  assert.equal(resolvedCountAt(1.5), 0);
+  assert.equal(resolvedCountAt(1.55), observedCombinedHits.length);
+  assert.equal(resolvedCountAt(1.575), 0);
+});
+
 test("keeps the three protagonist critical LB items as independent rolls with per-stage verification", () => {
   const input = fireAttackLimitBonusRequest(0);
   Object.assign(input.deckConfig.protagonist, {
