@@ -665,7 +665,7 @@ export type BattleActionKind =
 
 export interface ObservedDamage {
   sequence: number;
-  sourceCommand: "attack" | "chain-burst" | "damage" | "loop-damage" | "special" | "summon";
+  sourceCommand: "attack" | "chain-burst" | "damage" | "loop-damage" | "special" | "summon" | "super";
   sourcePosition?: number;
   sourceName?: string;
   targetPosition?: number;
@@ -750,8 +750,12 @@ export interface BattleActionResult {
   actionName?: string;
   turn?: number;
   commands: string[];
+  /** Damage dealt by the player party to enemies. */
   damage: ObservedDamage[];
   totalDamage: number;
+  /** Damage dealt by enemies to the player party. */
+  incomingDamage: ObservedDamage[];
+  totalIncomingDamage: number;
   enemyGaugeEvents: ObservedEnemyGauge[];
   conditionEvents: ObservedConditionEvent[];
   resourceEvents: ObservedResourceEvent[];

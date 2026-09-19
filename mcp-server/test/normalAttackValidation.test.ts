@@ -20,6 +20,8 @@ function resultWithBodyDamage(values: number[]): BattleActionResult {
     commands: ["attack"],
     damage,
     totalDamage: values.reduce((sum, value) => sum + value, 0),
+    incomingDamage: [],
+    totalIncomingDamage: 0,
     enemyGaugeEvents: [],
     conditionEvents: [],
     resourceEvents: [],

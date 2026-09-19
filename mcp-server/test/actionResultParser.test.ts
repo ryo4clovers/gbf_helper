@@ -62,6 +62,60 @@ test("flattens the nested normal attack damage arrays", () => {
   assert.equal(result.damage[0].randomAttack, undefined);
 });
 
+test("separates enemy normal and special attacks as incoming damage", () => {
+  const result = parseActionResultResponse({
+    scenario: [
+      {
+        cmd: "attack",
+        from: "player",
+        pos: 0,
+        total_attack_num: 1,
+        damage: [[{ pos: 0, value: 5000, hp: 995000, attr: 1, miss: 0 }]],
+      },
+      {
+        cmd: "attack",
+        from: "boss",
+        pos: 0,
+        total_attack_num: 1,
+        damage: [[{ pos: 0, value: 900, hp: 82072, attr: 4, miss: 0, guard: 0 }]],
+      },
+      {
+        cmd: "super",
+        pos: 0,
+        name: { ja: "遠距離攻撃" },
+        list: [{ damage: [{ pos: 0, value: 1800, hp: 80272, attr: 4, miss: 0, guard: false }] }],
+      },
+      {
+        cmd: "attack",
+        from: "boss",
+        pos: 0,
+        total_attack_num: 1,
+        damage: [[{ pos: 0, value: 0, hp: 80272, attr: 4, miss: 4, guard: 0 }]],
+      },
+    ],
+    status: baseStatus,
+  });
+
+  assert.deepEqual(result.damage.map((damage) => damage.value), [5000]);
+  assert.equal(result.totalDamage, 5000);
+  assert.deepEqual(
+    result.incomingDamage.map((damage) => [
+      damage.sourceCommand,
+      damage.sourceName,
+      damage.sourcePosition,
+      damage.targetPosition,
+      damage.value,
+      damage.missed,
+    ]),
+    [
+      ["attack", undefined, 0, 0, 900, false],
+      ["super", "遠距離攻撃", 0, 0, 1800, false],
+      ["attack", undefined, 0, 0, 0, true],
+    ],
+  );
+  assert.equal(result.totalIncomingDamage, 2700);
+});
+
 test("parses numbered later-swing objects and normal-attack packet metadata", () => {
   const result = parseActionResultResponse({
     scenario: [

@@ -47,12 +47,12 @@ function optionalNumber(value: unknown, path: string): number | undefined {
   return parsed;
 }
 
-function optionalBoolean(value: unknown, path: string): boolean | undefined {
+function optionalFlag(value: unknown, path: string): boolean | undefined {
   if (value === undefined || value === null || value === "") return undefined;
   if (typeof value === "boolean") return value;
-  if (value === 0 || value === "0") return false;
-  if (value === 1 || value === "1") return true;
-  throw new Error(`${path} must be a boolean or 0/1`);
+  const parsed = typeof value === "number" ? value : typeof value === "string" ? Number(value) : NaN;
+  if (!Number.isFinite(parsed)) throw new Error(`${path} must be a boolean or numeric flag`);
+  return parsed !== 0;
 }
 
 function localizedName(value: unknown): string | undefined {
@@ -139,13 +139,13 @@ function normalizeDamageRecord(
     elementCode: optionalString(record.attr ?? record.color),
     value,
     remainingHp: optionalNumber(record.hp, `${path}.hp`),
-    critical: optionalBoolean(record.critical, `${path}.critical`),
-    missed: optionalBoolean(record.miss, `${path}.miss`),
-    guarded: optionalBoolean(record.guard, `${path}.guard`),
+    critical: optionalFlag(record.critical, `${path}.critical`),
+    missed: optionalFlag(record.miss, `${path}.miss`),
+    guarded: optionalFlag(record.guard, `${path}.guard`),
     hitIndex: optionalNumber(record.attack_num ?? record.attack_count, `${path}.attack_num`) ?? hitIndexOverride,
     concurrentIndex: optionalNumber(record.concurrent_attack_count, `${path}.concurrent_attack_count`),
     normalAttackCount,
-    randomAttack: optionalBoolean(record.is_random_attack, `${path}.is_random_attack`),
+    randomAttack: optionalFlag(record.is_random_attack, `${path}.is_random_attack`),
   };
 }
 
@@ -171,6 +171,7 @@ function extractDamage(events: JsonRecord[], chainBursts: ObservedChainBurst[]):
       sourceCommand = chainBurst === undefined ? "damage" : "chain-burst";
       sourceName = chainBurst?.name;
     } else if (command === "attack") {
+      if (event.from === "boss") return;
       records = flattenAttackDamage(event.damage);
       sourceCommand = "attack";
       sourcePosition = optionalNumber(event.pos, `scenario.${sequence}.pos`);
@@ -206,6 +207,43 @@ function extractDamage(events: JsonRecord[], chainBursts: ObservedChainBurst[]):
         sourcePosition,
         sourceName,
         hitIndexes[index],
+        normalAttackCount,
+      );
+      if (damage !== undefined) result.push(damage);
+    });
+  });
+  return result;
+}
+
+function extractIncomingDamage(events: JsonRecord[]): ObservedDamage[] {
+  const result: ObservedDamage[] = [];
+  events.forEach((event, sequence) => {
+    const command = optionalString(event.cmd);
+    let records: JsonRecord[] = [];
+    let sourceCommand: ObservedDamage["sourceCommand"] | undefined;
+    let sourceName: string | undefined;
+    let normalAttackCount: number | undefined;
+
+    if (command === "attack" && event.from === "boss") {
+      records = flattenAttackDamage(event.damage);
+      sourceCommand = "attack";
+      normalAttackCount = optionalNumber(event.total_attack_num, `scenario.${sequence}.total_attack_num`);
+    } else if (command === "super") {
+      records = flattenRecords(event.list).flatMap((entry) => flattenRecords(entry.damage));
+      sourceCommand = "super";
+      sourceName = localizedName(event.name);
+    }
+
+    if (sourceCommand === undefined) return;
+    records.forEach((record, index) => {
+      const damage = normalizeDamageRecord(
+        record,
+        sequence,
+        sourceCommand,
+        `scenario.${sequence}.incoming.${index}`,
+        optionalNumber(event.pos, `scenario.${sequence}.pos`),
+        sourceName,
+        undefined,
         normalAttackCount,
       );
       if (damage !== undefined) result.push(damage);
@@ -396,6 +434,7 @@ export function parseActionResultResponse(input: unknown): BattleActionResult {
   const actionKind = detectActionKind(events);
   const chainBursts = extractChainBursts(events);
   const damage = extractDamage(events, chainBursts);
+  const incomingDamage = extractIncomingDamage(events);
 
   return {
     schemaVersion: 1,
@@ -405,6 +444,8 @@ export function parseActionResultResponse(input: unknown): BattleActionResult {
     commands: events.map((event) => optionalString(event.cmd)).filter((cmd): cmd is string => cmd !== undefined),
     damage,
     totalDamage: damage.reduce((sum, item) => sum + item.value, 0),
+    incomingDamage,
+    totalIncomingDamage: incomingDamage.reduce((sum, item) => sum + item.value, 0),
     enemyGaugeEvents: extractEnemyGaugeEvents(events),
     conditionEvents: extractConditionEvents(events),
     resourceEvents: extractResourceEvents(events),
