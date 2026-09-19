@@ -93,7 +93,6 @@ const elementMeta = {
   "5": { name: "光", className: "light" },
   "6": { name: "闇", className: "dark" },
 };
-const elementIcons = { "1": "🔥", "2": "💧", "3": "⛰️", "4": "🍃", "5": "☀️", "6": "🌑" };
 const weaponKindSymbols = { "1": "⚔", "2": "⌁", "3": "♜", "4": "⌁", "5": "✣", "6": "⌖", "7": "◈", "8": "✧", "9": "♩", "10": "◒" };
 const rarityLabels = { "1": "N", "2": "R", "3": "SR", "4": "SSR" };
 const equipmentPlusBonus = { maximum: 99, attackPerMark: 5, hpPerMark: 1 };
@@ -699,13 +698,21 @@ function jobGrowthStageSummary(label, totals) {
 }
 
 function configuredOtherLimitBonusCount(protagonist) {
-  return Object.values(protagonist.otherLimitBonusLevels ?? {})
-    .filter((level) => Number.isInteger(level) && level > 0).length;
+  const visibleCategoryKeys = new Set(PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES.map(({ key }) => key));
+  return PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS
+    .filter(({ id, category }) => visibleCategoryKeys.has(category)
+      && (protagonist.otherLimitBonusLevels?.[id] ?? 0) > 0).length;
 }
 
-function createLimitBonusGroup({ key, label, icon, fields, configuredCount, connected, defaultOpen = false }) {
+const LIMIT_BONUS_STATUS_LABELS = Object.freeze({
+  connected: "計算接続済み",
+  mixed: "一部未接続",
+  unconnected: "入力・保存のみ",
+});
+
+function createLimitBonusGroup({ key, label, icon, fields, configuredCount, status, defaultOpen = false }) {
   const group = document.createElement("details");
-  group.className = `limit-bonus-group ${connected ? "connected" : "unconnected"}`;
+  group.className = `limit-bonus-group ${status}`;
   group.dataset.limitBonusGroup = key;
   group.open = defaultOpen || configuredCount > 0;
   const summary = document.createElement("summary");
@@ -713,11 +720,11 @@ function createLimitBonusGroup({ key, label, icon, fields, configuredCount, conn
   iconElement.setAttribute("aria-hidden", "true");
   const title = createText("limit-bonus-group-title", label);
   const count = createText("limit-bonus-group-count", `${configuredCount}/${fields.length}`);
-  const status = createText(
-    `limit-bonus-status ${connected ? "connected" : "unconnected"}`,
-    connected ? "計算接続済み" : "入力・保存のみ",
+  const statusBadge = createText(
+    `limit-bonus-status ${status}`,
+    LIMIT_BONUS_STATUS_LABELS[status],
   );
-  summary.append(iconElement, title, count, status);
+  summary.append(iconElement, title, count, statusBadge);
   const grid = document.createElement("div");
   grid.className = "limit-bonus-grid";
   grid.append(...fields);
@@ -802,7 +809,7 @@ function createOtherLimitBonusGroups(config) {
       icon: category.icon,
       fields: definitions.map((definition) => createOtherLimitBonusField(config, definition)),
       configuredCount,
-      connected: false,
+      status: "unconnected",
     });
   });
 }
@@ -874,8 +881,10 @@ function renderJobEditor(config) {
     );
     growthSection.append(growthHeading, growthFields);
     controls.append(growthSection);
-    const elementAttackLimitBonuses = PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS
+    const currentElementAttackLimitBonuses = PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS
       .filter((definition) => definition.elementCode === config.protagonist.elementCode);
+    const hp2LimitBonus = PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS
+      .find(({ id }) => id === "103");
     const connectedGroups = [
       {
         key: "base-stats", label: "基礎ステータス", icon: "💪", defaultOpen: true,
@@ -885,6 +894,8 @@ function renderJobEditor(config) {
           ...PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS
             .map(({ fieldKey, label }) => [fieldKey, "hp", label, ""]),
         ],
+        otherDefinitions: hp2LimitBonus ? [hp2LimitBonus] : [],
+        status: "mixed",
       },
       {
         key: "critical", label: "クリティカル", icon: "✦",
@@ -903,9 +914,9 @@ function renderJobEditor(config) {
       },
       {
         key: "element-attack",
-        label: `${protagonistElement?.name ?? "現在属性"}属性攻撃`,
-        icon: elementIcons[config.protagonist.elementCode] ?? "◈",
-        definitions: elementAttackLimitBonuses
+        label: "属性攻撃",
+        icon: "🌈",
+        definitions: PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS
           .map(({ fieldKey, label }) => [fieldKey, "elementAttack", label, "%"]),
       },
     ];
@@ -918,14 +929,20 @@ function renderJobEditor(config) {
     );
     controls.append(limitBonusHeading);
     for (const group of connectedGroups) {
-      const configuredCount = group.definitions
+      const connectedConfiguredCount = group.definitions
         .filter(([key]) => (config.protagonist[key] ?? 0) > 0).length;
+      const otherConfiguredCount = (group.otherDefinitions ?? [])
+        .filter(({ id }) => (config.protagonist.otherLimitBonusLevels?.[id] ?? 0) > 0).length;
       controls.append(createLimitBonusGroup({
         ...group,
-        configuredCount,
-        connected: true,
-        fields: group.definitions.map((definition) =>
-          createConnectedLimitBonusField(config, group.key, definition)),
+        configuredCount: connectedConfiguredCount + otherConfiguredCount,
+        status: group.status ?? "connected",
+        fields: [
+          ...group.definitions.map((definition) =>
+            createConnectedLimitBonusField(config, group.key, definition)),
+          ...(group.otherDefinitions ?? []).map((definition) =>
+            createOtherLimitBonusField(config, definition)),
+        ],
       }));
     }
     controls.append(...createOtherLimitBonusGroups(config));
@@ -944,9 +961,9 @@ function renderJobEditor(config) {
     edit.className = "tonal-button";
     edit.textContent = "強化設定";
     edit.addEventListener("click", () => $("protagonist-strengthening").showModal());
-    const elementAttackSummary = elementAttackLimitBonuses.length === 0
+    const elementAttackSummary = currentElementAttackLimitBonuses.length === 0
       ? "属性攻撃LB —"
-      : `${elementAttackLimitBonuses[0].elementName}攻撃LB ★${elementAttackLimitBonuses.map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0).join("/")}`;
+      : `${currentElementAttackLimitBonuses[0].elementName}攻撃LB ★${currentElementAttackLimitBonuses.map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0).join("/")}`;
     const proficiency1Summary = PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS
       .filter(({ target }) => target === "first")
       .map(({ fieldKey }) => config.protagonist[fieldKey] ?? 0)

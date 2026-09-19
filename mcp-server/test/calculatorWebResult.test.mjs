@@ -166,13 +166,16 @@ test("protagonist LB editor groups inputs with icons and connection status", asy
     readFile(new URL("../web/app.js", import.meta.url), "utf8"),
     readFile(new URL("../web/styles.css", import.meta.url), "utf8"),
   ]);
-  for (const label of ["基礎ステータス", "クリティカル", "得意武器攻撃", "連続攻撃"]) {
+  for (const label of ["基礎ステータス", "クリティカル", "得意武器攻撃", "連続攻撃", "属性攻撃"]) {
     assert.match(app, new RegExp(`label: ["']${label}["']`, "u"));
   }
-  assert.match(app, /connected \? "計算接続済み" : "入力・保存のみ"/u);
+  assert.match(app, /mixed: "一部未接続"/u);
+  assert.match(app, /PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS\s*\.map/u);
+  assert.match(app, /find\(\(\{ id \}\) => id === "103"\)/u);
   assert.match(app, /createText\("limit-bonus-group-icon", icon\)/u);
   assert.match(styles, /\.limit-bonus-group > summary/u);
   assert.match(styles, /\.limit-bonus-status\.connected/u);
+  assert.match(styles, /\.limit-bonus-status\.mixed/u);
   assert.match(styles, /\.limit-bonus-status\.unconnected/u);
 });
 

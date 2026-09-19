@@ -121,6 +121,7 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .limit-bonus-group-count { min-width: 38px; color: var(--ink-soft); text-align: right; font-size: .7rem; font-weight: 850; }
 .limit-bonus-status { padding: 4px 7px; border-radius: 999px; font-size: .62rem; font-weight: 900; white-space: nowrap; }
 .limit-bonus-status.connected { color: #14532d; background: #dcfce7; }
+.limit-bonus-status.mixed { color: #713f12; background: #fef3c7; }
 .limit-bonus-status.unconnected { color: #735c00; background: #fff1b8; }
 .limit-bonus-grid { padding: 12px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; border-top: 1px solid var(--outline-soft); background: var(--surface-high); }
 .limit-bonus-field { min-width: 0; }

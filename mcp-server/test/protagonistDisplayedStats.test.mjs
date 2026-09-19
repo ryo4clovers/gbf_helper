@@ -20,16 +20,13 @@ test("registers every calculator-unconnected protagonist LB with unique IDs", ()
   assert.deepEqual(
     PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES.map(({ key, label }) => [key, label]),
     [
-      ["defense", "防御・HP"],
+      ["defense-evasion", "防御・回避"],
       ["element-reduction", "属性軽減"],
       ["healing", "回復"],
-      ["ability", "アビリティ"],
-      ["charge", "奥義・チェイン"],
+      ["damage-multiplier", "ダメージ倍率"],
       ["debuff", "弱体"],
+      ["special", "特殊"],
       ["damage-cap", "ダメージ上限"],
-      ["ability-cap", "アビリティ上限"],
-      ["chain-cap", "チェイン上限"],
-      ["rewards", "獲得量"],
     ],
   );
   assert.equal(PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES.every(({ icon }) => icon.length > 0), true);
@@ -40,6 +37,29 @@ test("registers every calculator-unconnected protagonist LB with unique IDs", ()
   assert.deepEqual(
     PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find(({ id }) => id === "103")?.values,
     [0, 300, 600, 1000],
+  );
+  assert.equal(
+    PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find(({ id }) => id === "103")?.category,
+    "base-stats",
+  );
+  for (const id of ["5", "21", "32", "35", "37", "41", "74", "91"]) {
+    assert.equal(
+      PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find((definition) => definition.id === id)?.category,
+      "damage-multiplier",
+    );
+  }
+  for (const id of ["36", "39", "84", "85", "89", "105", "118"]) {
+    assert.equal(
+      PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find((definition) => definition.id === id)?.category,
+      "damage-cap",
+    );
+  }
+  assert.equal(PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES.some(({ key }) => key === "rewards"), false);
+  assert.deepEqual(
+    PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS
+      .filter(({ category }) => category === "rewards")
+      .map(({ id }) => id),
+    ["87", "100"],
   );
   assert.equal(
     PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find(({ id }) => id === "118")?.requiredRank,
