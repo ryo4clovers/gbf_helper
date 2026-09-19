@@ -177,6 +177,16 @@ test("protagonist LB editor groups inputs with icons and connection status", asy
   assert.match(styles, /\.limit-bonus-status\.connected/u);
   assert.match(styles, /\.limit-bonus-status\.mixed/u);
   assert.match(styles, /\.limit-bonus-status\.unconnected/u);
+  const orderStart = app.indexOf("const PROTAGONIST_LIMIT_BONUS_GROUP_ORDER");
+  const orderSource = app.slice(orderStart, app.indexOf("]);", orderStart) + 3);
+  assert.deepEqual(
+    [...orderSource.matchAll(/"([^"]+)"/gu)].map((match) => match[1]),
+    [
+      "base-stats", "proficiency", "element-attack", "multiattack",
+      "damage-multiplier", "damage-cap", "critical", "defense-evasion",
+      "healing", "element-reduction", "debuff", "special",
+    ],
+  );
 });
 
 test("catalog pickers expose element and rarity filters below search", async () => {

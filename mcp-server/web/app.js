@@ -709,6 +709,20 @@ const LIMIT_BONUS_STATUS_LABELS = Object.freeze({
   mixed: "一部未接続",
   unconnected: "入力・保存のみ",
 });
+const PROTAGONIST_LIMIT_BONUS_GROUP_ORDER = Object.freeze([
+  "base-stats",
+  "proficiency",
+  "element-attack",
+  "multiattack",
+  "damage-multiplier",
+  "damage-cap",
+  "critical",
+  "defense-evasion",
+  "healing",
+  "element-reduction",
+  "debuff",
+  "special",
+]);
 
 function createLimitBonusGroup({ key, label, icon, fields, configuredCount, status, defaultOpen = false }) {
   const group = document.createElement("details");
@@ -797,20 +811,18 @@ function createOtherLimitBonusField(config, definition) {
   return field;
 }
 
-function createOtherLimitBonusGroups(config) {
-  return PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES.map((category) => {
-    const definitions = PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS
-      .filter((definition) => definition.category === category.key);
-    const configuredCount = definitions
-      .filter(({ id }) => (config.protagonist.otherLimitBonusLevels?.[id] ?? 0) > 0).length;
-    return createLimitBonusGroup({
-      key: category.key,
-      label: category.label,
-      icon: category.icon,
-      fields: definitions.map((definition) => createOtherLimitBonusField(config, definition)),
-      configuredCount,
-      status: "unconnected",
-    });
+function createOtherLimitBonusGroup(config, category) {
+  const definitions = PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS
+    .filter((definition) => definition.category === category.key);
+  const configuredCount = definitions
+    .filter(({ id }) => (config.protagonist.otherLimitBonusLevels?.[id] ?? 0) > 0).length;
+  return createLimitBonusGroup({
+    key: category.key,
+    label: category.label,
+    icon: category.icon,
+    fields: definitions.map((definition) => createOtherLimitBonusField(config, definition)),
+    configuredCount,
+    status: "unconnected",
   });
 }
 
@@ -928,24 +940,33 @@ function renderJobEditor(config) {
       createText("limit-bonus-heading-note", "グループを開いて★段階を設定"),
     );
     controls.append(limitBonusHeading);
-    for (const group of connectedGroups) {
-      const connectedConfiguredCount = group.definitions
-        .filter(([key]) => (config.protagonist[key] ?? 0) > 0).length;
-      const otherConfiguredCount = (group.otherDefinitions ?? [])
-        .filter(({ id }) => (config.protagonist.otherLimitBonusLevels?.[id] ?? 0) > 0).length;
-      controls.append(createLimitBonusGroup({
-        ...group,
-        configuredCount: connectedConfiguredCount + otherConfiguredCount,
-        status: group.status ?? "connected",
-        fields: [
-          ...group.definitions.map((definition) =>
-            createConnectedLimitBonusField(config, group.key, definition)),
-          ...(group.otherDefinitions ?? []).map((definition) =>
-            createOtherLimitBonusField(config, definition)),
-        ],
-      }));
+    const connectedGroupsByKey = new Map(connectedGroups.map((group) => [group.key, group]));
+    const otherCategoriesByKey = new Map(
+      PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES.map((category) => [category.key, category]),
+    );
+    for (const groupKey of PROTAGONIST_LIMIT_BONUS_GROUP_ORDER) {
+      const group = connectedGroupsByKey.get(groupKey);
+      if (group) {
+        const connectedConfiguredCount = group.definitions
+          .filter(([key]) => (config.protagonist[key] ?? 0) > 0).length;
+        const otherConfiguredCount = (group.otherDefinitions ?? [])
+          .filter(({ id }) => (config.protagonist.otherLimitBonusLevels?.[id] ?? 0) > 0).length;
+        controls.append(createLimitBonusGroup({
+          ...group,
+          configuredCount: connectedConfiguredCount + otherConfiguredCount,
+          status: group.status ?? "connected",
+          fields: [
+            ...group.definitions.map((definition) =>
+              createConnectedLimitBonusField(config, group.key, definition)),
+            ...(group.otherDefinitions ?? []).map((definition) =>
+              createOtherLimitBonusField(config, definition)),
+          ],
+        }));
+        continue;
+      }
+      const category = otherCategoriesByKey.get(groupKey);
+      if (category) controls.append(createOtherLimitBonusGroup(config, category));
     }
-    controls.append(...createOtherLimitBonusGroups(config));
     const growth = calculateJobGrowthBonuses(job, config.protagonist);
     const summaryText = [
       jobGrowthStageSummary("Lv", growth.jobLevel),
