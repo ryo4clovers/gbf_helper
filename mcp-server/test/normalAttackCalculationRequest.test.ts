@@ -498,6 +498,14 @@ test("adds critical LB damage to an overcritical weapon-skill proc", () => {
 
   assert.equal(additive.resolvedObservationCount, observedCombinedHits.length);
   assert.equal(multiplicative.resolvedObservationCount, 0);
+
+  assert.deepEqual(calculateWeaponSkillCriticalProfile(500), {
+    effectiveRatePercent: 100,
+    overcriticalRatePercent: 400,
+    overcriticalDamageDisplayPercent: 100,
+    criticalDamageBonusPercent: 100,
+    criticalDamageMultiplier: 2,
+  });
 });
 
 test("adds critical LB damage to a sub-100-percent weapon-skill proc", () => {

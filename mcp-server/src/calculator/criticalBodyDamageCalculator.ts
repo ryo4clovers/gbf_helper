@@ -58,10 +58,10 @@ export function calculateWeaponSkillCriticalProfile(weaponSkillCriticalRatePerce
   const effectiveRatePercent = Math.min(weaponSkillCriticalRatePercent, 100);
   const overcriticalRatePercent = Math.max(weaponSkillCriticalRatePercent - 100, 0);
   // The in-game skill summary displays half of the rate above 100% as
-  // "critical damage". That percentage strengthens the weapon critical's
-  // base +50% damage bonus, rather than the complete 1.5x multiplier.
-  const overcriticalDamageDisplayPercent = overcriticalRatePercent / 2;
-  const criticalDamageBonusPercent = 50 * (1 + overcriticalDamageDisplayPercent / 100);
+  // "critical damage", capped at 100%. Half of that displayed percentage
+  // is then added to the weapon critical's base +50% damage bonus.
+  const overcriticalDamageDisplayPercent = Math.min(overcriticalRatePercent / 2, 100);
+  const criticalDamageBonusPercent = 50 + overcriticalDamageDisplayPercent / 2;
   return {
     effectiveRatePercent: roundCalculation(effectiveRatePercent),
     overcriticalRatePercent: roundCalculation(overcriticalRatePercent),
