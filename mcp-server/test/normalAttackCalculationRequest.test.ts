@@ -528,6 +528,27 @@ test("adds critical LB damage to a sub-100-percent weapon-skill proc", () => {
   assert.equal(resolvedCountAt(1.575), 0);
 });
 
+test("separates weapon-skill and critical LB procs in one sub-100-percent battle", () => {
+  const profile = calculateWeaponSkillCriticalProfile(47.7);
+  assert.equal(profile.effectiveRatePercent, 47.7);
+  assert.equal(profile.criticalDamageMultiplier, 1.5);
+
+  const baseNominalDamage = 21_884.614384615386;
+  const observedLimitBonusOnlyHits = [22956, 23393, 23738, 23692, 22704];
+  const observedCombinedHits = [34464, 33888, 33175, 32700, 35482, 32497, 33379, 32226];
+  const resolvedCountAt = (multiplier: number, observations: number[]) => inferRandomMultiplierCandidates(
+    baseNominalDamage * multiplier,
+    observations,
+    { finalRounding: "ceil" },
+  ).resolvedObservationCount;
+
+  assert.equal(resolvedCountAt(1.05, observedLimitBonusOnlyHits), observedLimitBonusOnlyHits.length);
+  assert.equal(resolvedCountAt(1, observedLimitBonusOnlyHits), 0);
+  assert.equal(resolvedCountAt(1.55, observedCombinedHits), observedCombinedHits.length);
+  assert.equal(resolvedCountAt(1.5, observedCombinedHits), 0);
+  assert.equal(resolvedCountAt(1.575, observedCombinedHits), 0);
+});
+
 test("keeps the three protagonist critical LB items as independent rolls with per-stage verification", () => {
   const input = fireAttackLimitBonusRequest(0);
   Object.assign(input.deckConfig.protagonist, {
