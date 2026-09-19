@@ -390,6 +390,42 @@ test("reproduces the observed simultaneous procs from two five-percent critical 
   assert.deepEqual(candidatesAt(5), [[], [], []]);
 });
 
+test("distinguishes additive double procs from multiplicative critical LB damage", () => {
+  const input = fireAttackLimitBonusRequest(0);
+  input.deckConfig.protagonist.criticalRateLimitBonusLevel = 3;
+  input.deckConfig.protagonist.criticalRateLimitBonus2Level = 3;
+  input.deckConfig.protagonist.criticalRateLimitBonus3Level = 3;
+  input.enemy.elementCode = "4";
+  input.modifiers.targetElementDamagePercent = 5;
+  const result = calculateNormalAttackFromRequest(input).result;
+  const critical = result.protagonistLimitBonusCritical;
+
+  assert.ok(critical !== undefined);
+  assert.equal(critical.damageMultiplier, 1.15);
+  assert.deepEqual(critical.sources.map((source) => source.verificationStatus), ["検証済み", "検証済み", "下書き"]);
+
+  const observedDoubleProcHits = [4251, 4152];
+  const trace = result.baseDamage.articleTrace!;
+  const candidatesAt = (damageBonusPercent: number) => inferRandomMultiplierCandidates(
+    trace.prePostCapDamage,
+    observedDoubleProcHits,
+    {
+      finalRounding: "ceil",
+      damageTransform: {
+        id: `observed-protagonist-critical-lb-three-source:${damageBonusPercent}`,
+        apply: (damage) => calculateDamageAttenuation(
+          damage * (1 + damageBonusPercent / 100),
+          result.bodyDamageAttenuation.profile,
+          { damageCapUpPercent: result.bodyDamageAttenuation.damageCapUpPercent },
+        ).damage * (1 + trace.postCapDamagePercent / 100),
+      },
+    },
+  ).observations.map((observation) => observation.candidates);
+
+  assert.deepEqual(candidatesAt(10), [[0.99], [0.967]]);
+  assert.deepEqual(candidatesAt(10.25), [[], []]);
+});
+
 test("keeps the three protagonist critical LB items as independent rolls with per-stage verification", () => {
   const input = fireAttackLimitBonusRequest(0);
   Object.assign(input.deckConfig.protagonist, {
