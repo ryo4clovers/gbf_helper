@@ -2,7 +2,10 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { calculateNormalAttackFromRequest } from "../src/calculator/normalAttackCalculationRequest.ts";
 import { inferRandomMultiplierCandidates } from "../src/calculator/randomMultiplierInference.ts";
-import { calculateCriticalBodyDamageAtMultiplier } from "../src/calculator/criticalBodyDamageCalculator.ts";
+import {
+  calculateCriticalBodyDamageAtMultiplier,
+  calculateWeaponSkillCriticalProfile,
+} from "../src/calculator/criticalBodyDamageCalculator.ts";
 import { calculateDamageAttenuation } from "../src/calculator/damageAttenuationCalculator.ts";
 
 function request() {
@@ -460,6 +463,41 @@ test("reproduces every observed standalone critical LB III proc at five percent"
     [[0.963], [0.976], [0.996], [1.036], [0.986], [1.036], [1.011], [0.991],
       [1.018], [0.978], [1.013], [1.026], [0.958], [0.967], [0.969]],
   );
+});
+
+test("adds critical LB damage to an overcritical weapon-skill proc", () => {
+  const profile = calculateWeaponSkillCriticalProfile(132.5);
+  assert.deepEqual(profile, {
+    effectiveRatePercent: 100,
+    overcriticalRatePercent: 32.5,
+    overcriticalDamageDisplayPercent: 16.25,
+    criticalDamageBonusPercent: 58.125,
+    criticalDamageMultiplier: 1.58125,
+  });
+
+  // The weapon-only nominal is inferred from the 451 ordinary body hits in
+  // the same battle. All 14 hits from the seven LB III proc actions resolve
+  // when +5 percentage points are added to the weapon critical bonus.
+  const weaponOnlyNominalDamage = 151_893.451;
+  const additiveMultiplier = (profile.criticalDamageMultiplier + 0.05)
+    / profile.criticalDamageMultiplier;
+  const observedCombinedHits = [
+    151526, 158107, 151526, 149175, 154033, 163905, 153406,
+    158421, 152309, 164062, 150899, 152623, 162495, 154660,
+  ];
+  const additive = inferRandomMultiplierCandidates(
+    weaponOnlyNominalDamage * additiveMultiplier,
+    observedCombinedHits,
+    { finalRounding: "ceil" },
+  );
+  const multiplicative = inferRandomMultiplierCandidates(
+    weaponOnlyNominalDamage * 1.05,
+    observedCombinedHits,
+    { finalRounding: "ceil" },
+  );
+
+  assert.equal(additive.resolvedObservationCount, observedCombinedHits.length);
+  assert.equal(multiplicative.resolvedObservationCount, 0);
 });
 
 test("keeps the three protagonist critical LB items as independent rolls with per-stage verification", () => {

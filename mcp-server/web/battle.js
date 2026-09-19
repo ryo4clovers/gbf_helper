@@ -116,7 +116,7 @@ function damagePacketsForHit(result, request, mode, note) {
   const bodyMultiplier = randomMultiplier(request, mode);
   const critical = result.criticalBodyDamage;
   const weaponCriticalTriggered = critical !== undefined
-    && resolveCritical(mode, critical.weaponSkillCriticalRatePercent);
+    && resolveCritical(mode, critical.effectiveWeaponSkillCriticalRatePercent);
   const limitBonusCriticalSources = result.protagonistLimitBonusCritical?.sources ?? [];
   const triggeredLimitBonusCriticals = limitBonusCriticalSources.filter(
     (source) => resolveCritical(mode, source.triggerRatePercent),

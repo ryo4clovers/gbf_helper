@@ -23,6 +23,10 @@ export interface CriticalBodyDamageResult {
   status: "provisional";
   probabilityModel: "damage-only";
   weaponSkillCriticalRatePercent: number;
+  effectiveWeaponSkillCriticalRatePercent: number;
+  overcriticalRatePercent: number;
+  overcriticalDamageDisplayPercent: number;
+  criticalDamageBonusPercent: number;
   criticalRateEffects: EffectiveWeaponSkillEffect[];
   criticalDamageMultiplier: number;
   nominalDamage: number;
@@ -38,6 +42,32 @@ export interface CriticalBodyDamageResult {
     minimumDamage: number;
     maximumDamage: number;
     expectedDamage: number;
+  };
+}
+
+export function calculateWeaponSkillCriticalProfile(weaponSkillCriticalRatePercent: number): {
+  effectiveRatePercent: number;
+  overcriticalRatePercent: number;
+  overcriticalDamageDisplayPercent: number;
+  criticalDamageBonusPercent: number;
+  criticalDamageMultiplier: number;
+} {
+  if (!Number.isFinite(weaponSkillCriticalRatePercent) || weaponSkillCriticalRatePercent < 0) {
+    throw new Error("weaponSkillCriticalRatePercent must be a finite non-negative number");
+  }
+  const effectiveRatePercent = Math.min(weaponSkillCriticalRatePercent, 100);
+  const overcriticalRatePercent = Math.max(weaponSkillCriticalRatePercent - 100, 0);
+  // The in-game skill summary displays half of the rate above 100% as
+  // "critical damage". That percentage strengthens the weapon critical's
+  // base +50% damage bonus, rather than the complete 1.5x multiplier.
+  const overcriticalDamageDisplayPercent = overcriticalRatePercent / 2;
+  const criticalDamageBonusPercent = 50 * (1 + overcriticalDamageDisplayPercent / 100);
+  return {
+    effectiveRatePercent: roundCalculation(effectiveRatePercent),
+    overcriticalRatePercent: roundCalculation(overcriticalRatePercent),
+    overcriticalDamageDisplayPercent: roundCalculation(overcriticalDamageDisplayPercent),
+    criticalDamageBonusPercent: roundCalculation(criticalDamageBonusPercent),
+    criticalDamageMultiplier: roundCalculation(1 + criticalDamageBonusPercent / 100),
   };
 }
 
@@ -118,7 +148,11 @@ export function calculateCriticalBodyDamage(
   const multiplierMin = options.multiplierMin ?? 0.95;
   const multiplierMax = options.multiplierMax ?? 1.05;
   const multiplierStep = options.multiplierStep ?? 0.001;
-  const criticalDamageMultiplier = options.criticalDamageMultiplier ?? 1.5;
+  const weaponSkillCriticalRatePercent = roundCalculation(
+    criticalRateEffects.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
+  );
+  const profile = calculateWeaponSkillCriticalProfile(weaponSkillCriticalRatePercent);
+  const criticalDamageMultiplier = options.criticalDamageMultiplier ?? profile.criticalDamageMultiplier;
   if (
     !Number.isFinite(multiplierMin) ||
     !Number.isFinite(multiplierMax) ||
@@ -140,9 +174,11 @@ export function calculateCriticalBodyDamage(
     schemaVersion: 1,
     status: "provisional",
     probabilityModel: "damage-only",
-    weaponSkillCriticalRatePercent: roundCalculation(
-      criticalRateEffects.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
-    ),
+    weaponSkillCriticalRatePercent,
+    effectiveWeaponSkillCriticalRatePercent: profile.effectiveRatePercent,
+    overcriticalRatePercent: profile.overcriticalRatePercent,
+    overcriticalDamageDisplayPercent: profile.overcriticalDamageDisplayPercent,
+    criticalDamageBonusPercent: roundCalculation((criticalDamageMultiplier - 1) * 100),
     criticalRateEffects,
     criticalDamageMultiplier,
     nominalDamage: calculateCriticalBodyDamageAtMultiplier(baseDamage, 1, criticalDamageMultiplier).finalDamage,

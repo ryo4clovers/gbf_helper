@@ -2241,7 +2241,12 @@ function renderLocalResult(result) {
   $("body-note").hidden = selectedCritical === undefined;
   if (selectedCritical !== undefined) {
     const notes = [];
-    if (useWeaponCritical) notes.push(`武器 ${numberFormat.format(critical.weaponSkillCriticalRatePercent)}%`);
+    if (useWeaponCritical) {
+      notes.push(`武器 ${numberFormat.format(critical.effectiveWeaponSkillCriticalRatePercent)}%`);
+      if (critical.overcriticalDamageDisplayPercent > 0) {
+        notes.push(`オーバースキル・クリティカル ${numberFormat.format(critical.overcriticalDamageDisplayPercent)}%`);
+      }
+    }
     if (useLimitBonusCritical) notes.push("主人公LBは選択項目がすべて発動した場合");
     $("body-note").textContent = notes.join("・");
   }
