@@ -2551,7 +2551,7 @@ function renderLocalResult(result) {
     : `${formatDamage(abilityDamage.damageDistribution.minimumDamage)} — ${formatDamage(abilityDamage.damageDistribution.maximumDamage)}`;
   $("ability-damage-note").textContent = abilityDamage === undefined
     ? "アーマーブレイク・計算対象外"
-    : `アーマーブレイク（暫定）・アビダメ +${numberFormat.format(abilityDamage.abilityDamageUpPercent)}%（LB +${numberFormat.format(abilityDamage.limitBonusPercent)}%）・アビ上限 +${numberFormat.format(abilityDamage.damageCapUpPercent)}%・固定 +${formatDamage(abilityDamage.supplementalDamagePerHit)}`;
+    : `減衰適用（暫定）・アビダメ +${numberFormat.format(abilityDamage.abilityDamageUpPercent)}%（LB +${numberFormat.format(abilityDamage.limitBonusPercent)}%）・アビ上限 +${numberFormat.format(abilityDamage.damageCapUpPercent)}%・固定 +${formatDamage(abilityDamage.supplementalDamagePerHit)}`;
   $("damage-dealt-rate").textContent = `+${numberFormat.format(otherSkills.damageDealt.effectivePercent)}%`;
   $("damage-dealt-note").textContent = "武器スキル・加護後／減衰後段（ダメージ上限は未解決）";
   $("healing-cap-rate").textContent = `+${numberFormat.format(otherSkills.healingCap.effectivePercent)}%`;
