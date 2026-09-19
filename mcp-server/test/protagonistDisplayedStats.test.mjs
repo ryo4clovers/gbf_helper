@@ -17,9 +17,22 @@ import {
 test("registers every calculator-unconnected protagonist LB with unique IDs", () => {
   assert.equal(PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.length, 49);
   assert.equal(new Set(PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.map(({ id }) => id)).size, 49);
-  assert.deepEqual(PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES, [
-    "耐久・回復", "アビリティ・奥義", "弱体・補助", "ダメージ上限", "獲得量",
-  ]);
+  assert.deepEqual(
+    PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES.map(({ key, label }) => [key, label]),
+    [
+      ["defense", "防御・HP"],
+      ["element-reduction", "属性軽減"],
+      ["healing", "回復"],
+      ["ability", "アビリティ"],
+      ["charge", "奥義・チェイン"],
+      ["debuff", "弱体"],
+      ["damage-cap", "ダメージ上限"],
+      ["ability-cap", "アビリティ上限"],
+      ["chain-cap", "チェイン上限"],
+      ["rewards", "獲得量"],
+    ],
+  );
+  assert.equal(PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES.every(({ icon }) => icon.length > 0), true);
   assert.deepEqual(
     PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find(({ id }) => id === "36")?.values,
     [0, 3, 6, 10],

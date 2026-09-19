@@ -93,6 +93,7 @@ const elementMeta = {
   "5": { name: "光", className: "light" },
   "6": { name: "闇", className: "dark" },
 };
+const elementIcons = { "1": "🔥", "2": "💧", "3": "⛰️", "4": "🍃", "5": "☀️", "6": "🌑" };
 const weaponKindSymbols = { "1": "⚔", "2": "⌁", "3": "♜", "4": "⌁", "5": "✣", "6": "⌖", "7": "◈", "8": "✧", "9": "♩", "10": "◒" };
 const rarityLabels = { "1": "N", "2": "R", "3": "SR", "4": "SSR" };
 const equipmentPlusBonus = { maximum: 99, attackPerMark: 5, hpPerMark: 1 };
@@ -702,6 +703,55 @@ function configuredOtherLimitBonusCount(protagonist) {
     .filter((level) => Number.isInteger(level) && level > 0).length;
 }
 
+function createLimitBonusGroup({ key, label, icon, fields, configuredCount, connected, defaultOpen = false }) {
+  const group = document.createElement("details");
+  group.className = `limit-bonus-group ${connected ? "connected" : "unconnected"}`;
+  group.dataset.limitBonusGroup = key;
+  group.open = defaultOpen || configuredCount > 0;
+  const summary = document.createElement("summary");
+  const iconElement = createText("limit-bonus-group-icon", icon);
+  iconElement.setAttribute("aria-hidden", "true");
+  const title = createText("limit-bonus-group-title", label);
+  const count = createText("limit-bonus-group-count", `${configuredCount}/${fields.length}`);
+  const status = createText(
+    `limit-bonus-status ${connected ? "connected" : "unconnected"}`,
+    connected ? "計算接続済み" : "入力・保存のみ",
+  );
+  summary.append(iconElement, title, count, status);
+  const grid = document.createElement("div");
+  grid.className = "limit-bonus-grid";
+  grid.append(...fields);
+  group.append(summary, grid);
+  return group;
+}
+
+function createConnectedLimitBonusField(config, groupKey, [key, kind, name, unit]) {
+  const field = document.createElement("label");
+  field.className = "limit-bonus-field";
+  field.textContent = name;
+  const select = document.createElement("select");
+  select.setAttribute("aria-label", name);
+  PROTAGONIST_LIMIT_BONUS_VALUES[kind].forEach((amount, level) => {
+    const option = document.createElement("option");
+    option.value = String(level);
+    option.textContent = `★${level}（+${numberFormat.format(amount)}${unit}）`;
+    select.append(option);
+  });
+  select.value = String(config.protagonist[key] ?? 0);
+  select.addEventListener("change", () => {
+    const current = readDeckConfig();
+    current.protagonist[key] = Number(select.value);
+    writeDeckConfig(current);
+    renderJobEditor(current);
+    const replacement = $("protagonist-strengthening-fields").querySelector(`[aria-label="${name}"]`);
+    replacement?.closest(`[data-limit-bonus-group="${groupKey}"]`)?.setAttribute("open", "");
+    replacement?.focus();
+    void calculate();
+  });
+  field.append(select);
+  return field;
+}
+
 function createOtherLimitBonusField(config, definition) {
   const field = document.createElement("label");
   field.className = "other-limit-bonus-field";
@@ -733,43 +783,28 @@ function createOtherLimitBonusField(config, definition) {
     renderJobEditor(current);
     const replacement = $("protagonist-strengthening-fields")
       .querySelector(`[aria-label="${definition.label}（計算未接続）"]`);
-    replacement?.closest("details")?.setAttribute("open", "");
-    replacement?.closest(".other-limit-bonus-section")?.setAttribute("open", "");
+    replacement?.closest(`[data-limit-bonus-group="${definition.category}"]`)?.setAttribute("open", "");
     replacement?.focus();
   });
   field.append(heading, meta, select);
   return field;
 }
 
-function createOtherLimitBonusSection(config) {
-  const section = document.createElement("details");
-  section.className = "other-limit-bonus-section";
-  const configuredCount = configuredOtherLimitBonusCount(config.protagonist);
-  if (configuredCount > 0) section.open = true;
-  const summary = document.createElement("summary");
-  summary.textContent = `その他のLB（${PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.length}項目・${configuredCount}項目設定）`;
-  const notice = createText(
-    "other-limit-bonus-notice",
-    "入力・保存のみ。これらの効果はまだ計算結果へ適用されません。",
-  );
-  section.append(summary, notice);
-  for (const category of PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES) {
+function createOtherLimitBonusGroups(config) {
+  return PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES.map((category) => {
     const definitions = PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS
-      .filter((definition) => definition.category === category);
-    const categorySection = document.createElement("details");
-    categorySection.className = "other-limit-bonus-category";
-    if (definitions.some(({ id }) => (config.protagonist.otherLimitBonusLevels?.[id] ?? 0) > 0)) {
-      categorySection.open = true;
-    }
-    const categorySummary = document.createElement("summary");
-    categorySummary.textContent = `${category}（${definitions.length}）`;
-    const fields = document.createElement("div");
-    fields.className = "other-limit-bonus-grid";
-    fields.append(...definitions.map((definition) => createOtherLimitBonusField(config, definition)));
-    categorySection.append(categorySummary, fields);
-    section.append(categorySection);
-  }
-  return section;
+      .filter((definition) => definition.category === category.key);
+    const configuredCount = definitions
+      .filter(({ id }) => (config.protagonist.otherLimitBonusLevels?.[id] ?? 0) > 0).length;
+    return createLimitBonusGroup({
+      key: category.key,
+      label: category.label,
+      icon: category.icon,
+      fields: definitions.map((definition) => createOtherLimitBonusField(config, definition)),
+      configuredCount,
+      connected: false,
+    });
+  });
 }
 
 function renderJobEditor(config) {
@@ -824,48 +859,76 @@ function renderJobEditor(config) {
     normalizeJobGrowthLevels(config.protagonist, job);
     const controls = document.createElement("div");
     controls.className = "job-level-controls";
-    controls.append(
+    const growthSection = document.createElement("section");
+    growthSection.className = "job-growth-section";
+    const growthHeading = document.createElement("h3");
+    const growthIcon = createText("limit-bonus-group-icon", "🧭");
+    growthIcon.setAttribute("aria-hidden", "true");
+    growthHeading.append(growthIcon, document.createTextNode("ジョブ育成"));
+    const growthFields = document.createElement("div");
+    growthFields.className = "job-growth-fields";
+    growthFields.append(
       createJobLevelField(config, job, "jobLevel", "ジョブLv", job?.maximumJobLevel ?? 20, 1),
       createJobLevelField(config, job, "masterLevel", "マスターレベル（ML）", job?.maximumMasterLevel ?? 0, job?.maximumMasterLevel ? 1 : 0),
       createJobLevelField(config, job, "perfectionProofLevel", "極致の証", job?.maximumPerfectionProofLevel ?? 0),
     );
+    growthSection.append(growthHeading, growthFields);
+    controls.append(growthSection);
     const elementAttackLimitBonuses = PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS
       .filter((definition) => definition.elementCode === config.protagonist.elementCode);
-    for (const [key, kind, name, unit] of [
-      ["attackLimitBonusLevel", "attack", "攻撃力LB", ""],
-      ["hpLimitBonusLevel", "hp", "HP LB", ""],
-      ...PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS
-        .map(({ fieldKey, label }) => [fieldKey, "hp", label, ""]),
-      ...PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS
-        .map(({ fieldKey, label }) => [fieldKey, "critical", label, "%"]),
-      ...PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS
-        .map(({ fieldKey, label }) => [fieldKey, "proficiencyAttack", label, "%"]),
-      ...PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS
-        .map(({ fieldKey, label }) => [fieldKey, "multiattack", label, "%"]),
-      ...elementAttackLimitBonuses.map(({ fieldKey, label }) => [fieldKey, "elementAttack", label, "%"]),
-    ]) {
-      const label = document.createElement("label");
-      label.textContent = name;
-      const select = document.createElement("select");
-      select.setAttribute("aria-label", name);
-      PROTAGONIST_LIMIT_BONUS_VALUES[kind].forEach((amount, level) => {
-        const option = document.createElement("option");
-        option.value = String(level);
-        option.textContent = `★${level}（+${numberFormat.format(amount)}${unit}）`;
-        select.append(option);
-      });
-      select.value = String(config.protagonist[key] ?? 0);
-      select.addEventListener("change", () => {
-        const current = readDeckConfig();
-        current.protagonist[key] = Number(select.value);
-        writeDeckConfig(current);
-        renderJobEditor(current);
-        $("protagonist-strengthening-fields").querySelector(`[aria-label="${name}"]`)?.focus();
-        void calculate();
-      });
-      label.append(select);
-      controls.append(label);
+    const connectedGroups = [
+      {
+        key: "base-stats", label: "基礎ステータス", icon: "💪", defaultOpen: true,
+        definitions: [
+          ["attackLimitBonusLevel", "attack", "攻撃力LB", ""],
+          ["hpLimitBonusLevel", "hp", "HP LB", ""],
+          ...PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS
+            .map(({ fieldKey, label }) => [fieldKey, "hp", label, ""]),
+        ],
+      },
+      {
+        key: "critical", label: "クリティカル", icon: "✦",
+        definitions: PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS
+          .map(({ fieldKey, label }) => [fieldKey, "critical", label, "%"]),
+      },
+      {
+        key: "proficiency", label: "得意武器攻撃", icon: "⚔️",
+        definitions: PROTAGONIST_PROFICIENCY_ATTACK_LIMIT_BONUS_DEFINITIONS
+          .map(({ fieldKey, label }) => [fieldKey, "proficiencyAttack", label, "%"]),
+      },
+      {
+        key: "multiattack", label: "連続攻撃", icon: "🔁",
+        definitions: PROTAGONIST_MULTIATTACK_LIMIT_BONUS_DEFINITIONS
+          .map(({ fieldKey, label }) => [fieldKey, "multiattack", label, "%"]),
+      },
+      {
+        key: "element-attack",
+        label: `${protagonistElement?.name ?? "現在属性"}属性攻撃`,
+        icon: elementIcons[config.protagonist.elementCode] ?? "◈",
+        definitions: elementAttackLimitBonuses
+          .map(({ fieldKey, label }) => [fieldKey, "elementAttack", label, "%"]),
+      },
+    ];
+    const limitBonusHeading = document.createElement("div");
+    limitBonusHeading.className = "limit-bonus-heading";
+    limitBonusHeading.append(
+      createText("limit-bonus-heading-icon", "★"),
+      createText("limit-bonus-heading-title", "リミットボーナス"),
+      createText("limit-bonus-heading-note", "グループを開いて★段階を設定"),
+    );
+    controls.append(limitBonusHeading);
+    for (const group of connectedGroups) {
+      const configuredCount = group.definitions
+        .filter(([key]) => (config.protagonist[key] ?? 0) > 0).length;
+      controls.append(createLimitBonusGroup({
+        ...group,
+        configuredCount,
+        connected: true,
+        fields: group.definitions.map((definition) =>
+          createConnectedLimitBonusField(config, group.key, definition)),
+      }));
     }
+    controls.append(...createOtherLimitBonusGroups(config));
     const growth = calculateJobGrowthBonuses(job, config.protagonist);
     const summaryText = [
       jobGrowthStageSummary("Lv", growth.jobLevel),
@@ -873,7 +936,7 @@ function renderJobEditor(config) {
       jobGrowthStageSummary("極致", growth.perfectionProof),
     ].filter(Boolean).join(" ｜ ");
     const summary = createText("job-growth-summary", summaryText || "現在の段階に計算対象ボーナスはありません");
-    controls.append(summary, createOtherLimitBonusSection(config));
+    growthSection.append(summary);
     $("protagonist-strengthening-fields").replaceChildren(controls);
     $("protagonist-strengthening-title").textContent = `${job?.name ?? "主人公"}の強化設定`;
     const edit = document.createElement("button");

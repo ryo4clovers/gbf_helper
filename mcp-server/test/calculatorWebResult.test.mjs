@@ -161,6 +161,21 @@ test("job picker exposes class filter controls below search", async () => {
   assert.match(html, /id="job-class-filter-status"/u);
 });
 
+test("protagonist LB editor groups inputs with icons and connection status", async () => {
+  const [app, styles] = await Promise.all([
+    readFile(new URL("../web/app.js", import.meta.url), "utf8"),
+    readFile(new URL("../web/styles.css", import.meta.url), "utf8"),
+  ]);
+  for (const label of ["基礎ステータス", "クリティカル", "得意武器攻撃", "連続攻撃"]) {
+    assert.match(app, new RegExp(`label: ["']${label}["']`, "u"));
+  }
+  assert.match(app, /connected \? "計算接続済み" : "入力・保存のみ"/u);
+  assert.match(app, /createText\("limit-bonus-group-icon", icon\)/u);
+  assert.match(styles, /\.limit-bonus-group > summary/u);
+  assert.match(styles, /\.limit-bonus-status\.connected/u);
+  assert.match(styles, /\.limit-bonus-status\.unconnected/u);
+});
+
 test("catalog pickers expose element and rarity filters below search", async () => {
   const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
   for (const catalog of ["weapon", "summon", "character"]) {

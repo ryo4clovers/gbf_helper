@@ -98,15 +98,32 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .job-level-controls input { min-height: 34px; margin-top: 3px; padding: 5px 7px; border-radius: 10px; font-size: .82rem; }
 .job-level-controls input:disabled { opacity: .55; cursor: not-allowed; }
 #protagonist-strengthening { width: min(780px, calc(100vw - 32px)); padding: 20px; box-sizing: border-box; overflow-y: auto; }
-#protagonist-strengthening .job-level-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); border: 0; }
+#protagonist-strengthening .job-level-controls { grid-template-columns: 1fr; border: 0; }
 #protagonist-strengthening .job-level-controls label { display: flex; flex-direction: column; gap: 5px; }
 #protagonist-strengthening .job-level-controls select { width: 100%; min-height: 38px; }
 #protagonist-strengthening .job-growth-summary { grid-column: 1 / -1; }
-.other-limit-bonus-section { grid-column: 1 / -1; margin-top: 5px; padding: 12px; border: 1px solid var(--outline-soft); border-radius: 16px; background: var(--surface-high); }
-.other-limit-bonus-section > summary, .other-limit-bonus-category > summary { cursor: pointer; font-weight: 900; }
-.other-limit-bonus-notice { margin: 10px 0; padding: 9px 11px; border-radius: 10px; color: #735c00; background: #fff1b8; font-size: .75rem; font-weight: 800; line-height: 1.45; }
-.other-limit-bonus-category { margin-top: 8px; padding: 9px 10px; border-radius: 12px; background: white; }
-.other-limit-bonus-grid { margin-top: 10px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.job-growth-section { padding: 14px; border: 1px solid var(--outline-soft); border-radius: 16px; background: white; }
+.job-growth-section h3 { margin: 0 0 11px; display: flex; align-items: center; gap: 9px; font-size: .95rem; }
+.job-growth-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.job-growth-section .job-growth-summary { margin-top: 10px; }
+.limit-bonus-heading { margin: 8px 2px 1px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; }
+.limit-bonus-heading-icon { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 10px; color: #fff; background: var(--primary); font-size: .9rem; }
+.limit-bonus-heading-title { font-size: 1rem; font-weight: 900; }
+.limit-bonus-heading-note { color: var(--ink-soft); font-size: .68rem; font-weight: 750; }
+.limit-bonus-group { border: 1px solid var(--outline-soft); border-radius: 15px; background: white; overflow: hidden; }
+.limit-bonus-group[open] { box-shadow: 0 6px 18px rgba(43,34,83,.07); }
+.limit-bonus-group > summary { min-height: 48px; padding: 8px 12px; display: grid; grid-template-columns: 34px minmax(0, 1fr) auto auto auto; align-items: center; gap: 9px; cursor: pointer; list-style: none; }
+.limit-bonus-group > summary::-webkit-details-marker { display: none; }
+.limit-bonus-group > summary::after { content: "▾"; color: var(--ink-soft); font-size: .72rem; transition: transform .16s; }
+.limit-bonus-group[open] > summary::after { transform: rotate(180deg); }
+.limit-bonus-group-icon { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 10px; background: var(--surface-high); font-size: 1rem; line-height: 1; }
+.limit-bonus-group-title { min-width: 0; font-size: .84rem; font-weight: 900; }
+.limit-bonus-group-count { min-width: 38px; color: var(--ink-soft); text-align: right; font-size: .7rem; font-weight: 850; }
+.limit-bonus-status { padding: 4px 7px; border-radius: 999px; font-size: .62rem; font-weight: 900; white-space: nowrap; }
+.limit-bonus-status.connected { color: #14532d; background: #dcfce7; }
+.limit-bonus-status.unconnected { color: #735c00; background: #fff1b8; }
+.limit-bonus-grid { padding: 12px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; border-top: 1px solid var(--outline-soft); background: var(--surface-high); }
+.limit-bonus-field { min-width: 0; }
 #protagonist-strengthening .other-limit-bonus-field { gap: 2px; }
 .other-limit-bonus-label { color: var(--ink); font-size: .78rem; }
 .other-limit-bonus-meta { color: var(--ink-soft); font-size: .65rem; font-weight: 700; }
@@ -451,7 +468,9 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
   .crew-support-row:nth-child(odd) { border-right: 0; }
   .crew-support-row:nth-child(n + 2) { border-top: 1px solid var(--outline-soft); }
   .job-level-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  #protagonist-strengthening .job-level-controls, .other-limit-bonus-grid { grid-template-columns: 1fr; }
+  #protagonist-strengthening .job-level-controls, .job-growth-fields, .limit-bonus-grid { grid-template-columns: 1fr; }
+  .limit-bonus-heading { grid-template-columns: auto 1fr; }
+  .limit-bonus-heading-note { grid-column: 2; }
   .summon-grid, .sub-summon-grid { grid-template-columns: 1fr; }
   .character-grid, .back-character-grid { grid-template-columns: 1fr; }
   .profile-manager-heading { align-items: flex-start; flex-direction: column; }
