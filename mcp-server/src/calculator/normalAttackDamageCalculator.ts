@@ -290,7 +290,11 @@ export function calculateNormalAttackDamage(
         commonPreAbilityDamage: baseDamage.articleTrace.prePostCapDamage,
         abilityDamageUpPercent: input.abilityDamage.abilityDamageUpPercent,
         limitBonusPercent: input.abilityDamage.limitBonusPercent,
-        damageCapUpPercent: generalDamageCapPercent + otherWeaponSkills.abilityDamageCap.effectivePercent,
+        damageCapUpPercent:
+          generalDamageCapPercent
+          + input.abilityDamage.abilityDamageCapUpPercent
+          + otherWeaponSkills.abilityDamageCap.effectivePercent,
+        limitBonusDamageCapUpPercent: input.abilityDamage.limitBonusDamageCapUpPercent,
         supplementalDamagePerHit: otherWeaponSkills.abilitySupplementalDamage.effectiveAmount,
         postAttenuationPercent: abilityPostAttenuationPercent,
         multiplierMin: options.multiplierMin,

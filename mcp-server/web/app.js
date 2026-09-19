@@ -244,7 +244,7 @@ function renderJobCompletionSummary(completedJobIds, config, currentHpPercent = 
   };
   const summary = $("job-completion-summary");
   summary.replaceChildren();
-  const connectedKeys = new Set(["attack", "hp", "defense", "da", "ta", "normalAttackDamage", "abilityDamage", "mainWeaponAttack"]);
+  const connectedKeys = new Set(["attack", "hp", "defense", "da", "ta", "normalAttackDamage", "abilityDamage", "abilityDamageCap", "mainWeaponAttack"]);
   for (const [key, amount] of Object.entries(result.totals)) {
     const chip = document.createElement("span");
     chip.className = connectedKeys.has(key) ? "connected" : "pending";
@@ -2262,6 +2262,10 @@ function buildRequest() {
     (sum, id) => sum + otherLimitBonusAmount(id),
     0,
   );
+  const abilityDamageCapLimitBonusPercent = ["84", "89"].reduce(
+    (sum, id) => sum + otherLimitBonusAmount(id),
+    0,
+  );
   const reductionIdsByElement = {
     "1": ["15", "75", "112"], "2": ["16", "76", "113"],
     "3": ["17", "77", "114"], "4": ["18", "78", "115"],
@@ -2293,6 +2297,11 @@ function buildRequest() {
         + (outgoingMemorialModifiers.abilityDamagePercent ?? 0)
         + abilityDamageLimitBonusPercent,
       abilityDamageLimitBonusPercent,
+      abilityDamageCapPercent:
+        (completion.totals.abilityDamageCap ?? 0)
+        + (outgoingMemorialModifiers.abilityDamageCapPercent ?? 0)
+        + abilityDamageCapLimitBonusPercent,
+      abilityDamageCapLimitBonusPercent,
       protagonistDefensePercent:
         growth.totals.defensePercent
         + (completion.totals.defense ?? 0)
@@ -2551,7 +2560,7 @@ function renderLocalResult(result) {
     : `${formatDamage(abilityDamage.damageDistribution.minimumDamage)} — ${formatDamage(abilityDamage.damageDistribution.maximumDamage)}`;
   $("ability-damage-note").textContent = abilityDamage === undefined
     ? "アーマーブレイク・計算対象外"
-    : `減衰適用（暫定）・アビダメ +${numberFormat.format(abilityDamage.abilityDamageUpPercent)}%（LB +${numberFormat.format(abilityDamage.limitBonusPercent)}%）・アビ上限 +${numberFormat.format(abilityDamage.damageCapUpPercent)}%・固定 +${formatDamage(abilityDamage.supplementalDamagePerHit)}`;
+    : `減衰適用（暫定）・アビダメ +${numberFormat.format(abilityDamage.abilityDamageUpPercent)}%（LB +${numberFormat.format(abilityDamage.limitBonusPercent)}%）・アビ上限 +${numberFormat.format(abilityDamage.damageCapUpPercent)}%（LB +${numberFormat.format(abilityDamage.limitBonusDamageCapUpPercent)}%）・固定 +${formatDamage(abilityDamage.supplementalDamagePerHit)}`;
   $("damage-dealt-rate").textContent = `+${numberFormat.format(otherSkills.damageDealt.effectivePercent)}%`;
   $("damage-dealt-note").textContent = "武器スキル・加護後／減衰後段（ダメージ上限は未解決）";
   $("healing-cap-rate").textContent = `+${numberFormat.format(otherSkills.healingCap.effectivePercent)}%`;

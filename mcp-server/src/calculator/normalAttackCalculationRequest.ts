@@ -54,6 +54,8 @@ const requestSchema = z
         chainBurstPerformancePercent: optionalPercent,
         abilityDamagePercent: optionalPercent,
         abilityDamageLimitBonusPercent: optionalPercent,
+        abilityDamageCapPercent: optionalPercent,
+        abilityDamageCapLimitBonusPercent: optionalPercent,
         protagonistDefensePercent: optionalPercent,
         incomingElementalDamageReductionPercents: z.array(z.number().finite().min(0).max(100)).max(20).optional(),
       })
@@ -225,6 +227,8 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
     abilityDamage: {
       abilityDamageUpPercent: request.modifiers.abilityDamagePercent ?? 0,
       limitBonusPercent: request.modifiers.abilityDamageLimitBonusPercent ?? 0,
+      abilityDamageCapUpPercent: request.modifiers.abilityDamageCapPercent ?? 0,
+      limitBonusDamageCapUpPercent: request.modifiers.abilityDamageCapLimitBonusPercent ?? 0,
     },
   };
 

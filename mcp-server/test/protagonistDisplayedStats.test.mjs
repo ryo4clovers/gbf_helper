@@ -49,6 +49,12 @@ test("registers every calculator-unconnected protagonist LB with unique IDs", ()
       "damage-cap",
     );
   }
+  for (const id of ["84", "89"]) {
+    assert.equal(
+      PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find((definition) => definition.id === id)?.connected,
+      true,
+    );
+  }
   assert.equal(PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES.some(({ key }) => key === "rewards"), false);
   assert.deepEqual(
     PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS

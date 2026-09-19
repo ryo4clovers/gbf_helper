@@ -54,9 +54,9 @@ export const PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS = Object.freeze([
 
   definition(36, "ダメージ上限UP", "damage-cap", 170, Object.freeze([0, 3, 6, 10])),
   definition(39, "ダメージ上限UP II", "damage-cap", 195),
-  definition(84, "アビリティダメージ上限UP", "damage-cap", 230, Object.freeze([0, 3, 5, 10])),
+  definition(84, "アビリティダメージ上限UP", "damage-cap", 230, Object.freeze([0, 3, 5, 10]), "%", true),
   definition(85, "チェインバーストダメージ上限UP", "damage-cap", 240),
-  definition(89, "アビリティダメージ上限UP II", "damage-cap", 275),
+  definition(89, "アビリティダメージ上限UP II", "damage-cap", 275, STANDARD_PERCENT_VALUES, "%", true),
   definition(105, "チェインバーストダメージ上限UP II", "damage-cap", 375),
   definition(118, "通常攻撃ダメージ上限UP", "damage-cap", 425, Object.freeze([0, 1, 2, 3])),
 

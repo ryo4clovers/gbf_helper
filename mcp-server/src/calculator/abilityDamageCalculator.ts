@@ -23,6 +23,7 @@ export interface AbilityDamagePredictionResult {
   limitBonusPercent: number;
   effectiveMultiplier: number;
   damageCapUpPercent: number;
+  limitBonusDamageCapUpPercent: number;
   supplementalDamagePerHit: number;
   postAttenuationPercent: number;
   damageDistribution: DamageDistributionSummary;
@@ -35,6 +36,7 @@ interface AbilityDamagePredictionInput {
   abilityDamageUpPercent: number;
   limitBonusPercent: number;
   damageCapUpPercent: number;
+  limitBonusDamageCapUpPercent: number;
   supplementalDamagePerHit: number;
   postAttenuationPercent: number;
   multiplierMin?: number;
@@ -78,6 +80,7 @@ export function calculateArmorBreakDamage(
     limitBonusPercent: input.limitBonusPercent,
     effectiveMultiplier,
     damageCapUpPercent: input.damageCapUpPercent,
+    limitBonusDamageCapUpPercent: input.limitBonusDamageCapUpPercent,
     supplementalDamagePerHit: input.supplementalDamagePerHit,
     postAttenuationPercent: input.postAttenuationPercent,
     damageDistribution,

@@ -123,6 +123,8 @@ export function registerCalculatorTools(server: McpServer): void {
             targetElementDamagePercent: z.number().finite().min(0).max(1000).optional(),
             abilityDamagePercent: z.number().finite().min(0).max(1000).optional(),
             abilityDamageLimitBonusPercent: z.number().finite().min(0).max(1000).optional(),
+            abilityDamageCapPercent: z.number().finite().min(0).max(1000).optional(),
+            abilityDamageCapLimitBonusPercent: z.number().finite().min(0).max(1000).optional(),
             protagonistDefensePercent: z.number().finite().min(0).max(1000).optional(),
             incomingElementalDamageReductionPercents: z.array(z.number().finite().min(0).max(100)).max(20).optional(),
           })

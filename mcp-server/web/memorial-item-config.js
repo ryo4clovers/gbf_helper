@@ -85,6 +85,7 @@ export function calculateMemorialItemModifiers(settings, protagonistElementCode,
     extinctionCrestTripleAttackRatePercent: 0,
     chainBurstPerformancePercent: 0,
     abilityDamagePercent: 0,
+    abilityDamageCapPercent: 0,
     defensePercent: 0,
     incomingElementalDamageReductionPercents: [],
   };
@@ -97,6 +98,7 @@ export function calculateMemorialItemModifiers(settings, protagonistElementCode,
       if (state.level >= 7 && definition.targetElementCode === enemyElementCode) result.targetElementDamagePercent += 5;
       if (state.level >= 3) result.abilityDamagePercent += 5;
       if (state.level >= 8) result.normalAttackDamageCapPercent += 5;
+      if (state.level >= 9) result.abilityDamageCapPercent += 5;
       if (state.level >= 2) result.defensePercent += 5;
       if (state.level >= 6) result.defensePercent += 5;
     }

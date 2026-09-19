@@ -663,6 +663,8 @@ export interface DamageCalculationInput {
   abilityDamage?: {
     abilityDamageUpPercent: number;
     limitBonusPercent: number;
+    abilityDamageCapUpPercent: number;
+    limitBonusDamageCapUpPercent: number;
   };
 }
 

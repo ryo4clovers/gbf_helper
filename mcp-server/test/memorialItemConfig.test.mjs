@@ -19,6 +19,7 @@ test("applies the matching Four Saints item and fixed account items", () => {
   assert.equal(result.damageDealtPercent, 3.6);
   assert.equal(result.chainBurstPerformancePercent, 5);
   assert.equal(result.abilityDamagePercent, 5);
+  assert.equal(result.abilityDamageCapPercent, 5);
   assert.equal(result.defensePercent, 22);
   assert.deepEqual(result.incomingElementalDamageReductionPercents, [5, 5]);
 });
@@ -63,6 +64,7 @@ test("disabling an item removes only that item's effect", () => {
   assert.equal(result.elementAttackPercent, 0);
   assert.equal(result.targetElementDamagePercent, 0);
   assert.equal(result.abilityDamagePercent, 0);
+  assert.equal(result.abilityDamageCapPercent, 0);
   assert.equal(result.damageDealtPercent, 0);
   assert.equal(result.allElementAttackPercent, 3);
 });

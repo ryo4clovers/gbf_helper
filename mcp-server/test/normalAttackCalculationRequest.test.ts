@@ -200,6 +200,24 @@ test("connects Armor Break ability-damage LB as additive percentage points", () 
   assert.ok(withLimitBonuses.damageDistribution.minimumDamage > baseline.damageDistribution.minimumDamage);
 });
 
+test("connects ability-damage cap LB to Armor Break attenuation thresholds", () => {
+  const baselineRequest = request();
+  const baseline = calculateNormalAttackFromRequest({
+    ...baselineRequest,
+    modifiers: { ...baselineRequest.modifiers, abilityDamageCapPercent: 0, abilityDamageCapLimitBonusPercent: 0 },
+    random: { minimum: 1, maximum: 1, step: 1 },
+  }).result.abilityDamage!;
+  const lbRequest = request();
+  const withLimitBonuses = calculateNormalAttackFromRequest({
+    ...lbRequest,
+    modifiers: { ...lbRequest.modifiers, abilityDamageCapPercent: 15, abilityDamageCapLimitBonusPercent: 15 },
+    random: { minimum: 1, maximum: 1, step: 1 },
+  }).result.abilityDamage!;
+
+  assert.equal(withLimitBonuses.damageCapUpPercent, baseline.damageCapUpPercent + 15);
+  assert.equal(withLimitBonuses.limitBonusDamageCapUpPercent, 15);
+});
+
 test("adds only the protagonist's matching elemental attack LB to the elemental frame", () => {
   const baselineRequest = agniRequest();
   const fireRequest = structuredClone(baselineRequest);
