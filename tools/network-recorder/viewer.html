@@ -7,8 +7,8 @@
   body { font-family: system-ui, sans-serif; margin: 16px; color: #222; }
   h1 { font-size: 18px; }
   .toolbar { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
-  .filters { display: flex; gap: 6px; flex: 1 1 540px; min-width: 280px; }
-  .filters input { padding: 6px 8px; font-size: 13px; flex: 1 1 0; min-width: 0; }
+  .filters { display: grid; grid-template-columns: repeat(3, minmax(140px, 1fr)); gap: 6px; flex: 1 1 720px; min-width: 280px; }
+  .filters input { padding: 6px 8px; font-size: 13px; min-width: 0; }
   .toolbar button { padding: 6px 12px; font-size: 13px; cursor: pointer; }
   .tabs { display: flex; gap: 4px; margin-bottom: 10px; }
   .tabs button { padding: 6px 14px; font-size: 13px; cursor: pointer; border: 1px solid #ccc; background: #f7f7f7; }
@@ -26,6 +26,12 @@
   .actions button { padding: 4px 10px; font-size: 12px; cursor: pointer; }
   .action-status { font-size: 11px; color: #1e7e34; }
   #summary { font-size: 12px; color: #555; margin-bottom: 10px; }
+  @media (max-width: 720px) {
+    .filters { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+  }
+  @media (max-width: 480px) {
+    .filters { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -35,6 +41,9 @@
       <input class="filter" type="search" placeholder="URL検索 1" aria-label="URL検索条件1" />
       <input class="filter" type="search" placeholder="URL検索 2（OR）" aria-label="URL検索条件2" />
       <input class="filter" type="search" placeholder="URL検索 3（OR）" aria-label="URL検索条件3" />
+      <input class="filter" type="search" placeholder="URL検索 4（OR）" aria-label="URL検索条件4" />
+      <input class="filter" type="search" placeholder="URL検索 5（OR）" aria-label="URL検索条件5" />
+      <input class="filter" type="search" placeholder="URL検索 6（OR）" aria-label="URL検索条件6" />
     </div>
     <button id="export">全件をJSONでエクスポート</button>
     <button id="exportFiltered">絞り込み結果をエクスポート</button>
