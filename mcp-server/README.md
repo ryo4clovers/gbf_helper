@@ -59,8 +59,14 @@ DAを抽選するため、入力率を`t`・`d`とした実効確率はTA=`t`、
 
 MCPサーバーには読み取り専用・副作用なしの`calculate_normal_attack_damage`ツールを登録しています。
 Web画面とMCPツールは共通の`calculateNormalAttackFromRequest`を呼ぶため、計算式と入力検証は同一です。
-入力例は`examples/normal-attack-request.v1.json`にあります。WebMCPの命令型APIをサポートするブラウザでは、
-同名のページ内ツールも機能検出して登録し、AIによる計算結果を表示中の画面へ反映します。
+入力例は`examples/normal-attack-request.v1.json`にあります。
+
+WebMCPの命令型APIをサポートするブラウザでは、ページ内に次の読み取り専用サイトツールも登録します。
+
+- `get_calculator_state`: 最後に正常計算された画面の入力状態と結果を取得する
+- `calculate_current_setup`: その入力状態を画面・端末保存へ反映せず再計算する
+
+WebMCPツールは任意の編成を外部から受け取る用途ではなく、ユーザーとAIが現在の計算画面を共有する用途に限定しています。
 
 ## 計算機の入力基盤
 

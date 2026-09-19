@@ -71,6 +71,7 @@ import {
   catalogRarityFilterOptions,
   filterAndSortCatalog,
 } from "/catalog-picker-filter.js?v=1";
+import { registerCalculatorWebMcpTools } from "/calculator-webmcp.js?v=1";
 
 const $ = (id) => document.getElementById(id);
 const form = $("calculator-form");
@@ -117,6 +118,10 @@ let selectedSummonRarity = "";
 let editingSummonSlot = null;
 let selectedSupportSummon = null;
 let latestDamageResult = null;
+let latestCalculatorRequest = null;
+let latestCalculationResponse = null;
+let latestPredictionResponses = null;
+let latestCalculatedAt = null;
 let weaponCriticalManuallySelected = false;
 let limitBonusCriticalManuallySelected = false;
 let persistenceReady = false;
@@ -2707,92 +2712,59 @@ function conciseResult(response) {
   };
 }
 
-function registerWebMcpTool() {
-  const context = document.modelContext;
-  if (!context?.registerTool) return;
-  const lifecycle = new AbortController();
-  const registration = context.registerTool(
-    {
-      name: "calculate_normal_attack_damage",
-      title: "通常攻撃ダメージ計算",
-      description: "編成、敵防御、環境倍率から通常攻撃本体・追撃・合計の101乱数分布を計算し、画面にも表示する。",
-      inputSchema: {
-        type: "object",
-        properties: {
-          schemaVersion: { const: 1 },
-          deckConfig: { type: "object" },
-          protagonistCurrentHpPercent: { type: "number", minimum: 1, maximum: 100, default: 100 },
-          supportSummon: {
-            type: "object",
-            properties: {
-              summonId: { type: "string", minLength: 1 },
-              nameHint: { type: "string", minLength: 1, maxLength: 100 },
-            },
-            required: ["summonId"], additionalProperties: false,
-          },
-          enemy: {
-            type: "object",
-            properties: {
-              id: { type: "string" }, name: { type: "string" },
-              elementCode: { type: "string", enum: ["1", "2", "3", "4", "5", "6"] },
-              defense: { type: "number", exclusiveMinimum: 0 },
-              attack: { type: "number", minimum: 0, default: 10000 },
-            },
-            required: ["elementCode", "defense"], additionalProperties: false,
-          },
-          modifiers: {
-            type: "object",
-            properties: {
-              allElementAttackPercent: { type: "number", minimum: 0, maximum: 1000 },
-              elementAttackPercent: { type: "number", minimum: 0, maximum: 1000 },
-              shipAttackPercent: { type: "number", minimum: 0, maximum: 1000 },
-              furnaceAttackPercent: { type: "number", minimum: 0, maximum: 1000 },
-              jobNormalAttackDamagePercent: { type: "number", minimum: 0, maximum: 1000 },
-              damageDealtPercent: { type: "number", minimum: 0, maximum: 1000 },
-              targetElementDamagePercent: { type: "number", minimum: 0, maximum: 1000 },
-              damageCapPercent: { type: "number", minimum: 0, maximum: 1000 },
-              normalAttackDamageCapPercent: { type: "number", minimum: 0, maximum: 1000 },
-              extinctionCrestDoubleAttackRatePercent: { type: "number", minimum: 0, maximum: 1000 },
-              extinctionCrestTripleAttackRatePercent: { type: "number", minimum: 0, maximum: 1000 },
-              chainBurstPerformancePercent: { type: "number", minimum: 0, maximum: 1000 },
-              protagonistDefensePercent: { type: "number", minimum: 0, maximum: 1000 },
-              incomingElementalDamageReductionPercents: {
-                type: "array", items: { type: "number", minimum: 0, maximum: 100 }, maxItems: 20,
-              },
-            },
-            additionalProperties: false,
-          },
-          random: {
-            type: "object",
-            properties: {
-              minimum: { type: "number", exclusiveMinimum: 0 },
-              maximum: { type: "number", exclusiveMinimum: 0 },
-              step: { type: "number", exclusiveMinimum: 0 },
-            },
-            additionalProperties: false,
-          },
-        },
-        required: ["schemaVersion", "deckConfig", "enemy"],
-        additionalProperties: false,
-      },
-      annotations: { readOnlyHint: true, untrustedContentHint: false },
-      async execute(input) {
-        const comparisonRequests = predictionRequests(input);
-        const [response, normalPrediction, advantagePrediction] = await Promise.all([
-          postJson("/api/calculate", input),
-          postJson("/api/calculate", comparisonRequests.normal),
-          postJson("/api/calculate", comparisonRequests.advantage),
-        ]);
-        applyRequestToForm(input);
-        persistRequest(input);
-        render(response, { normal: normalPrediction, advantage: advantagePrediction });
-        return conciseResult(response);
-      },
+function rememberSuccessfulCalculation(request, response, predictions) {
+  latestCalculatorRequest = structuredClone(request);
+  latestCalculationResponse = structuredClone(response);
+  latestPredictionResponses = structuredClone(predictions);
+  latestCalculatedAt = new Date().toISOString();
+}
+
+function getCalculatorStateForWebMcp() {
+  if (latestCalculatorRequest === null || latestCalculationResponse === null || latestPredictionResponses === null) {
+    return { status: "not-ready", message: "計算機の初期計算がまだ完了していません" };
+  }
+  return {
+    status: "ready",
+    calculatedAt: latestCalculatedAt,
+    request: structuredClone(latestCalculatorRequest),
+    calculation: conciseResult(latestCalculationResponse),
+    predictions: {
+      normal: conciseResult(latestPredictionResponses.normal),
+      advantage: conciseResult(latestPredictionResponses.advantage),
     },
-    { signal: lifecycle.signal },
-  );
-  Promise.resolve(registration).catch(() => undefined);
-  window.addEventListener("pagehide", () => lifecycle.abort(), { once: true });
+  };
+}
+
+async function calculateCurrentSetupForWebMcp() {
+  if (latestCalculatorRequest === null) {
+    return { status: "not-ready", message: "計算機の初期計算がまだ完了していません" };
+  }
+  const request = structuredClone(latestCalculatorRequest);
+  const comparisonRequests = predictionRequests(request);
+  const [response, normalPrediction, advantagePrediction] = await Promise.all([
+    postJson("/api/calculate", currentTargetRequest(request)),
+    postJson("/api/calculate", comparisonRequests.normal),
+    postJson("/api/calculate", comparisonRequests.advantage),
+  ]);
+  return {
+    status: "calculated",
+    calculatedAt: new Date().toISOString(),
+    request,
+    calculation: conciseResult(response),
+    predictions: {
+      normal: conciseResult(normalPrediction),
+      advantage: conciseResult(advantagePrediction),
+    },
+  };
+}
+
+function registerWebMcpTools() {
+  registerCalculatorWebMcpTools({
+    modelContext: document.modelContext,
+    getCalculatorState: getCalculatorStateForWebMcp,
+    calculateCurrentSetup: calculateCurrentSetupForWebMcp,
+    onRegistrationError: reportUnexpectedUiError,
+  });
 }
 
 async function calculate() {
@@ -2808,7 +2780,9 @@ async function calculate() {
       postJson("/api/calculate", comparisonRequests.normal),
       postJson("/api/calculate", comparisonRequests.advantage),
     ]);
-    render(response, { normal: normalPrediction, advantage: advantagePrediction });
+    const predictions = { normal: normalPrediction, advantage: advantagePrediction };
+    rememberSuccessfulCalculation(request, response, predictions);
+    render(response, predictions);
   } catch (error) {
     $("deck-state").textContent = error instanceof Error ? error.message : "計算に失敗しました";
     $("deck-state").classList.add("error-text");
@@ -3027,8 +3001,8 @@ async function initialize() {
   persistenceReady = true;
   renderWeaponEditor();
   renderSupportSummonEditor();
-  registerWebMcpTool();
   await calculate();
+  registerWebMcpTools();
 }
 
 void initialize();
