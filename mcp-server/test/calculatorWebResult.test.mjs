@@ -15,7 +15,7 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
     assert.match(app, new RegExp(`\\$\\(["']${id}["']\\)`));
   }
   for (const id of [
-    "ability-supplemental-damage",
+    "ability-damage-prediction",
     "ability-damage-note",
     "healing-cap-rate",
     "debuff-resistance-rate",
@@ -31,8 +31,8 @@ test("local result area exposes HP, critical rate, DA/TA, and the crest toggle",
   assert.match(html, /Rank基礎値から主人公の表示ATK・HPを自動計算します/u);
   assert.match(app, /武器スキル \+\$\{numberFormat\.format\(hp\.weaponSkillHpPercent\)\}%/u);
   assert.match(app, /otherSkills\.damageDealt\.effectivePercent/u);
-  assert.match(app, /otherSkills\.abilitySupplementalDamage\.effectiveAmount/u);
-  assert.match(app, /otherSkills\.abilityDamageCap\.effectivePercent/u);
+  assert.match(app, /abilityDamage\.supplementalDamagePerHit/u);
+  assert.match(app, /abilityDamage\.damageCapUpPercent/u);
   assert.match(html, /id="damage-dealt-rate"/u);
   assert.match(html, /id="enemy-preset"/u);
   assert.match(html, /ユーズド・木人/u);

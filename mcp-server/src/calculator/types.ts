@@ -660,6 +660,10 @@ export interface DamageCalculationInput {
     defensePercent: number;
     elementalDamageReductionPercents: number[];
   };
+  abilityDamage?: {
+    abilityDamageUpPercent: number;
+    limitBonusPercent: number;
+  };
 }
 
 export type BattleActionKind =

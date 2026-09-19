@@ -39,10 +39,10 @@ export const PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS = Object.freeze([
   definition(101, "回復性能 III", "healing", 340, HIGH_PERCENT_VALUES),
   definition(104, "弱体耐性 II", "debuff", 365),
 
-  definition(5, "アビリティダメージ", "damage-multiplier", 1),
+  definition(5, "アビリティダメージ", "damage-multiplier", 1, STANDARD_PERCENT_VALUES, "%", true),
   definition(6, "オーバードライブ抑制", "special", 1),
   definition(21, "奥義ダメージ", "damage-multiplier", 1),
-  definition(32, "アビリティダメージ II", "damage-multiplier", 160),
+  definition(32, "アビリティダメージ II", "damage-multiplier", 160, STANDARD_PERCENT_VALUES, "%", true),
   definition(35, "奥義ダメージ II", "damage-multiplier", 170),
   definition(37, "チェインバーストダメージUP", "damage-multiplier", 175),
   definition(41, "奥義ダメージ III", "damage-multiplier", 190),

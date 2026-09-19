@@ -180,6 +180,26 @@ function derivedFrogaRequest(enemyElementCode: "1" | "4", targetElementDamagePer
   };
 }
 
+test("connects Armor Break ability-damage LB as additive percentage points", () => {
+  const baselineRequest = request();
+  const baseline = calculateNormalAttackFromRequest({
+    ...baselineRequest,
+    modifiers: { ...baselineRequest.modifiers, abilityDamagePercent: 34, abilityDamageLimitBonusPercent: 0 },
+    random: { minimum: 1, maximum: 1, step: 1 },
+  }).result.abilityDamage!;
+  const lbRequest = request();
+  const withLimitBonuses = calculateNormalAttackFromRequest({
+    ...lbRequest,
+    modifiers: { ...lbRequest.modifiers, abilityDamagePercent: 44, abilityDamageLimitBonusPercent: 10 },
+    random: { minimum: 1, maximum: 1, step: 1 },
+  }).result.abilityDamage!;
+
+  assert.equal(baseline.effectiveMultiplier, 1.34);
+  assert.equal(withLimitBonuses.effectiveMultiplier, 1.44);
+  assert.equal(withLimitBonuses.limitBonusPercent, 10);
+  assert.ok(withLimitBonuses.damageDistribution.minimumDamage > baseline.damageDistribution.minimumDamage);
+});
+
 test("adds only the protagonist's matching elemental attack LB to the elemental frame", () => {
   const baselineRequest = agniRequest();
   const fireRequest = structuredClone(baselineRequest);

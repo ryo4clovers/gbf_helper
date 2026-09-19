@@ -29,7 +29,7 @@ import {
 import {
   PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES,
   PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS,
-} from "/protagonist-limit-bonus-catalog.js?v=1";
+} from "/protagonist-limit-bonus-catalog.js?v=2";
 import {
   calculateEquipmentLevelStats,
   calculateEquipmentSelectionDefaultStats,
@@ -244,7 +244,7 @@ function renderJobCompletionSummary(completedJobIds, config, currentHpPercent = 
   };
   const summary = $("job-completion-summary");
   summary.replaceChildren();
-  const connectedKeys = new Set(["attack", "hp", "defense", "da", "ta", "normalAttackDamage", "mainWeaponAttack"]);
+  const connectedKeys = new Set(["attack", "hp", "defense", "da", "ta", "normalAttackDamage", "abilityDamage", "mainWeaponAttack"]);
   for (const [key, amount] of Object.entries(result.totals)) {
     const chip = document.createElement("span");
     chip.className = connectedKeys.has(key) ? "connected" : "pending";
@@ -2258,6 +2258,10 @@ function buildRequest() {
     (sum, id) => sum + otherLimitBonusAmount(id),
     0,
   );
+  const abilityDamageLimitBonusPercent = ["5", "32"].reduce(
+    (sum, id) => sum + otherLimitBonusAmount(id),
+    0,
+  );
   const reductionIdsByElement = {
     "1": ["15", "75", "112"], "2": ["16", "76", "113"],
     "3": ["17", "77", "114"], "4": ["18", "78", "115"],
@@ -2284,6 +2288,11 @@ function buildRequest() {
       shipAttackPercent: crewSupportEffects.shipAttackPercent,
       furnaceAttackPercent: crewSupportEffects.furnaceAttackPercent,
       jobNormalAttackDamagePercent: completion.totals.normalAttackDamage ?? 0,
+      abilityDamagePercent:
+        (completion.totals.abilityDamage ?? 0)
+        + (outgoingMemorialModifiers.abilityDamagePercent ?? 0)
+        + abilityDamageLimitBonusPercent,
+      abilityDamageLimitBonusPercent,
       protagonistDefensePercent:
         growth.totals.defensePercent
         + (completion.totals.defense ?? 0)
@@ -2536,8 +2545,13 @@ function renderLocalResult(result) {
   $("incoming-damage-note").textContent = incoming === undefined
     ? "敵攻撃10,000・乱数範囲 —"
     : `敵攻撃 ${numberFormat.format(incoming.enemyAttack)}・${formatDamage(incoming.minimumDamage)} — ${formatDamage(incoming.maximumDamage)}・属性軽減 ${numberFormat.format(incoming.effectiveElementalDamageReductionPercent)}%`;
-  $("ability-supplemental-damage").textContent = `+${formatDamage(otherSkills.abilitySupplementalDamage.effectiveAmount)} / hit`;
-  $("ability-damage-note").textContent = `アビ上限 +${numberFormat.format(otherSkills.abilityDamageCap.effectivePercent)}%・予測ダメージは減衰式を検証中`;
+  const abilityDamage = result.abilityDamage;
+  $("ability-damage-prediction").textContent = abilityDamage === undefined
+    ? "—"
+    : `${formatDamage(abilityDamage.damageDistribution.minimumDamage)} — ${formatDamage(abilityDamage.damageDistribution.maximumDamage)}`;
+  $("ability-damage-note").textContent = abilityDamage === undefined
+    ? "アーマーブレイク・計算対象外"
+    : `アーマーブレイク（暫定）・アビダメ +${numberFormat.format(abilityDamage.abilityDamageUpPercent)}%（LB +${numberFormat.format(abilityDamage.limitBonusPercent)}%）・アビ上限 +${numberFormat.format(abilityDamage.damageCapUpPercent)}%・固定 +${formatDamage(abilityDamage.supplementalDamagePerHit)}`;
   $("damage-dealt-rate").textContent = `+${numberFormat.format(otherSkills.damageDealt.effectivePercent)}%`;
   $("damage-dealt-note").textContent = "武器スキル・加護後／減衰後段（ダメージ上限は未解決）";
   $("healing-cap-rate").textContent = `+${numberFormat.format(otherSkills.healingCap.effectivePercent)}%`;

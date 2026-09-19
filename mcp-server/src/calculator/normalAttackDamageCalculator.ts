@@ -50,6 +50,10 @@ import {
   type DamageAttenuationProfile,
 } from "./damageAttenuationCalculator.js";
 import type { DamageModifier, DeckJobCriticalRateBonus } from "./types.js";
+import {
+  calculateArmorBreakDamage,
+  type AbilityDamagePredictionResult,
+} from "./abilityDamageCalculator.js";
 
 export interface NormalAttackDamageOptions {
   baseDamageModel?: BaseDamageCalculationModel;
@@ -116,6 +120,7 @@ export interface NormalAttackDamageResult {
   multiattackRates: ProtagonistMultiattackRateResult;
   otherWeaponSkills: OtherWeaponSkillResult;
   incomingDamage?: IncomingDamagePredictionResult;
+  abilityDamage?: AbilityDamagePredictionResult;
   totalDamageDistribution: CombinedNormalAttackDistribution;
   issues: Array<
     | "damage-attenuation-profile-provisional"
@@ -269,6 +274,29 @@ export function calculateNormalAttackDamage(
     bodyDamageDistribution,
     ...(pursuitDamage === undefined ? [] : [pursuitDamage.damageDistribution]),
   ];
+  const otherWeaponSkills = calculateOtherWeaponSkills(input.deck);
+  const abilityPostAttenuationPercent = [
+    ...(input.accountBonuses?.modifiers ?? []).filter(
+      (modifier) => modifier.stage === "damage-dealt" || modifier.stage === "target-element-damage",
+    ).map((modifier) => modifier.amountPercent),
+    otherWeaponSkills.damageDealt.effectivePercent,
+  ].reduce((sum, amount) => sum + amount, 0);
+  const generalDamageCapPercent = baseDamage.deferredCapModifiers
+    .filter((modifier) => modifier.stage === "damage-cap")
+    .reduce((sum, modifier) => sum + modifier.amountPercent, 0);
+  const abilityDamage = input.abilityDamage === undefined || baseDamage.articleTrace === undefined
+    ? undefined
+    : calculateArmorBreakDamage({
+        commonPreAbilityDamage: baseDamage.articleTrace.prePostCapDamage,
+        abilityDamageUpPercent: input.abilityDamage.abilityDamageUpPercent,
+        limitBonusPercent: input.abilityDamage.limitBonusPercent,
+        damageCapUpPercent: generalDamageCapPercent + otherWeaponSkills.abilityDamageCap.effectivePercent,
+        supplementalDamagePerHit: otherWeaponSkills.abilitySupplementalDamage.effectiveAmount,
+        postAttenuationPercent: abilityPostAttenuationPercent,
+        multiplierMin: options.multiplierMin,
+        multiplierMax: options.multiplierMax,
+        multiplierStep: options.multiplierStep,
+      });
 
   return {
     schemaVersion: 1,
@@ -283,7 +311,8 @@ export function calculateNormalAttackDamage(
     pursuitDamage,
     protagonistHp: calculateProtagonistHp(input.deck),
     multiattackRates: calculateProtagonistMultiattackRates(input.deck),
-    otherWeaponSkills: calculateOtherWeaponSkills(input.deck),
+    otherWeaponSkills,
+    abilityDamage,
     incomingDamage: input.incomingDamage === undefined
       ? undefined
       : calculateIncomingDamagePrediction(

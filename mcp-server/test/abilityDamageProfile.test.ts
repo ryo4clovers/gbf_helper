@@ -164,6 +164,7 @@ test("keeps the calculator profile identical to the knowledge entry", () => {
   };
 
   assert.deepEqual(knowledge.abilities["2040"].damage_profile, ABILITY_DAMAGE_PROFILES["2040"]);
+  assert.deepEqual(knowledge.abilities["1000"].damage_profile, ABILITY_DAMAGE_PROFILES["1000"]);
   assert.doesNotThrow(() =>
     validateAbilityDamageProfile(
       knowledge.abilities["2040"].damage_profile as AbilityDamageProfile,
