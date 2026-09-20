@@ -756,3 +756,29 @@ test("connects Crimson Scale Pact, Voltage II, and normal-frame damage cap effec
   );
   assert.equal(calculateNormalAttackPower(result.deck).specialExAttackPercent, 80);
 });
+
+test("connects only Phoenix's Torch Precocity from the three registered skills", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1000, hpOverride: 1000 },
+    weapons: [
+      { slot: 1, position: "main", weaponId: "1040422700", skillLevel: 15 },
+      { slot: 2, position: "grid", weaponId: "1040422700", skillLevel: 1 },
+    ],
+    summons: [],
+  });
+  const effects = result.deck.effectiveWeaponSkillEffects ?? [];
+
+  assert.deepEqual(
+    effects.map((effect) => [effect.sourceSkillId, effect.kind, effect.effectiveAmountPercent]),
+    [
+      ["2347", "critical-rate-up", 10],
+      ["2347", "healing-cap-up", 15],
+      ["2347", "critical-rate-up", 4.4],
+      ["2347", "healing-cap-up", 5],
+    ],
+  );
+  assert.equal(effects.some((effect) => effect.sourceSkillId === "2353"), false);
+  assert.equal(effects.some((effect) => effect.sourceSkillId === "2354"), false);
+});

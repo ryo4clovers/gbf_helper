@@ -18,7 +18,7 @@
 
 ## ファイル一覧
 
-個別Markdownは全173ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証または一部のみ実機確認済み)。
+個別Markdownは全174ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証または一部のみ実機確認済み)。
 
 ### セラフィックウェポン
 
@@ -37,6 +37,7 @@
 | --- | --- | --- |
 | [fire-ssr-limited-firestorm-scythe.md](./fire-ssr-limited-firestorm-scythe.md) | 炎威の翼鎌 / Firestorm Scythe | 火 |
 | [fire-ssr-limited-crimson-scale.md](./fire-ssr-limited-crimson-scale.md) | クリムゾンスケイル / Crimson Scale | 火 |
+| [fire-ssr-limited-phoenixs-torch.md](./fire-ssr-limited-phoenixs-torch.md) | 不死鳥の灯火 / Phoenix's Torch | 火 |
 | [fire-ssr-limited-benedia.md](./fire-ssr-limited-benedia.md) | ベネディーア / Benedia | 火 |
 | [fire-ssr-limited-lord-of-flames.md](./fire-ssr-limited-lord-of-flames.md) | ロード・オブ・フレイム / Lord of Flames | 火 |
 

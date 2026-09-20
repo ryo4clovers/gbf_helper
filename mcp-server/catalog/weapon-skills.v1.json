@@ -8230,6 +8230,80 @@
       "source": "knowledge/dark-ssr-magna-reverse-celeste-saber-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
     },
     {
+      "skillId": "2347",
+      "name": "紅蓮の天賦",
+      "description": "火属性キャラのクリティカル確率上昇(大)/回復上限上昇(大)",
+      "effects": [
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 4.4,
+          "skillLevel": 1,
+          "boostGroup": "normal",
+          "verificationStatus": "検証済み",
+          "source": "実機編成表示のSLv1追加差分（2026-09-21）",
+          "confirmedAt": "2026-09-21"
+        },
+        {
+          "kind": "critical-rate-up",
+          "elementCode": "1",
+          "amountPercent": 10,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "verificationStatus": "検証済み",
+          "source": "実機編成表示のSLv15単独値（2026-09-21）",
+          "confirmedAt": "2026-09-21"
+        },
+        {
+          "kind": "healing-cap-up",
+          "elementCode": "1",
+          "amountPercent": 5,
+          "skillLevel": 1,
+          "boostGroup": "normal",
+          "verificationStatus": "検証済み",
+          "source": "実機編成表示のSLv1追加差分（2026-09-21）",
+          "confirmedAt": "2026-09-21"
+        },
+        {
+          "kind": "healing-cap-up",
+          "elementCode": "1",
+          "amountPercent": 15,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "verificationStatus": "検証済み",
+          "source": "実機編成表示のSLv15単独値（2026-09-21）",
+          "confirmedAt": "2026-09-21"
+        }
+      ],
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内武器詳細・編成レスポンス（2026-09-21）でskill_id・名称・効果文と、通常スキル強化340%下のSLv15表示44%/66%、SLv1追加後63.36%/88%を確認",
+      "confirmedAt": "2026-09-21"
+    },
+    {
+      "skillId": "2353",
+      "name": "神伐の焔",
+      "description": "通常攻撃後に自分のHPが50％以上の場合、敵に6回火属性ダメージ/火傷Lvが1上昇 ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "unsupportedEffects": [
+        "メイン装備時のみ発動するバトル中の自動アビリティ。今回はダメージ計算へ接続しない"
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細・サブ編成レスポンス（2026-09-21）でskill_id・名称・効果文・武器Lv120解放と、サブ編成時に発動スキル一覧へ含まれないことを確認",
+      "confirmedAt": "2026-09-21"
+    },
+    {
+      "skillId": "2354",
+      "name": "不死鳥の祈望",
+      "description": "ターン終了時、火傷Lvが7以上の敵がいる場合、火属性キャラのHP回復/奥義ゲージUP(10％) ◆メイン装備時/主人公のみ",
+      "effects": [],
+      "unsupportedEffects": [
+        "メイン装備時のみ発動するバトル中の回復・奥義ゲージ効果。今回はダメージ計算へ接続しない"
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細・サブ編成レスポンス（2026-09-21）でskill_id・名称・効果文・武器Lv150解放と、サブ編成時に発動スキル一覧へ含まれないことを確認",
+      "confirmedAt": "2026-09-21"
+    },
+    {
       "skillId": "2356",
       "name": "水の進境",
       "description": "経過ターンに応じて水属性キャラの水属性攻撃力が上昇(小)",

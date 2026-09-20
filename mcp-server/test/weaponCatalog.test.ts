@@ -6,9 +6,14 @@ test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
   assert.equal(catalog.weapons.size, 2971);
-  assert.equal(catalog.skills.size, 745);
+  assert.equal(catalog.skills.size, 748);
   assert.deepEqual(catalog.weapons.get("1020500200")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1" },
+  ]);
+  assert.deepEqual(catalog.weapons.get("1040422700")?.skillSlots, [
+    { sourceKey: "skill1", skillId: "2347" },
+    { sourceKey: "skill2", skillId: "2353" },
+    { sourceKey: "skill3", skillId: "2354" },
   ]);
   const fireMightEffects = catalog.skills.get("1")?.effects
     .filter((effect) => effect.kind === "normal-attack-up") ?? [];
@@ -625,6 +630,21 @@ test("loads the initial incremental weapon and skill catalog", () => {
     ),
     [["normal-attack-up", 15, 12, "magna", "検証済み"]],
   );
+  assert.deepEqual(
+    catalog.skills.get("2347")?.effects.map(
+      (effect) => [effect.kind, effect.skillLevel, effect.amountPercent, effect.boostGroup, effect.verificationStatus],
+    ),
+    [
+      ["critical-rate-up", 1, 4.4, "normal", "検証済み"],
+      ["critical-rate-up", 15, 10, "normal", "検証済み"],
+      ["healing-cap-up", 1, 5, "normal", "検証済み"],
+      ["healing-cap-up", 15, 15, "normal", "検証済み"],
+    ],
+  );
+  assert.equal(catalog.skills.get("2353")?.effects.length, 0);
+  assert.equal(catalog.skills.get("2353")?.verificationStatus, "下書き");
+  assert.equal(catalog.skills.get("2354")?.effects.length, 0);
+  assert.equal(catalog.skills.get("2354")?.verificationStatus, "下書き");
   assert.deepEqual(
     catalog.skills.get("2378")?.effects
       .filter((effect) => effect.skillLevel === 15)

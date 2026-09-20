@@ -88939,6 +88939,7 @@
       "selectionDefaults": {
         "level": 150,
         "uncapLevel": 4,
+        "skillLevel": 15,
         "attack": 2789,
         "hp": 397
       },
@@ -88962,7 +88963,20 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2347"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2353"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2354"
+        }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -88981,7 +88995,8 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "source": "ユーザー提供のゲーム内武器詳細・編成レスポンス（2026-09-21）で武器ID・名称・属性・武器種・Lv1/SLv1と4凸Lv150/SLv15のHP/ATK・スキルID/文・第2/第3スキルのメイン装備限定条件を確認。Lv100ステータスはgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き",
+      "confirmedAt": "2026-09-21"
     },
     {
       "weaponId": "1040422800",
