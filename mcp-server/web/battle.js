@@ -10,8 +10,9 @@ import {
   resolveAttackCount,
   resolveCritical,
   resolveDamageMultiplier,
+  resolveEnemyAttackDamage,
   selectPartyMember,
-} from "/battle-state.js?v=2";
+} from "/battle-state.js?v=3";
 
 const $ = (id) => document.getElementById(id);
 const numberFormat = new Intl.NumberFormat("ja-JP", { maximumFractionDigits: 0 });
@@ -141,6 +142,20 @@ function damagePackets(result, request, mode, attackCount, note) {
   return packets;
 }
 
+function enemyAttackFromResult(result, mode) {
+  const incoming = result.incomingDamage;
+  if (!incoming || incoming.enemyAttack <= 0) return undefined;
+  const damage = resolveEnemyAttackDamage(
+    mode,
+    incoming.minimumDamage,
+    incoming.maximumDamage,
+  );
+  return {
+    damage,
+    note: `通常攻撃・基礎攻撃力 ${numberFormat.format(incoming.enemyAttack)}・防御 ${numberFormat.format(incoming.defensePercent)}%・属性軽減 ${numberFormat.format(incoming.effectiveElementalDamageReductionPercent)}%`,
+  };
+}
+
 const setup = loadSetup();
 const initialState = createInitialBattleState(setup);
 let state = structuredClone(initialState);
@@ -151,9 +166,9 @@ let calculationPromise = null;
 let calculatedMultiattackRates = null;
 
 const modeGuidance = {
-  normal: "通常：乱数・クリティカル・連続攻撃を発生率に従って抽選します。",
-  downside: "下振れ：最低乱数。100%未満のクリティカルとDA/TAは発動しません。",
-  upside: "上振れ：最高乱数。発生率が正のクリティカルとDA/TAは必ず発動します。",
+  normal: "通常：乱数・クリティカル・連続攻撃を発生率に従って抽選します。ユーズド・木人は攻撃後に反撃します。",
+  downside: "下振れ：最低攻撃乱数・最大被ダメージ。100%未満のクリティカルとDA/TAは発動しません。",
+  upside: "上振れ：最高攻撃乱数・最小被ダメージ。発生率が正のクリティカルとDA/TAは必ず発動します。",
 };
 
 async function getCalculationResult() {
@@ -357,7 +372,11 @@ async function attack(ougiEnabled) {
       result.multiattackRates.doubleAttackRatePercent,
       result.multiattackRates.tripleAttackRatePercent,
     );
-    commit(applyAttack(state, damagePackets(result, setup.request, selectedMode, attackCount, note)));
+    commit(applyAttack(
+      state,
+      damagePackets(result, setup.request, selectedMode, attackCount, note),
+      { enemyAttack: enemyAttackFromResult(result, selectedMode) },
+    ));
   } catch (error) {
     commit(appendSystemEvent(state, error instanceof Error ? error.message : "攻撃計算に失敗しました"));
   } finally {

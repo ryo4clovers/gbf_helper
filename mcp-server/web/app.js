@@ -2290,7 +2290,11 @@ function buildRequest() {
       name: $("enemy-name").value.trim() || undefined,
       elementCode: $("enemy-element").value,
       defense: numberValue("enemy-defense"),
-      attack: 10_000,
+      attack: $("enemy-preset").value === "used-training-dummy"
+        ? 2_000
+        : $("enemy-preset").value === "old-training-dummy"
+          ? 0
+          : 10_000,
     },
     modifiers: {
       ...outgoingMemorialModifiers,

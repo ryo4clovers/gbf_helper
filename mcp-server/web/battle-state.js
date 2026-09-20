@@ -53,6 +53,14 @@ export function resolveAttackCount(mode, doubleAttackRatePercent, tripleAttackRa
   return 1;
 }
 
+export function resolveEnemyAttackDamage(mode, minimumDamage, maximumDamage, randomSource = Math.random) {
+  const minimum = Math.max(0, Math.ceil(minimumDamage));
+  const maximum = Math.max(minimum, Math.ceil(maximumDamage));
+  if (mode === SIMULATION_MODES.downside) return maximum;
+  if (mode === SIMULATION_MODES.upside) return minimum;
+  return minimum + Math.floor(randomSource() * (maximum - minimum + 1));
+}
+
 function combatantFromDeck(entry, fallbackName, fallbackElement, initialCharge = 0) {
   const maxHp = Math.max(1, Math.floor(entry.hpOverride ?? 1));
   return {
@@ -102,6 +110,7 @@ export function createInitialBattleState(setup) {
     enemy: {
       name: setup.request.enemy.name ?? "敵",
       elementCode: setup.request.enemy.elementCode,
+      attacks: setup.request.enemy.name === "ユーズド・木人",
       hp: enemyMaxHp,
       maxHp: enemyMaxHp,
       buffs: [],
@@ -135,6 +144,20 @@ export function applyAttack(state, packets, options = {}) {
       amount: Math.max(0, Math.floor(packet.damage)),
       note: packet.note,
     });
+  }
+  if (next.enemy.hp > 0 && next.enemy.attacks && options.enemyAttack) {
+    const target = next.party.find((member) => member.hp > 0);
+    if (target) {
+      const damage = Math.max(0, Math.floor(options.enemyAttack.damage));
+      target.hp = clamp(target.hp - damage, 0, target.maxHp);
+      appendEvent(next, {
+        kind: "enemy-damage",
+        actor: next.enemy.name,
+        target: target.name,
+        amount: damage,
+        note: options.enemyAttack.note,
+      });
+    }
   }
   next.turn += 1;
   return next;

@@ -88,6 +88,7 @@
 .log-empty { padding: 42px 18px; border-radius: 20px; color: var(--ink-soft); background: var(--surface-container); text-align: center; font-size: .82rem; }
 .log-entry { padding: 11px 12px; border-left: 5px solid var(--outline-soft); border-radius: 8px 17px 17px 8px; background: var(--surface); }
 .log-entry.damage { border-color: #dc4857; }
+.log-entry.enemy-damage { border-color: #8e5bd8; }
 .log-entry.pursuit { border-color: #df8b13; }
 .log-entry.heal { border-color: #16a174; }
 .log-entry.summon { border-color: var(--secondary); }

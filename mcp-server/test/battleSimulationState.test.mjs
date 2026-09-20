@@ -9,6 +9,7 @@ import {
   resolveAttackCount,
   resolveCritical,
   resolveDamageMultiplier,
+  resolveEnemyAttackDamage,
   selectPartyMember,
 } from "../web/battle-state.js";
 
@@ -64,6 +65,51 @@ test("normal attack advances a turn and records body and pursuit packets", () =>
   assert.equal(state.enemy.hp, 88_000);
   assert.equal(state.party[0].charge, 40);
   assert.deepEqual(state.events.map((event) => event.amount), [2_000, 10_000]);
+});
+
+test("Used Training Dummy attacks the protagonist after surviving a player attack", () => {
+  const usedDummySetup = setup();
+  usedDummySetup.request.enemy.name = "ユーズド・木人";
+  const initial = createInitialBattleState(usedDummySetup);
+  const state = applyAttack(
+    initial,
+    [{ kind: "damage", damage: 10_000, note: "body" }],
+    { enemyAttack: { damage: 1_300, note: "通常攻撃" } },
+  );
+
+  assert.equal(state.turn, 2);
+  assert.equal(state.party[0].hp, 3_577);
+  assert.deepEqual(state.events.map((event) => [event.kind, event.actor, event.target, event.amount]), [
+    ["enemy-damage", "ユーズド・木人", "ナイト", 1_300],
+    ["damage", "ナイト", "ユーズド・木人", 10_000],
+  ]);
+});
+
+test("Old Training Dummy remains non-attacking and a defeated Used Training Dummy cannot retaliate", () => {
+  const oldDummy = createInitialBattleState(setup());
+  const unchangedParty = applyAttack(
+    oldDummy,
+    [{ kind: "damage", damage: 1_000, note: "body" }],
+    { enemyAttack: { damage: 1_300, note: "通常攻撃" } },
+  );
+  const usedDummySetup = setup();
+  usedDummySetup.request.enemy.name = "ユーズド・木人";
+  const defeated = applyAttack(
+    createInitialBattleState(usedDummySetup),
+    [{ kind: "damage", damage: 100_000, note: "body" }],
+    { enemyAttack: { damage: 1_300, note: "通常攻撃" } },
+  );
+
+  assert.equal(unchangedParty.party[0].hp, 4_877);
+  assert.equal(defeated.party[0].hp, 4_877);
+  assert.equal(defeated.events.some((event) => event.kind === "enemy-damage"), false);
+});
+
+test("enemy damage modes use worst, best, and random values from the predicted range", () => {
+  assert.equal(resolveEnemyAttackDamage(SIMULATION_MODES.downside, 1_267, 1_400), 1_400);
+  assert.equal(resolveEnemyAttackDamage(SIMULATION_MODES.upside, 1_267, 1_400), 1_267);
+  assert.equal(resolveEnemyAttackDamage(SIMULATION_MODES.normal, 1_267, 1_400, () => 0), 1_267);
+  assert.equal(resolveEnemyAttackDamage(SIMULATION_MODES.normal, 1_267, 1_400, () => 0.999), 1_400);
 });
 
 test("items target the selected member and elixir restores the whole party", () => {
