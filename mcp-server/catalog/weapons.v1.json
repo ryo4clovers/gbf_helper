@@ -128994,6 +128994,7 @@
       "selectionDefaults": {
         "level": 200,
         "uncapLevel": 5,
+        "skillLevel": 20,
         "attack": 2970,
         "hp": 205
       },
@@ -129153,7 +129154,8 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・スキルID/文を確認。武器種・上限解放境界ステータス等はgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き"
+      "source": "ゲーム内武器詳細・編成レスポンス（2026-09-21）で武器ID・名称・属性・武器種・Lv200/SLv20/+0のHP205/ATK2970・スキルID/文を確認。Lv1/100/150の境界ステータスはgbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照した下書き",
+      "confirmedAt": "2026-09-21"
     },
     {
       "weaponId": "1040906800",

@@ -2490,21 +2490,23 @@ function renderLocalResult(result) {
     ? "◇"
     : `×${numberFormat.format(selectedCritical.damageMultiplier ?? selectedCritical.criticalDamageMultiplier)}`;
   $("body-expected").textContent = formatDamage(
-    selectedCritical?.nominalDamage ?? result.baseDamage.damageBeforeRandomAndCap,
+    selectedCritical?.nominalDamage ?? body.nominalDamage,
   );
   $("body-range").textContent = `${formatDamage(distribution.minimumDamage)} — ${formatDamage(distribution.maximumDamage)}`;
-  $("body-note").hidden = selectedCritical === undefined;
+  const bodyNotes = [];
   if (selectedCritical !== undefined) {
-    const notes = [];
     if (useWeaponCritical) {
-      notes.push(`武器 ${numberFormat.format(critical.effectiveWeaponSkillCriticalRatePercent)}%`);
+      bodyNotes.push(`武器 ${numberFormat.format(critical.effectiveWeaponSkillCriticalRatePercent)}%`);
       if (critical.overcriticalDamageDisplayPercent > 0) {
-        notes.push(`オーバースキル・クリティカル ${numberFormat.format(critical.overcriticalDamageDisplayPercent)}%`);
+        bodyNotes.push(`オーバースキル・クリティカル ${numberFormat.format(critical.overcriticalDamageDisplayPercent)}%`);
       }
     }
-    if (useLimitBonusCritical) notes.push("主人公LBは選択項目がすべて発動した場合");
-    $("body-note").textContent = notes.join("・");
+    if (useLimitBonusCritical) bodyNotes.push("主人公LBは選択項目がすべて発動した場合");
   }
+  const supplementalDamage = result.otherWeaponSkills?.supplementalDamage?.effectiveAmount ?? 0;
+  if (supplementalDamage > 0) bodyNotes.push(`約定等の固定与ダメ +${formatDamage(supplementalDamage)}`);
+  $("body-note").hidden = bodyNotes.length === 0;
+  $("body-note").textContent = bodyNotes.join("・");
 
   const hp = result.protagonistHp;
   $("protagonist-hp").textContent = hp === undefined ? "—" : formatDamage(hp.hp);

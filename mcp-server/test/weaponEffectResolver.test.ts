@@ -63,6 +63,34 @@ test("activates a conditional effect only when enough weapons share the source w
   );
 });
 
+test("scales each Voltage II occurrence by the matching weapon-kind count", () => {
+  const voltage = (slot: number) => weaponWithSkill({
+    slot,
+    weaponKindCode: "4",
+    skillId: "1794",
+    skillName: "ボルテージ・オブ・アックスII",
+    effects: [{
+      kind: "special-ex-attack-up",
+      elementCode: "1",
+      amountPercent: 8,
+      gridScaling: { kind: "same-weapon-kind-count" },
+    }],
+  });
+  const plainAxe: DeckWeapon = {
+    slot: 3,
+    position: "grid",
+    masterId: "plain-axe",
+    weaponKindCode: "4",
+    skills: [],
+  };
+
+  const result = resolveEffectiveWeaponSkillEffects([voltage(1), voltage(2), plainAxe]);
+  assert.deepEqual(
+    result.effects.map((effect) => [effect.effectiveAmountPercent, effect.gridScaleMultiplier]),
+    [[24, 3], [24, 3]],
+  );
+});
+
 test("calculates boosted effects while preserving the base value and modifier provenance", () => {
   const result = resolveEffectiveWeaponSkillEffects([
     weaponWithSkill({

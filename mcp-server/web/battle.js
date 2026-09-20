@@ -68,26 +68,7 @@ function randomMultiplier(request, mode) {
   return resolveDamageMultiplier(mode, minimum, maximum, step);
 }
 
-function roundCalculation(value) {
-  return Math.round(value * 1_000_000) / 1_000_000;
-}
-
-function criticalBodyDamage(result, multiplier) {
-  const critical = result.criticalBodyDamage;
-  const targetStage = result.baseDamage.stages.find(
-    (stage) => stage.stage === "target-element-damage" && stage.totalPercent !== 0,
-  );
-  const preTargetDamage = targetStage?.inputDamage ?? result.baseDamage.unroundedDamageBeforeRandomAndCap;
-  const targetMultiplier = targetStage && targetStage.inputDamage > 0
-    ? result.baseDamage.damageBeforeRandomAndCap / targetStage.inputDamage
-    : 1;
-  const afterCriticalFloor = Math.floor(
-    roundCalculation(preTargetDamage * multiplier * critical.criticalDamageMultiplier),
-  );
-  return Math.floor(roundCalculation(afterCriticalFloor * targetMultiplier));
-}
-
-function limitBonusCriticalBodyDamage(result, multiplier, criticalDamageBonusPercent) {
+function bodyDamageForMultiplier(result, multiplier, criticalDamageBonusPercent) {
   const attenuation = result.bodyDamageAttenuation;
   const inputDamage = (
     result.baseDamage.articleTrace?.prePostCapDamage
@@ -106,7 +87,9 @@ function limitBonusCriticalBodyDamage(result, multiplier, criticalDamageBonusPer
     attenuatedDamage += (inputEnd - inputStart) * passRate;
     inputStart = inputEnd;
   }
-  const finalDamage = attenuatedDamage * (1 + attenuation.postAttenuationPercent / 100);
+  const supplementalDamage = result.otherWeaponSkills?.supplementalDamage?.effectiveAmount ?? 0;
+  const finalDamage = attenuatedDamage * (1 + attenuation.postAttenuationPercent / 100)
+    + supplementalDamage;
   return result.bodyDamageDistribution.finalRounding === "ceil"
     ? Math.ceil(finalDamage)
     : Math.floor(finalDamage);
@@ -125,13 +108,11 @@ function damagePacketsForHit(result, request, mode, note) {
     (weaponCriticalTriggered ? (critical.criticalDamageMultiplier - 1) * 100 : 0) +
     triggeredLimitBonusCriticals.reduce((sum, source) => sum + source.damageBonusPercent, 0);
   const criticalTriggered = criticalDamageBonusPercent > 0;
-  const bodyDamage = weaponCriticalTriggered && triggeredLimitBonusCriticals.length === 0
-    ? criticalBodyDamage(result, bodyMultiplier)
-    : triggeredLimitBonusCriticals.length > 0
-      ? limitBonusCriticalBodyDamage(result, bodyMultiplier, criticalDamageBonusPercent)
-      : result.bodyDamageDistribution.finalRounding === "ceil"
-        ? Math.ceil(result.baseDamage.unroundedDamageBeforeRandomAndCap * bodyMultiplier)
-        : Math.floor(result.baseDamage.unroundedDamageBeforeRandomAndCap * bodyMultiplier);
+  const bodyDamage = bodyDamageForMultiplier(
+    result,
+    bodyMultiplier,
+    criticalDamageBonusPercent,
+  );
   const criticalNote = criticalTriggered
     ? `・クリティカル ×${numberFormat.format(1 + criticalDamageBonusPercent / 100)}`
     : "";

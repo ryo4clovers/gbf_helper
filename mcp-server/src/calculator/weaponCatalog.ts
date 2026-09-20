@@ -12,7 +12,9 @@ const effectSchema = z
     kind: z.enum([
       "normal-attack-up",
       "ex-attack-up",
+      "special-ex-attack-up",
       "weapon-defense-up",
+      "normal-frame-damage-cap-up",
       "special-frame-damage-cap-up",
       "normal-stamina-up",
       "magna-stamina-up",
@@ -27,6 +29,7 @@ const effectSchema = z
       "damage-dealt-up",
       "ability-damage-cap-up",
       "ability-supplemental-damage",
+      "supplemental-damage",
       "elemental-pursuit",
       "normal-skill-boost",
     ]),
@@ -46,6 +49,9 @@ const effectSchema = z
         count: z.number().int().positive(),
       }).strict(),
     ]).optional(),
+    gridScaling: z.discriminatedUnion("kind", [
+      z.object({ kind: z.literal("same-weapon-kind-count") }).strict(),
+    ]).optional(),
     note: z.string().min(1).optional(),
     verificationStatus: statusSchema.optional(),
     source: z.string().min(1).optional(),
@@ -53,7 +59,7 @@ const effectSchema = z
   })
   .strict()
   .superRefine((effect, context) => {
-    const isFlat = effect.kind === "ability-supplemental-damage";
+    const isFlat = effect.kind === "ability-supplemental-damage" || effect.kind === "supplemental-damage";
     if (isFlat && effect.amountFlat === undefined) {
       context.addIssue({ code: "custom", message: `${effect.kind} requires amountFlat` });
     }

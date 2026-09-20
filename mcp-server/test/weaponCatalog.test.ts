@@ -335,10 +335,29 @@ test("loads the initial incremental weapon and skill catalog", () => {
     "奥義与ダメージ上昇: SLv1 35,000 / SLv10 80,000 / SLv15 105,000。SLv15は両面アグニ170%で+462,000表示となり、2hit奥義全体へ合計1回分を加算することを実機確認。加護込み上限100万・敵最大HP5%制限・天司等の与ダメージUP適用はGameWith由来で要検証（奥義計算未対応）",
   ]);
   assert.equal(catalog.weapons.get("1040315900")?.confirmedAt, "2026-09-21");
-  assert.match(catalog.skills.get("1788")?.unsupportedEffects?.[0] ?? "", /50,000/);
-  assert.match(catalog.skills.get("1794")?.unsupportedEffects?.[0] ?? "", /80%かつ上限表示/);
-  assert.match(catalog.skills.get("1780")?.unsupportedEffects?.[0] ?? "", /14%/);
-  assert.match(catalog.skills.get("601")?.unsupportedEffects?.[0] ?? "", /SLv20で10%/);
+  assert.match(catalog.skills.get("1788")?.unsupportedEffects?.[0] ?? "", /敵最大HP1%/);
+  assert.deepEqual(catalog.skills.get("1788")?.effects, [{
+    kind: "supplemental-damage",
+    elementCode: "1",
+    amountFlat: 50_000,
+    verificationStatus: "検証済み",
+    source: "実機編成・バトル表示（2026-09-21）",
+    confirmedAt: "2026-09-21",
+  }]);
+  assert.deepEqual(catalog.skills.get("1794")?.effects, [{
+    kind: "special-ex-attack-up",
+    elementCode: "1",
+    amountPercent: 8,
+    gridScaling: { kind: "same-weapon-kind-count" },
+    verificationStatus: "検証済み",
+    source: "実機編成表示（2026-09-21）",
+    confirmedAt: "2026-09-21",
+  }]);
+  assert.equal(catalog.skills.get("1794")?.unsupportedEffects, undefined);
+  assert.equal(catalog.skills.get("1780")?.effects[0]?.kind, "normal-frame-damage-cap-up");
+  assert.equal(catalog.skills.get("1780")?.effects[0]?.amountPercent, 7);
+  assert.equal(catalog.skills.get("601")?.effects[0]?.kind, "normal-frame-damage-cap-up");
+  assert.equal(catalog.skills.get("601")?.effects[0]?.amountPercent, 10);
   const sharedWaterWeaponSkillSlots = new Map([
     ["1040004600", [["skill1", "627"], ["skill2", "633"]]],
     ["1040011200", [["skill1", "209"], ["skill2", "783"]]],

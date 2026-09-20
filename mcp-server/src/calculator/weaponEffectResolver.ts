@@ -59,6 +59,16 @@ function effectMeetsActivationCondition(source: EffectSource, weapons: DeckWeapo
   return false;
 }
 
+function gridScaleMultiplier(source: EffectSource, weapons: DeckWeapon[]): number {
+  if (source.effect.gridScaling === undefined) return 1;
+  if (source.effect.gridScaling.kind === "same-weapon-kind-count") {
+    const weaponKindCode = source.weapon.weaponKindCode;
+    if (weaponKindCode === undefined) return 0;
+    return weapons.filter((weapon) => weapon.weaponKindCode === weaponKindCode).length;
+  }
+  return 1;
+}
+
 function matchesBoost(target: EffectSource, boost: EffectSource): boolean {
   if (boost.effect.kind !== "normal-skill-boost") return false;
   if (target.effect.kind === "normal-skill-boost") return false;
@@ -229,6 +239,7 @@ export function resolveEffectiveWeaponSkillEffects(
     const boostPercent = appliedModifiers.reduce((sum, modifier) => sum + modifier.amountPercent, 0);
     const baseAmountPercent = source.effect.amountPercent ?? 0;
     const baseAmountFlat = source.effect.amountFlat;
+    const scaleMultiplier = gridScaleMultiplier(source, weapons);
 
     return {
       sourceWeaponSlot: source.weapon.slot,
@@ -238,15 +249,17 @@ export function resolveEffectiveWeaponSkillEffects(
       kind: source.effect.kind,
       elementCode: source.effect.elementCode,
       baseAmountPercent,
-      effectiveAmountPercent: roundPercentage(baseAmountPercent * (1 + boostPercent / 100)),
+      effectiveAmountPercent: roundPercentage(baseAmountPercent * scaleMultiplier * (1 + boostPercent / 100)),
       ...(baseAmountFlat === undefined
         ? {}
         : {
             baseAmountFlat,
-            effectiveAmountFlat: roundPercentage(baseAmountFlat * (1 + boostPercent / 100)),
+            effectiveAmountFlat: roundPercentage(baseAmountFlat * scaleMultiplier * (1 + boostPercent / 100)),
           }),
       hpDependentCurve: source.effect.hpDependentCurve,
       activationCondition: source.effect.activationCondition,
+      gridScaling: source.effect.gridScaling,
+      ...(source.effect.gridScaling === undefined ? {} : { gridScaleMultiplier: scaleMultiplier }),
       skillLevel: source.effect.skillLevel,
       verificationStatus: source.effect.verificationStatus ?? source.skill.verificationStatus ?? "下書き",
       appliedModifiers,

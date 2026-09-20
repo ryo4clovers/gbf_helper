@@ -244,3 +244,94 @@ test("caps Scarlet Convergence's special damage-cap frame at 20% and shares it w
   assert.equal(result.bodyDamageAttenuation.damageCapUpPercent, 25);
   assert.equal(result.abilityDamage?.damageCapUpPercent, 20);
 });
+
+test("caps the normal and special damage-cap frames independently without Overskill Limit", () => {
+  const input = makeCurrentInput();
+  const capEffect = (
+    slot: number,
+    skillId: string,
+    kind: "normal-frame-damage-cap-up" | "special-frame-damage-cap-up",
+    amount: number,
+  ) => ({
+    sourceWeaponSlot: slot,
+    sourceWeaponId: `weapon-${slot}`,
+    sourceSkillId: skillId,
+    sourceSkillName: skillId,
+    kind,
+    elementCode: "1",
+    baseAmountPercent: amount,
+    effectiveAmountPercent: amount,
+    verificationStatus: "検証済み" as const,
+    appliedModifiers: [],
+  });
+  input.deck.effectiveWeaponSkillEffects = [
+    ...(input.deck.effectiveWeaponSkillEffects ?? []),
+    capEffect(1, "1780", "normal-frame-damage-cap-up", 7),
+    capEffect(2, "1780", "normal-frame-damage-cap-up", 7),
+    capEffect(3, "601", "normal-frame-damage-cap-up", 10),
+    capEffect(4, "1913", "special-frame-damage-cap-up", 7),
+    capEffect(5, "1913", "special-frame-damage-cap-up", 7),
+    capEffect(6, "1913", "special-frame-damage-cap-up", 7),
+  ];
+  input.abilityDamage = {
+    abilityDamageUpPercent: 0,
+    limitBonusPercent: 0,
+    abilityDamageCapUpPercent: 0,
+    limitBonusDamageCapUpPercent: 0,
+  };
+
+  const result = calculateNormalAttackDamage(input);
+  assert.equal(result.bodyDamageAttenuation.normalFrameDamageCapRawPercent, 24);
+  assert.equal(result.bodyDamageAttenuation.normalFrameDamageCapPercent, 20);
+  assert.equal(result.bodyDamageAttenuation.specialFrameDamageCapRawPercent, 21);
+  assert.equal(result.bodyDamageAttenuation.specialFrameDamageCapPercent, 20);
+  assert.equal(result.bodyDamageAttenuation.damageCapUpPercent, 45);
+  assert.equal(result.abilityDamage?.damageCapUpPercent, 40);
+});
+
+test("adds Pact supplemental damage after attenuation to normal and ability damage", () => {
+  const baselineInput = makeCurrentInput();
+  baselineInput.abilityDamage = {
+    abilityDamageUpPercent: 0,
+    limitBonusPercent: 0,
+    abilityDamageCapUpPercent: 0,
+    limitBonusDamageCapUpPercent: 0,
+  };
+  const baseline = calculateNormalAttackDamage(baselineInput, {
+    multiplierMin: 1,
+    multiplierMax: 1,
+    multiplierStep: 1,
+  });
+  const input = makeCurrentInput();
+  input.abilityDamage = baselineInput.abilityDamage;
+  input.deck.effectiveWeaponSkillEffects = [
+    ...(input.deck.effectiveWeaponSkillEffects ?? []),
+    ...[1, 2].map((slot) => ({
+      sourceWeaponSlot: slot,
+      sourceWeaponId: `mika-${slot}`,
+      sourceSkillId: "1788",
+      sourceSkillName: "焔の約定",
+      kind: "supplemental-damage" as const,
+      elementCode: "1",
+      baseAmountPercent: 0,
+      effectiveAmountPercent: 0,
+      baseAmountFlat: 50_000,
+      effectiveAmountFlat: 50_000,
+      verificationStatus: "検証済み" as const,
+      appliedModifiers: [],
+    })),
+  ];
+
+  const result = calculateNormalAttackDamage(input, {
+    multiplierMin: 1,
+    multiplierMax: 1,
+    multiplierStep: 1,
+  });
+  assert.equal(result.otherWeaponSkills.supplementalDamage.effectiveAmount, 100_000);
+  assert.equal(
+    result.bodyDamageDistribution.minimumDamage - baseline.bodyDamageDistribution.minimumDamage,
+    100_000,
+  );
+  assert.equal(result.abilityDamage?.supplementalDamagePerHit, 100_000);
+  assert.ok(result.issues.includes("supplemental-damage-enemy-hp-cap-unresolved"));
+});

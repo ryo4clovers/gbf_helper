@@ -710,3 +710,49 @@ test("activates every Scarlet Convergence copy at four swords including a cross-
     ],
   );
 });
+
+test("connects Crimson Scale Pact, Voltage II, and normal-frame damage cap effects", () => {
+  const weapon = (slot: number, weaponId: string, skillLevel: number) => ({
+    slot,
+    position: slot === 1 ? "main" as const : "grid" as const,
+    weaponId,
+    skillLevel,
+  });
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1000, hpOverride: 1000 },
+    weapons: [
+      weapon(1, "1040315900", 15),
+      weapon(2, "1040315900", 15),
+      weapon(3, "1040314900", 15),
+      weapon(4, "1040314900", 15),
+      weapon(5, "1040312800", 15),
+      weapon(6, "1040906700", 20),
+    ],
+    summons: [],
+  });
+  const effects = result.deck.effectiveWeaponSkillEffects ?? [];
+
+  assert.deepEqual(
+    effects.filter((effect) => effect.sourceSkillId === "1788")
+      .map((effect) => effect.effectiveAmountFlat),
+    [50_000, 50_000],
+  );
+  assert.deepEqual(
+    effects.filter((effect) => effect.sourceSkillId === "1794")
+      .map((effect) => [effect.effectiveAmountPercent, effect.gridScaleMultiplier]),
+    [[40, 5], [40, 5]],
+  );
+  assert.deepEqual(
+    effects.filter((effect) => effect.sourceSkillId === "1780")
+      .map((effect) => effect.effectiveAmountPercent),
+    [7, 7],
+  );
+  assert.deepEqual(
+    effects.filter((effect) => effect.sourceSkillId === "601")
+      .map((effect) => effect.effectiveAmountPercent),
+    [10],
+  );
+  assert.equal(calculateNormalAttackPower(result.deck).specialExAttackPercent, 80);
+});

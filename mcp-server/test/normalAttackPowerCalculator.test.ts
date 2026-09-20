@@ -102,6 +102,36 @@ test("applies EX attack as a separate multiplicative weapon-skill frame", () => 
   assert.equal(result.summonAuraAdjustedAttack, 1400);
 });
 
+test("adds capped special EX attack to the regular EX frame", () => {
+  const effect = (slot: number, amount: number) => ({
+    sourceWeaponSlot: slot,
+    sourceWeaponId: `weapon-${slot}`,
+    sourceSkillId: "1794",
+    sourceSkillName: "ボルテージ・オブ・アックスII",
+    kind: "special-ex-attack-up" as const,
+    elementCode: "1",
+    baseAmountPercent: 8,
+    effectiveAmountPercent: amount,
+    verificationStatus: "検証済み" as const,
+    appliedModifiers: [],
+  });
+  const deck = {
+    schemaVersion: 1,
+    protagonist: { attack: 1000, elementCode: "1" },
+    characters: [],
+    weapons: [],
+    summons: [],
+    effectiveWeaponSkillEffects: [effect(1, 48), effect(2, 48)],
+  } satisfies DeckSnapshot;
+
+  const result = calculateNormalAttackPower(deck);
+  assert.equal(result.specialExAttackRawPercent, 96);
+  assert.equal(result.specialExAttackPercent, 80);
+  assert.equal(result.totalEffectiveExAttackPercent, 80);
+  assert.equal(result.exAttackSkillMultiplier, 1.8);
+  assert.equal(result.exSkillAdjustedAttack, 1800);
+});
+
 test("applies a resolved elemental main-summon aura as a separate multiplier", () => {
   const deck = {
     schemaVersion: 1,

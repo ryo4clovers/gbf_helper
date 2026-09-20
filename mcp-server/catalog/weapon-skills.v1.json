@@ -3272,9 +3272,16 @@
       "skillId": "601",
       "name": "南朱の真髄",
       "description": "火属性キャラのダメージ上限上昇",
-      "effects": [],
-      "unsupportedEffects": [
-        "通常のダメージ上限枠: SLv20で10%。焔の真髄2個の14%と合算した素の24%は20%で上限表示となり、通常枠超過4%として特殊枠超過8%と合算され、ダメージ上限緩和6%になることを実機確認。通常枠の計算効果種とオーバースキル・リミットが未実装"
+      "effects": [
+        {
+          "kind": "normal-frame-damage-cap-up",
+          "elementCode": "1",
+          "amountPercent": 10,
+          "skillLevel": 20,
+          "verificationStatus": "検証済み",
+          "source": "実機編成表示（2026-09-21）",
+          "confirmedAt": "2026-09-21"
+        }
       ],
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のゲーム内武器詳細・編成レスポンス（2026-09-21）でskill_id・名称・効果文・SLv20の10%表示、通常枠20%上限、通常枠と特殊枠の超過量合算を確認",
@@ -6963,9 +6970,16 @@
       "skillId": "1780",
       "name": "焔の真髄",
       "description": "火属性キャラのダメージ上限上昇",
-      "effects": [],
-      "unsupportedEffects": [
-        "通常のダメージ上限枠: SLv15で1本7%・2本14%。両面アグニ下でも増幅されないため加護対象外。南朱の真髄SLv20の10%と合算した素の24%が20%で上限表示となり、通常枠超過4%としてオーバースキル・リミットへ算入されることを実機確認。通常枠の計算効果種が未実装"
+      "effects": [
+        {
+          "kind": "normal-frame-damage-cap-up",
+          "elementCode": "1",
+          "amountPercent": 7,
+          "skillLevel": 15,
+          "verificationStatus": "検証済み",
+          "source": "実機編成表示（2026-09-21）",
+          "confirmedAt": "2026-09-21"
+        }
       ],
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のゲーム内武器詳細・編成レスポンス（2026-09-21）でskill_id・名称・効果文・SLv15の1本7%/2本14%表示、南朱の真髄との合算、通常枠20%上限と超過量算入を確認。SLv1 3%・SLv10 5.5%はGameWith由来で要検証",
@@ -6984,9 +6998,18 @@
       "skillId": "1788",
       "name": "焔の約定",
       "description": "火属性キャラの与ダメージ上昇",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "supplemental-damage",
+          "elementCode": "1",
+          "amountFlat": 50000,
+          "verificationStatus": "検証済み",
+          "source": "実機編成・バトル表示（2026-09-21）",
+          "confirmedAt": "2026-09-21"
+        }
+      ],
       "unsupportedEffects": [
-        "全ダメージ種の与ダメージ上昇: 1本50,000、2本100,000（is_max）を実機確認。両面アグニ下でも増幅されず加護対象外。敵最大HP1%制限はGameWith由来で要検証。通常攻撃・アビリティ・複数hit奥義を横断する加算単位が未実装"
+        "敵最大HP1%制限、追撃・多段アビリティ・複数hit奥義・チェインバーストへの加算単位は未検証。計算機は通常攻撃本体と対応アビリティへ適用し、敵最大HP制限は未反映"
       ],
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のゲーム内武器詳細・編成・バトルレスポンス（2026-09-21）でskill_id・名称・効果文、1本時+50,000、2本時+100,000かつ上限表示、通常攻撃/アビリティ/2hit奥義の実測整合を確認。敵最大HP1%制限はGameWith由来で要検証",
@@ -6996,9 +7019,18 @@
       "skillId": "1794",
       "name": "ボルテージ・オブ・アックスII",
       "description": "装備している「斧」の数が多いほど攻撃力上昇",
-      "effects": [],
-      "unsupportedEffects": [
-        "特殊EX攻刃: min(8% × 同スキル数 × 斧本数, 80%)。斧1本・同スキル1個で8%、斧2本・同スキル2個で32%、斧3本・同スキル2個で48%、斧3本・同スキル1個で24%、斧5本・同スキル2個で80%かつ上限表示を実機確認。武器種数と同スキル数を掛ける可変効果が未実装"
+      "effects": [
+        {
+          "kind": "special-ex-attack-up",
+          "elementCode": "1",
+          "amountPercent": 8,
+          "gridScaling": {
+            "kind": "same-weapon-kind-count"
+          },
+          "verificationStatus": "検証済み",
+          "source": "実機編成表示（2026-09-21）",
+          "confirmedAt": "2026-09-21"
+        }
       ],
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のゲーム内武器詳細・編成レスポンス（2026-09-21）で斧1本・同スキル1個のEX攻刃8%、斧2本・同スキル2個の32%、斧3本・同スキル2個の48%、斧3本・同スキル1個の24%、斧5本・同スキル2個の80%かつ上限表示と、両面アグニ下で増幅されないことを確認",

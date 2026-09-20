@@ -80,6 +80,28 @@ test("caps combined healing cap at 100 percent", () => {
   assert.equal(result.healingCap.effectivePercent, 100);
 });
 
+test("caps Pact-style supplemental damage at 100000", () => {
+  const resolution = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      { slot: 1, position: "main", weaponId: "1040315900", level: 150, skillLevel: 15 },
+      { slot: 2, position: "grid", weaponId: "1040315900", level: 150, skillLevel: 15 },
+    ],
+    summons: [],
+  });
+
+  const result = calculateOtherWeaponSkills(resolution.deck);
+  assert.equal(result.supplementalDamage.uncappedAmount, 100_000);
+  assert.equal(result.supplementalDamage.effectiveAmount, 100_000);
+  assert.equal(result.supplementalDamage.capAmount, 100_000);
+  assert.deepEqual(
+    result.supplementalDamage.contributions.map((effect) => effect.sourceSkillId),
+    ["1788", "1788"],
+  );
+});
+
 test("reports post-cap damage dealt from weapon skills", () => {
   const resolution = resolveCalculatorDeckConfig({
     schemaVersion: 1,

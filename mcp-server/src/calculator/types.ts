@@ -28,7 +28,9 @@ export interface DeckSkill {
 export type WeaponSkillEffectKind =
   | "normal-attack-up"
   | "ex-attack-up"
+  | "special-ex-attack-up"
   | "weapon-defense-up"
+  | "normal-frame-damage-cap-up"
   | "special-frame-damage-cap-up"
   | "normal-stamina-up"
   | "magna-stamina-up"
@@ -43,6 +45,7 @@ export type WeaponSkillEffectKind =
   | "damage-dealt-up"
   | "ability-damage-cap-up"
   | "ability-supplemental-damage"
+  | "supplemental-damage"
   | "elemental-pursuit"
   | "normal-skill-boost";
 
@@ -65,6 +68,10 @@ export interface WeaponSkillEffectDefinition {
   activationCondition?: {
     kind: "minimum-same-weapon-kind-count";
     count: number;
+  };
+  /** Multiplies one skill occurrence by matching equipment in the current grid. */
+  gridScaling?: {
+    kind: "same-weapon-kind-count";
   };
   note?: string;
   /** Verification is recorded per numeric effect, so one skill may mix confirmed and provisional levels. */
@@ -278,6 +285,8 @@ export interface EffectiveWeaponSkillEffect {
   effectiveAmountFlat?: number;
   hpDependentCurve?: HpDependentAttackCurve;
   activationCondition?: WeaponSkillEffectDefinition["activationCondition"];
+  gridScaling?: WeaponSkillEffectDefinition["gridScaling"];
+  gridScaleMultiplier?: number;
   skillLevel?: number;
   verificationStatus: "検証済み" | "下書き";
   appliedModifiers: AppliedWeaponSkillModifier[];

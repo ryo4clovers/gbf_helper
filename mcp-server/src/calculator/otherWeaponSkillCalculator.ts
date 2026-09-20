@@ -17,6 +17,7 @@ export interface OtherWeaponSkillFlatSummary {
 export interface OtherWeaponSkillResult {
   schemaVersion: 1;
   damageDealt: OtherWeaponSkillRateSummary;
+  supplementalDamage: OtherWeaponSkillFlatSummary;
   abilityDamageCap: OtherWeaponSkillRateSummary;
   abilitySupplementalDamage: OtherWeaponSkillFlatSummary;
   healingCap: OtherWeaponSkillRateSummary;
@@ -33,6 +34,7 @@ function matchingEffects(
   deck: DeckSnapshot,
   kind:
     | "damage-dealt-up"
+    | "supplemental-damage"
     | "ability-damage-cap-up"
     | "ability-supplemental-damage"
     | "healing-cap-up"
@@ -80,6 +82,7 @@ function summarizeRate(
 /** Aggregates utility weapon-skill rates without mixing them into normal-attack damage. */
 export function calculateOtherWeaponSkills(deck: DeckSnapshot): OtherWeaponSkillResult {
   const damageDealt = summarizeRate(matchingEffects(deck, "damage-dealt-up"));
+  const supplementalDamage = summarizeFlat(matchingEffects(deck, "supplemental-damage"), 100_000);
   const abilityDamageCap = summarizeRate(matchingEffects(deck, "ability-damage-cap-up"), 100);
   const abilitySupplementalDamage = summarizeFlat(
     matchingEffects(deck, "ability-supplemental-damage"),
@@ -90,6 +93,7 @@ export function calculateOtherWeaponSkills(deck: DeckSnapshot): OtherWeaponSkill
   return {
     schemaVersion: 1,
     damageDealt,
+    supplementalDamage,
     abilityDamageCap,
     abilitySupplementalDamage,
     healingCap,

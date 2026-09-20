@@ -53,6 +53,10 @@ export interface NormalAttackPowerResult {
   normalAttackSkillMultiplier: number;
   normalSkillAdjustedAttack: number;
   exAttackContributions: EffectiveWeaponSkillEffect[];
+  regularExAttackContributions: EffectiveWeaponSkillEffect[];
+  specialExAttackContributions: EffectiveWeaponSkillEffect[];
+  specialExAttackRawPercent: number;
+  specialExAttackPercent: number;
   totalEffectiveExAttackPercent: number;
   exAttackSkillMultiplier: number;
   exSkillAdjustedAttack: number;
@@ -91,13 +95,26 @@ export function calculateNormalAttackPower(
   );
   const normalAttackSkillMultiplier = roundCalculation(1 + totalEffectiveNormalAttackPercent / 100);
   const normalSkillAdjustedAttack = roundCalculation(baseAttack * normalAttackSkillMultiplier);
-  const exAttackContributions = (deck.effectiveWeaponSkillEffects ?? []).filter(
+  const regularExAttackContributions = (deck.effectiveWeaponSkillEffects ?? []).filter(
     (effect) =>
       effect.kind === "ex-attack-up" &&
       (elementCode === undefined || effect.elementCode === undefined || effect.elementCode === elementCode),
   );
+  const specialExAttackContributions = (deck.effectiveWeaponSkillEffects ?? []).filter(
+    (effect) =>
+      effect.kind === "special-ex-attack-up" &&
+      (elementCode === undefined || effect.elementCode === undefined || effect.elementCode === elementCode),
+  );
+  const exAttackContributions = [...regularExAttackContributions, ...specialExAttackContributions];
+  const regularExAttackPercent = roundCalculation(
+    regularExAttackContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
+  );
+  const specialExAttackRawPercent = roundCalculation(
+    specialExAttackContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
+  );
+  const specialExAttackPercent = Math.min(80, specialExAttackRawPercent);
   const totalEffectiveExAttackPercent = roundCalculation(
-    exAttackContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
+    regularExAttackPercent + specialExAttackPercent,
   );
   const exAttackSkillMultiplier = roundCalculation(1 + totalEffectiveExAttackPercent / 100);
   const exSkillAdjustedAttack = roundCalculation(normalSkillAdjustedAttack * exAttackSkillMultiplier);
@@ -227,6 +244,10 @@ export function calculateNormalAttackPower(
     normalAttackSkillMultiplier,
     normalSkillAdjustedAttack,
     exAttackContributions,
+    regularExAttackContributions,
+    specialExAttackContributions,
+    specialExAttackRawPercent,
+    specialExAttackPercent,
     totalEffectiveExAttackPercent,
     exAttackSkillMultiplier,
     exSkillAdjustedAttack,
