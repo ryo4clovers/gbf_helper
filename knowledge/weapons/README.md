@@ -18,7 +18,7 @@
 
 ## ファイル一覧
 
-個別Markdownは全174ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証または一部のみ実機確認済み)。
+個別Markdownは全180ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証または一部のみ実機確認済み)。
 
 ### セラフィックウェポン
 
@@ -40,6 +40,12 @@
 | [fire-ssr-limited-phoenixs-torch.md](./fire-ssr-limited-phoenixs-torch.md) | 不死鳥の灯火 / Phoenix's Torch | 火 |
 | [fire-ssr-limited-benedia.md](./fire-ssr-limited-benedia.md) | ベネディーア / Benedia | 火 |
 | [fire-ssr-limited-lord-of-flames.md](./fire-ssr-limited-lord-of-flames.md) | ロード・オブ・フレイム / Lord of Flames | 火 |
+| [fire-ssr-limited-ixaba.md](./fire-ssr-limited-ixaba.md) | イクサバ / Ixaba | 火 |
+| [fire-ssr-limited-purifying-thunderbolt.md](./fire-ssr-limited-purifying-thunderbolt.md) | 悪滅の雷 / Purifying Thunderbolt | 火 |
+| [fire-ssr-limited-fist-of-destruction.md](./fire-ssr-limited-fist-of-destruction.md) | 絶拳 / Fist of Destruction | 火 |
+| [fire-ssr-limited-kerak.md](./fire-ssr-limited-kerak.md) | ケラク / Kerak | 火 |
+| [fire-ssr-limited-sennen-goji.md](./fire-ssr-limited-sennen-goji.md) | 千年護持 / Sennen Goji | 火 |
+| [fire-ssr-limited-overrider.md](./fire-ssr-limited-overrider.md) | オーバーライド / Overrider | 火 |
 
 ### 恒常ガチャ武器
 
