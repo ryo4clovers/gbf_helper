@@ -11,6 +11,9 @@ const effectSchema = z
   .object({
     kind: z.enum([
       "normal-attack-up",
+      "ex-attack-up",
+      "weapon-defense-up",
+      "special-frame-damage-cap-up",
       "normal-stamina-up",
       "magna-stamina-up",
       "normal-enmity-up",
@@ -36,6 +39,12 @@ const effectSchema = z
     hpDependentCurve: z.discriminatedUnion("kind", [
       z.object({ kind: z.literal("stamina"), coefficient: z.number().finite().positive() }).strict(),
       z.object({ kind: z.literal("enmity") }).strict(),
+    ]).optional(),
+    activationCondition: z.discriminatedUnion("kind", [
+      z.object({
+        kind: z.literal("minimum-same-weapon-kind-count"),
+        count: z.number().int().positive(),
+      }).strict(),
     ]).optional(),
     note: z.string().min(1).optional(),
     verificationStatus: statusSchema.optional(),

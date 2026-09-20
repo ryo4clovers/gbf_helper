@@ -2399,6 +2399,7 @@ function predictionRequests(request) {
 
 const stageNames = {
   "normal-weapon-skill": "通常攻刃",
+  "ex-weapon-skill": "EX攻刃",
   "normal-stamina": "通常渾身",
   "magna-stamina": "方陣渾身",
   "normal-enmity": "通常背水",
@@ -2554,7 +2555,11 @@ function renderLocalResult(result) {
   $("protagonist-defense-rate").textContent = incoming === undefined
     ? "—"
     : `+${numberFormat.format(incoming.defensePercent)}%`;
-  $("protagonist-defense-note").textContent = "ジョブ・コンプリート・LB・大事なもの";
+  $("protagonist-defense-note").textContent = incoming === undefined
+    ? "ジョブ・コンプリート・LB・大事なもの"
+    : incoming.weaponDefensePercent > 0
+      ? `基礎 +${numberFormat.format(incoming.baseDefensePercent)}%・武器スキル +${numberFormat.format(incoming.weaponDefensePercent)}%`
+      : "ジョブ・コンプリート・LB・大事なもの";
   $("incoming-damage").textContent = incoming === undefined ? "—" : formatDamage(incoming.nominalDamage);
   $("incoming-damage-note").textContent = incoming === undefined
     ? "敵攻撃10,000・乱数範囲 —"

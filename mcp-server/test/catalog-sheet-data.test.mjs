@@ -23,6 +23,9 @@ test("コードをシート向け表示名へ変換する", () => {
   assert.equal(displayCode("10", WEAPON_KIND_LABELS, "weaponKindCode"), "刀");
   assert.equal(displayCode("4", RARITY_LABELS, "rarityCode"), "SSR");
   assert.equal(displayCode("critical-rate-up", EFFECT_KIND_LABELS, "effect.kind"), "クリティカル確率UP");
+  assert.equal(displayCode("ex-attack-up", EFFECT_KIND_LABELS, "effect.kind"), "EX攻刃");
+  assert.equal(displayCode("weapon-defense-up", EFFECT_KIND_LABELS, "effect.kind"), "防御力UP（武器スキル）");
+  assert.equal(displayCode("special-frame-damage-cap-up", EFFECT_KIND_LABELS, "effect.kind"), "ダメージ上限UP（特殊枠）");
   assert.equal(displayCode("healing-cap-up", EFFECT_KIND_LABELS, "effect.kind"), "回復上限UP");
   assert.equal(displayCode("debuff-resistance-up", EFFECT_KIND_LABELS, "effect.kind"), "弱体耐性UP");
   assert.equal(displayCode("damage-dealt-up", EFFECT_KIND_LABELS, "effect.kind"), "与ダメージUP");

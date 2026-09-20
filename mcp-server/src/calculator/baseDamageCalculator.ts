@@ -11,6 +11,7 @@ import type {
 export type BaseDamageStage =
   | DamageModifierStage
   | "normal-weapon-skill"
+  | "ex-weapon-skill"
   | "normal-stamina"
   | "magna-stamina"
   | "normal-enmity";
@@ -281,6 +282,13 @@ export function calculateDefenseAdjustedBaseDamage(
       contributions: attackPower.contributions,
       totalPercentOverride: attackPower.totalEffectiveNormalAttackPercent,
     },
+    ...(attackPower.exAttackContributions.length === 0
+      ? []
+      : [{
+          stage: "ex-weapon-skill" as const,
+          contributions: attackPower.exAttackContributions,
+          totalPercentOverride: attackPower.totalEffectiveExAttackPercent,
+        }]),
     ...(characterAttackContributions.length === 0
       ? []
       : [{

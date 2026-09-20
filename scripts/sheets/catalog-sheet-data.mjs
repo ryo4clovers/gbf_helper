@@ -101,6 +101,9 @@ export const WIKI_SERIES_LABELS = Object.freeze({
 
 export const EFFECT_KIND_LABELS = Object.freeze({
   "normal-attack-up": "通常攻刃",
+  "ex-attack-up": "EX攻刃",
+  "weapon-defense-up": "防御力UP（武器スキル）",
+  "special-frame-damage-cap-up": "ダメージ上限UP（特殊枠）",
   "normal-stamina-up": "通常渾身",
   "magna-stamina-up": "方陣渾身",
   "normal-enmity-up": "通常背水",

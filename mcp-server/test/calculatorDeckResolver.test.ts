@@ -638,3 +638,49 @@ test("reports missing stat overrides with precise config paths", () => {
     true,
   );
 });
+
+test("activates every Scarlet Convergence copy at four swords and keeps both inactive at three", () => {
+  const weapon = (slot: number, weaponId: string, skillLevel: number) => ({
+    slot,
+    position: slot === 1 ? "main" as const : "grid" as const,
+    weaponId,
+    skillLevel,
+    attackOverride: 1,
+    hpOverride: 1,
+  });
+  const base = {
+    schemaVersion: 1 as const,
+    format: "gbf-helper-calculator-deck" as const,
+    protagonist: { elementCode: "1", attackOverride: 1000, hpOverride: 1000 },
+    weapons: [
+      weapon(1, "1040023700", 15),
+      weapon(2, "1040023700", 15),
+      weapon(3, "1040024600", 15),
+    ],
+  };
+
+  const threeSwords = resolveCalculatorDeckConfig(base);
+  assert.deepEqual(
+    threeSwords.deck.effectiveWeaponSkillEffects
+      ?.filter((effect) => effect.sourceSkillId === "1913"),
+    [],
+  );
+
+  const fourSwords = resolveCalculatorDeckConfig({
+    ...base,
+    weapons: [...base.weapons, weapon(4, "1040023600", 1)],
+  });
+  assert.deepEqual(
+    fourSwords.deck.effectiveWeaponSkillEffects
+      ?.filter((effect) => effect.sourceSkillId === "1913")
+      .map((effect) => [effect.kind, effect.effectiveAmountPercent]),
+    [
+      ["ex-attack-up", 40],
+      ["weapon-defense-up", 25],
+      ["special-frame-damage-cap-up", 7],
+      ["ex-attack-up", 40],
+      ["weapon-defense-up", 25],
+      ["special-frame-damage-cap-up", 7],
+    ],
+  );
+});

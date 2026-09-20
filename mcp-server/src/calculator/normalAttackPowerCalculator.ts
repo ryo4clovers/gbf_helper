@@ -15,6 +15,7 @@ export interface NormalAttackPowerOptions {
 export interface NormalAttackPowerIssue {
   code:
     | "unverified-normal-attack-up"
+    | "unverified-ex-attack-up"
     | "unverified-summon-aura"
     | "support-summon-aura-unresolved";
   message: string;
@@ -51,6 +52,10 @@ export interface NormalAttackPowerResult {
   totalEffectiveNormalAttackPercent: number;
   normalAttackSkillMultiplier: number;
   normalSkillAdjustedAttack: number;
+  exAttackContributions: EffectiveWeaponSkillEffect[];
+  totalEffectiveExAttackPercent: number;
+  exAttackSkillMultiplier: number;
+  exSkillAdjustedAttack: number;
   characterAttackSummonAuraContributions: CharacterAttackSummonAuraContribution[];
   totalCharacterAttackSummonAuraPercent: number;
   characterAttackSummonAuraMultiplier: number;
@@ -86,6 +91,16 @@ export function calculateNormalAttackPower(
   );
   const normalAttackSkillMultiplier = roundCalculation(1 + totalEffectiveNormalAttackPercent / 100);
   const normalSkillAdjustedAttack = roundCalculation(baseAttack * normalAttackSkillMultiplier);
+  const exAttackContributions = (deck.effectiveWeaponSkillEffects ?? []).filter(
+    (effect) =>
+      effect.kind === "ex-attack-up" &&
+      (elementCode === undefined || effect.elementCode === undefined || effect.elementCode === elementCode),
+  );
+  const totalEffectiveExAttackPercent = roundCalculation(
+    exAttackContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
+  );
+  const exAttackSkillMultiplier = roundCalculation(1 + totalEffectiveExAttackPercent / 100);
+  const exSkillAdjustedAttack = roundCalculation(normalSkillAdjustedAttack * exAttackSkillMultiplier);
   const characterAttackSummonAuraContributions = deck.summons.flatMap((summon) => {
     if (summon.aura === undefined) return [];
     const aura = summon.aura;
@@ -117,7 +132,7 @@ export function calculateNormalAttackPower(
     1 + totalCharacterAttackSummonAuraPercent / 100,
   );
   const characterAttackSummonAuraAdjustedAttack = roundCalculation(
-    normalSkillAdjustedAttack * characterAttackSummonAuraMultiplier,
+    exSkillAdjustedAttack * characterAttackSummonAuraMultiplier,
   );
   const elementalSummonAuraContributions = deck.summons.flatMap((summon) => {
     if (summon.aura === undefined) return [];
@@ -185,6 +200,12 @@ export function calculateNormalAttackPower(
       message: "Normal attack-up calculation contains draft skill data.",
     });
   }
+  if (exAttackContributions.some((effect) => effect.verificationStatus !== "検証済み")) {
+    issues.push({
+      code: "unverified-ex-attack-up",
+      message: "EX attack-up calculation contains draft skill data.",
+    });
+  }
   if (elementalSummonAuraContributions.some((aura) => aura.verificationStatus !== "検証済み")) {
     issues.push({
       code: "unverified-summon-aura",
@@ -205,6 +226,10 @@ export function calculateNormalAttackPower(
     totalEffectiveNormalAttackPercent,
     normalAttackSkillMultiplier,
     normalSkillAdjustedAttack,
+    exAttackContributions,
+    totalEffectiveExAttackPercent,
+    exAttackSkillMultiplier,
+    exSkillAdjustedAttack,
     characterAttackSummonAuraContributions,
     totalCharacterAttackSummonAuraPercent,
     characterAttackSummonAuraMultiplier,

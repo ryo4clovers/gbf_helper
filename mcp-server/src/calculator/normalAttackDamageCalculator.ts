@@ -49,7 +49,11 @@ import {
   PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES,
   type DamageAttenuationProfile,
 } from "./damageAttenuationCalculator.js";
-import type { DamageModifier, DeckJobCriticalRateBonus } from "./types.js";
+import type {
+  DamageModifier,
+  DeckJobCriticalRateBonus,
+  EffectiveWeaponSkillEffect,
+} from "./types.js";
 import {
   calculateArmorBreakDamage,
   type AbilityDamagePredictionResult,
@@ -83,7 +87,10 @@ export interface NormalAttackBodyAttenuationResult {
   schemaVersion: 1;
   profile: DamageAttenuationProfile;
   damageCapUpPercent: number;
-  capModifiers: DamageModifier[];
+  capModifiers: Array<DamageModifier | EffectiveWeaponSkillEffect>;
+  specialFrameDamageCapRawPercent: number;
+  specialFrameDamageCapPercent: number;
+  specialFrameDamageCapContributions: EffectiveWeaponSkillEffect[];
   postAttenuationPercent: number;
   /** The current article model groups every post-cap percentage additively. */
   postAttenuationModel: "additive-percent" | "already-applied-provisional";
@@ -169,10 +176,21 @@ export function calculateNormalAttackDamage(
     multiplierStep: options.multiplierStep,
   };
   const bodyAttenuationProfile = PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES.normalAttack;
-  const bodyDamageCapUpPercent = baseDamage.deferredCapModifiers.reduce(
+  const accountDamageCapUpPercent = baseDamage.deferredCapModifiers.reduce(
     (sum, modifier) => sum + modifier.amountPercent,
     0,
   );
+  const specialFrameDamageCapContributions = (input.deck.effectiveWeaponSkillEffects ?? []).filter(
+    (effect) =>
+      effect.kind === "special-frame-damage-cap-up" &&
+      (effect.elementCode === undefined || effect.elementCode === input.deck.protagonist.elementCode),
+  );
+  const specialFrameDamageCapRawPercent = specialFrameDamageCapContributions.reduce(
+    (sum, effect) => sum + effect.effectiveAmountPercent,
+    0,
+  );
+  const specialFrameDamageCapPercent = Math.min(20, specialFrameDamageCapRawPercent);
+  const bodyDamageCapUpPercent = accountDamageCapUpPercent + specialFrameDamageCapPercent;
   const preAttenuationNominalDamage = baseDamage.articleTrace?.prePostCapDamage
     ?? baseDamage.unroundedDamageBeforeRandomAndCap;
   const postAttenuationPercent = baseDamage.articleTrace?.postCapDamagePercent ?? 0;
@@ -180,7 +198,10 @@ export function calculateNormalAttackDamage(
     schemaVersion: 1,
     profile: bodyAttenuationProfile,
     damageCapUpPercent: bodyDamageCapUpPercent,
-    capModifiers: baseDamage.deferredCapModifiers,
+    capModifiers: [...baseDamage.deferredCapModifiers, ...specialFrameDamageCapContributions],
+    specialFrameDamageCapRawPercent,
+    specialFrameDamageCapPercent,
+    specialFrameDamageCapContributions,
     postAttenuationPercent,
     postAttenuationModel:
       baseDamage.articleTrace === undefined ? "already-applied-provisional" : "additive-percent",
@@ -292,6 +313,7 @@ export function calculateNormalAttackDamage(
         limitBonusPercent: input.abilityDamage.limitBonusPercent,
         damageCapUpPercent:
           generalDamageCapPercent
+          + specialFrameDamageCapPercent
           + input.abilityDamage.abilityDamageCapUpPercent
           + otherWeaponSkills.abilityDamageCap.effectivePercent,
         limitBonusDamageCapUpPercent: input.abilityDamage.limitBonusDamageCapUpPercent,
@@ -324,6 +346,11 @@ export function calculateNormalAttackDamage(
           input.incomingDamage.defensePercent,
           input.incomingDamage.elementalDamageReductionPercents,
           { minimum: options.multiplierMin, maximum: options.multiplierMax },
+          (input.deck.effectiveWeaponSkillEffects ?? []).filter(
+            (effect) =>
+              effect.kind === "weapon-defense-up" &&
+              (effect.elementCode === undefined || effect.elementCode === input.deck.protagonist.elementCode),
+          ),
         ),
     totalDamageDistribution: {
       schemaVersion: 1,

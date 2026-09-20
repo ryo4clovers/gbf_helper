@@ -186,7 +186,9 @@ test("applies the normal-attack attenuation profile and cap modifiers to every r
 
   assert.equal(capUp, 5);
   assert.deepEqual(
-    result.bodyDamageAttenuation.capModifiers.map((modifier) => modifier.stage),
+    result.bodyDamageAttenuation.capModifiers.map((modifier) =>
+      "stage" in modifier ? modifier.stage : modifier.kind
+    ),
     ["normal-attack-damage-cap"],
   );
   assert.equal(result.bodyDamageDistribution.damageTransformId, `damage-attenuation:${profile.id}`);
@@ -207,4 +209,38 @@ test("applies the normal-attack attenuation profile and cap modifiers to every r
   assert.ok(result.bodyDamageDistribution.maximumDamage < nominal * 1.05);
   assert.ok(result.issues.includes("damage-attenuation-profile-provisional"));
   assert.ok(!result.issues.includes("damage-cap-unresolved" as never));
+});
+
+test("caps Scarlet Convergence's special damage-cap frame at 20% and shares it with ability damage", () => {
+  const input = makeCurrentInput();
+  const capEffect = (slot: number) => ({
+    sourceWeaponSlot: slot,
+    sourceWeaponId: "1040023700",
+    sourceSkillId: "1913",
+    sourceSkillName: "スカーレット・コンバージェンス",
+    kind: "special-frame-damage-cap-up" as const,
+    elementCode: "1",
+    baseAmountPercent: 7,
+    effectiveAmountPercent: 7,
+    verificationStatus: "検証済み" as const,
+    appliedModifiers: [],
+  });
+  input.deck.effectiveWeaponSkillEffects = [
+    ...(input.deck.effectiveWeaponSkillEffects ?? []),
+    capEffect(1),
+    capEffect(2),
+    capEffect(3),
+  ];
+  input.abilityDamage = {
+    abilityDamageUpPercent: 0,
+    limitBonusPercent: 0,
+    abilityDamageCapUpPercent: 0,
+    limitBonusDamageCapUpPercent: 0,
+  };
+
+  const result = calculateNormalAttackDamage(input);
+  assert.equal(result.bodyDamageAttenuation.specialFrameDamageCapRawPercent, 21);
+  assert.equal(result.bodyDamageAttenuation.specialFrameDamageCapPercent, 20);
+  assert.equal(result.bodyDamageAttenuation.damageCapUpPercent, 25);
+  assert.equal(result.abilityDamage?.damageCapUpPercent, 20);
 });

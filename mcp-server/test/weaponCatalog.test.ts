@@ -211,12 +211,20 @@ test("loads the initial incremental weapon and skill catalog", () => {
   const scarletConvergence = catalog.skills.get("1913");
   assert.equal(scarletConvergence?.verificationStatus, "検証済み");
   assert.equal(scarletConvergence?.confirmedAt, "2026-09-21");
-  assert.deepEqual(scarletConvergence?.effects, []);
-  assert.deepEqual(scarletConvergence?.unsupportedEffects, [
-    "同一武器種4本以上条件で1本につきEX攻刃40%（3本120%まで加算確認。条件付きEX攻刃枠は計算機未対応）",
-    "1本につき防御25%（3本75%まで加算確認。武器スキル由来の防御枠は計算機未対応）",
-    "1本につきダメージ上限7%（特殊枠、合計上限20%。大ダメージ減衰の特殊上限とは別。計算機未対応）",
-  ]);
+  assert.deepEqual(
+    scarletConvergence?.effects.map((effect) => [
+      effect.kind,
+      effect.amountPercent,
+      effect.activationCondition,
+      effect.verificationStatus,
+    ]),
+    [
+      ["ex-attack-up", 40, { kind: "minimum-same-weapon-kind-count", count: 4 }, "検証済み"],
+      ["weapon-defense-up", 25, { kind: "minimum-same-weapon-kind-count", count: 4 }, "検証済み"],
+      ["special-frame-damage-cap-up", 7, { kind: "minimum-same-weapon-kind-count", count: 4 }, "検証済み"],
+    ],
+  );
+  assert.equal(scarletConvergence?.unsupportedEffects, undefined);
   const brahmanMusou = catalog.skills.get("928");
   assert.equal(brahmanMusou?.unsupportedEffects, undefined);
   assert.deepEqual(

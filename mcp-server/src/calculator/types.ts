@@ -27,6 +27,9 @@ export interface DeckSkill {
 
 export type WeaponSkillEffectKind =
   | "normal-attack-up"
+  | "ex-attack-up"
+  | "weapon-defense-up"
+  | "special-frame-damage-cap-up"
   | "normal-stamina-up"
   | "magna-stamina-up"
   | "normal-enmity-up"
@@ -58,6 +61,11 @@ export interface WeaponSkillEffectDefinition {
   targetSkillNamePrefixes?: string[];
   /** Converts the table's reference amount into an amount at the configured current HP. */
   hpDependentCurve?: HpDependentAttackCurve;
+  /** Optional equipment-grid condition evaluated before the effect is resolved. */
+  activationCondition?: {
+    kind: "minimum-same-weapon-kind-count";
+    count: number;
+  };
   note?: string;
   /** Verification is recorded per numeric effect, so one skill may mix confirmed and provisional levels. */
   verificationStatus?: "検証済み" | "下書き";
@@ -269,6 +277,7 @@ export interface EffectiveWeaponSkillEffect {
   baseAmountFlat?: number;
   effectiveAmountFlat?: number;
   hpDependentCurve?: HpDependentAttackCurve;
+  activationCondition?: WeaponSkillEffectDefinition["activationCondition"];
   skillLevel?: number;
   verificationStatus: "検証済み" | "下書き";
   appliedModifiers: AppliedWeaponSkillModifier[];

@@ -9,6 +9,7 @@ import type {
 
 function weaponWithSkill(options: {
   slot: number;
+  weaponKindCode?: string;
   skillLevel?: number;
   skillId: string;
   skillName: string;
@@ -19,6 +20,7 @@ function weaponWithSkill(options: {
     slot: options.slot,
     position: options.slot === 1 ? "main" : "grid",
     masterId: `weapon-${options.slot}`,
+    weaponKindCode: options.weaponKindCode,
     skillLevel: options.skillLevel,
     skills: [
       {
@@ -31,6 +33,35 @@ function weaponWithSkill(options: {
     ],
   };
 }
+
+test("activates a conditional effect only when enough weapons share the source weapon kind", () => {
+  const conditional = weaponWithSkill({
+    slot: 1,
+    weaponKindCode: "1",
+    skillId: "conditional",
+    skillName: "条件付きEX攻刃",
+    effects: [{
+      kind: "ex-attack-up",
+      elementCode: "1",
+      amountPercent: 40,
+      activationCondition: { kind: "minimum-same-weapon-kind-count", count: 4 },
+    }],
+  });
+  const sword = (slot: number): DeckWeapon => ({
+    slot,
+    position: "grid",
+    masterId: `sword-${slot}`,
+    weaponKindCode: "1",
+    skills: [],
+  });
+
+  assert.deepEqual(resolveEffectiveWeaponSkillEffects([conditional, sword(2), sword(3)]).effects, []);
+  assert.deepEqual(
+    resolveEffectiveWeaponSkillEffects([conditional, sword(2), sword(3), sword(4)]).effects
+      .map((effect) => [effect.kind, effect.effectiveAmountPercent]),
+    [["ex-attack-up", 40]],
+  );
+});
 
 test("calculates boosted effects while preserving the base value and modifier provenance", () => {
   const result = resolveEffectiveWeaponSkillEffects([

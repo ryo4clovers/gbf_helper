@@ -162,6 +162,7 @@ export function calculateArticleBaseDamage(
   } = crewSteps;
 
   const weaponSkillRaw = crewAdjustedAttack * (1 + attackPower.totalEffectiveNormalAttackPercent / 100);
+  const exWeaponSkillRaw = weaponSkillRaw * (1 + attackPower.totalEffectiveExAttackPercent / 100);
   const characterAttackSummonAuraContributions = attackPower.characterAttackSummonAuraContributions ?? [];
   const characterAttackPercent = attackPower.totalCharacterAttackSummonAuraPercent ?? 0;
   const characterAttackContributions: DamageModifier[] = characterAttackSummonAuraContributions.map(
@@ -207,7 +208,7 @@ export function calculateArticleBaseDamage(
     (sum, contribution) => sum + contribution.amountPercent,
     0,
   );
-  const characterAttackRaw = weaponSkillRaw * (1 + characterAttackPercent / 100);
+  const characterAttackRaw = exWeaponSkillRaw * (1 + characterAttackPercent / 100);
   const staminaRaw = characterAttackRaw * (hpDependentAttack?.normalStaminaMultiplier ?? 1);
   const magnaStaminaRaw = staminaRaw * (hpDependentAttack?.magnaStaminaMultiplier ?? 1);
   const enmityRaw = magnaStaminaRaw * (hpDependentAttack?.normalEnmityMultiplier ?? 1);
@@ -264,11 +265,22 @@ export function calculateArticleBaseDamage(
       "none",
       attackPower.contributions,
     ),
+    ...(attackPower.exAttackContributions.length === 0
+      ? []
+      : [stage(
+          "ex-weapon-skill",
+          weaponSkillRaw,
+          attackPower.totalEffectiveExAttackPercent,
+          exWeaponSkillRaw,
+          exWeaponSkillRaw,
+          "none",
+          attackPower.exAttackContributions,
+        )]),
     ...(characterAttackContributions.length === 0
       ? []
       : [stage(
           "character-attack",
-          weaponSkillRaw,
+          exWeaponSkillRaw,
           characterAttackPercent,
           characterAttackRaw,
           characterAttackRaw,

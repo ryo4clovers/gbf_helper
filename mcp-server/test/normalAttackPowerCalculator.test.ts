@@ -66,8 +66,40 @@ test("uses a neutral 1.0 multiplier when no normal attack-up effect is resolved"
   assert.equal(result.totalEffectiveNormalAttackPercent, 0);
   assert.equal(result.normalAttackSkillMultiplier, 1);
   assert.equal(result.normalSkillAdjustedAttack, 1000);
+  assert.equal(result.totalEffectiveExAttackPercent, 0);
+  assert.equal(result.exAttackSkillMultiplier, 1);
+  assert.equal(result.exSkillAdjustedAttack, 1000);
   assert.equal(result.summonAuraMultiplier, 1);
   assert.equal(result.summonAuraAdjustedAttack, 1000);
+});
+
+test("applies EX attack as a separate multiplicative weapon-skill frame", () => {
+  const deck = {
+    schemaVersion: 1,
+    protagonist: { attack: 1000, elementCode: "1" },
+    characters: [],
+    weapons: [],
+    summons: [],
+    effectiveWeaponSkillEffects: [{
+      sourceWeaponSlot: 1,
+      sourceWeaponId: "1040023700",
+      sourceSkillId: "1913",
+      sourceSkillName: "スカーレット・コンバージェンス",
+      kind: "ex-attack-up",
+      elementCode: "1",
+      baseAmountPercent: 40,
+      effectiveAmountPercent: 40,
+      verificationStatus: "検証済み",
+      appliedModifiers: [],
+    }],
+  } satisfies DeckSnapshot;
+
+  const result = calculateNormalAttackPower(deck);
+  assert.equal(result.normalAttackSkillMultiplier, 1);
+  assert.equal(result.totalEffectiveExAttackPercent, 40);
+  assert.equal(result.exAttackSkillMultiplier, 1.4);
+  assert.equal(result.exSkillAdjustedAttack, 1400);
+  assert.equal(result.summonAuraAdjustedAttack, 1400);
 });
 
 test("applies a resolved elemental main-summon aura as a separate multiplier", () => {

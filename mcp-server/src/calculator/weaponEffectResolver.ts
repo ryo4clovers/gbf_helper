@@ -48,6 +48,17 @@ function effectAppliesAtConfiguredLevel(source: EffectSource): boolean {
   return source.effect.skillLevel === undefined || source.weapon.skillLevel === source.effect.skillLevel;
 }
 
+function effectMeetsActivationCondition(source: EffectSource, weapons: DeckWeapon[]): boolean {
+  const condition = source.effect.activationCondition;
+  if (condition === undefined) return true;
+  if (condition.kind === "minimum-same-weapon-kind-count") {
+    const weaponKindCode = source.weapon.weaponKindCode;
+    if (weaponKindCode === undefined) return false;
+    return weapons.filter((weapon) => weapon.weaponKindCode === weaponKindCode).length >= condition.count;
+  }
+  return false;
+}
+
 function matchesBoost(target: EffectSource, boost: EffectSource): boolean {
   if (boost.effect.kind !== "normal-skill-boost") return false;
   if (target.effect.kind === "normal-skill-boost") return false;
@@ -151,7 +162,7 @@ export function resolveEffectiveWeaponSkillEffects(
       ),
     );
   }
-  const applicableSources = sources.filter((source) => {
+  const levelApplicableSources = sources.filter((source) => {
     if (effectAppliesAtConfiguredLevel(source)) return true;
     const hasApplicableAlternative = sources.some(
       (candidate) =>
@@ -172,6 +183,9 @@ export function resolveEffectiveWeaponSkillEffects(
     }
     return false;
   });
+  const applicableSources = levelApplicableSources.filter(
+    (source) => effectMeetsActivationCondition(source, weapons),
+  );
   const boosts = applicableSources.filter((source) => source.effect.kind === "normal-skill-boost");
 
   const effects = applicableSources.map((source): EffectiveWeaponSkillEffect => {
@@ -232,6 +246,7 @@ export function resolveEffectiveWeaponSkillEffects(
             effectiveAmountFlat: roundPercentage(baseAmountFlat * (1 + boostPercent / 100)),
           }),
       hpDependentCurve: source.effect.hpDependentCurve,
+      activationCondition: source.effect.activationCondition,
       skillLevel: source.effect.skillLevel,
       verificationStatus: source.effect.verificationStatus ?? source.skill.verificationStatus ?? "下書き",
       appliedModifiers,
