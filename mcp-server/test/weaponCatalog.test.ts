@@ -6,7 +6,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
   assert.equal(catalog.weapons.size, 2971);
-  assert.equal(catalog.skills.size, 743);
+  assert.equal(catalog.skills.size, 745);
   assert.deepEqual(catalog.weapons.get("1020500200")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1" },
   ]);
@@ -311,6 +311,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
     ["1040023700", [["skill1", "1913"], ["skill2", "375"]]],
     ["1040024600", [["skill1", "19"], ["skill2", "1296"], ["skill3", "1506"]]],
     ["1040314900", [["skill1", "1664"], ["skill2", "764"]]],
+    ["1040315900", [["skill1", "1788"], ["skill2", "1794"], ["skill3", "1780"]]],
     ["1040410100", [["skill1", "770"], ["skill2", "771"]]],
     ["1040418900", [["skill1", "1228"], ["skill2", "7"]]],
     ["1040612700", [["skill1", "1422"], ["skill2", "632"]]],
@@ -333,6 +334,10 @@ test("loads the initial incremental weapon and skill catalog", () => {
   assert.deepEqual(catalog.skills.get("1664")?.unsupportedEffects, [
     "奥義与ダメージ上昇: SLv1 35,000 / SLv10 80,000 / SLv15 105,000。SLv15は両面アグニ170%で+462,000表示となり、2hit奥義全体へ合計1回分を加算することを実機確認。加護込み上限100万・敵最大HP5%制限・天司等の与ダメージUP適用はGameWith由来で要検証（奥義計算未対応）",
   ]);
+  assert.equal(catalog.weapons.get("1040315900")?.confirmedAt, "2026-09-21");
+  assert.match(catalog.skills.get("1788")?.unsupportedEffects?.[0] ?? "", /50,000/);
+  assert.match(catalog.skills.get("1794")?.unsupportedEffects?.[0] ?? "", /8%/);
+  assert.match(catalog.skills.get("1780")?.unsupportedEffects?.[0] ?? "", /7%/);
   const sharedWaterWeaponSkillSlots = new Map([
     ["1040004600", [["skill1", "627"], ["skill2", "633"]]],
     ["1040011200", [["skill1", "209"], ["skill2", "783"]]],

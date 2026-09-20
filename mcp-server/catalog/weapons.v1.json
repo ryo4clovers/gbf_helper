@@ -76270,6 +76270,7 @@
       "selectionDefaults": {
         "level": 150,
         "uncapLevel": 4,
+        "skillLevel": 15,
         "attack": 3508,
         "hp": 253
       },
@@ -76293,7 +76294,20 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1788"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1794"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1780"
+        }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -76311,8 +76325,9 @@
           "description": "Boost to fire allies' DMG cap"
         }
       ],
-      "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証"
+      "verificationStatus": "検証済み",
+      "source": "ユーザー提供のゲーム内武器詳細・編成レスポンス（2026-09-21）で武器ID・名称・属性・武器種・4凸Lv150/SLv15のHP/ATK・スキルID/文を確認。Lv1/100境界ステータスは公開Wiki由来のため要検証",
+      "confirmedAt": "2026-09-21"
     },
     {
       "weaponId": "1040316000",
