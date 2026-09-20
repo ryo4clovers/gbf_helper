@@ -642,9 +642,9 @@ test("loads the initial incremental weapon and skill catalog", () => {
     ],
   );
   assert.equal(catalog.skills.get("2353")?.effects.length, 0);
-  assert.equal(catalog.skills.get("2353")?.verificationStatus, "下書き");
+  assert.equal(catalog.skills.get("2353")?.verificationStatus, "検証済み");
   assert.equal(catalog.skills.get("2354")?.effects.length, 0);
-  assert.equal(catalog.skills.get("2354")?.verificationStatus, "下書き");
+  assert.equal(catalog.skills.get("2354")?.verificationStatus, "検証済み");
   assert.deepEqual(
     catalog.skills.get("2378")?.effects
       .filter((effect) => effect.skillLevel === 15)
