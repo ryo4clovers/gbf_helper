@@ -18,7 +18,7 @@
 
 ## ファイル一覧
 
-個別Markdownは全170ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証または一部のみ実機確認済み)。
+個別Markdownは全171ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証または一部のみ実機確認済み)。
 
 ### セラフィックウェポン
 
@@ -36,6 +36,7 @@
 | ファイル | 武器名 | 属性 |
 | --- | --- | --- |
 | [fire-ssr-limited-benedia.md](./fire-ssr-limited-benedia.md) | ベネディーア / Benedia | 火 |
+| [fire-ssr-limited-lord-of-flames.md](./fire-ssr-limited-lord-of-flames.md) | ロード・オブ・フレイム / Lord of Flames | 火 |
 
 ### 恒常ガチャ武器
 
