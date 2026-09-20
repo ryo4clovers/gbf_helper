@@ -331,7 +331,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
     hp: 231,
   });
   assert.deepEqual(catalog.skills.get("1664")?.unsupportedEffects, [
-    "奥義与ダメージ上昇: SLv15基礎105,000。両面アグニ170%で+462,000表示となり、2hit奥義全体へ合計1回分を加算することを実機確認（奥義計算未対応）",
+    "奥義与ダメージ上昇: SLv1 35,000 / SLv10 80,000 / SLv15 105,000。SLv15は両面アグニ170%で+462,000表示となり、2hit奥義全体へ合計1回分を加算することを実機確認。加護込み上限100万・敵最大HP5%制限・天司等の与ダメージUP適用はGameWith由来で要検証（奥義計算未対応）",
   ]);
   const sharedWaterWeaponSkillSlots = new Map([
     ["1040004600", [["skill1", "627"], ["skill2", "633"]]],
