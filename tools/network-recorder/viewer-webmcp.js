@@ -72,6 +72,71 @@ function normalizedLimit(limit) {
   return limit;
 }
 
+function normalizedWeaponId(weaponId) {
+  const value = String(weaponId ?? "").trim();
+  if (!/^\d{10}$/u.test(value)) {
+    throw new Error("weaponIdは10桁の武器マスターIDで指定してください");
+  }
+  return value;
+}
+
+function skillIdFor(skill) {
+  if (!skill || typeof skill !== "object") return null;
+  const value = skill.skill_id ?? skill.id;
+  return value === null || value === undefined || value === "" ? null : String(value);
+}
+
+function weaponIdFor(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const candidate = value.master?.id ?? value.weapon_id ?? value.master_id;
+  return candidate === null || candidate === undefined ? null : String(candidate);
+}
+
+function extractWeaponSkillSets(value, weaponId) {
+  const results = [];
+  const visited = new Set();
+
+  function visit(node) {
+    if (!node || typeof node !== "object" || visited.has(node)) return;
+    visited.add(node);
+
+    if (!Array.isArray(node) && weaponIdFor(node) === weaponId) {
+      const skills = [1, 2, 3, 4]
+        .map((slot) => ({ slot, value: node[`skill${slot}`] }))
+        .filter(({ value: skill }) => skillIdFor(skill) !== null)
+        .map(({ slot, value: skill }) => ({
+          slot,
+          skillId: skillIdFor(skill),
+          name: skill.name ?? null,
+          description: skill.comment ?? skill.description ?? null,
+          releaseLevel: skill.level?.release_level ?? null,
+        }));
+      if (skills.length > 0) {
+        results.push({
+          weaponId,
+          weaponName: node.master?.name ?? node.name ?? null,
+          skills,
+        });
+      }
+    }
+
+    for (const child of Object.values(node)) visit(child);
+  }
+
+  visit(value);
+  const grouped = new Map();
+  for (const result of results) {
+    const signature = JSON.stringify(result);
+    const existing = grouped.get(signature);
+    if (existing) {
+      existing.occurrenceCount += 1;
+    } else {
+      grouped.set(signature, { ...result, occurrenceCount: 1 });
+    }
+  }
+  return [...grouped.values()];
+}
+
 export function searchRecordedApiCalls(records, input = {}) {
   const urlContains = String(input.urlContains ?? "").trim().toLowerCase();
   if (!urlContains) throw new Error("urlContainsを1文字以上指定してください");
@@ -108,6 +173,39 @@ export function serializeRecordedApiCall(record, maxBodyChars = MAX_WEBMCP_BODY_
   };
 }
 
+export function findRecordedWeaponSkills(records, input = {}) {
+  const weaponId = normalizedWeaponId(input.weaponId);
+  const limit = normalizedLimit(input.limit);
+  const matches = [];
+  const sorted = [...records].sort((a, b) => Number(b.timestamp ?? 0) - Number(a.timestamp ?? 0));
+
+  for (const record of sorted) {
+    if (record.bodyEncoding !== "text" || !record.mimeType?.includes("json")) continue;
+    let parsed;
+    try {
+      parsed = JSON.parse(record.body);
+    } catch {
+      continue;
+    }
+    for (const result of extractWeaponSkillSets(parsed, weaponId)) {
+      matches.push({
+        recordId: record.id,
+        timestamp: Number.isFinite(record.timestamp) ? new Date(record.timestamp).toISOString() : null,
+        url: sanitizedUrl(record.url),
+        ...result,
+      });
+    }
+  }
+
+  return {
+    weaponId,
+    totalMatches: matches.length,
+    returned: Math.min(matches.length, limit),
+    matches: matches.slice(0, limit),
+    note: "記録済みレスポンスのskillN.skill_idまたはskillN.idだけを抽出しています。ゲームへの通信は発生しません。",
+  };
+}
+
 export function createRecorderState({ apiCalls, assets, filters }) {
   return {
     status: "ready",
@@ -125,6 +223,7 @@ export function registerRecorderWebMcpTools({
   getRecorderState,
   searchApiCalls,
   getApiCall,
+  findWeaponSkills,
   onRegistrationError = () => undefined,
 }) {
   if (typeof modelContext?.registerTool !== "function") return false;
@@ -183,6 +282,33 @@ export function registerRecorderWebMcpTools({
     },
     annotations: READ_ONLY_ANNOTATIONS,
     execute: async (input) => getApiCall(input),
+  }, onRegistrationError);
+
+  registerTool(modelContext, {
+    name: "find_recorded_weapon_skills",
+    title: "記録済み武器スキルIDを抽出",
+    description: "ユーザー操作で記録済みのJSONレスポンスをローカル検索し、指定した10桁の武器マスターIDに対応するskill_id・名称・効果文だけを返す。武器詳細のskillN.skill_idと編成レスポンスのskillN.idの両形式に対応し、ゲームへの通信は発生しない。",
+    inputSchema: {
+      type: "object",
+      properties: {
+        weaponId: {
+          type: "string",
+          pattern: "^[0-9]{10}$",
+          description: "10桁の武器マスターID。",
+        },
+        limit: {
+          type: "integer",
+          minimum: 1,
+          maximum: MAX_SEARCH_RESULTS,
+          default: DEFAULT_SEARCH_RESULTS,
+          description: "新しい記録から返す一致件数。",
+        },
+      },
+      required: ["weaponId"],
+      additionalProperties: false,
+    },
+    annotations: READ_ONLY_ANNOTATIONS,
+    execute: async (input) => findWeaponSkills(input),
   }, onRegistrationError);
 
   return true;

@@ -1,6 +1,7 @@
 import { getAllApiCalls, getAllAssets, getApiCallById, clearAll } from "./db.js";
 import {
   createRecorderState,
+  findRecordedWeaponSkills,
   registerRecorderWebMcpTools,
   searchRecordedApiCalls,
   serializeRecordedApiCall,
@@ -267,6 +268,7 @@ registerRecorderWebMcpTools({
   },
   searchApiCalls: async (input) => searchRecordedApiCalls(await getAllApiCalls(), input),
   getApiCall: async ({ recordId }) => serializeRecordedApiCall(await getApiCallById(recordId)),
+  findWeaponSkills: async (input) => findRecordedWeaponSkills(await getAllApiCalls(), input),
   onRegistrationError: (error) => console.warn("WebMCP tool registration failed", error),
 });
 
