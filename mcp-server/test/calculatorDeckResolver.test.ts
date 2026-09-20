@@ -639,7 +639,7 @@ test("reports missing stat overrides with precise config paths", () => {
   );
 });
 
-test("activates every Scarlet Convergence copy at four swords and keeps both inactive at three", () => {
+test("activates every Scarlet Convergence copy at four swords including a cross-element sword", () => {
   const weapon = (slot: number, weaponId: string, skillLevel: number) => ({
     slot,
     position: slot === 1 ? "main" as const : "grid" as const,
@@ -675,6 +675,32 @@ test("activates every Scarlet Convergence copy at four swords and keeps both ina
       ?.filter((effect) => effect.sourceSkillId === "1913")
       .map((effect) => [effect.kind, effect.effectiveAmountPercent]),
     [
+      ["ex-attack-up", 40],
+      ["weapon-defense-up", 25],
+      ["special-frame-damage-cap-up", 7],
+      ["ex-attack-up", 40],
+      ["weapon-defense-up", 25],
+      ["special-frame-damage-cap-up", 7],
+    ],
+  );
+
+  const crossElementFourSwords = resolveCalculatorDeckConfig({
+    ...base,
+    weapons: [
+      weapon(1, "1040023700", 15),
+      weapon(2, "1040023700", 15),
+      weapon(3, "1040023700", 15),
+      weapon(4, "1040004600", 15),
+    ],
+  });
+  assert.deepEqual(
+    crossElementFourSwords.deck.effectiveWeaponSkillEffects
+      ?.filter((effect) => effect.sourceSkillId === "1913")
+      .map((effect) => [effect.kind, effect.effectiveAmountPercent]),
+    [
+      ["ex-attack-up", 40],
+      ["weapon-defense-up", 25],
+      ["special-frame-damage-cap-up", 7],
       ["ex-attack-up", 40],
       ["weapon-defense-up", 25],
       ["special-frame-damage-cap-up", 7],
