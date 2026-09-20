@@ -338,6 +338,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
   assert.match(catalog.skills.get("1788")?.unsupportedEffects?.[0] ?? "", /50,000/);
   assert.match(catalog.skills.get("1794")?.unsupportedEffects?.[0] ?? "", /24%/);
   assert.match(catalog.skills.get("1780")?.unsupportedEffects?.[0] ?? "", /14%/);
+  assert.match(catalog.skills.get("601")?.unsupportedEffects?.[0] ?? "", /SLv20で10%/);
   const sharedWaterWeaponSkillSlots = new Map([
     ["1040004600", [["skill1", "627"], ["skill2", "633"]]],
     ["1040011200", [["skill1", "209"], ["skill2", "783"]]],
