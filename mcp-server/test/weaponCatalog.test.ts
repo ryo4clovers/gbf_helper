@@ -324,6 +324,15 @@ test("loads the initial incremental weapon and skill catalog", () => {
       `skill slots for weapon ${weaponId}`,
     );
   }
+  assert.deepEqual(catalog.weapons.get("1040314900")?.selectionDefaults, {
+    level: 150,
+    uncapLevel: 4,
+    attack: 3618,
+    hp: 231,
+  });
+  assert.deepEqual(catalog.skills.get("1664")?.unsupportedEffects, [
+    "奥義与ダメージ上昇: SLv15基礎105,000。両面アグニ170%で+462,000表示となり、2hit奥義全体へ合計1回分を加算することを実機確認（奥義計算未対応）",
+  ]);
   const sharedWaterWeaponSkillSlots = new Map([
     ["1040004600", [["skill1", "627"], ["skill2", "633"]]],
     ["1040011200", [["skill1", "209"], ["skill2", "783"]]],
