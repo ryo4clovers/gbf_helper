@@ -215,7 +215,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
   assert.deepEqual(scarletConvergence?.unsupportedEffects, [
     "同一武器種4本以上条件のEX攻刃40%（条件付きEX攻刃枠は計算機未対応）",
     "防御25%（武器スキル由来の防御枠は計算機未対応）",
-    "特殊ダメージ上限7%（特殊上限枠は計算機未対応）",
+    "ダメージ上限7%（特殊枠。大ダメージ減衰の特殊上限とは別。計算機未対応）",
   ]);
   const brahmanMusou = catalog.skills.get("928");
   assert.equal(brahmanMusou?.unsupportedEffects, undefined);
