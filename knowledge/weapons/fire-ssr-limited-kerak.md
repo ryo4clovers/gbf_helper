@@ -10,7 +10,7 @@ series: "リミテッドシリーズ"
 obtain: "リミテッドガチャ(グランデフェス)"
 status: 下書き
 last_updated: 2026-09-21
-source: "gbf.wiki Cargo weaponsテーブル(r.jina.ai経由、2026-09-09取得) / GameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/191452 (2026-09-21参照)。実機未確認。"
+source: "本家ルリアノート武器図鑑の通常表示(2026-09-21確認) / gbf.wiki Cargo weaponsテーブル(r.jina.ai経由、2026-09-09取得) / GameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/191452 (2026-09-21参照)。skill_idと効果量は未確認。"
 ---
 
 # ケラク(Kerak)
@@ -33,6 +33,7 @@ source: "gbf.wiki Cargo weaponsテーブル(r.jina.ai経由、2026-09-09取得) 
 ### スキル1: 紅蓮の進境
 
 - skill_id: 要実機確認
+- 本家図鑑表示: 「経過ターンに応じて火属性キャラの火属性攻撃力が上昇(大)」
 - 枠: 属性攻撃力
 - 数値: SLv15は1ターンごと1.2%、最大15%、13ターン目に最大。合算上限75%(GameWith、要実機検証)
 - 加護: アグニス・火六竜石の対象
@@ -41,14 +42,15 @@ source: "gbf.wiki Cargo weaponsテーブル(r.jina.ai経由、2026-09-09取得) 
 
 - skill_id: `764`(既存スキルカタログ由来、要実機照合)
 - 解放レベル: Lv150
+- 本家図鑑表示: 「火属性キャラの攻撃力と最大HPが上昇(中)」、習得Lv150
 - 枠: 通常攻刃 + 武器スキルHP
 - 数値: 攻撃・HPともSLv1 3% / SLv10 12% / SLv15 14.5%。HP上限400%(GameWith、要実機検証)
 - 加護: アグニス・火六竜石の対象
 
 ## 奥義
 
-- 名称: 浄刹焦土
-- 公開情報: 火属性5.0倍、火属性キャラのダメージ上限15%UPと再生。実機未検証。
+- 本家図鑑表示: 浄刹焦土「火属性ダメージ(特大)/火属性キャラのダメージ上限UP」
+- 公開攻略情報: 火属性5.0倍、火属性キャラのダメージ上限15%UPと再生。数値・再生効果・ターン数は要実機検証。
 
 ## 計算機接続
 
@@ -56,4 +58,4 @@ source: "gbf.wiki Cargo weaponsテーブル(r.jina.ai経由、2026-09-09取得) 
 
 ## 未確認・要検証事項
 
-- 実skill_id、進境のターン計算・加護後端数、覚醒、奥義効果。
+- 実skill_id、進境のターン計算・加護後端数、覚醒、奥義の数値・再生効果。ルリアノート図鑑の`skill1`・`skill2`には数値IDが含まれない。
