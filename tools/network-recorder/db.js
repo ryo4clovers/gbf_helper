@@ -73,6 +73,16 @@ export function getAllApiCalls() {
   return getAll(API_CALLS_STORE);
 }
 
+export async function getApiCallById(id) {
+  const db = await openDb();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(API_CALLS_STORE, "readonly");
+    const req = tx.objectStore(API_CALLS_STORE).get(id);
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
 async function count(storeName) {
   const db = await openDb();
   return new Promise((resolve, reject) => {

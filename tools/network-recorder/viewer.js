@@ -1,4 +1,10 @@
-import { getAllApiCalls, getAllAssets, clearAll } from "./db.js";
+import { getAllApiCalls, getAllAssets, getApiCallById, clearAll } from "./db.js";
+import {
+  createRecorderState,
+  registerRecorderWebMcpTools,
+  searchRecordedApiCalls,
+  serializeRecordedApiCall,
+} from "./viewer-webmcp.js";
 
 const theadRow = document.getElementById("theadRow");
 const tbody = document.getElementById("tbody");
@@ -247,6 +253,21 @@ document.getElementById("clear").addEventListener("click", async () => {
   if (!confirm("記録した全データを削除します。よろしいですか？")) return;
   await clearAll();
   await loadAll();
+});
+
+registerRecorderWebMcpTools({
+  modelContext: document.modelContext,
+  getRecorderState: async () => {
+    const [freshApiCalls, freshAssets] = await Promise.all([getAllApiCalls(), getAllAssets()]);
+    return createRecorderState({
+      apiCalls: freshApiCalls,
+      assets: freshAssets,
+      filters: currentFilters(),
+    });
+  },
+  searchApiCalls: async (input) => searchRecordedApiCalls(await getAllApiCalls(), input),
+  getApiCall: async ({ recordId }) => serializeRecordedApiCall(await getApiCallById(recordId)),
+  onRegistrationError: (error) => console.warn("WebMCP tool registration failed", error),
 });
 
 loadAll();
