@@ -123,6 +123,14 @@ const weaponsFileSchema = z
             hp: z.number().int().nonnegative().optional(),
           }).strict().optional(),
           levelStats: levelStatsSchema.optional(),
+          uncaps: z.object({
+            minimum: z.number().int().nonnegative(),
+            base: z.number().int().nonnegative(),
+            maximum: z.number().int().nonnegative(),
+            reduced: z.number().int().nonnegative(),
+            verificationStatus: statusSchema,
+            source: z.string().min(1),
+          }).strict().optional(),
           skillSlots: z.array(
             z
               .object({

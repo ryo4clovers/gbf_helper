@@ -105,6 +105,15 @@ test("web server exposes every root-relative module imported by the calculator",
   }
 });
 
+test("weapon slots expose linked uncap and integer level controls", async () => {
+  const app = await readFile(new URL("../web/app.js", import.meta.url), "utf8");
+  assert.match(app, /uncapLabelElement\.textContent = "解放"/u);
+  assert.match(app, /levelInput\.type = "number"/u);
+  assert.match(app, /levelInput\.step = "1"/u);
+  assert.match(app, /weapon\.level = Math\.min\(weapon\.level \?\? maximumLevel, maximumLevel\)/u);
+  assert.match(app, /applyCatalogWeaponLevelStats\(weapon, master\)/u);
+});
+
 test("web server permits the known job thumbnail host without widening other CSP directives", async () => {
   const webServer = await readFile(new URL("../src/webServer.ts", import.meta.url), "utf8");
   assert.match(

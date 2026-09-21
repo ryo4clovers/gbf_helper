@@ -36,6 +36,11 @@ import {
 } from "/equipment-level-stats.js";
 import { createEquipmentLevelOptions } from "/equipment-level-options.js";
 import {
+  createEquipmentUncapStages,
+  maximumLevelForUncap,
+  uncapLabel,
+} from "/equipment-uncap.js";
+import {
   rebaseProtagonistForCompletionBonusChange,
   rebaseProtagonistForRankChange,
   rebaseProtagonistForSummonChange,
@@ -1521,26 +1526,67 @@ function createWeaponSlot(config, slot) {
     const controls = document.createElement("div");
     controls.className = "weapon-slot-controls";
     let stats;
+    let levelInput;
+    const uncapStages = createEquipmentUncapStages(master?.uncaps, master?.rarityCode, master?.levelStats);
+    const fallbackUncap = uncapStages.at(-1)?.uncapLevel;
+    const requestedUncap = weapon.uncapLevel ?? master?.selectionDefaults?.uncapLevel ?? fallbackUncap;
+    const currentUncap = uncapStages.some((stage) => stage.uncapLevel === requestedUncap)
+      ? requestedUncap
+      : fallbackUncap;
+    if (currentUncap != null) weapon.uncapLevel = currentUncap;
+    if (uncapStages.length > 0) {
+      const uncapLabelElement = document.createElement("label");
+      uncapLabelElement.textContent = "解放";
+      const uncapSelect = document.createElement("select");
+      for (const stage of uncapStages) {
+        uncapSelect.append(new Option(`${uncapLabel(stage.uncapLevel)}（Lv${stage.maximumLevel}）`, String(stage.uncapLevel)));
+      }
+      uncapSelect.value = String(currentUncap);
+      uncapSelect.setAttribute("aria-label", `${master?.name ?? weapon.weaponId}の上限解放段階`);
+      uncapSelect.title = master?.uncaps?.source ?? "上限解放情報は未登録です";
+      uncapSelect.addEventListener("change", () => {
+        const value = Number(uncapSelect.value);
+        const maximumLevel = maximumLevelForUncap(uncapStages, value);
+        if (!Number.isInteger(maximumLevel)) return;
+        weapon.uncapLevel = value;
+        weapon.level = Math.min(weapon.level ?? maximumLevel, maximumLevel);
+        if (levelInput) {
+          levelInput.max = String(maximumLevel);
+          levelInput.value = String(weapon.level);
+        }
+        applyCatalogWeaponLevelStats(weapon, master);
+        writeDeckConfig(config);
+        if (stats) {
+          stats.textContent = `HP ${weapon.hpOverride == null ? "—" : numberFormat.format(weapon.hpOverride)} / ATK ${weapon.attackOverride == null ? "—" : numberFormat.format(weapon.attackOverride)}`;
+        }
+        void calculate();
+      });
+      uncapLabelElement.append(uncapSelect);
+      controls.append(uncapLabelElement);
+    }
     if (master?.levelStats) {
       const levelLabel = document.createElement("label");
       levelLabel.textContent = "Lv";
-      const levelSelect = document.createElement("select");
       const currentLevel = weapon.level ?? master.levelStats.maximumLevel;
-      const levelOptions = createEquipmentLevelOptions(master.levelStats, currentLevel);
-      for (const levelOption of levelOptions) {
-        const option = new Option(
-          levelOption.verified ? String(levelOption.level) : `${levelOption.level}（未検証）`,
-          String(levelOption.level),
-        );
-        option.disabled = !levelOption.verified;
-        levelSelect.append(option);
-      }
-      levelSelect.value = String(currentLevel);
-      levelSelect.setAttribute("aria-label", `${master.name}の検証済みレベル`);
-      levelSelect.title = "実測または図鑑で確認できた境界Lvだけ選択できます";
-      levelSelect.addEventListener("change", () => {
-        const value = Number(levelSelect.value);
-        if (!levelOptions.some((option) => option.verified && option.level === value)) return;
+      const maximumLevel = maximumLevelForUncap(uncapStages, currentUncap) ?? master.levelStats.maximumLevel;
+      weapon.level = Math.min(currentLevel, maximumLevel);
+      applyCatalogWeaponLevelStats(weapon, master);
+      levelInput = document.createElement("input");
+      levelInput.type = "number";
+      levelInput.min = String(master.levelStats.points[0]?.level ?? 1);
+      levelInput.max = String(maximumLevel);
+      levelInput.step = "1";
+      levelInput.value = String(weapon.level);
+      levelInput.setAttribute("aria-label", `${master.name}のレベル`);
+      levelInput.title = "Wiki・実機で収集した境界値の間を、検証済みの成長式で算出します";
+      levelInput.addEventListener("change", () => {
+        const value = Number(levelInput.value);
+        const minimumLevel = Number(levelInput.min);
+        const selectedMaximumLevel = Number(levelInput.max);
+        if (!Number.isInteger(value) || value < minimumLevel || value > selectedMaximumLevel) {
+          levelInput.value = String(weapon.level ?? currentLevel);
+          return;
+        }
         weapon.level = value;
         applyCatalogWeaponLevelStats(weapon, master);
         writeDeckConfig(config);
@@ -1549,7 +1595,7 @@ function createWeaponSlot(config, slot) {
         }
         void calculate();
       });
-      levelLabel.append(levelSelect);
+      levelLabel.append(levelInput);
       controls.append(levelLabel);
     }
     const skillLabel = document.createElement("label");

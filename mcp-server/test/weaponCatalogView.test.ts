@@ -58,7 +58,7 @@ test("creates a deterministic browser-safe weapon catalog", () => {
       weaponKindCode: "5",
       rarityCode: "4",
       seriesId: "8",
-      selectionDefaults: { uncapLevel: 5, skillLevel: 20 },
+      selectionDefaults: { level: 200, uncapLevel: 5, skillLevel: 20, attack: 2450, hp: 324 },
       levelStats: {
         maximumLevel: 200,
         points: [
@@ -67,6 +67,14 @@ test("creates a deterministic browser-safe weapon catalog", () => {
           { level: 150, attack: 2290, hp: 302 },
           { level: 200, attack: 2450, hp: 324 },
         ],
+      },
+      uncaps: {
+        minimum: 0,
+        base: 3,
+        maximum: 5,
+        reduced: 0,
+        verificationStatus: "下書き",
+        source: "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲",
       },
       verificationStatus: "検証済み",
       skills: [{
@@ -101,4 +109,6 @@ test("creates a deterministic browser-safe weapon catalog", () => {
     ["オプティマスブースト・ファイア", "火の刹那", "紅蓮の襲刃"],
   );
   assert.equal(JSON.stringify(catalog).includes("instanceId"), false);
+  assert.ok(catalog.weapons.every((weapon) => weapon.uncaps !== undefined));
+  assert.ok(catalog.weapons.every((weapon) => weapon.levelStats !== undefined));
 });

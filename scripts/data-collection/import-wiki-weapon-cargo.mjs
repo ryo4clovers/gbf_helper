@@ -192,6 +192,11 @@ function calculatorEntry(entry) {
       },
     } : {}),
     ...(levelStats ? { levelStats } : {}),
+    uncaps: {
+      ...entry.uncaps,
+      verificationStatus: "下書き",
+      source: `gbf.wiki Cargo weaponsテーブル（${TODAY}取得）の上限解放範囲`,
+    },
     skillSlots: [],
     ...(listedSkills.length ? { listedSkills } : {}),
     verificationStatus: "下書き",
@@ -229,6 +234,14 @@ for (const entry of entries) {
   } else if (calculatorById.get(weapon.weaponId)?.source?.startsWith("gbf.wiki Cargo weaponsテーブル")) {
     calculatorById.set(weapon.weaponId, weapon);
     refreshed += 1;
+  } else {
+    const current = calculatorById.get(weapon.weaponId);
+    current.uncaps = weapon.uncaps;
+    current.levelStats ??= weapon.levelStats;
+    current.selectionDefaults = {
+      ...weapon.selectionDefaults,
+      ...current.selectionDefaults,
+    };
   }
 }
 

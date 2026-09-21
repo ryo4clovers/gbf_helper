@@ -27,6 +27,7 @@ const staticFiles: Record<string, { file: string; contentType: string }> = {
   "/calculator-state-storage.js": { file: "calculator-state-storage.js", contentType: "text/javascript; charset=utf-8" },
   "/equipment-level-stats.js": { file: "equipment-level-stats.js", contentType: "text/javascript; charset=utf-8" },
   "/equipment-level-options.js": { file: "equipment-level-options.js", contentType: "text/javascript; charset=utf-8" },
+  "/equipment-uncap.js": { file: "equipment-uncap.js", contentType: "text/javascript; charset=utf-8" },
   "/summon-stat-contribution.js": { file: "summon-stat-contribution.js", contentType: "text/javascript; charset=utf-8" },
   "/protagonist-displayed-stats.js": { file: "protagonist-displayed-stats.js", contentType: "text/javascript; charset=utf-8" },
   "/protagonist-limit-bonus-catalog.js": { file: "protagonist-limit-bonus-catalog.js", contentType: "text/javascript; charset=utf-8" },

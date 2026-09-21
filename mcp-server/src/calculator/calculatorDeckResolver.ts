@@ -21,6 +21,7 @@ import type {
   WeaponMasterCatalogEntry,
 } from "./types.js";
 import { calculateEquipmentLevelStats } from "../../web/equipment-level-stats.js";
+import { createEquipmentUncapStages, maximumLevelForUncap } from "../../web/equipment-uncap.js";
 import {
   calculateProtagonistDisplayedStats,
   PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS,
@@ -100,6 +101,7 @@ export type CalculatorDeckResolutionIssueCode =
   | "unverified-weapon-skill"
   | "unverified-weapon-skill-effect"
   | "weapon-skill-partially-supported"
+  | "weapon-level-exceeds-uncap"
   | "weapon-skill-level-unresolved"
   | "multiple-weapon-skill-boosts-assumed-additive"
   | "summon-aura-unresolved"
@@ -182,9 +184,14 @@ function calculateCatalogWeaponStats(
 ): { attack: number; hp: number } | undefined {
   if (master?.levelStats === undefined || weapon.level === undefined) return undefined;
   const minimumLevel = master.levelStats.points[0]?.level;
+  const uncapStages = createEquipmentUncapStages(master.uncaps, master.rarityCode, master.levelStats);
+  const uncapMaximumLevel = weapon.uncapLevel === undefined
+    ? undefined
+    : maximumLevelForUncap(uncapStages, weapon.uncapLevel);
   if (minimumLevel === undefined || weapon.level < minimumLevel || weapon.level > master.levelStats.maximumLevel) {
     return undefined;
   }
+  if (uncapMaximumLevel !== undefined && weapon.level > uncapMaximumLevel) return undefined;
   return calculateEquipmentLevelStats(master.levelStats, weapon.level, weapon.plusMark ?? 0, {
     attack: 5,
     hp: 1,
@@ -331,6 +338,18 @@ export function resolveCalculatorDeckConfig(
   config.weapons.forEach((weapon, index) => {
     const master = catalog.weapons.get(weapon.weaponId);
     const calculatedStats = resolvedWeaponStats[index]?.stats;
+    if (master?.uncaps && weapon.uncapLevel !== undefined && weapon.level !== undefined) {
+      const uncapStages = createEquipmentUncapStages(master.uncaps, master.rarityCode, master.levelStats);
+      const maximumLevel = maximumLevelForUncap(uncapStages, weapon.uncapLevel);
+      if (maximumLevel !== undefined && weapon.level > maximumLevel) {
+        issues.push({
+          severity: "warning",
+          code: "weapon-level-exceeds-uncap",
+          path: `weapons.${index}.level`,
+          message: `${master.name}のLv${weapon.level}は${weapon.uncapLevel}凸の上限Lv${maximumLevel}を超えています。`,
+        });
+      }
+    }
     appendMissingStatIssues(
       issues,
       `weapons.${index}`,

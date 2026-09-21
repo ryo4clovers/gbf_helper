@@ -88,6 +88,13 @@ function newWeaponFromWiki(row, wiki, date) {
       },
     } : {}),
     ...(points.length >= 2 ? { levelStats: { maximumLevel: lastPoint.level, points } } : {}),
+    ...(wiki?.uncaps ? {
+      uncaps: {
+        ...wiki.uncaps,
+        verificationStatus: "下書き",
+        source: `gbf.wiki Cargo weaponsテーブル（${wikiCatalog.source.retrievedAt}取得）の上限解放範囲`,
+      },
+    } : {}),
     skillSlots: [],
     ...(listedSkills.length > 0 ? { listedSkills } : {}),
     verificationStatus: "下書き",

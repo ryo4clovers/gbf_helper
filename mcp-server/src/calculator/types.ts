@@ -99,6 +99,14 @@ export interface WeaponMasterCatalogEntry {
     maximumLevel: number;
     points: Array<{ level: number; attack: number; hp: number }>;
   };
+  uncaps?: {
+    minimum: number;
+    base: number;
+    maximum: number;
+    reduced: number;
+    verificationStatus: "検証済み" | "下書き";
+    source: string;
+  };
   skillSlots: Array<{
     sourceKey: DeckSkill["sourceKey"];
     skillId: string;

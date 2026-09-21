@@ -95,6 +95,26 @@ test("derives stats across an extended weapon level range", () => {
   assert.equal(result.issues.some((issue) => issue.code === "missing-stat-override"), false);
 });
 
+test("rejects a weapon level above the selected uncap stage", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1, hpOverride: 1 },
+    weapons: [{
+      slot: 2,
+      position: "grid",
+      weaponId: "1040401500",
+      level: 150,
+      uncapLevel: 3,
+      skillLevel: 10,
+      plusMark: 0,
+    }],
+  });
+
+  assert.equal(result.deck.weapons[0].attack, undefined);
+  assert.ok(result.issues.some((issue) => issue.code === "weapon-level-exceeds-uncap"));
+});
+
 test("derives Leviathan Gaze Omega stats at the Lv150 breakpoint", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,
