@@ -117,6 +117,24 @@ test("weapon slots link uncap to integer equipment and skill level controls", as
   assert.match(app, /applyCatalogWeaponLevelStats\(weapon, master\)/u);
 });
 
+test("weapon and summon parameter editors open from occupied slots with right click", async () => {
+  const [html, app, styles] = await Promise.all([
+    readFile(new URL("../web/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../web/app.js", import.meta.url), "utf8"),
+    readFile(new URL("../web/styles.css", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(html, /id="equipment-strengthening"/u);
+  assert.match(html, /id="equipment-strengthening-fields"/u);
+  assert.match(html, /右クリックでLv・解放・SLv・＋を入力/u);
+  assert.match(html, /右クリックでLv・＋を入力/u);
+  assert.match(app, /function openEquipmentStrengthening\(\{ kind, name, slotLabel, controls \}\)/u);
+  assert.equal((app.match(/article\.addEventListener\("contextmenu"/gu) ?? []).length, 2);
+  assert.match(app, /kind: "weapon"/u);
+  assert.match(app, /kind: "summon"/u);
+  assert.match(styles, /\.equipment-strengthening-fields \.weapon-slot-controls \{/u);
+});
+
 test("web server permits the known job thumbnail host without widening other CSP directives", async () => {
   const webServer = await readFile(new URL("../src/webServer.ts", import.meta.url), "utf8");
   assert.match(

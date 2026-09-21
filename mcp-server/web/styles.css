@@ -195,6 +195,8 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .weapon-slot-name, .weapon-slot-meta { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .weapon-slot-name { font-size: .82rem; font-weight: 800; }
 .weapon-slot-meta { margin-top: 2px; color: var(--ink-soft); font-size: .75rem; }
+.weapon-slot-parameters { display: block; margin-top: 4px; overflow: hidden; color: var(--primary); font-size: .69rem; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
+.weapon-slot.occupied { cursor: context-menu; }
 .weapon-slot.empty .weapon-art { color: rgba(255,255,255,.88); background: var(--surface-high); }
 .weapon-slot.empty .weapon-symbol { color: var(--primary); text-shadow: none; }
 .weapon-slot.job-fallback { border-style: dashed; }
@@ -228,6 +230,14 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .support-summon-card { display: grid; grid-template-columns: minmax(0, 1fr); }
 .support-summon-card .weapon-choice { min-height: 94px; }
 .support-summon-notes { padding: 8px 12px 11px; border-top: 1px solid var(--outline-soft); display: flex; flex-wrap: wrap; gap: 6px 12px; color: var(--ink-soft); background: white; font-size: .72rem; font-weight: 750; }
+
+.equipment-strengthening { width: min(620px, calc(100vw - 32px)); padding: 20px; box-sizing: border-box; overflow-y: auto; }
+.equipment-strengthening h2 { margin: 14px 0 6px; }
+.equipment-strengthening-fields .weapon-slot-controls { min-height: 0; padding: 16px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: end; gap: 12px; border: 1px solid var(--outline-soft); border-radius: 18px; background: var(--surface-high); }
+.equipment-strengthening-fields .weapon-slot-controls label { min-width: 0; display: flex; flex-direction: column; align-items: stretch; gap: 5px; }
+.equipment-strengthening-fields .weapon-slot-controls input,
+.equipment-strengthening-fields .weapon-slot-controls select { width: 100%; min-height: 42px; padding: 8px 10px; font-size: .84rem; }
+.equipment-strengthening-fields .weapon-attack { grid-column: 1 / -1; padding-top: 10px; border-top: 1px solid var(--outline-soft); font-size: .82rem; }
 
 .weapon-picker { width: min(680px, calc(100% - 28px)); max-height: min(760px, calc(100vh - 40px)); padding: 0; border: 0; border-radius: 36px 22px 36px 22px; color: var(--ink); background: var(--surface); box-shadow: 0 30px 90px rgba(20,15,45,.35); overflow: hidden; }
 .weapon-picker[open] { display: flex; flex-direction: column; }
@@ -480,6 +490,8 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
   .memorial-item-row .memorial-controls { padding-left: 28px; }
   .profile-select-field, #load-profile, #rename-profile, #delete-profile { grid-column: 1; }
   .job-symbol { flex-basis: 112px; width: 112px; height: 64px; }
+  .equipment-strengthening-fields .weapon-slot-controls { grid-template-columns: 1fr; }
+  .equipment-strengthening-fields .weapon-attack { grid-column: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }

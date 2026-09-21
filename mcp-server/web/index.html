@@ -75,7 +75,7 @@
                 <span class="field-label">武器編成</span>
                 <strong id="weapon-count">0 / 10</strong>
               </div>
-              <span class="supporting-text">枠を選択して武器を変更</span>
+              <span class="supporting-text">左クリックで変更／右クリックでLv・解放・SLv・＋を入力</span>
             </div>
             <div class="weapon-layout">
               <div id="main-weapon-slot" class="main-weapon-slot"></div>
@@ -87,7 +87,7 @@
                 <span class="field-label">召喚石編成</span>
                 <strong id="summon-count">0 / 7</strong>
               </div>
-              <span class="supporting-text">メイン1・通常4・サブ加護2枠</span>
+              <span class="supporting-text">左クリックで変更／右クリックでLv・＋を入力</span>
             </div>
             <div class="summon-layout">
               <div id="main-summon-slot" class="main-summon-slot"></div>
@@ -400,6 +400,12 @@
       <h2 id="protagonist-strengthening-title">主人公の強化設定</h2>
       <p class="settings-help">計算接続済みのLBは変更後すぐ結果へ反映します。未接続のLBは入力・保存のみです。LBの初期値は★0です。実機deckから自動入力されないため、現在の振り分けを設定してください。</p>
       <div id="protagonist-strengthening-fields"></div>
+    </dialog>
+    <dialog id="equipment-strengthening" class="weapon-picker equipment-strengthening" aria-labelledby="equipment-strengthening-title">
+      <form method="dialog"><button class="tonal-button" aria-label="装備パラメータ設定を閉じる">閉じる</button></form>
+      <h2 id="equipment-strengthening-title">装備のパラメータ設定</h2>
+      <p id="equipment-strengthening-help" class="settings-help"></p>
+      <div id="equipment-strengthening-fields" class="equipment-strengthening-fields"></div>
     </dialog>
     <dialog id="weapon-picker" class="weapon-picker" aria-labelledby="weapon-picker-title">
       <div class="picker-header">

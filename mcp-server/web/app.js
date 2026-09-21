@@ -667,6 +667,17 @@ function createEquipmentPlusField(equipment, name, findCurrentEquipment, onUpdat
   return label;
 }
 
+function openEquipmentStrengthening({ kind, name, slotLabel, controls }) {
+  const dialog = $("equipment-strengthening");
+  $("equipment-strengthening-title").textContent = `${name}のパラメータ設定`;
+  $("equipment-strengthening-help").textContent = kind === "weapon"
+    ? `${slotLabel}。上限解放段階に応じて武器LvとSLvの上限が連動します。変更はすぐ計算へ反映されます。`
+    : `${slotLabel}。収集済みの境界Lvと＋値を変更できます。サブ加護枠のHP・ATKは計算へ加算しません。`;
+  $("equipment-strengthening-fields").replaceChildren(controls);
+  if (!dialog.open) dialog.showModal();
+  controls.querySelector("input:not(:disabled), select:not(:disabled)")?.focus();
+}
+
 function catalogJob(jobId) {
   return jobCatalog.find((job) => job.jobId === jobId);
 }
@@ -1520,12 +1531,27 @@ function createWeaponSlot(config, slot) {
             : `武器枠 ${slot}`,
     ),
   );
+  const parameterSummary = weapon && !isJobFallback
+    ? createText("weapon-slot-parameters", "")
+    : undefined;
+  if (parameterSummary) info.append(parameterSummary);
   choice.append(info);
   article.append(choice);
 
+  const updateParameterSummary = (currentWeapon = weapon) => {
+    if (!parameterSummary || !currentWeapon) return;
+    parameterSummary.textContent = [
+      currentWeapon.level == null ? undefined : `Lv${currentWeapon.level}`,
+      currentWeapon.uncapLevel == null ? undefined : uncapLabel(currentWeapon.uncapLevel),
+      currentWeapon.skillLevel == null ? undefined : `SLv${currentWeapon.skillLevel}`,
+      `+${currentWeapon.plusMark ?? 0}`,
+    ].filter(Boolean).join("・");
+    parameterSummary.title = `HP ${currentWeapon.hpOverride == null ? "—" : numberFormat.format(currentWeapon.hpOverride)} / ATK ${currentWeapon.attackOverride == null ? "—" : numberFormat.format(currentWeapon.attackOverride)}`;
+  };
+
   if (weapon && !isJobFallback) {
     const controls = document.createElement("div");
-    controls.className = "weapon-slot-controls";
+    controls.className = "weapon-slot-controls equipment-parameter-controls";
     let stats;
     let levelInput;
     let skillInput;
@@ -1565,6 +1591,7 @@ function createWeaponSlot(config, slot) {
         }
         applyCatalogWeaponLevelStats(weapon, master);
         writeDeckConfig(config);
+        updateParameterSummary();
         if (stats) {
           stats.textContent = `HP ${weapon.hpOverride == null ? "—" : numberFormat.format(weapon.hpOverride)} / ATK ${weapon.attackOverride == null ? "—" : numberFormat.format(weapon.attackOverride)}`;
         }
@@ -1599,6 +1626,7 @@ function createWeaponSlot(config, slot) {
         weapon.level = value;
         applyCatalogWeaponLevelStats(weapon, master);
         writeDeckConfig(config);
+        updateParameterSummary();
         if (stats) {
           stats.textContent = `HP ${numberFormat.format(weapon.hpOverride)} / ATK ${numberFormat.format(weapon.attackOverride)}`;
         }
@@ -1638,6 +1666,7 @@ function createWeaponSlot(config, slot) {
         }
         weapon.skillLevel = value;
         writeDeckConfig(config);
+        updateParameterSummary();
         void calculate();
       });
       skillLabel.append(skillInput);
@@ -1650,12 +1679,24 @@ function createWeaponSlot(config, slot) {
         master?.name ?? weapon.weaponId,
         (currentConfig) => weaponForSlot(currentConfig, slot),
         (currentWeapon) => {
+          Object.assign(weapon, currentWeapon);
+          updateParameterSummary(currentWeapon);
           stats.textContent = `HP ${currentWeapon.hpOverride == null ? "—" : numberFormat.format(currentWeapon.hpOverride)} / ATK ${currentWeapon.attackOverride == null ? "—" : numberFormat.format(currentWeapon.attackOverride)}`;
         },
       ),
       stats,
     );
-    article.append(controls);
+    updateParameterSummary();
+    article.title = "右クリックで武器パラメータを設定";
+    article.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+      openEquipmentStrengthening({
+        kind: "weapon",
+        name: master?.name ?? weapon.nameHint ?? weapon.weaponId,
+        slotLabel: slot === 1 ? "メイン武器" : `武器枠 ${slot}`,
+        controls,
+      });
+    });
   } else if (isJobFallback) {
     const fallback = document.createElement("div");
     fallback.className = "weapon-slot-controls fallback-summary";
@@ -1912,12 +1953,24 @@ function createSummonSlot(config, position, slot) {
     createText("weapon-slot-name", summon ? (master?.name ?? summon.nameHint ?? summon.summonId) : "召喚石を選択"),
     createText("weapon-slot-meta", summon ? `${element?.name ?? "属性不明"}・${master ? "登録済み" : "未登録"}` : summonSlotLabel(position, slot)),
   );
+  const parameterSummary = summon ? createText("weapon-slot-parameters", "") : undefined;
+  if (parameterSummary) info.append(parameterSummary);
   choice.append(art, info);
   article.append(choice);
 
+  const updateParameterSummary = (currentSummon = summon) => {
+    if (!parameterSummary || !currentSummon) return;
+    parameterSummary.textContent = [
+      currentSummon.level == null ? undefined : `Lv${currentSummon.level}`,
+      currentSummon.uncapLevel == null ? undefined : uncapLabel(currentSummon.uncapLevel),
+      `+${currentSummon.plusMark ?? 0}`,
+    ].filter(Boolean).join("・");
+    parameterSummary.title = `HP ${currentSummon.hpOverride == null ? "—" : numberFormat.format(currentSummon.hpOverride)} / ATK ${currentSummon.attackOverride == null ? "—" : numberFormat.format(currentSummon.attackOverride)}`;
+  };
+
   if (summon) {
     const controls = document.createElement("div");
-    controls.className = "weapon-slot-controls";
+    controls.className = "weapon-slot-controls equipment-parameter-controls";
     const levelLabel = document.createElement("label");
     levelLabel.textContent = "Lv";
     const levelSelect = document.createElement("select");
@@ -1949,6 +2002,7 @@ function createSummonSlot(config, position, slot) {
       applyCatalogSummonLevelStats(summon, master);
       rebaseProtagonistForSummonChange(config, previousSummons);
       writeDeckConfig(config);
+      updateParameterSummary();
       if (stats) {
         stats.textContent = `HP ${numberFormat.format(summon.hpOverride)} / ATK ${numberFormat.format(summon.attackOverride)}`;
       }
@@ -1965,17 +2019,29 @@ function createSummonSlot(config, position, slot) {
           (currentSummon) => currentSummon.position === position && currentSummon.slot === slot,
         ),
         (currentSummon, currentConfig, previousSummon) => {
+          Object.assign(summon, currentSummon);
           const previousSummons = currentConfig.summons.map((entry) =>
             entry === currentSummon ? previousSummon : entry,
           );
           rebaseProtagonistForSummonChange(currentConfig, previousSummons);
           writeDeckConfig(currentConfig);
+          updateParameterSummary(currentSummon);
           stats.textContent = `HP ${currentSummon.hpOverride == null ? "—" : numberFormat.format(currentSummon.hpOverride)} / ATK ${currentSummon.attackOverride == null ? "—" : numberFormat.format(currentSummon.attackOverride)}`;
         },
       ),
       stats,
     );
-    article.append(controls);
+    updateParameterSummary();
+    article.title = "右クリックで召喚石パラメータを設定";
+    article.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+      openEquipmentStrengthening({
+        kind: "summon",
+        name: master?.name ?? summon.nameHint ?? summon.summonId,
+        slotLabel: summonSlotLabel(position, slot),
+        controls,
+      });
+    });
   }
   return article;
 }
@@ -3015,6 +3081,9 @@ $("remove-job").addEventListener("click", removeSelectedJob);
 $("job-search").addEventListener("input", (event) => renderJobResults(event.target.value));
 $("job-picker").addEventListener("click", (event) => {
   if (event.target === $("job-picker")) $("job-picker").close();
+});
+$("equipment-strengthening").addEventListener("click", (event) => {
+  if (event.target === $("equipment-strengthening")) $("equipment-strengthening").close();
 });
 $("close-character-picker").addEventListener("click", () => $("character-picker").close());
 $("remove-character").addEventListener("click", removeSelectedCharacter);
