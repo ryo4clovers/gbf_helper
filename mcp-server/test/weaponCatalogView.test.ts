@@ -76,6 +76,11 @@ test("creates a deterministic browser-safe weapon catalog", () => {
         verificationStatus: "下書き",
         source: "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲",
       },
+      skillLevelCap: {
+        maximum: 20,
+        verificationStatus: "下書き",
+        source: "knowledge/fire-ssr-magna-colossus-cane.md「スキルレベル上限」",
+      },
       verificationStatus: "検証済み",
       skills: [{
         skillId: "94",

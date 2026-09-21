@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   createEquipmentUncapStages,
   maximumLevelForUncap,
+  maximumSkillLevelForUncap,
 } from "../web/equipment-uncap.js";
 
 const wikiUncaps = {
@@ -50,4 +51,19 @@ test("supports SR fourth uncaps from the collected level 120 breakpoint", () => 
     { uncapLevel: 3, maximumLevel: 60 },
     { uncapLevel: 4, maximumLevel: 120 },
   ]);
+});
+
+test("links uncap stages to the standard weapon-skill level caps", () => {
+  assert.equal(maximumSkillLevelForUncap(0), 10);
+  assert.equal(maximumSkillLevelForUncap(3), 10);
+  assert.equal(maximumSkillLevelForUncap(4), 15);
+  assert.equal(maximumSkillLevelForUncap(5), 20);
+  assert.equal(maximumSkillLevelForUncap(6), 25);
+});
+
+test("preserves weapon-specific skill level caps", () => {
+  assert.equal(maximumSkillLevelForUncap(5, 15), 15);
+  assert.equal(maximumSkillLevelForUncap(6, 1), 1);
+  assert.equal(maximumSkillLevelForUncap(3, 25), 10);
+  assert.equal(maximumSkillLevelForUncap(undefined, 20), undefined);
 });

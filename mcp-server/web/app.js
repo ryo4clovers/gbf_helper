@@ -38,6 +38,7 @@ import { createEquipmentLevelOptions } from "/equipment-level-options.js";
 import {
   createEquipmentUncapStages,
   maximumLevelForUncap,
+  maximumSkillLevelForUncap,
   uncapLabel,
 } from "/equipment-uncap.js";
 import {
@@ -1527,6 +1528,7 @@ function createWeaponSlot(config, slot) {
     controls.className = "weapon-slot-controls";
     let stats;
     let levelInput;
+    let skillInput;
     const uncapStages = createEquipmentUncapStages(master?.uncaps, master?.rarityCode, master?.levelStats);
     const fallbackUncap = uncapStages.at(-1)?.uncapLevel;
     const requestedUncap = weapon.uncapLevel ?? master?.selectionDefaults?.uncapLevel ?? fallbackUncap;
@@ -1553,6 +1555,13 @@ function createWeaponSlot(config, slot) {
         if (levelInput) {
           levelInput.max = String(maximumLevel);
           levelInput.value = String(weapon.level);
+        }
+        const maximumSkillLevel = maximumSkillLevelForUncap(value, master?.skillLevelCap?.maximum);
+        if (skillInput && maximumSkillLevel !== undefined) {
+          weapon.skillLevel = Math.min(weapon.skillLevel ?? maximumSkillLevel, maximumSkillLevel);
+          skillInput.max = String(maximumSkillLevel);
+          skillInput.value = String(weapon.skillLevel);
+          skillInput.disabled = maximumSkillLevel === 1;
         }
         applyCatalogWeaponLevelStats(weapon, master);
         writeDeckConfig(config);
@@ -1598,26 +1607,44 @@ function createWeaponSlot(config, slot) {
       levelLabel.append(levelInput);
       controls.append(levelLabel);
     }
-    const skillLabel = document.createElement("label");
-    skillLabel.textContent = "SLv";
-    const skillInput = document.createElement("input");
-    skillInput.type = "number";
-    skillInput.min = "1";
-    skillInput.max = "20";
-    skillInput.step = "1";
-    skillInput.value = String(weapon.skillLevel ?? 15);
-    skillInput.setAttribute("aria-label", `${master?.name ?? weapon.weaponId}のスキルレベル`);
-    skillInput.addEventListener("change", () => {
-      const value = Number(skillInput.value);
-      if (!Number.isInteger(value) || value < 1 || value > 20) return;
-      weapon.skillLevel = value;
-      writeDeckConfig(config);
-      void calculate();
-    });
-    skillLabel.append(skillInput);
+    let skillLabel;
+    if ((master?.skills.length ?? 0) > 0 || weapon.skillLevel !== undefined) {
+      skillLabel = document.createElement("label");
+      skillLabel.textContent = "SLv";
+      const maximumSkillLevel = maximumSkillLevelForUncap(
+        currentUncap,
+        master?.skillLevelCap?.maximum,
+      ) ?? master?.skillLevelCap?.maximum ?? 20;
+      weapon.skillLevel = Math.min(
+        weapon.skillLevel ?? master?.selectionDefaults?.skillLevel ?? maximumSkillLevel,
+        maximumSkillLevel,
+      );
+      skillInput = document.createElement("input");
+      skillInput.type = "number";
+      skillInput.min = "1";
+      skillInput.max = String(maximumSkillLevel);
+      skillInput.step = "1";
+      skillInput.value = String(weapon.skillLevel);
+      skillInput.disabled = maximumSkillLevel === 1;
+      skillInput.setAttribute("aria-label", `${master?.name ?? weapon.weaponId}のスキルレベル`);
+      skillInput.title = master?.skillLevelCap?.source
+        ?? "上限解放段階に応じた標準SLv上限です";
+      skillInput.addEventListener("change", () => {
+        const value = Number(skillInput.value);
+        const selectedMaximumSkillLevel = Number(skillInput.max);
+        if (!Number.isInteger(value) || value < 1 || value > selectedMaximumSkillLevel) {
+          skillInput.value = String(weapon.skillLevel);
+          return;
+        }
+        weapon.skillLevel = value;
+        writeDeckConfig(config);
+        void calculate();
+      });
+      skillLabel.append(skillInput);
+    }
     stats = createText("weapon-attack", `HP ${weapon.hpOverride == null ? "—" : numberFormat.format(weapon.hpOverride)} / ATK ${weapon.attackOverride == null ? "—" : numberFormat.format(weapon.attackOverride)}`);
     controls.append(
-      skillLabel,
+      ...(skillLabel ? [skillLabel] : []),
       createEquipmentPlusField(
         weapon,
         master?.name ?? weapon.weaponId,
@@ -1780,14 +1807,19 @@ function selectWeapon(master) {
   config.weapons = config.weapons.filter((weapon) =>
     editingWeaponSlot === 1 ? weapon.position !== "main" && weapon.slot !== 1 : weapon.slot !== editingWeaponSlot,
   );
+  const uncapStages = createEquipmentUncapStages(master.uncaps, master.rarityCode, master.levelStats);
+  const uncapLevel = master.selectionDefaults?.uncapLevel ?? uncapStages.at(-1)?.uncapLevel;
+  const maximumSkillLevel = maximumSkillLevelForUncap(uncapLevel, master.skillLevelCap?.maximum);
   config.weapons.push({
     slot: editingWeaponSlot,
     position: editingWeaponSlot === 1 ? "main" : "grid",
     weaponId: master.weaponId,
     nameHint: master.name,
     level: master.levelStats?.maximumLevel ?? master.selectionDefaults?.level,
-    uncapLevel: master.selectionDefaults?.uncapLevel ?? (master.levelStats ? 4 : undefined),
-    skillLevel: master.selectionDefaults?.skillLevel ?? (master.skills.length ? 15 : undefined),
+    uncapLevel,
+    skillLevel: master.skills.length
+      ? Math.min(master.selectionDefaults?.skillLevel ?? maximumSkillLevel ?? 15, maximumSkillLevel ?? 99)
+      : undefined,
     plusMark: 0,
     attackOverride: master.selectionDefaults?.attack,
     hpOverride: master.selectionDefaults?.hp,

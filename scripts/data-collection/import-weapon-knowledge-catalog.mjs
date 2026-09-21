@@ -6,6 +6,7 @@ const KNOWLEDGE_DIR = join(ROOT, "knowledge", "weapons");
 const WEAPONS_CATALOG = join(ROOT, "mcp-server", "catalog", "weapons.v1.json");
 const SKILLS_CATALOG = join(ROOT, "mcp-server", "catalog", "weapon-skills.v1.json");
 const APPLY = process.argv.includes("--apply");
+const SKILL_LEVEL_CAPS_ONLY = process.argv.includes("--skill-level-caps-only");
 const wikiListIndex = process.argv.indexOf("--wiki-list");
 const wikiListPath = wikiListIndex >= 0 ? resolve(process.argv[wikiListIndex + 1]) : undefined;
 const TODAY = new Intl.DateTimeFormat("en-CA", {
@@ -125,6 +126,16 @@ function parseSelectionDefaults(text) {
   };
 }
 
+function parseSkillLevelCap(text, file, status) {
+  const maximum = Number(text.match(/\| スキルレベル上限 \|\s*(\d+)/u)?.[1]);
+  if (!Number.isInteger(maximum) || maximum < 1) return undefined;
+  return {
+    maximum,
+    verificationStatus: status === "検証済み" ? "検証済み" : "下書き",
+    source: `knowledge/${file}「スキルレベル上限」`,
+  };
+}
+
 function parseLevelStats(text) {
   const maximumLevel = Number(text.match(/\| 最大レベル \|[^\d]*(\d+)/u)?.[1]);
   if (!maximumLevel) return undefined;
@@ -228,6 +239,13 @@ for (const file of readdirSync(KNOWLEDGE_DIR).filter((name) => name.endsWith(".m
     continue;
   }
 
+  const skillLevelCap = parseSkillLevelCap(text, file, values.get("status"));
+  if (SKILL_LEVEL_CAPS_ONLY) {
+    const current = weaponsById.get(weaponId);
+    if (current && skillLevelCap) current.skillLevelCap = skillLevelCap;
+    continue;
+  }
+
   const parsedSkills = parseSkills(text);
   for (const parsed of parsedSkills) {
     const current = skillsById.get(parsed.skillId);
@@ -263,6 +281,7 @@ for (const file of readdirSync(KNOWLEDGE_DIR).filter((name) => name.endsWith(".m
       ...(seriesId ? { seriesId } : {}),
       ...(parseSelectionDefaults(text) ? { selectionDefaults: parseSelectionDefaults(text) } : {}),
       ...(levelStats ? { levelStats } : {}),
+      ...(skillLevelCap ? { skillLevelCap } : {}),
       skillSlots: parsedSkills.map(({ sourceKey, skillId }) => ({ sourceKey, skillId })),
       verificationStatus: "下書き",
       source: wiki
@@ -272,6 +291,7 @@ for (const file of readdirSync(KNOWLEDGE_DIR).filter((name) => name.endsWith(".m
     report.weaponsAdded += 1;
   } else {
     const current = weaponsById.get(weaponId);
+    if (current && skillLevelCap) current.skillLevelCap = skillLevelCap;
     if (current?.verificationStatus === "下書き" && current.source.startsWith("実機由来knowledge/")) {
       current.selectionDefaults = parseSelectionDefaults(text);
       current.levelStats = parseLevelStats(text);
@@ -289,4 +309,10 @@ if (APPLY) {
   writeFileSync(SKILLS_CATALOG, `${JSON.stringify(skillCatalog, null, 2)}\n`, "utf8");
 }
 
-console.log(JSON.stringify({ ...report, apply: APPLY, totalWeapons: weaponsById.size, totalSkills: skillsById.size }, null, 2));
+console.log(JSON.stringify({
+  ...report,
+  apply: APPLY,
+  skillLevelCapsOnly: SKILL_LEVEL_CAPS_ONLY,
+  totalWeapons: weaponsById.size,
+  totalSkills: skillsById.size,
+}, null, 2));

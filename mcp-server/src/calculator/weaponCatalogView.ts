@@ -28,6 +28,11 @@ export interface SelectableWeaponCatalogEntry {
     verificationStatus: "検証済み" | "下書き";
     source: string;
   };
+  skillLevelCap?: {
+    maximum: number;
+    verificationStatus: "検証済み" | "下書き";
+    source: string;
+  };
   verificationStatus: "検証済み" | "下書き";
   skills: Array<{
     skillId?: string;
@@ -58,6 +63,7 @@ export function createSelectableWeaponCatalog(): SelectableWeaponCatalog {
       selectionDefaults: weapon.selectionDefaults,
       levelStats: weapon.levelStats,
       uncaps: weapon.uncaps,
+      skillLevelCap: weapon.skillLevelCap,
       verificationStatus: weapon.verificationStatus,
       skills: [...weapon.skillSlots.flatMap((slot) => {
         const skill = catalog.skills.get(slot.skillId);

@@ -115,6 +115,26 @@ test("rejects a weapon level above the selected uncap stage", () => {
   assert.ok(result.issues.some((issue) => issue.code === "weapon-level-exceeds-uncap"));
 });
 
+test("clamps weapon skill level to the selected uncap stage", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1, hpOverride: 1 },
+    weapons: [{
+      slot: 2,
+      position: "grid",
+      weaponId: "1040401500",
+      level: 100,
+      uncapLevel: 3,
+      skillLevel: 20,
+      plusMark: 0,
+    }],
+  });
+
+  assert.equal(result.deck.weapons[0].skillLevel, 10);
+  assert.ok(result.issues.some((issue) => issue.code === "weapon-skill-level-exceeds-uncap"));
+});
+
 test("derives Leviathan Gaze Omega stats at the Lv150 breakpoint", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,

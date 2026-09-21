@@ -21,7 +21,11 @@ import type {
   WeaponMasterCatalogEntry,
 } from "./types.js";
 import { calculateEquipmentLevelStats } from "../../web/equipment-level-stats.js";
-import { createEquipmentUncapStages, maximumLevelForUncap } from "../../web/equipment-uncap.js";
+import {
+  createEquipmentUncapStages,
+  maximumLevelForUncap,
+  maximumSkillLevelForUncap,
+} from "../../web/equipment-uncap.js";
 import {
   calculateProtagonistDisplayedStats,
   PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS,
@@ -102,6 +106,7 @@ export type CalculatorDeckResolutionIssueCode =
   | "unverified-weapon-skill-effect"
   | "weapon-skill-partially-supported"
   | "weapon-level-exceeds-uncap"
+  | "weapon-skill-level-exceeds-uncap"
   | "weapon-skill-level-unresolved"
   | "multiple-weapon-skill-boosts-assumed-additive"
   | "summon-aura-unresolved"
@@ -350,6 +355,20 @@ export function resolveCalculatorDeckConfig(
         });
       }
     }
+    if (master && weapon.uncapLevel !== undefined && weapon.skillLevel !== undefined) {
+      const maximumSkillLevel = maximumSkillLevelForUncap(
+        weapon.uncapLevel,
+        master.skillLevelCap?.maximum,
+      );
+      if (maximumSkillLevel !== undefined && weapon.skillLevel > maximumSkillLevel) {
+        issues.push({
+          severity: "warning",
+          code: "weapon-skill-level-exceeds-uncap",
+          path: `weapons.${index}.skillLevel`,
+          message: `${master.name}のSLv${weapon.skillLevel}は${weapon.uncapLevel}凸の上限SLv${maximumSkillLevel}を超えるため、計算ではSLv${maximumSkillLevel}として扱います。`,
+        });
+      }
+    }
     appendMissingStatIssues(
       issues,
       `weapons.${index}`,
@@ -522,7 +541,13 @@ export function resolveCalculatorDeckConfig(
         rarityCode: master?.rarityCode ?? fallbackMaster?.rarityCode,
         seriesId: master?.seriesId,
         level: weapon.level,
-        skillLevel: weapon.skillLevel,
+        skillLevel: master === undefined || weapon.uncapLevel === undefined || weapon.skillLevel === undefined
+          ? weapon.skillLevel
+          : Math.min(
+              weapon.skillLevel,
+              maximumSkillLevelForUncap(weapon.uncapLevel, master?.skillLevelCap?.maximum)
+                ?? weapon.skillLevel,
+            ),
         uncapLevel: weapon.uncapLevel,
         plusMark: weapon.plusMark,
         awakening: weapon.awakening,

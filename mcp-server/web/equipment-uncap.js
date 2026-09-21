@@ -42,6 +42,21 @@ export function maximumLevelForUncap(stages, uncapLevel) {
   return stages.find((stage) => stage.uncapLevel === Number(uncapLevel))?.maximumLevel;
 }
 
+/**
+ * Resolves the weapon-skill level cap for an uncap stage. The stage rule is
+ * shared by ordinary weapons, while maximumSkillLevel preserves weapon-level
+ * exceptions collected from the game (for example fixed SLv1 weapons).
+ */
+export function maximumSkillLevelForUncap(uncapLevel, maximumSkillLevel) {
+  const stage = Number(uncapLevel);
+  if (!Number.isInteger(stage) || stage < 0) return undefined;
+  const stageMaximum = stage <= 3 ? 10 : stage === 4 ? 15 : stage === 5 ? 20 : 25;
+  const weaponMaximum = Number(maximumSkillLevel);
+  return Number.isInteger(weaponMaximum) && weaponMaximum >= 1
+    ? Math.min(stageMaximum, weaponMaximum)
+    : stageMaximum;
+}
+
 export function uncapLabel(uncapLevel) {
   return `${uncapLevel}凸`;
 }

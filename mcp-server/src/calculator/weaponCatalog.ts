@@ -131,6 +131,11 @@ const weaponsFileSchema = z
             verificationStatus: statusSchema,
             source: z.string().min(1),
           }).strict().optional(),
+          skillLevelCap: z.object({
+            maximum: z.number().int().min(1).max(99),
+            verificationStatus: statusSchema,
+            source: z.string().min(1),
+          }).strict().optional(),
           skillSlots: z.array(
             z
               .object({

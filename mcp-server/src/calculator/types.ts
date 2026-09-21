@@ -107,6 +107,12 @@ export interface WeaponMasterCatalogEntry {
     verificationStatus: "検証済み" | "下書き";
     source: string;
   };
+  /** Weapon-wide maximum. Stage-specific caps are derived from uncapLevel. */
+  skillLevelCap?: {
+    maximum: number;
+    verificationStatus: "検証済み" | "下書き";
+    source: string;
+  };
   skillSlots: Array<{
     sourceKey: DeckSkill["sourceKey"];
     skillId: string;

@@ -23,4 +23,9 @@ export function maximumLevelForUncap(
   uncapLevel: number | undefined,
 ): number | undefined;
 
+export function maximumSkillLevelForUncap(
+  uncapLevel: number | undefined,
+  maximumSkillLevel?: number,
+): number | undefined;
+
 export function uncapLabel(uncapLevel: number): string;

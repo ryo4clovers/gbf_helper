@@ -44279,6 +44279,11 @@
             "hp": 245
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-magna-yggdrasil-crystal-blade.md「スキルレベル上限」"
       }
     },
     {
@@ -46924,6 +46929,11 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-primal-ecke-sachs.md「スキルレベル上限」"
       }
     },
     {
@@ -46984,6 +46994,11 @@
             "hp": 244
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-magna-chevalier-sword.md「スキルレベル上限」"
       }
     },
     {
@@ -48827,6 +48842,11 @@
             "hp": 288
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/omega-ssr-sword.md「スキルレベル上限」"
       }
     },
     {
@@ -50594,6 +50614,11 @@
             "hp": 230
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-regalia-brahman-scimitar.md「スキルレベル上限」"
       }
     },
     {
@@ -51700,6 +51725,11 @@
             "hp": 250
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-seraphic-weapon.md「スキルレベル上限」"
       }
     },
     {
@@ -53303,6 +53333,11 @@
             "hp": 254
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-ancestral-fediel-spine.md「スキルレベル上限」"
       }
     },
     {
@@ -53496,6 +53531,11 @@
             "hp": 230
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-regalia-gokushinken.md「スキルレベル上限」"
       }
     },
     {
@@ -55454,6 +55494,11 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-limited-lord-of-flames.md「スキルレベル上限」"
       }
     },
     {
@@ -56254,6 +56299,11 @@
             "hp": 288
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-revans-messhin-ken-saidan.md「スキルレベル上限」"
       }
     },
     {
@@ -56814,6 +56864,11 @@
             "hp": 241
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-magna-reverse-colossus-buster-ira.md「スキルレベル上限」"
       }
     },
     {
@@ -56925,6 +56980,11 @@
             "hp": 242
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-crystal-blade-arbos.md「スキルレベル上限」"
       }
     },
     {
@@ -58283,6 +58343,11 @@
             "hp": 313
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 1,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-versacia-sword.md「スキルレベル上限」"
       }
     },
     {
@@ -59242,6 +59307,11 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-magna-levian-gaze.md「スキルレベル上限」"
       }
     },
     {
@@ -63924,6 +63994,11 @@
             "hp": 260
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-regalia-nibelung-messer.md「スキルレベル上限」"
       }
     },
     {
@@ -63979,6 +64054,11 @@
             "hp": 260
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-regalia-mithra-sword.md「スキルレベル上限」"
       }
     },
     {
@@ -64333,6 +64413,11 @@
             "hp": 270
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-malice-hatsuoi-ilhal.md「スキルレベル上限」"
       }
     },
     {
@@ -65131,6 +65216,11 @@
             "hp": 271
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-malice-hypnos-kris.md「スキルレベル上限」"
       }
     },
     {
@@ -66997,6 +67087,11 @@
             "hp": 265
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-ennead-abydos.md「スキルレベル上限」"
       }
     },
     {
@@ -68376,6 +68471,11 @@
             "hp": 325
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-revans-ryubatsu-goga-saidan.md「スキルレベル上限」"
       }
     },
     {
@@ -68759,6 +68859,11 @@
             "hp": 270
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-magna-reverse-tiamat-edge-aura.md「スキルレベル上限」"
       }
     },
     {
@@ -68938,6 +69043,11 @@
             "hp": 263
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-magna-reverse-celeste-dagger-aeter.md「スキルレベル上限」"
       }
     },
     {
@@ -69073,6 +69183,11 @@
             "hp": 269
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-magna-reverse-levian-gaze-mare.md「スキルレベル上限」"
       }
     },
     {
@@ -72065,6 +72180,11 @@
             "hp": 289
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-magna-celeste-horn.md「スキルレベル上限」"
       }
     },
     {
@@ -73728,6 +73848,11 @@
             "hp": 295
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-magna-levian-spear.md「スキルレベル上限」"
       }
     },
     {
@@ -74453,6 +74578,11 @@
         "uncapLevel": 4,
         "attack": 2500,
         "hp": 278
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-erichthonius.md「スキルレベル上限」"
       }
     },
     {
@@ -76555,6 +76685,11 @@
             "hp": 280
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-regalia-brahman-trident.md「スキルレベル上限」"
       }
     },
     {
@@ -76610,6 +76745,11 @@
             "hp": 280
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-regalia-last-storm-lance.md「スキルレベル上限」"
       }
     },
     {
@@ -79224,6 +79364,11 @@
             "hp": 313
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-ancestral-wamdus-naidaria.md「スキルレベル上限」"
       }
     },
     {
@@ -79279,6 +79424,11 @@
             "hp": 250
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-regalia-pillar-of-flame.md「スキルレベル上限」"
       }
     },
     {
@@ -80852,6 +81002,11 @@
             "hp": 251
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-ennead-benbenet.md「スキルレベル上限」"
       }
     },
     {
@@ -81704,6 +81859,11 @@
             "hp": 300
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-magna-reverse-chevalier-lance-credo.md「スキルレベル上限」"
       }
     },
     {
@@ -82768,6 +82928,11 @@
         "uncapLevel": 4,
         "attack": 2654,
         "hp": 275
+      },
+      "skillLevelCap": {
+        "maximum": 10,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-verboten-spear.md「スキルレベル上限」"
       }
     },
     {
@@ -83790,6 +83955,11 @@
             "hp": 216
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-magna-tiamat-amood.md「スキルレベル上限」"
       }
     },
     {
@@ -83893,6 +84063,11 @@
             "hp": 217
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-magna-chevalier-bhuj.md「スキルレベル上限」"
       }
     },
     {
@@ -84063,6 +84238,11 @@
             "hp": 213
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-magna-celeste-zaghnal.md「スキルレベル上限」"
       }
     },
     {
@@ -86048,6 +86228,11 @@
             "hp": 213
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-menace-black-whirlwind.md「スキルレベル上限」"
       }
     },
     {
@@ -88206,6 +88391,11 @@
             "hp": 210
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-regalia-nibelung-horn.md「スキルレベル上限」"
       }
     },
     {
@@ -88261,6 +88451,11 @@
             "hp": 200
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-regalia-abyss-striker.md「スキルレベル上限」"
       }
     },
     {
@@ -88999,6 +89194,11 @@
             "hp": 318
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 25,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-dark-opus-scythe-normal.md「スキルレベル上限」"
       }
     },
     {
@@ -89068,6 +89268,11 @@
             "hp": 318
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 25,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-dark-opus-scythe-magna.md「スキルレベル上限」"
       }
     },
     {
@@ -89123,6 +89328,11 @@
             "hp": 230
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-seraphic-weapon.md「スキルレベル上限」"
       }
     },
     {
@@ -90392,6 +90602,11 @@
             "hp": 230
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-ancestral-lu-woh-horn.md「スキルレベル上限」"
       }
     },
     {
@@ -90999,6 +91214,11 @@
             "hp": 103
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-malice-seyfert.md「スキルレベル上限」"
       }
     },
     {
@@ -91536,6 +91756,11 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-limited-firestorm-scythe.md「スキルレベル上限」"
       }
     },
     {
@@ -91782,6 +92007,11 @@
             "hp": 247
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-ennead-uraeus.md「スキルレベル上限」"
       }
     },
     {
@@ -91837,6 +92067,11 @@
             "hp": 179
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-ennead-mandet.md「スキルレベル上限」"
       }
     },
     {
@@ -92114,6 +92349,11 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-limited-crimson-scale.md「スキルレベル上限」"
       }
     },
     {
@@ -92945,6 +93185,11 @@
             "hp": 212
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-magna-reverse-colossus-bomber-ira.md「スキルレベル上限」"
       }
     },
     {
@@ -93312,6 +93557,11 @@
             "hp": 213
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-magna-reverse-levian-head-mare.md「スキルレベル上限」"
       }
     },
     {
@@ -95328,6 +95578,11 @@
             "hp": 328
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-magna-levian-scepter.md「スキルレベル上限」"
       }
     },
     {
@@ -95385,6 +95640,11 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-magna-colossus-cane.md「スキルレベル上限」"
       }
     },
     {
@@ -98711,6 +98971,11 @@
             "hp": 330
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-menace-magma-stream.md「スキルレベル上限」"
       }
     },
     {
@@ -102182,6 +102447,11 @@
             "hp": 310
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-regalia-tyros-wand.md「スキルレベル上限」"
       }
     },
     {
@@ -102237,6 +102507,11 @@
             "hp": 310
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-regalia-abyss-spine.md「スキルレベル上限」"
       }
     },
     {
@@ -102459,6 +102734,11 @@
             "hp": 320
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-malice-majestas.md「スキルレベル上限」"
       }
     },
     {
@@ -102883,6 +103163,11 @@
             "hp": 340
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-seraphic-weapon.md「スキルレベル上限」"
       }
     },
     {
@@ -103496,6 +103781,11 @@
             "hp": 320
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-malice-karadanda.md「スキルレベル上限」"
       }
     },
     {
@@ -104159,6 +104449,11 @@
             "hp": 348
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 1,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-job-monk.md「スキルレベル上限」"
       }
     },
     {
@@ -104385,6 +104680,11 @@
             "hp": 260
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-regalia-nilakantha.md「スキルレベル上限」"
       }
     },
     {
@@ -104440,6 +104740,11 @@
             "hp": 350
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-regalia-kiragosensen.md「スキルレベル上限」"
       }
     },
     {
@@ -105524,6 +105829,11 @@
             "hp": 306
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-ennead-bigeh-edfu.md「スキルレベル上限」"
       }
     },
     {
@@ -105970,6 +106280,11 @@
             "hp": 345
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-ennead-lelabad.md「スキルレベル上限」"
       }
     },
     {
@@ -106082,6 +106397,11 @@
             "hp": 355
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-ennead-esna.md「スキルレベル上限」"
       }
     },
     {
@@ -107152,6 +107472,11 @@
             "hp": 384
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-revans-forbidden-agastia-rebuild.md「スキルレベル上限」"
       }
     },
     {
@@ -107443,6 +107768,11 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-limited-phoenixs-torch.md「スキルレベル上限」"
       }
     },
     {
@@ -107692,6 +108022,11 @@
             "hp": 336
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-magna-reverse-colossus-cane-ira.md「スキルレベル上限」"
       }
     },
     {
@@ -110168,6 +110503,11 @@
             "hp": 201
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-magna-colossus-carbine.md「スキルレベル上限」"
       }
     },
     {
@@ -110224,6 +110564,11 @@
             "hp": 203
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-magna-chevalier-bolt.md「スキルレベル上限」"
       }
     },
     {
@@ -111178,6 +111523,11 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-limited-benedia.md「スキルレベル上限」"
       }
     },
     {
@@ -111234,6 +111584,11 @@
             "hp": 202
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-magna-tiamat-bolt.md「スキルレベル上限」"
       }
     },
     {
@@ -114546,6 +114901,11 @@
             "hp": 190
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-regalia-abyss-rook.md「スキルレベル上限」"
       }
     },
     {
@@ -117217,6 +117577,11 @@
             "hp": 217
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-ancestral-galleon-jaw.md「スキルレベル上限」"
       }
     },
     {
@@ -119298,6 +119663,11 @@
             "hp": 195
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-magna-reverse-tiamat-bolt-aura.md「スキルレベル上限」"
       }
     },
     {
@@ -119357,6 +119727,11 @@
             "hp": 199
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-magna-reverse-chevalier-bolt-credo.md「スキルレベル上限」"
       }
     },
     {
@@ -119745,6 +120120,11 @@
             "hp": 305
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 1,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-job-boogeyman.md「スキルレベル上限」"
       }
     },
     {
@@ -120738,6 +121118,11 @@
             "hp": 281
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-magna-tiamat-gauntlet.md「スキルレベル上限」"
       }
     },
     {
@@ -120861,6 +121246,11 @@
             "hp": 280
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-magna-colossus-fist.md「スキルレベル上限」"
       }
     },
     {
@@ -122755,6 +123145,11 @@
             "hp": 278
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-magna-celeste-claw.md「スキルレベル上限」"
       }
     },
     {
@@ -125651,6 +126046,11 @@
             "hp": 270
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-regalia-brahman-gauntlet.md「スキルレベル上限」"
       }
     },
     {
@@ -125706,6 +126106,11 @@
             "hp": 270
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-regalia-mithra-gauntlet.md「スキルレベル上限」"
       }
     },
     {
@@ -126350,6 +126755,11 @@
             "hp": 290
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-seraphic-weapon.md「スキルレベル上限」"
       }
     },
     {
@@ -127783,6 +128193,11 @@
             "hp": 297
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-ancestral-wilnas-finger.md「スキルレベル上限」"
       }
     },
     {
@@ -127914,6 +128329,11 @@
             "hp": 270
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-regalia-spirit-of-mana.md「スキルレベル上限」"
       }
     },
     {
@@ -128432,6 +128852,11 @@
             "hp": 310
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-menace-no-face.md「スキルレベル上限」"
       }
     },
     {
@@ -129253,6 +129678,11 @@
             "hp": 244
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-ennead-abu-simbel.md「スキルレベル上限」"
       }
     },
     {
@@ -130537,6 +130967,11 @@
             "hp": 270
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-magna-reverse-celeste-grace-aeter.md「スキルレベル上限」"
       }
     },
     {
@@ -130668,6 +131103,11 @@
             "hp": 274
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-trunk-arbos.md「スキルレベル上限」"
       }
     },
     {
@@ -133162,6 +133602,11 @@
             "hp": 261
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-magna-levian-bow.md「スキルレベル上限」"
       }
     },
     {
@@ -135184,6 +135629,11 @@
             "hp": 250
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-menace-ougi-nuki.md「スキルレベル上限」"
       }
     },
     {
@@ -137138,6 +137588,11 @@
             "hp": 250
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-regalia-tyros-bow.md「スキルレベル上限」"
       }
     },
     {
@@ -137193,6 +137648,11 @@
             "hp": 250
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-regalia-mithra-bow.md「スキルレベル上限」"
       }
     },
     {
@@ -137614,6 +138074,11 @@
             "hp": 270
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-seraphic-weapon.md「スキルレベル上限」"
       }
     },
     {
@@ -138766,6 +139231,11 @@
             "hp": 223
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-menace-agonize.md「スキルレベル上限」"
       }
     },
     {
@@ -139059,6 +139529,11 @@
             "hp": 278
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-ennead-harsiesis.md「スキルレベル上限」"
       }
     },
     {
@@ -139262,6 +139737,11 @@
             "hp": 249
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-ennead-ished.md「スキルレベル上限」"
       }
     },
     {
@@ -140166,6 +140646,11 @@
             "hp": 253
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-magna-reverse-tiamat-shot-aura.md「スキルレベル上限」"
       }
     },
     {
@@ -141565,6 +142050,11 @@
             "hp": 265
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-magna-chevalier-harp.md「スキルレベル上限」"
       }
     },
     {
@@ -141621,6 +142111,11 @@
             "hp": 261
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-magna-celeste-harp.md「スキルレベル上限」"
       }
     },
     {
@@ -145847,6 +146342,11 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-regalia-tyros-vignette.md「スキルレベル上限」"
       }
     },
     {
@@ -145902,6 +146402,11 @@
             "hp": 260
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-regalia-last-storm-harp.md「スキルレベル上限」"
       }
     },
     {
@@ -146662,6 +147167,11 @@
             "hp": 270
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-seraphic-weapon.md「スキルレベル上限」"
       }
     },
     {
@@ -148665,6 +149175,11 @@
             "hp": 350
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-regalia-zechariah.md「スキルレベル上限」"
       }
     },
     {
@@ -150414,6 +150929,11 @@
             "hp": 419
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-draconic-origin-harp.md「スキルレベル上限」"
       }
     },
     {
@@ -150766,6 +151286,11 @@
             "hp": 312
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-magna-reverse-yggdrasil-string-arbos.md「スキルレベル上限」"
       }
     },
     {
@@ -153559,6 +154084,11 @@
             "hp": 210
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 20,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-magna-colossus-blade.md「スキルレベル上限」"
       }
     },
     {
@@ -154916,6 +155446,11 @@
             "hp": 200
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-menace-kensei-fukuro-shinai.md「スキルレベル上限」"
       }
     },
     {
@@ -156852,6 +157387,11 @@
             "hp": 200
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/earth-ssr-regalia-nibelung-klinge.md「スキルレベル上限」"
       }
     },
     {
@@ -156907,6 +157447,11 @@
             "hp": 200
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-regalia-last-storm-blade.md「スキルレベル上限」"
       }
     },
     {
@@ -158948,6 +159493,11 @@
             "hp": 224
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/wind-ssr-ancestral-ewiyar-beak.md「スキルレベル上限」"
       }
     },
     {
@@ -159532,6 +160082,11 @@
             "hp": 202
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-ennead-horakhty.md「スキルレベル上限」"
       }
     },
     {
@@ -160688,6 +161243,11 @@
         "uncapLevel": 4,
         "attack": 3441,
         "hp": 182
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/fire-ssr-solomons-accelerator.md「スキルレベル上限」"
       }
     },
     {
@@ -161093,6 +161653,11 @@
             "hp": 253
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-revans-simmetria-rebuild.md「スキルレベル上限」"
       }
     },
     {
@@ -161148,6 +161713,11 @@
             "hp": 209
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/light-ssr-magna-reverse-chevalier-saber-credo.md「スキルレベル上限」"
       }
     },
     {
@@ -161203,6 +161773,11 @@
             "hp": 201
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/dark-ssr-magna-reverse-celeste-saber-aeter.md「スキルレベル上限」"
       }
     },
     {
@@ -161334,6 +161909,11 @@
             "hp": 222
           }
         ]
+      },
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "下書き",
+        "source": "knowledge/water-ssr-magna-reverse-levian-blade-mare.md「スキルレベル上限」"
       }
     },
     {
