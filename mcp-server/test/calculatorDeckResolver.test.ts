@@ -499,6 +499,34 @@ test("uses provisional attack and critical values at SLv10 while retaining an ef
   );
 });
 
+test("resolves Wiki-derived attack and critical curves at an intermediate skill level", () => {
+  const result = resolveCalculatorDeckConfig({
+    schemaVersion: 1,
+    format: "gbf-helper-calculator-deck",
+    protagonist: { elementCode: "1", attackOverride: 1, hpOverride: 1 },
+    weapons: [
+      {
+        slot: 1,
+        position: "main",
+        weaponId: "1040201400",
+        skillLevel: 11,
+        attackOverride: 2170,
+        hpOverride: 241,
+      },
+    ],
+  });
+
+  assert.deepEqual(
+    result.deck.effectiveWeaponSkillEffects?.map((effect) => [effect.sourceSkillId, effect.kind, effect.baseAmountPercent]),
+    [
+      ["25", "normal-attack-up", 15.6],
+      ["74", "critical-rate-up", 2.2],
+    ],
+  );
+  assert.equal(result.issues.some((issue) => issue.code === "missing-weapon-skill-level"), false);
+  assert.equal(result.issues.some((issue) => issue.code === "unverified-weapon-skill-effect"), true);
+});
+
 test("reproduces Agni's observed 170% boost and main-only elemental attack aura", () => {
   const result = resolveCalculatorDeckConfig({
     schemaVersion: 1,

@@ -2,6 +2,28 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { loadIncrementalWeaponCatalog } from "../src/calculator/weaponCatalog.ts";
 
+function selectSkillLevelAmounts(
+  effects: Array<{ skillLevel?: number; amountPercent?: number }>,
+  expected: readonly (readonly [number, number])[],
+) {
+  return expected.map(([skillLevel]) => {
+    const effect = effects.find((candidate) => candidate.skillLevel === skillLevel);
+    return [skillLevel, effect?.amountPercent];
+  });
+}
+
+function assertContiguousSkillLevels(
+  effects: Array<{ skillLevel?: number }>,
+  maximumSkillLevel: number,
+  message: string,
+) {
+  assert.deepEqual(
+    [...new Set(effects.map((effect) => effect.skillLevel))].sort((left, right) => (left ?? 0) - (right ?? 0)),
+    Array.from({ length: maximumSkillLevel }, (_, index) => index + 1),
+    message,
+  );
+}
+
 test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
@@ -31,7 +53,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
       [20, 13, "下書き"],
     ],
   );
-  assert.equal(fireMightEffects.some((effect) => effect.skillLevel === 16), false);
+  assert.equal(fireMightEffects.find((effect) => effect.skillLevel === 16)?.amountPercent, 12.2);
   const magnaStaminaSkillNames = [
     "機炎方陣・渾身III",
     "海神方陣・渾身III",
@@ -146,7 +168,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
     const effects = catalog.skills.get(skillId)?.effects
       .filter((effect) => effect.kind === "normal-attack-up") ?? [];
     assert.deepEqual(
-      effects.map((effect) => [effect.skillLevel, effect.amountPercent]),
+      selectSkillLevelAmounts(effects, expected),
       expected,
       `normal attack table for skill ${skillId}`,
     );
@@ -206,7 +228,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
     const effects = catalog.skills.get(skillId)?.effects
       .filter((effect) => effect.kind === "normal-hp-up") ?? [];
     assert.deepEqual(
-      effects.map((effect) => [effect.skillLevel, effect.amountPercent]),
+      selectSkillLevelAmounts(effects, expected),
       expected,
       `normal HP table for skill ${skillId}`,
     );
@@ -559,11 +581,13 @@ test("loads the initial incremental weapon and skill catalog", () => {
   assert.deepEqual(
     catalog.skills.get("74")?.effects
       .filter((effect) => effect.kind === "critical-rate-up")
+      .filter((effect) => [1, 10, 15, 20].includes(effect.skillLevel ?? -1))
       .map((effect) => [effect.skillLevel, effect.amountPercent, effect.verificationStatus]),
     [
       [15, 3, "検証済み"],
       [10, 2, "下書き"],
       [20, 4, "下書き"],
+      [1, 1.1, "下書き"],
     ],
   );
   assert.equal(
@@ -574,23 +598,38 @@ test("loads the initial incremental weapon and skill catalog", () => {
   const sharedRateTableCases = [
     ["75", "critical-rate-up", "normal", [[10, 2], [15, 3], [20, 4]]],
     ["293", "critical-rate-up", "magna", [[10, 8], [15, 10], [20, 11]]],
-    ["46", "double-attack-rate-up", "normal", [[10, 2.5], [15, 3.5], [20, 4.5]]],
-    ["632", "double-attack-rate-up", "normal", [[10, 2], [15, 3.5]]],
-    ["632", "triple-attack-rate-up", "normal", [[10, 2], [15, 3.5]]],
+    ["46", "double-attack-rate-up", "normal", [[10, 2.2], [15, 3.5]]],
+    ["632", "double-attack-rate-up", "normal", [[10, 2.5], [15, 3.5]]],
+    ["632", "triple-attack-rate-up", "normal", [[10, 2.5], [15, 3.5]]],
     ["867", "triple-attack-rate-up", "normal", [[10, 1.35], [15, 2]]],
     ["1507", "triple-attack-rate-up", "normal", [[10, 2.15], [15, 2.9], [20, 3.65]]],
     ["931", "triple-attack-rate-up", "magna", [[10, 1.35], [15, 2]]],
-    ["2915", "triple-attack-rate-up", "normal", [[10, 3.45], [15, 4.2]]],
+    ["2915", "triple-attack-rate-up", "normal", [[10, 3.45], [15, 4.2], [20, 4.95], [25, 5.7]]],
   ] as const;
   for (const [skillId, kind, boostGroup, expected] of sharedRateTableCases) {
     const effects = catalog.skills.get(skillId)?.effects.filter((effect) => effect.kind === kind) ?? [];
     assert.deepEqual(
-      effects.map((effect) => [effect.skillLevel, effect.amountPercent]),
+      selectSkillLevelAmounts(effects, expected),
       expected,
       `${kind} table for skill ${skillId}`,
     );
     assert.equal(effects.every((effect) => effect.boostGroup === boostGroup), true);
     assert.equal(effects.every((effect) => effect.verificationStatus === "下書き"), true);
+  }
+  const contiguousCurveCases = [
+    ["2", "normal-attack-up", 20],
+    ["764", "normal-attack-up", 25],
+    ["1228", "normal-attack-up", 25],
+    ["12", "normal-hp-up", 20],
+    ["75", "critical-rate-up", 20],
+    ["46", "double-attack-rate-up", 15],
+    ["52", "double-attack-rate-up", 25],
+    ["632", "triple-attack-rate-up", 15],
+    ["2915", "triple-attack-rate-up", 25],
+  ] as const;
+  for (const [skillId, kind, maximumSkillLevel] of contiguousCurveCases) {
+    const effects = catalog.skills.get(skillId)?.effects.filter((effect) => effect.kind === kind) ?? [];
+    assertContiguousSkillLevels(effects, maximumSkillLevel, `${kind} full curve for skill ${skillId}`);
   }
   assert.equal(catalog.skills.get("323")?.unsupportedEffects, undefined);
   assert.equal(catalog.skills.get("867")?.unsupportedEffects, undefined);

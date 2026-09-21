@@ -5383,7 +5383,7 @@
       "name": "紅蓮の神威",
       "description": "火属性キャラの攻撃力と最大HPが上昇(大)",
       "normalAttackAmountTable": {
-        "tableId": "normal-large",
+        "tableId": "normal-godmight-large",
         "elementCode": "1"
       },
       "normalHpAmountTable": {
@@ -5400,7 +5400,7 @@
       "name": "霧氷の神威",
       "description": "水属性キャラの攻撃力と最大HPが上昇(大)",
       "normalAttackAmountTable": {
-        "tableId": "normal-large",
+        "tableId": "normal-godmight-large",
         "elementCode": "2"
       },
       "normalHpAmountTable": {
@@ -5416,7 +5416,7 @@
       "name": "地裂の神威",
       "description": "土属性キャラの攻撃力と最大HPが上昇(大)",
       "normalAttackAmountTable": {
-        "tableId": "normal-large",
+        "tableId": "normal-godmight-large",
         "elementCode": "3"
       },
       "normalHpAmountTable": {
@@ -5433,7 +5433,7 @@
       "name": "乱気の神威",
       "description": "風属性キャラの攻撃力と最大HPが上昇(大)",
       "normalAttackAmountTable": {
-        "tableId": "normal-large",
+        "tableId": "normal-godmight-large",
         "elementCode": "4"
       },
       "normalHpAmountTable": {
@@ -5450,7 +5450,7 @@
       "name": "天光の神威",
       "description": "光属性キャラの攻撃力と最大HPが上昇(大)",
       "normalAttackAmountTable": {
-        "tableId": "normal-large",
+        "tableId": "normal-godmight-large",
         "elementCode": "5"
       },
       "normalHpAmountTable": {
@@ -5467,7 +5467,7 @@
       "name": "奈落の神威",
       "description": "闇属性キャラの攻撃力と最大HPが上昇(大)",
       "normalAttackAmountTable": {
-        "tableId": "normal-large",
+        "tableId": "normal-godmight-large",
         "elementCode": "6"
       },
       "normalHpAmountTable": {

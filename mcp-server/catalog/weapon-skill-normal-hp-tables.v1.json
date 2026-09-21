@@ -4,80 +4,627 @@
     {
       "tableId": "normal-godmight-small",
       "values": [
-        { "skillLevel": 1, "amountPercent": 1 },
-        { "skillLevel": 10, "amountPercent": 10 },
-        { "skillLevel": 15, "amountPercent": 12 },
-        { "skillLevel": 20, "amountPercent": 12.5 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 1
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 2
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 3
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 4
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 5
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 7
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 8
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 9
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 10.4
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 10.8
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 11.2
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 11.6
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 12
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 12.1
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 12.2
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 12.3
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 12.4
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 12.5
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供の攻略サイト表画像2点（2026-09-13、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "normal-godmight-medium",
       "values": [
-        { "skillLevel": 1, "amountPercent": 3 },
-        { "skillLevel": 10, "amountPercent": 12 },
-        { "skillLevel": 15, "amountPercent": 14.5 },
-        { "skillLevel": 20, "amountPercent": 15.5 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 3
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 4
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 5
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 7
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 8
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 9
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 11
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 12
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 12.5
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 13
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 13.5
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 14
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 14.5
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 14.7
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 14.9
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 15.1
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 15.3
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 15.5
+        },
+        {
+          "skillLevel": 21,
+          "amountPercent": 15.7
+        },
+        {
+          "skillLevel": 22,
+          "amountPercent": 15.9
+        },
+        {
+          "skillLevel": 23,
+          "amountPercent": 16.1
+        },
+        {
+          "skillLevel": 24,
+          "amountPercent": 16.3
+        },
+        {
+          "skillLevel": 25,
+          "amountPercent": 16.5
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供の攻略サイト表画像2点（2026-09-13）。SLv15の14.5%は炎威の翼鎌と両面アグニ170%のHP63.8%表示で実機一致（2026-09-21）、ほかのSLvは未検証"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き。SLv15の14.5%は炎威の翼鎌と両面アグニ170%のHP63.8%表示で実機一致（2026-09-21）、ほかのSLvは未検証"
     },
     {
       "tableId": "normal-godmight-large",
       "values": [
-        { "skillLevel": 1, "amountPercent": 6 },
-        { "skillLevel": 10, "amountPercent": 15 },
-        { "skillLevel": 15, "amountPercent": 18 },
-        { "skillLevel": 20, "amountPercent": 20 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 7
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 8
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 9
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 11
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 12
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 13
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 14
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 15
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 15.6
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 16.2
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 16.8
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 17.4
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 18
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 18.4
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 18.8
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 19.2
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 19.6
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 20
+        },
+        {
+          "skillLevel": 21,
+          "amountPercent": 20.4
+        },
+        {
+          "skillLevel": 22,
+          "amountPercent": 20.8
+        },
+        {
+          "skillLevel": 23,
+          "amountPercent": 21.2
+        },
+        {
+          "skillLevel": 24,
+          "amountPercent": 21.6
+        },
+        {
+          "skillLevel": 25,
+          "amountPercent": 22
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供の攻略サイト表画像2点（2026-09-13、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "normal-aegis-small",
       "values": [
-        { "skillLevel": 10, "amountPercent": 12 },
-        { "skillLevel": 15, "amountPercent": 14 },
-        { "skillLevel": 20, "amountPercent": 16 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 3
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 4
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 5
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 7
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 8
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 9
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 11
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 12
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 12.4
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 12.8
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 13.2
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 13.6
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 14
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 14.4
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 14.8
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 15.2
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 15.6
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 16
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供の攻略サイト表画像（2026-09-13、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き。SLv20は既存のユーザー提供攻略サイト表を維持"
     },
     {
       "tableId": "normal-aegis-medium",
       "values": [
-        { "skillLevel": 10, "amountPercent": 15 },
-        { "skillLevel": 15, "amountPercent": 17 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 7
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 8
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 9
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 11
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 12
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 13
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 14
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 15
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 15.4
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 15.8
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 16.2
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 16.6
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 17
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供の攻略サイト表画像（2026-09-13、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "normal-aegis-large",
       "values": [
-        { "skillLevel": 10, "amountPercent": 18 },
-        { "skillLevel": 15, "amountPercent": 21 },
-        { "skillLevel": 20, "amountPercent": 24 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 9
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 11
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 12
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 13
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 14
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 15
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 16
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 17
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 18
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 18.6
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 19.2
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 19.8
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 20.4
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 21
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 21.6
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 22.2
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 22.8
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 23.4
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 24
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供の攻略サイト表画像（2026-09-13、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き。SLv20は既存のユーザー提供攻略サイト表を維持"
     },
     {
       "tableId": "normal-aegis-ii",
       "values": [
-        { "skillLevel": 10, "amountPercent": 19 },
-        { "skillLevel": 15, "amountPercent": 24 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 11
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 12
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 13
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 14
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 15
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 16
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 17
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 18
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 19
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 20
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 21
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 22
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 23
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 24
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供の攻略サイト表画像（2026-09-13、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "omega-hp",
       "values": [
-        { "skillLevel": 10, "amountPercent": 10 },
-        { "skillLevel": 15, "amountPercent": 15 },
-        { "skillLevel": 20, "amountPercent": 20 }
+        {
+          "skillLevel": 10,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 15
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 20
+        }
       ],
       "verificationStatus": "下書き",
       "source": "ユーザー提供の攻略サイト表画像（2026-09-13、発動条件とskill_idは未確認）"
@@ -85,9 +632,18 @@
     {
       "tableId": "bahamut-hp-low",
       "values": [
-        { "skillLevel": 10, "amountPercent": 15 },
-        { "skillLevel": 15, "amountPercent": 18 },
-        { "skillLevel": 20, "amountPercent": 21 }
+        {
+          "skillLevel": 10,
+          "amountPercent": 15
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 18
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 21
+        }
       ],
       "verificationStatus": "下書き",
       "source": "ユーザー提供の攻略サイト表画像（2026-09-13、種族条件とskill_idは未確認）"
@@ -95,9 +651,18 @@
     {
       "tableId": "bahamut-hp-high",
       "values": [
-        { "skillLevel": 10, "amountPercent": 30 },
-        { "skillLevel": 15, "amountPercent": 40 },
-        { "skillLevel": 20, "amountPercent": 45 }
+        {
+          "skillLevel": 10,
+          "amountPercent": 30
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 40
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 45
+        }
       ],
       "verificationStatus": "下書き",
       "source": "ユーザー提供の攻略サイト表画像（2026-09-13、種族条件とskill_idは未確認）"
@@ -105,12 +670,89 @@
     {
       "tableId": "magna-hp-small",
       "values": [
-        { "skillLevel": 10, "amountPercent": 12 },
-        { "skillLevel": 15, "amountPercent": 14 },
-        { "skillLevel": 20, "amountPercent": 16 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 3
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 4
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 5
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 7
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 8
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 9
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 11
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 12
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 12.4
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 12.8
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 13.2
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 13.6
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 14
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 14.4
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 14.8
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 15.2
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 15.6
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 16
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供の守護量表（2026-09-13）。恩寵SLv15は2026-09-14の実機編成表示116%との一致を確認"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き。SLv15は恩寵の実機編成表示と一致。SLv20は既存のユーザー提供攻略サイト表を維持"
     }
   ]
 }

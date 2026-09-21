@@ -4,126 +4,963 @@
     {
       "tableId": "critical-small",
       "values": [
-        { "skillLevel": 10, "amountPercent": 2 },
-        { "skillLevel": 15, "amountPercent": 3 },
-        { "skillLevel": 20, "amountPercent": 4 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 1.1
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 1.2
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 1.3
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 1.4
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 1.5
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 1.6
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 1.7
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 1.8
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 1.9
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 2
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 2.2
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 2.4
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 2.6
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 2.8
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 3
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 3.2
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 3.4
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 3.6
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 3.8
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 4
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証箇所を含む）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "critical-medium",
       "values": [
-        { "skillLevel": 10, "amountPercent": 5 },
-        { "skillLevel": 15, "amountPercent": 6.5 },
-        { "skillLevel": 20, "amountPercent": 7.5 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 3.2
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 3.4
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 3.6
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 3.8
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 4
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 4.2
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 4.4
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 4.6
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 4.8
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 5
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 5.3
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 5.6
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 5.9
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 6.2
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 6.5
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 6.7
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 6.9
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 7.1
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 7.3
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 7.5
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証箇所を含む）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "critical-large",
       "values": [
-        { "skillLevel": 10, "amountPercent": 8 },
-        { "skillLevel": 15, "amountPercent": 10 },
-        { "skillLevel": 20, "amountPercent": 11 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 4.4
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 4.8
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 5.2
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 5.6
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 6.4
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 6.8
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 7.2
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 7.6
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 8
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 8.4
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 8.8
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 9.2
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 9.6
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 10.2
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 10.4
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 10.6
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 10.8
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 11
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "critical-ii",
       "values": [
-        { "skillLevel": 10, "amountPercent": 10 },
-        { "skillLevel": 15, "amountPercent": 12 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 5.5
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 6.5
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 7
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 7.5
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 8
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 8.5
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 9
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 9.5
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 10.4
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 10.8
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 11.2
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 11.6
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 12
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "double-attack-small",
       "values": [
-        { "skillLevel": 10, "amountPercent": 2.5 },
-        { "skillLevel": 15, "amountPercent": 3.5 },
-        { "skillLevel": 20, "amountPercent": 4.5 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 0.4
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 0.6
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 0.8
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 1
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 1.2
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 1.4
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 1.6
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 1.8
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 2
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 2.2
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 2.46
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 2.72
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 2.98
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 3.24
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 3.5
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き。WikiではSLv1をVerification neededと注記"
     },
     {
       "tableId": "multiattack-small",
       "values": [
-        { "skillLevel": 10, "amountPercent": 2 },
-        { "skillLevel": 15, "amountPercent": 3.5 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 0.25
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 0.5
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 0.75
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 1
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 1.25
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 1.5
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 1.75
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 2
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 2.25
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 2.5
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 2.7
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 2.9
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 3.1
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 3.3
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 3.5
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "multiattack-medium",
       "values": [
-        { "skillLevel": 10, "amountPercent": 3.5 },
-        { "skillLevel": 15, "amountPercent": 5 },
-        { "skillLevel": 20, "amountPercent": 6 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 0.8
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 1.1
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 1.4
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 1.7
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 2
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 2.3
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 2.6
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 2.9
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 3.2
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 3.5
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 3.8
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 4.1
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 4.4
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 4.7
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 5
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 5.2
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 5.4
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 5.6
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 5.8
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 21,
+          "amountPercent": 6.2
+        },
+        {
+          "skillLevel": 22,
+          "amountPercent": 6.4
+        },
+        {
+          "skillLevel": 23,
+          "amountPercent": 6.6
+        },
+        {
+          "skillLevel": 24,
+          "amountPercent": 6.8
+        },
+        {
+          "skillLevel": 25,
+          "amountPercent": 7
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "multiattack-large",
       "values": [
-        { "skillLevel": 10, "amountPercent": 5 },
-        { "skillLevel": 15, "amountPercent": 7 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 1.2
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 1.6222
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 2.0444
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 2.4667
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 2.8889
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 3.3111
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 3.7333
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 4.1556
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 4.5778
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 5
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 5.4
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 5.8
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 6.2
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 6.6
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 7
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWith・神ゲー攻略の武器スキル表（2026-09-13閲覧、実機未検証箇所を含む）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "fandango-small",
       "values": [
-        { "skillLevel": 10, "amountPercent": 1.35 },
-        { "skillLevel": 15, "amountPercent": 2 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 0.18
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 0.31
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 0.44
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 0.57
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 0.7
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 0.83
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 0.96
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 1.09
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 1.22
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 1.35
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 1.48
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 1.61
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 1.74
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 1.87
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 2
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWithの武器スキル表（2026-09-13閲覧、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "fandango-medium",
       "values": [
-        { "skillLevel": 10, "amountPercent": 2.15 },
-        { "skillLevel": 15, "amountPercent": 2.9 },
-        { "skillLevel": 20, "amountPercent": 3.65 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 0.8
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 0.95
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 1.1
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 1.25
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 1.4
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 1.55
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 1.7
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 1.85
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 2
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 2.15
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 2.3
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 2.45
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 2.6
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 2.75
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 2.9
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 3.05
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 3.2
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 3.35
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 3.5
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 3.65
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWithの武器スキル表（2026-09-13閲覧、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "fandango-large",
       "values": [
-        { "skillLevel": 10, "amountPercent": 3.45 },
-        { "skillLevel": 15, "amountPercent": 4.2 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 1.2
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 1.45
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 1.7
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 1.95
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 2.2
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 2.45
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 2.7
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 2.95
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 3.2
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 3.45
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 3.6
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 3.75
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 3.9
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 4.05
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 4.2
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 4.35
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 4.5
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 4.65
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 4.8
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 4.95
+        },
+        {
+          "skillLevel": 21,
+          "amountPercent": 5.1
+        },
+        {
+          "skillLevel": 22,
+          "amountPercent": 5.25
+        },
+        {
+          "skillLevel": 23,
+          "amountPercent": 5.4
+        },
+        {
+          "skillLevel": 24,
+          "amountPercent": 5.55
+        },
+        {
+          "skillLevel": 25,
+          "amountPercent": 5.7
+        }
       ],
       "verificationStatus": "下書き",
-      "source": "GameWithの武器スキル表（2026-09-13閲覧、実機未検証）"
+      "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
     },
     {
       "tableId": "healing-cap-small",
       "values": [
-        { "skillLevel": 1, "amountPercent": 1 },
-        { "skillLevel": 2, "amountPercent": 1.5 },
-        { "skillLevel": 3, "amountPercent": 2 },
-        { "skillLevel": 4, "amountPercent": 2.4 },
-        { "skillLevel": 5, "amountPercent": 2.8 },
-        { "skillLevel": 6, "amountPercent": 3.2 },
-        { "skillLevel": 7, "amountPercent": 3.6 },
-        { "skillLevel": 8, "amountPercent": 4 },
-        { "skillLevel": 9, "amountPercent": 4.5 },
-        { "skillLevel": 10, "amountPercent": 5 },
-        { "skillLevel": 11, "amountPercent": 5.5 },
-        { "skillLevel": 12, "amountPercent": 6 },
-        { "skillLevel": 13, "amountPercent": 6.5 },
-        { "skillLevel": 14, "amountPercent": 7 },
-        { "skillLevel": 15, "amountPercent": 7.5 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 1
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 1.5
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 2
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 2.4
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 2.8
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 3.2
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 3.6
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 4
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 4.5
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 5
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 5.5
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 6.5
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 7
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 7.5
+        }
       ],
       "verificationStatus": "下書き",
       "source": "神ゲー攻略『治癒スキルまとめ』およびユーザー提供表画像（2026-09-14閲覧、実機未検証箇所を含む）"
@@ -131,17 +968,50 @@
     {
       "tableId": "healing-cap-medium",
       "values": [
-        { "skillLevel": 1, "amountPercent": 3 },
-        { "skillLevel": 2, "amountPercent": 3.5 },
-        { "skillLevel": 3, "amountPercent": 4 },
-        { "skillLevel": 4, "amountPercent": 4.5 },
-        { "skillLevel": 5, "amountPercent": 5 },
-        { "skillLevel": 6, "amountPercent": 5.5 },
-        { "skillLevel": 7, "amountPercent": 6 },
-        { "skillLevel": 8, "amountPercent": 6.5 },
-        { "skillLevel": 9, "amountPercent": 7 },
-        { "skillLevel": 10, "amountPercent": 7.5 },
-        { "skillLevel": 15, "amountPercent": 10 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 3
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 3.5
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 4
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 4.5
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 5
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 5.5
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 6.5
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 7
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 7.5
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 10
+        }
       ],
       "verificationStatus": "下書き",
       "source": "神ゲー攻略『治癒スキルまとめ』およびユーザー提供表画像（2026-09-14閲覧、実機未検証）"
@@ -149,8 +1019,14 @@
     {
       "tableId": "healing-cap-large",
       "values": [
-        { "skillLevel": 10, "amountPercent": 10 },
-        { "skillLevel": 15, "amountPercent": 15 }
+        {
+          "skillLevel": 10,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 15
+        }
       ],
       "verificationStatus": "下書き",
       "source": "神ゲー攻略『治癒スキルまとめ』およびユーザー提供表画像（2026-09-14閲覧、SLv15は別途実機照合）"
@@ -158,26 +1034,86 @@
     {
       "tableId": "omega-healing-cap-ii",
       "values": [
-        { "skillLevel": 1, "amountPercent": 5 },
-        { "skillLevel": 2, "amountPercent": 5.5 },
-        { "skillLevel": 3, "amountPercent": 6 },
-        { "skillLevel": 4, "amountPercent": 6.5 },
-        { "skillLevel": 5, "amountPercent": 7 },
-        { "skillLevel": 6, "amountPercent": 7.5 },
-        { "skillLevel": 7, "amountPercent": 8 },
-        { "skillLevel": 8, "amountPercent": 8.5 },
-        { "skillLevel": 9, "amountPercent": 9 },
-        { "skillLevel": 10, "amountPercent": 10 },
-        { "skillLevel": 11, "amountPercent": 11 },
-        { "skillLevel": 12, "amountPercent": 12 },
-        { "skillLevel": 13, "amountPercent": 13 },
-        { "skillLevel": 14, "amountPercent": 14 },
-        { "skillLevel": 15, "amountPercent": 15 },
-        { "skillLevel": 16, "amountPercent": 15.5 },
-        { "skillLevel": 17, "amountPercent": 16 },
-        { "skillLevel": 18, "amountPercent": 16.5 },
-        { "skillLevel": 19, "amountPercent": 17 },
-        { "skillLevel": 20, "amountPercent": 17.5 }
+        {
+          "skillLevel": 1,
+          "amountPercent": 5
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 5.5
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 6.5
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 7
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 7.5
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 8
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 8.5
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 9
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 11
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 12
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 13
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 14
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 15
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 15.5
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 16
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 16.5
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 17
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 17.5
+        }
       ],
       "verificationStatus": "下書き",
       "source": "神ゲー攻略『治癒スキルまとめ』およびユーザー提供表画像（2026-09-14閲覧、実機未検証）"
@@ -185,7 +1121,10 @@
     {
       "tableId": "debuff-resistance-small",
       "values": [
-        { "skillLevel": 15, "amountPercent": 4 }
+        {
+          "skillLevel": 15,
+          "amountPercent": 4
+        }
       ],
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のコロッサスバスター・イラ実機編成（方陣強化170%時10.8%から基礎4%を確認）",
@@ -194,7 +1133,10 @@
     {
       "tableId": "destruction-triple-attack-small",
       "values": [
-        { "skillLevel": 15, "amountPercent": 2.5 }
+        {
+          "skillLevel": 15,
+          "amountPercent": 2.5
+        }
       ],
       "verificationStatus": "検証済み",
       "source": "ユーザー提供のブラフマントライデント実機編成（方陣強化170%時6.75%から基礎2.5%を確認）",
