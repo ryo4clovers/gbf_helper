@@ -18,7 +18,7 @@
 
 ## ファイル一覧
 
-個別Markdownは全180ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証または一部のみ実機確認済み)。
+個別Markdownは全186ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証または一部のみ実機確認済み)。
 
 ### セラフィックウェポン
 
@@ -46,6 +46,12 @@
 | [fire-ssr-limited-kerak.md](./fire-ssr-limited-kerak.md) | ケラク / Kerak | 火 |
 | [fire-ssr-limited-sennen-goji.md](./fire-ssr-limited-sennen-goji.md) | 千年護持 / Sennen Goji | 火 |
 | [fire-ssr-limited-overrider.md](./fire-ssr-limited-overrider.md) | オーバーライド / Overrider | 火 |
+| [water-ssr-limited-murgleis.md](./water-ssr-limited-murgleis.md) | ミュルグレス / Murgleis | 水 |
+| [water-ssr-limited-knight-of-ice.md](./water-ssr-limited-knight-of-ice.md) | ナイト・オブ・アイス / Knight of Ice | 水 |
+| [water-ssr-limited-gospel-of-water-and-sky.md](./water-ssr-limited-gospel-of-water-and-sky.md) | 水天の福音 / Gospel of Water and Sky | 水 |
+| [water-ssr-limited-galileis-insight.md](./water-ssr-limited-galileis-insight.md) | ガリレオ・サイト / Galilei's Insight | 水 |
+| [water-ssr-limited-atlantis.md](./water-ssr-limited-atlantis.md) | アトランティス / Atlantis | 水 |
+| [water-ssr-limited-calamitous-aquashade.md](./water-ssr-limited-calamitous-aquashade.md) | 水禍の麗傘 / Calamitous Aquashade | 水 |
 
 ### 恒常ガチャ武器
 
