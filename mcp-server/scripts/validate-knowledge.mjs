@@ -209,10 +209,47 @@ function validateWeaponWikiCatalog() {
   console.log(`validated weapon wiki catalog: ${value.weapons.length} rows (${weaponIds.size} master IDs)`);
 }
 
+function validateWeaponGameWithCatalog() {
+  const relativePath = "knowledge/weapons/gamewith-catalog.v1.json";
+  const filePath = path.join(repositoryRoot, relativePath);
+  let value;
+  try {
+    value = JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch (error) {
+    errors.push(`${relativePath}: invalid JSON (${error.message})`);
+    return;
+  }
+  if (value.schemaVersion !== 1) errors.push(`${relativePath}: schemaVersion must be 1`);
+  if (!Array.isArray(value.weapons)) {
+    errors.push(`${relativePath}: weapons must be an array`);
+    return;
+  }
+  if (value.source?.rowCount !== value.weapons.length || value.summary?.total !== value.weapons.length) {
+    errors.push(`${relativePath}: source.rowCount and summary.total must match weapons length`);
+  }
+  const articleIds = new Set();
+  for (const [index, weapon] of value.weapons.entries()) {
+    const label = `${relativePath}: weapons[${index}]`;
+    if (typeof weapon.nameJp !== "string" || !weapon.nameJp) errors.push(`${label}.nameJp must be non-empty`);
+    if (typeof weapon.articleId !== "string" || !/^\d+$/u.test(weapon.articleId)) {
+      errors.push(`${label}.articleId must be a numeric string`);
+    }
+    articleIds.add(weapon.articleId);
+    if (!weapon.wikiMatch || !["matched", "ambiguous", "unmatched"].includes(weapon.wikiMatch.status)) {
+      errors.push(`${label}.wikiMatch.status is invalid`);
+    }
+    if (weapon.wikiMatch?.status === "matched" && !/^\d{10}$/u.test(weapon.wikiMatch.weaponId ?? "")) {
+      errors.push(`${label}.wikiMatch.weaponId must be a 10-digit string when matched`);
+    }
+  }
+  console.log(`validated weapon GameWith catalog: ${value.weapons.length} rows (${articleIds.size} articles)`);
+}
+
 for (const category of Object.keys(schemas)) validateFrontmatterCategory(category);
 validateMechanics();
 validateAbilityJson();
 validateWeaponWikiCatalog();
+validateWeaponGameWithCatalog();
 
 if (errors.length > 0) {
   console.error(`\nknowledge validation failed with ${errors.length} error(s):`);

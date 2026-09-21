@@ -12,9 +12,12 @@
 ## 公開Wiki構造化カタログ
 
 - [`wiki-catalog.v1.json`](./wiki-catalog.v1.json): gbf.wikiのCargo `weapons`テーブル3,066行を正規化した一括カタログ。日本語・英語名、レアリティ、属性、武器種、シリーズ、解放日、上限解放境界のHP/ATK、スキル文、奥義文を保持する。
+- [`gamewith-catalog.v1.json`](./gamewith-catalog.v1.json): GameWith「全SSR武器一覧」の1,708件を索引化し、記事URL・属性・武器種・奥義名・スキル名・入手区分と、gbf.wiki武器ID・個別ナレッジ・計算機への接続状況を保持する。説明文の全文は複製せず、事実項目と検証進捗だけを収録する。
 - 2,976行は10桁の実マスターID、90行は属性可変武器の説明用`*_note`行。後者は計算機の選択候補にはしない。
 - コミュニティWiki由来の二次情報であり、全項目を`下書き`相当として扱う。実機で確認した個別Markdownがある場合は、そちらを優先する。
 - 再生成: `node scripts/data-collection/import-wiki-weapon-cargo.mjs --input-dir <取得ファイルのフォルダ> --apply`
+- GameWith索引の再生成: Chromeで通常表示した一覧から取得したJSONを入力し、`node scripts/data-collection/import-gamewith-weapon-catalog.mjs --input <browser-capture.json> --apply`。2026-09-21時点ではgbf.wiki IDと1,672件が一意一致、1件が複数候補、35件が未照合。1,670件は計算機の下書きカタログにも存在する。
+- 本家図鑑は通常の画面遷移で1件ずつ確認し、自然に記録されたレスポンスだけを利用する。全件へのAPI直接リクエストや自動巡回は行わない。`archive/weapon_detail`に`skill_id`が無い場合は、所持品詳細・編成レスポンスをNetwork Recorderで取得して補完する。
 
 ## ファイル一覧
 
