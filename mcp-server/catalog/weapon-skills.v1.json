@@ -3438,8 +3438,8 @@
       },
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02"
     },
     {
       "skillId": "632",
@@ -4350,8 +4350,8 @@
       },
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
       "tripleAttackRateAmountTable": {
         "tableId": "fandango-small",
         "elementCode": "6",
@@ -4438,8 +4438,8 @@
       "description": "闇属性キャラのHPが多いほど攻撃力が上昇(中)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
       "normalStaminaAmountTable": {
         "tableId": "normal-stamina-medium",
         "elementCode": "6"
@@ -6995,6 +6995,29 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1785",
+      "name": "煉の真髄",
+      "description": "闇属性キャラのダメージ上限上昇",
+      "effects": [
+        {
+          "kind": "normal-frame-damage-cap-up",
+          "elementCode": "6",
+          "amountPercent": 7,
+          "skillLevel": 15,
+          "activationCondition": {
+            "kind": "minimum-weapon-level",
+            "level": 150
+          },
+          "verificationStatus": "下書き",
+          "source": "GameWithペイン・アンド・ストレイン（https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/294337、2026-10-02参照）。二次情報、実機差分は未検証",
+          "confirmedAt": "2026-10-02"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02"
+    },
+    {
       "skillId": "1788",
       "name": "焔の約定",
       "description": "火属性キャラの与ダメージ上昇",
@@ -7016,25 +7039,42 @@
       "confirmedAt": "2026-09-21"
     },
     {
+      "skillId": "1793",
+      "name": "煉の約定",
+      "description": "闇属性キャラの与ダメージ上昇",
+      "effects": [
+        {
+          "kind": "supplemental-damage",
+          "elementCode": "6",
+          "amountFlat": 50000,
+          "verificationStatus": "下書き",
+          "source": "GameWithペイン・アンド・ストレイン（https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/294337、2026-10-02参照）。二次情報、実機差分は未検証",
+          "confirmedAt": "2026-10-02"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02"
+    },
+    {
       "skillId": "1794",
       "name": "ボルテージ・オブ・アックスII",
       "description": "装備している「斧」の数が多いほど攻撃力上昇",
       "effects": [
         {
           "kind": "special-ex-attack-up",
-          "elementCode": "1",
           "amountPercent": 8,
           "gridScaling": {
             "kind": "same-weapon-kind-count"
           },
           "verificationStatus": "検証済み",
-          "source": "実機編成表示（2026-09-21）",
+          "source": "実機編成表示（2026-09-21）。闇のペイン・アンド・ストレインでも同じID、斧3本・2スキルの48%表示を確認（2026-10-02）",
           "confirmedAt": "2026-09-21"
         }
       ],
       "verificationStatus": "検証済み",
-      "source": "ユーザー提供のゲーム内武器詳細・編成レスポンス（2026-09-21）で斧1本・同スキル1個のEX攻刃8%、斧2本・同スキル2個の32%、斧3本・同スキル2個の48%、斧3本・同スキル1個の24%、斧5本・同スキル2個の80%かつ上限表示と、両面アグニ下で増幅されないことを確認",
-      "confirmedAt": "2026-09-21"
+      "source": "ユーザー提供のゲーム内武器詳細・編成レスポンス（2026-09-21）で斧1本・同スキル1個のEX攻刃8%、斧2本・同スキル2個の32%、斧3本・同スキル2個の48%、斧3本・同スキル1個の24%、斧5本・同スキル2個の80%かつ上限表示と、両面アグニ下で増幅されないことを確認 武器詳細レスポンスで名称・効果文を再確認（2026-10-02）。",
+      "confirmedAt": "2026-10-02"
     },
     {
       "skillId": "1810",
@@ -7395,6 +7435,18 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "1936",
+      "name": "グガル・アンナ",
+      "description": "闇属性キャラの通常攻撃の与ダメージUP/奥義ゲージ上昇量大幅DOWN ◆メイン装備時",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "闇属性キャラの通常攻撃の与ダメージUP/奥義ゲージ上昇量大幅DOWN ◆メイン装備時"
+      ]
+    },
+    {
       "skillId": "1942",
       "name": "レイジ・オブ・アックス",
       "description": "装備している「斧」の数が多いほど攻撃力/最大HP/連続攻撃確率上昇",
@@ -7587,6 +7639,30 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "2030",
+      "name": "オプティマスブースト・ダーク",
+      "description": "スキル「闇」「憎悪」「奈落」の効果が30%UP",
+      "effects": [
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "6",
+          "amountPercent": 30,
+          "boostGroup": "normal",
+          "targetSkillNamePrefixes": [
+            "闇",
+            "憎悪",
+            "奈落"
+          ],
+          "verificationStatus": "検証済み",
+          "source": "実機武器詳細の30%効果文、2本編成の60%表示（2026-10-02）",
+          "confirmedAt": "2026-10-02"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02"
+    },
+    {
       "skillId": "2034",
       "name": "乱気の衝破",
       "description": "風属性キャラの通常攻撃の与ダメージUP(大)",
@@ -7758,6 +7834,31 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "2179",
+      "name": "奈落の襲刃",
+      "description": "闇属性キャラに闇属性追撃効果(大)",
+      "effects": [
+        {
+          "kind": "elemental-pursuit",
+          "elementCode": "6",
+          "amountPercent": 4.5,
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "stackingCapPercent": 50,
+          "activationCondition": {
+            "kind": "minimum-weapon-level",
+            "level": 150
+          },
+          "verificationStatus": "下書き",
+          "source": "GameWith因果の楔針（https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/453317、2026-10-02参照）。2本・通常強化290%で合計35.1%表示と整合、基礎値と上限は要差分検証",
+          "confirmedAt": "2026-10-02"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02"
+    },
+    {
       "skillId": "2192",
       "name": "紅蓮の神醒(通常版)",
       "description": "火属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
@@ -7805,8 +7906,11 @@
       "description": "闇属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、SLv25曲線・与ダメージ量は未検証",
-      "confirmedAt": "2026-09-13"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "闇属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)"
+      ]
     },
     {
       "skillId": "2198",
@@ -7905,8 +8009,11 @@
       "description": "アビリティのダメージ上限上昇/アビリティ命中確率上昇",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス2件（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "アビリティのダメージ上限上昇/アビリティ命中確率上昇"
+      ]
     },
     {
       "skillId": "2210",
@@ -7953,11 +8060,14 @@
     {
       "skillId": "2229",
       "name": "神闇の極技",
-      "description": "闇属性キャラの攻撃力上昇/ダメージ上限上昇/アビリティダメージ上限上昇/アビリティの与ダメージUP / ◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動",
+      "description": "闇属性キャラの攻撃力上昇/ダメージ上限上昇/アビリティダメージ上限上昇/アビリティの与ダメージUP/◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、発動条件・効果量・計算枠は未検証",
-      "confirmedAt": "2026-09-13"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "闇属性キャラの攻撃力上昇/ダメージ上限上昇/アビリティダメージ上限上昇/アビリティの与ダメージUP/◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動"
+      ]
     },
     {
       "skillId": "2286",
@@ -8694,6 +8804,18 @@
       "confirmedAt": "2026-09-13"
     },
     {
+      "skillId": "2543",
+      "name": "奈落の貫破",
+      "description": "闇属性キャラが敵の防御力を一定割合無視(大)/攻撃力上昇(小)",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "闇属性キャラが敵の防御力を一定割合無視(大)/攻撃力上昇(小)"
+      ]
+    },
+    {
       "skillId": "2558",
       "name": "雪の武技",
       "description": "水属性キャラの通常攻撃の与ダメージ上昇",
@@ -8701,6 +8823,30 @@
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "2562",
+      "name": "煉の武技",
+      "description": "闇属性キャラの通常攻撃の与ダメージ上昇",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "闇属性キャラの通常攻撃の与ダメージ上昇"
+      ]
+    },
+    {
+      "skillId": "2568",
+      "name": "グラファイト・アトス",
+      "description": "闇属性キャラの連続攻撃確率上昇/通常攻撃の与ダメージUP/◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で性能UP",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "闇属性キャラの連続攻撃確率上昇/通常攻撃の与ダメージUP/◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で性能UP"
+      ]
     },
     {
       "skillId": "2572",
@@ -8817,7 +8963,11 @@
       "description": "闇属性キャラの攻撃力上昇(特大)/破壊属性追撃効果(特大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-versacia-harp.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "闇属性キャラの攻撃力上昇(特大)/破壊属性追撃効果(特大)"
+      ]
     },
     {
       "skillId": "2638",
@@ -8865,7 +9015,11 @@
       "description": "闇属性キャラの最大HP上昇(特大)/破壊属性奥義追撃効果(特大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-versacia-harp.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "闇属性キャラの最大HP上昇(特大)/破壊属性奥義追撃効果(特大)"
+      ]
     },
     {
       "skillId": "2654",
@@ -8905,7 +9059,11 @@
       "description": "闇属性キャラの通常攻撃ダメージ上限UP/通常攻撃の与ダメージ上昇/有利な属性の敵に対して与ダメージUP/光属性ダメージ軽減 ◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-versacia-harp.md。効果量・計算枠は未検証"
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "闇属性キャラの通常攻撃ダメージ上限UP/通常攻撃の与ダメージ上昇/有利な属性の敵に対して与ダメージUP/光属性ダメージ軽減 ◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動"
+      ]
     },
     {
       "skillId": "2801",
@@ -8995,6 +9153,42 @@
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
+    },
+    {
+      "skillId": "3030",
+      "name": "ディジーズ・デーモンII",
+      "description": "闇属性キャラの通常攻撃のダメージ上限上昇/連続攻撃確率上昇 ◆メイン装備時",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "闇属性キャラの通常攻撃のダメージ上限上昇/連続攻撃確率上昇 ◆メイン装備時"
+      ]
+    },
+    {
+      "skillId": "3031",
+      "name": "テル・イブラームII",
+      "description": "バトル開始時に奥義ゲージUP(100%)/3ターンの間、ターン終了時に奥義即時発動可能/◆メイン装備時/主人公のみ",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "バトル開始時に奥義ゲージUP(100%)/3ターンの間、ターン終了時に奥義即時発動可能/◆メイン装備時/主人公のみ"
+      ]
+    },
+    {
+      "skillId": "3033",
+      "name": "ニガル・イルカルラII",
+      "description": "バトル開始時から4ターンの間、闇属性キャラのオーバースキル・マルチによる連撃効果が必ず発動 ◆メイン装備時",
+      "effects": [],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "confirmedAt": "2026-10-02",
+      "unsupportedEffects": [
+        "バトル開始時から4ターンの間、闇属性キャラのオーバースキル・マルチによる連撃効果が必ず発動 ◆メイン装備時"
+      ]
     }
   ]
 }

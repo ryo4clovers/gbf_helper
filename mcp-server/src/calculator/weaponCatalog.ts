@@ -36,6 +36,7 @@ const effectSchema = z
     elementCode: z.string().min(1).optional(),
     amountPercent: z.number().finite().optional(),
     amountFlat: z.number().finite().nonnegative().optional(),
+    stackingCapPercent: z.number().finite().positive().optional(),
     skillLevel: z.number().int().nonnegative().optional(),
     boostGroup: z.enum(["normal", "magna"]).optional(),
     targetSkillNamePrefixes: z.array(z.string().min(1)).optional(),
@@ -44,6 +45,7 @@ const effectSchema = z
       z.object({ kind: z.literal("enmity") }).strict(),
     ]).optional(),
     activationCondition: z.discriminatedUnion("kind", [
+      z.object({ kind: z.literal("minimum-weapon-level"), level: z.number().int().positive() }).strict(),
       z.object({
         kind: z.literal("minimum-same-weapon-kind-count"),
         count: z.number().int().positive(),
@@ -59,6 +61,9 @@ const effectSchema = z
   })
   .strict()
   .superRefine((effect, context) => {
+    if (effect.stackingCapPercent !== undefined && effect.kind !== "elemental-pursuit") {
+      context.addIssue({ code: "custom", message: "stackingCapPercent is only supported for elemental-pursuit" });
+    }
     const isFlat = effect.kind === "ability-supplemental-damage" || effect.kind === "supplemental-damage";
     if (isFlat && effect.amountFlat === undefined) {
       context.addIssue({ code: "custom", message: `${effect.kind} requires amountFlat` });

@@ -21,7 +21,13 @@
 
 ## ファイル一覧
 
-個別Markdownは全186ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証または一部のみ実機確認済み)。
+個別Markdownは全191ファイル。シリーズ→属性順。すべて `status: 下書き`(数値未検証または一部のみ実機確認済み)。
+
+### ルミナスシリーズ
+
+| ファイル | 武器名 | 属性 |
+| --- | --- | --- |
+| [dark-ssr-illustrious-ereshkigal.md](./dark-ssr-illustrious-ereshkigal.md) | エレシュキガル / Ereshkigal | 闇 |
 
 ### セラフィックウェポン
 
@@ -55,6 +61,10 @@
 | [water-ssr-limited-galileis-insight.md](./water-ssr-limited-galileis-insight.md) | ガリレオ・サイト / Galilei's Insight | 水 |
 | [water-ssr-limited-atlantis.md](./water-ssr-limited-atlantis.md) | アトランティス / Atlantis | 水 |
 | [water-ssr-limited-calamitous-aquashade.md](./water-ssr-limited-calamitous-aquashade.md) | 水禍の麗傘 / Calamitous Aquashade | 水 |
+| [dark-ssr-limited-fallen-sword.md](./dark-ssr-limited-fallen-sword.md) | フォールン・ソード / Fallen Sword | 闇 |
+| [dark-ssr-limited-pain-and-suffering.md](./dark-ssr-limited-pain-and-suffering.md) | ペイン・アンド・ストレイン / Pain and Suffering | 闇 |
+| [dark-ssr-limited-causality-driver.md](./dark-ssr-limited-causality-driver.md) | 因果の楔針 / Causality Driver | 闇 |
+| [dark-ssr-limited-executioner.md](./dark-ssr-limited-executioner.md) | エクセキューショナー / Executioner | 闇 |
 
 ### 恒常ガチャ武器
 

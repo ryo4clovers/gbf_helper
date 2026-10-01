@@ -28,7 +28,7 @@ test("loads the initial incremental weapon and skill catalog", () => {
   const catalog = loadIncrementalWeaponCatalog();
 
   assert.equal(catalog.weapons.size, 2971);
-  assert.equal(catalog.skills.size, 748);
+  assert.equal(catalog.skills.size, 759);
   assert.deepEqual(catalog.weapons.get("1020500200")?.skillSlots, [
     { sourceKey: "skill1", skillId: "1" },
   ]);
@@ -371,15 +371,14 @@ test("loads the initial incremental weapon and skill catalog", () => {
     source: "実機編成・バトル表示（2026-09-21）",
     confirmedAt: "2026-09-21",
   }]);
-  assert.deepEqual(catalog.skills.get("1794")?.effects, [{
-    kind: "special-ex-attack-up",
-    elementCode: "1",
-    amountPercent: 8,
-    gridScaling: { kind: "same-weapon-kind-count" },
-    verificationStatus: "検証済み",
-    source: "実機編成表示（2026-09-21）",
-    confirmedAt: "2026-09-21",
-  }]);
+  const axeVoltage = catalog.skills.get("1794")?.effects;
+  assert.equal(axeVoltage?.length, 1);
+  assert.equal(axeVoltage?.[0].kind, "special-ex-attack-up");
+  assert.equal(axeVoltage?.[0].elementCode, undefined, "the shared fire/dark skill is not fire-only");
+  assert.equal(axeVoltage?.[0].amountPercent, 8);
+  assert.deepEqual(axeVoltage?.[0].gridScaling, { kind: "same-weapon-kind-count" });
+  assert.equal(axeVoltage?.[0].verificationStatus, "検証済み");
+  assert.match(axeVoltage?.[0].source ?? "", /2026-10-02/);
   assert.equal(catalog.skills.get("1794")?.unsupportedEffects, undefined);
   assert.equal(catalog.skills.get("1780")?.effects[0]?.kind, "normal-frame-damage-cap-up");
   assert.equal(catalog.skills.get("1780")?.effects[0]?.amountPercent, 7);

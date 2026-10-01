@@ -9,6 +9,7 @@ import {
 } from "./summonAuraEffectResolver.js";
 import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 import { resolveEffectiveWeaponSkillEffects } from "./weaponEffectResolver.js";
+import { resolveCharacterSkillBoosts } from "./characterSkillBoosts.js";
 import type {
   CalculatorDeckConfig,
   CalculatorDeckProtagonistConfig,
@@ -110,7 +111,8 @@ export type CalculatorDeckResolutionIssueCode =
   | "weapon-skill-level-unresolved"
   | "multiple-weapon-skill-boosts-assumed-additive"
   | "summon-aura-unresolved"
-  | "character-passives-unresolved";
+  | "character-passives-unresolved"
+  | "character-passives-partially-supported";
 
 export interface CalculatorDeckResolutionIssue {
   severity: "warning";
@@ -472,9 +474,11 @@ export function resolveCalculatorDeckConfig(
     appendMissingStatIssues(issues, `characters.${index}`, character.attackOverride, character.hpOverride);
     issues.push({
       severity: "warning",
-      code: "character-passives-unresolved",
+      code: character.characterId === "3040611000" ? "character-passives-partially-supported" : "character-passives-unresolved",
       path: `characters.${index}.characterId`,
-      message: `Character ${character.characterId} is identified, but its passive effects are not resolved yet.`,
+      message: character.characterId === "3040611000"
+        ? "サリエルのスコトゥスアルケー20%強化のみ下書き接続済み。その他のサポート効果・アビリティ・奥義は未接続です。"
+        : `Character ${character.characterId} is identified, but its passive effects are not resolved yet.`,
     });
   });
 
@@ -603,6 +607,7 @@ export function resolveCalculatorDeckConfig(
     deck.weapons,
     deck.summons,
     supportSummon,
+    resolveCharacterSkillBoosts(deck.characters),
   );
   deck.effectiveWeaponSkillEffects = effectResolution.effects;
   deck.effectiveCharacterHpAuras = resolveEffectiveCharacterHpAuras(

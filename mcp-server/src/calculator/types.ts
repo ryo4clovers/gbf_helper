@@ -59,6 +59,8 @@ export interface WeaponSkillEffectDefinition {
   /** Percentage effects use this field; fixed per-hit effects use amountFlat. */
   amountPercent?: number;
   amountFlat?: number;
+  /** Shared cap when multiple occurrences of this pursuit skill are combined. */
+  stackingCapPercent?: number;
   skillLevel?: number;
   boostGroup?: "normal" | "magna";
   targetSkillNamePrefixes?: string[];
@@ -68,7 +70,7 @@ export interface WeaponSkillEffectDefinition {
   activationCondition?: {
     kind: "minimum-same-weapon-kind-count";
     count: number;
-  };
+  } | { kind: "minimum-weapon-level"; level: number };
   /** Multiplies one skill occurrence by matching equipment in the current grid. */
   gridScaling?: {
     kind: "same-weapon-kind-count";
@@ -267,6 +269,17 @@ export interface DeckSummonAura {
 export type AppliedWeaponSkillModifier =
   | {
       kind: "normal-skill-boost";
+      sourceType: "character-passive";
+      sourceCharacterSlot: number;
+      sourceCharacterId: string;
+      sourceCharacterName: string;
+      sourcePassiveName: string;
+      amountPercent: number;
+      verificationStatus: "検証済み" | "下書き";
+      source: string;
+    }
+  | {
+      kind: "normal-skill-boost";
       sourceType: "weapon-skill";
       sourceWeaponSlot: number;
       sourceSkillId: string;
@@ -297,6 +310,7 @@ export interface EffectiveWeaponSkillEffect {
   effectiveAmountPercent: number;
   baseAmountFlat?: number;
   effectiveAmountFlat?: number;
+  stackingCapPercent?: number;
   hpDependentCurve?: HpDependentAttackCurve;
   activationCondition?: WeaponSkillEffectDefinition["activationCondition"];
   gridScaling?: WeaponSkillEffectDefinition["gridScaling"];

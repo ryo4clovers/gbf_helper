@@ -22,16 +22,19 @@ export interface EffectivePursuitDamageResult {
   status: "provisional";
   baseDamage: number;
   pursuitEffect: EffectiveWeaponSkillEffect;
+  pursuitEffects: EffectiveWeaponSkillEffect[];
+  rawPursuitPercentage: number;
+  capPercent?: number;
   effectivePursuitPercentage: number;
   nominalPursuitDamage: number;
   damageDistribution: DamageDistributionSummary;
   issues: EffectivePursuitDamageIssue[];
 }
 
-function selectPursuitEffect(
+function selectPursuitEffects(
   deck: DeckSnapshot,
   options: EffectivePursuitDamageOptions,
-): EffectiveWeaponSkillEffect {
+): EffectiveWeaponSkillEffect[] {
   const elementCode = options.elementCode ?? deck.protagonist.elementCode;
   const matches = (deck.effectiveWeaponSkillEffects ?? []).filter(
     (effect) =>
@@ -39,11 +42,13 @@ function selectPursuitEffect(
       (elementCode === undefined || effect.elementCode === undefined || effect.elementCode === elementCode) &&
       (options.sourceSkillId === undefined || effect.sourceSkillId === options.sourceSkillId),
   );
-  if (matches.length !== 1) {
+  const skillIds = new Set(matches.map((effect) => effect.sourceSkillId));
+  const caps = new Set(matches.map((effect) => effect.stackingCapPercent));
+  if (matches.length === 0 || skillIds.size !== 1 || caps.size !== 1) {
     const selector = options.sourceSkillId === undefined ? "" : ` for skill ${options.sourceSkillId}`;
     throw new Error(`expected exactly one effective pursuit effect${selector}, found ${matches.length}`);
   }
-  return matches[0];
+  return matches;
 }
 
 /**
@@ -59,8 +64,14 @@ export function calculateEffectivePursuitDamage(
   if (!Number.isFinite(baseDamage) || baseDamage < 0) {
     throw new Error("baseDamage must be a finite non-negative number");
   }
-  const pursuitEffect = selectPursuitEffect(deck, options);
-  const effectivePursuitPercentage = pursuitEffect.effectiveAmountPercent;
+  const pursuitEffects = selectPursuitEffects(deck, options);
+  const pursuitEffect = pursuitEffects[0];
+  const rawPursuitPercentage = Math.round(pursuitEffects.reduce(
+    (sum, effect) => sum + effect.effectiveAmountPercent, 0,
+  ) * 1_000_000) / 1_000_000;
+  const capPercent = pursuitEffect.stackingCapPercent;
+  const effectivePursuitPercentage = capPercent === undefined
+    ? rawPursuitPercentage : Math.min(capPercent, rawPursuitPercentage);
   const nominalPursuitDamage =
     Math.round(((baseDamage * effectivePursuitPercentage) / 100) * 1_000_000) / 1_000_000;
   const damageDistribution = summarizeDamageDistribution(nominalPursuitDamage, {
@@ -72,8 +83,8 @@ export function calculateEffectivePursuitDamage(
   });
   const issues: EffectivePursuitDamageIssue[] = [];
   if (
-    pursuitEffect.verificationStatus !== "検証済み" ||
-    pursuitEffect.appliedModifiers.some((modifier) => modifier.verificationStatus !== "検証済み")
+    pursuitEffects.some((effect) => effect.verificationStatus !== "検証済み" ||
+      effect.appliedModifiers.some((modifier) => modifier.verificationStatus !== "検証済み"))
   ) {
     issues.push({
       code: "unverified-effective-pursuit",
@@ -86,6 +97,9 @@ export function calculateEffectivePursuitDamage(
     status: "provisional",
     baseDamage,
     pursuitEffect,
+    pursuitEffects,
+    rawPursuitPercentage,
+    ...(capPercent === undefined ? {} : { capPercent }),
     effectivePursuitPercentage,
     nominalPursuitDamage,
     damageDistribution,

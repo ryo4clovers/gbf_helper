@@ -50142,7 +50142,8 @@
         "level": 150,
         "uncapLevel": 4,
         "attack": 3319,
-        "hp": 292
+        "hp": 292,
+        "skillLevel": 15
       },
       "levelStats": {
         "maximumLevel": 150,
@@ -50164,7 +50165,16 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "631"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "919"
+        }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -50178,7 +50188,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証",
+      "source": "ゲーム内武器詳細レスポンス（2026-10-02）で武器ID・名称・属性・武器種・スキルID/文・取得段階の+0ステータスを確認。その他の上限解放境界・曲線は既存公開Wiki由来のため要検証",
       "uncaps": {
         "minimum": 0,
         "base": 3,
@@ -50186,6 +50196,12 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "confirmedAt": "2026-10-02",
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "検証済み",
+        "source": "実機所持品のmaster.max_weapon_skill_level（2026-10-02）"
       }
     },
     {
@@ -91351,7 +91367,8 @@
         "level": 150,
         "uncapLevel": 4,
         "attack": 2260,
-        "hp": 500
+        "hp": 500,
+        "skillLevel": 15
       },
       "levelStats": {
         "maximumLevel": 150,
@@ -91373,7 +91390,20 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1793"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "1794"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "1785"
+        }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -91392,7 +91422,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証",
+      "source": "ゲーム内武器詳細レスポンス（2026-10-02）で武器ID・名称・属性・武器種・スキルID/文・取得段階の+0ステータスを確認。その他の上限解放境界・曲線は既存公開Wiki由来のため要検証",
       "uncaps": {
         "minimum": 0,
         "base": 3,
@@ -91400,6 +91430,12 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "confirmedAt": "2026-10-02",
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "検証済み",
+        "source": "実機所持品のmaster.max_weapon_skill_level（2026-10-02）"
       }
     },
     {
@@ -91841,7 +91877,8 @@
         "level": 250,
         "uncapLevel": 6,
         "attack": 4627,
-        "hp": 330
+        "hp": 330,
+        "skillLevel": 1
       },
       "levelStats": {
         "maximumLevel": 250,
@@ -91873,7 +91910,24 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "1936"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "3030"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "3031"
+        },
+        {
+          "sourceKey": "skill4",
+          "skillId": "3033"
+        }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -91892,7 +91946,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証",
+      "source": "ゲーム内武器詳細レスポンス（2026-10-02）で武器ID・名称・属性・武器種・スキルID/文・取得段階の+0ステータスを確認。その他の上限解放境界・曲線は既存公開Wiki由来のため要検証",
       "uncaps": {
         "minimum": 3,
         "base": 3,
@@ -91900,6 +91954,12 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "confirmedAt": "2026-10-02",
+      "skillLevelCap": {
+        "maximum": 1,
+        "verificationStatus": "検証済み",
+        "source": "実機所持品のmaster.max_weapon_skill_level（2026-10-02）"
       }
     },
     {
@@ -152132,9 +152192,10 @@
       "seriesId": "44",
       "selectionDefaults": {
         "level": 200,
-        "hp": 501,
-        "attack": 3977,
-        "uncapLevel": 5
+        "hp": 402,
+        "attack": 3482,
+        "uncapLevel": 5,
+        "skillLevel": 1
       },
       "skillSlots": [
         {
@@ -152151,7 +152212,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "実機由来knowledge/dark-ssr-versacia-harp.md。効果量は未検証",
+      "source": "ゲーム内武器詳細レスポンス（2026-10-02）で武器ID・名称・属性・武器種・スキルID/文・取得段階の+0ステータスを確認。その他の上限解放境界・曲線は既存公開Wiki由来のため要検証",
       "uncaps": {
         "minimum": 3,
         "base": 3,
@@ -152184,6 +152245,12 @@
             "hp": 402
           }
         ]
+      },
+      "confirmedAt": "2026-10-02",
+      "skillLevelCap": {
+        "maximum": 1,
+        "verificationStatus": "検証済み",
+        "source": "実機所持品のmaster.max_weapon_skill_level（2026-10-02）"
       }
     },
     {
@@ -158568,9 +158635,10 @@
       "seriesId": "3",
       "selectionDefaults": {
         "level": 250,
-        "hp": 408,
-        "attack": 4985,
-        "uncapLevel": 6
+        "hp": 309,
+        "attack": 4490,
+        "uncapLevel": 6,
+        "skillLevel": 25
       },
       "skillSlots": [
         {
@@ -158587,7 +158655,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "ゲーム内武器詳細レスポンス（2026-09-13）で武器ID・名称・属性・現在選択中のスキルID/文を確認。選択式スキルの全候補と効果量は未検証",
+      "source": "ゲーム内武器詳細レスポンス（2026-10-02）で武器ID・名称・属性・武器種・スキルID/文・取得段階の+0ステータスを確認。その他の上限解放境界・曲線は既存公開Wiki由来のため要検証",
       "uncaps": {
         "minimum": 3,
         "base": 3,
@@ -158625,6 +158693,12 @@
             "hp": 309
           }
         ]
+      },
+      "confirmedAt": "2026-10-02",
+      "skillLevelCap": {
+        "maximum": 25,
+        "verificationStatus": "検証済み",
+        "source": "実機所持品のmaster.max_weapon_skill_level（2026-10-02）"
       }
     },
     {
@@ -162003,7 +162077,8 @@
         "level": 150,
         "uncapLevel": 4,
         "attack": 3628,
-        "hp": 234
+        "hp": 234,
+        "skillLevel": 15
       },
       "levelStats": {
         "maximumLevel": 150,
@@ -162025,7 +162100,20 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2030"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "872"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2179"
+        }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -162044,7 +162132,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証",
+      "source": "ゲーム内武器詳細レスポンス（2026-10-02）で武器ID・名称・属性・武器種・スキルID/文・取得段階の+0ステータスを確認。その他の上限解放境界・曲線は既存公開Wiki由来のため要検証",
       "uncaps": {
         "minimum": 0,
         "base": 3,
@@ -162052,6 +162140,12 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "confirmedAt": "2026-10-02",
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "検証済み",
+        "source": "実機所持品のmaster.max_weapon_skill_level（2026-10-02）"
       }
     },
     {
@@ -162897,7 +162991,7 @@
     },
     {
       "weaponId": "1040918100",
-      "name": "エクスキューショナー",
+      "name": "エクセキューショナー",
       "nameEn": "Executioner",
       "elementCode": "6",
       "weaponKindCode": "10",
@@ -162906,7 +163000,8 @@
         "level": 150,
         "uncapLevel": 4,
         "attack": 3632,
-        "hp": 233
+        "hp": 233,
+        "skillLevel": 15
       },
       "levelStats": {
         "maximumLevel": 150,
@@ -162928,7 +163023,20 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "2562"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2543"
+        },
+        {
+          "sourceKey": "skill3",
+          "skillId": "2568"
+        }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -162947,7 +163055,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証",
+      "source": "ゲーム内武器詳細レスポンス（2026-10-02）で武器ID・名称・属性・武器種・スキルID/文・取得段階の+0ステータスを確認。その他の上限解放境界・曲線は既存公開Wiki由来のため要検証",
       "uncaps": {
         "minimum": 0,
         "base": 3,
@@ -162955,6 +163063,12 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
+      },
+      "confirmedAt": "2026-10-02",
+      "skillLevelCap": {
+        "maximum": 15,
+        "verificationStatus": "検証済み",
+        "source": "実機所持品のmaster.max_weapon_skill_level（2026-10-02）"
       }
     },
     {

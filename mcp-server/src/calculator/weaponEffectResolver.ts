@@ -7,6 +7,7 @@ import type {
   ResolvedSupportSummon,
   WeaponSkillEffectDefinition,
 } from "./types.js";
+import type { CharacterSkillBoost } from "./characterSkillBoosts.js";
 
 export type WeaponEffectResolutionIssueCode =
   | "weapon-skill-level-unresolved"
@@ -51,6 +52,9 @@ function effectAppliesAtConfiguredLevel(source: EffectSource): boolean {
 function effectMeetsActivationCondition(source: EffectSource, weapons: DeckWeapon[]): boolean {
   const condition = source.effect.activationCondition;
   if (condition === undefined) return true;
+  if (condition.kind === "minimum-weapon-level") {
+    return source.weapon.level !== undefined && source.weapon.level >= condition.level;
+  }
   if (condition.kind === "minimum-same-weapon-kind-count") {
     const weaponKindCode = source.weapon.weaponKindCode;
     if (weaponKindCode === undefined) return false;
@@ -128,6 +132,7 @@ export function resolveEffectiveWeaponSkillEffects(
   weapons: DeckWeapon[],
   summons: DeckSummon[] = [],
   supportSummon?: ResolvedSupportSummon,
+  characterSkillBoosts: CharacterSkillBoost[] = [],
 ): WeaponEffectResolution {
   const issues: WeaponEffectResolutionIssue[] = [];
   const reportedLevelIssues = new Set<string>();
@@ -203,6 +208,12 @@ export function resolveEffectiveWeaponSkillEffects(
     const matchingSummonBoosts = selectStrongestSubAuraBoosts(
       summonBoosts.filter((boost) => matchesSummonBoost(source, boost)),
     );
+    const matchingCharacterBoosts = characterSkillBoosts.filter((boost) =>
+      source.effect.kind !== "normal-skill-boost" &&
+      source.effect.boostGroup === boost.boostGroup &&
+      (source.effect.elementCode === undefined || source.effect.elementCode === boost.elementCode) &&
+      boost.prefixes.some((prefix) => source.skill.name?.startsWith(prefix)),
+    );
     if (matchingBoosts.length > 1) {
       issues.push({
         code: "multiple-weapon-skill-boosts-assumed-additive",
@@ -211,6 +222,17 @@ export function resolveEffectiveWeaponSkillEffects(
       });
     }
     const appliedModifiers: AppliedWeaponSkillModifier[] = [
+      ...matchingCharacterBoosts.map((boost): AppliedWeaponSkillModifier => ({
+        kind: "normal-skill-boost",
+        sourceType: "character-passive",
+        sourceCharacterSlot: boost.characterSlot,
+        sourceCharacterId: boost.characterId,
+        sourceCharacterName: boost.characterName,
+        sourcePassiveName: boost.passiveName,
+        amountPercent: boost.amountPercent,
+        verificationStatus: boost.verificationStatus,
+        source: boost.source,
+      })),
       ...matchingBoosts.map(
         (boost): AppliedWeaponSkillModifier => ({
           kind: "normal-skill-boost",
@@ -219,7 +241,7 @@ export function resolveEffectiveWeaponSkillEffects(
           sourceSkillId: boost.skill.id ?? "unknown",
           sourceSkillName: boost.skill.name ?? "unknown",
           amountPercent: boost.effect.amountPercent ?? 0,
-          verificationStatus: boost.skill.verificationStatus ?? "下書き",
+          verificationStatus: boost.effect.verificationStatus ?? boost.skill.verificationStatus ?? "下書き",
         }),
       ),
       ...matchingSummonBoosts.map(
@@ -250,6 +272,7 @@ export function resolveEffectiveWeaponSkillEffects(
       elementCode: source.effect.elementCode,
       baseAmountPercent,
       effectiveAmountPercent: roundPercentage(baseAmountPercent * scaleMultiplier * (1 + boostPercent / 100)),
+      ...(source.effect.stackingCapPercent === undefined ? {} : { stackingCapPercent: source.effect.stackingCapPercent }),
       ...(baseAmountFlat === undefined
         ? {}
         : {

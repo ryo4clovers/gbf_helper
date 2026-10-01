@@ -81,3 +81,21 @@ test("rejects unresolved pursuit effects and invalid base damage", () => {
   );
   assert.throws(() => calculateEffectivePursuitDamage(deck, Number.NaN), /baseDamage/);
 });
+
+test("combines two copies of the dark pursuit skill and caps their shared effect while retaining every source", () => {
+  const effect = (slot: number, percent: number): EffectiveWeaponSkillEffect => ({
+    sourceWeaponSlot: slot, sourceWeaponId: "1040916700", sourceSkillId: "2179", sourceSkillName: "奈落の襲刃",
+    kind: "elemental-pursuit", elementCode: "6", baseAmountPercent: 4.5, effectiveAmountPercent: percent,
+    stackingCapPercent: 50, verificationStatus: slot === 1 ? "検証済み" : "下書き", appliedModifiers: [],
+  });
+  const deck = { ...makeDeck([effect(1, 17.55), effect(2, 17.55)]), protagonist: { elementCode: "6" } };
+  const result = calculateEffectivePursuitDamage(deck, 1000);
+  assert.equal(result.effectivePursuitPercentage, 35.1);
+  assert.equal(result.nominalPursuitDamage, 351);
+  assert.equal(result.pursuitEffects.length, 2);
+  assert.equal(result.issues[0].code, "unverified-effective-pursuit");
+  deck.effectiveWeaponSkillEffects = [effect(1, 27), effect(2, 27)];
+  const capped = calculateEffectivePursuitDamage(deck, 1000);
+  assert.equal(capped.rawPursuitPercentage, 54);
+  assert.equal(capped.effectivePursuitPercentage, 50);
+});

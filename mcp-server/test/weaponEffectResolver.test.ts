@@ -91,6 +91,16 @@ test("scales each Voltage II occurrence by the matching weapon-kind count", () =
   );
 });
 
+test("keeps an unlocked pursuit inactive below its weapon release level", () => {
+  const weapon = weaponWithSkill({
+    slot: 1, skillId: "2179", skillName: "奈落の襲刃", skillLevel: 15,
+    effects: [{ kind: "elemental-pursuit", amountPercent: 4.5,
+      activationCondition: { kind: "minimum-weapon-level", level: 150 } }],
+  });
+  assert.equal(resolveEffectiveWeaponSkillEffects([{ ...weapon, level: 149 }]).effects.length, 0);
+  assert.equal(resolveEffectiveWeaponSkillEffects([{ ...weapon, level: 150 }]).effects.length, 1);
+});
+
 test("calculates boosted effects while preserving the base value and modifier provenance", () => {
   const result = resolveEffectiveWeaponSkillEffects([
     weaponWithSkill({

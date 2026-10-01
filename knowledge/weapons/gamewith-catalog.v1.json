@@ -13,10 +13,10 @@
     "wikiMatched": 1672,
     "wikiAmbiguous": 1,
     "wikiUnmatched": 35,
-    "knowledgeLinked": 152,
-    "calculatorCatalogued": 1670,
+    "knowledgeLinked": 157,
+    "calculatorCatalogued": 1671,
     "officialArchiveUnverified": 1702,
-    "skillIdsUnverified": 1571
+    "skillIdsUnverified": 1566
   },
   "weapons": [
     {
@@ -30585,8 +30585,17 @@
         "gameWith": "indexed-secondary-source",
         "gbfWiki": "matched",
         "officialArchive": "unverified",
-        "skillIds": "unverified",
+        "skillIds": "recorded-in-knowledge",
         "calculator": "catalogued-draft"
+      },
+      "knowledge": {
+        "file": "dark-ssr-limited-fallen-sword.md",
+        "status": "下書き",
+        "officialArchiveChecked": false,
+        "skillIds": [
+          "631",
+          "919"
+        ]
       }
     },
     {
@@ -46724,8 +46733,18 @@
         "gameWith": "indexed-secondary-source",
         "gbfWiki": "matched",
         "officialArchive": "unverified",
-        "skillIds": "unverified",
+        "skillIds": "recorded-in-knowledge",
         "calculator": "catalogued-draft"
+      },
+      "knowledge": {
+        "file": "dark-ssr-limited-pain-and-suffering.md",
+        "status": "下書き",
+        "officialArchiveChecked": false,
+        "skillIds": [
+          "1793",
+          "1794",
+          "1785"
+        ]
       }
     },
     {
@@ -51653,8 +51672,19 @@
         "gameWith": "indexed-secondary-source",
         "gbfWiki": "matched",
         "officialArchive": "unverified",
-        "skillIds": "unverified",
+        "skillIds": "recorded-in-knowledge",
         "calculator": "catalogued-draft"
+      },
+      "knowledge": {
+        "file": "dark-ssr-illustrious-ereshkigal.md",
+        "status": "下書き",
+        "officialArchiveChecked": false,
+        "skillIds": [
+          "1936",
+          "3030",
+          "3031",
+          "3033"
+        ]
       }
     },
     {
@@ -58700,8 +58730,18 @@
         "gameWith": "indexed-secondary-source",
         "gbfWiki": "matched",
         "officialArchive": "unverified",
-        "skillIds": "unverified",
+        "skillIds": "recorded-in-knowledge",
         "calculator": "catalogued-draft"
+      },
+      "knowledge": {
+        "file": "dark-ssr-limited-causality-driver.md",
+        "status": "下書き",
+        "officialArchiveChecked": false,
+        "skillIds": [
+          "2030",
+          "872",
+          "2179"
+        ]
       }
     },
     {
@@ -63266,8 +63306,18 @@
         "gameWith": "indexed-secondary-source",
         "gbfWiki": "unmatched",
         "officialArchive": "unverified",
-        "skillIds": "unverified",
-        "calculator": "not-catalogued"
+        "skillIds": "recorded-in-knowledge",
+        "calculator": "catalogued-draft"
+      },
+      "knowledge": {
+        "file": "dark-ssr-limited-executioner.md",
+        "status": "下書き",
+        "officialArchiveChecked": false,
+        "skillIds": [
+          "2562",
+          "2543",
+          "2568"
+        ]
       }
     },
     {

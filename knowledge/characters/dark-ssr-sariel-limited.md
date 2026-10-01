@@ -7,12 +7,12 @@ element: "闇"
 race: "星晶獣"
 gender: "男性"
 job_type: "攻撃(斧)"
-obtain: "レジェンドガチャ(エクスキューショナーを入手で解放)"
+obtain: "レジェンドガチャ(エクセキューショナーを入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/512605) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-02
+source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/512605) (取得日: 2026-08-18、武器スキル20%強化を2026-10-02再確認)のみ。gbf.wiki候補は自動検索で見つからず。数値は要実機検証。"
 ---
 
 # サリエル(リミテッド)(Sariel (Limited))
@@ -29,7 +29,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 | 属性 | 闇 |
 | 種族 | 星晶獣 |
 | タイプ | 攻撃(斧) |
-| 入手方法 | レジェンドガチャ(エクスキューショナーを入手で解放) |
+| 入手方法 | レジェンドガチャ(エクセキューショナーを入手で解放) |
 
 ## スキル構成
 
@@ -72,6 +72,13 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 奥義ゲージ上昇量-35%DOWN。
 - スコトゥスアルケー: スキル「闇」「憎悪」「奈落」「黒霧方陣」の効果をUPする(サブメンバー時でも発動)。
 - 数値/スケーリング: 該当スキル効果+20%UP。
+
+## 計算への接続(2026-10-02)
+
+- 実機編成でキャラクターID `3040611000` を確認した。個体ID・アカウント情報は保持しない。
+- スコトゥスアルケーのみ、通常/方陣の該当名称を持つ武器スキルへ20%を加算する下書きモデルを接続した。前列・後列の両方を対象とする。
+- 20%と対象名称・後列での発動はGameWithによる二次情報。実機編成の合計値との一致だけで、独立した効果量検証としては扱わない。
+- 刑死時の与ダメージ、奥義ゲージ、複数回行動、自動アビリティは未接続。
 
 ## 関連トピック
 
