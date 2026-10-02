@@ -4,12 +4,32 @@ import {
   type RandomMultiplierInferenceOptions,
 } from "./randomMultiplierInference.js";
 import type { DeckSnapshot, EffectiveWeaponSkillEffect } from "./types.js";
+import { calculateDamageAttenuation, type DamageAttenuationProfile } from "./damageAttenuationCalculator.js";
+
+export interface PursuitDamageStages {
+  profile: DamageAttenuationProfile;
+  damageCapUpPercent: number;
+  postAttenuationPercent: number;
+  randomTargetHitCount: number;
+  supplementalDamagePerHit: number;
+  criticalDamageBonusPercent: number;
+}
+
+/** Damage is attenuated before Flurry splitting and per-hit supplemental damage. */
+export function applyNormalAttackHitStages(damage: number, percentage: number, stages: PursuitDamageStages): number {
+  return calculateDamageAttenuation(damage * (1 + stages.criticalDamageBonusPercent / 100), stages.profile,
+    { damageCapUpPercent: stages.damageCapUpPercent }).damage / stages.randomTargetHitCount
+    * percentage / 100 * (1 + stages.postAttenuationPercent / 100) + stages.supplementalDamagePerHit;
+}
 
 export interface EffectivePursuitDamageOptions extends RandomMultiplierInferenceOptions {
+  kind?: "elemental-pursuit" | "destruction-pursuit";
   /** Defaults to the protagonist element when available. */
   elementCode?: string;
   /** Selects one pursuit explicitly when a deck contains more than one. */
   sourceSkillId?: string;
+  /** Raw pre-cap body damage is required when this staged model is supplied. */
+  stages?: PursuitDamageStages;
 }
 
 export interface EffectivePursuitDamageIssue {
@@ -28,6 +48,7 @@ export interface EffectivePursuitDamageResult {
   effectivePursuitPercentage: number;
   nominalPursuitDamage: number;
   damageDistribution: DamageDistributionSummary;
+  stages?: PursuitDamageStages;
   issues: EffectivePursuitDamageIssue[];
 }
 
@@ -38,7 +59,7 @@ function selectPursuitEffects(
   const elementCode = options.elementCode ?? deck.protagonist.elementCode;
   const matches = (deck.effectiveWeaponSkillEffects ?? []).filter(
     (effect) =>
-      effect.kind === "elemental-pursuit" &&
+      effect.kind === (options.kind ?? "elemental-pursuit") &&
       (elementCode === undefined || effect.elementCode === undefined || effect.elementCode === elementCode) &&
       (options.sourceSkillId === undefined || effect.sourceSkillId === options.sourceSkillId),
   );
@@ -74,12 +95,17 @@ export function calculateEffectivePursuitDamage(
     ? rawPursuitPercentage : Math.min(capPercent, rawPursuitPercentage);
   const nominalPursuitDamage =
     Math.round(((baseDamage * effectivePursuitPercentage) / 100) * 1_000_000) / 1_000_000;
-  const damageDistribution = summarizeDamageDistribution(nominalPursuitDamage, {
+  const stages = options.stages;
+  const damageDistribution = summarizeDamageDistribution(stages ? baseDamage : nominalPursuitDamage, {
     multiplierMin: options.multiplierMin,
     multiplierMax: options.multiplierMax,
     multiplierStep: options.multiplierStep,
     nominalPreparation: options.nominalPreparation ?? "none",
     finalRounding: options.finalRounding ?? "floor",
+    ...(stages === undefined ? {} : { damageTransform: {
+      id: "pursuit-after-soft-cap",
+      apply: (damage: number) => applyNormalAttackHitStages(damage, effectivePursuitPercentage, stages),
+    } }),
   });
   const issues: EffectivePursuitDamageIssue[] = [];
   if (
@@ -103,6 +129,7 @@ export function calculateEffectivePursuitDamage(
     effectivePursuitPercentage,
     nominalPursuitDamage,
     damageDistribution,
+    ...(stages === undefined ? {} : { stages }),
     issues,
   };
 }

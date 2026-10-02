@@ -22,6 +22,7 @@ export interface NormalAttackPowerIssue {
 }
 
 export interface ElementalSummonAuraContribution {
+  stackingGroup?: string;
   sourceSummonSlot: number;
   sourceSummonId: string;
   sourceSummonName?: string;
@@ -151,7 +152,7 @@ export function calculateNormalAttackPower(
   const characterAttackSummonAuraAdjustedAttack = roundCalculation(
     exSkillAdjustedAttack * characterAttackSummonAuraMultiplier,
   );
-  const elementalSummonAuraContributions = deck.summons.flatMap((summon) => {
+  let elementalSummonAuraContributions = deck.summons.flatMap((summon) => {
     if (summon.aura === undefined) return [];
     const aura = summon.aura;
     return aura.effects.flatMap((effect): ElementalSummonAuraContribution[] => {
@@ -161,6 +162,7 @@ export function calculateNormalAttackPower(
         : effect.activation === "sub-only";
       if (
         !appliesFromPosition ||
+        (effect.requiredPartyCharacterIds !== undefined && !effect.requiredPartyCharacterIds.some((id) => deck.characters.some((character) => character.masterId === id))) ||
         (elementCode !== undefined && effect.elementCode !== "0" && effect.elementCode !== elementCode)
       ) {
         return [];
@@ -168,6 +170,7 @@ export function calculateNormalAttackPower(
       return [
         {
           sourceSummonSlot: summon.slot,
+          stackingGroup: effect.stackingGroup,
           sourceSummonId: summon.masterId,
           sourceSummonName: summon.name,
           sourcePosition: summon.position === "main" ? "main" : "sub",
@@ -186,6 +189,7 @@ export function calculateNormalAttackPower(
         if (
           effect.kind !== "elemental-attack-up" ||
           effect.activation !== "always" ||
+          (effect.requiredPartyCharacterIds !== undefined && !effect.requiredPartyCharacterIds.some((id) => deck.characters.some((character) => character.masterId === id))) ||
           (elementCode !== undefined && effect.elementCode !== "0" && effect.elementCode !== elementCode)
         ) {
           return [];
@@ -193,6 +197,7 @@ export function calculateNormalAttackPower(
         return [
           {
             sourceSummonSlot: 0,
+            stackingGroup: effect.stackingGroup,
             sourceSummonId: supportSummon.masterId,
             sourceSummonName: supportSummon.name,
             sourcePosition: "support",
@@ -205,6 +210,14 @@ export function calculateNormalAttackPower(
       }),
     );
   }
+  const groupedAuras = new Map<string, ElementalSummonAuraContribution>();
+  elementalSummonAuraContributions = elementalSummonAuraContributions.filter((aura) => {
+    if (aura.stackingGroup === undefined) return true;
+    const key = `${aura.elementCode}:${aura.stackingGroup}`;
+    if ((groupedAuras.get(key)?.amountPercent ?? -Infinity) < aura.amountPercent) groupedAuras.set(key, aura);
+    return false;
+  });
+  elementalSummonAuraContributions.push(...groupedAuras.values());
   const totalElementalSummonAuraPercent = roundCalculation(
     elementalSummonAuraContributions.reduce((sum, aura) => sum + aura.amountPercent, 0),
   );

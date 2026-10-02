@@ -50,8 +50,11 @@ function effectAppliesAtConfiguredLevel(source: EffectSource): boolean {
 }
 
 function effectMeetsActivationCondition(source: EffectSource, weapons: DeckWeapon[]): boolean {
+  if (source.effect.mainWeaponOnly && source.weapon.position !== "main") return false;
   const condition = source.effect.activationCondition;
   if (condition === undefined) return true;
+  // Boost ranges are checked after boost sources have been resolved.
+  if (condition.kind === "skill-boost-range") return true;
   if (condition.kind === "minimum-weapon-level") {
     return source.weapon.level !== undefined && source.weapon.level >= condition.level;
   }
@@ -203,7 +206,27 @@ export function resolveEffectiveWeaponSkillEffects(
   );
   const boosts = applicableSources.filter((source) => source.effect.kind === "normal-skill-boost");
 
-  const effects = applicableSources.map((source): EffectiveWeaponSkillEffect => {
+  const effects = applicableSources.filter((source) => {
+    const condition = source.effect.activationCondition;
+    if (condition?.kind !== "skill-boost-range") return true;
+    // Check each named skill family independently; normal and magna boosts must
+    // never be added together to satisfy the 280% activation requirement.
+    const percentages = condition.targetSkillNamePrefixes.flatMap((prefix) =>
+      (condition.boostGroup === "any" ? ["normal", "magna"] as const : [condition.boostGroup]).map((group) => {
+      const target: EffectSource = { ...source, skill: { ...source.skill, name: prefix },
+        effect: { kind: "normal-attack-up", boostGroup: group, elementCode: source.effect.elementCode } };
+      const percent = boosts.filter((boost) => matchesBoost(target, boost))
+        .reduce((sum, boost) => sum + (boost.effect.amountPercent ?? 0), 0)
+        + selectStrongestSubAuraBoosts(summonBoosts.filter((boost) => matchesSummonBoost(target, boost)))
+          .reduce((sum, boost) => sum + boost.effect.amountPercent, 0)
+        + characterSkillBoosts.filter((boost) => boost.boostGroup === group
+          && boost.elementCode === source.effect.elementCode && boost.prefixes.includes(prefix))
+          .reduce((sum, boost) => sum + boost.amountPercent, 0);
+      return percent;
+    }));
+    const strongest = Math.max(0, ...percentages);
+    return strongest >= (condition.minimumPercent ?? 0) && strongest <= (condition.maximumPercent ?? Infinity);
+  }).map((source): EffectiveWeaponSkillEffect => {
     const matchingBoosts = boosts.filter((boost) => matchesBoost(source, boost));
     const matchingSummonBoosts = selectStrongestSubAuraBoosts(
       summonBoosts.filter((boost) => matchesSummonBoost(source, boost)),

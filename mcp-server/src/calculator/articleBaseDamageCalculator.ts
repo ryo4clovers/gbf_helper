@@ -6,6 +6,8 @@ import {
 } from "./baseDamageCalculator.js";
 import type { NormalAttackPowerResult } from "./normalAttackPowerCalculator.js";
 import type { HpDependentAttackResult } from "./hpDependentAttackCalculator.js";
+import { effectiveEnemyDefense } from "./normalAttackSkillFrames.js";
+import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttackSupport.js";
 import type {
   DamageCalculationInput,
   DamageModifier,
@@ -127,6 +129,7 @@ export function calculateArticleBaseDamage(
   input: DamageCalculationInput,
   attackPower: NormalAttackPowerResult,
   hpDependentAttack?: HpDependentAttackResult,
+  damageElement: "character" | "destruction" = "character",
 ): DefenseAdjustedBaseDamageResult {
   const target = requireTarget(input);
   const protagonistElementCode = input.deck.protagonist.elementCode;
@@ -142,8 +145,8 @@ export function calculateArticleBaseDamage(
       effect.kind === "damage-dealt-up" &&
       (effect.elementCode === undefined || effect.elementCode === protagonistElementCode),
   );
-  const shipPercent = input.crewModifiers?.shipAttackPercent ?? 0;
-  const furnacePercent = input.crewModifiers?.furnaceAttackPercent ?? 0;
+  const shipPercent = damageElement === "destruction" ? 0 : input.crewModifiers?.shipAttackPercent ?? 0;
+  const furnacePercent = damageElement === "destruction" ? 0 : input.crewModifiers?.furnaceAttackPercent ?? 0;
 
   // The article's normal-attack example uses a bullet-power multiplier of 1.
   const crewSteps = calculateArticleCrewAttackSteps(
@@ -176,7 +179,7 @@ export function calculateArticleBaseDamage(
       verificationStatus: aura.verificationStatus,
     }),
   );
-  const elementalContributions: DamageModifier[] = [
+  const elementalContributions: DamageModifier[] = damageElement === "destruction" ? [] : [
     ...attackPower.elementalSummonAuraContributions.map(
       (aura): DamageModifier => ({
         stage: "elemental-attack",
@@ -193,7 +196,7 @@ export function calculateArticleBaseDamage(
     ...accountModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
     ...jobModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
   ];
-  const superiorityPercent = elementalSuperiorityPercent(protagonistElementCode, target.elementCode);
+  const superiorityPercent = damageElement === "destruction" ? 50 : elementalSuperiorityPercent(protagonistElementCode, target.elementCode);
   if (superiorityPercent !== 0) {
     elementalContributions.push({
       stage: "elemental-attack",
@@ -209,11 +212,14 @@ export function calculateArticleBaseDamage(
     0,
   );
   const characterAttackRaw = exWeaponSkillRaw * (1 + characterAttackPercent / 100);
-  const staminaRaw = characterAttackRaw * (hpDependentAttack?.normalStaminaMultiplier ?? 1);
+  const jobSupportAttackPercent = resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel).perpetuityAttackPercent;
+  const jobSupportAttackRaw = characterAttackRaw * (1 + jobSupportAttackPercent / 100);
+  const staminaRaw = jobSupportAttackRaw * (hpDependentAttack?.normalStaminaMultiplier ?? 1);
   const magnaStaminaRaw = staminaRaw * (hpDependentAttack?.magnaStaminaMultiplier ?? 1);
   const enmityRaw = magnaStaminaRaw * (hpDependentAttack?.normalEnmityMultiplier ?? 1);
   const elementalRaw = enmityRaw * (1 + elementalPercent / 100);
-  const prePostCapDamage = elementalRaw / target.defense;
+  const defense = effectiveEnemyDefense(input.deck, target.defense);
+  const prePostCapDamage = elementalRaw / defense.effectiveDefense;
 
   const postCapContributions = [
     ...accountModifiers.filter((modifier) => modifier.stage === "damage-dealt"),
@@ -287,11 +293,14 @@ export function calculateArticleBaseDamage(
           "none",
           characterAttackContributions,
         )]),
+    ...(jobSupportAttackPercent === 0 ? [] : [stage(
+      "job-support-attack", characterAttackRaw, jobSupportAttackPercent, jobSupportAttackRaw, jobSupportAttackRaw, "none", [],
+    )]),
     ...(hpDependentAttack === undefined || hpDependentAttack.staminaContributions.length === 0
       ? []
       : [stage(
           "normal-stamina",
-          characterAttackRaw,
+          jobSupportAttackRaw,
           hpDependentAttack.totalEffectiveNormalStaminaPercent,
           staminaRaw,
           staminaRaw,
@@ -374,14 +383,15 @@ export function calculateArticleBaseDamage(
     enemyId: target.enemyId,
     defenseAdjustedBaseAttack: crewAdjustedAttack / target.defense,
     defenseRounding: "none",
-    attackBeforeDefense: finalRawDamage * target.defense,
+    attackBeforeDefense: finalRawDamage * defense.effectiveDefense,
     enemyDefense: target.defense,
+    defenseIgnore: defense,
     enemyDefenseSource: target.defenseSource,
     unroundedDamageBeforeRandomAndCap: finalRawDamage,
     damageBeforeRandomAndCap: displayedDamage,
     stages,
     articleTrace,
-    deferredCapModifiers: accountModifiers.filter(
+    deferredCapModifiers: [...accountModifiers, ...jobModifiers].filter(
       (modifier) => modifier.stage === "damage-cap" || modifier.stage === "normal-attack-damage-cap",
     ),
     unresolvedStages: ["damage-cap"],

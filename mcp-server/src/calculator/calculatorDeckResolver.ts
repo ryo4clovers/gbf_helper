@@ -56,6 +56,30 @@ function elementAttackLimitBonusModifiers(
     });
 }
 
+function damageCapLimitBonusModifiers(protagonist: CalculatorDeckProtagonistConfig): DamageModifier[] {
+  const levels = protagonist.otherLimitBonusLevels ?? {};
+  return [
+    { id: "36", values: [0, 3, 6, 10], stage: "damage-cap" as const },
+    { id: "39", values: [0, 1, 3, 5], stage: "damage-cap" as const },
+    { id: "118", values: [0, 1, 2, 3], stage: "normal-attack-damage-cap" as const },
+  ].flatMap(({ id, values, stage }) => levels[id] ? [{
+    stage, amountPercent: values[levels[id]], sourceType: "job-limit-bonus" as const,
+    sourceId: `limit-bonus-${id}`, sourceName: `ダメージ上限LB ${id}`, verificationStatus: "下書き" as const,
+  }] : []);
+}
+
+function masterDamageModifiers(protagonist: CalculatorDeckProtagonistConfig): DamageModifier[] {
+  return [
+    { amount: protagonist.masterBonusDamageCapPercent, stage: "damage-cap" as const, id: "passive_damage_limit_up_plus" },
+    { amount: protagonist.nonClassVDamageCapPercent, stage: "damage-cap" as const, id: "my_job_class_if:passive_damage_limit_up_plus", condition: "non-class-v" as const },
+    { amount: protagonist.nonClassVNormalAttackDamagePercent, stage: "normal-attack-damage" as const, id: "my_job_class_if:final_attack_rise_plus", condition: "non-class-v" as const },
+  ].flatMap(({ amount, stage, id, condition }) => amount === undefined || amount === 0 ? [] : [{
+    stage, amountPercent: amount, sourceType: "job-master-bonus" as const, sourceId: id,
+    sourceName: condition ? "ジョブマスターボーナス（Class.V以外）" : "ジョブマスターボーナス",
+    condition, verificationStatus: "下書き" as const,
+  }]);
+}
+
 function multiattackLimitBonuses(
   protagonist: CalculatorDeckProtagonistConfig,
 ): DeckJobMultiattackRateBonus[] {
@@ -508,7 +532,7 @@ export function resolveCalculatorDeckConfig(
               level: config.protagonist.jobLevel,
               masterLevel: config.protagonist.masterLevel,
               perfectionProofLevel: config.protagonist.perfectionProofLevel,
-              damageModifiers: elementAttackLimitBonusModifiers(config.protagonist),
+              damageModifiers: [...elementAttackLimitBonusModifiers(config.protagonist), ...damageCapLimitBonusModifiers(config.protagonist), ...masterDamageModifiers(config.protagonist)],
             },
     },
     weapons: config.weapons.map((weapon, index) => {

@@ -69,10 +69,12 @@ function randomMultiplier(request, mode) {
   return resolveDamageMultiplier(mode, minimum, maximum, step);
 }
 
-function bodyDamageForMultiplier(result, multiplier, criticalDamageBonusPercent) {
-  const attenuation = result.bodyDamageAttenuation;
+function bodyDamageForMultiplier(result, multiplier, criticalDamageBonusPercent, {
+  pursuitPercent = 100, rawBaseDamage, finalRounding = result.bodyDamageDistribution.finalRounding,
+  attenuation = result.bodyDamageAttenuation,
+} = {}) {
   const inputDamage = (
-    result.baseDamage.articleTrace?.prePostCapDamage
+    rawBaseDamage ?? result.baseDamage.articleTrace?.prePostCapDamage
     ?? result.baseDamage.unroundedDamageBeforeRandomAndCap
   ) * multiplier * (1 + criticalDamageBonusPercent / 100);
   const thresholdMultiplier = 1 + attenuation.damageCapUpPercent / 100;
@@ -88,10 +90,10 @@ function bodyDamageForMultiplier(result, multiplier, criticalDamageBonusPercent)
     attenuatedDamage += (inputEnd - inputStart) * passRate;
     inputStart = inputEnd;
   }
-  const supplementalDamage = result.otherWeaponSkills?.supplementalDamage?.effectiveAmount ?? 0;
-  const finalDamage = attenuatedDamage * (1 + attenuation.postAttenuationPercent / 100)
+  const supplementalDamage = attenuation.supplementalDamagePerHit ?? result.otherWeaponSkills?.supplementalDamage?.effectiveAmount ?? 0;
+  const finalDamage = attenuatedDamage / (attenuation.randomTargetHitCount ?? 1) * pursuitPercent / 100 * (1 + attenuation.postAttenuationPercent / 100)
     + supplementalDamage;
-  return result.bodyDamageDistribution.finalRounding === "ceil"
+  return finalRounding === "ceil"
     ? Math.ceil(finalDamage)
     : Math.floor(finalDamage);
 }
@@ -106,6 +108,7 @@ function damagePacketsForHit(result, request, mode, note) {
     (source) => resolveCritical(mode, source.triggerRatePercent),
   );
   const criticalDamageBonusPercent =
+    (result.guaranteedCriticalBodyDamageDistribution ? result.protagonistNormalAttackSupport.criticalDamageBonusPercent : 0) +
     (weaponCriticalTriggered ? (critical.criticalDamageMultiplier - 1) * 100 : 0) +
     triggeredLimitBonusCriticals.reduce((sum, source) => sum + source.damageBonusPercent, 0);
   const criticalTriggered = criticalDamageBonusPercent > 0;
@@ -126,9 +129,21 @@ function damagePacketsForHit(result, request, mode, note) {
     const pursuitMultiplier = randomMultiplier(request, mode);
     packets.push({
       kind: "pursuit",
-      damage: Math.floor(result.pursuitDamage.nominalPursuitDamage * pursuitMultiplier),
+      damage: result.pursuitDamage.stages
+        ? bodyDamageForMultiplier(result, pursuitMultiplier, criticalDamageBonusPercent, {
+          pursuitPercent: result.pursuitDamage.effectivePursuitPercentage, finalRounding: "floor",
+        })
+        : Math.floor(result.pursuitDamage.nominalPursuitDamage * pursuitMultiplier),
       note: `追撃 ${numberFormat.format(result.pursuitDamage.effectivePursuitPercentage)}%・独立乱数 ${pursuitMultiplier.toFixed(3)}`,
     });
+  }
+  if (result.destructionPursuitDamage) {
+    const pursuit = result.destructionPursuitDamage;
+    const multiplier = randomMultiplier(request, mode);
+    packets.push({ kind: "pursuit", damage: bodyDamageForMultiplier(result, multiplier,
+      pursuit.stages.criticalDamageBonusPercent, { pursuitPercent: pursuit.effectivePursuitPercentage,
+        rawBaseDamage: pursuit.damageDistribution.preparedNominalDamage, finalRounding: "floor", attenuation: pursuit.stages }),
+      note: `破壊属性追撃 ${numberFormat.format(pursuit.effectivePursuitPercentage)}%・独立乱数 ${multiplier.toFixed(3)}` });
   }
   return packets;
 }
@@ -137,7 +152,9 @@ function damagePackets(result, request, mode, attackCount, note) {
   const packets = [];
   for (let hit = 1; hit <= attackCount; hit += 1) {
     const hitNote = attackCount === 1 ? note : `${note} ${hit}/${attackCount}hit`;
-    packets.push(...damagePacketsForHit(result, request, mode, hitNote));
+    for (let randomHit = 0; randomHit < (result.bodyDamageAttenuation.randomTargetHitCount ?? 1); randomHit += 1) {
+      packets.push(...damagePacketsForHit(result, request, mode, hitNote));
+    }
   }
   return packets;
 }

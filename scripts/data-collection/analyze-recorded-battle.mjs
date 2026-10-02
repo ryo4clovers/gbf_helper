@@ -2,6 +2,8 @@ import { readFile, writeFile } from "node:fs/promises";
 import { parseRecordedBattleExports } from "../../mcp-server/dist/calculator/recordedBattleParser.js";
 import { resolveCalculatorDeckConfig } from "../../mcp-server/dist/calculator/calculatorDeckResolver.js";
 import { calculateNormalAttackFromRequest } from "../../mcp-server/dist/calculator/normalAttackCalculationRequest.js";
+import { parseAccountBonusResponse } from "../../mcp-server/dist/calculator/accountBonusParser.js";
+import { compareRecordedNormalAttacks } from "../../mcp-server/dist/calculator/recordedNormalAttackComparison.js";
 
 function argument(name) {
   const index = process.argv.indexOf(name);
@@ -11,14 +13,37 @@ function argument(name) {
 const deckCapture = argument("--deck-capture");
 const battleCapture = argument("--battle-capture");
 const output = argument("--output");
+const accountBonusFile = argument("--account-bonuses");
+const compareTurnArgument = argument("--compare-turn");
+const compareTurn = compareTurnArgument === undefined ? undefined : Number(compareTurnArgument);
+if (compareTurn !== undefined && (!Number.isInteger(compareTurn) || compareTurn < 1)) throw new Error("--compare-turn must be a positive integer.");
+const mythicalLancerLevelArgument = argument("--mythical-lancer-level");
+const mythicalLancerLevel = mythicalLancerLevelArgument === undefined ? undefined : Number(mythicalLancerLevelArgument);
+if (mythicalLancerLevel !== undefined && (!Number.isInteger(mythicalLancerLevel) || mythicalLancerLevel < 0 || mythicalLancerLevel > 5)) throw new Error("--mythical-lancer-level must be in 0..5.");
+const crew = { shipAttackPercent: Number(argument("--ship") ?? 0), furnaceAttackPercent: Number(argument("--furnace") ?? 0) };
+if (Object.values(crew).some((value) => !Number.isFinite(value) || value < 0 || value > 100)) throw new Error("--ship and --furnace must be in 0..100.");
 if (!battleCapture || !output) {
-  console.error("usage: node scripts/data-collection/analyze-recorded-battle.mjs --battle-capture <export.json> [--deck-capture <export.json>] --output <local-report.json> [--defense <value>]");
+  console.error("usage: node scripts/data-collection/analyze-recorded-battle.mjs --battle-capture <export.json> [--deck-capture <export.json>] --output <local-report.json> [--defense <value>] [--ship <percent>] [--furnace <percent>] [--account-bonuses <local.json>] [--mythical-lancer-level <0..5>] [--compare-turn <turn>]");
   process.exit(1);
 }
 const inputs = await Promise.all([deckCapture, battleCapture].filter(Boolean).map(async (file) =>
   JSON.parse(await readFile(file, "utf8")),
 ));
 const observation = parseRecordedBattleExports(inputs);
+const accountBonuses = accountBonusFile ? parseAccountBonusResponse(JSON.parse(await readFile(accountBonusFile, "utf8"))) : undefined;
+const ownElement = observation.deckConfig?.protagonist.elementCode;
+const targetElement = observation.battle.enemies[0]?.elementCode;
+const applicableBonuses = (accountBonuses?.modifiers ?? []).filter((modifier) =>
+  (modifier.elementCode === undefined || modifier.elementCode === ownElement)
+  && (modifier.targetElementCode === undefined || modifier.targetElementCode === targetElement));
+const bonus = (stage, allElements = false) => applicableBonuses.filter((modifier) => modifier.stage === stage
+  && (stage !== "elemental-attack" || (allElements ? modifier.elementCode === undefined : modifier.elementCode !== undefined)))
+  .reduce((sum, modifier) => sum + modifier.amountPercent, 0);
+const accountModifiers = {
+  allElementAttackPercent: bonus("elemental-attack", true), elementAttackPercent: bonus("elemental-attack"),
+  damageDealtPercent: bonus("damage-dealt"), targetElementDamagePercent: bonus("target-element-damage"),
+  damageCapPercent: bonus("damage-cap"), normalAttackDamageCapPercent: bonus("normal-attack-damage-cap"),
+};
 const defenseArgument = argument("--defense");
 const defense = defenseArgument === undefined ? undefined : Number(defenseArgument);
 if (defense !== undefined && (!Number.isFinite(defense) || defense <= 0)) throw new Error("--defense must be positive.");
@@ -38,12 +63,17 @@ if (observation.deckConfig && defense !== undefined) {
   try {
     calculation = calculateNormalAttackFromRequest({
       schemaVersion: 1, deckConfig: observation.deckConfig, supportSummon,
-      enemy: { elementCode: enemy.elementCode, defense, attack: 0 },
+      mythicalLancerLevel,
+      enemy: { elementCode: enemy.elementCode, defense, attack: 0, maxHp: enemy.maxHp },
+      modifiers: { ...crew, ...accountModifiers },
     });
   } catch (error) {
     calculationError = error instanceof Error ? error.message : "Calculation failed.";
   }
 }
+if (compareTurn !== undefined && !observation.turns.some((turn) => turn.turn === compareTurn)) throw new Error("--compare-turn is absent from the recording.");
+const normalAttackComparison = calculation && ownElement ? compareRecordedNormalAttacks(calculation.result,
+  observation.turns.filter((turn) => compareTurn === undefined || turn.turn === compareTurn).flatMap((turn) => turn.packets), ownElement) : undefined;
 const report = {
   ...observation,
   capability: {
@@ -53,14 +83,21 @@ const report = {
   },
   calculationAssumptions: {
     enemyDefense: defense, defenseSource: defense === undefined ? "未入力" : "CLI入力値（実機レスポンスからは取得できない）",
-    note: "戦闘中のバフ、LB、船炉、サブキャラクター効果はこの照合計算に自動投入していない。",
+    crewModifiers: crew,
+    mythicalLancerLevel, mythicalLancerLevelSource: mythicalLancerLevel === undefined ? "開始時の装備から算出" : "CLIで指定した戦闘状態",
+    limitBonusesImported: observation.protagonistLimitBonusesImported,
+    accountBonusesImported: accountBonuses !== undefined,
+    accountModifiers,
+    compareTurn,
+    note: "記録されたLBと入力された船炉を使用。戦闘中のバフ・デバフは自動投入していない。",
   },
-  calculation, calculationError,
+  calculation, calculationError, normalAttackComparison,
 };
 await writeFile(output, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 console.log(JSON.stringify({
   ...observation.summary, warningCount: observation.warnings.length,
   skillsWithoutNumericEffects: skillCoverage?.filter((skill) => skill.numericEffectKinds.length === 0).length,
   calculationStatus: calculation ? "provisional" : calculationError ? "error" : "not-requested",
+  comparedComponents: normalAttackComparison?.components,
 }, null, 2));
 if (calculationError) process.exitCode = 1;

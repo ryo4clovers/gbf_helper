@@ -28,6 +28,9 @@ import {
   type IncomingDamagePredictionResult,
 } from "./incomingDamageCalculator.js";
 import type { DamageCalculationInput } from "./types.js";
+import { calculateNormalAttackSkillFrames } from "./normalAttackSkillFrames.js";
+import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttackSupport.js";
+import { resolveSummonDamageEffects } from "./summonDamageEffects.js";
 import {
   calculateProtagonistMultiattackRates,
   type ProtagonistMultiattackRateResult,
@@ -95,6 +98,8 @@ export interface NormalAttackBodyAttenuationResult {
   specialFrameDamageCapPercent: number;
   specialFrameDamageCapContributions: EffectiveWeaponSkillEffect[];
   postAttenuationPercent: number;
+  randomTargetHitCount: number;
+  supplementalDamagePerHit: number;
   /** The current article model groups every post-cap percentage additively. */
   postAttenuationModel: "additive-percent" | "already-applied-provisional";
   verificationStatus: "下書き";
@@ -123,9 +128,14 @@ export interface NormalAttackDamageResult {
   baseDamage: DefenseAdjustedBaseDamageResult;
   bodyDamageAttenuation: NormalAttackBodyAttenuationResult;
   bodyDamageDistribution: DamageDistributionSummary;
+  normalAttackSkillFrames: ReturnType<typeof calculateNormalAttackSkillFrames>;
+  protagonistNormalAttackSupport: ReturnType<typeof resolveProtagonistNormalAttackSupport>;
+  summonDamageEffects: ReturnType<typeof resolveSummonDamageEffects>;
+  guaranteedCriticalBodyDamageDistribution?: DamageDistributionSummary;
   criticalBodyDamage?: CriticalBodyDamageResult;
   protagonistLimitBonusCritical?: ProtagonistLimitBonusCriticalResult;
   pursuitDamage?: EffectivePursuitDamageResult;
+  destructionPursuitDamage?: EffectivePursuitDamageResult;
   protagonistHp?: ProtagonistHpResult;
   multiattackRates: ProtagonistMultiattackRateResult;
   otherWeaponSkills: OtherWeaponSkillResult;
@@ -139,6 +149,7 @@ export interface NormalAttackDamageResult {
     | "critical-probability-unresolved"
     | "critical-damage-attenuation-unresolved"
     | "supplemental-damage-enemy-hp-cap-unresolved"
+    | "destruction-base-rounding-provisional"
   >;
 }
 
@@ -175,6 +186,10 @@ export function calculateNormalAttackDamage(
     ? calculateArticleBaseDamage(input, attackPower, hpDependentAttack)
     : calculateDefenseAdjustedBaseDamage(input, attackPower, hpDependentAttack);
   const otherWeaponSkills = calculateOtherWeaponSkills(input.deck);
+  const normalAttackSkillFrames = calculateNormalAttackSkillFrames(input.deck);
+  const protagonistNormalAttackSupport = resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel);
+  const target = input.battle.enemies.find((enemy) => enemy.slot === input.targetEnemySlot);
+  const summonDamageEffects = resolveSummonDamageEffects(input.deck, target?.elementCode, target?.maxHp, input.protagonistCurrentHpPercent ?? 100);
   const sharedRandomOptions = {
     multiplierMin: options.multiplierMin,
     multiplierMax: options.multiplierMax,
@@ -206,10 +221,20 @@ export function calculateNormalAttackDamage(
   );
   const specialFrameDamageCapPercent = Math.min(20, specialFrameDamageCapRawPercent);
   const bodyDamageCapUpPercent =
-    accountDamageCapUpPercent + normalFrameDamageCapPercent + specialFrameDamageCapPercent;
+    accountDamageCapUpPercent + normalFrameDamageCapPercent + specialFrameDamageCapPercent
+    + normalAttackSkillFrames.damageCap.effectivePercent + protagonistNormalAttackSupport.damageCapPercent + summonDamageEffects.capPercent;
   const preAttenuationNominalDamage = baseDamage.articleTrace?.prePostCapDamage
     ?? baseDamage.unroundedDamageBeforeRandomAndCap;
-  const postAttenuationPercent = baseDamage.articleTrace?.postCapDamagePercent ?? 0;
+  const advantageous = elementalSuperiorityPercent(input.deck.protagonist.elementCode, target?.elementCode) > 0;
+  const postAttenuationPercent = (baseDamage.articleTrace?.postCapDamagePercent ?? 0)
+    + normalAttackSkillFrames.damageAmplification.effectivePercent
+    + normalAttackSkillFrames.specialDamageAmplification.effectivePercent
+    + summonDamageEffects.amplificationPercent
+    + (advantageous ? normalAttackSkillFrames.elementalSuperiority.effectivePercent : 0);
+  const supplementalDamagePerHit = otherWeaponSkills.supplementalDamage.effectiveAmount
+    + normalAttackSkillFrames.supplementalDamage.effectiveAmount
+    + normalAttackSkillFrames.separateSupplementalDamage.effectiveAmount
+    + protagonistNormalAttackSupport.supplementalDamage + summonDamageEffects.supplementalDamage;
   const bodyDamageAttenuation: NormalAttackBodyAttenuationResult = {
     schemaVersion: 1,
     profile: bodyAttenuationProfile,
@@ -226,6 +251,8 @@ export function calculateNormalAttackDamage(
     specialFrameDamageCapPercent,
     specialFrameDamageCapContributions,
     postAttenuationPercent,
+    randomTargetHitCount: protagonistNormalAttackSupport.randomTargetHitCount,
+    supplementalDamagePerHit,
     postAttenuationModel:
       baseDamage.articleTrace === undefined ? "already-applied-provisional" : "additive-percent",
     verificationStatus: "下書き",
@@ -235,8 +262,8 @@ export function calculateNormalAttackDamage(
     apply: (damage: number) =>
       calculateDamageAttenuation(damage, bodyAttenuationProfile, {
         damageCapUpPercent: bodyDamageCapUpPercent,
-      }).damage * (1 + postAttenuationPercent / 100)
-      + otherWeaponSkills.supplementalDamage.effectiveAmount,
+      }).damage / protagonistNormalAttackSupport.randomTargetHitCount * (1 + postAttenuationPercent / 100)
+      + supplementalDamagePerHit,
   };
   const bodyDamageDistribution = summarizeDamageDistribution(preAttenuationNominalDamage, {
     ...sharedRandomOptions,
@@ -247,15 +274,44 @@ export function calculateNormalAttackDamage(
       (useArticleModel ? "ceil" : "floor"),
     damageTransform: bodyAttenuationTransform,
   });
+  // Preserve the calibrated low-damage/displayed-base path. Soft caps, split
+  // hits and supplemental damage require raw input and the staged model.
+  const needsStagedPursuit = protagonistNormalAttackSupport.randomTargetHitCount > 1 || supplementalDamagePerHit > 0
+    || preAttenuationNominalDamage * (options.multiplierMax ?? 1.05) > bodyAttenuationProfile.lines[0].threshold * (1 + bodyDamageCapUpPercent / 100);
+  const guaranteedCriticalPercent = advantageous && protagonistNormalAttackSupport.criticalTriggerRatePercent === 100
+    ? protagonistNormalAttackSupport.criticalDamageBonusPercent : 0;
   const pursuitDamage = hasSelectedPursuit(input, options.pursuitSourceSkillId)
-    ? calculateEffectivePursuitDamage(input.deck, baseDamage.damageBeforeRandomAndCap, {
+    ? calculateEffectivePursuitDamage(input.deck, needsStagedPursuit ? preAttenuationNominalDamage : baseDamage.damageBeforeRandomAndCap, {
         ...sharedRandomOptions,
         sourceSkillId: options.pursuitSourceSkillId,
         nominalPreparation: options.pursuitNominalPreparation ?? "none",
         finalRounding: options.pursuitFinalRounding ?? options.finalRounding ?? "floor",
+        ...(needsStagedPursuit ? { stages: {
+          profile: bodyAttenuationProfile, damageCapUpPercent: bodyDamageCapUpPercent, postAttenuationPercent,
+          randomTargetHitCount: protagonistNormalAttackSupport.randomTargetHitCount,
+          supplementalDamagePerHit, criticalDamageBonusPercent: guaranteedCriticalPercent,
+        } } : {}),
       })
     : undefined;
-  const target = input.battle.enemies.find((enemy) => enemy.slot === input.targetEnemySlot);
+  const guaranteedCriticalBodyDamageDistribution = advantageous && protagonistNormalAttackSupport.criticalTriggerRatePercent === 100
+    ? summarizeDamageDistribution(preAttenuationNominalDamage, {
+        ...sharedRandomOptions, finalRounding: options.bodyFinalRounding ?? options.finalRounding ?? (useArticleModel ? "ceil" : "floor"),
+        damageTransform: { id: "job-support-critical", apply: (damage) =>
+          bodyAttenuationTransform.apply(damage * (1 + protagonistNormalAttackSupport.criticalDamageBonusPercent / 100)) },
+      }) : undefined;
+  const hasDestructionPursuit = (input.deck.effectiveWeaponSkillEffects ?? []).some(
+    (effect) => effect.kind === "destruction-pursuit" && (effect.elementCode === undefined || effect.elementCode === input.deck.protagonist.elementCode),
+  );
+  const destructionPursuitDamage = hasDestructionPursuit && useArticleModel
+    ? calculateEffectivePursuitDamage(input.deck,
+        calculateArticleBaseDamage(input, attackPower, hpDependentAttack, "destruction").articleTrace!.prePostCapDamage,
+        // Provisional pre-random ceil: discriminated by the low-damage destruction packets.
+        { ...sharedRandomOptions, kind: "destruction-pursuit", nominalPreparation: "ceil", stages: {
+          profile: bodyAttenuationProfile, damageCapUpPercent: bodyDamageCapUpPercent,
+          postAttenuationPercent: postAttenuationPercent + (advantageous ? 0 : normalAttackSkillFrames.elementalSuperiority.effectivePercent),
+          randomTargetHitCount: protagonistNormalAttackSupport.randomTargetHitCount, supplementalDamagePerHit,
+          criticalDamageBonusPercent: protagonistNormalAttackSupport.criticalDamageBonusPercent,
+        } }) : undefined;
   const canWeaponSkillCritical =
     elementalSuperiorityPercent(input.deck.protagonist.elementCode, target?.elementCode) > 0;
   const criticalBodyDamage = canWeaponSkillCritical
@@ -269,6 +325,7 @@ export function calculateNormalAttackDamage(
     ? (input.deck.protagonist.job?.criticalRateBonuses ?? [])
     : [];
   const criticalScenario = (damageBonusPercent: number): ProtagonistLimitBonusCriticalScenario => {
+    damageBonusPercent += guaranteedCriticalPercent;
     const damageMultiplier = 1 + damageBonusPercent / 100;
     const distributionOptions = {
       nominalPreparation: options.bodyNominalPreparation ?? "none" as const,
@@ -316,14 +373,17 @@ export function calculateNormalAttackDamage(
         };
       })();
   const distributions = [
-    bodyDamageDistribution,
+    guaranteedCriticalBodyDamageDistribution ?? bodyDamageDistribution,
     ...(pursuitDamage === undefined ? [] : [pursuitDamage.damageDistribution]),
+    ...(destructionPursuitDamage === undefined ? [] : [destructionPursuitDamage.damageDistribution]),
   ];
   const abilityPostAttenuationPercent = [
     ...(input.accountBonuses?.modifiers ?? []).filter(
       (modifier) => modifier.stage === "damage-dealt" || modifier.stage === "target-element-damage",
     ).map((modifier) => modifier.amountPercent),
     otherWeaponSkills.damageDealt.effectivePercent,
+    summonDamageEffects.amplificationPercent,
+    advantageous ? normalAttackSkillFrames.elementalSuperiority.effectivePercent : 0,
   ].reduce((sum, amount) => sum + amount, 0);
   const generalDamageCapPercent = baseDamage.deferredCapModifiers
     .filter((modifier) => modifier.stage === "damage-cap")
@@ -338,12 +398,15 @@ export function calculateNormalAttackDamage(
           generalDamageCapPercent
           + normalFrameDamageCapPercent
           + specialFrameDamageCapPercent
+          + protagonistNormalAttackSupport.damageCapPercent
+          + summonDamageEffects.capPercent
           + input.abilityDamage.abilityDamageCapUpPercent
           + otherWeaponSkills.abilityDamageCap.effectivePercent,
         limitBonusDamageCapUpPercent: input.abilityDamage.limitBonusDamageCapUpPercent,
         supplementalDamagePerHit:
           otherWeaponSkills.supplementalDamage.effectiveAmount
-          + otherWeaponSkills.abilitySupplementalDamage.effectiveAmount,
+          + otherWeaponSkills.abilitySupplementalDamage.effectiveAmount + summonDamageEffects.supplementalDamage
+          + protagonistNormalAttackSupport.supplementalDamage,
         postAttenuationPercent: abilityPostAttenuationPercent,
         multiplierMin: options.multiplierMin,
         multiplierMax: options.multiplierMax,
@@ -358,9 +421,14 @@ export function calculateNormalAttackDamage(
     baseDamage,
     bodyDamageAttenuation,
     bodyDamageDistribution,
+    normalAttackSkillFrames,
+    protagonistNormalAttackSupport,
+    summonDamageEffects,
+    guaranteedCriticalBodyDamageDistribution,
     criticalBodyDamage,
     protagonistLimitBonusCritical,
     pursuitDamage,
+    destructionPursuitDamage,
     protagonistHp: calculateProtagonistHp(input.deck),
     multiattackRates: calculateProtagonistMultiattackRates(input.deck),
     otherWeaponSkills,
@@ -389,6 +457,7 @@ export function calculateNormalAttackDamage(
     },
     issues: [
       "damage-attenuation-profile-provisional",
+      ...(destructionPursuitDamage ? ["destruction-base-rounding-provisional" as const] : []),
       ...(baseDamage.unresolvedStages.includes("rounding")
         ? (["rounding-order-unresolved"] as const)
         : []),
@@ -399,7 +468,7 @@ export function calculateNormalAttackDamage(
       ...(criticalBodyDamage === undefined && protagonistLimitBonusCritical === undefined
         ? []
         : (["critical-damage-attenuation-unresolved"] as const)),
-      ...(otherWeaponSkills.supplementalDamage.effectiveAmount === 0
+      ...(otherWeaponSkills.supplementalDamage.effectiveAmount === 0 && !summonDamageEffects.enemyHpCapUnresolved
         ? []
         : (["supplemental-damage-enemy-hp-cap-unresolved"] as const)),
     ],

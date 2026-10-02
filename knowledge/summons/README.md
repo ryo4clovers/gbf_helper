@@ -13,6 +13,7 @@
 
 | ファイル | 名前(日本語 / 英語) | レアリティ | 属性 | ステータス |
 | --- | --- | --- | --- | --- |
+| [dark-ssr-shika-kokukirin-normal.md](./dark-ssr-shika-kokukirin-normal.md) | 紫禍黒麒麟 / 英語名要検証 | SSR | 闇 | 下書き |
 | [fire-ssr-shiva-normal.md](./fire-ssr-shiva-normal.md) | シヴァ / Shiva | SSR | 火 | 下書き |
 | [fire-ssr-the-sun-normal.md](./fire-ssr-the-sun-normal.md) | ザ・サン / The Sun | SSR | 火 | 下書き |
 | [fire-ssr-wilnas-normal.md](./fire-ssr-wilnas-normal.md) | ウィルナス / Wilnas | SSR | 火 | 下書き |

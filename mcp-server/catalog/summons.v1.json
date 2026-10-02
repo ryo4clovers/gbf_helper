@@ -1016,12 +1016,13 @@
           "elementCode": "6",
           "amountPercent": 30,
           "activation": "main-only",
-          "description": "メイン召喚石に装備時、闇属性攻撃力が30%UP"
+          "description": "メイン召喚石に装備時、闇属性攻撃力が30%UP",
+          "stackingGroup": "hades-transcendence-elemental-attack"
         }
       ],
-      "verificationStatus": "検証済み",
+      "verificationStatus": "下書き",
       "supportSelectable": true,
-      "source": "ゲーム内startレスポンスの支援召喚石と加護説明で確認",
+      "source": "ゲーム内startレスポンスの支援召喚石と加護説明で確認。紫禍黒麒麟との属性攻撃枠の共存規則はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537603 (2026-10-03閲覧・実機未検証)",
       "confirmedAt": "2026-09-05",
       "levelStats": {
         "maximumLevel": 250,
@@ -2359,13 +2360,25 @@
       "auraDescription": "闇属性キャラの攻撃力140%UP / サブ加護: 闇属性キャラが光属性の敵に対して与ダメージ10%UP",
       "auraEffects": [
         {
-          "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性キャラの攻撃力140%UP / サブ加護: 闇属性キャラが光属性の敵に対して与ダメージ10%UP"
+          "kind": "character-attack-up",
+          "elementCode": "6",
+          "amountPercent": 140,
+          "activation": "main-only",
+          "description": "闇キャラ攻撃140%"
+        },
+        {
+          "kind": "damage-dealt-up",
+          "elementCode": "6",
+          "amountPercent": 10,
+          "activation": "sub-only",
+          "stackingGroup": "arcarum-dark",
+          "description": "サブ加護 10%",
+          "targetElementCode": "5"
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": false,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Death_%28SSR%29およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）",
       "confirmedAt": "2026-09-09",
       "levelStats": {
         "maximumLevel": 200,
@@ -2402,7 +2415,89 @@
         "plusMark": 0,
         "attack": 2850,
         "hp": 1128
-      }
+      },
+      "auraOverrides": [
+        {
+          "uncapLevel": 3,
+          "auraDescription": "攻撃120%UP / メインHP30%DOWN / サブ対光与ダメ7%UP",
+          "auraEffects": [
+            {
+              "kind": "character-attack-up",
+              "elementCode": "6",
+              "amountPercent": 120,
+              "activation": "main-only",
+              "description": "闇キャラ攻撃120%"
+            },
+            {
+              "kind": "damage-dealt-up",
+              "elementCode": "6",
+              "amountPercent": 7,
+              "activation": "sub-only",
+              "stackingGroup": "arcarum-dark",
+              "description": "サブ加護 7%",
+              "targetElementCode": "5"
+            },
+            {
+              "kind": "utility",
+              "description": "メイン最大HP30%DOWNは未対応"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Death_%28SSR%29およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 4,
+          "auraDescription": "攻撃130%UP / メインHP30%DOWN / サブ対光与ダメ10%UP",
+          "auraEffects": [
+            {
+              "kind": "character-attack-up",
+              "elementCode": "6",
+              "amountPercent": 130,
+              "activation": "main-only",
+              "description": "闇キャラ攻撃130%"
+            },
+            {
+              "kind": "damage-dealt-up",
+              "elementCode": "6",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "arcarum-dark",
+              "description": "サブ加護 10%",
+              "targetElementCode": "5"
+            },
+            {
+              "kind": "utility",
+              "description": "メイン最大HP30%DOWNは未対応"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Death_%28SSR%29およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 5,
+          "auraDescription": "闇属性キャラの攻撃力140%UP / サブ加護: 闇属性キャラが光属性の敵に対して与ダメージ10%UP",
+          "auraEffects": [
+            {
+              "kind": "character-attack-up",
+              "elementCode": "6",
+              "amountPercent": 140,
+              "activation": "main-only",
+              "description": "闇キャラ攻撃140%"
+            },
+            {
+              "kind": "damage-dealt-up",
+              "elementCode": "6",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "arcarum-dark",
+              "description": "サブ加護 10%",
+              "targetElementCode": "5"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Death_%28SSR%29およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        }
+      ]
     },
     {
       "summonId": "2040316000",
@@ -2799,13 +2894,24 @@
       "auraDescription": "闇属性攻撃力が140%UP / サブ加護: 闇属性キャラのダメージ上限15%UP",
       "auraEffects": [
         {
-          "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が140%UP / サブ加護: 闇属性キャラのダメージ上限15%UP"
+          "kind": "elemental-attack-up",
+          "elementCode": "6",
+          "amountPercent": 140,
+          "activation": "main-only",
+          "description": "闇属性攻撃力140%UP"
+        },
+        {
+          "kind": "damage-cap-up",
+          "elementCode": "6",
+          "amountPercent": 15,
+          "activation": "sub-only",
+          "stackingGroup": "archangel-dark",
+          "description": "サブ加護 15%"
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/321660およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）",
       "confirmedAt": "2026-09-09",
       "levelStats": {
         "maximumLevel": 150,
@@ -2836,7 +2942,124 @@
         "plusMark": 0,
         "attack": 3054,
         "hp": 1119
-      }
+      },
+      "auraOverrides": [
+        {
+          "uncapLevel": 0,
+          "auraDescription": "闇属性攻撃100%UP / サブ上限5%UP",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "闇属性攻撃力100%UP"
+            },
+            {
+              "kind": "damage-cap-up",
+              "elementCode": "6",
+              "amountPercent": 5,
+              "activation": "sub-only",
+              "stackingGroup": "archangel-dark",
+              "description": "サブ加護 5%"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/321660およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 1,
+          "auraDescription": "闇属性攻撃100%UP / サブ上限5%UP",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "闇属性攻撃力100%UP"
+            },
+            {
+              "kind": "damage-cap-up",
+              "elementCode": "6",
+              "amountPercent": 5,
+              "activation": "sub-only",
+              "stackingGroup": "archangel-dark",
+              "description": "サブ加護 5%"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/321660およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 2,
+          "auraDescription": "闇属性攻撃100%UP / サブ上限5%UP",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "闇属性攻撃力100%UP"
+            },
+            {
+              "kind": "damage-cap-up",
+              "elementCode": "6",
+              "amountPercent": 5,
+              "activation": "sub-only",
+              "stackingGroup": "archangel-dark",
+              "description": "サブ加護 5%"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/321660およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 3,
+          "auraDescription": "闇属性攻撃120%UP / サブ上限10%UP",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 120,
+              "activation": "main-only",
+              "description": "闇属性攻撃力120%UP"
+            },
+            {
+              "kind": "damage-cap-up",
+              "elementCode": "6",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "archangel-dark",
+              "description": "サブ加護 10%"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/321660およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 4,
+          "auraDescription": "闇属性攻撃力が140%UP / サブ加護: 闇属性キャラのダメージ上限15%UP",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 140,
+              "activation": "main-only",
+              "description": "闇属性攻撃力140%UP"
+            },
+            {
+              "kind": "damage-cap-up",
+              "elementCode": "6",
+              "amountPercent": 15,
+              "activation": "sub-only",
+              "stackingGroup": "archangel-dark",
+              "description": "サブ加護 15%"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/321660およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        }
+      ]
     },
     {
       "summonId": "2040330000",
@@ -3231,13 +3454,29 @@
       "auraDescription": "闇属性攻撃力が130%UP/闇属性キャラの最大HPを上限20000に固定/被ダメージの最大値を5000に固定 / サブ加護: 与ダメージが最大30000上昇/最大HP30%DOWN",
       "auraEffects": [
         {
+          "kind": "elemental-attack-up",
+          "elementCode": "6",
+          "amountPercent": 130,
+          "activation": "main-only",
+          "description": "闇属性攻撃力130%UP"
+        },
+        {
+          "kind": "supplemental-damage",
+          "elementCode": "0",
+          "amountFlat": 30000,
+          "enemyMaxHpPercent": 1,
+          "activation": "sub-only",
+          "stackingGroup": "summon-aura-supplemental",
+          "description": "敵最大HPの1%（最大30000）"
+        },
+        {
           "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が130%UP/闇属性キャラの最大HPを上限20000に固定/被ダメージの最大値を5000に固定 / サブ加護: 与ダメージが最大30000上昇/最大HP30%DOWN"
+          "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）",
       "confirmedAt": "2026-09-09",
       "levelStats": {
         "maximumLevel": 150,
@@ -3268,7 +3507,149 @@
         "plusMark": 0,
         "attack": 3265,
         "hp": 1140
-      }
+      },
+      "auraOverrides": [
+        {
+          "uncapLevel": 0,
+          "auraDescription": "闇属性攻撃100%UP / サブ与ダメ最大15000 / HP制限等は未対応",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "闇属性攻撃力100%UP"
+            },
+            {
+              "kind": "supplemental-damage",
+              "elementCode": "0",
+              "amountFlat": 15000,
+              "enemyMaxHpPercent": 1,
+              "activation": "sub-only",
+              "stackingGroup": "summon-aura-supplemental",
+              "description": "敵最大HPの1%（最大15000）"
+            },
+            {
+              "kind": "utility",
+              "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 1,
+          "auraDescription": "闇属性攻撃100%UP / サブ与ダメ最大15000 / HP制限等は未対応",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "闇属性攻撃力100%UP"
+            },
+            {
+              "kind": "supplemental-damage",
+              "elementCode": "0",
+              "amountFlat": 15000,
+              "enemyMaxHpPercent": 1,
+              "activation": "sub-only",
+              "stackingGroup": "summon-aura-supplemental",
+              "description": "敵最大HPの1%（最大15000）"
+            },
+            {
+              "kind": "utility",
+              "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 2,
+          "auraDescription": "闇属性攻撃100%UP / サブ与ダメ最大15000 / HP制限等は未対応",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "闇属性攻撃力100%UP"
+            },
+            {
+              "kind": "supplemental-damage",
+              "elementCode": "0",
+              "amountFlat": 15000,
+              "enemyMaxHpPercent": 1,
+              "activation": "sub-only",
+              "stackingGroup": "summon-aura-supplemental",
+              "description": "敵最大HPの1%（最大15000）"
+            },
+            {
+              "kind": "utility",
+              "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 3,
+          "auraDescription": "闇属性攻撃120%UP / サブ与ダメ最大20000 / HP制限等は未対応",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 120,
+              "activation": "main-only",
+              "description": "闇属性攻撃力120%UP"
+            },
+            {
+              "kind": "supplemental-damage",
+              "elementCode": "0",
+              "amountFlat": 20000,
+              "enemyMaxHpPercent": 1,
+              "activation": "sub-only",
+              "stackingGroup": "summon-aura-supplemental",
+              "description": "敵最大HPの1%（最大20000）"
+            },
+            {
+              "kind": "utility",
+              "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 4,
+          "auraDescription": "闇属性攻撃力が130%UP/闇属性キャラの最大HPを上限20000に固定/被ダメージの最大値を5000に固定 / サブ加護: 与ダメージが最大30000上昇/最大HP30%DOWN",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 130,
+              "activation": "main-only",
+              "description": "闇属性攻撃力130%UP"
+            },
+            {
+              "kind": "supplemental-damage",
+              "elementCode": "0",
+              "amountFlat": 30000,
+              "enemyMaxHpPercent": 1,
+              "activation": "sub-only",
+              "stackingGroup": "summon-aura-supplemental",
+              "description": "敵最大HPの1%（最大30000）"
+            },
+            {
+              "kind": "utility",
+              "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        }
+      ]
     },
     {
       "summonId": "2040350000",
@@ -5373,7 +5754,9 @@
           "elementCode": "1",
           "amountPercent": 30,
           "boostGroup": "magna",
-          "targetSkillNamePrefixes": ["機炎方陣"],
+          "targetSkillNamePrefixes": [
+            "機炎方陣"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「機炎方陣」の効果が30%UP"
         },
@@ -5382,7 +5765,9 @@
           "elementCode": "2",
           "amountPercent": 30,
           "boostGroup": "magna",
-          "targetSkillNamePrefixes": ["海神方陣"],
+          "targetSkillNamePrefixes": [
+            "海神方陣"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「海神方陣」の効果が30%UP"
         },
@@ -5391,7 +5776,9 @@
           "elementCode": "3",
           "amountPercent": 30,
           "boostGroup": "magna",
-          "targetSkillNamePrefixes": ["創樹方陣"],
+          "targetSkillNamePrefixes": [
+            "創樹方陣"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「創樹方陣」の効果が30%UP"
         },
@@ -5400,7 +5787,9 @@
           "elementCode": "4",
           "amountPercent": 30,
           "boostGroup": "magna",
-          "targetSkillNamePrefixes": ["嵐竜方陣"],
+          "targetSkillNamePrefixes": [
+            "嵐竜方陣"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「嵐竜方陣」の効果が30%UP"
         },
@@ -5409,7 +5798,9 @@
           "elementCode": "5",
           "amountPercent": 30,
           "boostGroup": "magna",
-          "targetSkillNamePrefixes": ["騎解方陣"],
+          "targetSkillNamePrefixes": [
+            "騎解方陣"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「騎解方陣」の効果が30%UP"
         },
@@ -5418,7 +5809,9 @@
           "elementCode": "6",
           "amountPercent": 30,
           "boostGroup": "magna",
-          "targetSkillNamePrefixes": ["黒霧方陣"],
+          "targetSkillNamePrefixes": [
+            "黒霧方陣"
+          ],
           "activation": "sub-only",
           "description": "サブ装備時、スキル「黒霧方陣」の効果が30%UP"
         }
@@ -5430,9 +5823,24 @@
       "levelStats": {
         "maximumLevel": 150,
         "points": [
-          { "level": 1, "uncapLevel": 0, "attack": 277, "hp": 109 },
-          { "level": 100, "uncapLevel": 3, "attack": 1740, "hp": 668 },
-          { "level": 150, "uncapLevel": 4, "attack": 2106, "hp": 808 }
+          {
+            "level": 1,
+            "uncapLevel": 0,
+            "attack": 277,
+            "hp": 109
+          },
+          {
+            "level": 100,
+            "uncapLevel": 3,
+            "attack": 1740,
+            "hp": 668
+          },
+          {
+            "level": 150,
+            "uncapLevel": 4,
+            "attack": 2106,
+            "hp": 808
+          }
         ]
       },
       "selectionDefaults": {
@@ -5770,13 +6178,26 @@
       "auraDescription": "闇属性攻撃力が120%UP / サブ加護: 闇属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動",
       "auraEffects": [
         {
-          "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: 闇属性攻撃力が120%UP / サブ加護: 闇属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動"
+          "kind": "elemental-attack-up",
+          "elementCode": "6",
+          "amountPercent": 120,
+          "activation": "main-only",
+          "description": "闇属性攻撃力120%UP"
+        },
+        {
+          "kind": "supplemental-damage",
+          "elementCode": "6",
+          "amountFlat": 50000,
+          "enemyMaxHpPercent": 1,
+          "activation": "sub-only",
+          "stackingGroup": "summon-aura-supplemental",
+          "description": "敵最大HPの1%（最大50000） / HP80%以上",
+          "minimumHpPercent": 80
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516582およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）",
       "confirmedAt": "2026-09-09",
       "levelStats": {
         "maximumLevel": 100,
@@ -5801,7 +6222,109 @@
         "plusMark": 0,
         "attack": 2017,
         "hp": 817
-      }
+      },
+      "auraOverrides": [
+        {
+          "uncapLevel": 0,
+          "auraDescription": "闇属性攻撃100%UP / サブ与ダメ最大25000（HP80%以上）",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "闇属性攻撃力100%UP"
+            },
+            {
+              "kind": "supplemental-damage",
+              "elementCode": "6",
+              "amountFlat": 25000,
+              "enemyMaxHpPercent": 1,
+              "activation": "sub-only",
+              "stackingGroup": "summon-aura-supplemental",
+              "description": "敵最大HPの1%（最大25000） / HP80%以上",
+              "minimumHpPercent": 80
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516582およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 1,
+          "auraDescription": "闇属性攻撃100%UP / サブ与ダメ最大25000（HP80%以上）",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "闇属性攻撃力100%UP"
+            },
+            {
+              "kind": "supplemental-damage",
+              "elementCode": "6",
+              "amountFlat": 25000,
+              "enemyMaxHpPercent": 1,
+              "activation": "sub-only",
+              "stackingGroup": "summon-aura-supplemental",
+              "description": "敵最大HPの1%（最大25000） / HP80%以上",
+              "minimumHpPercent": 80
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516582およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 2,
+          "auraDescription": "闇属性攻撃100%UP / サブ与ダメ最大25000（HP80%以上）",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "闇属性攻撃力100%UP"
+            },
+            {
+              "kind": "supplemental-damage",
+              "elementCode": "6",
+              "amountFlat": 25000,
+              "enemyMaxHpPercent": 1,
+              "activation": "sub-only",
+              "stackingGroup": "summon-aura-supplemental",
+              "description": "敵最大HPの1%（最大25000） / HP80%以上",
+              "minimumHpPercent": 80
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516582およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        },
+        {
+          "uncapLevel": 3,
+          "auraDescription": "闇属性攻撃力が120%UP / サブ加護: 闇属性キャラの与ダメージが最大50000上昇 / ◆HPが80%以上で発動",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 120,
+              "activation": "main-only",
+              "description": "闇属性攻撃力120%UP"
+            },
+            {
+              "kind": "supplemental-damage",
+              "elementCode": "6",
+              "amountFlat": 50000,
+              "enemyMaxHpPercent": 1,
+              "activation": "sub-only",
+              "stackingGroup": "summon-aura-supplemental",
+              "description": "敵最大HPの1%（最大50000） / HP80%以上",
+              "minimumHpPercent": 80
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516582およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+        }
+      ]
     },
     {
       "summonId": "2040442000",
@@ -6046,13 +6569,20 @@
       "auraDescription": "全属性攻撃力が200%UP/味方全体で奥義とトリプルアタックを合計で5回以上発動したターンの終了時、主人公に他化自在効果 / サブ加護: 味方全体で奥義とトリプルアタックを合計で8回以上発動したターンの終了時、主人公に他化自在効果",
       "auraEffects": [
         {
+          "kind": "elemental-attack-up",
+          "elementCode": "0",
+          "amountPercent": 200,
+          "activation": "main-only",
+          "description": "全属性攻撃力200%UP"
+        },
+        {
           "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: 全属性攻撃力が200%UP/味方全体で奥義とトリプルアタックを合計で5回以上発動したターンの終了時、主人公に他化自在効果 / サブ加護: 味方全体で奥義とトリプルアタックを合計で8回以上発動したターンの終了時、主人公に他化自在効果"
+          "description": "他化自在の付与・攻撃時消費は未接続"
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": false,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認。加護数値・解放段階は https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537570（2026-10-03閲覧、二次情報・要検証）",
       "confirmedAt": "2026-09-09",
       "levelStats": {
         "maximumLevel": 150,
@@ -6083,6 +6613,153 @@
         "plusMark": 0,
         "attack": 2955,
         "hp": 1138
+      },
+      "auraOverrides": [
+        {
+          "uncapLevel": 0,
+          "auraDescription": "全属性攻撃力が100%UP",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "0",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "全属性攻撃力100%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537570（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "uncapLevel": 1,
+          "auraDescription": "全属性攻撃力が100%UP",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "0",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "全属性攻撃力100%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537570（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "uncapLevel": 2,
+          "auraDescription": "全属性攻撃力が100%UP",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "0",
+              "amountPercent": 100,
+              "activation": "main-only",
+              "description": "全属性攻撃力100%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537570（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "uncapLevel": 3,
+          "auraDescription": "全属性攻撃力が150%UP",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "0",
+              "amountPercent": 150,
+              "activation": "main-only",
+              "description": "全属性攻撃力150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537570（2026-10-03閲覧、二次情報・要検証）"
+        }
+      ]
+    },
+    {
+      "summonId": "2040450000",
+      "name": "紫禍黒麒麟",
+      "elementCode": "6",
+      "rarityCode": "4",
+      "auraName": "紫禍黒麒麟の加護",
+      "auraDescription": "メイン: 闇属性攻撃力50%UP/光属性ダメージ30%軽減。サブ: コクがパーティにいる時、闇属性攻撃力20%UP/コクの攻防30%UP/与ダメージ10%UP",
+      "auraEffects": [
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "6",
+          "amountPercent": 50,
+          "activation": "main-only",
+          "description": "闇属性攻撃力50%UP（下書き）"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "6",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "hades-transcendence-elemental-attack",
+          "requiredPartyCharacterIds": [
+            "3040571000"
+          ],
+          "description": "コクが前衛または後衛にいる時、闇属性攻撃力20%UP（超越ハデスと同枠）"
+        },
+        {
+          "kind": "utility",
+          "description": "光属性ダメージ軽減・コク個人の攻防/与ダメージ・召喚効果は未接続"
+        }
+      ],
+      "auraOverrides": [
+        {
+          "uncapLevel": 3,
+          "auraDescription": "闇属性攻撃力50%UP。5凸サブ加護は発動しない",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 50,
+              "activation": "main-only",
+              "description": "闇属性攻撃力50%UP（下書き）"
+            },
+            {
+              "kind": "utility",
+              "description": "召喚効果は未接続"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の編成記録でmaster IDを確認。GameWith 紫禍黒麒麟（2026-10-03閲覧）: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537603",
+          "confirmedAt": "2026-10-03"
+        },
+        {
+          "uncapLevel": 4,
+          "auraDescription": "闇属性攻撃力50%UP。5凸サブ加護は発動しない",
+          "auraEffects": [
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 50,
+              "activation": "main-only",
+              "description": "闇属性攻撃力50%UP（下書き）"
+            },
+            {
+              "kind": "utility",
+              "description": "召喚効果は未接続"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の編成記録でmaster IDを確認。GameWith 紫禍黒麒麟（2026-10-03閲覧）: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537603",
+          "confirmedAt": "2026-10-03"
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の編成記録でmaster IDを確認。GameWith 紫禍黒麒麟（2026-10-03閲覧）: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537603",
+      "confirmedAt": "2026-10-03",
+      "supportSelectable": true,
+      "selectionDefaults": {
+        "level": 200,
+        "uncapLevel": 5,
+        "plusMark": 0,
+        "attack": 2704,
+        "hp": 1051
       }
     },
     {

@@ -7,12 +7,28 @@ import type {
 } from "./types.js";
 
 const auraEffectSchema = z.discriminatedUnion("kind", [
+  z.object({
+    kind: z.literal("damage-cap-up"), elementCode: z.string().min(1), amountPercent: z.number().finite().nonnegative(),
+    activation: z.enum(["always", "main-only", "sub-only"]), stackingGroup: z.string().min(1), description: z.string().min(1),
+    targetElementCode: z.string().min(1).optional(),
+  }).strict(),
+  z.object({
+    kind: z.literal("damage-dealt-up"), elementCode: z.string().min(1), amountPercent: z.number().finite().nonnegative(),
+    activation: z.enum(["always", "main-only", "sub-only"]), stackingGroup: z.string().min(1), description: z.string().min(1),
+    targetElementCode: z.string().min(1).optional(),
+  }).strict(),
+  z.object({ kind: z.literal("supplemental-damage"), elementCode: z.string().min(1), amountFlat: z.number().finite().nonnegative(),
+    activation: z.enum(["always", "main-only", "sub-only"]), stackingGroup: z.string().min(1), description: z.string().min(1),
+    enemyMaxHpPercent: z.number().positive().max(100).optional(), minimumHpPercent: z.number().min(0).max(100).optional(),
+  }).strict(),
   z
     .object({
       kind: z.literal("elemental-attack-up"),
       elementCode: z.string().min(1),
       amountPercent: z.number().finite(),
       activation: z.enum(["always", "main-only", "sub-only"]),
+      requiredPartyCharacterIds: z.array(z.string().min(1)).min(1).optional(),
+      stackingGroup: z.string().min(1).optional(),
       description: z.string().min(1),
     })
     .strict(),

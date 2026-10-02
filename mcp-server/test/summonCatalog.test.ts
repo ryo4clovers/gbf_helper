@@ -11,7 +11,7 @@ test("loads the initial non-damage summon aura", () => {
   const catalog = loadIncrementalSummonCatalog();
   const summon = catalog.summons.get("2030051000");
 
-  assert.equal(catalog.summons.size, 123);
+  assert.equal(catalog.summons.size, 124);
   assert.equal(summon?.name, "シルフィードベル");
   assert.equal(summon?.verificationStatus, "検証済み");
   assert.equal(summon?.supportSelectable, true);

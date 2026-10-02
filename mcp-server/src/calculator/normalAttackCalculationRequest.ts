@@ -22,6 +22,7 @@ const requestSchema = z
       .optional(),
     deckConfig: z.unknown(),
     protagonistCurrentHpPercent: z.number().finite().min(1).max(100).default(100),
+    mythicalLancerLevel: z.number().int().min(0).max(5).optional(),
     supportSummon: z
       .object({
         summonId: z.string().min(1),
@@ -36,6 +37,7 @@ const requestSchema = z
         elementCode: z.enum(["1", "2", "3", "4", "5", "6"]),
         defense: z.number().finite().positive().max(10000),
         attack: z.number().finite().nonnegative().max(1_000_000_000).default(10_000),
+        maxHp: z.number().int().positive().optional(),
       })
       .strict(),
     modifiers: z
@@ -125,6 +127,7 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
         nameJp: request.enemy.name,
         elementCode: request.enemy.elementCode,
         defense: request.enemy.defense,
+        maxHp: request.enemy.maxHp,
         defenseSource: "user-override",
       },
     ],
@@ -184,12 +187,16 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
       ? undefined
       : { schemaVersion: 1, modifiers: accountModifiers, issues: [] };
 
-  if ((request.modifiers.jobNormalAttackDamagePercent ?? 0) > 0) {
+  if (request.modifiers.jobNormalAttackDamagePercent !== undefined) {
     resolution.deck.protagonist.job ??= {
       masterId: "manual-job",
       weaponKindCodes: [],
     };
     resolution.deck.protagonist.job.damageModifiers ??= [];
+    // The explicit account completion input replaces the imported value.
+    resolution.deck.protagonist.job.damageModifiers = resolution.deck.protagonist.job.damageModifiers.filter(
+      (effect) => effect.sourceId !== "my_job_class_if:final_attack_rise_plus",
+    );
     resolution.deck.protagonist.job.damageModifiers.push(
       ...modifier(
         "normal-attack-damage",
@@ -214,6 +221,7 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
     battle,
     targetEnemySlot: 1,
     protagonistCurrentHpPercent: request.protagonistCurrentHpPercent,
+    mythicalLancerLevel: request.mythicalLancerLevel,
     accountBonuses,
     crewModifiers: {
       shipAttackPercent: request.modifiers.shipAttackPercent,

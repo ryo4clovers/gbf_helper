@@ -2,6 +2,7 @@ import { z } from "zod";
 import { parseBattleStartResponse } from "./battleStartParser.js";
 import { convertDeckResponseToCalculatorDeckConfig } from "./calculatorDeckConfig.js";
 import { parseDeckResponse } from "./deckParser.js";
+import { importProtagonistLimitBonuses } from "./protagonistLimitBonusImport.js";
 
 type RecordValue = Record<string, unknown>;
 type DamageKind = "normal" | "charge" | "ability" | "turn-end";
@@ -73,9 +74,16 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
   // Friend status is irrelevant to the observation benchmark.
   if (battle.supportSummon) delete battle.supportSummon.isFriend;
   const deckCall = calls.filter((call) => call.time <= start.time && record(call.body).deck).at(-1);
+  const parsedDeck = deckCall ? parseDeckResponse(deckCall.body) : undefined;
   const deckConfig = deckCall ? convertDeckResponseToCalculatorDeckConfig(deckCall.body) : undefined;
   if (deckConfig) delete deckConfig.name;
-  const displayedDamageInfo = deckCall ? parseDeckResponse(deckCall.body).displayedDamageInfo : undefined;
+  const limitBonusCall = calls.filter((call) => call.time <= start.time
+    && new RegExp(`/zenith/bonus_list/${deckConfig?.protagonist.jobId}$`).test(call.path)).at(-1);
+  if (deckConfig && limitBonusCall) Object.assign(deckConfig.protagonist, importProtagonistLimitBonuses(limitBonusCall.body));
+  const displayedDamageInfo = parsedDeck?.displayedDamageInfo;
+  const jobNormalAttackDamagePercent = (parsedDeck?.protagonist.job?.damageModifiers ?? [])
+    .filter((effect) => effect.stage === "normal-attack-damage")
+    .reduce((sum, effect) => sum + effect.amountPercent, 0);
   const rawParty = record(rawStart.player).param;
   const actors = (Array.isArray(rawParty) ? rawParty : []).map((value, position) => {
     const actor = record(value);
@@ -175,7 +183,8 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
   if (hpMismatchCount) warnings.push(`${hpMismatchCount} packets do not reconcile with the recorded enemy HP; inspect before using as reference.`);
   return {
     schemaVersion: 1 as const, kind: "recorded-battle-observation" as const,
-    deckConfig, displayedDamageInfo, battle, actors, turns,
+    deckConfig, displayedDamageInfo, battle, actors, turns, protagonistLimitBonusesImported: limitBonusCall !== undefined,
+    jobNormalAttackDamagePercent,
     summary: {
       turnCount: turns.length, totalDamage: turns.reduce((sum, turn) => sum + turn.damage, 0),
       normalActionCount: turns.reduce((sum, turn) => sum + turn.normalActions.length, 0),

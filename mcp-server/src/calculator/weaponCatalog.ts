@@ -31,11 +31,20 @@ const effectSchema = z
       "ability-supplemental-damage",
       "supplemental-damage",
       "elemental-pursuit",
+      "destruction-pursuit",
+      "enemy-defense-ignore",
+      "normal-only-damage-cap-up",
+      "normal-only-damage-dealt-up",
+      "special-normal-damage-dealt-up",
+      "elemental-superiority-damage-up",
+      "normal-supplemental-damage",
+      "separate-normal-supplemental-damage",
       "normal-skill-boost",
     ]),
     elementCode: z.string().min(1).optional(),
     amountPercent: z.number().finite().optional(),
     amountFlat: z.number().finite().nonnegative().optional(),
+    mainWeaponOnly: z.boolean().optional(),
     stackingCapPercent: z.number().finite().positive().optional(),
     skillLevel: z.number().int().nonnegative().optional(),
     boostGroup: z.enum(["normal", "magna"]).optional(),
@@ -45,6 +54,11 @@ const effectSchema = z
       z.object({ kind: z.literal("enmity") }).strict(),
     ]).optional(),
     activationCondition: z.discriminatedUnion("kind", [
+      z.object({ kind: z.literal("skill-boost-range"), boostGroup: z.enum(["normal", "magna", "any"]),
+        targetSkillNamePrefixes: z.array(z.string().min(1)).min(1),
+        minimumPercent: z.number().finite().nonnegative().optional(),
+        maximumPercent: z.number().finite().nonnegative().optional(),
+      }).strict(),
       z.object({ kind: z.literal("minimum-weapon-level"), level: z.number().int().positive() }).strict(),
       z.object({
         kind: z.literal("minimum-same-weapon-kind-count"),
@@ -64,7 +78,7 @@ const effectSchema = z
     if (effect.stackingCapPercent !== undefined && effect.kind !== "elemental-pursuit") {
       context.addIssue({ code: "custom", message: "stackingCapPercent is only supported for elemental-pursuit" });
     }
-    const isFlat = effect.kind === "ability-supplemental-damage" || effect.kind === "supplemental-damage";
+    const isFlat = ["ability-supplemental-damage", "supplemental-damage", "normal-supplemental-damage", "separate-normal-supplemental-damage"].includes(effect.kind);
     if (isFlat && effect.amountFlat === undefined) {
       context.addIssue({ code: "custom", message: `${effect.kind} requires amountFlat` });
     }

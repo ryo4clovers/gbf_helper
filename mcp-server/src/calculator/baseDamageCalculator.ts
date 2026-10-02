@@ -1,5 +1,7 @@
 import type { NormalAttackPowerResult } from "./normalAttackPowerCalculator.js";
 import type { HpDependentAttackResult } from "./hpDependentAttackCalculator.js";
+import { effectiveEnemyDefense } from "./normalAttackSkillFrames.js";
+import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttackSupport.js";
 import type {
   DamageCalculationInput,
   DamageModifier,
@@ -14,7 +16,8 @@ export type BaseDamageStage =
   | "ex-weapon-skill"
   | "normal-stamina"
   | "magna-stamina"
-  | "normal-enmity";
+  | "normal-enmity"
+  | "job-support-attack";
 export type StageRounding = "none" | "floor" | "ceil";
 export type BaseDamageCalculationModel =
   | "defense-first-provisional"
@@ -61,6 +64,7 @@ export interface DefenseAdjustedBaseDamageResult {
   defenseRounding: "ceil" | "none";
   attackBeforeDefense: number;
   enemyDefense: number;
+  defenseIgnore?: ReturnType<typeof effectiveEnemyDefense>;
   enemyDefenseSource?: EnemyTarget["defenseSource"];
   /** Unrounded value used as the normal-attack body's random-damage base. */
   unroundedDamageBeforeRandomAndCap: number;
@@ -296,6 +300,10 @@ export function calculateDefenseAdjustedBaseDamage(
           contributions: characterAttackContributions,
           totalPercentOverride: attackPower.totalCharacterAttackSummonAuraPercent ?? 0,
         }]),
+    ...(resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel).perpetuityAttackPercent === 0 ? [] : [{
+      stage: "job-support-attack" as const, contributions: [],
+      totalPercentOverride: resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel).perpetuityAttackPercent,
+    }]),
     ...(hpDependentAttack === undefined || hpDependentAttack.staminaContributions.length === 0
       ? []
       : [{
@@ -331,7 +339,8 @@ export function calculateDefenseAdjustedBaseDamage(
     },
   ];
   const stages: AppliedDamageStage[] = [];
-  const defenseAdjustedBaseAttack = Math.ceil(attackPower.baseAttack / target.defense);
+  const defense = effectiveEnemyDefense(input.deck, target.defense);
+  const defenseAdjustedBaseAttack = Math.ceil(attackPower.baseAttack / defense.effectiveDefense);
   let stagedDamage = defenseAdjustedBaseAttack;
   for (const definition of stageDefinitions) {
     const applied = applyStage(
@@ -345,7 +354,7 @@ export function calculateDefenseAdjustedBaseDamage(
     stages.push(applied);
     stagedDamage = applied.outputDamage;
   }
-  const attackBeforeDefense = roundCalculation(stagedDamage * target.defense);
+  const attackBeforeDefense = roundCalculation(stagedDamage * defense.effectiveDefense);
 
   return {
     schemaVersion: 1,
@@ -357,11 +366,12 @@ export function calculateDefenseAdjustedBaseDamage(
     defenseRounding: "ceil",
     attackBeforeDefense,
     enemyDefense: target.defense,
+    defenseIgnore: defense,
     enemyDefenseSource: target.defenseSource,
     unroundedDamageBeforeRandomAndCap: roundCalculation(stagedDamage),
     damageBeforeRandomAndCap: Math.floor(roundCalculation(stagedDamage)),
     stages,
-    deferredCapModifiers: accountModifiers.filter(
+    deferredCapModifiers: [...accountModifiers, ...jobModifiers].filter(
       (modifier) => modifier.stage === "damage-cap" || modifier.stage === "normal-attack-damage-cap",
     ),
     unresolvedStages: ["rounding", "damage-cap"],

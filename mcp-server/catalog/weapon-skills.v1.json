@@ -7438,12 +7438,21 @@
       "skillId": "1936",
       "name": "グガル・アンナ",
       "description": "闇属性キャラの通常攻撃の与ダメージUP/奥義ゲージ上昇量大幅DOWN ◆メイン装備時",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "normal-only-damage-dealt-up",
+          "elementCode": "6",
+          "amountPercent": 30,
+          "verificationStatus": "下書き",
+          "mainWeaponOnly": true,
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/366914（2026-10-03閲覧、二次情報・要検証）"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証。数値補完: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/366914（2026-10-03閲覧、二次情報・要検証）",
       "confirmedAt": "2026-10-02",
       "unsupportedEffects": [
-        "闇属性キャラの通常攻撃の与ダメージUP/奥義ゲージ上昇量大幅DOWN ◆メイン装備時"
+        "奥義ゲージ上昇量-200%（通常攻撃の単発ダメージ計算には未使用）"
       ]
     },
     {
@@ -7904,13 +7913,38 @@
       "skillId": "2197",
       "name": "奈落の神醒",
       "description": "闇属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "6",
+          "amountPercent": 24,
+          "verificationStatus": "下書き",
+          "skillLevel": 25,
+          "boostGroup": "normal",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/146896（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "normal-hp-up",
+          "elementCode": "6",
+          "amountPercent": 24,
+          "verificationStatus": "下書き",
+          "skillLevel": 25,
+          "boostGroup": "normal",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/146896（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "damage-dealt-up",
+          "elementCode": "6",
+          "amountPercent": 2,
+          "verificationStatus": "下書き",
+          "skillLevel": 25,
+          "boostGroup": "normal",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/146896（2026-10-03閲覧、二次情報・要検証）"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-10-02",
-      "unsupportedEffects": [
-        "闇属性キャラの攻撃力と最大HPが上昇(大)/与ダメージUP(大)"
-      ]
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証。数値補完: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/146896（2026-10-03閲覧、二次情報・要検証）",
+      "confirmedAt": "2026-10-02"
     },
     {
       "skillId": "2198",
@@ -8061,12 +8095,51 @@
       "skillId": "2229",
       "name": "神闇の極技",
       "description": "闇属性キャラの攻撃力上昇/ダメージ上限上昇/アビリティダメージ上限上昇/アビリティの与ダメージUP/◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "ex-attack-up",
+          "elementCode": "6",
+          "amountPercent": 40,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 280
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/146896（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "normal-frame-damage-cap-up",
+          "elementCode": "6",
+          "amountPercent": 7,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 280
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/146896（2026-10-03閲覧、二次情報・要検証）"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証。数値補完: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/146896（2026-10-03閲覧、二次情報・要検証）",
       "confirmedAt": "2026-10-02",
       "unsupportedEffects": [
-        "闇属性キャラの攻撃力上昇/ダメージ上限上昇/アビリティダメージ上限上昇/アビリティの与ダメージUP/◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動"
+        "特殊アビリティ上限30%/アビリティ与ダメージ10%の別枠は未接続"
       ]
     },
     {
@@ -8807,13 +8880,29 @@
       "skillId": "2543",
       "name": "奈落の貫破",
       "description": "闇属性キャラが敵の防御力を一定割合無視(大)/攻撃力上昇(小)",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "normal-attack-up",
+          "elementCode": "6",
+          "amountPercent": 12,
+          "verificationStatus": "下書き",
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "enemy-defense-ignore",
+          "elementCode": "6",
+          "amountPercent": 2,
+          "verificationStatus": "下書き",
+          "skillLevel": 15,
+          "boostGroup": "normal",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-10-02",
-      "unsupportedEffects": [
-        "闇属性キャラが敵の防御力を一定割合無視(大)/攻撃力上昇(小)"
-      ]
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証。数値補完: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）",
+      "confirmedAt": "2026-10-02"
     },
     {
       "skillId": "2558",
@@ -8828,25 +8917,145 @@
       "skillId": "2562",
       "name": "煉の武技",
       "description": "闇属性キャラの通常攻撃の与ダメージ上昇",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "normal-supplemental-damage",
+          "elementCode": "6",
+          "amountFlat": 50000,
+          "verificationStatus": "下書き",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-10-02",
-      "unsupportedEffects": [
-        "闇属性キャラの通常攻撃の与ダメージ上昇"
-      ]
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証。数値補完: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）",
+      "confirmedAt": "2026-10-02"
     },
     {
       "skillId": "2568",
       "name": "グラファイト・アトス",
       "description": "闇属性キャラの連続攻撃確率上昇/通常攻撃の与ダメージUP/◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で性能UP",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "double-attack-rate-up",
+          "elementCode": "6",
+          "amountPercent": 6.25,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 0,
+            "maximumPercent": 279.999999
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "double-attack-rate-up",
+          "elementCode": "6",
+          "amountPercent": 12.5,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 280
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "triple-attack-rate-up",
+          "elementCode": "6",
+          "amountPercent": 6.25,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 0,
+            "maximumPercent": 279.999999
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "triple-attack-rate-up",
+          "elementCode": "6",
+          "amountPercent": 12.5,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 280
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "special-normal-damage-dealt-up",
+          "elementCode": "6",
+          "amountPercent": 5,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 0,
+            "maximumPercent": 279.999999
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "special-normal-damage-dealt-up",
+          "elementCode": "6",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 280
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-10-02",
-      "unsupportedEffects": [
-        "闇属性キャラの連続攻撃確率上昇/通常攻撃の与ダメージUP/◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で性能UP"
-      ]
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証。数値補完: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/516584（2026-10-03閲覧、二次情報・要検証）",
+      "confirmedAt": "2026-10-02"
     },
     {
       "skillId": "2572",
@@ -8961,13 +9170,25 @@
       "skillId": "2635",
       "name": "破壊の神刃III",
       "description": "闇属性キャラの攻撃力上昇(特大)/破壊属性追撃効果(特大)",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "ex-attack-up",
+          "elementCode": "6",
+          "amountPercent": 35,
+          "verificationStatus": "下書き",
+          "source": "https://gbf.wiki/Doombringer_Lyre (2026-10-03閲覧・要検証)"
+        },
+        {
+          "kind": "destruction-pursuit",
+          "elementCode": "6",
+          "amountPercent": 20,
+          "verificationStatus": "下書き",
+          "source": "https://gbf.wiki/Doombringer_Lyre (2026-10-03閲覧・要検証) / https://gbf.wiki/Destruction_Damage"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-10-02",
-      "unsupportedEffects": [
-        "闇属性キャラの攻撃力上昇(特大)/破壊属性追撃効果(特大)"
-      ]
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証。数値補完: https://gbf.wiki/Unite_and_Fight/April_2026/Optimus_Grids/NM95（2026-10-03検索結果で閲覧、二次情報・要検証）",
+      "confirmedAt": "2026-10-02"
     },
     {
       "skillId": "2638",
@@ -9013,12 +9234,20 @@
       "skillId": "2653",
       "name": "再生の神守III",
       "description": "闇属性キャラの最大HP上昇(特大)/破壊属性奥義追撃効果(特大)",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "normal-hp-up",
+          "elementCode": "6",
+          "amountPercent": 30,
+          "verificationStatus": "下書き",
+          "source": "https://gbf.wiki/Doombringer_Lyre (2026-10-03閲覧・要検証)"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証。数値補完: https://gbf.wiki/Unite_and_Fight/April_2026/Optimus_Grids/NM95（2026-10-03検索結果で閲覧、二次情報・要検証）",
       "confirmedAt": "2026-10-02",
       "unsupportedEffects": [
-        "闇属性キャラの最大HP上昇(特大)/破壊属性奥義追撃効果(特大)"
+        "破壊属性奥義追撃10%は未接続"
       ]
     },
     {
@@ -9057,12 +9286,70 @@
       "skillId": "2666",
       "name": "闘争の神撃II",
       "description": "闇属性キャラの通常攻撃ダメージ上限UP/通常攻撃の与ダメージ上昇/有利な属性の敵に対して与ダメージUP/光属性ダメージ軽減 ◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "normal-only-damage-cap-up",
+          "elementCode": "6",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 280
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/525616（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "separate-normal-supplemental-damage",
+          "elementCode": "6",
+          "amountFlat": 20000,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 280
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/525616（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "elemental-superiority-damage-up",
+          "elementCode": "6",
+          "amountPercent": 30,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 280
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/525616（2026-10-03閲覧、二次情報・要検証）"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証。数値補完: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/525616（2026-10-03閲覧、二次情報・要検証）",
       "confirmedAt": "2026-10-02",
       "unsupportedEffects": [
-        "闇属性キャラの通常攻撃ダメージ上限UP/通常攻撃の与ダメージ上昇/有利な属性の敵に対して与ダメージUP/光属性ダメージ軽減 ◆スキル「黒霧方陣」または「冥堕禁呪」または「闇」「憎悪」「奈落」の効果上昇量が合計280%以上で発動"
+        "光属性ダメージ軽減30%は未接続"
       ]
     },
     {
@@ -9158,13 +9445,47 @@
       "skillId": "3030",
       "name": "ディジーズ・デーモンII",
       "description": "闇属性キャラの通常攻撃のダメージ上限上昇/連続攻撃確率上昇 ◆メイン装備時",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "normal-only-damage-cap-up",
+          "elementCode": "6",
+          "amountPercent": 20,
+          "verificationStatus": "下書き",
+          "mainWeaponOnly": true,
+          "activationCondition": {
+            "kind": "minimum-weapon-level",
+            "level": 210
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/366914（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "double-attack-rate-up",
+          "elementCode": "6",
+          "amountPercent": 15,
+          "verificationStatus": "下書き",
+          "mainWeaponOnly": true,
+          "activationCondition": {
+            "kind": "minimum-weapon-level",
+            "level": 210
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/366914（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "triple-attack-rate-up",
+          "elementCode": "6",
+          "amountPercent": 15,
+          "verificationStatus": "下書き",
+          "mainWeaponOnly": true,
+          "activationCondition": {
+            "kind": "minimum-weapon-level",
+            "level": 210
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/366914（2026-10-03閲覧、二次情報・要検証）"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
-      "confirmedAt": "2026-10-02",
-      "unsupportedEffects": [
-        "闇属性キャラの通常攻撃のダメージ上限上昇/連続攻撃確率上昇 ◆メイン装備時"
-      ]
+      "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証。数値補完: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/366914（2026-10-03閲覧、二次情報・要検証）",
+      "confirmedAt": "2026-10-02"
     },
     {
       "skillId": "3031",

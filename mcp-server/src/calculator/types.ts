@@ -47,6 +47,14 @@ export type WeaponSkillEffectKind =
   | "ability-supplemental-damage"
   | "supplemental-damage"
   | "elemental-pursuit"
+  | "destruction-pursuit"
+  | "enemy-defense-ignore"
+  | "normal-only-damage-cap-up"
+  | "normal-only-damage-dealt-up"
+  | "special-normal-damage-dealt-up"
+  | "elemental-superiority-damage-up"
+  | "normal-supplemental-damage"
+  | "separate-normal-supplemental-damage"
   | "normal-skill-boost";
 
 export type HpDependentAttackCurve =
@@ -66,11 +74,14 @@ export interface WeaponSkillEffectDefinition {
   targetSkillNamePrefixes?: string[];
   /** Converts the table's reference amount into an amount at the configured current HP. */
   hpDependentCurve?: HpDependentAttackCurve;
+  mainWeaponOnly?: boolean;
   /** Optional equipment-grid condition evaluated before the effect is resolved. */
   activationCondition?: {
     kind: "minimum-same-weapon-kind-count";
     count: number;
-  } | { kind: "minimum-weapon-level"; level: number };
+  } | { kind: "minimum-weapon-level"; level: number }
+    | { kind: "skill-boost-range"; boostGroup: "normal" | "magna" | "any";
+        targetSkillNamePrefixes: string[]; minimumPercent?: number; maximumPercent?: number };
   /** Multiplies one skill occurrence by matching equipment in the current grid. */
   gridScaling?: {
     kind: "same-weapon-kind-count";
@@ -148,14 +159,25 @@ export type SummonAuraEffectKind =
   | "character-attack-up"
   | "character-hp-up"
   | "character-hp-flat"
+  | "damage-cap-up"
+  | "damage-dealt-up"
+  | "supplemental-damage"
   | "utility";
 
 export type SummonAuraEffectDefinition =
+  | { kind: "damage-cap-up" | "damage-dealt-up"; elementCode: string; amountPercent: number;
+      activation: "always" | "main-only" | "sub-only"; stackingGroup: string; description: string;
+      targetElementCode?: string }
+  | { kind: "supplemental-damage"; elementCode: string; amountFlat: number;
+      activation: "always" | "main-only" | "sub-only"; stackingGroup: string; description: string;
+      enemyMaxHpPercent?: number; minimumHpPercent?: number }
   | {
       kind: "elemental-attack-up";
       elementCode: string;
       amountPercent: number;
       activation: "always" | "main-only" | "sub-only";
+      requiredPartyCharacterIds?: string[];
+      stackingGroup?: string;
       description: string;
     }
   | {
@@ -440,6 +462,9 @@ export interface DeckJob {
   masterBonusHpPercent?: number;
   /** Account-wide completed-job defense bonus for the current HP/job conditions. */
   masterBonusDefensePercent?: number;
+  masterBonusDamageCapPercent?: number;
+  nonClassVDamageCapPercent?: number;
+  nonClassVNormalAttackDamagePercent?: number;
   multiattackRateBonuses?: DeckJobMultiattackRateBonus[];
   criticalRateBonuses?: DeckJobCriticalRateBonus[];
   level?: number;
@@ -573,6 +598,9 @@ export interface CalculatorDeckProtagonistConfig {
   masterBonusAttackPercent?: number;
   masterBonusHpPercent?: number;
   masterBonusDefensePercent?: number;
+  masterBonusDamageCapPercent?: number;
+  nonClassVDamageCapPercent?: number;
+  nonClassVNormalAttackDamagePercent?: number;
   completedJobIds?: string[];
   mainWeaponCompletionAttackContribution?: number;
   jobGrowthAttackContribution?: number;
@@ -699,6 +727,8 @@ export interface DamageCalculationInput {
   targetEnemySlot: number;
   /** Current protagonist HP as a percentage of maximum HP. Defaults to 100. */
   protagonistCurrentHpPercent?: number;
+  /** Current battle level; absent uses the equipped weapon count at battle start. */
+  mythicalLancerLevel?: number;
   accountBonuses?: AccountBonusSnapshot;
   crewModifiers?: CrewDamageModifierInput;
   incomingDamage?: {

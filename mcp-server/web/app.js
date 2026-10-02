@@ -2444,7 +2444,7 @@ function buildRequest() {
       ...outgoingMemorialModifiers,
       shipAttackPercent: crewSupportEffects.shipAttackPercent,
       furnaceAttackPercent: crewSupportEffects.furnaceAttackPercent,
-      jobNormalAttackDamagePercent: completion.totals.normalAttackDamage ?? 0,
+      jobNormalAttackDamagePercent: deckConfig.protagonist.nonClassVNormalAttackDamagePercent ?? completion.totals.normalAttackDamage ?? 0,
       abilityDamagePercent:
         (completion.totals.abilityDamage ?? 0)
         + (outgoingMemorialModifiers.abilityDamagePercent ?? 0)
@@ -2619,7 +2619,7 @@ function calculationBreakdownRows(baseDamage) {
 }
 
 function renderLocalResult(result) {
-  const body = result.bodyDamageDistribution;
+  const body = result.guaranteedCriticalBodyDamageDistribution ?? result.bodyDamageDistribution;
   const critical = result.criticalBodyDamage;
   const limitBonusCritical = result.protagonistLimitBonusCritical;
   const useWeaponCritical = $("weapon-critical-toggle").checked && critical !== undefined;

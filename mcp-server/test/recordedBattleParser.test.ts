@@ -82,3 +82,18 @@ test("rejects multiple battles and invalid amounts instead of silently combining
     capture(start(), "/rest/raid/start.json", 10), capture(broken, "/rest/raid/normal_attack_result.json", 20),
   ] }]), /non-negative safe integer/);
 });
+
+test("imports the latest matching job LB allocation before battle start, ignoring later and other-job lists", () => {
+  const deck={deck:{npc:{},pc:{param:{attack:1000,hp:1000,attribute:6},weapons:{},summons:{},sub_summons:{},
+    job:{master:{id:"190501",weapon1:3,weapon2:4},param:{level:50}},
+  }}};
+  const lb=(level:number)=>({user_id:"private",bonus_list:[{id:"118",current_level:level,name:"private"}]});
+  const result=parseRecordedBattleExports([{apiCalls:[
+    capture(deck,"/party/deck",1), capture(lb(0),"/zenith/bonus_list/190501",2),
+    capture(lb(1),"/zenith/bonus_list/190501",8), capture(lb(3),"/zenith/bonus_list/100401",9),
+    capture(start(),"/rest/raid/start.json",10), capture(lb(2),"/zenith/bonus_list/190501",12),
+  ]}]);
+  assert.equal(result.protagonistLimitBonusesImported,true);
+  assert.equal(result.deckConfig?.protagonist.otherLimitBonusLevels?.["118"],1);
+  assert.ok(!JSON.stringify(result).includes("private"));
+});

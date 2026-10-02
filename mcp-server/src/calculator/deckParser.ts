@@ -243,7 +243,7 @@ function normalizeJob(value: unknown): DeckJob | undefined {
   const bonus = asRecord(job?.bonue);
   const masterBonuses = Array.isArray(bonus?.master_bonus) ? bonus.master_bonus : [];
   const masterBonusRate = (
-    type: "attack_up" | "hp_up" | "double_attack_rate_up" | "triple_attack_rate_up",
+    type: string,
   ): number | undefined => {
     const values = masterBonuses.flatMap((rawBonus): number[] => {
       const entry = asRecord(rawBonus);
@@ -255,19 +255,18 @@ function normalizeJob(value: unknown): DeckJob | undefined {
   };
   const damageModifiers = masterBonuses.flatMap((rawBonus): DamageModifier[] => {
     const entry = asRecord(rawBonus);
-    if (entry === undefined || optionalString(entry.type) !== "my_job_class_if:final_attack_rise_plus") {
-      return [];
-    }
+    const type = optionalString(entry?.type);
+    if (entry === undefined || !["my_job_class_if:final_attack_rise_plus", "passive_damage_limit_up_plus", "my_job_class_if:passive_damage_limit_up_plus"].includes(type ?? "")) return [];
     const amountPercent = optionalNumber(entry.param, "deck.pc.job.bonue.master_bonus[].param");
     if (amountPercent === undefined) return [];
     return [
       {
-        stage: "normal-attack-damage",
+        stage: type === "my_job_class_if:final_attack_rise_plus" ? "normal-attack-damage" : "damage-cap",
         amountPercent,
         sourceType: "job-master-bonus",
-        sourceId: "my_job_class_if:final_attack_rise_plus",
-        sourceName: optionalString(entry.name) ?? "Class.V以外のジョブの時、通常攻撃の与ダメージUP",
-        condition: "non-class-v",
+        sourceId: type!,
+        sourceName: optionalString(entry.name) ?? "ジョブマスターボーナス",
+        condition: type?.startsWith("my_job_class_if:") ? "non-class-v" : undefined,
         verificationStatus: "下書き",
       },
     ];
@@ -285,6 +284,9 @@ function normalizeJob(value: unknown): DeckJob | undefined {
     jobCompletionTripleAttackRate: masterBonusRate("triple_attack_rate_up"),
     masterBonusAttackPercent: masterBonusRate("attack_up"),
     masterBonusHpPercent: masterBonusRate("hp_up"),
+    masterBonusDamageCapPercent: masterBonusRate("passive_damage_limit_up_plus"),
+    nonClassVDamageCapPercent: masterBonusRate("my_job_class_if:passive_damage_limit_up_plus"),
+    nonClassVNormalAttackDamagePercent: masterBonusRate("my_job_class_if:final_attack_rise_plus"),
     level: optionalNumber(param?.level, "deck.pc.job.param.level"),
     masterLevel: optionalNumber(param?.master_level, "deck.pc.job.param.master_level"),
     perfectionProofLevel: optionalNumber(
