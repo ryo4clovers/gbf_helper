@@ -1346,12 +1346,9 @@ function renderCharacterFilters() {
 function openCharacterPicker(slot) {
   editingCharacterSlot = slot;
   $("character-picker-slot-label").textContent = slot <= 3 ? `前衛 ${slot}を変更` : `サブ ${slot - 3}を変更`;
-  $("character-search").value = "";
-  selectedCharacterElementCode = "";
-  selectedCharacterRarity = "";
   $("remove-character").disabled = !characterForSlot(readDeckConfig(), slot);
   renderCharacterFilters();
-  renderCharacterResults();
+  renderCharacterResults($("character-search").value);
   $("character-picker").showModal();
   $("character-search").focus();
 }
@@ -1830,14 +1827,10 @@ function renderWeaponFilters() {
 function openWeaponPicker(slot) {
   editingWeaponSlot = slot;
   $("picker-slot-label").textContent = slot === 1 ? "メイン武器を変更" : `武器枠 ${slot}を変更`;
-  $("weapon-search").value = "";
-  selectedWeaponElementCode = "";
-  selectedWeaponRarity = "";
-  selectedWeaponKindCode = "";
   const currentWeapon = weaponForSlot(readDeckConfig(), slot);
   $("remove-weapon").disabled = !currentWeapon || currentWeapon.isJobFallback === true;
   renderWeaponFilters();
-  renderWeaponResults();
+  renderWeaponResults($("weapon-search").value);
   $("weapon-picker").showModal();
   $("weapon-search").focus();
 }
@@ -2177,14 +2170,11 @@ function renderSummonFilters() {
 function openSummonPicker(position, slot) {
   editingSummonSlot = { kind: "deck", position, slot };
   $("summon-picker-slot-label").textContent = `${summonSlotLabel(position, slot)}を変更`;
-  $("summon-search").value = "";
-  selectedSummonElementCode = "";
-  selectedSummonRarity = "";
   const removeButton = $("remove-summon");
   removeButton.disabled = position === "main" || !summonForSlot(readDeckConfig(), position, slot);
   removeButton.title = position === "main" ? "メイン召喚石は外せません" : "";
   renderSummonFilters();
-  renderSummonResults();
+  renderSummonResults($("summon-search").value);
   $("summon-picker").showModal();
   $("summon-search").focus();
 }
@@ -2192,13 +2182,10 @@ function openSummonPicker(position, slot) {
 function openSupportSummonPicker() {
   editingSummonSlot = { kind: "support" };
   $("summon-picker-slot-label").textContent = "クエスト開始前に選ぶサポート召喚石を変更";
-  $("summon-search").value = "";
-  selectedSummonElementCode = "";
-  selectedSummonRarity = "";
   $("remove-summon").disabled = selectedSupportSummon === null;
   $("remove-summon").title = "";
   renderSummonFilters();
-  renderSummonResults();
+  renderSummonResults($("summon-search").value);
   $("summon-picker").showModal();
   $("summon-search").focus();
 }
