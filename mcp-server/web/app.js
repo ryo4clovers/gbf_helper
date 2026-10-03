@@ -1168,7 +1168,8 @@ function removeSelectedJob() {
 }
 
 function catalogCharacter(characterId) {
-  return characterCatalog.find((character) => character.characterId === characterId || character.masterId === characterId);
+  return characterCatalog.find((character) => character.characterId === characterId)
+    ?? characterCatalog.find((character) => character.masterId === characterId && (character.styleId ?? 1) === 1);
 }
 
 function characterForSlot(config, slot) {

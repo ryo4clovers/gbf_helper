@@ -5,6 +5,7 @@
   "source": "https://gbf.wiki/Special:CargoTables/characters",
   "transport": "r.jina.ai",
   "imageUrlPattern": "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/m/{masterId}_01.jpg",
+  "styleImageUrlPattern": "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/m/{masterId}_01_st{styleId}.jpg",
   "entries": {
     "dark-r-bakura-normal": {
       "masterId": "3020066000",
@@ -30,6 +31,10 @@
       "masterId": "3020015000",
       "wikiPage": "Tanya"
     },
+    "dark-r-vikala-normal": {
+      "masterId": "3020073000",
+      "wikiPage": "Vikala (Event)"
+    },
     "dark-r-will-normal": {
       "masterId": "3020010000",
       "wikiPage": "Will"
@@ -50,6 +55,10 @@
       "masterId": "3030189000",
       "wikiPage": "Cagliostro (Event)"
     },
+    "dark-sr-cassius-normal": {
+      "masterId": "3030262000",
+      "wikiPage": "Cassius (Event)"
+    },
     "dark-sr-danua-normal": {
       "masterId": "3030017000",
       "wikiPage": "Danua"
@@ -57,6 +66,10 @@
     "dark-sr-deliford-normal": {
       "masterId": "3030188000",
       "wikiPage": "Deliford (SR)"
+    },
+    "dark-sr-elize-normal": {
+      "masterId": "3030138000",
+      "wikiPage": "Elize Lutus"
     },
     "dark-sr-feather-halloween": {
       "masterId": "3030254000",
@@ -82,6 +95,10 @@
       "masterId": "3030185000",
       "wikiPage": "Ludmila"
     },
+    "dark-sr-luna-normal": {
+      "masterId": "3030180000",
+      "wikiPage": "Luna"
+    },
     "dark-sr-meg-normal": {
       "masterId": "3030290000",
       "wikiPage": "Meg (Event)"
@@ -89,6 +106,10 @@
     "dark-sr-narmaya-valentine": {
       "masterId": "3030235000",
       "wikiPage": "Narmaya (Valentine)"
+    },
+    "dark-sr-olivia-summer": {
+      "masterId": "3030246000",
+      "wikiPage": "Olivia (Event)"
     },
     "dark-sr-predator-normal": {
       "masterId": "3030190000",
@@ -157,6 +178,10 @@
     "dark-sr-zaja-normal": {
       "masterId": "3030059000",
       "wikiPage": "Zaja"
+    },
+    "dark-sr-zehek-normal": {
+      "masterId": "3030060000",
+      "wikiPage": "Zehek (Event)"
     },
     "dark-ssr-albert-dark": {
       "masterId": "3040334000",
@@ -254,9 +279,17 @@
       "masterId": "3040055000",
       "wikiPage": "Danua (Summer)"
     },
+    "dark-ssr-diablo-normal": {
+      "masterId": "3040561000",
+      "wikiPage": "Diablo (Collab)"
+    },
     "dark-ssr-eustace-dark": {
       "masterId": "3040198000",
       "wikiPage": "Eustace (Dark)"
+    },
+    "dark-ssr-evangeline-normal": {
+      "masterId": "3040575000",
+      "wikiPage": "Evangeline A.K. McDowell"
     },
     "dark-ssr-fediel-limited": {
       "masterId": "3040376000",
@@ -294,6 +327,10 @@
       "masterId": "3040540000",
       "wikiPage": "Hallessena (Summer)"
     },
+    "dark-ssr-halmal-limited": {
+      "masterId": "3040443000",
+      "wikiPage": "Halluel and Malluel"
+    },
     "dark-ssr-hekate-summer": {
       "masterId": "3040543000",
       "wikiPage": "Hekate (Summer)"
@@ -306,9 +343,17 @@
       "masterId": "3040456000",
       "wikiPage": "Ilsa (Yukata)"
     },
+    "dark-ssr-indra-normal": {
+      "masterId": "3040569000",
+      "wikiPage": "Indala"
+    },
     "dark-ssr-ippatsu-dark": {
       "masterId": "3040382000",
       "wikiPage": "Ippatsu (SSR)"
+    },
+    "dark-ssr-itadori-and-fushiguro-normal": {
+      "masterId": "3040476000",
+      "wikiPage": "Yuji Itadori and Megumi Fushiguro"
     },
     "dark-ssr-jasmine-normal": {
       "masterId": "3040459000",
@@ -326,6 +371,10 @@
       "masterId": "3040173000",
       "wikiPage": "Joker"
     },
+    "dark-ssr-katalina-dark": {
+      "masterId": "3040118000",
+      "wikiPage": "Katalina (Promo)"
+    },
     "dark-ssr-koku-normal": {
       "masterId": "3040571000",
       "wikiPage": "Koku"
@@ -338,6 +387,10 @@
       "masterId": "3040242000",
       "wikiPage": "Kou"
     },
+    "dark-ssr-kyaru-normal": {
+      "masterId": "3040216000",
+      "wikiPage": "Karyl"
+    },
     "dark-ssr-lady-grey-halloween": {
       "masterId": "3040189000",
       "wikiPage": "Lady Grey (Halloween)"
@@ -345,6 +398,18 @@
     "dark-ssr-lady-grey-normal": {
       "masterId": "3040005000",
       "wikiPage": "Lady Grey"
+    },
+    "dark-ssr-lefiya-yukata": {
+      "masterId": "3040520000",
+      "wikiPage": "De La Fille (Yukata)"
+    },
+    "dark-ssr-lei-limited": {
+      "masterId": "3040265000",
+      "wikiPage": "Rei"
+    },
+    "dark-ssr-lelouch-normal": {
+      "masterId": "3040219000",
+      "wikiPage": "Lelouch Lamperouge"
     },
     "dark-ssr-lich-limited": {
       "masterId": "3040357000",
@@ -362,6 +427,10 @@
       "masterId": "3040254000",
       "wikiPage": "Lucius (SSR)"
     },
+    "dark-ssr-lunal-dark": {
+      "masterId": "3040172000",
+      "wikiPage": "Lunalu (SSR)"
+    },
     "dark-ssr-magisa-summer": {
       "masterId": "3040412000",
       "wikiPage": "Magisa (Summer)"
@@ -373,6 +442,10 @@
     "dark-ssr-manamel-normal": {
       "masterId": "3040401000",
       "wikiPage": "Manamel"
+    },
+    "dark-ssr-manu-ponomau-normal": {
+      "masterId": "3040653000",
+      "wikiPage": "Manu Ponumau"
     },
     "dark-ssr-marquiares-normal": {
       "masterId": "3040108000",
@@ -390,6 +463,10 @@
       "masterId": "3040063000",
       "wikiPage": "Narmaya"
     },
+    "dark-ssr-niyah-normal": {
+      "masterId": "3040169000",
+      "wikiPage": "Nier"
+    },
     "dark-ssr-olivia-grand": {
       "masterId": "3040145000",
       "wikiPage": "Olivia (Grand)"
@@ -401,6 +478,10 @@
     "dark-ssr-osiris-yukata": {
       "masterId": "3040664000",
       "wikiPage": "Osiris (Yukata)"
+    },
+    "dark-ssr-ourolyathe-limited": {
+      "masterId": "3040536000",
+      "wikiPage": "Orologia"
     },
     "dark-ssr-predator-normal": {
       "masterId": "3040278000",
@@ -438,9 +519,25 @@
       "masterId": "3040035000",
       "wikiPage": "Seox"
     },
+    "dark-ssr-sevastian-dark": {
+      "masterId": "3040548000",
+      "wikiPage": "Sevastien (SSR)"
+    },
     "dark-ssr-shao-normal": {
       "masterId": "3040660000",
       "wikiPage": "Shao (SSR)"
+    },
+    "dark-ssr-sharem-limited": {
+      "masterId": "3040251000",
+      "wikiPage": "Helel ben Shalem"
+    },
+    "dark-ssr-shion-normal": {
+      "masterId": "3040560000",
+      "wikiPage": "Shion (Collab)"
+    },
+    "dark-ssr-sirow-dark": {
+      "masterId": "3040156000",
+      "wikiPage": "Nicholas"
     },
     "dark-ssr-tabina-summer": {
       "masterId": "3040350000",
@@ -450,9 +547,17 @@
       "masterId": "3040203000",
       "wikiPage": "Tanya (SSR)"
     },
+    "dark-ssr-third-years-mus-normal": {
+      "masterId": "3040231000",
+      "wikiPage": "Μ's Third-Years"
+    },
     "dark-ssr-tikoh-halloween": {
       "masterId": "3040487000",
       "wikiPage": "Tikoh (Halloween)"
+    },
+    "dark-ssr-toga-himiko-normal": {
+      "masterId": "3040506000",
+      "wikiPage": "Himiko Toga"
     },
     "dark-ssr-tsukuyomi-normal": {
       "masterId": "3040581000",
@@ -461,6 +566,10 @@
     "dark-ssr-tyra-normal": {
       "masterId": "3040503000",
       "wikiPage": "Tyra"
+    },
+    "dark-ssr-vaito-dark": {
+      "masterId": "3040094000",
+      "wikiPage": "Veight"
     },
     "dark-ssr-vajra-summer": {
       "masterId": "3040407000",
@@ -486,6 +595,10 @@
       "masterId": "3040639000",
       "wikiPage": "Wamdus (Valentine)"
     },
+    "dark-ssr-wil-dark": {
+      "masterId": "3040557000",
+      "wikiPage": "Will (SSR)"
+    },
     "dark-ssr-wulf-and-renie-normal": {
       "masterId": "3040174000",
       "wikiPage": "Wulf and Renie"
@@ -493,6 +606,10 @@
     "dark-ssr-yggdrasil-holiday": {
       "masterId": "3040563000",
       "wikiPage": "Yggdrasil (Holiday)"
+    },
+    "dark-ssr-yuel-and-sochie-dark": {
+      "masterId": "3040430000",
+      "wikiPage": "Yuel and Societte"
     },
     "dark-ssr-yuni-holiday": {
       "masterId": "3040495000",
@@ -510,6 +627,10 @@
       "masterId": "3040628000",
       "wikiPage": "Zeta (Holiday)"
     },
+    "dark-ssr-zooey-summer": {
+      "masterId": "3040092000",
+      "wikiPage": "Zooey (Grand)"
+    },
     "dark-ssr-zoro-and-sanji-normal": {
       "masterId": "3040417000",
       "wikiPage": "Zoro and Sanji"
@@ -521,6 +642,10 @@
     "earth-r-camieux-earth": {
       "masterId": "3020047000",
       "wikiPage": "Camieux (Earth)"
+    },
+    "earth-r-catura-normal": {
+      "masterId": "3020074000",
+      "wikiPage": "Catura (Event)"
     },
     "earth-r-farrah-normal": {
       "masterId": "3020006000",
@@ -581,6 +706,10 @@
     "earth-sr-almeida-summer": {
       "masterId": "3030250000",
       "wikiPage": "Almeida (Summer)"
+    },
+    "earth-sr-aufstern-normal": {
+      "masterId": "3030143000",
+      "wikiPage": "Augusta (Promo)"
     },
     "earth-sr-ayer-summer": {
       "masterId": "3030199000",
@@ -690,6 +819,10 @@
       "masterId": "3030252000",
       "wikiPage": "The Lowain Bros"
     },
+    "earth-sr-makira-normal": {
+      "masterId": "3030229000",
+      "wikiPage": "Mahira (Event)"
+    },
     "earth-sr-mariah-normal": {
       "masterId": "3030045000",
       "wikiPage": "Mariah"
@@ -705,6 +838,10 @@
     "earth-sr-nezahualpilli-normal": {
       "masterId": "3030237000",
       "wikiPage": "Nezahualpilli (SR)"
+    },
+    "earth-sr-paris-normal": {
+      "masterId": "3030157000",
+      "wikiPage": "Paris (Event)"
     },
     "earth-sr-rackam-holiday": {
       "masterId": "3030048000",
@@ -726,6 +863,14 @@
       "masterId": "3030147000",
       "wikiPage": "Sara (Summer)"
     },
+    "earth-sr-skull-normal": {
+      "masterId": "3030112000",
+      "wikiPage": "Skull (Event)"
+    },
+    "earth-sr-solids-normal": {
+      "masterId": "3030020000",
+      "wikiPage": "Soriz"
+    },
     "earth-sr-tokitoki-airi-normal": {
       "masterId": "3030121000",
       "wikiPage": "Airi Totoki"
@@ -734,6 +879,14 @@
       "masterId": "3030243000",
       "wikiPage": "Vanzza (SR)"
     },
+    "earth-sr-volenna-normal": {
+      "masterId": "3030056000",
+      "wikiPage": "Volenna (Event)"
+    },
+    "earth-sr-walder-normal": {
+      "masterId": "3030197000",
+      "wikiPage": "Walder (Event)"
+    },
     "earth-sr-yaia-normal": {
       "masterId": "3030111000",
       "wikiPage": "Yaia"
@@ -741,6 +894,10 @@
     "earth-sr-yamanbagiri-kunihiro-normal": {
       "masterId": "3030206000",
       "wikiPage": "Yamanbagiri Kunihiro"
+    },
+    "earth-sr-yuri-normal": {
+      "masterId": "3030038000",
+      "wikiPage": "Juri (Event)"
     },
     "earth-sr-zaja-halloween": {
       "masterId": "3030276000",
@@ -777,6 +934,10 @@
     "earth-ssr-apollonia-summer": {
       "masterId": "3040645000",
       "wikiPage": "Apollonia (Summer)"
+    },
+    "earth-ssr-aria-golden-knight": {
+      "masterId": "3040297000",
+      "wikiPage": "Golden Knight"
     },
     "earth-ssr-arulumaya-normal": {
       "masterId": "3040019000",
@@ -874,6 +1035,10 @@
       "masterId": "3040305000",
       "wikiPage": "Fiorito"
     },
+    "earth-ssr-first-years-team-normal": {
+      "masterId": "3040184000",
+      "wikiPage": "Aqours First-Years"
+    },
     "earth-ssr-fylkis-normal": {
       "masterId": "3040651000",
       "wikiPage": "Fylkis"
@@ -954,9 +1119,17 @@
       "masterId": "3040603000",
       "wikiPage": "Lich (Summer)"
     },
+    "earth-ssr-lou-summer": {
+      "masterId": "3040583000",
+      "wikiPage": "Lu Woh (Summer)"
+    },
     "earth-ssr-magisa-holiday": {
       "masterId": "3040247000",
       "wikiPage": "Magisa (Holiday)"
+    },
+    "earth-ssr-makira-normal": {
+      "masterId": "3040107000",
+      "wikiPage": "Mahira"
     },
     "earth-ssr-makura-valentine": {
       "masterId": "3040579000",
@@ -1014,9 +1187,21 @@
       "masterId": "3040085000",
       "wikiPage": "Nemone"
     },
+    "earth-ssr-nobara-and-maki-normal": {
+      "masterId": "3040477000",
+      "wikiPage": "Nobara Kugisaki and Maki Zen'in"
+    },
+    "earth-ssr-octo-normal": {
+      "masterId": "3040037000",
+      "wikiPage": "Eahta"
+    },
     "earth-ssr-olivia-earth": {
       "masterId": "3040508000",
       "wikiPage": "Olivia"
+    },
+    "earth-ssr-orchis-earth": {
+      "masterId": "3040446000",
+      "wikiPage": "Orchid"
     },
     "earth-ssr-paris-normal": {
       "masterId": "3040483000",
@@ -1042,6 +1227,10 @@
       "masterId": "3040626000",
       "wikiPage": "Reinhardtzar (Holiday)"
     },
+    "earth-ssr-robelia-normal": {
+      "masterId": "3040165000",
+      "wikiPage": "Lobelia"
+    },
     "earth-ssr-rosetta-summer": {
       "masterId": "3040176000",
       "wikiPage": "Rosetta (Summer)"
@@ -1049,6 +1238,14 @@
     "earth-ssr-sabrina-normal": {
       "masterId": "3040514000",
       "wikiPage": "Sabrina"
+    },
+    "earth-ssr-salasa-normal": {
+      "masterId": "3040032000",
+      "wikiPage": "Threo"
+    },
+    "earth-ssr-sandalphon-another": {
+      "masterId": "3040312000",
+      "wikiPage": "Sandalphon (Earth Grand)"
     },
     "earth-ssr-sara-normal": {
       "masterId": "3040041000",
@@ -1061,6 +1258,15 @@
     "earth-ssr-seox-summer": {
       "masterId": "3040673000",
       "wikiPage": "Seox (Summer)"
+    },
+    "earth-ssr-shindara-normal": {
+      "masterId": "3040377000",
+      "wikiPage": "Cidala"
+    },
+    "earth-ssr-shindara-super": {
+      "masterId": "3040377000",
+      "wikiPage": "Cidala (Super Cidala)",
+      "styleId": 2
     },
     "earth-ssr-shushuku-normal": {
       "masterId": "3040527000",
@@ -1086,6 +1292,10 @@
       "masterId": "3040170000",
       "wikiPage": "Soriz (SSR)"
     },
+    "earth-ssr-special-week-and-silence-suzuka-and-tokai-teio-normal": {
+      "masterId": "3040353000",
+      "wikiPage": "Special Week, Silence Suzuka, and Tokai Teio"
+    },
     "earth-ssr-tikoh-summer": {
       "masterId": "3040414000",
       "wikiPage": "Tikoh (Summer)"
@@ -1093,6 +1303,10 @@
     "earth-ssr-uriel-grand": {
       "masterId": "3040501000",
       "wikiPage": "Uriel"
+    },
+    "earth-ssr-vaishravana-grand": {
+      "masterId": "3040630000",
+      "wikiPage": "Bhaisa"
     },
     "earth-ssr-vaseraga-earth": {
       "masterId": "3040146000",
@@ -1105,6 +1319,10 @@
     "earth-ssr-vira-summer": {
       "masterId": "3040053000",
       "wikiPage": "Vira (Summer)"
+    },
+    "earth-ssr-vlana-dress": {
+      "masterId": "3040600000",
+      "wikiPage": "Fraux (Formal)"
     },
     "earth-ssr-yaia-normal": {
       "masterId": "3040458000",
@@ -1129,6 +1347,10 @@
     "fire-r-barawa-normal": {
       "masterId": "3020034000",
       "wikiPage": "Barawa"
+    },
+    "fire-r-cumyu-fire": {
+      "masterId": "3020032000",
+      "wikiPage": "Camieux"
     },
     "fire-r-dante-normal": {
       "masterId": "3020044000",
@@ -1170,6 +1392,10 @@
       "masterId": "3020023000",
       "wikiPage": "Mary (Summer)"
     },
+    "fire-r-neko-normal": {
+      "masterId": "3020072000",
+      "wikiPage": "Young Cat (Event)"
+    },
     "fire-r-rosine-normal": {
       "masterId": "3020057000",
       "wikiPage": "Rosine"
@@ -1182,6 +1408,10 @@
       "masterId": "3020046000",
       "wikiPage": "Viceroy"
     },
+    "fire-sr-abby-normal": {
+      "masterId": "3030011000",
+      "wikiPage": "Abby (Promo)"
+    },
     "fire-sr-akagi-miria-normal": {
       "masterId": "3030161000",
       "wikiPage": "Miria Akagi"
@@ -1190,13 +1420,33 @@
       "masterId": "3030003000",
       "wikiPage": "Alec"
     },
+    "fire-sr-aliza-normal": {
+      "masterId": "3030015000",
+      "wikiPage": "Aliza (Event)"
+    },
+    "fire-sr-anila-normal": {
+      "masterId": "3030110000",
+      "wikiPage": "Anila (Event)"
+    },
     "fire-sr-anna-normal": {
       "masterId": "3030095000",
       "wikiPage": "Anna (SR)"
     },
+    "fire-sr-astel-fire": {
+      "masterId": "3030268000",
+      "wikiPage": "Aster"
+    },
+    "fire-sr-barawa-event": {
+      "masterId": "3030154000",
+      "wikiPage": "Barawa (Event)"
+    },
     "fire-sr-beatrix-halloween": {
       "masterId": "3030163000",
       "wikiPage": "Beatrix (Halloween)"
+    },
+    "fire-sr-beth-normal": {
+      "masterId": "3030093000",
+      "wikiPage": "Malinda (Event)"
     },
     "fire-sr-carren-normal": {
       "masterId": "3030046000",
@@ -1205,6 +1455,10 @@
     "fire-sr-cassius-yukata": {
       "masterId": "3030273000",
       "wikiPage": "Cassius (Yukata)"
+    },
+    "fire-sr-cecile-normal": {
+      "masterId": "3030146000",
+      "wikiPage": "Cecile (Promo)"
     },
     "fire-sr-dante-normal": {
       "masterId": "3030156000",
@@ -1262,21 +1516,61 @@
       "masterId": "3030205000",
       "wikiPage": "Izuminokami Kanesada"
     },
+    "fire-sr-jessica-fire": {
+      "masterId": "3030016000",
+      "wikiPage": "Jessica (Event)"
+    },
     "fire-sr-jessica-summer": {
       "masterId": "3030030000",
       "wikiPage": "Jessica (Summer)"
+    },
+    "fire-sr-jogasaki-rika-normal": {
+      "masterId": "3030088000",
+      "wikiPage": "Rika Jougasaki"
+    },
+    "fire-sr-kanzuki-karin-normal": {
+      "masterId": "3030125000",
+      "wikiPage": "Karin"
+    },
+    "fire-sr-karen-summer": {
+      "masterId": "3030200000",
+      "wikiPage": "Carren (Event)"
     },
     "fire-sr-karva-normal": {
       "masterId": "3030230000",
       "wikiPage": "Karva (SR)"
     },
+    "fire-sr-kukuru-fire": {
+      "masterId": "3030155000",
+      "wikiPage": "Cucouroux"
+    },
+    "fire-sr-lina-inverse-normal": {
+      "masterId": "3030114000",
+      "wikiPage": "Lina"
+    },
     "fire-sr-lucius-fire": {
       "masterId": "3030171000",
       "wikiPage": "Lucius (Fire)"
     },
+    "fire-sr-lyria-normal": {
+      "masterId": "3030182000",
+      "wikiPage": "Lyria (Event)"
+    },
     "fire-sr-mary-normal": {
       "masterId": "3030068000",
       "wikiPage": "Mary (SR)"
+    },
+    "fire-sr-mira-normal": {
+      "masterId": "3030080000",
+      "wikiPage": "Milla Maxwell"
+    },
+    "fire-sr-naoise-fire": {
+      "masterId": "3030096000",
+      "wikiPage": "Naoise (Event)"
+    },
+    "fire-sr-percival-sidestory": {
+      "masterId": "3030168000",
+      "wikiPage": "Percival (Event)"
     },
     "fire-sr-rackam-normal": {
       "masterId": "3030008000",
@@ -1302,6 +1596,18 @@
       "masterId": "3030127000",
       "wikiPage": "Sen"
     },
+    "fire-sr-stahn-normal": {
+      "masterId": "3030136000",
+      "wikiPage": "Stahn Aileron"
+    },
+    "fire-sr-sutera-event": {
+      "masterId": "3030187000",
+      "wikiPage": "Sutera (Event)"
+    },
+    "fire-sr-sutera-fire": {
+      "masterId": "3030113000",
+      "wikiPage": "Sutera (Fire)"
+    },
     "fire-sr-teena-normal": {
       "masterId": "3030034000",
       "wikiPage": "Teena"
@@ -1309,6 +1615,22 @@
     "fire-sr-teena-valentine": {
       "masterId": "3030236000",
       "wikiPage": "Teena (Valentine)"
+    },
+    "fire-sr-tendo-akira-normal": {
+      "masterId": "3030097000",
+      "wikiPage": "Teru Tendo"
+    },
+    "fire-sr-therese-bunny": {
+      "masterId": "3030062000",
+      "wikiPage": "Therese"
+    },
+    "fire-sr-zooey-shrine-maiden": {
+      "masterId": "3030233000",
+      "wikiPage": "Zooey (Event)"
+    },
+    "fire-ssr-3rd-years-normal": {
+      "masterId": "3040185000",
+      "wikiPage": "Aqours Third-Years"
     },
     "fire-ssr-abby-normal": {
       "masterId": "3040284000",
@@ -1378,6 +1700,10 @@
       "masterId": "3040466000",
       "wikiPage": "Baal (Fire)"
     },
+    "fire-ssr-bakugo-katsuki-normal": {
+      "masterId": "3040505000",
+      "wikiPage": "Katsuki Bakugo"
+    },
     "fire-ssr-barawa-and-sarya-normal": {
       "masterId": "3040493000",
       "wikiPage": "Barawa and Sarya"
@@ -1434,9 +1760,17 @@
       "masterId": "3040646000",
       "wikiPage": "Eustace (Yukata)"
     },
+    "fire-ssr-feeney-grand": {
+      "masterId": "3040519000",
+      "wikiPage": "Fenie"
+    },
     "fire-ssr-feower-holiday": {
       "masterId": "3040565000",
       "wikiPage": "Feower (Holiday)"
+    },
+    "fire-ssr-frau-normal": {
+      "masterId": "3040161000",
+      "wikiPage": "Fraux"
     },
     "fire-ssr-ghandagoza-normal": {
       "masterId": "3040052000",
@@ -1457,6 +1791,10 @@
     "fire-ssr-heles-normal": {
       "masterId": "3040060000",
       "wikiPage": "Heles"
+    },
+    "fire-ssr-hijikata-and-okita-normal": {
+      "masterId": "3040362000",
+      "wikiPage": "Shinsengumi"
     },
     "fire-ssr-icarus-normal": {
       "masterId": "3040462000",
@@ -1482,6 +1820,10 @@
       "masterId": "3040343000",
       "wikiPage": "Izmir (Yukata)"
     },
+    "fire-ssr-kallen-normal": {
+      "masterId": "3040221000",
+      "wikiPage": "Kallen Kouzuki"
+    },
     "fire-ssr-kumbhira-summer": {
       "masterId": "3040329000",
       "wikiPage": "Kumbhira (Summer)"
@@ -1506,9 +1848,17 @@
       "masterId": "3040416000",
       "wikiPage": "Luffy"
     },
+    "fire-ssr-lyria-event": {
+      "masterId": "3040643000",
+      "wikiPage": "Lyria (Event SSR)"
+    },
     "fire-ssr-magisa-normal": {
       "masterId": "3040011000",
       "wikiPage": "Magisa"
+    },
+    "fire-ssr-maria-teresa-holiday": {
+      "masterId": "3040629000",
+      "wikiPage": "Maria Theresa (Holiday)"
     },
     "fire-ssr-medusa-summer": {
       "masterId": "3040389000",
@@ -1594,9 +1944,21 @@
       "masterId": "3040274000",
       "wikiPage": "Reinhardtzar (Grand)"
     },
+    "fire-ssr-rengoku-kyojuro-normal": {
+      "masterId": "3040309000",
+      "wikiPage": "Kyojuro Rengoku"
+    },
     "fire-ssr-roy-mustang-normal": {
       "masterId": "3040656000",
       "wikiPage": "Roy Mustang"
+    },
+    "fire-ssr-sabir-vala-fire": {
+      "masterId": "3040490000",
+      "wikiPage": "Sevilbarra (SSR)"
+    },
+    "fire-ssr-sanchira-normal": {
+      "masterId": "3040633000",
+      "wikiPage": "Sandira"
     },
     "fire-ssr-sato-normal": {
       "masterId": "3040533000",
@@ -1642,6 +2004,10 @@
       "masterId": "3040234000",
       "wikiPage": "Tabina"
     },
+    "fire-ssr-tatsuzaki-hiiro-normal": {
+      "masterId": "3040294000",
+      "wikiPage": "Hiro Ryugasaki"
+    },
     "fire-ssr-teena-summer": {
       "masterId": "3040266000",
       "wikiPage": "Teena (Summer)"
@@ -1665,6 +2031,10 @@
     "fire-ssr-vaseraga-fire": {
       "masterId": "3040324000",
       "wikiPage": "Vaseraga (Fire)"
+    },
+    "fire-ssr-vira-bonus": {
+      "masterId": "3040243000",
+      "wikiPage": "Vira (Promo)"
     },
     "fire-ssr-vira-valentine": {
       "masterId": "3040385000",
@@ -1726,6 +2096,14 @@
       "masterId": "3020054000",
       "wikiPage": "Vermeil"
     },
+    "light-sr-albert-normal": {
+      "masterId": "3030177000",
+      "wikiPage": "Albert (Event)"
+    },
+    "light-sr-amira-normal": {
+      "masterId": "3030065000",
+      "wikiPage": "Amira (Promo)"
+    },
     "light-sr-arusha-normal": {
       "masterId": "3030036000",
       "wikiPage": "Arusha"
@@ -1749,6 +2127,14 @@
     "light-sr-elta-light": {
       "masterId": "3030244000",
       "wikiPage": "Elta (Light)"
+    },
+    "light-sr-erica-normal": {
+      "masterId": "3030131000",
+      "wikiPage": "Erica Fontaine"
+    },
+    "light-sr-ezecrain-light": {
+      "masterId": "3030210000",
+      "wikiPage": "Ezecrain (Event)"
     },
     "light-sr-feather-normal": {
       "masterId": "3030078000",
@@ -1786,6 +2172,10 @@
       "masterId": "3030120000",
       "wikiPage": "Sachiko Koshimizu"
     },
+    "light-sr-kumbhira-normal": {
+      "masterId": "3030279000",
+      "wikiPage": "Kumbhira (Event)"
+    },
     "light-sr-ladiva-holiday": {
       "masterId": "3030109000",
       "wikiPage": "Ladiva (Holiday)"
@@ -1797,6 +2187,14 @@
     "light-sr-nakoruru-normal": {
       "masterId": "3030174000",
       "wikiPage": "Nakoruru"
+    },
+    "light-sr-naoise-light": {
+      "masterId": "3030000000",
+      "wikiPage": "Naoise (Promo)"
+    },
+    "light-sr-nicholas-light": {
+      "masterId": "3030141000",
+      "wikiPage": "Nicholas (Event)"
     },
     "light-sr-noa-normal": {
       "masterId": "3030039000",
@@ -1810,9 +2208,25 @@
       "masterId": "3030270000",
       "wikiPage": "Philosophia (SR)"
     },
+    "light-sr-robomi-normal": {
+      "masterId": "3030079000",
+      "wikiPage": "Robomi (Event)"
+    },
     "light-sr-rosamia-normal": {
       "masterId": "3030049000",
       "wikiPage": "Rosamia (SR)"
+    },
+    "light-sr-saarya-light": {
+      "masterId": "3030209000",
+      "wikiPage": "Sarya"
+    },
+    "light-sr-sabbatara-light": {
+      "masterId": "3030258000",
+      "wikiPage": "Sevilbarra (Event)"
+    },
+    "light-sr-seiran-normal": {
+      "masterId": "3030074000",
+      "wikiPage": "Ceylan (Event)"
     },
     "light-sr-shimamura-uzuki-normal": {
       "masterId": "3030040000",
@@ -1830,6 +2244,10 @@
       "masterId": "3030117000",
       "wikiPage": "Soriz (Event)"
     },
+    "light-sr-tear-normal": {
+      "masterId": "3030137000",
+      "wikiPage": "Tear Grants"
+    },
     "light-sr-tyre-yukata": {
       "masterId": "3030300000",
       "wikiPage": "Tyre (Yukata)"
@@ -1837,6 +2255,10 @@
     "light-sr-vermeil-normal": {
       "masterId": "3030183000",
       "wikiPage": "Vermeil (SR)"
+    },
+    "light-sr-zeta-normal": {
+      "masterId": "3030231000",
+      "wikiPage": "Zeta (Event)"
     },
     "light-ssr-aglovale-valentine": {
       "masterId": "3040322000",
@@ -1886,6 +2308,10 @@
       "masterId": "3040331000",
       "wikiPage": "Bobobo-bo Bo-bobo"
     },
+    "light-ssr-bolemia-light": {
+      "masterId": "3040494000",
+      "wikiPage": "Volenna (SSR)"
+    },
     "light-ssr-caesar-grand": {
       "masterId": "3040632000",
       "wikiPage": "Caesar"
@@ -1929,6 +2355,14 @@
     "light-ssr-dorothy-and-claudia-normal": {
       "masterId": "3040134000",
       "wikiPage": "Dorothy and Claudia"
+    },
+    "light-ssr-drossel-light": {
+      "masterId": "3040464000",
+      "wikiPage": "Drusilla (SSR)"
+    },
+    "light-ssr-europa-holiday": {
+      "masterId": "3040663000",
+      "wikiPage": "Europa (Formal)"
     },
     "light-ssr-farrah-and-juri-normal": {
       "masterId": "3040325000",
@@ -2030,6 +2464,10 @@
       "masterId": "3040004000",
       "wikiPage": "De La Fille"
     },
+    "light-ssr-lefiya-summer": {
+      "masterId": "3040014000",
+      "wikiPage": "De La Fille (Summer)"
+    },
     "light-ssr-levin-sisters-normal": {
       "masterId": "3040193000",
       "wikiPage": "Levin Sisters"
@@ -2037,6 +2475,10 @@
     "light-ssr-lily-holiday": {
       "masterId": "3040311000",
       "wikiPage": "Lily (Holiday)"
+    },
+    "light-ssr-lu-oh-grand": {
+      "masterId": "3040449000",
+      "wikiPage": "Lu Woh"
     },
     "light-ssr-lucio-grand": {
       "masterId": "3040106000",
@@ -2070,9 +2512,17 @@
       "masterId": "3040195000",
       "wikiPage": "Metera (Holiday)"
     },
+    "light-ssr-michela-light": {
+      "masterId": "3040317000",
+      "wikiPage": "Mishra (SSR)"
+    },
     "light-ssr-mikazuki-munechika-normal": {
       "masterId": "3040131000",
       "wikiPage": "Mikazuki Munechika"
+    },
+    "light-ssr-mini-goblin-light": {
+      "masterId": "3040570000",
+      "wikiPage": "Goblin Mage (SSR)"
     },
     "light-ssr-monika-summer": {
       "masterId": "3040454000",
@@ -2089,6 +2539,10 @@
     "light-ssr-narmaya-yukata": {
       "masterId": "3040392000",
       "wikiPage": "Narmaya (Yukata)"
+    },
+    "light-ssr-nave-light": {
+      "masterId": "3040550000",
+      "wikiPage": "Novei"
     },
     "light-ssr-nehan-grand": {
       "masterId": "3040341000",
@@ -2138,6 +2592,10 @@
       "masterId": "3040542000",
       "wikiPage": "Ragazzo (Summer)"
     },
+    "light-ssr-raziel-normal": {
+      "masterId": "3040516000",
+      "wikiPage": "Raziel (Event)"
+    },
     "light-ssr-robertina-light": {
       "masterId": "3040510000",
       "wikiPage": "Robertina"
@@ -2174,6 +2632,10 @@
       "masterId": "3040008000",
       "wikiPage": "Sarunan"
     },
+    "light-ssr-second-years-normal": {
+      "masterId": "3040230000",
+      "wikiPage": "Μ's Second-Years"
+    },
     "light-ssr-seruel-normal": {
       "masterId": "3040013000",
       "wikiPage": "Seruel"
@@ -2193,6 +2655,10 @@
     "light-ssr-shiva-summer": {
       "masterId": "3040352000",
       "wikiPage": "Shiva (Summer)"
+    },
+    "light-ssr-siegfried-another-light": {
+      "masterId": "3040485000",
+      "wikiPage": "Siegfried (Light)"
     },
     "light-ssr-silva-light": {
       "masterId": "3040187000",
@@ -2238,6 +2704,10 @@
       "masterId": "3040553000",
       "wikiPage": "Wilnas (Halloween)"
     },
+    "light-ssr-yoh-light": {
+      "masterId": "3040393000",
+      "wikiPage": "You"
+    },
     "light-ssr-yorozuya-normal": {
       "masterId": "3040363000",
       "wikiPage": "Yorozuya"
@@ -2262,9 +2732,17 @@
       "masterId": "3040056000",
       "wikiPage": "Zeta (Summer)"
     },
+    "light-ssr-zooey-gun-normal": {
+      "masterId": "3040150000",
+      "wikiPage": "Zooey"
+    },
     "light-ssr-zooey-holiday": {
       "masterId": "3040564000",
       "wikiPage": "Zooey (Holiday)"
+    },
+    "light-ssr-zooey-normal": {
+      "masterId": "3040078000",
+      "wikiPage": "Zooey (Promo)"
     },
     "water-r-aristella-normal": {
       "masterId": "3020053000",
@@ -2281,6 +2759,10 @@
     "water-r-deliford-normal": {
       "masterId": "3020005000",
       "wikiPage": "Deliford"
+    },
+    "water-r-haira-normal": {
+      "masterId": "3020075000",
+      "wikiPage": "Payila (Event)"
     },
     "water-r-joel-normal": {
       "masterId": "3020040000",
@@ -2301,6 +2783,10 @@
     "water-r-yodarha-normal": {
       "masterId": "3020030000",
       "wikiPage": "Yodarha"
+    },
+    "water-sr-aliza-water": {
+      "masterId": "3030242000",
+      "wikiPage": "Aliza (Water)"
     },
     "water-sr-anastasia-normal": {
       "masterId": "3030160000",
@@ -2325,6 +2811,10 @@
     "water-sr-chun-li-normal": {
       "masterId": "3030105000",
       "wikiPage": "Chun-Li"
+    },
+    "water-sr-diantha-normal": {
+      "masterId": "3030150000",
+      "wikiPage": "Diantha (Promo)"
     },
     "water-sr-ejaeli-normal": {
       "masterId": "3030061000",
@@ -2362,6 +2852,10 @@
       "masterId": "3030186000",
       "wikiPage": "Lamretta (Water)"
     },
+    "water-sr-lancelot-normal": {
+      "masterId": "3030108000",
+      "wikiPage": "Lancelot (Event)"
+    },
     "water-sr-leona-yukata": {
       "masterId": "3030274000",
       "wikiPage": "Leona (Yukata)"
@@ -2369,6 +2863,14 @@
     "water-sr-lilele-summer": {
       "masterId": "3030247000",
       "wikiPage": "Lilele (Summer)"
+    },
+    "water-sr-lily-normal": {
+      "masterId": "3030165000",
+      "wikiPage": "Lily (Event)"
+    },
+    "water-sr-lowain-normal": {
+      "masterId": "3030123000",
+      "wikiPage": "Lowain (Event)"
     },
     "water-sr-milleore-normal": {
       "masterId": "3030064000",
@@ -2382,6 +2884,10 @@
       "masterId": "3030002000",
       "wikiPage": "Mishra"
     },
+    "water-sr-morphe-and-vetur-normal": {
+      "masterId": "3030135000",
+      "wikiPage": "Morphe and Phoebe (Event)"
+    },
     "water-sr-naga-normal": {
       "masterId": "3030115000",
       "wikiPage": "Naga"
@@ -2394,6 +2900,10 @@
       "masterId": "3030207000",
       "wikiPage": "Owen"
     },
+    "water-sr-pamela-normal": {
+      "masterId": "3030145000",
+      "wikiPage": "Pamela (Promo)"
+    },
     "water-sr-pengy-event": {
       "masterId": "3030073000",
       "wikiPage": "Pengy (Event)"
@@ -2401,6 +2911,10 @@
     "water-sr-pengy-gacha": {
       "masterId": "3030153000",
       "wikiPage": "Pengy"
+    },
+    "water-sr-romeo-normal": {
+      "masterId": "3030077000",
+      "wikiPage": "Romeo (Event)"
     },
     "water-sr-sahli-lao-normal": {
       "masterId": "3030076000",
@@ -2426,6 +2940,10 @@
       "masterId": "3030091000",
       "wikiPage": "Suframare (Summer)"
     },
+    "water-sr-therese-normal": {
+      "masterId": "3030001000",
+      "wikiPage": "Therese (Event)"
+    },
     "water-sr-ulamnuran-normal": {
       "masterId": "3030014000",
       "wikiPage": "Ulamnuran"
@@ -2437,6 +2955,14 @@
     "water-sr-vane-gacha": {
       "masterId": "3030107000",
       "wikiPage": "Vane"
+    },
+    "water-sr-yuel-normal": {
+      "masterId": "3030223000",
+      "wikiPage": "Yuel (Event)"
+    },
+    "water-ssr-2nd-years-normal": {
+      "masterId": "3040183000",
+      "wikiPage": "Aqours Second-Years"
     },
     "water-ssr-aglovale-normal": {
       "masterId": "3040192000",
@@ -2510,6 +3036,10 @@
       "masterId": "3040631000",
       "wikiPage": "Darydara"
     },
+    "water-ssr-delrifado-water": {
+      "masterId": "3040507000",
+      "wikiPage": "Deliford (SSR)"
+    },
     "water-ssr-diantha-summer": {
       "masterId": "3040129000",
       "wikiPage": "Diantha (Summer)"
@@ -2521,6 +3051,10 @@
     "water-ssr-drang-grand": {
       "masterId": "3040119000",
       "wikiPage": "Drang (Grand)"
+    },
+    "water-ssr-erica-normal": {
+      "masterId": "3040421000",
+      "wikiPage": "Erika"
     },
     "water-ssr-erin-normal": {
       "masterId": "3040439000",
@@ -2546,6 +3080,10 @@
       "masterId": "3040314000",
       "wikiPage": "Filene"
     },
+    "water-ssr-folia-grand": {
+      "masterId": "3040181000",
+      "wikiPage": "Pholia"
+    },
     "water-ssr-gabriel-grand": {
       "masterId": "3040492000",
       "wikiPage": "Gabriel"
@@ -2562,6 +3100,22 @@
       "masterId": "3040406000",
       "wikiPage": "Gwynne"
     },
+    "water-ssr-haila-normal": {
+      "masterId": "3040502000",
+      "wikiPage": "Payila"
+    },
+    "water-ssr-haseena-leela-normal": {
+      "masterId": "3040168000",
+      "wikiPage": "Haaselia"
+    },
+    "water-ssr-hitsugaya-and-matsumoto-normal": {
+      "masterId": "3040669000",
+      "wikiPage": "Toshiro Hitsugaya and Rangiku Matsumoto"
+    },
+    "water-ssr-ilsa-dress": {
+      "masterId": "3040599000",
+      "wikiPage": "Ilsa (Formal)"
+    },
     "water-ssr-isaac-normal": {
       "masterId": "3040327000",
       "wikiPage": "Isaac"
@@ -2573,6 +3127,10 @@
     "water-ssr-izmir-summer": {
       "masterId": "3040126000",
       "wikiPage": "Izmir (Summer)"
+    },
+    "water-ssr-jeanne-dark-summer": {
+      "masterId": "3040420000",
+      "wikiPage": "Jeanne d'Arc (Water Summer)"
     },
     "water-ssr-joel-normal": {
       "masterId": "3040614000",
@@ -2589,6 +3147,10 @@
     "water-ssr-katapillar-and-vira-normal": {
       "masterId": "3040116000",
       "wikiPage": "Lady Katapillar and Vira"
+    },
+    "water-ssr-kokkoro-water": {
+      "masterId": "3040159000",
+      "wikiPage": "Cucouroux (SSR)"
     },
     "water-ssr-kolulu-summer": {
       "masterId": "3040283000",
@@ -2626,6 +3188,10 @@
       "masterId": "3040213000",
       "wikiPage": "Macula Marius"
     },
+    "water-ssr-maria-teresa-normal": {
+      "masterId": "3040160000",
+      "wikiPage": "Maria Theresa"
+    },
     "water-ssr-milleore-and-zaharrilao-normal": {
       "masterId": "3040272000",
       "wikiPage": "Milleore and Sahli Lao"
@@ -2657,6 +3223,10 @@
     "water-ssr-poseidon-grand": {
       "masterId": "3040348000",
       "wikiPage": "Poseidon"
+    },
+    "water-ssr-rei-and-unit00-normal": {
+      "masterId": "3040623000",
+      "wikiPage": "Rei & Unit 00"
     },
     "water-ssr-romeo-normal": {
       "masterId": "3040098000",
@@ -2690,6 +3260,14 @@
       "masterId": "3040344000",
       "wikiPage": "Siegfried (Summer)"
     },
+    "water-ssr-silva-grand": {
+      "masterId": "3040613000",
+      "wikiPage": "Sylvia"
+    },
+    "water-ssr-silva-normal": {
+      "masterId": "3040049000",
+      "wikiPage": "Silva"
+    },
     "water-ssr-societte-water": {
       "masterId": "3040044000",
       "wikiPage": "Societte"
@@ -2701,6 +3279,10 @@
     "water-ssr-sturm-water": {
       "masterId": "3040268000",
       "wikiPage": "Sturm"
+    },
+    "water-ssr-tanjiro-and-friends-normal": {
+      "masterId": "3040308000",
+      "wikiPage": "Tanjiro, Nezuko, Zenitsu, and Inosuke"
     },
     "water-ssr-tefnut-summer": {
       "masterId": "3040537000",
@@ -2722,6 +3304,10 @@
       "masterId": "3040147000",
       "wikiPage": "Vajra"
     },
+    "water-ssr-vampy-and-vess-normal": {
+      "masterId": "3040264000",
+      "wikiPage": "Vania and Malinda"
+    },
     "water-ssr-vane-normal": {
       "masterId": "3040117000",
       "wikiPage": "Vane (SSR)"
@@ -2729,6 +3315,10 @@
     "water-ssr-vaseraga-summer": {
       "masterId": "3040471000",
       "wikiPage": "Vaseraga (Summer)"
+    },
+    "water-ssr-vermeersch-grand": {
+      "masterId": "3040419000",
+      "wikiPage": "Wamdus"
     },
     "water-ssr-vikala-halloween": {
       "masterId": "3040488000",
@@ -2742,6 +3332,11 @@
       "masterId": "3040088000",
       "wikiPage": "Yngwie"
     },
+    "water-ssr-yngwie-shift": {
+      "masterId": "3040088000",
+      "wikiPage": "Yngwie (Legend of Bravado and Revelry)",
+      "styleId": 2
+    },
     "water-ssr-yodarha-normal": {
       "masterId": "3040064000",
       "wikiPage": "Yodarha (SSR)"
@@ -2753,6 +3348,10 @@
     "water-ssr-yuel-water": {
       "masterId": "3040138000",
       "wikiPage": "Yuel (Water)"
+    },
+    "water-ssr-yuri-water": {
+      "masterId": "3040509000",
+      "wikiPage": "Juri (SSR)"
     },
     "water-ssr-zeta-water": {
       "masterId": "3040323000",
@@ -2802,6 +3401,18 @@
       "masterId": "3020056000",
       "wikiPage": "Thelonim"
     },
+    "wind-sr-alisa-normal": {
+      "masterId": "3030179000",
+      "wikiPage": "Arisa"
+    },
+    "wind-sr-amuro-toru-normal": {
+      "masterId": "3030238000",
+      "wikiPage": "Tōru Amuro"
+    },
+    "wind-sr-anthuria-normal": {
+      "masterId": "3030170000",
+      "wikiPage": "Andira (Event)"
+    },
     "wind-sr-arthur-and-mordred-normal": {
       "masterId": "3030255000",
       "wikiPage": "Arthur and Mordred"
@@ -2814,6 +3425,10 @@
       "masterId": "3030044000",
       "wikiPage": "Aster (Event)"
     },
+    "wind-sr-charlotta-wind": {
+      "masterId": "3030192000",
+      "wikiPage": "Charlotta (Event)"
+    },
     "wind-sr-chloe-summer": {
       "masterId": "3030202000",
       "wikiPage": "Chloe (Summer)"
@@ -2825,6 +3440,10 @@
     "wind-sr-eso-normal": {
       "masterId": "3030128000",
       "wikiPage": "Eso (SR)"
+    },
+    "wind-sr-farrah-wind": {
+      "masterId": "3030103000",
+      "wikiPage": "Farrah (Event)"
     },
     "wind-sr-feena-normal": {
       "masterId": "3030035000",
@@ -2854,6 +3473,10 @@
       "masterId": "3030194000",
       "wikiPage": "Shiki Ichinose"
     },
+    "wind-sr-jin-summer": {
+      "masterId": "3030151000",
+      "wikiPage": "Jin (Wind)"
+    },
     "wind-sr-joy-normal": {
       "masterId": "3030280000",
       "wikiPage": "Joy (Event)"
@@ -2869,6 +3492,10 @@
     "wind-sr-keehar-normal": {
       "masterId": "3030024000",
       "wikiPage": "Keehar"
+    },
+    "wind-sr-korwa-uniform": {
+      "masterId": "3030266000",
+      "wikiPage": "Korwa (SR)"
     },
     "wind-sr-krugne-normal": {
       "masterId": "3030278000",
@@ -2901,6 +3528,10 @@
     "wind-sr-mirin-normal": {
       "masterId": "3030224000",
       "wikiPage": "Mirin"
+    },
+    "wind-sr-myun-normal": {
+      "masterId": "3030172000",
+      "wikiPage": "Meteon (Event)"
     },
     "wind-sr-rashid-normal": {
       "masterId": "3030126000",
@@ -2938,6 +3569,10 @@
       "masterId": "3030130000",
       "wikiPage": "Sakura Shinguji"
     },
+    "wind-sr-sil-normal": {
+      "masterId": "3030067000",
+      "wikiPage": "Syr (Event)"
+    },
     "wind-sr-spinnah-christmas": {
       "masterId": "3030322000",
       "wikiPage": "Spinnah (Holiday)"
@@ -2958,6 +3593,10 @@
       "masterId": "3030245000",
       "wikiPage": "Yuisis (Yukata)"
     },
+    "wind-sr-yuri-wind": {
+      "masterId": "3030253000",
+      "wikiPage": "Juri"
+    },
     "wind-ssr-albert-summer": {
       "masterId": "3040290000",
       "wikiPage": "Albert (Summer)"
@@ -2970,9 +3609,17 @@
       "masterId": "3040528000",
       "wikiPage": "Ami"
     },
+    "wind-ssr-anchira-normal": {
+      "masterId": "3040071000",
+      "wikiPage": "Andira"
+    },
     "wind-ssr-anila-summer": {
       "masterId": "3040288000",
       "wikiPage": "Anila (Summer)"
+    },
+    "wind-ssr-aria-wind": {
+      "masterId": "3040431000",
+      "wikiPage": "Alliah"
     },
     "wind-ssr-azusa-normal": {
       "masterId": "3040359000",
@@ -3046,6 +3693,10 @@
       "masterId": "3040061000",
       "wikiPage": "Feena"
     },
+    "wind-ssr-first-years-mus-normal": {
+      "masterId": "3040229000",
+      "wikiPage": "Μ's First-Years"
+    },
     "wind-ssr-florence-normal": {
       "masterId": "3040299000",
       "wikiPage": "Florence"
@@ -3086,6 +3737,10 @@
       "masterId": "3040208000",
       "wikiPage": "Heles (Wind)"
     },
+    "wind-ssr-henriette-normal": {
+      "masterId": "3040058000",
+      "wikiPage": "Arriet"
+    },
     "wind-ssr-izuku-midoriya-normal": {
       "masterId": "3040504000",
       "wikiPage": "Izuku Midoriya"
@@ -3093,6 +3748,10 @@
     "wind-ssr-jeanne-darc-summer": {
       "masterId": "3040154000",
       "wikiPage": "Jeanne d'Arc (Summer)"
+    },
+    "wind-ssr-joy-hama": {
+      "masterId": "3040588000",
+      "wikiPage": "Joy (Event SSR)"
     },
     "wind-ssr-kaede-takagaki-normal": {
       "masterId": "3040276000",
@@ -3138,6 +3797,10 @@
       "masterId": "3040101000",
       "wikiPage": "Lecia (Grand)"
     },
+    "wind-ssr-lena-wind": {
+      "masterId": "3040021000",
+      "wikiPage": "Lennah"
+    },
     "wind-ssr-levi-normal": {
       "masterId": "3040142000",
       "wikiPage": "Levi"
@@ -3158,9 +3821,22 @@
       "masterId": "3040635000",
       "wikiPage": "Lulou Holou"
     },
+    "wind-ssr-lyria-normal": {
+      "masterId": "3040556000",
+      "wikiPage": "Lecia (SSR)"
+    },
+    "wind-ssr-lyria-style-shift": {
+      "masterId": "3040101000",
+      "wikiPage": "Lecia (Inheritor of the Blue Mantle)",
+      "styleId": 2
+    },
     "wind-ssr-mahira-summer": {
       "masterId": "3040584000",
       "wikiPage": "Mahira (Summer)"
+    },
+    "wind-ssr-megu-and-marippe-dress": {
+      "masterId": "3040662000",
+      "wikiPage": "Meg and Mari (Formal)"
     },
     "wind-ssr-melissabelle-normal": {
       "masterId": "3040102000",
@@ -3210,9 +3886,29 @@
       "masterId": "3040318000",
       "wikiPage": "Nectar"
     },
+    "wind-ssr-negi-normal": {
+      "masterId": "3040574000",
+      "wikiPage": "Negi Springfield"
+    },
+    "wind-ssr-nelliel-normal": {
+      "masterId": "3040668000",
+      "wikiPage": "Nelliel Tu Odelschwanck"
+    },
+    "wind-ssr-netzach-normal": {
+      "masterId": "3040003000",
+      "wikiPage": "Nezahualpilli"
+    },
     "wind-ssr-nezha-normal": {
       "masterId": "3040332000",
       "wikiPage": "Nezha"
+    },
+    "wind-ssr-nio-normal": {
+      "masterId": "3040038000",
+      "wikiPage": "Niyon"
+    },
+    "wind-ssr-noeud-wind": {
+      "masterId": "3040281000",
+      "wikiPage": "Naoise"
     },
     "wind-ssr-noire-normal": {
       "masterId": "3040549000",
@@ -3274,6 +3970,10 @@
       "masterId": "3040576000",
       "wikiPage": "Setsuna Sakurazaki"
     },
+    "wind-ssr-shatora-normal": {
+      "masterId": "3040313000",
+      "wikiPage": "Catura"
+    },
     "wind-ssr-shinobu-kocho-normal": {
       "masterId": "3040310000",
       "wikiPage": "Shinobu Kocho"
@@ -3289,6 +3989,10 @@
     "wind-ssr-siegfried-yukata": {
       "masterId": "3040128000",
       "wikiPage": "Siegfried (Yukata)"
+    },
+    "wind-ssr-siete-normal": {
+      "masterId": "3040036000",
+      "wikiPage": "Seofon"
     },
     "wind-ssr-skuld-normal": {
       "masterId": "3040596000",
@@ -3341,6 +4045,10 @@
     "wind-ssr-veight-wind": {
       "masterId": "3040532000",
       "wikiPage": "Veight (Wind)"
+    },
+    "wind-ssr-veldora-normal": {
+      "masterId": "3040559000",
+      "wikiPage": "Veldora Tempest"
     },
     "wind-ssr-vira-wind": {
       "masterId": "3040211000",

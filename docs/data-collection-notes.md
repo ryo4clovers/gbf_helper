@@ -3,6 +3,17 @@
 `knowledge/` を充実させていく上での、情報源・収集方法・運用方針をまとめる作業メモ。
 セッションをまたいでも参照できるよう、リポジトリ内で管理する(Claude側の一時的な記憶には残さない)。
 
+### サムネイル未対応176件の公開IDを個別照合(2026-10-04)
+
+- 出典: [公開Wikiのcharactersテーブル](https://gbf.wiki/Special:CargoTables/characters)をJina経由で再参照。`id,_pageName=name,element,rarity,jpname,link_gamewith,style_id,style_name,series`をoffset 0/500/1000で取得した計1,024行と、既存ナレッジの日本語名・版・出典URLを照合。ゲームAPI通信・操作なし。
+- 結果: 未対応176件すべてにIDを対応付け、計1,018/1,018件（異なるマスターIDは1,015件）となった。従来842件の対応は変更なし。172件はGameWith記事番号と人物・版を照合し、残る十天衆4件（オクトー/Eahta、サラーサ/Threo、ニオ/Niyon、シエテ/Seofon）は日本語名・属性・レアリティと通常版を照合した。4件の既存出典は最終上限解放の記事で、Cargoの基本記事URLとは異なる。個別の採用結果・Wikiページ・日本語名・記事番号を`mcp-server/catalog/character-image-resolutions.v1.json`に保存。
+- 取り違えの防止: イベント/ガチャの火スーテラは3030187000/3030113000、特典/銃の光ゾーイは3040078000/3040150000、水シルヴァ/シルヴィアは3040049000/3040613000と区別した。既存英名にはSilva/Sylvia、Lyria/Lecia等の誤記・誤訳があるため、IDを英名の近さだけで決めていない。Wikiの属性表記`Any`（猫・ベス・SR/SSRルリア）は個別例外として画像のみ対応し、既存ナレッジの火属性や計算上の属性を修正したわけではない。
+- スタイル: [スーパーシンダラ](https://gbf.wiki/Cidala_(Super_Cidala))、[イングヴェイ](https://gbf.wiki/Yngwie_(Legend_of_Bravado_and_Revelry))、[碧の継承者リーシャ](https://gbf.wiki/Lecia_(Inheritor_of_the_Blue_Mantle))の公開ページ原文で、通常版と同じID・`style_id=2`・画像`_01_st2`を確認。対応表と表示にスタイル番号を追加し、重複判定はID＋スタイルに変更。数値IDだけの編成では通常版を表示し、スタイル変更の計算接続は今回の対象外。
+- 再生成: 個別照合結果を入力Cargoと再突合し、行の欠落・変更・同じID＋スタイルの衝突をエラーにする。通常の名前照合はスタイル1に限定し、誤った出典URLだけで既存対応を上書きしない。
+- 検証: Windows Node.jsで`npm run check`（498テスト）と`npm run build`を通過。別バージョンの取り違え、Any属性の無条件採用、出典記事番号の前方一致、照合結果とCargoの不一致、スタイル内の重複を検証した。ブラウザーでスタイル3種の`_01_st2.jpg`が幅280で読み込めること、シンダラの通常版とスタイル版の画像差、リーシャのスタイル版を選択後に編成枠へ画像が反映されることを確認。
+- 保留: 二次情報による画像用の対応なので下書きを維持。全画像URLの存在を一括確認したものではない。既存ナレッジの英名/属性の補正、闇ゼタと火ツバサで見つかったGameWith出典番号の不整合（それぞれ闇カタリナ、ランスロット＆ヴェインの番号に一致）は別途内容の照合が必要。今回その2件の既存画像IDは維持した。
+- 保存先: 公開テーブルの作業用原文はOS一時フォルダの`gbf-character-enriched-{0,500,1000}.txt`、スタイルの公開ページ原文は`gbf-cidala-style.txt`と`gbf-character-style-{0,1}.txt`。アカウント由来の生データ追加・draft処理なし。
+
 ### キャラクター選択と編成枠へサムネイルを追加(2026-10-04)
 
 - 出典: ユーザー提示のCDN画像URL（`npc/m/3040456000_01.jpg`）と、[公開Wikiのcharactersテーブル](https://gbf.wiki/Special:CargoTables/characters)。Jina経由のCargo JSONから`id,_pageName=name,element,rarity`のみ取得し、500件ずつoffset 0/500/1000で参照。ゲームAPIへのリクエストは行っていない。

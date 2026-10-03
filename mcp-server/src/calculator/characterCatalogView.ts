@@ -27,6 +27,7 @@ const elementCodes: Record<string, string> = {
 export interface SelectableCharacterCatalogEntry {
   characterId: string;
   masterId?: string;
+  styleId?: number;
   imageUrl?: string;
   name: string;
   nameEn: string;
@@ -45,7 +46,7 @@ export function createSelectableCharacterCatalog(
   knowledgeBasePath = KNOWLEDGE_BASE_PATH,
 ): SelectableCharacterCatalog {
   const imageCatalog = z.object({ entries: z.record(z.object({
-    masterId: z.string().regex(/^30[234]\d{7}$/), wikiPage: z.string(),
+    masterId: z.string().regex(/^30[234]\d{7}$/), wikiPage: z.string(), styleId: z.literal(2).optional(),
   })) }).parse(JSON.parse(readFileSync(new URL("../../catalog/character-images.v1.json", import.meta.url), "utf8")));
   const charactersPath = path.join(knowledgeBasePath, "characters");
   const characters = readdirSync(charactersPath)
@@ -54,11 +55,13 @@ export function createSelectableCharacterCatalog(
       const frontmatter = characterFrontmatterSchema.parse(
         matter(readFileSync(path.join(charactersPath, name), "utf8")).data,
       );
+      const image = imageCatalog.entries[frontmatter.id];
       return {
         characterId: frontmatter.id,
-        ...(imageCatalog.entries[frontmatter.id] ? {
-          masterId: imageCatalog.entries[frontmatter.id].masterId,
-          imageUrl: `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/m/${imageCatalog.entries[frontmatter.id].masterId}_01.jpg`,
+        ...(image ? {
+          masterId: image.masterId,
+          ...(image.styleId ? { styleId: image.styleId } : {}),
+          imageUrl: `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/m/${image.masterId}_01${image.styleId ? `_st${image.styleId}` : ""}.jpg`,
         } : {}),
         name: frontmatter.name_jp,
         nameEn: frontmatter.name_en,

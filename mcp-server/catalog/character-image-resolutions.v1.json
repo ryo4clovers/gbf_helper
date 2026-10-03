@@ -1,0 +1,1072 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-04",
+  "verificationStatus": "下書き",
+  "source": "https://gbf.wiki/Special:CargoTables/characters",
+  "description": "初回未対応176件の個別照合。画像表示のみで使用し、ナレッジのID・名称・属性・計算仕様は変更しない。",
+  "entries": {
+    "dark-r-vikala-normal": {
+      "masterId": "3020073000",
+      "wikiPage": "Vikala (Event)",
+      "jpName": "ビカラ",
+      "gameWithArticle": "246404"
+    },
+    "dark-sr-cassius-normal": {
+      "masterId": "3030262000",
+      "wikiPage": "Cassius (Event)",
+      "jpName": "カシウス",
+      "gameWithArticle": "136522"
+    },
+    "dark-sr-elize-normal": {
+      "masterId": "3030138000",
+      "wikiPage": "Elize Lutus",
+      "jpName": "エリーゼ・ルタス",
+      "gameWithArticle": "32543"
+    },
+    "dark-sr-luna-normal": {
+      "masterId": "3030180000",
+      "wikiPage": "Luna",
+      "jpName": "ルナ",
+      "gameWithArticle": "52053"
+    },
+    "dark-sr-olivia-summer": {
+      "masterId": "3030246000",
+      "wikiPage": "Olivia (Event)",
+      "jpName": "オリヴィエ",
+      "gameWithArticle": "113300"
+    },
+    "dark-sr-zehek-normal": {
+      "masterId": "3030060000",
+      "wikiPage": "Zehek (Event)",
+      "jpName": "ゼヘク",
+      "gameWithArticle": "21142"
+    },
+    "dark-ssr-diablo-normal": {
+      "masterId": "3040561000",
+      "wikiPage": "Diablo (Collab)",
+      "jpName": "ディアブロ",
+      "gameWithArticle": "472945"
+    },
+    "dark-ssr-evangeline-normal": {
+      "masterId": "3040575000",
+      "wikiPage": "Evangeline A.K. McDowell",
+      "jpName": "エヴァンジェリン・Ａ・Ｋ・マクダウェル",
+      "gameWithArticle": "479781"
+    },
+    "dark-ssr-halmal-limited": {
+      "masterId": "3040443000",
+      "wikiPage": "Halluel and Malluel",
+      "jpName": "ハールート・マールート",
+      "gameWithArticle": "384939"
+    },
+    "dark-ssr-indra-normal": {
+      "masterId": "3040569000",
+      "wikiPage": "Indala",
+      "jpName": "インダラ",
+      "gameWithArticle": "479751"
+    },
+    "dark-ssr-itadori-and-fushiguro-normal": {
+      "masterId": "3040476000",
+      "wikiPage": "Yuji Itadori and Megumi Fushiguro",
+      "jpName": "虎杖悠仁＆伏黒 恵",
+      "gameWithArticle": "408042"
+    },
+    "dark-ssr-katalina-dark": {
+      "masterId": "3040118000",
+      "wikiPage": "Katalina (Promo)",
+      "jpName": "カタリナ",
+      "gameWithArticle": "55457"
+    },
+    "dark-ssr-kyaru-normal": {
+      "masterId": "3040216000",
+      "wikiPage": "Karyl",
+      "jpName": "キャル",
+      "gameWithArticle": "149363"
+    },
+    "dark-ssr-lefiya-yukata": {
+      "masterId": "3040520000",
+      "wikiPage": "De La Fille (Yukata)",
+      "jpName": "レ・フィーエ",
+      "gameWithArticle": "440206"
+    },
+    "dark-ssr-lei-limited": {
+      "masterId": "3040265000",
+      "wikiPage": "Rei",
+      "jpName": "レイ",
+      "gameWithArticle": "188954"
+    },
+    "dark-ssr-lelouch-normal": {
+      "masterId": "3040219000",
+      "wikiPage": "Lelouch Lamperouge",
+      "jpName": "ルルーシュ・ランペルージ",
+      "gameWithArticle": "154108"
+    },
+    "dark-ssr-lunal-dark": {
+      "masterId": "3040172000",
+      "wikiPage": "Lunalu (SSR)",
+      "jpName": "ルナール",
+      "gameWithArticle": "107514"
+    },
+    "dark-ssr-manu-ponomau-normal": {
+      "masterId": "3040653000",
+      "wikiPage": "Manu Ponumau",
+      "jpName": "マヌ＝ポヌマウ",
+      "gameWithArticle": "559459"
+    },
+    "dark-ssr-niyah-normal": {
+      "masterId": "3040169000",
+      "wikiPage": "Nier",
+      "jpName": "ニーア",
+      "gameWithArticle": "144747"
+    },
+    "dark-ssr-ourolyathe-limited": {
+      "masterId": "3040536000",
+      "wikiPage": "Orologia",
+      "jpName": "オロロジャイア",
+      "gameWithArticle": "453316"
+    },
+    "dark-ssr-sevastian-dark": {
+      "masterId": "3040548000",
+      "wikiPage": "Sevastien (SSR)",
+      "jpName": "セワスチアン",
+      "gameWithArticle": "462202"
+    },
+    "dark-ssr-sharem-limited": {
+      "masterId": "3040251000",
+      "wikiPage": "Helel ben Shalem",
+      "jpName": "ヘレル・ベン・シャレム",
+      "gameWithArticle": "180314"
+    },
+    "dark-ssr-shion-normal": {
+      "masterId": "3040560000",
+      "wikiPage": "Shion (Collab)",
+      "jpName": "シオン",
+      "gameWithArticle": "472947"
+    },
+    "dark-ssr-sirow-dark": {
+      "masterId": "3040156000",
+      "wikiPage": "Nicholas",
+      "jpName": "シロウ",
+      "gameWithArticle": "97688"
+    },
+    "dark-ssr-third-years-mus-normal": {
+      "masterId": "3040231000",
+      "wikiPage": "Μ's Third-Years",
+      "jpName": "絢瀬絵里＆矢澤にこ＆東條 希",
+      "gameWithArticle": "161780"
+    },
+    "dark-ssr-toga-himiko-normal": {
+      "masterId": "3040506000",
+      "wikiPage": "Himiko Toga",
+      "jpName": "トガヒミコ",
+      "gameWithArticle": "433262"
+    },
+    "dark-ssr-vaito-dark": {
+      "masterId": "3040094000",
+      "wikiPage": "Veight",
+      "jpName": "ヴァイト",
+      "gameWithArticle": "38204"
+    },
+    "dark-ssr-wil-dark": {
+      "masterId": "3040557000",
+      "wikiPage": "Will (SSR)",
+      "jpName": "ウィル",
+      "gameWithArticle": "470593"
+    },
+    "dark-ssr-yuel-and-sochie-dark": {
+      "masterId": "3040430000",
+      "wikiPage": "Yuel and Societte",
+      "jpName": "永遠の親愛 ユエル＆ソシエ",
+      "gameWithArticle": "370387"
+    },
+    "dark-ssr-zooey-summer": {
+      "masterId": "3040092000",
+      "wikiPage": "Zooey (Grand)",
+      "jpName": "ゾーイ",
+      "gameWithArticle": "36158"
+    },
+    "earth-r-catura-normal": {
+      "masterId": "3020074000",
+      "wikiPage": "Catura (Event)",
+      "jpName": "シャトラ",
+      "gameWithArticle": "311626"
+    },
+    "earth-sr-aufstern-normal": {
+      "masterId": "3030143000",
+      "wikiPage": "Augusta (Promo)",
+      "jpName": "アウフスタ",
+      "gameWithArticle": "25309"
+    },
+    "earth-sr-makira-normal": {
+      "masterId": "3030229000",
+      "wikiPage": "Mahira (Event)",
+      "jpName": "マキラ",
+      "gameWithArticle": "85249"
+    },
+    "earth-sr-paris-normal": {
+      "masterId": "3030157000",
+      "wikiPage": "Paris (Event)",
+      "jpName": "パリス",
+      "gameWithArticle": "38774"
+    },
+    "earth-sr-skull-normal": {
+      "masterId": "3030112000",
+      "wikiPage": "Skull (Event)",
+      "jpName": "スカル",
+      "gameWithArticle": "21780"
+    },
+    "earth-sr-solids-normal": {
+      "masterId": "3030020000",
+      "wikiPage": "Soriz",
+      "jpName": "ソリッズ",
+      "gameWithArticle": "21015"
+    },
+    "earth-sr-volenna-normal": {
+      "masterId": "3030056000",
+      "wikiPage": "Volenna (Event)",
+      "jpName": "ボレミア",
+      "gameWithArticle": "21148"
+    },
+    "earth-sr-walder-normal": {
+      "masterId": "3030197000",
+      "wikiPage": "Walder (Event)",
+      "jpName": "ウェルダー",
+      "gameWithArticle": "60977"
+    },
+    "earth-sr-yuri-normal": {
+      "masterId": "3030038000",
+      "wikiPage": "Juri (Event)",
+      "jpName": "ユーリ",
+      "gameWithArticle": "21040"
+    },
+    "earth-ssr-aria-golden-knight": {
+      "masterId": "3040297000",
+      "wikiPage": "Golden Knight",
+      "jpName": "黄金の騎士",
+      "gameWithArticle": "229049"
+    },
+    "earth-ssr-first-years-team-normal": {
+      "masterId": "3040184000",
+      "wikiPage": "Aqours First-Years",
+      "jpName": "津島善子＆国木田花丸＆黒澤ルビィ",
+      "gameWithArticle": "116086"
+    },
+    "earth-ssr-lou-summer": {
+      "masterId": "3040583000",
+      "wikiPage": "Lu Woh (Summer)",
+      "jpName": "ル・オー",
+      "gameWithArticle": "490119"
+    },
+    "earth-ssr-makira-normal": {
+      "masterId": "3040107000",
+      "wikiPage": "Mahira",
+      "jpName": "マキラ",
+      "gameWithArticle": "47627"
+    },
+    "earth-ssr-nobara-and-maki-normal": {
+      "masterId": "3040477000",
+      "wikiPage": "Nobara Kugisaki and Maki Zen'in",
+      "jpName": "釘崎野薔薇＆禪院真希",
+      "gameWithArticle": "411310"
+    },
+    "earth-ssr-octo-normal": {
+      "masterId": "3040037000",
+      "wikiPage": "Eahta",
+      "jpName": "オクトー",
+      "note": "日本語名・属性・レアリティと十天衆の通常版を照合。既存出典は最終上限解放記事のためCargoの基本記事とURLが異なる。"
+    },
+    "earth-ssr-orchis-earth": {
+      "masterId": "3040446000",
+      "wikiPage": "Orchid",
+      "jpName": "オーキス",
+      "gameWithArticle": "385764"
+    },
+    "earth-ssr-robelia-normal": {
+      "masterId": "3040165000",
+      "wikiPage": "Lobelia",
+      "jpName": "ロベリア",
+      "gameWithArticle": "144741"
+    },
+    "earth-ssr-salasa-normal": {
+      "masterId": "3040032000",
+      "wikiPage": "Threo",
+      "jpName": "サラーサ",
+      "note": "日本語名・属性・レアリティと十天衆の通常版を照合。既存出典は最終上限解放記事のためCargoの基本記事とURLが異なる。"
+    },
+    "earth-ssr-sandalphon-another": {
+      "masterId": "3040312000",
+      "wikiPage": "Sandalphon (Earth Grand)",
+      "jpName": "サンダルフォン",
+      "gameWithArticle": "246433"
+    },
+    "earth-ssr-shindara-normal": {
+      "masterId": "3040377000",
+      "wikiPage": "Cidala",
+      "jpName": "シンダラ",
+      "gameWithArticle": "311656"
+    },
+    "earth-ssr-shindara-super": {
+      "masterId": "3040377000",
+      "wikiPage": "Cidala (Super Cidala)",
+      "jpName": "シンダラ",
+      "styleId": 2,
+      "gameWithArticle": "490228"
+    },
+    "earth-ssr-special-week-and-silence-suzuka-and-tokai-teio-normal": {
+      "masterId": "3040353000",
+      "wikiPage": "Special Week, Silence Suzuka, and Tokai Teio",
+      "jpName": "スペシャルウィーク＆サイレンススズカ＆トウカイテイオー",
+      "gameWithArticle": "311678"
+    },
+    "earth-ssr-vaishravana-grand": {
+      "masterId": "3040630000",
+      "wikiPage": "Bhaisa",
+      "jpName": "バイシュラ",
+      "gameWithArticle": "537569"
+    },
+    "earth-ssr-vlana-dress": {
+      "masterId": "3040600000",
+      "wikiPage": "Fraux (Formal)",
+      "jpName": "フラウ",
+      "gameWithArticle": "505937"
+    },
+    "fire-r-cumyu-fire": {
+      "masterId": "3020032000",
+      "wikiPage": "Camieux",
+      "jpName": "クムユ",
+      "gameWithArticle": "21076"
+    },
+    "fire-r-neko-normal": {
+      "masterId": "3020072000",
+      "wikiPage": "Young Cat (Event)",
+      "jpName": "猫",
+      "allowAnyElement": true,
+      "gameWithArticle": "141003"
+    },
+    "fire-sr-abby-normal": {
+      "masterId": "3030011000",
+      "wikiPage": "Abby (Promo)",
+      "jpName": "アビー",
+      "gameWithArticle": "20996"
+    },
+    "fire-sr-aliza-normal": {
+      "masterId": "3030015000",
+      "wikiPage": "Aliza (Event)",
+      "jpName": "アリーザ",
+      "gameWithArticle": "21009"
+    },
+    "fire-sr-anila-normal": {
+      "masterId": "3030110000",
+      "wikiPage": "Anila (Event)",
+      "jpName": "アニラ",
+      "gameWithArticle": "21779"
+    },
+    "fire-sr-astel-fire": {
+      "masterId": "3030268000",
+      "wikiPage": "Aster",
+      "jpName": "アステール",
+      "gameWithArticle": "151221"
+    },
+    "fire-sr-barawa-event": {
+      "masterId": "3030154000",
+      "wikiPage": "Barawa (Event)",
+      "jpName": "バロワ",
+      "gameWithArticle": "36786"
+    },
+    "fire-sr-beth-normal": {
+      "masterId": "3030093000",
+      "wikiPage": "Malinda (Event)",
+      "jpName": "ベス",
+      "allowAnyElement": true,
+      "gameWithArticle": "22173"
+    },
+    "fire-sr-cecile-normal": {
+      "masterId": "3030146000",
+      "wikiPage": "Cecile (Promo)",
+      "jpName": "セシール",
+      "gameWithArticle": "25305"
+    },
+    "fire-sr-jessica-fire": {
+      "masterId": "3030016000",
+      "wikiPage": "Jessica (Event)",
+      "jpName": "ジェシカ",
+      "gameWithArticle": "21008"
+    },
+    "fire-sr-jogasaki-rika-normal": {
+      "masterId": "3030088000",
+      "wikiPage": "Rika Jougasaki",
+      "jpName": "城ヶ崎莉嘉",
+      "gameWithArticle": "21247"
+    },
+    "fire-sr-kanzuki-karin-normal": {
+      "masterId": "3030125000",
+      "wikiPage": "Karin",
+      "jpName": "神月かりん",
+      "gameWithArticle": "27597"
+    },
+    "fire-sr-karen-summer": {
+      "masterId": "3030200000",
+      "wikiPage": "Carren (Event)",
+      "jpName": "カレン",
+      "gameWithArticle": "63727"
+    },
+    "fire-sr-kukuru-fire": {
+      "masterId": "3030155000",
+      "wikiPage": "Cucouroux",
+      "jpName": "ククル",
+      "gameWithArticle": "38205"
+    },
+    "fire-sr-lina-inverse-normal": {
+      "masterId": "3030114000",
+      "wikiPage": "Lina",
+      "jpName": "リナ＝インバース",
+      "gameWithArticle": "22822"
+    },
+    "fire-sr-lyria-normal": {
+      "masterId": "3030182000",
+      "wikiPage": "Lyria (Event)",
+      "jpName": "ルリア",
+      "allowAnyElement": true,
+      "gameWithArticle": "52265"
+    },
+    "fire-sr-mira-normal": {
+      "masterId": "3030080000",
+      "wikiPage": "Milla Maxwell",
+      "jpName": "ミラ＝マクスウェル",
+      "gameWithArticle": "21239"
+    },
+    "fire-sr-naoise-fire": {
+      "masterId": "3030096000",
+      "wikiPage": "Naoise (Event)",
+      "jpName": "ノイシュ",
+      "gameWithArticle": "21255"
+    },
+    "fire-sr-percival-sidestory": {
+      "masterId": "3030168000",
+      "wikiPage": "Percival (Event)",
+      "jpName": "パーシヴァル",
+      "gameWithArticle": "45878"
+    },
+    "fire-sr-stahn-normal": {
+      "masterId": "3030136000",
+      "wikiPage": "Stahn Aileron",
+      "jpName": "スタン・エルロン",
+      "gameWithArticle": "32538"
+    },
+    "fire-sr-sutera-event": {
+      "masterId": "3030187000",
+      "wikiPage": "Sutera (Event)",
+      "jpName": "スーテラ",
+      "gameWithArticle": "54234"
+    },
+    "fire-sr-sutera-fire": {
+      "masterId": "3030113000",
+      "wikiPage": "Sutera (Fire)",
+      "jpName": "スーテラ",
+      "gameWithArticle": "22768"
+    },
+    "fire-sr-tendo-akira-normal": {
+      "masterId": "3030097000",
+      "wikiPage": "Teru Tendo",
+      "jpName": "天道輝",
+      "gameWithArticle": "21237"
+    },
+    "fire-sr-therese-bunny": {
+      "masterId": "3030062000",
+      "wikiPage": "Therese",
+      "jpName": "テレーズ",
+      "gameWithArticle": "21140"
+    },
+    "fire-sr-zooey-shrine-maiden": {
+      "masterId": "3030233000",
+      "wikiPage": "Zooey (Event)",
+      "jpName": "ゾーイ",
+      "gameWithArticle": "87523"
+    },
+    "fire-ssr-3rd-years-normal": {
+      "masterId": "3040185000",
+      "wikiPage": "Aqours Third-Years",
+      "jpName": "松浦果南＆黒澤ダイヤ＆小原鞠莉",
+      "gameWithArticle": "116090"
+    },
+    "fire-ssr-bakugo-katsuki-normal": {
+      "masterId": "3040505000",
+      "wikiPage": "Katsuki Bakugo",
+      "jpName": "爆豪勝己",
+      "gameWithArticle": "431314"
+    },
+    "fire-ssr-feeney-grand": {
+      "masterId": "3040519000",
+      "wikiPage": "Fenie",
+      "jpName": "フェニー",
+      "gameWithArticle": "441130"
+    },
+    "fire-ssr-frau-normal": {
+      "masterId": "3040161000",
+      "wikiPage": "Fraux",
+      "jpName": "フラウ",
+      "gameWithArticle": "144749"
+    },
+    "fire-ssr-hijikata-and-okita-normal": {
+      "masterId": "3040362000",
+      "wikiPage": "Shinsengumi",
+      "jpName": "真選組 土方十四郎&沖田総悟",
+      "gameWithArticle": "297847"
+    },
+    "fire-ssr-kallen-normal": {
+      "masterId": "3040221000",
+      "wikiPage": "Kallen Kouzuki",
+      "jpName": "紅月カレン",
+      "gameWithArticle": "154209"
+    },
+    "fire-ssr-lyria-event": {
+      "masterId": "3040643000",
+      "wikiPage": "Lyria (Event SSR)",
+      "jpName": "ルリア",
+      "allowAnyElement": true,
+      "gameWithArticle": "547128"
+    },
+    "fire-ssr-maria-teresa-holiday": {
+      "masterId": "3040629000",
+      "wikiPage": "Maria Theresa (Holiday)",
+      "jpName": "マリア・テレサ",
+      "gameWithArticle": "534768"
+    },
+    "fire-ssr-rengoku-kyojuro-normal": {
+      "masterId": "3040309000",
+      "wikiPage": "Kyojuro Rengoku",
+      "jpName": "煉獄杏寿郎",
+      "gameWithArticle": "240018"
+    },
+    "fire-ssr-sabir-vala-fire": {
+      "masterId": "3040490000",
+      "wikiPage": "Sevilbarra (SSR)",
+      "jpName": "サビルバラ",
+      "gameWithArticle": "423741"
+    },
+    "fire-ssr-sanchira-normal": {
+      "masterId": "3040633000",
+      "wikiPage": "Sandira",
+      "jpName": "サンチラ",
+      "gameWithArticle": "537542"
+    },
+    "fire-ssr-tatsuzaki-hiiro-normal": {
+      "masterId": "3040294000",
+      "wikiPage": "Hiro Ryugasaki",
+      "jpName": "竜ヶ崎ヒイロ",
+      "gameWithArticle": "226060"
+    },
+    "fire-ssr-vira-bonus": {
+      "masterId": "3040243000",
+      "wikiPage": "Vira (Promo)",
+      "jpName": "ヴィーラ",
+      "gameWithArticle": "179017"
+    },
+    "light-sr-albert-normal": {
+      "masterId": "3030177000",
+      "wikiPage": "Albert (Event)",
+      "jpName": "アルベール",
+      "gameWithArticle": "50337"
+    },
+    "light-sr-amira-normal": {
+      "masterId": "3030065000",
+      "wikiPage": "Amira (Promo)",
+      "jpName": "アーミラ",
+      "gameWithArticle": "21186"
+    },
+    "light-sr-erica-normal": {
+      "masterId": "3030131000",
+      "wikiPage": "Erica Fontaine",
+      "jpName": "エリカ・フォンティーヌ",
+      "gameWithArticle": "29419"
+    },
+    "light-sr-ezecrain-light": {
+      "masterId": "3030210000",
+      "wikiPage": "Ezecrain (Event)",
+      "jpName": "エゼクレイン",
+      "gameWithArticle": "71220"
+    },
+    "light-sr-kumbhira-normal": {
+      "masterId": "3030279000",
+      "wikiPage": "Kumbhira (Event)",
+      "jpName": "クビラ",
+      "gameWithArticle": "180993"
+    },
+    "light-sr-naoise-light": {
+      "masterId": "3030000000",
+      "wikiPage": "Naoise (Promo)",
+      "jpName": "ノイシュ",
+      "gameWithArticle": "21002"
+    },
+    "light-sr-nicholas-light": {
+      "masterId": "3030141000",
+      "wikiPage": "Nicholas (Event)",
+      "jpName": "シロウ",
+      "gameWithArticle": "33962"
+    },
+    "light-sr-robomi-normal": {
+      "masterId": "3030079000",
+      "wikiPage": "Robomi (Event)",
+      "jpName": "ロボミ",
+      "gameWithArticle": "21238"
+    },
+    "light-sr-saarya-light": {
+      "masterId": "3030209000",
+      "wikiPage": "Sarya",
+      "jpName": "サーヤ",
+      "gameWithArticle": "71187"
+    },
+    "light-sr-sabbatara-light": {
+      "masterId": "3030258000",
+      "wikiPage": "Sevilbarra (Event)",
+      "jpName": "サビルバラ",
+      "gameWithArticle": "132658"
+    },
+    "light-sr-seiran-normal": {
+      "masterId": "3030074000",
+      "wikiPage": "Ceylan (Event)",
+      "jpName": "セイラン",
+      "gameWithArticle": "21207"
+    },
+    "light-sr-tear-normal": {
+      "masterId": "3030137000",
+      "wikiPage": "Tear Grants",
+      "jpName": "ティア・グランツ",
+      "gameWithArticle": "32545"
+    },
+    "light-sr-zeta-normal": {
+      "masterId": "3030231000",
+      "wikiPage": "Zeta (Event)",
+      "jpName": "ゼタ",
+      "gameWithArticle": "85869"
+    },
+    "light-ssr-bolemia-light": {
+      "masterId": "3040494000",
+      "wikiPage": "Volenna (SSR)",
+      "jpName": "ボレミア",
+      "gameWithArticle": "425974"
+    },
+    "light-ssr-drossel-light": {
+      "masterId": "3040464000",
+      "wikiPage": "Drusilla (SSR)",
+      "jpName": "ドロッセル",
+      "gameWithArticle": "401409"
+    },
+    "light-ssr-europa-holiday": {
+      "masterId": "3040663000",
+      "wikiPage": "Europa (Formal)",
+      "jpName": "エウロペ",
+      "gameWithArticle": "565797"
+    },
+    "light-ssr-lefiya-summer": {
+      "masterId": "3040014000",
+      "wikiPage": "De La Fille (Summer)",
+      "jpName": "レ・フィーエ",
+      "gameWithArticle": "21054"
+    },
+    "light-ssr-lu-oh-grand": {
+      "masterId": "3040449000",
+      "wikiPage": "Lu Woh",
+      "jpName": "ル・オー",
+      "gameWithArticle": "385068"
+    },
+    "light-ssr-michela-light": {
+      "masterId": "3040317000",
+      "wikiPage": "Mishra (SSR)",
+      "jpName": "マイシェラ",
+      "gameWithArticle": "251231"
+    },
+    "light-ssr-mini-goblin-light": {
+      "masterId": "3040570000",
+      "wikiPage": "Goblin Mage (SSR)",
+      "jpName": "ミニゴブ",
+      "gameWithArticle": "480870"
+    },
+    "light-ssr-nave-light": {
+      "masterId": "3040550000",
+      "wikiPage": "Novei",
+      "jpName": "ナーヴェ",
+      "gameWithArticle": "464108"
+    },
+    "light-ssr-raziel-normal": {
+      "masterId": "3040516000",
+      "wikiPage": "Raziel (Event)",
+      "jpName": "ラジエル",
+      "gameWithArticle": "440491"
+    },
+    "light-ssr-second-years-normal": {
+      "masterId": "3040230000",
+      "wikiPage": "Μ's Second-Years",
+      "jpName": "園田海未＆高坂穂乃果＆南ことり",
+      "gameWithArticle": "161777"
+    },
+    "light-ssr-siegfried-another-light": {
+      "masterId": "3040485000",
+      "wikiPage": "Siegfried (Light)",
+      "jpName": "ジークフリート",
+      "gameWithArticle": "420295"
+    },
+    "light-ssr-yoh-light": {
+      "masterId": "3040393000",
+      "wikiPage": "You",
+      "jpName": "ヨウ",
+      "gameWithArticle": "328253"
+    },
+    "light-ssr-zooey-gun-normal": {
+      "masterId": "3040150000",
+      "wikiPage": "Zooey",
+      "jpName": "ゾーイ",
+      "gameWithArticle": "89110"
+    },
+    "light-ssr-zooey-normal": {
+      "masterId": "3040078000",
+      "wikiPage": "Zooey (Promo)",
+      "jpName": "ゾーイ",
+      "gameWithArticle": "27185"
+    },
+    "water-r-haira-normal": {
+      "masterId": "3020075000",
+      "wikiPage": "Payila (Event)",
+      "jpName": "ハイラ",
+      "gameWithArticle": "479756"
+    },
+    "water-sr-aliza-water": {
+      "masterId": "3030242000",
+      "wikiPage": "Aliza (Water)",
+      "jpName": "アリーザ",
+      "gameWithArticle": "102113"
+    },
+    "water-sr-diantha-normal": {
+      "masterId": "3030150000",
+      "wikiPage": "Diantha (Promo)",
+      "jpName": "ディアンサ",
+      "gameWithArticle": "35091"
+    },
+    "water-sr-lancelot-normal": {
+      "masterId": "3030108000",
+      "wikiPage": "Lancelot (Event)",
+      "jpName": "ランスロット",
+      "gameWithArticle": "21203"
+    },
+    "water-sr-lily-normal": {
+      "masterId": "3030165000",
+      "wikiPage": "Lily (Event)",
+      "jpName": "リリィ",
+      "gameWithArticle": "43871"
+    },
+    "water-sr-lowain-normal": {
+      "masterId": "3030123000",
+      "wikiPage": "Lowain (Event)",
+      "jpName": "ローアイン",
+      "gameWithArticle": "26816"
+    },
+    "water-sr-morphe-and-vetur-normal": {
+      "masterId": "3030135000",
+      "wikiPage": "Morphe and Phoebe (Event)",
+      "jpName": "モルフェとヴェトル",
+      "gameWithArticle": "30935"
+    },
+    "water-sr-pamela-normal": {
+      "masterId": "3030145000",
+      "wikiPage": "Pamela (Promo)",
+      "jpName": "パメラ",
+      "gameWithArticle": "25306"
+    },
+    "water-sr-romeo-normal": {
+      "masterId": "3030077000",
+      "wikiPage": "Romeo (Event)",
+      "jpName": "ロミオ",
+      "gameWithArticle": "21210"
+    },
+    "water-sr-therese-normal": {
+      "masterId": "3030001000",
+      "wikiPage": "Therese (Event)",
+      "jpName": "テレーズ",
+      "gameWithArticle": "21001"
+    },
+    "water-sr-yuel-normal": {
+      "masterId": "3030223000",
+      "wikiPage": "Yuel (Event)",
+      "jpName": "ユエル",
+      "gameWithArticle": "76199"
+    },
+    "water-ssr-2nd-years-normal": {
+      "masterId": "3040183000",
+      "wikiPage": "Aqours Second-Years",
+      "jpName": "桜内梨子＆高海千歌＆渡辺 曜",
+      "gameWithArticle": "116085"
+    },
+    "water-ssr-delrifado-water": {
+      "masterId": "3040507000",
+      "wikiPage": "Deliford (SSR)",
+      "jpName": "デリフォード",
+      "gameWithArticle": "432906"
+    },
+    "water-ssr-erica-normal": {
+      "masterId": "3040421000",
+      "wikiPage": "Erika",
+      "jpName": "エリカ",
+      "gameWithArticle": "361581"
+    },
+    "water-ssr-folia-grand": {
+      "masterId": "3040181000",
+      "wikiPage": "Pholia",
+      "jpName": "フォリア",
+      "gameWithArticle": "118203"
+    },
+    "water-ssr-haila-normal": {
+      "masterId": "3040502000",
+      "wikiPage": "Payila",
+      "jpName": "ハイラ",
+      "gameWithArticle": "431273"
+    },
+    "water-ssr-haseena-leela-normal": {
+      "masterId": "3040168000",
+      "wikiPage": "Haaselia",
+      "jpName": "ハーゼリーラ",
+      "gameWithArticle": "144744"
+    },
+    "water-ssr-hitsugaya-and-matsumoto-normal": {
+      "masterId": "3040669000",
+      "wikiPage": "Toshiro Hitsugaya and Rangiku Matsumoto",
+      "jpName": "日番谷冬獅郎＆松本乱菊",
+      "gameWithArticle": "569185"
+    },
+    "water-ssr-ilsa-dress": {
+      "masterId": "3040599000",
+      "wikiPage": "Ilsa (Formal)",
+      "jpName": "イルザ",
+      "gameWithArticle": "505935"
+    },
+    "water-ssr-jeanne-dark-summer": {
+      "masterId": "3040420000",
+      "wikiPage": "Jeanne d'Arc (Water Summer)",
+      "jpName": "ジャンヌ",
+      "gameWithArticle": "359333"
+    },
+    "water-ssr-kokkoro-water": {
+      "masterId": "3040159000",
+      "wikiPage": "Cucouroux (SSR)",
+      "jpName": "ククル",
+      "gameWithArticle": "102101"
+    },
+    "water-ssr-maria-teresa-normal": {
+      "masterId": "3040160000",
+      "wikiPage": "Maria Theresa",
+      "jpName": "マリア・テレサ",
+      "gameWithArticle": "144750"
+    },
+    "water-ssr-rei-and-unit00-normal": {
+      "masterId": "3040623000",
+      "wikiPage": "Rei & Unit 00",
+      "jpName": "レイ＆零号機",
+      "gameWithArticle": "527744"
+    },
+    "water-ssr-silva-grand": {
+      "masterId": "3040613000",
+      "wikiPage": "Sylvia",
+      "jpName": "シルヴィア",
+      "gameWithArticle": "519323"
+    },
+    "water-ssr-silva-normal": {
+      "masterId": "3040049000",
+      "wikiPage": "Silva",
+      "jpName": "シルヴァ",
+      "gameWithArticle": "21167"
+    },
+    "water-ssr-tanjiro-and-friends-normal": {
+      "masterId": "3040308000",
+      "wikiPage": "Tanjiro, Nezuko, Zenitsu, and Inosuke",
+      "jpName": "竈門炭治郎＆竈門禰豆子＆我妻善逸＆嘴平伊之助",
+      "gameWithArticle": "244915"
+    },
+    "water-ssr-vampy-and-vess-normal": {
+      "masterId": "3040264000",
+      "wikiPage": "Vania and Malinda",
+      "jpName": "飛竜と吸血姫 ヴァンピィ＆ベス",
+      "gameWithArticle": "188959"
+    },
+    "water-ssr-vermeersch-grand": {
+      "masterId": "3040419000",
+      "wikiPage": "Wamdus",
+      "jpName": "ワムデュス",
+      "gameWithArticle": "355006"
+    },
+    "water-ssr-yngwie-shift": {
+      "masterId": "3040088000",
+      "wikiPage": "Yngwie (Legend of Bravado and Revelry)",
+      "jpName": "イングヴェイ",
+      "styleId": 2,
+      "gameWithArticle": "34864"
+    },
+    "water-ssr-yuri-water": {
+      "masterId": "3040509000",
+      "wikiPage": "Juri (SSR)",
+      "jpName": "ユーリ",
+      "gameWithArticle": "435429"
+    },
+    "wind-sr-alisa-normal": {
+      "masterId": "3030179000",
+      "wikiPage": "Arisa",
+      "jpName": "アリサ",
+      "gameWithArticle": "52052"
+    },
+    "wind-sr-amuro-toru-normal": {
+      "masterId": "3030238000",
+      "wikiPage": "Tōru Amuro",
+      "jpName": "安室透",
+      "gameWithArticle": "99418"
+    },
+    "wind-sr-anthuria-normal": {
+      "masterId": "3030170000",
+      "wikiPage": "Andira (Event)",
+      "jpName": "アンチラ",
+      "gameWithArticle": "47314"
+    },
+    "wind-sr-charlotta-wind": {
+      "masterId": "3030192000",
+      "wikiPage": "Charlotta (Event)",
+      "jpName": "シャルロッテ",
+      "gameWithArticle": "58031"
+    },
+    "wind-sr-farrah-wind": {
+      "masterId": "3030103000",
+      "wikiPage": "Farrah (Event)",
+      "jpName": "ファラ",
+      "gameWithArticle": "21221"
+    },
+    "wind-sr-jin-summer": {
+      "masterId": "3030151000",
+      "wikiPage": "Jin (Wind)",
+      "jpName": "ジン",
+      "gameWithArticle": "35232"
+    },
+    "wind-sr-korwa-uniform": {
+      "masterId": "3030266000",
+      "wikiPage": "Korwa (SR)",
+      "jpName": "コルワ",
+      "gameWithArticle": "146948"
+    },
+    "wind-sr-myun-normal": {
+      "masterId": "3030172000",
+      "wikiPage": "Meteon (Event)",
+      "jpName": "ミュオン",
+      "gameWithArticle": "47631"
+    },
+    "wind-sr-sil-normal": {
+      "masterId": "3030067000",
+      "wikiPage": "Syr (Event)",
+      "jpName": "スィール",
+      "gameWithArticle": "21188"
+    },
+    "wind-sr-yuri-wind": {
+      "masterId": "3030253000",
+      "wikiPage": "Juri",
+      "jpName": "ユーリ",
+      "gameWithArticle": "121985"
+    },
+    "wind-ssr-anchira-normal": {
+      "masterId": "3040071000",
+      "wikiPage": "Andira",
+      "jpName": "アンチラ",
+      "gameWithArticle": "21765"
+    },
+    "wind-ssr-aria-wind": {
+      "masterId": "3040431000",
+      "wikiPage": "Alliah",
+      "jpName": "アリア",
+      "gameWithArticle": "370390"
+    },
+    "wind-ssr-first-years-mus-normal": {
+      "masterId": "3040229000",
+      "wikiPage": "Μ's First-Years",
+      "jpName": "星空 凛＆小泉花陽＆西木野真姫",
+      "gameWithArticle": "161789"
+    },
+    "wind-ssr-henriette-normal": {
+      "masterId": "3040058000",
+      "wikiPage": "Arriet",
+      "jpName": "アンリエット",
+      "gameWithArticle": "21267"
+    },
+    "wind-ssr-joy-hama": {
+      "masterId": "3040588000",
+      "wikiPage": "Joy (Event SSR)",
+      "jpName": "ジョイ",
+      "gameWithArticle": "489593"
+    },
+    "wind-ssr-lena-wind": {
+      "masterId": "3040021000",
+      "wikiPage": "Lennah",
+      "jpName": "レナ",
+      "gameWithArticle": "21048"
+    },
+    "wind-ssr-lyria-normal": {
+      "masterId": "3040556000",
+      "wikiPage": "Lecia (SSR)",
+      "jpName": "リーシャ",
+      "gameWithArticle": "470592"
+    },
+    "wind-ssr-lyria-style-shift": {
+      "masterId": "3040101000",
+      "wikiPage": "Lecia (Inheritor of the Blue Mantle)",
+      "jpName": "リーシャ",
+      "styleId": 2,
+      "gameWithArticle": "548625"
+    },
+    "wind-ssr-megu-and-marippe-dress": {
+      "masterId": "3040662000",
+      "wikiPage": "Meg and Mari (Formal)",
+      "jpName": "メグ＆まりっぺ",
+      "gameWithArticle": "565796"
+    },
+    "wind-ssr-negi-normal": {
+      "masterId": "3040574000",
+      "wikiPage": "Negi Springfield",
+      "jpName": "ネギ・スプリングフィールド",
+      "gameWithArticle": "479782"
+    },
+    "wind-ssr-nelliel-normal": {
+      "masterId": "3040668000",
+      "wikiPage": "Nelliel Tu Odelschwanck",
+      "jpName": "ネリエル・トゥ・オーデルシュヴァンク",
+      "gameWithArticle": "569186"
+    },
+    "wind-ssr-netzach-normal": {
+      "masterId": "3040003000",
+      "wikiPage": "Nezahualpilli",
+      "jpName": "ネツァワルピリ",
+      "gameWithArticle": "20986"
+    },
+    "wind-ssr-nio-normal": {
+      "masterId": "3040038000",
+      "wikiPage": "Niyon",
+      "jpName": "ニオ",
+      "note": "日本語名・属性・レアリティと十天衆の通常版を照合。既存出典は最終上限解放記事のためCargoの基本記事とURLが異なる。"
+    },
+    "wind-ssr-noeud-wind": {
+      "masterId": "3040281000",
+      "wikiPage": "Naoise",
+      "jpName": "ノイシュ",
+      "gameWithArticle": "208881"
+    },
+    "wind-ssr-shatora-normal": {
+      "masterId": "3040313000",
+      "wikiPage": "Catura",
+      "jpName": "シャトラ",
+      "gameWithArticle": "246430"
+    },
+    "wind-ssr-siete-normal": {
+      "masterId": "3040036000",
+      "wikiPage": "Seofon",
+      "jpName": "シエテ",
+      "note": "日本語名・属性・レアリティと十天衆の通常版を照合。既存出典は最終上限解放記事のためCargoの基本記事とURLが異なる。"
+    },
+    "wind-ssr-veldora-normal": {
+      "masterId": "3040559000",
+      "wikiPage": "Veldora Tempest",
+      "jpName": "ヴェルドラ＝テンペスト",
+      "gameWithArticle": "471105"
+    }
+  }
+}

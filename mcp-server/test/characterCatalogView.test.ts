@@ -45,9 +45,42 @@ test("creates a browser-safe catalog from all character knowledge", () => {
   const summerIlsa = catalog.characters.find((character) => character.nameEn === "Ilsa (Summer)")!;
   assert.ok(summerIlsa.imageUrl);
   assert.notEqual(summerIlsa.masterId, ilsa.masterId);
-  const imageIds = catalog.characters.flatMap((character) => character.masterId ? [character.masterId] : []);
-  assert.equal(new Set(imageIds).size, imageIds.length, "ambiguous duplicate master IDs must not pick a character arbitrarily");
+  const imageIds = catalog.characters.flatMap((character) => character.masterId ? [`${character.masterId}:${character.styleId ?? 1}`] : []);
+  assert.equal(imageIds.length, catalog.characters.length, "all current knowledge entries have reviewed image identities");
+  assert.equal(new Set(imageIds).size, imageIds.length, "master ID and style must uniquely identify a character variant");
   for (const character of catalog.characters) {
-    if (character.imageUrl) assert.match(character.imageUrl, /^https:\/\/prd-game-a-granbluefantasy\.akamaized\.net\/assets\/img\/sp\/assets\/npc\/m\/30[234]\d{7}_01\.jpg$/);
+    if (character.imageUrl) assert.match(character.imageUrl, /^https:\/\/prd-game-a-granbluefantasy\.akamaized\.net\/assets\/img\/sp\/assets\/npc\/m\/30[234]\d{7}_01(?:_st2)?\.jpg$/);
+  }
+});
+
+test("distinguishes reviewed variants, mistranslated names, and style shifts", () => {
+  const characters = new Map(createSelectableCharacterCatalog().characters.map((character) => [character.characterId, character]));
+  for (const [id, masterId] of Object.entries({
+    "water-ssr-silva-normal": "3040049000",
+    "water-ssr-silva-grand": "3040613000",
+    "fire-sr-sutera-event": "3030187000",
+    "fire-sr-sutera-fire": "3030113000",
+    "light-ssr-zooey-normal": "3040078000",
+    "light-ssr-zooey-gun-normal": "3040150000",
+    "fire-sr-lyria-normal": "3030182000",
+    "fire-ssr-lyria-event": "3040643000",
+    "earth-ssr-octo-normal": "3040037000",
+    "wind-ssr-siete-normal": "3040036000",
+    "dark-ssr-zeta-dark": "3040112000",
+    "fire-ssr-tsubasa-normal": "3040180000",
+  })) assert.equal(characters.get(id)?.masterId, masterId, id);
+  for (const [baseId, shiftedId] of [
+    ["earth-ssr-shindara-normal", "earth-ssr-shindara-super"],
+    ["water-ssr-yngwie-normal", "water-ssr-yngwie-shift"],
+    ["wind-ssr-lecia-grand", "wind-ssr-lyria-style-shift"],
+  ]) {
+    const base = characters.get(baseId)!;
+    const shifted = characters.get(shiftedId)!;
+    assert.ok(base, baseId);
+    assert.equal(base.masterId, shifted.masterId);
+    assert.equal(base.styleId, undefined);
+    assert.equal(shifted.styleId, 2);
+    assert.notEqual(base.imageUrl, shifted.imageUrl);
+    assert.ok(shifted.imageUrl?.endsWith("_01_st2.jpg"));
   }
 });
