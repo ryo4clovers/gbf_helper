@@ -6,6 +6,8 @@ import {
   calculateStaminaAmountPercent,
 } from "../src/calculator/hpDependentAttackCalculator.ts";
 import { calculateNormalAttackFromRequest } from "../src/calculator/normalAttackCalculationRequest.ts";
+import { calculateArticleBaseDamage } from "../src/calculator/articleBaseDamageCalculator.ts";
+import { calculateNormalAttackPower } from "../src/calculator/normalAttackPowerCalculator.ts";
 import type { DeckSnapshot, EffectiveWeaponSkillEffect } from "../src/calculator/types.ts";
 
 test("reproduces published stamina and enmity checkpoints", () => {
@@ -85,7 +87,7 @@ test("adds same-frame skills and multiplies normal stamina and enmity as separat
   const result = calculateHpDependentAttack(deck, 50);
   assert.equal(result.totalEffectiveNormalStaminaPercent, 11.295971);
   assert.equal(result.totalEffectiveNormalEnmityPercent, 30.8);
-  assert.equal(result.normalStaminaMultiplier, 1.11296);
+  assert.equal(result.normalStaminaMultiplier, 1.11295971);
   assert.equal(result.normalEnmityMultiplier, 1.308);
 });
 
@@ -131,8 +133,32 @@ test("keeps normal and magna stamina in separate multiplicative frames", () => {
 
   assert.equal(result.totalEffectiveNormalStaminaPercent, 24.586307);
   assert.equal(result.totalEffectiveMagnaStaminaPercent, 15.003247);
-  assert.equal(result.normalStaminaMultiplier, 1.245863);
-  assert.equal(result.magnaStaminaMultiplier, 1.150032);
+  assert.equal(result.normalStaminaMultiplier, 1.24586307);
+  assert.equal(result.magnaStaminaMultiplier, 1.15003247);
+});
+
+test("preserves percent-to-multiplier precision through an integer damage boundary", () => {
+  const effect = (kind: EffectiveWeaponSkillEffect["kind"], percent: number): EffectiveWeaponSkillEffect => ({
+    sourceWeaponSlot: 1, sourceWeaponId: "synthetic", sourceSkillId: kind, sourceSkillName: kind, kind,
+    baseAmountPercent: percent, effectiveAmountPercent: percent, verificationStatus: "下書き", appliedModifiers: [],
+  });
+  const deck: DeckSnapshot = {
+    schemaVersion: 1, protagonist: { attack: 2_000_000, elementCode: "1" },
+    weapons: [], summons: [], characters: [],
+    effectiveWeaponSkillEffects: [effect("normal-stamina-up", 37.300629)],
+  };
+  const hp = calculateHpDependentAttack(deck);
+  assert.equal(hp.normalStaminaMultiplier, 1.37300629);
+  const base = calculateArticleBaseDamage({ schemaVersion: 1, targetEnemySlot: 1, deck,
+    battle: { schemaVersion: 1, enemies: [{ slot: 1, enemyId: "synthetic", elementCode: "1", defense: 1 }],
+      enemyPassiveEffectCount: 0, fieldEffectCount: 0 } }, calculateNormalAttackPower(deck), hp);
+  // 2,000,000 * 1.37300629 = 2,746,012.58, rounded up to 2,746,013.
+  // Truncating the multiplier to 1.373006 would incorrectly return 2,746,012.
+  assert.equal(base.damageBeforeRandomAndCap, 2_746_013);
+  deck.effectiveWeaponSkillEffects = [effect("magna-stamina-up", 12.345678), effect("normal-enmity-up", 9.876543)];
+  const otherFrames = calculateHpDependentAttack(deck);
+  assert.equal(otherFrames.magnaStaminaMultiplier, 1.12345678);
+  assert.equal(otherFrames.normalEnmityMultiplier, 1.09876543);
 });
 
 function calculateFrogaAtHp(protagonistCurrentHpPercent: number) {

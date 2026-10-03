@@ -275,7 +275,9 @@ export function calculateNormalAttackDamage(
       }).damage / protagonistNormalAttackSupport.randomTargetHitCount * (1 + postAttenuationPercent / 100)
       + supplementalDamagePerHit,
   };
-  const bodyNominalPreparation = options.bodyNominalPreparation ?? (protagonistNormalAttackSupport.randomTargetHitCount > 1 ? "ceil" : "none");
+  // Preserve the fractional base through randomness. The previous Flurry ceil
+  // compensated for precision lost in HP-dependent attack multipliers.
+  const bodyNominalPreparation = options.bodyNominalPreparation ?? "none";
   const bodyDamageDistribution = summarizeDamageDistribution(preAttenuationNominalDamage, {
     ...sharedRandomOptions,
     nominalPreparation: bodyNominalPreparation,
@@ -318,12 +320,14 @@ export function calculateNormalAttackDamage(
   const destructionPursuitDamage = hasDestructionPursuit && useArticleModel
     ? calculateEffectivePursuitDamage(input.deck,
         calculateArticleBaseDamage(input, attackPower, hpDependentAttack, "destruction").articleTrace!.prePostCapDamage,
-        // Legacy provisional model. Diagnostic alternatives remain separate until independently discriminated.
-        { ...sharedRandomOptions, kind: "destruction-pursuit", nominalPreparation: "ceil", stages: {
+        // Independent light/dark captures support rounding the amplified split,
+        // rather than the base before randomness. Keep the formula provisional.
+        { ...sharedRandomOptions, kind: "destruction-pursuit", nominalPreparation: "none", stages: {
           profile: bodyAttenuationProfile, damageCapUpPercent: bodyDamageCapUpPercent,
           postAttenuationPercent: postAttenuationPercent + (advantageous ? 0 : normalAttackSkillFrames.elementalSuperiority.effectivePercent),
           randomTargetHitCount: protagonistNormalAttackSupport.randomTargetHitCount, supplementalDamagePerHit,
           criticalDamageBonusPercent: protagonistNormalAttackSupport.criticalDamageBonusPercent,
+          beforePursuitRounding: "ceil",
         } }) : undefined;
   const canWeaponSkillCritical =
     elementalSuperiorityPercent(input.deck.protagonist.elementCode, target?.elementCode) > 0;

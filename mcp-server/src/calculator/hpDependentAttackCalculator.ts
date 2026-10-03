@@ -138,9 +138,11 @@ export function calculateHpDependentAttack(
     totalEffectiveNormalStaminaPercent,
     totalEffectiveMagnaStaminaPercent,
     totalEffectiveNormalEnmityPercent,
-    normalStaminaMultiplier: roundPercentage(1 + totalEffectiveNormalStaminaPercent / 100),
-    magnaStaminaMultiplier: roundPercentage(1 + totalEffectiveMagnaStaminaPercent / 100),
-    normalEnmityMultiplier: roundPercentage(1 + totalEffectiveNormalEnmityPercent / 100),
+    // Percentages already have six decimal places. Rounding the converted
+    // multiplier again discards two more digits and can change integer damage.
+    normalStaminaMultiplier: 1 + totalEffectiveNormalStaminaPercent / 100,
+    magnaStaminaMultiplier: 1 + totalEffectiveMagnaStaminaPercent / 100,
+    normalEnmityMultiplier: 1 + totalEffectiveNormalEnmityPercent / 100,
     issues,
   };
 }

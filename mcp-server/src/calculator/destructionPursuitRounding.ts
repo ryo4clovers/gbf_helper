@@ -20,9 +20,9 @@ export function calculateDestructionPursuitRoundingCandidates(
   input: DamageCalculationInput,
   attackPower: NormalAttackPowerResult,
   hpDependentAttack: HpDependentAttackResult,
-  legacy: EffectivePursuitDamageResult,
+  production: EffectivePursuitDamageResult,
 ): DestructionPursuitRoundingCandidate[] {
-  if (!legacy.stages) throw new Error("Destruction rounding comparison requires the staged pursuit model.");
+  if (!production.stages) throw new Error("Destruction rounding comparison requires the staged pursuit model.");
   const definitions: Array<{ model: DestructionPursuitRoundingModel; roundingStage?: ArticleBaseDamageOptions["weaponSkillRoundingStage"] }> = [
     { model: "legacy-pre-random-ceil" },
     { model: "parent-ceil" },
@@ -32,12 +32,13 @@ export function calculateDestructionPursuitRoundingCandidates(
   return definitions.map(({ model, roundingStage }) => {
     const baseDamage = calculateArticleBaseDamage(input, attackPower, hpDependentAttack, "destruction",
       { weaponSkillRoundingStage: roundingStage });
-    const pursuitDamage = model === "legacy-pre-random-ceil" ? legacy : calculateEffectivePursuitDamage(
+    const pursuitDamage = model === "parent-ceil" ? production : calculateEffectivePursuitDamage(
       input.deck, baseDamage.articleTrace!.prePostCapDamage, {
-        kind: "destruction-pursuit", nominalPreparation: "none", finalRounding: legacy.damageDistribution.finalRounding,
-        multiplierMin: legacy.damageDistribution.multiplierMin, multiplierMax: legacy.damageDistribution.multiplierMax,
-        multiplierStep: legacy.damageDistribution.multiplierStep,
-        stages: { ...legacy.stages!, beforePursuitRounding: "ceil" },
+        kind: "destruction-pursuit", nominalPreparation: model === "legacy-pre-random-ceil" ? "ceil" : "none",
+        finalRounding: production.damageDistribution.finalRounding,
+        multiplierMin: production.damageDistribution.multiplierMin, multiplierMax: production.damageDistribution.multiplierMax,
+        multiplierStep: production.damageDistribution.multiplierStep,
+        stages: { ...production.stages!, beforePursuitRounding: model === "legacy-pre-random-ceil" ? undefined : "ceil" },
       });
     return { model, verificationStatus: "下書き", baseDamage, pursuitDamage };
   });

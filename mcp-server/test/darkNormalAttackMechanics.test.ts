@@ -176,10 +176,12 @@ test("rounds the amplified split before pursuit scaling only in the explicit Flu
   assert.equal(applyNormalAttackHitStages(101, 20, { ...stages, beforePursuitRounding: "ceil" }), 115.2);
   assert.equal(applyNormalAttackHitStages(101, 20, stages), 115.15);
   const result = calculate();
-  assert.equal(result.bodyDamageDistribution.nominalPreparation, "ceil");
-  assert.equal(result.guaranteedCriticalBodyDamageDistribution?.nominalPreparation, "ceil");
+  assert.equal(result.bodyDamageDistribution.nominalPreparation, "none");
+  assert.equal(result.guaranteedCriticalBodyDamageDistribution?.nominalPreparation, "none");
+  assert.equal(result.pursuitDamage?.damageDistribution.nominalPreparation, "none");
+  assert.equal(result.destructionPursuitDamage?.damageDistribution.nominalPreparation, "none");
   assert.equal(result.pursuitDamage?.stages?.beforePursuitRounding, "ceil");
-  assert.equal(result.destructionPursuitDamage?.stages?.beforePursuitRounding, undefined);
+  assert.equal(result.destructionPursuitDamage?.stages?.beforePursuitRounding, "ceil");
   const ordinary = config(); ordinary.protagonist.jobId = "100401";
   assert.equal(calculate(ordinary).bodyDamageDistribution.nominalPreparation, "none");
 });
@@ -193,7 +195,9 @@ test("destruction rounding diagnostics preserve the production calculation and r
   assert.deepEqual(candidates!.map(candidate => candidate.model), ["legacy-pre-random-ceil", "parent-ceil",
     "normal-skill-ceil-and-parent-ceil", "ex-skill-ceil-and-parent-ceil"]);
   assert.ok(candidates!.every(candidate => candidate.verificationStatus === "下書き"));
-  assert.deepEqual(candidates![0].pursuitDamage, original.destructionPursuitDamage);
+  assert.deepEqual(candidates![1].pursuitDamage, original.destructionPursuitDamage);
+  assert.equal(candidates![0].pursuitDamage.damageDistribution.nominalPreparation, "ceil");
+  assert.equal(candidates![0].pursuitDamage.stages?.beforePursuitRounding, undefined);
   assert.ok(candidates!.slice(1).every(candidate => candidate.pursuitDamage.damageDistribution.nominalPreparation === "none"
     && candidate.pursuitDamage.stages?.beforePursuitRounding === "ceil"));
   assert.throws(() => calculate(config(), {}, { compareDestructionPursuitRounding: true }), /Unrecognized/);
