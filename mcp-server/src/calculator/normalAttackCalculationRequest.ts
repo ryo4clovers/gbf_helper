@@ -22,6 +22,12 @@ export const normalAttackCalculationRequestSchema = z
       .enum(["article-2026-07", "defense-first-provisional", "article-2026-07-experimental"])
       .optional(),
     deckConfig: z.record(z.unknown()).describe("CalculatorDeckConfig v1"),
+    attacker: z.object({
+      characterSlot: z.number().int().min(1).max(3),
+      currentHpPercent: z.number().finite().min(1).max(100).optional(),
+      coupledConfectionActive: z.boolean().optional(),
+      artifactStartBuffs: z.object({ attackUp: z.boolean(), damageCapUp: z.boolean() }).strict().optional(),
+    }).strict().optional().describe("前衛キャラの単発通常攻撃。シンダラ(バレンタイン)/サリエル/浴衣イルザのアビリティ未使用時に対応。シンダラは双子緒虎の有無を明示"),
     protagonistCurrentHpPercent: z.number().finite().min(1).max(100).default(100),
     mythicalLancerLevel: z.number().int().min(0).max(5).optional().describe("攻撃時点の神伝の槍手Lv。省略時は開始時の槍/斧本数"),
     battleEffects: z.object({
@@ -29,6 +35,7 @@ export const normalAttackCalculationRequestSchema = z
       enemyDefenseDownBeyondCapPercent: z.number().finite().min(0).max(99).optional(),
       enemySupplementalDamage: z.number().finite().min(0).max(1_000_000).optional(),
       supportSkillSupplementalDamage: z.number().finite().min(0).max(1_000_000).optional(),
+      normalAttackSupplementalDamage: z.number().finite().min(0).max(1_000_000).optional(),
     }).strict().optional().describe("攻撃時点で有効な敵弱体・与ダメージ加算。一般防御DOWNは50%上限、サポアビ与ダメージは主人公と最大値を採用する下書きモデル"),
     supportSummon: z
       .object({
@@ -49,6 +56,7 @@ export const normalAttackCalculationRequestSchema = z
       .strict(),
     modifiers: z
       .object({
+        divineStampBookEnabled: z.boolean().optional(),
         allElementAttackPercent: optionalPercent,
         elementAttackPercent: optionalPercent,
         shipAttackPercent: optionalPercent,
@@ -151,7 +159,9 @@ export function calculateNormalAttackFromRequest(input: unknown,
   };
   const supportSummon = resolveBattleSupportSummon(battle);
   const resolution = resolveCalculatorDeckConfig(request.deckConfig, supportSummon);
-  const protagonistElementCode = resolution.deck.protagonist.elementCode;
+  const protagonistElementCode = request.attacker
+    ? resolution.deck.characters.find((character) => character.slot === request.attacker!.characterSlot)?.elementCode ?? "6"
+    : resolution.deck.protagonist.elementCode;
   const accountModifiers: DamageModifier[] = [
     ...modifier(
       "elemental-attack",
@@ -225,7 +235,9 @@ export function calculateNormalAttackFromRequest(input: unknown,
 
   const calculationInput: DamageCalculationInput = {
     schemaVersion: 1,
+    divineStampBookEnabled: request.modifiers.divineStampBookEnabled,
     deck: resolution.deck,
+    attacker: request.attacker,
     battle,
     targetEnemySlot: 1,
     protagonistCurrentHpPercent: request.protagonistCurrentHpPercent,

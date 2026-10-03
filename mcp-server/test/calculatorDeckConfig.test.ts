@@ -212,6 +212,7 @@ test("converts a game response without retaining instance IDs or displayed calcu
         slot: 1,
         position: "front",
         characterId: "3040001000",
+        elementCode: "1",
         nameHint: "テストキャラ",
         level: 80,
         uncapLevel: 4,

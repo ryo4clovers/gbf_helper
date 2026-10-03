@@ -3,6 +3,7 @@ import { parseBattleStartResponse } from "./battleStartParser.js";
 import { convertDeckResponseToCalculatorDeckConfig } from "./calculatorDeckConfig.js";
 import { parseDeckResponse } from "./deckParser.js";
 import { importProtagonistLimitBonuses } from "./protagonistLimitBonusImport.js";
+import { importCharacterLimitBonuses } from "./characterNormalAttack.js";
 
 type RecordValue = Record<string, unknown>;
 type DamageKind = "normal" | "charge" | "ability" | "turn-end";
@@ -43,6 +44,7 @@ export interface RecordedBattlePacket {
   targetPosition: number;
   value: number;
   elementCode?: string;
+  critical?: boolean;
   concurrentAttackIndex?: number;
   hitIndex?: number;
   hpAfter?: number;
@@ -120,6 +122,14 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
   const limitBonusCall = calls.filter((call) => call.time <= start.time
     && new RegExp(`/zenith/bonus_list/${deckConfig?.protagonist.jobId}$`).test(call.path)).at(-1);
   if (deckConfig && limitBonusCall) Object.assign(deckConfig.protagonist, importProtagonistLimitBonuses(limitBonusCall.body));
+  const characterLimitBonusesImported: number[] = [];
+  for (const character of deckConfig?.characters ?? []) {
+    const call = calls.filter((call) => call.time <= start.time
+      && call.path === `/npczenith/bonus_list/${character.characterId}`).at(-1);
+    if (!call) continue;
+    character.limitBonuses = importCharacterLimitBonuses(call.body);
+    characterLimitBonusesImported.push(character.slot);
+  }
   const displayedDamageInfo = parsedDeck?.displayedDamageInfo;
   const jobNormalAttackDamagePercent = (parsedDeck?.protagonist.job?.damageModifiers ?? [])
     .filter((effect) => effect.stage === "normal-attack-damage")
@@ -215,6 +225,7 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
           actionName: isCharge && typeof command.name === "string" ? command.name : actionName,
           elementCode: hit.attr !== undefined || hit.color !== undefined ? String(hit.attr ?? hit.color) : undefined,
           concurrentAttackIndex: numeric(hit.concurrent_attack_count),
+          ...(typeof hit.critical === "boolean" ? { critical: hit.critical } : {}),
           hitIndex: numeric(hit.attack_count ?? hit.attack_num), hpAfter: numeric(hit.hp),
         };
         result.packets.push(packet);
@@ -242,6 +253,7 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
   return {
     schemaVersion: 1 as const, kind: "recorded-battle-observation" as const,
     deckConfig, displayedDamageInfo, battle, actors, turns, protagonistLimitBonusesImported: limitBonusCall !== undefined,
+    characterLimitBonusesImported,
     jobNormalAttackDamagePercent, initialConditions,
     summary: {
       turnCount: turns.length, totalDamage: turns.reduce((sum, turn) => sum + turn.damage, 0),

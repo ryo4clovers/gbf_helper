@@ -130,11 +130,13 @@ export function parseAccountBonusResponse(input: unknown): AccountBonusSnapshot 
   const categories = responseSchema.parse(input);
   const modifiers: DamageModifier[] = [];
   const issues: string[] = [];
+  let divineStampBookEnabled = false;
 
   for (const category of categories) {
     for (const item of category.item) {
       if (!isAcquired(item.set_flg)) continue;
       const itemId = String(item.item_id);
+      if (itemId === "9016") divineStampBookEnabled = true;
       const itemName = optionalString(item.name) ?? `item:${itemId}`;
       const staticModifier = parseKnownStaticModifier(itemId, itemName, item.comment);
       if (staticModifier !== undefined) modifiers.push(staticModifier);
@@ -162,5 +164,5 @@ export function parseAccountBonusResponse(input: unknown): AccountBonusSnapshot 
   }
 
   if (modifiers.length === 0) issues.push("No supported acquired damage modifiers were found.");
-  return { schemaVersion: 1, modifiers, issues };
+  return { schemaVersion: 1, modifiers, issues, divineStampBookEnabled };
 }

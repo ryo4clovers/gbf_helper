@@ -8,6 +8,10 @@ const SARIEL_SOURCE = "https://gbf.wiki/Sariel";
 const LANCER_SOURCE = "https://gbf.wiki/Lancer_Origin";
 
 export interface RecordedNormalAttackState extends RecordedEventLocation {
+  actorPosition: number;
+  characterCurrentHpPercent?: number;
+  coupledConfectionActive?: boolean;
+  artifactStartBuffs?: { attackUp: boolean; damageCapUp: boolean };
   turn: number;
   actionIndex: number;
   mythicalLancerLevel: number;
@@ -28,12 +32,13 @@ export interface RecordedNormalAttackState extends RecordedEventLocation {
 }
 
 /**
- * Reconstruct only the state needed for MC's recorded single attacks. Damage
+ * Reconstruct only the state needed for the selected actors' single attacks. Damage
  * values never determine effect amounts, levels, or activation/expiry times.
  * This does not predict character actions or synthesize an unrecorded battle.
  */
 export function reconstructRecordedNormalAttackStates(
   observation: ReturnType<typeof parseRecordedBattleExports>, initialMythicalLancerLevel: number,
+  actorPositions: number[] = [0],
 ): RecordedNormalAttackState[] {
   if (!Number.isInteger(initialMythicalLancerLevel) || initialMythicalLancerLevel < 0 || initialMythicalLancerLevel > 5) {
     throw new Error("Initial Mythical Lancer level must be in 0..5");
@@ -58,12 +63,20 @@ export function reconstructRecordedNormalAttackStates(
   const protagonist = observation.actors.find((actor) => actor.position === 0);
   let currentHp = protagonist?.initialHp;
   const maxHp = protagonist?.maxHp;
+  const characterHp = new Map(observation.actors.map((actor) => [actor.position, actor.initialHp]));
+  const partyBuffs = new Map<number, RecordedConditionSnapshot["effects"]>();
+  const ereshkigal = observation.deckConfig?.weapons.some((weapon) => weapon.position === "main" && weapon.weaponId === "1040315100"
+    && (weapon.level ?? 0) >= 200);
+  let ereshChargeTurn: number | undefined;
   const states: RecordedNormalAttackState[] = [];
   const chargedCommands = new Set<string>();
   const warnings: string[] = [];
   if (observation.warnings.some((warning) => warning.startsWith("Turn gap"))) warnings.push("Missing turns: hit counts and stack counts may be incomplete.");
 
   const snapshot = (event: RecordedConditionSnapshot, turn: number, initial = false) => {
+    if (event.targetSide === "party" && event.kinds.includes("buff")) {
+      partyBuffs.set(event.targetPosition, event.effects.filter((effect) => effect.kind === "buff"));
+    }
     if (event.targetSide === "party" && event.targetPosition === 0 && event.kinds.includes("buff")) {
       const level = event.effects.find((effect) => effect.kind === "buff" && /^6523_[0-5]$/.test(effect.statusId));
       observedLevel = level ? Number(level.statusId.split("_")[1]) : undefined;
@@ -116,7 +129,9 @@ export function reconstructRecordedNormalAttackStates(
       }
       if (event.kind === "packet") {
         const packet = event.packet;
+        if (ereshkigal && packet.kind === "charge" && packet.targetSide === "enemy" && packet.actorPosition === 0) ereshChargeTurn = turn.turn;
         if (packet.targetSide === "party" && packet.targetPosition === 0 && packet.hpAfter !== undefined) currentHp = packet.hpAfter;
+        if (packet.targetSide === "party" && packet.hpAfter !== undefined) characterHp.set(packet.targetPosition, packet.hpAfter);
         if (packet.targetSide !== "enemy" || packet.value <= 0 || (packet.sourceActorPosition ?? packet.actorPosition) !== 0 || packet.kind === "heal") continue;
         // A multi-hit charge attack is one attack for this counter. This routing
         // is provisional; compare it independently to the recorded level.
@@ -128,7 +143,13 @@ export function reconstructRecordedNormalAttackStates(
       }
       cidalaApplication = undefined;
       sarielApplication = undefined;
-      if (event.actorPosition !== 0) continue;
+      if (!actorPositions.includes(event.actorPosition)) continue;
+      const actor = observation.actors.find((actor) => actor.position === event.actorPosition);
+      const actorHp = characterHp.get(event.actorPosition);
+      const actorElement = event.actorPosition === 0 ? observation.deckConfig?.protagonist.elementCode
+        : front.find((character) => character.characterId === actor?.masterId)?.elementCode;
+      const hasBuff = (id: string) => (partyBuffs.get(event.actorPosition) ?? []).some((effect) => effect.statusId === id
+        && (effect.expiresBeforeTurn === undefined || turn.turn < effect.expiresBeforeTurn));
       if (defenseExpiresAt !== undefined && event.elapsedMilliseconds >= defenseExpiresAt) defenseStacks = 0;
       if (supplementalExpiresAt !== undefined && event.elapsedMilliseconds >= supplementalExpiresAt) supplementalStacks = 0;
       const predictedLevel = lancer ? Math.min(5, initialMythicalLancerLevel + Math.floor(countedHits / 40)) : 0;
@@ -141,6 +162,13 @@ export function reconstructRecordedNormalAttackStates(
       if (deathSentenceActive && deathSentenceExpiresBeforeTurn === undefined) stateWarnings.push("Death Sentence expiry is unknown; only recorded presence is known.");
       if (enemyEffects.some((effect) => effect.statusId.split("_")[0] === "1427") && defenseExpiresAt === undefined) stateWarnings.push("Unmapped DEF DOWN: no numeric effect has been inferred from its icon alone.");
       states.push({ sequence: event.sequence, resultIndex: event.resultIndex, elapsedMilliseconds: event.elapsedMilliseconds,
+        actorPosition: event.actorPosition,
+        ...(event.actorPosition === 0 ? {} : {
+          characterCurrentHpPercent: actorHp === undefined || !actor?.maxHp ? undefined : Math.min(100, actorHp / actor.maxHp * 100),
+          artifactStartBuffs: { attackUp: turn.turn === 1 && hasBuff("1001"), damageCapUp: turn.turn === 1 && hasBuff("1469") },
+          ...(actorId(event.actorPosition) === CIDALA_ID ? { coupledConfectionActive: (partyBuffs.get(event.actorPosition) ?? [])
+            .some((effect) => effect.statusId === "3267" && (effect.expiresBeforeTurn === undefined || turn.turn < effect.expiresBeforeTurn)) } : {}),
+        }),
         actionIndex: event.actionIndex, turn: turn.turn, mythicalLancerLevel: level,
         levelSource: lancer && observedLevel !== undefined ? "recorded-status" : "hit-counter-provisional",
         predictedMythicalLancerLevel: predictedLevel, countedProtagonistHits: countedHits,
@@ -150,7 +178,8 @@ export function reconstructRecordedNormalAttackStates(
           enemyDefenseDownPercent: defenseStacks * 10,
           enemyDefenseDownBeyondCapPercent: deathSentenceActive ? 10 : 0,
           enemySupplementalDamage: supplementalStacks * 3_000,
-          supportSkillSupplementalDamage: deathSentenceActive && sarielFront && dark ? 30_000 : 0,
+          supportSkillSupplementalDamage: deathSentenceActive && sarielFront && (actorElement ?? (dark ? "6" : undefined)) === "6" ? 30_000 : 0,
+          ...(event.actorPosition > 0 && ereshChargeTurn === turn.turn ? { normalAttackSupplementalDamage: 50_000 } : {}),
         },
         cidala: { defenseStacks, supplementalStacks,
           defenseExpiresAtMilliseconds: defenseExpiresAt, supplementalExpiresAtMilliseconds: supplementalExpiresAt },

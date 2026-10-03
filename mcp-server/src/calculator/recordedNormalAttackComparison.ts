@@ -59,6 +59,7 @@ function compareDestructionRounding(result: NormalAttackDamageResult, observatio
 /** Compare known components at the caller's specified battle state; never fit modifiers to observations. */
 export function compareRecordedNormalAttacks(
   result: NormalAttackDamageResult, packets: RecordedBattlePacket[], elementCode: string,
+  actorPosition = 0,
 ) {
   const attenuation = result.bodyDamageAttenuation;
   const criticalPercent = result.guaranteedCriticalBodyDamageDistribution
@@ -72,17 +73,18 @@ export function compareRecordedNormalAttacks(
       percentage: pursuit.effectivePursuitPercentage, distribution: pursuit.damageDistribution, stages: pursuit.stages,
     }]),
   ].map((model) => ({ ...model, patterns: damagePatterns(model.base, model.percentage, model.distribution, model.stages) }));
-  const observations = packets.filter((packet) => packet.kind === "normal" && packet.actorPosition === 0 && packet.targetSide === "enemy" && packet.targetPosition === 0)
+  const observations = packets.filter((packet) => packet.kind === "normal" && packet.actorPosition === actorPosition && packet.targetSide === "enemy" && packet.targetPosition === 0)
     .map((packet) => {
+      if (actorPosition > 0 && packet.critical === true) throw new Error("Recorded character critical damage is not supported by this comparison model");
       const component = packet.concurrentAttackIndex === 0 ? "body" : packet.elementCode === "98" ? "destruction-pursuit"
         : packet.elementCode === elementCode ? "elemental-pursuit" : "unsupported";
       const model = models.find((entry) => entry.component === component);
       return {
-        turn: packet.turn, component, ...compareDamageValue(packet.value, model?.patterns),
+        turn: packet.turn, actorPosition, component, ...compareDamageValue(packet.value, model?.patterns),
       };
     });
   return {
-    schemaVersion: 1, status: "provisional", criticalModel: "guaranteed-job-support-only",
+    schemaVersion: 1, status: "provisional", criticalModel: actorPosition === 0 ? "guaranteed-job-support-only" : "no-character-critical",
     observations,
     components: summarizeRecordedComparisonComponents(observations),
     destructionRoundingComparison: compareDestructionRounding(result, observations),
@@ -111,18 +113,23 @@ export function compareRecordedNormalAttackStates(request: NormalAttackCalculati
   const comparisons = states.map((state) => {
     const currentLevel = request.mythicalLancerLevel ?? state.mythicalLancerLevel;
     const currentHpPercent = state.protagonistCurrentHpPercent ?? request.protagonistCurrentHpPercent;
-    const key = JSON.stringify([currentLevel, currentHpPercent, state.battleEffects]);
+    const character = observation.deckConfig?.characters.find((entry) => entry.characterId === observation.actors.find((actor) => actor.position === state.actorPosition)?.masterId);
+    const attacker = state.actorPosition === 0 ? undefined : { characterSlot: character?.slot,
+      currentHpPercent: state.characterCurrentHpPercent, coupledConfectionActive: state.coupledConfectionActive,
+      artifactStartBuffs: state.artifactStartBuffs };
+    const key = JSON.stringify([currentLevel, currentHpPercent, state.battleEffects, attacker]);
     let result = cache.get(key);
     if (!result) {
       result = calculateNormalAttackFromRequest({ ...request, mythicalLancerLevel: currentLevel,
-        protagonistCurrentHpPercent: currentHpPercent, battleEffects: state.battleEffects }, diagnostics).result;
+        attacker, protagonistCurrentHpPercent: currentHpPercent, battleEffects: state.battleEffects }, diagnostics).result;
       cache.set(key, result);
     }
     const packets = observation.turns.find((turn) => turn.turn === state.turn)?.packets.filter(
       (packet) => packet.normalActionIndex === state.actionIndex) ?? [];
-    const comparison = compareRecordedNormalAttacks(result, packets, observation.deckConfig?.protagonist.elementCode ?? "");
+    const comparison = compareRecordedNormalAttacks(result, packets, character?.elementCode ?? observation.deckConfig?.protagonist.elementCode ?? "", state.actorPosition);
     const body = result.guaranteedCriticalBodyDamageDistribution ?? result.bodyDamageDistribution;
     return { state, appliedMythicalLancerLevel: currentLevel,
+      attacker: result.attacker,
       effectiveEnemyDefense: result.baseDamage.defenseIgnore?.effectiveDefense,
       supplementalDamagePerHit: result.bodyDamageAttenuation.supplementalDamagePerHit,
       predictions: { body: { minimum: body.minimumDamage, maximum: body.maximumDamage },
@@ -130,8 +137,15 @@ export function compareRecordedNormalAttackStates(request: NormalAttackCalculati
         destructionPursuit: result.destructionPursuitDamage?.damageDistribution }, comparison };
   });
   const observations = comparisons.flatMap((entry) => entry.comparison.observations);
-  return { schemaVersion: 1, status: "provisional", criticalModel: "guaranteed-job-support-only",
+  const actorComparisons = [...new Set(states.map((state) => state.actorPosition))].map((actorPosition) => ({
+    actorPosition, name: observation.actors.find((actor) => actor.position === actorPosition)?.name,
+    stateCount: comparisons.filter((entry) => entry.state.actorPosition === actorPosition).length,
+    components: summarizeRecordedComparisonComponents(observations.filter((row) => row.actorPosition === actorPosition)),
+  }));
+  return { schemaVersion: 1, status: "provisional", criticalModel: states.every((state) => state.actorPosition === 0)
+    ? "guaranteed-job-support-only" : "guaranteed-job-support-or-no-character-critical",
     observations, components: summarizeRecordedComparisonComponents(observations), states: comparisons,
+    actorComparisons,
     destructionRoundingComparison: summarizeDestructionRoundingComparisons(comparisons.map((entry) => entry.comparison.destructionRoundingComparison)),
     notes: ["記録済みの行動・状態を使う条件付き単発照合。キャラクターの行動を予測する戦闘シミュレーションではない。",
       "アイコンだけから累積値を推定せず、既知アビリティの発動と状態更新から数える。数値・枠・40hitカウンタの数え方は下書き。"],

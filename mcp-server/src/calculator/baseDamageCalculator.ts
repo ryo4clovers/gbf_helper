@@ -17,6 +17,8 @@ export type BaseDamageStage =
   | "normal-stamina"
   | "magna-stamina"
   | "normal-enmity"
+  | "character-stamina"
+  | "character-perpetuity-attack"
   | "job-support-attack";
 export type StageRounding = "none" | "floor" | "ceil";
 export type BaseDamageCalculationModel =

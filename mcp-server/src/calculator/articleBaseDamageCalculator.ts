@@ -7,7 +7,7 @@ import {
 import type { NormalAttackPowerResult } from "./normalAttackPowerCalculator.js";
 import type { HpDependentAttackResult } from "./hpDependentAttackCalculator.js";
 import { effectiveEnemyDefense } from "./normalAttackSkillFrames.js";
-import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttackSupport.js";
+import { resolveNormalAttackSupport, characterStaminaPercent, resolveCharacterArtifact } from "./characterNormalAttack.js";
 import type {
   DamageCalculationInput,
   DamageModifier,
@@ -170,7 +170,8 @@ export function calculateArticleBaseDamage(
     crewAdjustedAttack,
   } = crewSteps;
 
-  const weaponSkillRaw = crewAdjustedAttack * (1 + attackPower.totalEffectiveNormalAttackPercent / 100);
+  const artifactAttackPercent = resolveCharacterArtifact(input).normalAttackPercent;
+  const weaponSkillRaw = crewAdjustedAttack * (1 + (attackPower.totalEffectiveNormalAttackPercent + artifactAttackPercent) / 100);
   const weaponSkill = options.weaponSkillRoundingStage === "normal-weapon-skill" ? Math.ceil(weaponSkillRaw) : weaponSkillRaw;
   const exWeaponSkillRaw = weaponSkill * (1 + attackPower.totalEffectiveExAttackPercent / 100);
   const exWeaponSkill = options.weaponSkillRoundingStage === "ex-weapon-skill" ? Math.ceil(exWeaponSkillRaw) : exWeaponSkillRaw;
@@ -220,12 +221,14 @@ export function calculateArticleBaseDamage(
     0,
   );
   const characterAttackRaw = exWeaponSkill * (1 + characterAttackPercent / 100);
-  const jobSupportAttackPercent = resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel).perpetuityAttackPercent;
+  const jobSupportAttackPercent = resolveNormalAttackSupport(input).perpetuityAttackPercent;
   const jobSupportAttackRaw = characterAttackRaw * (1 + jobSupportAttackPercent / 100);
   const staminaRaw = jobSupportAttackRaw * (hpDependentAttack?.normalStaminaMultiplier ?? 1);
   const magnaStaminaRaw = staminaRaw * (hpDependentAttack?.magnaStaminaMultiplier ?? 1);
   const enmityRaw = magnaStaminaRaw * (hpDependentAttack?.normalEnmityMultiplier ?? 1);
-  const elementalRaw = enmityRaw * (1 + elementalPercent / 100);
+  const characterStamina = characterStaminaPercent(input);
+  const characterStaminaRaw = enmityRaw * (1 + characterStamina / 100);
+  const elementalRaw = characterStaminaRaw * (1 + elementalPercent / 100);
   const defense = effectiveEnemyDefense(input.deck, target.defense, input.battleEffects);
   const prePostCapDamage = elementalRaw / defense.effectiveDefense;
 
@@ -273,11 +276,14 @@ export function calculateArticleBaseDamage(
     stage(
       "normal-weapon-skill",
       crewAdjustedAttack,
-      attackPower.totalEffectiveNormalAttackPercent,
+      attackPower.totalEffectiveNormalAttackPercent + artifactAttackPercent,
       weaponSkillRaw,
       weaponSkill,
       options.weaponSkillRoundingStage === "normal-weapon-skill" ? "ceil" : "none",
-      attackPower.contributions,
+      [...attackPower.contributions, ...(artifactAttackPercent === 0 ? [] : [{
+        stage: "character-attack" as const, amountPercent: artifactAttackPercent, sourceType: "user-input" as const,
+        sourceId: "artifact-start-atk-up", sourceName: "アーティファクト開始時攻撃UP（通常攻刃へ加算）", verificationStatus: "下書き" as const,
+      }])],
     ),
     ...(attackPower.exAttackContributions.length === 0 && options.weaponSkillRoundingStage !== "ex-weapon-skill"
       ? []
@@ -302,7 +308,8 @@ export function calculateArticleBaseDamage(
           characterAttackContributions,
         )]),
     ...(jobSupportAttackPercent === 0 ? [] : [stage(
-      "job-support-attack", characterAttackRaw, jobSupportAttackPercent, jobSupportAttackRaw, jobSupportAttackRaw, "none", [],
+      input.attacker ? "character-perpetuity-attack" : "job-support-attack",
+      characterAttackRaw, jobSupportAttackPercent, jobSupportAttackRaw, jobSupportAttackRaw, "none", [],
     )]),
     ...(hpDependentAttack === undefined || hpDependentAttack.staminaContributions.length === 0
       ? []
@@ -337,9 +344,11 @@ export function calculateArticleBaseDamage(
           "none",
           hpDependentAttack.enmityContributions,
         )]),
+    ...(characterStamina === 0 ? [] : [stage("character-stamina", enmityRaw, characterStamina,
+      characterStaminaRaw, characterStaminaRaw, "none", [])]),
     stage(
       "elemental-attack",
-      enmityRaw,
+      characterStaminaRaw,
       elementalPercent,
       elementalRaw,
       elementalRaw,

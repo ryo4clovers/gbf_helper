@@ -94,7 +94,7 @@ export function registerCalculatorTools(server: McpServer): void {
     {
       title: "通常攻撃ダメージ計算",
       description:
-        "CalculatorDeckConfig v1、敵属性・防御値、船炉・大事なものと攻撃時点のジョブLv・敵弱体から、通常攻撃本体・自属性追撃・破壊属性追撃の乱数候補における最小、最大、期待値を計算する。上限・分割・与ダメージを含む下書きモデル。効果の発動や期限は自動進行しない。",
+        "CalculatorDeckConfig v1、敵属性・防御値、船炉・大事なものと攻撃時点のジョブLv・敵弱体から、主人公またはattackerで指定した前衛キャラの通常攻撃本体・自属性追撃・破壊属性追撃を計算する。闇シンダラ・サリエル・浴衣イルザのアビリティ未使用時を下書き接続。未対応のクリティカルLBはエラー。効果の発動や期限は自動進行しない。",
       inputSchema: normalAttackCalculationRequestSchema.shape,
       annotations: READ_ONLY_ANNOTATIONS,
     },

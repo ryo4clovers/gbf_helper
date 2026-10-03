@@ -49,6 +49,13 @@ const response = [
   },
 ];
 
+test("tracks an acquired Divine Stamp Book separately without applying its character-specific ATK to everyone", () => {
+  const active = parseAccountBonusResponse([{ is_active: false, item: [{ item_id: "9016", set_flg: "1" }] }]);
+  assert.equal(active.divineStampBookEnabled, true);
+  assert.deepEqual(active.modifiers, []);
+  assert.equal(parseAccountBonusResponse([{ item: [{ item_id: "9016", set_flg: "0" }] }]).divineStampBookEnabled, false);
+});
+
 test("normalizes supported acquired-item damage modifiers without inventory data", () => {
   const result = parseAccountBonusResponse(response);
 

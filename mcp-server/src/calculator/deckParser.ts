@@ -214,6 +214,8 @@ function normalizeCharacter(value: z.infer<typeof slotSchema>, slot: number): De
   if (ids === undefined) return undefined;
 
   return {
+    awakening: param?.npc_arousal_form === undefined ? undefined : { formCode: String(param.npc_arousal_form) },
+    perpetuityRing: typeof param?.has_npcaugment_constant === "boolean" ? param.has_npcaugment_constant : undefined,
     slot,
     position: slot <= 3 ? "front" : "back",
     ...ids,

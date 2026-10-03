@@ -97,3 +97,18 @@ test("imports the latest matching job LB allocation before battle start, ignorin
   assert.equal(result.deckConfig?.protagonist.otherLimitBonusLevels?.["118"],1);
   assert.ok(!JSON.stringify(result).includes("private"));
 });
+
+test("imports only pre-battle character LB allocations by master ID and preserves type without inventing awakening Lv", () => {
+  const deck = { deck: { npc: { "1": { master: { id: "3040512000", name: "シンダラ", attribute: "6" },
+    param: { id: "private-instance", level: 80, attack: 1_000, hp: 1_000, npc_arousal_form: 4, has_npcaugment_constant: false } } },
+    pc: { param: { attack: 1_000, hp: 1_000, attribute: 6 }, weapons: {}, summons: {}, sub_summons: {} } } };
+  const lb = (level: number) => ({ user_id: "private", bonus_list: [{ name: "渾身", current_level: level }] });
+  const parsed = parseRecordedBattleExports([{ apiCalls: [capture(deck, "/party/deck", 1),
+    capture(lb(1), "/npczenith/bonus_list/3040512000", 2), capture(lb(3), "/npczenith/bonus_list/3040512000", 8),
+    capture(start(), "/rest/raid/start.json", 10), capture(lb(0), "/npczenith/bonus_list/3040512000", 12) ] }]);
+  assert.deepEqual(parsed.characterLimitBonusesImported, [1]);
+  assert.equal(parsed.deckConfig?.characters[0].limitBonuses?.staminaLevel, 3);
+  assert.deepEqual(parsed.deckConfig?.characters[0].awakening, { formCode: "4" });
+  assert.equal(parsed.deckConfig?.characters[0].perpetuityRing, false);
+  assert.ok(!JSON.stringify(parsed).includes("private"));
+});

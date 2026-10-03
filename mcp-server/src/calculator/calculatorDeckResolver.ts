@@ -10,6 +10,7 @@ import {
 import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 import { resolveEffectiveWeaponSkillEffects } from "./weaponEffectResolver.js";
 import { resolveCharacterSkillBoosts } from "./characterSkillBoosts.js";
+import { hasCharacterNormalAttackModel } from "./characterNormalAttack.js";
 import type {
   CalculatorDeckConfig,
   CalculatorDeckProtagonistConfig,
@@ -498,10 +499,10 @@ export function resolveCalculatorDeckConfig(
     appendMissingStatIssues(issues, `characters.${index}`, character.attackOverride, character.hpOverride);
     issues.push({
       severity: "warning",
-      code: character.characterId === "3040611000" ? "character-passives-partially-supported" : "character-passives-unresolved",
+      code: hasCharacterNormalAttackModel(character.characterId) ? "character-passives-partially-supported" : "character-passives-unresolved",
       path: `characters.${index}.characterId`,
-      message: character.characterId === "3040611000"
-        ? "サリエルのスコトゥスアルケー20%強化のみ下書き接続済み。その他のサポート効果・アビリティ・奥義は未接続です。"
+      message: hasCharacterNormalAttackModel(character.characterId)
+        ? "アビリティ未使用時の単発通常攻撃を下書き接続済み。未知の強化・アビリティ・奥義・行動の予測生成は未対応です。"
         : `Character ${character.characterId} is identified, but its passive effects are not resolved yet.`,
     });
   });
@@ -615,6 +616,11 @@ export function resolveCalculatorDeckConfig(
       };
     }),
     characters: config.characters.map((character) => ({
+      awakening: character.awakening,
+      perpetuityRing: character.perpetuityRing,
+      elementCode: character.elementCode,
+      limitBonuses: character.limitBonuses,
+      artifact: character.artifact,
       slot: character.slot,
       position: character.position,
       masterId: character.characterId,

@@ -384,6 +384,7 @@ export interface DamageModifier {
 }
 
 export interface AccountBonusSnapshot {
+  divineStampBookEnabled?: boolean;
   schemaVersion: 1;
   modifiers: DamageModifier[];
   issues: string[];
@@ -435,6 +436,10 @@ export interface DeckSummon extends DeckStats {
 }
 
 export interface DeckCharacter extends DeckStats {
+  artifact?: CharacterArtifact;
+  limitBonuses?: CharacterLimitBonuses;
+  awakening?: DeckAwakening;
+  perpetuityRing?: boolean;
   slot: number;
   position: "front" | "back";
   /** Present for imported game snapshots; omitted for user-authored configurations. */
@@ -650,6 +655,11 @@ export interface CalculatorDeckSummonConfig {
 }
 
 export interface CalculatorDeckCharacterConfig {
+  artifact?: CharacterArtifact;
+  elementCode?: string;
+  limitBonuses?: CharacterLimitBonuses;
+  awakening?: DeckAwakening;
+  perpetuityRing?: boolean;
   slot: number;
   position: "front" | "back";
   characterId: string;
@@ -723,6 +733,9 @@ export interface ResolvedSupportSummon {
 }
 
 export interface DamageCalculationInput {
+  divineStampBookEnabled?: boolean;
+  /** Selected front-line character; absent retains the protagonist path. */
+  attacker?: CharacterNormalAttackContext;
   /** Effects active at this attack; the calculator does not advance their duration. */
   battleEffects?: BattleDamageEffects;
   schemaVersion: 1;
@@ -746,6 +759,26 @@ export interface DamageCalculationInput {
     abilityDamageCapUpPercent: number;
     limitBonusDamageCapUpPercent: number;
   };
+}
+
+export interface CharacterLimitBonuses {
+  elementAttackLevels?: number[];
+  staminaLevel?: number;
+  criticalLevels?: number[];
+}
+
+export interface CharacterNormalAttackContext {
+  characterSlot: number;
+  currentHpPercent?: number;
+  /** Explicit battle state, required for Valentine Cidala. */
+  coupledConfectionActive?: boolean;
+  /** Observed outcomes, not the number of random buffs rolled. */
+  artifactStartBuffs?: { attackUp: boolean; damageCapUp: boolean };
+}
+
+export interface CharacterArtifact {
+  /** Only master skill IDs and displayed effects; no owned-item identifiers. */
+  skills: Array<{ skillId: string; name: string; effectValue: string }>;
 }
 
 export type BattleActionKind =

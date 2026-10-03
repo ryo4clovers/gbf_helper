@@ -5,6 +5,8 @@ export interface BattleDamageEffects {
   enemySupplementalDamage?: number;
   /** Support Skill B: take the strongest amount, including the protagonist's support. */
   supportSkillSupplementalDamage?: number;
+  /** Explicit normal-attack buff amount (e.g. Ereshkigal charge attack). */
+  normalAttackSupplementalDamage?: number;
 }
 
 export function resolveBattleDamageEffects(effects: BattleDamageEffects = {}, protagonistSupportAmount = 0) {
@@ -21,6 +23,7 @@ export function resolveBattleDamageEffects(effects: BattleDamageEffects = {}, pr
   return {
     standardDefenseDownPercent, beyondCapDefenseDownPercent, totalDefenseDownPercent,
     enemySupplementalDamage: effects.enemySupplementalDamage ?? 0,
+    normalAttackSupplementalDamage: effects.normalAttackSupplementalDamage ?? 0,
     supportSkillSupplementalDamage: Math.max(protagonistSupportAmount, effects.supportSkillSupplementalDamage ?? 0),
     verificationStatus: "下書き" as const,
   };

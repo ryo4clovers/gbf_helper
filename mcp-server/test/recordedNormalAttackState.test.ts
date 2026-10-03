@@ -31,6 +31,30 @@ function enemyCondition(debuff: unknown) {
   return { cmd: "condition", to: "boss", pos: 0, condition: { debuff } };
 }
 const cidalaStatuses = [{ status: "1427" }, { status: "7839" }];
+test("Ereshkigal charge buff applies only to subsequent allies in that turn and start buffs expire after turn one", () => {
+  const allyNormal = [{ cmd: "normal_attack_start", from: "player", num: 1 },
+    { cmd: "attack", from: "player", pos: 1, damage: [[{ pos: 0, value: 100, color: "6" }]] },
+    { cmd: "normal_attack_end", from: "player", num: 1 }];
+  const parsed = observation([result(1, [...allyNormal,
+    { cmd: "special", target: "boss", pos: 0, list: [{ pos: 0, value: 100 }] }, ...allyNormal], 100),
+    result(2, allyNormal, 200)]);
+  parsed.initialConditions.push({ sequence: -1, resultIndex: -1, elapsedMilliseconds: 0,
+    targetSide: "party", targetPosition: 1, kinds: ["buff"], effects: [
+      { kind: "buff", statusId: "1001" }, { kind: "buff", statusId: "1469" },
+    ] });
+  const states = reconstructRecordedNormalAttackStates(parsed, 3, [1]);
+  assert.deepEqual(states.map(s => s.battleEffects.normalAttackSupplementalDamage), [undefined, 50_000, undefined]);
+  assert.deepEqual(states.map(s => s.artifactStartBuffs), [
+    { attackUp: true, damageCapUp: true }, { attackUp: true, damageCapUp: true }, { attackUp: false, damageCapUp: false },
+  ]);
+  parsed.deckConfig!.weapons[0].level = 199;
+  parsed.deckConfig!.weapons[0].uncapLevel = 5;
+  assert.ok(reconstructRecordedNormalAttackStates(parsed, 3, [1]).every(s => s.battleEffects.normalAttackSupplementalDamage === undefined));
+  parsed.deckConfig!.weapons[0].level = 200;
+  assert.equal(reconstructRecordedNormalAttackStates(parsed, 3, [1])[1].battleEffects.normalAttackSupplementalDamage, 50_000);
+  parsed.deckConfig!.weapons[0].weaponId = "1040000000";
+  assert.ok(reconstructRecordedNormalAttackStates(parsed, 3, [1]).every(s => s.battleEffects.normalAttackSupplementalDamage === undefined));
+});
 function cidalaApplication() {
   return [{ cmd: "ability", pos: 1, name: "菓製猛虎" }, enemyCondition(cidalaStatuses), enemyCondition(cidalaStatuses)];
 }
@@ -145,6 +169,27 @@ test("uses the last preceding HP update for each attack and never takes HP from 
     ...normal(), { cmd: "heal", to: "player", list: [{ pos: 0, value: 600, hp: 1000 }] }, ...normal(),
   ], 100)]);
   assert.deepEqual(reconstructRecordedNormalAttackStates(parsed, 3).map(s => s.protagonistCurrentHpPercent), [40, 100]);
+});
+
+test("character states follow reaction order, HP updates and Cidala buff removal without future state leakage", () => {
+  const normalBy = (actor: number) => normal().map(command => ({ ...command,
+    ...(command.cmd === "attack" ? { pos: actor } : { num: actor }) }));
+  const parsed = observation([result(1, [
+    { cmd: "condition", to: "player", pos: 1, condition: { buff: [{ status: "3267" }] } },
+    ...normalBy(1), ...cidalaApplication(),
+    ...normalBy(2),
+    { cmd: "attack", from: "boss", damage: [[{ pos: 1, value: 500, hp: 500 }]] },
+    { cmd: "condition", to: "player", pos: 1, condition: { buff: [] } },
+    ...normalBy(1),
+  ], 100)]);
+  parsed.actors[1].initialHp = 1_000;
+  parsed.actors[1].maxHp = 1_000;
+  const states = reconstructRecordedNormalAttackStates(parsed, 3, [1, 2]);
+  assert.deepEqual(states.map(state => state.actorPosition), [1, 2, 1]);
+  assert.deepEqual(states.map(state => state.battleEffects.enemyDefenseDownPercent), [0, 10, 10]);
+  assert.deepEqual(states.filter(state => state.actorPosition === 1).map(state => state.coupledConfectionActive), [true, false]);
+  assert.deepEqual(states.filter(state => state.actorPosition === 1).map(state => state.characterCurrentHpPercent), [100, 50]);
+  assert.equal(reconstructRecordedNormalAttackStates(parsed, 3).length, 0);
 });
 
 test("prefers the recorded pre-attack level and exposes a disagreement with the provisional counter", () => {

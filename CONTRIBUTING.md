@@ -88,7 +88,7 @@ node scripts/data-collection/analyze-recorded-battle.mjs --deck-capture <編成e
 - `--recorded-state`は主人公の通常攻撃ごとに、直前の神伝の槍手Lv・HPと、既知アビリティの発動/状態更新から累積した敵弱体を使います。`--compare-turn`を併用すると1ターンだけ照合できます。明示した`--mythical-lancer-level`は記録Lvより優先します。
 - 現在の敵弱体モデルは闇シンダラの累積防御DOWN・被ダメージ上昇（最終適用から180秒）と、サリエルの刑死（記録の終了ターンを優先）です。状態アイコンの末尾数字から効果量を推定しません。累積回数は既知アビリティ後に対象状態が表示された場合に数える暫定モデルで、既存の状態が残る状況での失敗/耐性判定や未知キャラの効果には対応していません。
 - 神伝の槍手Lvは記録を優先し、別途40hitカウンタの暫定モデルと比較します。通常本体・追撃・アビリティの正のダメージパケットは各1、複数hit奥義は1コマンドで1と数えます。欠落・不整合は警告します。反応中のLv変化を含む行動列の自動生成は未対応です。
-- `normalAttackComparison.states`に攻撃ごとの条件と計算結果が入ります。トップレベルの`calculation`は開始条件の比較用計算です。1〜4ターンの奥義、他キャラの単発、パーティ全体の予測は別途実装が必要です。
+- `normalAttackComparison.states`に攻撃ごとの条件と計算結果が入ります。トップレベルの`calculation`は開始条件の比較用計算です。1〜4ターンの奥義とパーティ全体の予測は別途実装が必要です。対応キャラの単発照合は下記を参照してください。
 - HTTP/MCPの単発計算にも任意の`mythicalLancerLevel`と`battleEffects`を渡せます。後者は`enemyDefenseDownPercent`、`enemyDefenseDownBeyondCapPercent`、`enemySupplementalDamage`、`supportSkillSupplementalDamage`です。一般防御DOWNは50%上限、下限超過分を加算後に武器の防御無視を乗算します。サポアビ与ダメージはSupport Skill Bの最大値を使います。これらの数値・枠・丸めは下書きです。
 
 破壊追撃の丸めを比較するときは、上のコマンドへ`--compare-destruction-rounding`を追加します。
@@ -98,6 +98,17 @@ node scripts/data-collection/analyze-recorded-battle.mjs --deck-capture <編成e
 - 実測に最も一致する候補を自動採用しません。全乱数予測が同一なら同じ条件の追加記録では識別できないため、ATKや武器枠などを変える測定を検討します。候補はすべて下書きで、診断オプションは既定の予測を書き換えません。
 - 効果量(%)を倍率へ変換した後に桁数をさらに減らさないでください。2026-10-03の追加記録では、渾身倍率の二重丸めを外し、乱数前切り上げを外した親ダメージ切り上げモデルが旧/新記録の主人公3成分に一致しました。詳細と未確定事項は`knowledge/mechanics/damage-calculation.md`へ記録しています。
 - 診断付きの解析も装備設定や表示値を含むローカル専用ファイルです。`captures/`などGit管理外に保存します。
+
+闇シンダラ(バレンタイン)・サリエル・浴衣イルザも攻撃順ごとに照合する場合は、`--recorded-state --compare-characters`を指定します。主人公と各キャラを`actorComparisons`へ分け、本体・自属性追撃・破壊追撃を集計します。未知キャラや有効なキャラクリティカルLBはエラーとし、黙って省略しません。
+
+- HTTP/MCPの同じ単発計算へ`attacker: { characterSlot: 1, currentHpPercent: 100, coupledConfectionActive: true }`を指定できます。`characterSlot`は前衛の編成枠1〜3です。`coupledConfectionActive`はシンダラだけ必須で、双子緒虎の有無を明示します。アビリティ未使用時の通常攻撃を対象とし、行動回数の生成や奥義は予測しません。
+- 各キャラの`attackOverride`/`hpOverride`は表示総ATK/HPです。通常LBの攻撃力/HP、覚醒の固定ATK/HPを再加算しません。属性攻撃・渾身・クリティカルの割り当ては`characters[].limitBonuses`へ保存します。戦闘開始前の`npczenith/bonus_list/<キャラマスターID>`がある場合だけ取り込みます。指輪・耳飾り・アーティファクト効果をLB一覧から推測しません。
+- `characters[].awakening`は`formCode`と`level`、`perpetuityRing`は久遠の指輪の有無です。編成レスポンスから覚醒タイプと久遠フラグを保持しますが、覚醒Lvはキャラ詳細による補完が必要です。連撃覚醒Lv9の通常増幅5%とLv10の通常上限5%、久遠の別枠攻撃10%と上限5%は二次情報に基づく下書きです。キャラ選択時には主人公のジョブ/LB・HP計算・連撃率・アーマーブレイクを流用しません。
+- 記録に不足する設定は`--character-settings <ローカルJSON>`で補えます。形式は`[{ "characterId": "3040512000", "limitBonuses": { "elementAttackLevels": [3], "staminaLevel": 3, "criticalLevels": [0,0,0] }, "awakening": { "formCode": "4", "level": 10 }, "perpetuityRing": false }]`。これは形式例で、実測者の設定を表すものではありません。キャラIDで照合し、元の表示ATK/HPや装備＋値を上書きしません。
+- `--character-capture <キャラ詳細export.json>`で別途収録したキャラ詳細とLB一覧を明示的に補完できます。マスターIDで照合し、編成にいないキャラは対象外にします。覚醒Lv・久遠フラグ・アーティファクトのマスタースキルID/名称/表示効果量だけを取り込み、所持個体ID・ユーザー情報・詳細画面の基礎ATK/HPは持ち込みません。後日記録を使う場合は測定時も同じ設定だったという入力仮定です。
+- `characters[].artifact.skills`の形式は`[{"skillId":"30231","name":"HPが100%の時、与ダメージUP","effectValue":"+2.2%"}]`です。自属性攻撃、通常上限、通常与ダメージ上昇、HP満タン時増幅を下書き接続します。開始時ランダム強化は`attacker.artifactStartBuffs: { attackUp: true, damageCapUp: false }`のように抽選結果を明示します。記録照合では初ターンの状態ID1001/1469と既知スキルを対応させ、攻撃50%UP(通常攻刃枠)・上限10%UPを暫定適用します。個数から抽選結果を予測せず、未知スキルは不足項目として保持します。
+- `modifiers.divineStampBookEnabled`は十二神将の御朱印帳の有無です。CLIは大事なものから取り込み、対応キャラのシンダラにだけ別枠攻撃10%を適用します。エレシュキガル奥義後の通常与ダメージ50,000は、記録の奥義後から同一ターンの後続キャラへ適用します。数値・枠は下書きで、一般のバフ共存・解除処理は未対応です。
+- キャラ結果の`attacker.unresolvedInputs`に不足項目を残します。通常の指輪・耳飾りの効果は未接続です。未入力を効果なしと断定せず、実測との差を補正倍率で埋めません。キャラのクリティカル発動記録は現在の照合モデルではエラーにします。`normalAttackSupport`が共通の効果情報で、旧`protagonistNormalAttackSupport`キーは互換性のため保持します。
 
 - 戦闘開始は1件ずつ解析します。API通信は行わず、URLは記録の種類判定だけに使います。
 - ダメージの数値キーオブジェクト（疎な配列）、複数回行動、通常攻撃・追撃・奥義・自動アビリティ・ターン終了時ダメージ、敵回復を保持します。表示用の合計や桁配列は二重計上しません。

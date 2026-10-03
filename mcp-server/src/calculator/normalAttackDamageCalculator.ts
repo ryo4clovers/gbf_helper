@@ -30,7 +30,7 @@ import {
 } from "./incomingDamageCalculator.js";
 import type { DamageCalculationInput } from "./types.js";
 import { calculateNormalAttackSkillFrames } from "./normalAttackSkillFrames.js";
-import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttackSupport.js";
+import { prepareNormalAttackActor, resolveNormalAttackSupport, selectedCharacter, resolveCharacterArtifact } from "./characterNormalAttack.js";
 import { resolveSummonDamageEffects } from "./summonDamageEffects.js";
 import { resolveBattleDamageEffects } from "./battleDamageEffects.js";
 import {
@@ -125,6 +125,8 @@ export interface ProtagonistLimitBonusCriticalResult extends ProtagonistLimitBon
 }
 
 export interface NormalAttackDamageResult {
+  attacker?: { characterSlot: number; characterId: string; name?: string; verificationStatus: "下書き";
+    modelScope: "abilities-unused"; unresolvedInputs: string[] };
   schemaVersion: 1;
   status: "provisional";
   attackPower: NormalAttackPowerResult;
@@ -133,7 +135,10 @@ export interface NormalAttackDamageResult {
   bodyDamageAttenuation: NormalAttackBodyAttenuationResult;
   bodyDamageDistribution: DamageDistributionSummary;
   normalAttackSkillFrames: ReturnType<typeof calculateNormalAttackSkillFrames>;
-  protagonistNormalAttackSupport: ReturnType<typeof resolveProtagonistNormalAttackSupport>;
+  normalAttackSupport: ReturnType<typeof resolveNormalAttackSupport>;
+  characterArtifact?: ReturnType<typeof resolveCharacterArtifact>;
+  /** Legacy response key, retained for existing protagonist callers. */
+  protagonistNormalAttackSupport: ReturnType<typeof resolveNormalAttackSupport>;
   summonDamageEffects: ReturnType<typeof resolveSummonDamageEffects>;
   battleDamageEffects: ReturnType<typeof resolveBattleDamageEffects>;
   guaranteedCriticalBodyDamageDistribution?: DamageDistributionSummary;
@@ -143,7 +148,7 @@ export interface NormalAttackDamageResult {
   destructionPursuitDamage?: EffectivePursuitDamageResult;
   destructionPursuitRoundingCandidates?: DestructionPursuitRoundingCandidate[];
   protagonistHp?: ProtagonistHpResult;
-  multiattackRates: ProtagonistMultiattackRateResult;
+  multiattackRates?: ProtagonistMultiattackRateResult;
   otherWeaponSkills: OtherWeaponSkillResult;
   incomingDamage?: IncomingDamagePredictionResult;
   abilityDamage?: AbilityDamagePredictionResult;
@@ -183,19 +188,23 @@ export function calculateNormalAttackDamage(
   input: DamageCalculationInput,
   options: NormalAttackDamageOptions = {},
 ): NormalAttackDamageResult {
+  const character = selectedCharacter(input);
+  input = prepareNormalAttackActor(input);
+  const characterArtifact = resolveCharacterArtifact(input);
   const attackPower = calculateBattleNormalAttackPower(input.deck, input.battle);
   const hpDependentAttack = calculateHpDependentAttack(
     input.deck,
     input.protagonistCurrentHpPercent ?? 100,
   );
   const baseDamageModel = options.baseDamageModel ?? "article-2026-07";
+  if (character && !usesArticleBaseDamageModel(baseDamageModel)) throw new Error("Character normal attacks require the article-2026-07 model");
   const useArticleModel = usesArticleBaseDamageModel(baseDamageModel);
   const baseDamage = useArticleModel
     ? calculateArticleBaseDamage(input, attackPower, hpDependentAttack)
     : calculateDefenseAdjustedBaseDamage(input, attackPower, hpDependentAttack);
   const otherWeaponSkills = calculateOtherWeaponSkills(input.deck);
   const normalAttackSkillFrames = calculateNormalAttackSkillFrames(input.deck);
-  const protagonistNormalAttackSupport = resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel);
+  const protagonistNormalAttackSupport = resolveNormalAttackSupport(input);
   const battleDamageEffects = resolveBattleDamageEffects(input.battleEffects, protagonistNormalAttackSupport.supplementalDamage);
   const target = input.battle.enemies.find((enemy) => enemy.slot === input.targetEnemySlot);
   const summonDamageEffects = resolveSummonDamageEffects(input.deck, target?.elementCode, target?.maxHp, input.protagonistCurrentHpPercent ?? 100);
@@ -236,6 +245,8 @@ export function calculateNormalAttackDamage(
     ?? baseDamage.unroundedDamageBeforeRandomAndCap;
   const advantageous = elementalSuperiorityPercent(input.deck.protagonist.elementCode, target?.elementCode) > 0;
   const postAttenuationPercent = (baseDamage.articleTrace?.postCapDamagePercent ?? 0)
+    + characterArtifact.fullHpAmplificationPercent
+    + protagonistNormalAttackSupport.normalAttackAmplificationPercent
     + normalAttackSkillFrames.damageAmplification.effectivePercent
     + normalAttackSkillFrames.specialDamageAmplification.effectivePercent
     + summonDamageEffects.amplificationPercent
@@ -244,7 +255,8 @@ export function calculateNormalAttackDamage(
     + normalAttackSkillFrames.supplementalDamage.effectiveAmount
     + normalAttackSkillFrames.separateSupplementalDamage.effectiveAmount
     + battleDamageEffects.supportSkillSupplementalDamage + battleDamageEffects.enemySupplementalDamage
-    + summonDamageEffects.supplementalDamage;
+    + summonDamageEffects.supplementalDamage + battleDamageEffects.normalAttackSupplementalDamage
+    + characterArtifact.normalAttackSupplementalDamage;
   const bodyDamageAttenuation: NormalAttackBodyAttenuationResult = {
     schemaVersion: 1,
     profile: bodyAttenuationProfile,
@@ -433,12 +445,25 @@ export function calculateNormalAttackDamage(
   return {
     schemaVersion: 1,
     status: "provisional",
+    ...(character ? { attacker: { characterSlot: character.slot, characterId: character.masterId, name: character.name,
+      verificationStatus: "下書き" as const, modelScope: "abilities-unused" as const,
+      unresolvedInputs: [
+        ...(character.perpetuityRing === undefined ? ["perpetuityRing"] : []),
+        ...(character.masterId === "3040512000" && input.divineStampBookEnabled === undefined ? ["divineStampBookEnabled"] : []),
+        ...(character.limitBonuses === undefined ? ["limitBonuses"] : []),
+        ...(character.awakening?.formCode === undefined ? ["awakeningForm"] : []),
+        ...(character.awakening?.level === undefined ? ["awakeningLevel"] : []),
+        "overMastery-aetherialMastery-effects",
+        ...(character.artifact === undefined ? ["artifact"] : resolveCharacterArtifact(input).unsupportedSkills.map((id) => `artifact-skill-${id}`)),
+      ] } } : {}),
     attackPower,
     hpDependentAttack,
     baseDamage,
     bodyDamageAttenuation,
     bodyDamageDistribution,
     normalAttackSkillFrames,
+    normalAttackSupport: protagonistNormalAttackSupport,
+    ...(character ? { characterArtifact } : {}),
     protagonistNormalAttackSupport,
     summonDamageEffects,
     battleDamageEffects,
@@ -450,8 +475,8 @@ export function calculateNormalAttackDamage(
     ...(options.compareDestructionPursuitRounding && destructionPursuitDamage ? {
       destructionPursuitRoundingCandidates: calculateDestructionPursuitRoundingCandidates(input, attackPower, hpDependentAttack, destructionPursuitDamage),
     } : {}),
-    protagonistHp: calculateProtagonistHp(input.deck),
-    multiattackRates: calculateProtagonistMultiattackRates(input.deck),
+    protagonistHp: character ? undefined : calculateProtagonistHp(input.deck),
+    multiattackRates: character ? undefined : calculateProtagonistMultiattackRates(input.deck),
     otherWeaponSkills,
     abilityDamage,
     incomingDamage: input.incomingDamage === undefined

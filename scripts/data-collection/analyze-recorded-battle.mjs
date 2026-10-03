@@ -5,6 +5,8 @@ import { calculateNormalAttackFromRequest } from "../../mcp-server/dist/calculat
 import { parseAccountBonusResponse } from "../../mcp-server/dist/calculator/accountBonusParser.js";
 import { compareRecordedNormalAttacks, compareRecordedNormalAttackStates } from "../../mcp-server/dist/calculator/recordedNormalAttackComparison.js";
 import { reconstructRecordedNormalAttackStates } from "../../mcp-server/dist/calculator/recordedNormalAttackState.js";
+import { parseCharacterDamageSettings } from "../../mcp-server/dist/calculator/calculatorDeckConfig.js";
+import { importCharacterEnhancementExports } from "../../mcp-server/dist/calculator/characterEnhancementImport.js";
 
 function argument(name) {
   const index = process.argv.indexOf(name);
@@ -16,6 +18,10 @@ const battleCapture = argument("--battle-capture");
 const output = argument("--output");
 const accountBonusFile = argument("--account-bonuses");
 const useRecordedState = process.argv.includes("--recorded-state");
+const compareCharacters = process.argv.includes("--compare-characters");
+const characterSettingsFile = argument("--character-settings");
+const characterCapture = argument("--character-capture");
+if (compareCharacters && !useRecordedState) throw new Error("--compare-characters requires --recorded-state.");
 const compareDestructionRounding = process.argv.includes("--compare-destruction-rounding");
 const diagnostics = { compareDestructionPursuitRounding: compareDestructionRounding };
 const compareTurnArgument = argument("--compare-turn");
@@ -27,13 +33,31 @@ if (mythicalLancerLevel !== undefined && (!Number.isInteger(mythicalLancerLevel)
 const crew = { shipAttackPercent: Number(argument("--ship") ?? 0), furnaceAttackPercent: Number(argument("--furnace") ?? 0) };
 if (Object.values(crew).some((value) => !Number.isFinite(value) || value < 0 || value > 100)) throw new Error("--ship and --furnace must be in 0..100.");
 if (!battleCapture || !output) {
-  console.error("usage: node scripts/data-collection/analyze-recorded-battle.mjs --battle-capture <export.json> [--deck-capture <export.json>] --output <local-report.json> [--defense <value>] [--ship <percent>] [--furnace <percent>] [--account-bonuses <local.json>] [--mythical-lancer-level <0..5>] [--compare-turn <turn>] [--recorded-state] [--compare-destruction-rounding]");
+  console.error("usage: node scripts/data-collection/analyze-recorded-battle.mjs --battle-capture <export.json> [--deck-capture <export.json>] --output <local-report.json> [--defense <value>] [--ship <percent>] [--furnace <percent>] [--account-bonuses <local.json>] [--mythical-lancer-level <0..5>] [--compare-turn <turn>] [--recorded-state] [--compare-characters] [--character-capture <export.json>] [--character-settings <local.json>] [--compare-destruction-rounding]");
   process.exit(1);
 }
 const inputs = await Promise.all([deckCapture, battleCapture].filter(Boolean).map(async (file) =>
   JSON.parse(await readFile(file, "utf8")),
 ));
 const observation = parseRecordedBattleExports(inputs);
+const characterCaptureImported = [];
+if (characterCapture) {
+  const settings = importCharacterEnhancementExports([JSON.parse(await readFile(characterCapture, "utf8"))]);
+  for (const setting of settings) {
+    const character = observation.deckConfig?.characters.find((entry) => entry.characterId === setting.characterId);
+    if (!character) continue;
+    Object.assign(character, setting);
+    characterCaptureImported.push(character.slot);
+  }
+}
+if (characterSettingsFile) {
+  const settings = parseCharacterDamageSettings(JSON.parse(await readFile(characterSettingsFile, "utf8")));
+  for (const setting of settings) {
+    const character = observation.deckConfig?.characters.find((entry) => entry.characterId === setting.characterId);
+    if (!character) throw new Error("Character settings refer to a character absent from the recording.");
+    Object.assign(character, setting);
+  }
+}
 const accountBonuses = accountBonusFile ? parseAccountBonusResponse(JSON.parse(await readFile(accountBonusFile, "utf8"))) : undefined;
 const ownElement = observation.deckConfig?.protagonist.elementCode;
 const targetElement = observation.battle.enemies[0]?.elementCode;
@@ -44,6 +68,7 @@ const bonus = (stage, allElements = false) => applicableBonuses.filter((modifier
   && (stage !== "elemental-attack" || (allElements ? modifier.elementCode === undefined : modifier.elementCode !== undefined)))
   .reduce((sum, modifier) => sum + modifier.amountPercent, 0);
 const accountModifiers = {
+  divineStampBookEnabled: accountBonuses?.divineStampBookEnabled,
   allElementAttackPercent: bonus("elemental-attack", true), elementAttackPercent: bonus("elemental-attack"),
   damageDealtPercent: bonus("damage-dealt"), targetElementDamagePercent: bonus("target-element-damage"),
   damageCapPercent: bonus("damage-cap"), normalAttackDamageCapPercent: bonus("normal-attack-damage-cap"),
@@ -79,7 +104,7 @@ if (observation.deckConfig && defense !== undefined) {
 }
 if (compareTurn !== undefined && !observation.turns.some((turn) => turn.turn === compareTurn)) throw new Error("--compare-turn is absent from the recording.");
 const recordedStates = calculation && useRecordedState ? reconstructRecordedNormalAttackStates(observation,
-  calculation.result.protagonistNormalAttackSupport.initialMythicalLancerLevel).filter((state) => compareTurn === undefined || state.turn === compareTurn) : undefined;
+  calculation.result.protagonistNormalAttackSupport.initialMythicalLancerLevel, compareCharacters ? [0, 1, 2, 3] : [0]).filter((state) => compareTurn === undefined || state.turn === compareTurn) : undefined;
 const normalAttackComparison = recordedStates ? compareRecordedNormalAttackStates(calculationRequest, observation, recordedStates, diagnostics)
   : calculation && ownElement ? compareRecordedNormalAttacks(calculation.result,
   observation.turns.filter((turn) => compareTurn === undefined || turn.turn === compareTurn).flatMap((turn) => turn.packets), ownElement) : undefined;
@@ -87,7 +112,7 @@ const report = {
   ...observation,
   capability: {
     predictivePartySimulation: false,
-    explanation: "実測トレースと既存の主人公通常攻撃モデルの照合用。実測値を予測値として扱わない。キャラクター固有効果・奥義・再行動等は別途実装が必要。",
+    explanation: "実測トレースと単発通常攻撃モデルの照合用。実測値を予測値として扱わない。対応キャラのアビリティ未使用時を接続し、未知の強化・奥義・行動の予測生成は別途実装が必要。",
     skillCoverage,
   },
   calculationAssumptions: {
@@ -100,6 +125,10 @@ const report = {
     accountModifiers,
     compareTurn,
     useRecordedState,
+    compareCharacters,
+    characterSettingsImported: characterSettingsFile !== undefined,
+    characterCaptureImported,
+    characterLimitBonusesImported: observation.characterLimitBonusesImported,
     compareDestructionRounding,
     note: useRecordedState ? "記録された攻撃前の槍手Lv・HP、既知アビリティによる敵弱体を適用する条件付き照合。"
       : "記録されたLBと入力された船炉を使用。戦闘中のバフ・デバフは自動投入していない。",
@@ -112,6 +141,7 @@ console.log(JSON.stringify({
   skillsWithoutNumericEffects: skillCoverage?.filter((skill) => skill.numericEffectKinds.length === 0).length,
   calculationStatus: calculation ? "provisional" : calculationError ? "error" : "not-requested",
   comparedComponents: normalAttackComparison?.components,
+  actorComparisons: normalAttackComparison?.actorComparisons,
   destructionRoundingCandidates: normalAttackComparison?.destructionRoundingComparison?.candidates.map((candidate) => ({
     model: candidate.model, verificationStatus: candidate.verificationStatus, components: candidate.components,
   })),

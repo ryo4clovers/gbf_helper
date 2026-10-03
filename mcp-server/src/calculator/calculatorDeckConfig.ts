@@ -167,6 +167,18 @@ const summonSchema = z
 
 const characterSchema = z
   .object({
+    artifact: z.object({ skills: z.array(z.object({
+      skillId: z.string().regex(/^\d+$/).max(16), name: z.string().min(1).max(200),
+      effectValue: z.string().max(100),
+    }).strict()).max(4) }).strict().optional(),
+    awakening: awakeningSchema.refine((value) => value.level === undefined || value.level <= 10).optional(),
+    perpetuityRing: z.boolean().optional(),
+    elementCode: z.enum(["1", "2", "3", "4", "5", "6"]).optional(),
+    limitBonuses: z.object({
+      elementAttackLevels: z.array(z.number().int().min(0).max(3)).max(2).optional(),
+      staminaLevel: z.number().int().min(0).max(3).optional(),
+      criticalLevels: z.array(z.number().int().min(0).max(3)).max(3).optional(),
+    }).strict().optional(),
     slot: positiveSlotSchema,
     position: z.enum(["front", "back"]),
     characterId: idSchema,
@@ -178,6 +190,13 @@ const characterSchema = z
     hpOverride: nonNegativeNumberSchema.optional(),
   })
   .strict();
+
+/** Local supplementation for recordings missing character enhancement/LB responses. Never overrides displayed stats. */
+export function parseCharacterDamageSettings(value: unknown) {
+  return z.array(characterSchema.pick({ characterId: true, limitBonuses: true, awakening: true, perpetuityRing: true, artifact: true }))
+    .max(5).refine((rows) => new Set(rows.map((row) => row.characterId)).size === rows.length, "Duplicate character settings")
+    .parse(value);
+}
 
 const calculatorDeckConfigSchema = z
   .object({
@@ -312,6 +331,11 @@ export function convertDeckResponseToCalculatorDeckConfig(input: unknown): Calcu
       hpOverride: summon.hp,
     })),
     characters: snapshot.characters.map((character) => ({
+      awakening: character.awakening,
+      perpetuityRing: character.perpetuityRing,
+      elementCode: character.elementCode,
+      limitBonuses: character.limitBonuses,
+      artifact: character.artifact,
       slot: character.slot,
       position: character.position,
       characterId: character.masterId,
