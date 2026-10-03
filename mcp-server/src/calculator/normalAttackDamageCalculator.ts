@@ -31,6 +31,7 @@ import type { DamageCalculationInput } from "./types.js";
 import { calculateNormalAttackSkillFrames } from "./normalAttackSkillFrames.js";
 import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttackSupport.js";
 import { resolveSummonDamageEffects } from "./summonDamageEffects.js";
+import { resolveBattleDamageEffects } from "./battleDamageEffects.js";
 import {
   calculateProtagonistMultiattackRates,
   type ProtagonistMultiattackRateResult,
@@ -131,6 +132,7 @@ export interface NormalAttackDamageResult {
   normalAttackSkillFrames: ReturnType<typeof calculateNormalAttackSkillFrames>;
   protagonistNormalAttackSupport: ReturnType<typeof resolveProtagonistNormalAttackSupport>;
   summonDamageEffects: ReturnType<typeof resolveSummonDamageEffects>;
+  battleDamageEffects: ReturnType<typeof resolveBattleDamageEffects>;
   guaranteedCriticalBodyDamageDistribution?: DamageDistributionSummary;
   criticalBodyDamage?: CriticalBodyDamageResult;
   protagonistLimitBonusCritical?: ProtagonistLimitBonusCriticalResult;
@@ -150,6 +152,8 @@ export interface NormalAttackDamageResult {
     | "critical-damage-attenuation-unresolved"
     | "supplemental-damage-enemy-hp-cap-unresolved"
     | "destruction-base-rounding-provisional"
+    | "flurry-base-rounding-provisional"
+    | "flurry-pursuit-rounding-provisional"
   >;
 }
 
@@ -188,6 +192,7 @@ export function calculateNormalAttackDamage(
   const otherWeaponSkills = calculateOtherWeaponSkills(input.deck);
   const normalAttackSkillFrames = calculateNormalAttackSkillFrames(input.deck);
   const protagonistNormalAttackSupport = resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel);
+  const battleDamageEffects = resolveBattleDamageEffects(input.battleEffects, protagonistNormalAttackSupport.supplementalDamage);
   const target = input.battle.enemies.find((enemy) => enemy.slot === input.targetEnemySlot);
   const summonDamageEffects = resolveSummonDamageEffects(input.deck, target?.elementCode, target?.maxHp, input.protagonistCurrentHpPercent ?? 100);
   const sharedRandomOptions = {
@@ -234,7 +239,8 @@ export function calculateNormalAttackDamage(
   const supplementalDamagePerHit = otherWeaponSkills.supplementalDamage.effectiveAmount
     + normalAttackSkillFrames.supplementalDamage.effectiveAmount
     + normalAttackSkillFrames.separateSupplementalDamage.effectiveAmount
-    + protagonistNormalAttackSupport.supplementalDamage + summonDamageEffects.supplementalDamage;
+    + battleDamageEffects.supportSkillSupplementalDamage + battleDamageEffects.enemySupplementalDamage
+    + summonDamageEffects.supplementalDamage;
   const bodyDamageAttenuation: NormalAttackBodyAttenuationResult = {
     schemaVersion: 1,
     profile: bodyAttenuationProfile,
@@ -265,9 +271,10 @@ export function calculateNormalAttackDamage(
       }).damage / protagonistNormalAttackSupport.randomTargetHitCount * (1 + postAttenuationPercent / 100)
       + supplementalDamagePerHit,
   };
+  const bodyNominalPreparation = options.bodyNominalPreparation ?? (protagonistNormalAttackSupport.randomTargetHitCount > 1 ? "ceil" : "none");
   const bodyDamageDistribution = summarizeDamageDistribution(preAttenuationNominalDamage, {
     ...sharedRandomOptions,
-    nominalPreparation: options.bodyNominalPreparation ?? "none",
+    nominalPreparation: bodyNominalPreparation,
     finalRounding:
       options.bodyFinalRounding ??
       options.finalRounding ??
@@ -284,18 +291,20 @@ export function calculateNormalAttackDamage(
     ? calculateEffectivePursuitDamage(input.deck, needsStagedPursuit ? preAttenuationNominalDamage : baseDamage.damageBeforeRandomAndCap, {
         ...sharedRandomOptions,
         sourceSkillId: options.pursuitSourceSkillId,
-        nominalPreparation: options.pursuitNominalPreparation ?? "none",
+        nominalPreparation: options.pursuitNominalPreparation ?? bodyNominalPreparation,
         finalRounding: options.pursuitFinalRounding ?? options.finalRounding ?? "floor",
         ...(needsStagedPursuit ? { stages: {
           profile: bodyAttenuationProfile, damageCapUpPercent: bodyDamageCapUpPercent, postAttenuationPercent,
           randomTargetHitCount: protagonistNormalAttackSupport.randomTargetHitCount,
           supplementalDamagePerHit, criticalDamageBonusPercent: guaranteedCriticalPercent,
+          ...(protagonistNormalAttackSupport.randomTargetHitCount > 1 ? { beforePursuitRounding: "ceil" as const } : {}),
         } } : {}),
       })
     : undefined;
   const guaranteedCriticalBodyDamageDistribution = advantageous && protagonistNormalAttackSupport.criticalTriggerRatePercent === 100
     ? summarizeDamageDistribution(preAttenuationNominalDamage, {
-        ...sharedRandomOptions, finalRounding: options.bodyFinalRounding ?? options.finalRounding ?? (useArticleModel ? "ceil" : "floor"),
+        ...sharedRandomOptions, nominalPreparation: bodyNominalPreparation,
+        finalRounding: options.bodyFinalRounding ?? options.finalRounding ?? (useArticleModel ? "ceil" : "floor"),
         damageTransform: { id: "job-support-critical", apply: (damage) =>
           bodyAttenuationTransform.apply(damage * (1 + protagonistNormalAttackSupport.criticalDamageBonusPercent / 100)) },
       }) : undefined;
@@ -328,7 +337,7 @@ export function calculateNormalAttackDamage(
     damageBonusPercent += guaranteedCriticalPercent;
     const damageMultiplier = 1 + damageBonusPercent / 100;
     const distributionOptions = {
-      nominalPreparation: options.bodyNominalPreparation ?? "none" as const,
+      nominalPreparation: bodyNominalPreparation,
       finalRounding:
         options.bodyFinalRounding ??
         options.finalRounding ??
@@ -406,7 +415,7 @@ export function calculateNormalAttackDamage(
         supplementalDamagePerHit:
           otherWeaponSkills.supplementalDamage.effectiveAmount
           + otherWeaponSkills.abilitySupplementalDamage.effectiveAmount + summonDamageEffects.supplementalDamage
-          + protagonistNormalAttackSupport.supplementalDamage,
+          + battleDamageEffects.supportSkillSupplementalDamage + battleDamageEffects.enemySupplementalDamage,
         postAttenuationPercent: abilityPostAttenuationPercent,
         multiplierMin: options.multiplierMin,
         multiplierMax: options.multiplierMax,
@@ -424,6 +433,7 @@ export function calculateNormalAttackDamage(
     normalAttackSkillFrames,
     protagonistNormalAttackSupport,
     summonDamageEffects,
+    battleDamageEffects,
     guaranteedCriticalBodyDamageDistribution,
     criticalBodyDamage,
     protagonistLimitBonusCritical,
@@ -458,6 +468,8 @@ export function calculateNormalAttackDamage(
     issues: [
       "damage-attenuation-profile-provisional",
       ...(destructionPursuitDamage ? ["destruction-base-rounding-provisional" as const] : []),
+      ...(protagonistNormalAttackSupport.randomTargetHitCount > 1 ? ["flurry-base-rounding-provisional" as const] : []),
+      ...(pursuitDamage?.stages?.beforePursuitRounding ? ["flurry-pursuit-rounding-provisional" as const] : []),
       ...(baseDamage.unresolvedStages.includes("rounding")
         ? (["rounding-order-unresolved"] as const)
         : []),

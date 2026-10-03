@@ -46,6 +46,44 @@ export interface RecordedBattlePacket {
   concurrentAttackIndex?: number;
   hitIndex?: number;
   hpAfter?: number;
+  sequence?: number;
+  resultIndex?: number;
+  normalActionIndex?: number;
+  /** Explicit ability owner, including turn-end reactions. */
+  sourceActorPosition?: number;
+}
+
+export interface RecordedEventLocation {
+  sequence: number;
+  resultIndex: number;
+  elapsedMilliseconds: number;
+}
+
+export interface RecordedConditionSnapshot extends RecordedEventLocation {
+  targetSide: "enemy" | "party";
+  targetPosition: number;
+  kinds: Array<"buff" | "debuff">;
+  effects: Array<{ kind: "buff" | "debuff"; statusId: string; personalStatusId?: string; expiresBeforeTurn?: number }>;
+}
+
+function conditionSnapshot(value: unknown, targetSide: "enemy" | "party", targetPosition: number,
+  location: RecordedEventLocation): RecordedConditionSnapshot {
+  const condition = record(value);
+  const flatten = (input: unknown): RecordValue[] => {
+    if (Array.isArray(input)) return input.flatMap(flatten);
+    const entry = record(input);
+    return entry.status !== undefined ? [entry] : Object.values(entry).flatMap(flatten);
+  };
+  const statusId = (input: unknown) => typeof input === "string" && /^\d+(?:_\d+)*$/.test(input) && input.length <= 64 ? input : undefined;
+  return { ...location, targetSide, targetPosition, kinds: (["buff", "debuff"] as const).filter((kind) => Object.hasOwn(condition, kind)),
+    effects: (["buff", "debuff"] as const).flatMap((kind) =>
+    flatten(condition[kind]).flatMap((effect) => {
+      const id = statusId(effect.status);
+      return id === undefined ? [] : [{ kind, statusId: id,
+        personalStatusId: statusId(effect.personal_status),
+        expiresBeforeTurn: numeric(kind === "buff" ? effect.personal_buff_end_turn : effect.personal_debuff_end_turn),
+      }];
+    })) };
 }
 
 export interface RecordedBattleTurn {
@@ -54,8 +92,10 @@ export interface RecordedBattleTurn {
   enemyHealing: number;
   damageByKind: Record<DamageKind, number>;
   damageByActor: Record<string, number>;
-  normalActions: Array<{ actorPosition: number; hits: number }>;
+  normalActions: Array<RecordedEventLocation & { actorPosition: number; hits: number; actionIndex: number }>;
   packets: RecordedBattlePacket[];
+  conditionEvents: RecordedConditionSnapshot[];
+  abilityActivations: Array<RecordedEventLocation & { actorPosition?: number; name?: string }>;
 }
 
 /** Offline observation trace for comparison, not a predictive combat model. */
@@ -98,6 +138,13 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
       initialCharge: numeric(actor.recast),
     };
   });
+  const initialLocation = { sequence: -1, resultIndex: -1, elapsedMilliseconds: 0 };
+  const initialConditions = [
+    ...(Array.isArray(rawParty) ? rawParty : []).map((actor, position) =>
+      conditionSnapshot(record(actor).condition, "party", position, initialLocation)),
+    ...(Array.isArray(record(rawStart.boss).param) ? record(rawStart.boss).param as unknown[] : []).map((enemy, position) =>
+      conditionSnapshot(record(enemy).condition, "enemy", position, initialLocation)),
+  ];
   const turns: RecordedBattleTurn[] = [];
   const seen = new Set<string>();
   const warnings: string[] = [];
@@ -105,6 +152,8 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
   let duplicateResultCount = 0;
   let expectedTurn = battle.turn ?? 1;
   let hpMismatchCount = 0;
+  let resultIndex = 0;
+  let normalActionIndex = 0;
   for (const call of calls.filter((entry) => entry.time >= start.time && /\/rest\/raid\/(normal_attack|ability|summon)_result\.json$/.test(entry.path))) {
     const body = record(call.body);
     // Only identical recorded calls are duplicates. A reused ability can
@@ -119,21 +168,27 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
     const result = turns.at(-1)?.turn === turn ? turns.at(-1)! : {
       turn, damage: 0, enemyHealing: 0,
       damageByKind: { normal: 0, charge: 0, ability: 0, "turn-end": 0 },
-      damageByActor: {}, normalActions: [], packets: [],
+      damageByActor: {}, normalActions: [], packets: [], conditionEvents: [], abilityActivations: [],
     } as RecordedBattleTurn;
     if (turns.at(-1) !== result) turns.push(result);
     let abilityActor: number | undefined;
     let actionName: string | undefined;
     let endingTurn = false;
     let normalAction: RecordedBattleTurn["normalActions"][number] | undefined;
-    for (const command of scenario) {
+    for (const [sequence, command] of scenario.entries()) {
+      const location = { sequence, resultIndex, elapsedMilliseconds: call.time - start.time };
+      if (command.cmd === "condition" && (command.to === "boss" || command.to === "player")) {
+        result.conditionEvents.push(conditionSnapshot(command.condition, command.to === "boss" ? "enemy" : "party",
+          numeric(command.pos) ?? 0, location));
+      }
       if (command.cmd === "turn") { endingTurn = true; abilityActor = undefined; actionName = undefined; }
       if (command.cmd === "ability") {
         abilityActor = numeric(command.pos);
         actionName = typeof command.name === "string" && command.name ? command.name : undefined;
+        result.abilityActivations.push({ ...location, actorPosition: abilityActor, name: actionName });
       }
       if (command.cmd === "normal_attack_start" && command.from === "player") {
-        normalAction = { actorPosition: numeric(command.num) ?? 0, hits: 0 };
+        normalAction = { ...location, actorPosition: numeric(command.num) ?? 0, hits: 0, actionIndex: normalActionIndex++ };
         result.normalActions.push(normalAction);
         abilityActor = undefined; actionName = undefined;
       }
@@ -152,6 +207,8 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
         const amount = numeric(hit.value)!;
         if (amount < 0 || !Number.isSafeInteger(amount)) throw new Error("Damage/healing must be a non-negative safe integer.");
         const packet: RecordedBattlePacket = {
+          sequence, resultIndex, normalActionIndex: isNormal ? normalAction?.actionIndex : undefined,
+          sourceActorPosition: targetSide !== "enemy" || isHeal ? undefined : isNormal || isCharge ? numeric(command.pos) : abilityActor,
           turn, kind, targetSide, targetPosition: numeric(hit.pos) ?? 0, value: amount,
           actorPosition: targetSide !== "enemy" || isHeal || kind === "turn-end" ? undefined
             : isNormal || isCharge ? numeric(command.pos) : abilityActor,
@@ -179,12 +236,13 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
       }
     }
     if (nextTurn !== undefined) expectedTurn = nextTurn;
+    resultIndex += 1;
   }
   if (hpMismatchCount) warnings.push(`${hpMismatchCount} packets do not reconcile with the recorded enemy HP; inspect before using as reference.`);
   return {
     schemaVersion: 1 as const, kind: "recorded-battle-observation" as const,
     deckConfig, displayedDamageInfo, battle, actors, turns, protagonistLimitBonusesImported: limitBonusCall !== undefined,
-    jobNormalAttackDamagePercent,
+    jobNormalAttackDamagePercent, initialConditions,
     summary: {
       turnCount: turns.length, totalDamage: turns.reduce((sum, turn) => sum + turn.damage, 0),
       normalActionCount: turns.reduce((sum, turn) => sum + turn.normalActions.length, 0),

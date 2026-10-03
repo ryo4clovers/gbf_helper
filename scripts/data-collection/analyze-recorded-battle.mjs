@@ -3,7 +3,8 @@ import { parseRecordedBattleExports } from "../../mcp-server/dist/calculator/rec
 import { resolveCalculatorDeckConfig } from "../../mcp-server/dist/calculator/calculatorDeckResolver.js";
 import { calculateNormalAttackFromRequest } from "../../mcp-server/dist/calculator/normalAttackCalculationRequest.js";
 import { parseAccountBonusResponse } from "../../mcp-server/dist/calculator/accountBonusParser.js";
-import { compareRecordedNormalAttacks } from "../../mcp-server/dist/calculator/recordedNormalAttackComparison.js";
+import { compareRecordedNormalAttacks, compareRecordedNormalAttackStates } from "../../mcp-server/dist/calculator/recordedNormalAttackComparison.js";
+import { reconstructRecordedNormalAttackStates } from "../../mcp-server/dist/calculator/recordedNormalAttackState.js";
 
 function argument(name) {
   const index = process.argv.indexOf(name);
@@ -14,6 +15,7 @@ const deckCapture = argument("--deck-capture");
 const battleCapture = argument("--battle-capture");
 const output = argument("--output");
 const accountBonusFile = argument("--account-bonuses");
+const useRecordedState = process.argv.includes("--recorded-state");
 const compareTurnArgument = argument("--compare-turn");
 const compareTurn = compareTurnArgument === undefined ? undefined : Number(compareTurnArgument);
 if (compareTurn !== undefined && (!Number.isInteger(compareTurn) || compareTurn < 1)) throw new Error("--compare-turn must be a positive integer.");
@@ -23,7 +25,7 @@ if (mythicalLancerLevel !== undefined && (!Number.isInteger(mythicalLancerLevel)
 const crew = { shipAttackPercent: Number(argument("--ship") ?? 0), furnaceAttackPercent: Number(argument("--furnace") ?? 0) };
 if (Object.values(crew).some((value) => !Number.isFinite(value) || value < 0 || value > 100)) throw new Error("--ship and --furnace must be in 0..100.");
 if (!battleCapture || !output) {
-  console.error("usage: node scripts/data-collection/analyze-recorded-battle.mjs --battle-capture <export.json> [--deck-capture <export.json>] --output <local-report.json> [--defense <value>] [--ship <percent>] [--furnace <percent>] [--account-bonuses <local.json>] [--mythical-lancer-level <0..5>] [--compare-turn <turn>]");
+  console.error("usage: node scripts/data-collection/analyze-recorded-battle.mjs --battle-capture <export.json> [--deck-capture <export.json>] --output <local-report.json> [--defense <value>] [--ship <percent>] [--furnace <percent>] [--account-bonuses <local.json>] [--mythical-lancer-level <0..5>] [--compare-turn <turn>] [--recorded-state]");
   process.exit(1);
 }
 const inputs = await Promise.all([deckCapture, battleCapture].filter(Boolean).map(async (file) =>
@@ -57,22 +59,27 @@ const skillCoverage = resolution?.deck.weapons.flatMap((weapon) => weapon.skills
 })));
 let calculation;
 let calculationError;
+let calculationRequest;
 if (observation.deckConfig && defense !== undefined) {
   const enemy = observation.battle.enemies[0];
   if (!enemy?.elementCode) throw new Error("The recording has no enemy element.");
   try {
-    calculation = calculateNormalAttackFromRequest({
+    calculationRequest = {
       schemaVersion: 1, deckConfig: observation.deckConfig, supportSummon,
       mythicalLancerLevel,
       enemy: { elementCode: enemy.elementCode, defense, attack: 0, maxHp: enemy.maxHp },
       modifiers: { ...crew, ...accountModifiers },
-    });
+    };
+    calculation = calculateNormalAttackFromRequest(calculationRequest);
   } catch (error) {
     calculationError = error instanceof Error ? error.message : "Calculation failed.";
   }
 }
 if (compareTurn !== undefined && !observation.turns.some((turn) => turn.turn === compareTurn)) throw new Error("--compare-turn is absent from the recording.");
-const normalAttackComparison = calculation && ownElement ? compareRecordedNormalAttacks(calculation.result,
+const recordedStates = calculation && useRecordedState ? reconstructRecordedNormalAttackStates(observation,
+  calculation.result.protagonistNormalAttackSupport.initialMythicalLancerLevel).filter((state) => compareTurn === undefined || state.turn === compareTurn) : undefined;
+const normalAttackComparison = recordedStates ? compareRecordedNormalAttackStates(calculationRequest, observation, recordedStates)
+  : calculation && ownElement ? compareRecordedNormalAttacks(calculation.result,
   observation.turns.filter((turn) => compareTurn === undefined || turn.turn === compareTurn).flatMap((turn) => turn.packets), ownElement) : undefined;
 const report = {
   ...observation,
@@ -84,12 +91,15 @@ const report = {
   calculationAssumptions: {
     enemyDefense: defense, defenseSource: defense === undefined ? "未入力" : "CLI入力値（実機レスポンスからは取得できない）",
     crewModifiers: crew,
-    mythicalLancerLevel, mythicalLancerLevelSource: mythicalLancerLevel === undefined ? "開始時の装備から算出" : "CLIで指定した戦闘状態",
+    mythicalLancerLevel, mythicalLancerLevelSource: mythicalLancerLevel !== undefined ? "CLIで指定した戦闘状態"
+      : useRecordedState ? "各攻撃前の記録状態（欠落時は暫定hitカウンタ）" : "開始時の装備から算出",
     limitBonusesImported: observation.protagonistLimitBonusesImported,
     accountBonusesImported: accountBonuses !== undefined,
     accountModifiers,
     compareTurn,
-    note: "記録されたLBと入力された船炉を使用。戦闘中のバフ・デバフは自動投入していない。",
+    useRecordedState,
+    note: useRecordedState ? "記録された攻撃前の槍手Lv・HP、既知アビリティによる敵弱体を適用する条件付き照合。"
+      : "記録されたLBと入力された船炉を使用。戦闘中のバフ・デバフは自動投入していない。",
   },
   calculation, calculationError, normalAttackComparison,
 };

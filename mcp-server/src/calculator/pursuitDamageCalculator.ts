@@ -13,13 +13,19 @@ export interface PursuitDamageStages {
   randomTargetHitCount: number;
   supplementalDamagePerHit: number;
   criticalDamageBonusPercent: number;
+  /** Provisional Flurry echo model: round the amplified body before applying the echo %. */
+  beforePursuitRounding?: "ceil";
 }
 
 /** Damage is attenuated before Flurry splitting and per-hit supplemental damage. */
 export function applyNormalAttackHitStages(damage: number, percentage: number, stages: PursuitDamageStages): number {
-  return calculateDamageAttenuation(damage * (1 + stages.criticalDamageBonusPercent / 100), stages.profile,
-    { damageCapUpPercent: stages.damageCapUpPercent }).damage / stages.randomTargetHitCount
-    * percentage / 100 * (1 + stages.postAttenuationPercent / 100) + stages.supplementalDamagePerHit;
+  const split = calculateDamageAttenuation(damage * (1 + stages.criticalDamageBonusPercent / 100), stages.profile,
+    { damageCapUpPercent: stages.damageCapUpPercent }).damage / stages.randomTargetHitCount;
+  if (stages.beforePursuitRounding === "ceil") {
+    const amplified = split * (1 + stages.postAttenuationPercent / 100);
+    return Math.ceil(Number(amplified.toFixed(12))) * percentage / 100 + stages.supplementalDamagePerHit;
+  }
+  return split * percentage / 100 * (1 + stages.postAttenuationPercent / 100) + stages.supplementalDamagePerHit;
 }
 
 export interface EffectivePursuitDamageOptions extends RandomMultiplierInferenceOptions {

@@ -1,4 +1,5 @@
 import type { DeckSnapshot, WeaponSkillEffectKind } from "./types.js";
+import { resolveBattleDamageEffects, type BattleDamageEffects } from "./battleDamageEffects.js";
 
 /** Keep normal-only effects out of ability/charge calculations. Numeric caps are provisional. */
 export function calculateNormalAttackSkillFrames(deck: DeckSnapshot) {
@@ -26,7 +27,10 @@ export function calculateNormalAttackSkillFrames(deck: DeckSnapshot) {
   };
 }
 
-export function effectiveEnemyDefense(deck: DeckSnapshot, defense: number) {
+export function effectiveEnemyDefense(deck: DeckSnapshot, defense: number, effects?: BattleDamageEffects) {
   const frame = calculateNormalAttackSkillFrames(deck).defenseIgnore;
-  return { originalDefense: defense, effectiveDefense: defense * (1 - frame.effectivePercent / 100), ...frame };
+  const debuffs = resolveBattleDamageEffects(effects);
+  const defenseAfterDebuffs = defense * (1 - debuffs.totalDefenseDownPercent / 100);
+  return { originalDefense: defense, defenseAfterDebuffs, defenseDownPercent: debuffs.totalDefenseDownPercent,
+    effectiveDefense: defenseAfterDebuffs * (1 - frame.effectivePercent / 100), ...frame };
 }

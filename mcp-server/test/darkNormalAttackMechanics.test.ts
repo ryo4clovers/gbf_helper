@@ -8,6 +8,7 @@ import { compareRecordedNormalAttacks } from "../src/calculator/recordedNormalAt
 import { convertDeckResponseToCalculatorDeckConfig } from "../src/calculator/calculatorDeckConfig.ts";
 import { calculateNormalAttackPower } from "../src/calculator/normalAttackPowerCalculator.ts";
 import { PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES } from "../src/calculator/damageAttenuationCalculator.ts";
+import { resolveBattleDamageEffects } from "../src/calculator/battleDamageEffects.ts";
 import type { CalculatorDeckConfig, DeckWeapon, SummonAuraEffectDefinition } from "../src/calculator/types.ts";
 
 function config(): CalculatorDeckConfig {
@@ -149,4 +150,35 @@ test("comparison reports exact candidates and unsupported components without fit
   assert.deepEqual(comparison.observations[0].exactCandidateMultipliers,[0.95]);
   assert.equal(comparison.observations[1].component,"unsupported");
   assert.equal(comparison.observations[1].nearestPredictedDamage,undefined);
+});
+
+test("caps ordinary DEF DOWN before adding beyond-cap DOWN and applies weapon defense ignore multiplicatively", () => {
+  const result = calculate(config(), {}, { battleEffects: {
+    enemyDefenseDownPercent: 70, enemyDefenseDownBeyondCapPercent: 10,
+    enemySupplementalDamage: 18_000, supportSkillSupplementalDamage: 30_000,
+  } });
+  assert.equal(result.baseDamage.defenseIgnore?.defenseAfterDebuffs, 4);
+  assert.equal(result.baseDamage.defenseIgnore?.effectiveDefense, 4 * (1 - 0.156));
+  // Lancer and Sariel share Support Skill B: 30k remains 30k, plus Cidala's independent 18k.
+  assert.equal(result.bodyDamageAttenuation.supplementalDamagePerHit, 318_000);
+  assert.equal(resolveBattleDamageEffects({ supportSkillSupplementalDamage: 40_000 }, 30_000).supportSkillSupplementalDamage, 40_000);
+  assert.equal(resolveBattleDamageEffects({ supportSkillSupplementalDamage: 30_000 }, 0).supportSkillSupplementalDamage, 30_000);
+  assert.throws(() => calculate(config(), {}, { battleEffects: { enemyDefenseDownPercent: 50, enemyDefenseDownBeyondCapPercent: 50 } }), /below 100/);
+  assert.throws(() => calculate(config(), {}, { battleEffects: { enemySupplementalDamage: -1 } }));
+  assert.throws(() => calculate(config(), {}, { battleEffects: { unknown: 1 } }));
+});
+
+test("rounds the amplified split before pursuit scaling only in the explicit Flurry rounding model", () => {
+  const stages = { profile: PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES.normalAttack, damageCapUpPercent: 0,
+    postAttenuationPercent: 50, randomTargetHitCount: 2, supplementalDamagePerHit: 100, criticalDamageBonusPercent: 0 };
+  // 101 / 2 * 1.5 = 75.75; ceil to 76, then 20% pursuit and independent flat 100.
+  assert.equal(applyNormalAttackHitStages(101, 20, { ...stages, beforePursuitRounding: "ceil" }), 115.2);
+  assert.equal(applyNormalAttackHitStages(101, 20, stages), 115.15);
+  const result = calculate();
+  assert.equal(result.bodyDamageDistribution.nominalPreparation, "ceil");
+  assert.equal(result.guaranteedCriticalBodyDamageDistribution?.nominalPreparation, "ceil");
+  assert.equal(result.pursuitDamage?.stages?.beforePursuitRounding, "ceil");
+  assert.equal(result.destructionPursuitDamage?.stages?.beforePursuitRounding, undefined);
+  const ordinary = config(); ordinary.protagonist.jobId = "100401";
+  assert.equal(calculate(ordinary).bodyDamageDistribution.nominalPreparation, "none");
 });

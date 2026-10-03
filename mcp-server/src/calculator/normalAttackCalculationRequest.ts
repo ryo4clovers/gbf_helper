@@ -14,15 +14,21 @@ import type {
 
 const optionalPercent = z.number().finite().min(0).max(1000).optional();
 
-const requestSchema = z
+export const normalAttackCalculationRequestSchema = z
   .object({
     schemaVersion: z.literal(1),
     calculationModel: z
       .enum(["article-2026-07", "defense-first-provisional", "article-2026-07-experimental"])
       .optional(),
-    deckConfig: z.unknown(),
+    deckConfig: z.record(z.unknown()).describe("CalculatorDeckConfig v1"),
     protagonistCurrentHpPercent: z.number().finite().min(1).max(100).default(100),
-    mythicalLancerLevel: z.number().int().min(0).max(5).optional(),
+    mythicalLancerLevel: z.number().int().min(0).max(5).optional().describe("攻撃時点の神伝の槍手Lv。省略時は開始時の槍/斧本数"),
+    battleEffects: z.object({
+      enemyDefenseDownPercent: z.number().finite().min(0).max(100).optional(),
+      enemyDefenseDownBeyondCapPercent: z.number().finite().min(0).max(99).optional(),
+      enemySupplementalDamage: z.number().finite().min(0).max(1_000_000).optional(),
+      supportSkillSupplementalDamage: z.number().finite().min(0).max(1_000_000).optional(),
+    }).strict().optional().describe("攻撃時点で有効な敵弱体・与ダメージ加算。一般防御DOWNは50%上限、サポアビ与ダメージは主人公と最大値を採用する下書きモデル"),
     supportSummon: z
       .object({
         summonId: z.string().min(1),
@@ -74,7 +80,7 @@ const requestSchema = z
   })
   .strict();
 
-export type NormalAttackCalculationRequest = z.infer<typeof requestSchema>;
+export type NormalAttackCalculationRequest = z.input<typeof normalAttackCalculationRequestSchema>;
 
 export interface NormalAttackCalculationResponse {
   schemaVersion: 1;
@@ -117,7 +123,7 @@ function modifier(
 
 /** Shared, side-effect-free facade used by the local Web UI and the MCP tool. */
 export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCalculationResponse {
-  const request = requestSchema.parse(input);
+  const request = normalAttackCalculationRequestSchema.parse(input);
   const battle: BattleSnapshot = {
     schemaVersion: 1,
     enemies: [
@@ -222,6 +228,7 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
     targetEnemySlot: 1,
     protagonistCurrentHpPercent: request.protagonistCurrentHpPercent,
     mythicalLancerLevel: request.mythicalLancerLevel,
+    battleEffects: request.battleEffects,
     accountBonuses,
     crewModifiers: {
       shipAttackPercent: request.modifiers.shipAttackPercent,
@@ -263,6 +270,6 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
   };
 }
 
-export function parseNormalAttackCalculationRequest(input: unknown): NormalAttackCalculationRequest {
-  return requestSchema.parse(input);
+export function parseNormalAttackCalculationRequest(input: unknown) {
+  return normalAttackCalculationRequestSchema.parse(input);
 }

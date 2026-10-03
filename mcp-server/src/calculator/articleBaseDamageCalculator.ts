@@ -218,7 +218,7 @@ export function calculateArticleBaseDamage(
   const magnaStaminaRaw = staminaRaw * (hpDependentAttack?.magnaStaminaMultiplier ?? 1);
   const enmityRaw = magnaStaminaRaw * (hpDependentAttack?.normalEnmityMultiplier ?? 1);
   const elementalRaw = enmityRaw * (1 + elementalPercent / 100);
-  const defense = effectiveEnemyDefense(input.deck, target.defense);
+  const defense = effectiveEnemyDefense(input.deck, target.defense, input.battleEffects);
   const prePostCapDamage = elementalRaw / defense.effectiveDefense;
 
   const postCapContributions = [

@@ -77,7 +77,19 @@ node scripts/data-collection/analyze-recorded-battle.mjs --deck-capture <編成e
 node scripts/data-collection/analyze-recorded-battle.mjs --deck-capture <編成export.json> --battle-capture <戦闘export.json> --output <ローカルreport.json> --defense 10 --ship 10 --furnace 10 --account-bonuses <ローカル大事なもの.json> --mythical-lancer-level 5 --compare-turn 29
 ```
 
-`--mythical-lancer-level`はその時点の神伝の槍手Lvの明示入力です。省略時は開始時の槍/斧本数から算出します。戦闘中のLvやデバフを自動推定する機能ではありません。`normalAttackComparison`は本体・自属性追撃・破壊追撃ごとに、予測範囲、乱数候補との完全一致数、最寄り候補との差を記録します。未知の追撃は未対応のまま保持します。一致しても数値や丸め順を検証済みに変更しません。
+`--mythical-lancer-level`はその時点の神伝の槍手Lvの明示入力です。通常モードの省略時は開始時の槍/斧本数から算出します。`normalAttackComparison`は本体・自属性追撃・破壊追撃ごとに、予測範囲、乱数候補との完全一致数、最寄り候補との差を記録します。未知の追撃は未対応のまま保持します。一致しても数値や丸め順を検証済みに変更しません。
+
+序盤を含め、記録された各通常攻撃の直前状態で照合する例:
+
+```powershell
+node scripts/data-collection/analyze-recorded-battle.mjs --deck-capture <編成export.json> --battle-capture <戦闘export.json> --output <ローカルreport.json> --defense 10 --ship 10 --furnace 10 --account-bonuses <ローカル大事なもの.json> --recorded-state
+```
+
+- `--recorded-state`は主人公の通常攻撃ごとに、直前の神伝の槍手Lv・HPと、既知アビリティの発動/状態更新から累積した敵弱体を使います。`--compare-turn`を併用すると1ターンだけ照合できます。明示した`--mythical-lancer-level`は記録Lvより優先します。
+- 現在の敵弱体モデルは闇シンダラの累積防御DOWN・被ダメージ上昇（最終適用から180秒）と、サリエルの刑死（記録の終了ターンを優先）です。状態アイコンの末尾数字から効果量を推定しません。累積回数は既知アビリティ後に対象状態が表示された場合に数える暫定モデルで、既存の状態が残る状況での失敗/耐性判定や未知キャラの効果には対応していません。
+- 神伝の槍手Lvは記録を優先し、別途40hitカウンタの暫定モデルと比較します。通常本体・追撃・アビリティの正のダメージパケットは各1、複数hit奥義は1コマンドで1と数えます。欠落・不整合は警告します。反応中のLv変化を含む行動列の自動生成は未対応です。
+- `normalAttackComparison.states`に攻撃ごとの条件と計算結果が入ります。トップレベルの`calculation`は開始条件の比較用計算です。1〜4ターンの奥義、他キャラの単発、パーティ全体の予測は別途実装が必要です。
+- HTTP/MCPの単発計算にも任意の`mythicalLancerLevel`と`battleEffects`を渡せます。後者は`enemyDefenseDownPercent`、`enemyDefenseDownBeyondCapPercent`、`enemySupplementalDamage`、`supportSkillSupplementalDamage`です。一般防御DOWNは50%上限、下限超過分を加算後に武器の防御無視を乗算します。サポアビ与ダメージはSupport Skill Bの最大値を使います。これらの数値・枠・丸めは下書きです。
 
 - 戦闘開始は1件ずつ解析します。API通信は行わず、URLは記録の種類判定だけに使います。
 - ダメージの数値キーオブジェクト（疎な配列）、複数回行動、通常攻撃・追撃・奥義・自動アビリティ・ターン終了時ダメージ、敵回復を保持します。表示用の合計や桁配列は二重計上しません。

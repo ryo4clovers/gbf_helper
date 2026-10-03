@@ -339,7 +339,7 @@ export function calculateDefenseAdjustedBaseDamage(
     },
   ];
   const stages: AppliedDamageStage[] = [];
-  const defense = effectiveEnemyDefense(input.deck, target.defense);
+  const defense = effectiveEnemyDefense(input.deck, target.defense, input.battleEffects);
   const defenseAdjustedBaseAttack = Math.ceil(attackPower.baseAttack / defense.effectiveDefense);
   let stagedDamage = defenseAdjustedBaseAttack;
   for (const definition of stageDefinitions) {

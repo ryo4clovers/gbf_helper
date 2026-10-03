@@ -74,7 +74,8 @@ function bodyDamageForMultiplier(result, multiplier, criticalDamageBonusPercent,
   attenuation = result.bodyDamageAttenuation,
 } = {}) {
   const inputDamage = (
-    rawBaseDamage ?? result.baseDamage.articleTrace?.prePostCapDamage
+    rawBaseDamage ?? (result.guaranteedCriticalBodyDamageDistribution ?? result.bodyDamageDistribution).preparedNominalDamage
+    ?? result.baseDamage.articleTrace?.prePostCapDamage
     ?? result.baseDamage.unroundedDamageBeforeRandomAndCap
   ) * multiplier * (1 + criticalDamageBonusPercent / 100);
   const thresholdMultiplier = 1 + attenuation.damageCapUpPercent / 100;
@@ -91,7 +92,10 @@ function bodyDamageForMultiplier(result, multiplier, criticalDamageBonusPercent,
     inputStart = inputEnd;
   }
   const supplementalDamage = attenuation.supplementalDamagePerHit ?? result.otherWeaponSkills?.supplementalDamage?.effectiveAmount ?? 0;
-  const finalDamage = attenuatedDamage / (attenuation.randomTargetHitCount ?? 1) * pursuitPercent / 100 * (1 + attenuation.postAttenuationPercent / 100)
+  const split = attenuatedDamage / (attenuation.randomTargetHitCount ?? 1);
+  const finalDamage = (attenuation.beforePursuitRounding === "ceil"
+    ? Math.ceil(Number((split * (1 + attenuation.postAttenuationPercent / 100)).toFixed(12))) * pursuitPercent / 100
+    : split * pursuitPercent / 100 * (1 + attenuation.postAttenuationPercent / 100))
     + supplementalDamage;
   return finalRounding === "ceil"
     ? Math.ceil(finalDamage)
@@ -132,6 +136,7 @@ function damagePacketsForHit(result, request, mode, note) {
       damage: result.pursuitDamage.stages
         ? bodyDamageForMultiplier(result, pursuitMultiplier, criticalDamageBonusPercent, {
           pursuitPercent: result.pursuitDamage.effectivePursuitPercentage, finalRounding: "floor",
+          rawBaseDamage: result.pursuitDamage.damageDistribution.preparedNominalDamage, attenuation: result.pursuitDamage.stages,
         })
         : Math.floor(result.pursuitDamage.nominalPursuitDamage * pursuitMultiplier),
       note: `追撃 ${numberFormat.format(result.pursuitDamage.effectivePursuitPercentage)}%・独立乱数 ${pursuitMultiplier.toFixed(3)}`,

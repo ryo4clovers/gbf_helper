@@ -37,6 +37,9 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
       "deckConfig",
       "enemy",
     ]);
+    assert.ok(calculator.inputSchema.properties?.battleEffects);
+    assert.ok(calculator.inputSchema.properties?.mythicalLancerLevel);
+    assert.ok(calculator.inputSchema.properties?.supportSummon);
 
     const request = JSON.parse(
       readFileSync(new URL("../examples/normal-attack-request.v1.json", import.meta.url), "utf8"),
@@ -52,6 +55,20 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     };
     assert.equal(response.result?.totalDamageDistribution?.minimumDamage, 3972);
     assert.equal(response.result?.totalDamageDistribution?.maximumDamage, 4390);
+
+    // MCP and HTTP use the same schema; newly added attack-state fields must survive validation.
+    const withState = await client.callTool({ name: "calculate_normal_attack_damage", arguments: {
+      ...request, mythicalLancerLevel: 3, battleEffects: { enemyDefenseDownPercent: 40, enemySupplementalDamage: 18_000 },
+    } });
+    assert.notEqual(withState.isError, true);
+    const stateText = withState.content.find(item => item.type === "text");
+    const stateResponse = JSON.parse(stateText?.type === "text" ? stateText.text : "{}");
+    assert.equal(stateResponse.result.battleDamageEffects.totalDefenseDownPercent, 40);
+    assert.equal(stateResponse.result.battleDamageEffects.enemySupplementalDamage, 18_000);
+    const invalidState = await client.callTool({ name: "calculate_normal_attack_damage", arguments: {
+      ...request, battleEffects: { enemySupplementalDamage: -1 },
+    } });
+    assert.equal(invalidState.isError, true);
 
     const catalogResult = await client.callTool({ name: "list_calculator_weapons", arguments: {} });
     const catalogText = catalogResult.content.find((item) => item.type === "text");

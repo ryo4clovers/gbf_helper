@@ -1,6 +1,5 @@
-import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { calculateNormalAttackFromRequest } from "../calculator/normalAttackCalculationRequest.js";
+import { calculateNormalAttackFromRequest, normalAttackCalculationRequestSchema } from "../calculator/normalAttackCalculationRequest.js";
 import { createSelectableJobCatalog } from "../calculator/jobCatalogView.js";
 import { createJobFallbackWeaponCatalogView } from "../calculator/jobFallbackWeaponCatalog.js";
 import { createSelectableWeaponCatalog } from "../calculator/weaponCatalogView.js";
@@ -95,50 +94,8 @@ export function registerCalculatorTools(server: McpServer): void {
     {
       title: "通常攻撃ダメージ計算",
       description:
-        "CalculatorDeckConfig v1、敵属性・防御値、船炉や大事なもの等の倍率から、通常攻撃本体・追撃・合計の101乱数パターンにおける最小、最大、期待値を計算する。結果は暫定式で、上限処理は未実装。",
-      inputSchema: {
-        schemaVersion: z.literal(1).describe("計算リクエスト形式。現在は1のみ"),
-        calculationModel: z
-          .enum(["article-2026-07", "defense-first-provisional", "article-2026-07-experimental"])
-          .optional()
-          .describe("省略時は記事モデル。防御先行モデルと旧実験名も比較・互換用に指定可能"),
-        deckConfig: z.record(z.unknown()).describe("CalculatorDeckConfig v1"),
-        enemy: z
-          .object({
-            id: z.string().min(1).max(100).optional(),
-            name: z.string().min(1).max(100).optional(),
-            elementCode: z.enum(["1", "2", "3", "4", "5", "6"]),
-            defense: z.number().finite().positive().max(10000),
-            attack: z.number().finite().nonnegative().max(1_000_000_000).default(10_000),
-          })
-          .strict(),
-        modifiers: z
-          .object({
-            allElementAttackPercent: z.number().finite().min(0).max(1000).optional(),
-            elementAttackPercent: z.number().finite().min(0).max(1000).optional(),
-            shipAttackPercent: z.number().finite().min(0).max(1000).optional(),
-            furnaceAttackPercent: z.number().finite().min(0).max(1000).optional(),
-            jobNormalAttackDamagePercent: z.number().finite().min(0).max(1000).optional(),
-            damageDealtPercent: z.number().finite().min(0).max(1000).optional(),
-            targetElementDamagePercent: z.number().finite().min(0).max(1000).optional(),
-            abilityDamagePercent: z.number().finite().min(0).max(1000).optional(),
-            abilityDamageLimitBonusPercent: z.number().finite().min(0).max(1000).optional(),
-            abilityDamageCapPercent: z.number().finite().min(0).max(1000).optional(),
-            abilityDamageCapLimitBonusPercent: z.number().finite().min(0).max(1000).optional(),
-            protagonistDefensePercent: z.number().finite().min(0).max(1000).optional(),
-            incomingElementalDamageReductionPercents: z.array(z.number().finite().min(0).max(100)).max(20).optional(),
-          })
-          .strict()
-          .default({}),
-        random: z
-          .object({
-            minimum: z.number().finite().positive().optional(),
-            maximum: z.number().finite().positive().optional(),
-            step: z.number().finite().positive().optional(),
-          })
-          .strict()
-          .optional(),
-      },
+        "CalculatorDeckConfig v1、敵属性・防御値、船炉・大事なものと攻撃時点のジョブLv・敵弱体から、通常攻撃本体・自属性追撃・破壊属性追撃の乱数候補における最小、最大、期待値を計算する。上限・分割・与ダメージを含む下書きモデル。効果の発動や期限は自動進行しない。",
+      inputSchema: normalAttackCalculationRequestSchema.shape,
       annotations: READ_ONLY_ANNOTATIONS,
     },
     async (request) => {

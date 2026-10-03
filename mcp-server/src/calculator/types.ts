@@ -1,3 +1,5 @@
+import type { BattleDamageEffects } from "./battleDamageEffects.js";
+
 /**
  * Summon placement in a deck.
  * `grid` is a normal sub-summon slot whose stats count; `sub` is the
@@ -721,6 +723,8 @@ export interface ResolvedSupportSummon {
 }
 
 export interface DamageCalculationInput {
+  /** Effects active at this attack; the calculator does not advance their duration. */
+  battleEffects?: BattleDamageEffects;
   schemaVersion: 1;
   deck: DeckSnapshot;
   battle: BattleSnapshot;

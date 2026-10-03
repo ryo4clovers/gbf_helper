@@ -2,6 +2,9 @@ import { applyNormalAttackHitStages } from "./pursuitDamageCalculator.js";
 import { enumerateRandomMultipliers } from "./randomMultiplierInference.js";
 import type { NormalAttackDamageResult } from "./normalAttackDamageCalculator.js";
 import type { RecordedBattlePacket } from "./recordedBattleParser.js";
+import type { parseRecordedBattleExports } from "./recordedBattleParser.js";
+import type { RecordedNormalAttackState } from "./recordedNormalAttackState.js";
+import { calculateNormalAttackFromRequest, type NormalAttackCalculationRequest } from "./normalAttackCalculationRequest.js";
 
 /** Compare known components at the caller's specified battle state; never fit modifiers to observations. */
 export function compareRecordedNormalAttacks(
@@ -44,14 +47,53 @@ export function compareRecordedNormalAttacks(
   return {
     schemaVersion: 1, status: "provisional", criticalModel: "guaranteed-job-support-only",
     observations,
-    components: [...new Set(observations.map((observation) => observation.component))].map((component) => {
-      const rows = observations.filter((observation) => observation.component === component);
-      const differences = rows.flatMap((observation) => observation.differenceToNearest === undefined ? [] : [Math.abs(observation.differenceToNearest)]);
-      return { component, hitCount: rows.length, exactMatchCount: rows.filter((row) => row.exactCandidateMultipliers.length > 0).length,
-        withinRangeCount: rows.filter((row) => row.withinPredictedRange).length,
-        maximumAbsoluteDifference: differences.length === 0 ? undefined : Math.max(...differences) };
-    }),
+    components: summarizeRecordedComparisonComponents(observations),
     notes: ["乱数候補との一致は計算式全体の検証完了を意味しない。指定した戦闘状態と防御値への条件付き照合。",
       "武器技巧・ランダムLBクリティカル・戦闘中のバフ/デバフは自動推定しない。"],
+  };
+}
+
+export function summarizeRecordedComparisonComponents(observations: Array<{
+  component: string; differenceToNearest?: number; exactCandidateMultipliers: number[]; withinPredictedRange?: boolean;
+}>) {
+  return [...new Set(observations.map((observation) => observation.component))].map((component) => {
+    const rows = observations.filter((observation) => observation.component === component);
+    const differences = rows.flatMap((observation) => observation.differenceToNearest === undefined ? [] : [Math.abs(observation.differenceToNearest)]);
+    return { component, hitCount: rows.length, exactMatchCount: rows.filter((row) => row.exactCandidateMultipliers.length > 0).length,
+      withinRangeCount: rows.filter((row) => row.withinPredictedRange).length,
+      maximumAbsoluteDifference: differences.length === 0 ? undefined : Math.max(...differences) };
+  });
+}
+
+/** State-based calculations use recorded actions/conditions, never the observed damage as a prediction. */
+export function compareRecordedNormalAttackStates(request: NormalAttackCalculationRequest,
+  observation: ReturnType<typeof parseRecordedBattleExports>, states: RecordedNormalAttackState[]) {
+  const cache = new Map<string, NormalAttackDamageResult>();
+  const comparisons = states.map((state) => {
+    const currentLevel = request.mythicalLancerLevel ?? state.mythicalLancerLevel;
+    const currentHpPercent = state.protagonistCurrentHpPercent ?? request.protagonistCurrentHpPercent;
+    const key = JSON.stringify([currentLevel, currentHpPercent, state.battleEffects]);
+    let result = cache.get(key);
+    if (!result) {
+      result = calculateNormalAttackFromRequest({ ...request, mythicalLancerLevel: currentLevel,
+        protagonistCurrentHpPercent: currentHpPercent, battleEffects: state.battleEffects }).result;
+      cache.set(key, result);
+    }
+    const packets = observation.turns.find((turn) => turn.turn === state.turn)?.packets.filter(
+      (packet) => packet.normalActionIndex === state.actionIndex) ?? [];
+    const comparison = compareRecordedNormalAttacks(result, packets, observation.deckConfig?.protagonist.elementCode ?? "");
+    const body = result.guaranteedCriticalBodyDamageDistribution ?? result.bodyDamageDistribution;
+    return { state, appliedMythicalLancerLevel: currentLevel,
+      effectiveEnemyDefense: result.baseDamage.defenseIgnore?.effectiveDefense,
+      supplementalDamagePerHit: result.bodyDamageAttenuation.supplementalDamagePerHit,
+      predictions: { body: { minimum: body.minimumDamage, maximum: body.maximumDamage },
+        elementalPursuit: result.pursuitDamage?.damageDistribution,
+        destructionPursuit: result.destructionPursuitDamage?.damageDistribution }, comparison };
+  });
+  const observations = comparisons.flatMap((entry) => entry.comparison.observations);
+  return { schemaVersion: 1, status: "provisional", criticalModel: "guaranteed-job-support-only",
+    observations, components: summarizeRecordedComparisonComponents(observations), states: comparisons,
+    notes: ["記録済みの行動・状態を使う条件付き単発照合。キャラクターの行動を予測する戦闘シミュレーションではない。",
+      "アイコンだけから累積値を推定せず、既知アビリティの発動と状態更新から数える。数値・枠・40hitカウンタの数え方は下書き。"],
   };
 }
