@@ -1,5 +1,6 @@
 import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttackSupport.js";
 import type { CharacterLimitBonuses, DamageCalculationInput } from "./types.js";
+import { normalStaminaLimitBonusPercent, resolveCharacterMastery } from "./characterMastery.js";
 
 const SOURCES: Record<string, string> = {
   "3040512000": "https://gbf.wiki/Cidala_(Valentine)",
@@ -113,9 +114,9 @@ export function resolveNormalAttackSupport(input: DamageCalculationInput) {
 }
 
 export function characterStaminaPercent(input: DamageCalculationInput): number {
-  const level = selectedCharacter(input)?.limitBonuses?.staminaLevel ?? 0;
-  if (level === 0) return 0;
-  // Wiki's linear character stamina curve is separate from boosted weapon stamina.
-  const minimum = [0, 1, 1.5, 2][level];
-  return minimum + ([0, 3, 4, 6][level] - minimum) * (input.protagonistCurrentHpPercent ?? 100) / 100;
+  const character = selectedCharacter(input);
+  const hpPercent = input.protagonistCurrentHpPercent ?? 100;
+  // Ordinary LB and ring/earring stamina share one frame, separate from weapon stamina.
+  return normalStaminaLimitBonusPercent(character?.limitBonuses?.staminaLevel ?? 0, hpPercent)
+    + resolveCharacterMastery(character, hpPercent).staminaPercent;
 }

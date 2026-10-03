@@ -165,8 +165,16 @@ const summonSchema = z
   })
   .strict();
 
+const masteryBonusSchema = z.object({
+  bonusId: z.string().regex(/^\d{1,16}$/),
+  name: z.string().min(1).max(200),
+  value: z.number().finite().min(0).max(1_000_000),
+  unit: z.enum(["flat", "percent", "rating"]),
+}).strict();
+
 const characterSchema = z
   .object({
+    mastery: z.object({ ring: z.array(masteryBonusSchema).max(4), earring: z.array(masteryBonusSchema).max(1) }).strict().optional(),
     artifact: z.object({ skills: z.array(z.object({
       skillId: z.string().regex(/^\d+$/).max(16), name: z.string().min(1).max(200),
       effectValue: z.string().max(100),
@@ -193,7 +201,7 @@ const characterSchema = z
 
 /** Local supplementation for recordings missing character enhancement/LB responses. Never overrides displayed stats. */
 export function parseCharacterDamageSettings(value: unknown) {
-  return z.array(characterSchema.pick({ characterId: true, limitBonuses: true, awakening: true, perpetuityRing: true, artifact: true }))
+  return z.array(characterSchema.pick({ characterId: true, limitBonuses: true, awakening: true, perpetuityRing: true, artifact: true, mastery: true }))
     .max(5).refine((rows) => new Set(rows.map((row) => row.characterId)).size === rows.length, "Duplicate character settings")
     .parse(value);
 }
@@ -336,6 +344,7 @@ export function convertDeckResponseToCalculatorDeckConfig(input: unknown): Calcu
       elementCode: character.elementCode,
       limitBonuses: character.limitBonuses,
       artifact: character.artifact,
+      mastery: character.mastery,
       slot: character.slot,
       position: character.position,
       characterId: character.masterId,

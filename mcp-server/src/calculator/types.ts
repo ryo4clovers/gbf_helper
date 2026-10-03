@@ -436,6 +436,7 @@ export interface DeckSummon extends DeckStats {
 }
 
 export interface DeckCharacter extends DeckStats {
+  mastery?: CharacterMasteryBonuses;
   artifact?: CharacterArtifact;
   limitBonuses?: CharacterLimitBonuses;
   awakening?: DeckAwakening;
@@ -655,6 +656,7 @@ export interface CalculatorDeckSummonConfig {
 }
 
 export interface CalculatorDeckCharacterConfig {
+  mastery?: CharacterMasteryBonuses;
   artifact?: CharacterArtifact;
   elementCode?: string;
   limitBonuses?: CharacterLimitBonuses;
@@ -779,6 +781,19 @@ export interface CharacterNormalAttackContext {
 export interface CharacterArtifact {
   /** Only master skill IDs and displayed effects; no owned-item identifiers. */
   skills: Array<{ skillId: string; name: string; effectValue: string }>;
+}
+
+export interface CharacterMasteryBonuses {
+  /** Current applied effects only; pending rolls and item inventory are excluded. */
+  ring: CharacterMasteryBonus[];
+  earring: CharacterMasteryBonus[];
+}
+
+export interface CharacterMasteryBonus {
+  bonusId: string;
+  name: string;
+  value: number;
+  unit: "flat" | "percent" | "rating";
 }
 
 export type BattleActionKind =

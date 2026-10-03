@@ -105,10 +105,12 @@ node scripts/data-collection/analyze-recorded-battle.mjs --deck-capture <編成e
 - 各キャラの`attackOverride`/`hpOverride`は表示総ATK/HPです。通常LBの攻撃力/HP、覚醒の固定ATK/HPを再加算しません。属性攻撃・渾身・クリティカルの割り当ては`characters[].limitBonuses`へ保存します。戦闘開始前の`npczenith/bonus_list/<キャラマスターID>`がある場合だけ取り込みます。指輪・耳飾り・アーティファクト効果をLB一覧から推測しません。
 - `characters[].awakening`は`formCode`と`level`、`perpetuityRing`は久遠の指輪の有無です。編成レスポンスから覚醒タイプと久遠フラグを保持しますが、覚醒Lvはキャラ詳細による補完が必要です。連撃覚醒Lv9の通常増幅5%とLv10の通常上限5%、久遠の別枠攻撃10%と上限5%は二次情報に基づく下書きです。キャラ選択時には主人公のジョブ/LB・HP計算・連撃率・アーマーブレイクを流用しません。
 - 記録に不足する設定は`--character-settings <ローカルJSON>`で補えます。形式は`[{ "characterId": "3040512000", "limitBonuses": { "elementAttackLevels": [3], "staminaLevel": 3, "criticalLevels": [0,0,0] }, "awakening": { "formCode": "4", "level": 10 }, "perpetuityRing": false }]`。これは形式例で、実測者の設定を表すものではありません。キャラIDで照合し、元の表示ATK/HPや装備＋値を上書きしません。
-- `--character-capture <キャラ詳細export.json>`で別途収録したキャラ詳細とLB一覧を明示的に補完できます。マスターIDで照合し、編成にいないキャラは対象外にします。覚醒Lv・久遠フラグ・アーティファクトのマスタースキルID/名称/表示効果量だけを取り込み、所持個体ID・ユーザー情報・詳細画面の基礎ATK/HPは持ち込みません。後日記録を使う場合は測定時も同じ設定だったという入力仮定です。
+- `--character-capture <キャラ詳細export.json>`で別途収録したキャラ詳細・LB一覧・LB画面の現在の指輪/耳飾りを明示的に補完できます。マスターIDで照合し、編成にいないキャラは対象外にします。覚醒Lv・久遠フラグ・アーティファクトと指輪/耳飾りのマスター効果ID/名称/表示効果量だけを取り込み、所持個体ID・ユーザー情報・詳細画面の基礎ATK/HPは持ち込みません。後日記録を使う場合は測定時も同じ設定だったという入力仮定です。
+- 指輪/耳飾りは`npczenith/content/index/<所持個体ID>`のURLエンコード済みHTMLを実行せず、非表示inputの`id-of-npc-master`で公開マスターIDを識別します。`option.npcaugment.param_data`の適用中効果だけを選び、保留中の抽選・選択肢・久遠の定型説明は参照しません。無関係な通信やCSSはJSON解析前に除外し、未知の装備枠はエラーで知らせます。
+- `characters[].mastery`は`{"ring": [], "earring": [{"bonusId":"160002","name":"渾身","value":5,"unit":"rating"}]}`の形式です(合成例)。`unit`は`flat`/`percent`/`rating`を区別します。表示評価値の渾身をそのまま%とせず、HP別の曲線を使い、通常LB渾身・指輪渾身・耳飾り渾身を同枠で加算します。指輪の固定ATK/HPは表示総ステータスへ再加算しません。
 - `characters[].artifact.skills`の形式は`[{"skillId":"30231","name":"HPが100%の時、与ダメージUP","effectValue":"+2.2%"}]`です。自属性攻撃、通常上限、通常与ダメージ上昇、HP満タン時増幅を下書き接続します。開始時ランダム強化は`attacker.artifactStartBuffs: { attackUp: true, damageCapUp: false }`のように抽選結果を明示します。記録照合では初ターンの状態ID1001/1469と既知スキルを対応させ、攻撃50%UP(通常攻刃枠)・上限10%UPを暫定適用します。個数から抽選結果を予測せず、未知スキルは不足項目として保持します。
 - `modifiers.divineStampBookEnabled`は十二神将の御朱印帳の有無です。CLIは大事なものから取り込み、対応キャラのシンダラにだけ別枠攻撃10%を適用します。エレシュキガル奥義後の通常与ダメージ50,000は、記録の奥義後から同一ターンの後続キャラへ適用します。数値・枠は下書きで、一般のバフ共存・解除処理は未対応です。
-- キャラ結果の`attacker.unresolvedInputs`に不足項目を残します。通常の指輪・耳飾りの効果は未接続です。未入力を効果なしと断定せず、実測との差を補正倍率で埋めません。キャラのクリティカル発動記録は現在の照合モデルではエラーにします。`normalAttackSupport`が共通の効果情報で、旧`protagonistNormalAttackSupport`キーは互換性のため保持します。
+- キャラ結果の`attacker.unresolvedInputs`に不足項目を残します。指輪/耳飾りは渾身を接続し、未知の通常攻撃関連効果を未解決として保持します。未入力を効果なしと断定せず、実測との差を補正倍率で埋めません。キャラのクリティカル発動記録は現在の照合モデルではエラーにします。`normalAttackSupport`が共通の効果情報で、旧`protagonistNormalAttackSupport`キーは互換性のため保持します。
 
 - 戦闘開始は1件ずつ解析します。API通信は行わず、URLは記録の種類判定だけに使います。
 - ダメージの数値キーオブジェクト（疎な配列）、複数回行動、通常攻撃・追撃・奥義・自動アビリティ・ターン終了時ダメージ、敵回復を保持します。表示用の合計や桁配列は二重計上しません。

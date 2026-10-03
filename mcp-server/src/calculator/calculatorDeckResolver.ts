@@ -621,6 +621,7 @@ export function resolveCalculatorDeckConfig(
       elementCode: character.elementCode,
       limitBonuses: character.limitBonuses,
       artifact: character.artifact,
+      mastery: character.mastery,
       slot: character.slot,
       position: character.position,
       masterId: character.characterId,

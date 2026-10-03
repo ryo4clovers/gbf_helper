@@ -31,6 +31,7 @@ import {
 import type { DamageCalculationInput } from "./types.js";
 import { calculateNormalAttackSkillFrames } from "./normalAttackSkillFrames.js";
 import { prepareNormalAttackActor, resolveNormalAttackSupport, selectedCharacter, resolveCharacterArtifact } from "./characterNormalAttack.js";
+import { resolveCharacterMastery } from "./characterMastery.js";
 import { resolveSummonDamageEffects } from "./summonDamageEffects.js";
 import { resolveBattleDamageEffects } from "./battleDamageEffects.js";
 import {
@@ -137,6 +138,7 @@ export interface NormalAttackDamageResult {
   normalAttackSkillFrames: ReturnType<typeof calculateNormalAttackSkillFrames>;
   normalAttackSupport: ReturnType<typeof resolveNormalAttackSupport>;
   characterArtifact?: ReturnType<typeof resolveCharacterArtifact>;
+  characterMastery?: ReturnType<typeof resolveCharacterMastery>;
   /** Legacy response key, retained for existing protagonist callers. */
   protagonistNormalAttackSupport: ReturnType<typeof resolveNormalAttackSupport>;
   summonDamageEffects: ReturnType<typeof resolveSummonDamageEffects>;
@@ -191,6 +193,7 @@ export function calculateNormalAttackDamage(
   const character = selectedCharacter(input);
   input = prepareNormalAttackActor(input);
   const characterArtifact = resolveCharacterArtifact(input);
+  const characterMastery = resolveCharacterMastery(character, input.protagonistCurrentHpPercent ?? 100);
   const attackPower = calculateBattleNormalAttackPower(input.deck, input.battle);
   const hpDependentAttack = calculateHpDependentAttack(
     input.deck,
@@ -453,7 +456,8 @@ export function calculateNormalAttackDamage(
         ...(character.limitBonuses === undefined ? ["limitBonuses"] : []),
         ...(character.awakening?.formCode === undefined ? ["awakeningForm"] : []),
         ...(character.awakening?.level === undefined ? ["awakeningLevel"] : []),
-        "overMastery-aetherialMastery-effects",
+        ...(character.mastery === undefined ? ["overMastery-aetherialMastery-effects"]
+          : characterMastery.unsupportedBonuses.map((id) => `mastery-bonus-${id}`)),
         ...(character.artifact === undefined ? ["artifact"] : resolveCharacterArtifact(input).unsupportedSkills.map((id) => `artifact-skill-${id}`)),
       ] } } : {}),
     attackPower,
@@ -464,6 +468,7 @@ export function calculateNormalAttackDamage(
     normalAttackSkillFrames,
     normalAttackSupport: protagonistNormalAttackSupport,
     ...(character ? { characterArtifact } : {}),
+    ...(character ? { characterMastery } : {}),
     protagonistNormalAttackSupport,
     summonDamageEffects,
     battleDamageEffects,
