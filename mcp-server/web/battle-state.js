@@ -67,6 +67,7 @@ function combatantFromDeck(entry, fallbackName, fallbackElement, initialCharge =
     id: entry.characterId ?? "protagonist",
     name: entry.nameHint ?? fallbackName,
     elementCode: entry.elementCode ?? fallbackElement,
+    slot: entry.slot ?? 0,
     hp: maxHp,
     maxHp,
     charge: initialCharge,
@@ -127,6 +128,43 @@ export function createInitialBattleState(setup) {
 function appendEvent(state, event) {
   state.events.unshift({ id: state.nextEventId, turn: state.turn, ...event });
   state.nextEventId += 1;
+}
+
+/** Apply ordered party packets atomically. Never execute later hits/effects after victory. */
+export function applyGeneratedTurn(state, generated, packets, options = {}) {
+  const next = copy(state);
+  if (next.enemy.hp <= 0) return state;
+  for (const packet of packets) {
+    if (next.enemy.hp <= 0) break;
+    const member = packet.actorPosition === 0 ? next.party[0] : next.party.find((entry) => entry.slot === packet.actorPosition);
+    if (!member || member.hp <= 0) throw new Error("行動者が前衛に存在しないか、戦闘不能です");
+    if (packet.kind === "effect") {
+      if (packet.effect === "charge-ready") member.charge = packet.value;
+      appendEvent(next, { kind: "effect", actor: member.name, target: member.name, amount: null, note: packet.name });
+    } else {
+      const amount = Math.max(0, Math.floor(packet.damage));
+      if (!Number.isFinite(amount)) throw new Error("ダメージが不正です");
+      next.enemy.hp = clamp(next.enemy.hp - amount, 0, next.enemy.maxHp);
+      appendEvent(next, { kind: packet.kind, actor: member.name, target: next.enemy.name, amount, note: packet.note });
+    }
+  }
+  if (next.enemy.hp > 0) {
+    next.actionState = copy(generated.endState);
+    const activeChocolate = generated.endState.chocolateExpiresAt > generated.elapsedSeconds;
+    next.enemy.debuffs = [
+      ...(activeChocolate && generated.endState.chocolateStacks ? [{ name: `菓製猛虎 ${generated.endState.chocolateStacks}` }] : []),
+      ...(generated.endState.deathSentenceExpiresOnTurn > generated.turn ? [{ name: "刑死" }] : []),
+    ];
+    if (next.enemy.attacks && options.enemyAttack) {
+      const target = next.party[0];
+      const amount = Math.max(0, Math.floor(options.enemyAttack.damage));
+      target.hp = clamp(target.hp - amount, 0, target.maxHp);
+      appendEvent(next, { kind: "enemy-damage", actor: next.enemy.name, target: target.name, amount, note: options.enemyAttack.note });
+    }
+  }
+  next.warnings = generated.warnings;
+  next.turn += 1;
+  return next;
 }
 
 export function applyAttack(state, packets, options = {}) {

@@ -1,18 +1,15 @@
 import {
   BATTLE_SETUP_STORAGE_KEY,
   SIMULATION_MODES,
-  appendSystemEvent,
-  applyAbility,
-  applyAttack,
+  applyGeneratedTurn,
   applyItem,
-  applySummon,
   createInitialBattleState,
-  resolveAttackCount,
   resolveCritical,
   resolveDamageMultiplier,
   resolveEnemyAttackDamage,
   selectPartyMember,
-} from "/battle-state.js?v=3";
+} from "/battle-state.js?v=4";
+import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js";
 import { scaleDamageCapThreshold, finalizeNormalAttackHit } from "/normal-attack-rounding.js";
 
 const $ = (id) => document.getElementById(id);
@@ -178,18 +175,22 @@ function enemyAttackFromResult(result, mode) {
 }
 
 const setup = loadSetup();
+// Single-hit actor selection is not the battle's protagonist.
+delete setup.request.attacker;
+delete setup.request.battleEffects;
+delete setup.request.mythicalLancerLevel;
 const initialState = createInitialBattleState(setup);
 let state = structuredClone(initialState);
 let history = [];
 let actionPending = false;
-let simulationMode = SIMULATION_MODES.normal;
+let simulationMode = SIMULATION_MODES.downside;
 let calculationPromise = null;
 let calculatedMultiattackRates = null;
 
 const modeGuidance = {
-  normal: "通常：乱数・クリティカル・連続攻撃を発生率に従って抽選します。ユーズド・木人は攻撃後に反撃します。",
-  downside: "下振れ：最低攻撃乱数・最大被ダメージ。100%未満のクリティカルとDA/TAは発動しません。",
-  upside: "上振れ：最高攻撃乱数・最小被ダメージ。発生率が正のクリティカルとDA/TAは必ず発動します。",
+  normal: "通常：連撃と通常攻撃のクリティカルを抽選。キャラの実効DA/TA率は追加設定が必要です。",
+  downside: "比較シナリオ（下振れ）：最低攻撃乱数・既知の確定連撃を使用。総ダメージの厳密な下限ではありません。",
+  upside: "比較シナリオ（上振れ）：最高攻撃乱数・可能な最大連撃を使用。総ダメージの厳密な上限ではありません。",
 };
 
 async function getCalculationResult() {
@@ -206,7 +207,7 @@ function acceptCalculatedRates(result) {
 
 function renderMultiattackRates() {
   const rates = calculatedMultiattackRates;
-  if (rates === null) {
+  if (!rates) {
     $("double-attack-rate").textContent = "計算中";
     $("triple-attack-rate").textContent = "計算中";
     return;
@@ -296,7 +297,8 @@ function renderParty() {
       button.type = "button";
       button.className = "ability-button";
       button.textContent = `ABILITY ${number}`;
-      button.addEventListener("click", (event) => { event.stopPropagation(); commit(applyAbility(state, member.id, number)); });
+      button.disabled = true;
+      button.title = "手動アビリティは未対応です。対応済みの自動アビリティは攻撃後に実行します";
       abilities.append(button);
     }
     list.append(card);
@@ -317,9 +319,9 @@ function renderSummons() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "summon-button";
-    button.disabled = summon.used;
+    button.disabled = true;
+    button.title = "召喚効果は未対応です";
     button.textContent = summon.used ? `${summon.name}（使用済み）` : summon.name;
-    button.addEventListener("click", () => commit(applySummon(state, summon.id)));
     container.append(button);
   }
 }
@@ -351,12 +353,15 @@ function render() {
   $("undo-action").disabled = history.length === 0 || actionPending;
   $("battle-status").textContent = state.enemy.hp === 0 ? "BATTLE FINISHED" : "BATTLE IN PROGRESS";
   $("attack-ougi-off").disabled = state.enemy.hp === 0 || actionPending;
-  $("attack-ougi-on").disabled = state.enemy.hp === 0 || actionPending;
+  $("attack-ougi-on").disabled = true;
+  $("reset-battle").disabled = actionPending;
+  for (const input of document.querySelectorAll(".battle-settings input, .battle-settings select")) input.disabled = actionPending || state.turn > 1;
   $("action-guidance").textContent = modeGuidance[simulationMode];
   for (const button of document.querySelectorAll("[data-simulation-mode]")) {
     const selected = button.dataset.simulationMode === simulationMode;
     button.classList.toggle("selected", selected);
     button.setAttribute("aria-pressed", String(selected));
+    button.disabled = actionPending;
   }
   renderMultiattackRates();
   renderEnemy();
@@ -365,45 +370,85 @@ function render() {
   renderLog();
   for (const button of document.querySelectorAll("[data-item]")) {
     const item = itemDefinitions[button.dataset.item];
+    button.disabled = actionPending;
     if (!item.inventoryKey) continue;
     const count = state.items?.[item.inventoryKey] ?? 0;
-    button.disabled = count <= 0;
+    button.disabled = count <= 0 || actionPending;
     button.querySelector("small").textContent = count > 0
       ? `残り${count}個・選択中の味方を50%回復`
       : "所持していません（ポーションメーカーで追加）";
   }
+  if (state.warnings) $("battle-warnings").replaceChildren(...state.warnings.map((text) => {
+    const item = document.createElement("li"); item.textContent = text; return item;
+  }));
 }
 
 async function attack(ougiEnabled) {
-  if (actionPending || state.enemy.hp === 0) return;
-  const protagonist = state.party[0];
-  if (ougiEnabled && protagonist.charge >= 100) {
-    commit(appendSystemEvent(state, "奥義ダメージ計算は未実装のため、行動を確定していません"));
-    return;
-  }
+  if (actionPending || state.enemy.hp === 0 || ougiEnabled) return;
   const selectedMode = simulationMode;
   actionPending = true;
+  $("battle-error").textContent = "";
   render();
   try {
-    const result = await getCalculationResult();
-    acceptCalculatedRates(result);
-    const note = ougiEnabled ? "奥義ゲージ不足のため通常攻撃" : "通常攻撃";
-    const attackCount = resolveAttackCount(
-      selectedMode,
-      result.multiattackRates.doubleAttackRatePercent,
-      result.multiattackRates.tripleAttackRatePercent,
-    );
-    commit(applyAttack(
-      state,
-      damagePackets(result, setup.request, selectedMode, attackCount, note),
-      { enemyAttack: enemyAttackFromResult(result, selectedMode) },
-    ));
+    const request = buildBattleTurnRequest(setup, state, selectedMode, readSettings());
+    const response = await fetch("/api/simulate-turn", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(request) });
+    const generated = await response.json();
+    if (!response.ok) throw new Error(generated.error ?? "編成の行動を計算できませんでした");
+    const packets = [];
+    let protagonistResult;
+    for (const event of generated.events) {
+      if (event.kind === "normal") {
+        if (event.actorPosition === 0) protagonistResult = event.calculation;
+        packets.push(...damagePackets(event.calculation, setup.request, selectedMode, event.attackCount, "通常攻撃")
+          .map((packet) => ({ ...packet, actorPosition: event.actorPosition })));
+      } else if (event.kind === "automatic-ability") packets.push(...automaticAbilityPackets(event, selectedMode));
+      else packets.push(event);
+    }
+    if (protagonistResult) acceptCalculatedRates(protagonistResult);
+    commit(applyGeneratedTurn(state, generated, packets, { enemyAttack: protagonistResult && enemyAttackFromResult(protagonistResult, selectedMode) }));
   } catch (error) {
-    commit(appendSystemEvent(state, error instanceof Error ? error.message : "攻撃計算に失敗しました"));
+    $("battle-error").textContent = error instanceof Error ? error.message : "攻撃計算に失敗しました";
   } finally {
     actionPending = false;
     render();
   }
+}
+
+function renderSettings() {
+  $("enemy-max-hp-setting").value = String(initialState.enemy.maxHp);
+  const container = $("actor-settings");
+  container.replaceChildren();
+  for (const member of state.party.slice(1)) {
+    const row = document.createElement("fieldset");
+    const legend = document.createElement("legend"); legend.textContent = member.name; row.append(legend);
+    for (const [key, label] of [["da", "DA率 (%)"], ["ta", "TA率 (%)"]]) {
+      const element = document.createElement("label"); element.textContent = label;
+      const input = document.createElement("input"); input.type = "number"; input.min = "0"; input.max = "100"; input.step = "any";
+      input.placeholder = "未指定"; input.id = `${key}-${member.slot}`; element.append(input); row.append(element);
+    }
+    const artifactLabel = document.createElement("label"); artifactLabel.textContent = "開始時ランダム強化";
+    const select = document.createElement("select"); select.id = `artifact-${member.slot}`;
+    for (const [value, label] of [["", "未指定"], ["none", "攻撃・上限ともなし"], ["attack", "攻撃UP"], ["cap", "上限UP"], ["both", "攻撃・上限UP"]]) {
+      const option = document.createElement("option"); option.value = value; option.textContent = label; select.append(option);
+    }
+    artifactLabel.append(select); row.append(artifactLabel); container.append(row);
+  }
+}
+
+function readSettings() {
+  const enemyMaxHp = Number($("enemy-max-hp-setting").value);
+  if (!Number.isSafeInteger(enemyMaxHp) || enemyMaxHp < 1) throw new Error("敵最大HPは正の整数で入力してください");
+  const characters = {};
+  for (const member of state.party.slice(1)) {
+    const da = $(`da-${member.slot}`).value, ta = $(`ta-${member.slot}`).value;
+    if ((da === "") !== (ta === "")) throw new Error(`${member.name}のDA率・TA率を両方入力してください`);
+    const artifact = $(`artifact-${member.slot}`).value;
+    characters[member.slot] = {
+      ...(da === "" ? {} : { rates: { doubleAttackRatePercent: Number(da), tripleAttackRatePercent: Number(ta) } }),
+      ...(artifact === "" ? {} : { artifactStartBuffs: { attackUp: artifact === "attack" || artifact === "both", damageCapUp: artifact === "cap" || artifact === "both" } }),
+    };
+  }
+  return { characters, secondsPerTurn: Number($("seconds-per-turn").value) };
 }
 
 $("attack-ougi-off").addEventListener("click", () => void attack(false));
@@ -415,20 +460,35 @@ for (const button of document.querySelectorAll("[data-simulation-mode]")) {
   });
 }
 $("undo-action").addEventListener("click", () => {
+  if (actionPending) return;
   const previous = history.pop();
   if (!previous) return;
   state = previous;
   render();
 });
 $("reset-battle").addEventListener("click", () => {
+  if (actionPending) return;
   state = structuredClone(initialState);
   history = [];
+  $("battle-error").textContent = "";
+  $("battle-warnings").replaceChildren();
   render();
 });
 for (const button of document.querySelectorAll("[data-item]")) {
-  button.addEventListener("click", () => commit(applyItem(state, itemDefinitions[button.dataset.item])));
+  button.addEventListener("click", () => { if (!actionPending) commit(applyItem(state, itemDefinitions[button.dataset.item])); });
 }
 
+renderSettings();
+$("enemy-max-hp-setting").addEventListener("input", () => {
+  if (actionPending || state.turn > 1) return;
+  const value = Number($("enemy-max-hp-setting").value);
+  if (!Number.isSafeInteger(value) || value < 1) { $("battle-error").textContent = "敵最大HPは正の整数で入力してください"; return; }
+  initialState.enemy.maxHp = initialState.enemy.hp = value;
+  state.enemy.maxHp = state.enemy.hp = value;
+  history = [];
+  $("battle-error").textContent = "";
+  render();
+});
 render();
 void getCalculationResult()
   .then((result) => {

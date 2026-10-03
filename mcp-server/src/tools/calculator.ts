@@ -26,8 +26,8 @@ export function registerCalculatorTools(server: McpServer): void {
   server.registerTool(
     "generate_battle_actions",
     {
-      title: "闇編成の行動生成（奥義OFF）",
-      description: "編成と初期条件から通常攻撃・自動発動順・単発計算用状態を生成する下書きモデル。闇ランサー・オリジン、エレシュキガルLv250、闇シンダラ、サリエル、浴衣イルザに限定。実効連撃率を指定した再現可能な抽選、または最低/最大連撃シナリオ。automaticAbilityConditionsで固定HP等を指定すると自動アビリティの候補ダメージを計算。敵HP推移と総ダメージは未計算。",
+      title: "編成から行動生成（奥義OFF）",
+      description: "編成と初期条件から通常攻撃・自動発動順・単発計算用状態を生成する下書きモデル。ジョブ・武器・前衛・召喚石の対応済み効果を個別適用。前衛はLv80以上の闇シンダラ、サリエル、浴衣イルザで人数・並び順を変更可能。ランサー・オリジンはLv40以上。実効連撃率を指定した再現可能な抽選、または最低/最大連撃シナリオ。automaticAbilityConditionsで自動アビリティの候補ダメージを計算（主人公アビリティは闇ランサー・オリジンに限る）。この一括生成APIは敵HP推移と総ダメージを計算しない。",
       inputSchema: battleActionGenerationRequestSchema.innerType().shape,
       annotations: READ_ONLY_ANNOTATIONS,
     },

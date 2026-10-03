@@ -3069,7 +3069,7 @@ $("open-battle").addEventListener("click", () => {
   persistRequest(configuredRequest);
   sessionStorage.setItem(
     "gbf-helper-battle-setup-v1",
-    JSON.stringify({ schemaVersion: 1, request, enemyMaxHp: 1_000_000 }),
+    JSON.stringify({ schemaVersion: 1, request: { ...request, attacker: undefined }, enemyMaxHp: request.enemy.maxHp ?? 1_000_000 }),
   );
   window.location.href = "/battle.html";
 });

@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ZodError } from "zod";
 import { generateBattleActions } from "./calculator/battleActionGenerator.js";
+import { calculateBattleTurn } from "./calculator/battleTurn.js";
 import { calculateAutomaticAbilityDamage } from "./calculator/automaticAbilityDamage.js";
 import { convertDeckResponseToCalculatorDeckConfig } from "./calculator/calculatorDeckConfig.js";
 import { calculateNormalAttackFromRequest } from "./calculator/normalAttackCalculationRequest.js";
@@ -46,6 +47,7 @@ const staticFiles: Record<string, { file: string; contentType: string }> = {
   "/battle.html": { file: "battle.html", contentType: "text/html; charset=utf-8" },
   "/battle.js": { file: "battle.js", contentType: "text/javascript; charset=utf-8" },
   "/battle-state.js": { file: "battle-state.js", contentType: "text/javascript; charset=utf-8" },
+  "/battle-turn-client.js": { file: "battle-turn-client.js", contentType: "text/javascript; charset=utf-8" },
   "/normal-attack-rounding.js": { file: "normal-attack-rounding.js", contentType: "text/javascript; charset=utf-8" },
   "/battle.css": { file: "battle.css", contentType: "text/css; charset=utf-8" },
   "/progress.html": { file: "progress.html", contentType: "text/html; charset=utf-8" },
@@ -120,6 +122,10 @@ const server = createServer(async (request, response) => {
     }
     if (request.method === "POST" && url.pathname === "/api/calculate") {
       json(response, 200, calculateNormalAttackFromRequest(await readJsonBody(request)));
+      return;
+    }
+    if (request.method === "POST" && url.pathname === "/api/simulate-turn") {
+      json(response, 200, calculateBattleTurn(await readJsonBody(request)));
       return;
     }
     if (request.method === "POST" && url.pathname === "/api/generate-actions") {

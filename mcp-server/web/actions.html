@@ -10,13 +10,13 @@
 </head>
 <body>
   <header class="top-app-bar">
-    <div><p class="eyebrow">LOCAL BATTLE LAB</p><h1>闇編成の行動生成</h1></div>
+    <div><p class="eyebrow">LOCAL BATTLE LAB</p><h1>行動ルールの詳細検証</h1></div>
     <div class="header-actions"><a class="tonal-button nav-button" href="/battle.html">戦闘画面</a><a class="tonal-button nav-button" href="/">編成・計算</a></div>
   </header>
   <main class="actions-workspace">
     <section class="surface actions-section">
       <h2>奥義OFF・手動アビリティなし</h2>
-      <p>ランサー・オリジン＋エレシュキガルLv250、闇シンダラ・サリエル・浴衣イルザの行動順を生成します。自動アビリティは計算条件を指定するとダメージ範囲も表示します。減衰・丸めは候補で、実測一致は未達です。敵の行動・HP推移・総ダメージは未対応です。</p>
+      <p>編成から行動をまとめて生成する検証用画面です。通常は編成を選んで戦闘画面の「攻撃」で進めます。対応するジョブ・武器・キャラ・召喚石の効果を個別に適用します。前衛はLv80以上の闇シンダラ・サリエル・浴衣イルザに対応し、人数・並び順を変更できます。自動アビリティのダメージは実測未一致の候補値です。</p>
       <form id="action-form">
         <label>編成JSONファイル <input id="deck-file" type="file" accept=".json,application/json" /></label>
         <label for="deck-json">編成JSON（編成・計算画面から戦闘画面へ渡した設定があれば読み込みます）</label>

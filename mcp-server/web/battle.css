@@ -93,6 +93,19 @@
 .log-entry.heal { border-color: #16a174; }
 .log-entry.summon { border-color: var(--secondary); }
 .log-entry.ability { border-color: var(--primary); }
+.log-entry.automatic-ability { border-color: var(--primary); }
+.battle-settings { margin-block: 16px; }
+.battle-stage > .section-note { color: #ded9ed; margin: 12px 24px; line-height: 1.7; }
+.battle-stage > details { padding: 0 24px 16px; }
+.battle-stage summary { cursor: pointer; }
+.battle-stage .battle-settings .section-note { color: #ded9ed; }
+.battle-stage .battle-settings input, .battle-stage .battle-settings select { color: #211d30; background: #fff; border: 1px solid #c5bed9; border-radius: 6px; }
+.battle-stage #battle-error { color: #ffd0ca; margin: 0 24px 16px; }
+.battle-settings fieldset { display: flex; flex-wrap: wrap; gap: 12px; margin-block: 12px; border: 1px solid var(--outline-soft); }
+.battle-settings label { display: flex; align-items: center; gap: 8px; font-size: .85rem; }
+.battle-settings input { width: 90px; }
+.battle-settings input, .battle-settings select { padding: 8px; }
+#battle-warnings { font-size: .8rem; line-height: 1.7; }
 .log-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .log-turn { color: var(--ink-soft); font-size: .65rem; font-weight: 900; letter-spacing: .08em; }
 .log-amount { font-weight: 900; font-variant-numeric: tabular-nums; }

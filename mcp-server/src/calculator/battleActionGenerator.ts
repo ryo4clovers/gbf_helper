@@ -9,7 +9,7 @@ export const automaticAbilityConditionsSchema = normalAttackCalculationRequestSc
 }).extend({
   protagonistCurrentHpPercent: z.number().finite().min(1).max(100),
   characters: z.array(normalAttackCalculationRequestSchema.shape.attacker.unwrap().omit({ coupledConfectionActive: true })
-    .extend({ currentHpPercent: z.number().finite().min(1).max(100) })).min(2).max(3),
+    .extend({ currentHpPercent: z.number().finite().min(1).max(100) })).max(3),
 }).strict().superRefine((value, ctx) => {
   if (new Set(value.characters.map((character) => character.characterSlot)).size !== value.characters.length) {
     ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["characters"], message: "キャラ枠が重複しています" });
@@ -48,6 +48,21 @@ export const battleActionGenerationRequestSchema = z.object({
 export type BattleActionGenerationRequest = z.input<typeof battleActionGenerationRequestSchema>;
 type NormalAttackPatch = Pick<NormalAttackCalculationRequest, "attacker" | "mythicalLancerLevel" | "battleEffects">;
 type ActorKey = "protagonist" | "cidala" | "sariel" | "ilsa";
+export const battleActionStateSchema = z.object({
+  turn: z.number().int().min(1).max(101),
+  protagonistHitCount: z.number().int().min(0).max(100000),
+  mythicalLancerLevel: z.number().int().min(0).max(5),
+  otherSelfReady: z.boolean(),
+  chocolateStacks: z.number().int().min(0).max(10),
+  chocolateExpiresAt: z.number().finite().min(0).max(360000),
+  deathSentenceExpiresOnTurn: z.number().int().min(0).max(106),
+}).strict();
+export type BattleActionState = z.infer<typeof battleActionStateSchema>;
+type GenerationOptions = {
+  state?: BattleActionState;
+  calculationContext?: Pick<NormalAttackCalculationRequest, "enemy" | "supportSummon">;
+  resolveAttackCount?: (position: number, patch: NormalAttackPatch, guaranteed: number) => number;
+};
 export type GeneratedBattleEvent = {
   sequence: number;
   actorPosition: number;
@@ -88,33 +103,36 @@ function randomStream(seed: number) {
 }
 
 /** Pure action planning. Optional fixed damage conditions never come from a recorded action trace. */
-export function generateBattleActions(input: unknown) {
+export function generateBattleActions(input: unknown, options: GenerationOptions = {}) {
   const request = battleActionGenerationRequestSchema.parse(input);
   const conditions = request.automaticAbilityConditions;
-  const resolved = conditions ? resolveDamageCalculationRequest({ schemaVersion: 1, deckConfig: request.deckConfig,
-    enemy: conditions.enemy, supportSummon: conditions.supportSummon }).resolution : resolveCalculatorDeckConfig(request.deckConfig);
+  const context = conditions ?? options.calculationContext;
+  const resolved = context ? resolveDamageCalculationRequest({ schemaVersion: 1, deckConfig: request.deckConfig,
+    enemy: context.enemy, supportSummon: context.supportSummon }).resolution : resolveCalculatorDeckConfig(request.deckConfig);
   const deck = resolved.deck;
   const main = deck.weapons.find((weapon) => weapon.position === "main");
-  if (deck.protagonist.job?.masterId !== "190501" || (deck.protagonist.job.level ?? 0) < 40 ||
-      deck.protagonist.elementCode !== "6" || main?.masterId !== "1040315100" || main.level !== 250) {
-    throw new Error("行動生成は闇ランサー・オリジンLv40以上＋メインのエレシュキガルLv250に対応しています");
+  const lancer = deck.protagonist.job?.masterId === "190501";
+  if (lancer && (deck.protagonist.job?.level ?? 0) < 40) {
+    throw new Error("ランサー・オリジンの行動効果はLv40以上に対応しています");
   }
+  const ereshkigal = main?.masterId === "1040315100" && main.level === 250;
   const front = deck.characters.filter((character) => character.position === "front").sort((a, b) => a.slot - b.slot);
-  if (front.length !== 3 || new Set(front.map((character) => character.masterId)).size !== 3 ||
-      front.some((character, index) => !CHARACTER_KEYS[character.masterId] || character.slot !== index + 1 || (character.level ?? 0) < 80)) {
-    throw new Error("前衛1〜3にはLv80以上の闇シンダラ・サリエル・浴衣イルザを各1人編成してください");
+  if (new Set(front.map((character) => character.masterId)).size !== front.length) {
+    throw new Error("同じキャラクターは各1人まで編成してください");
   }
-  const versusia = deck.summons.find((summon) => summon.masterId === "2040448000");
-  if (versusia && (versusia.position !== "main" || versusia.uncapLevel !== 4)) {
-    throw new Error("他化自在の行動生成はメイン4凸ヴェルサシアのみ対応しています");
+  for (const character of front) {
+    if (!CHARACTER_KEYS[character.masterId] || (character.level ?? 0) < 80) {
+      throw new Error(`前衛${character.slot}の行動効果は未対応です。現在はLv80以上の闇シンダラ・サリエル・浴衣イルザに対応しています`);
+    }
   }
+  const versusia = deck.summons.find((summon) => summon.masterId === "2040448000" && summon.position === "main" && summon.uncapLevel === 4);
   const actors = [{ position: 0, key: "protagonist" as ActorKey }, ...front.map((character) => ({
     position: character.slot, key: CHARACTER_KEYS[character.masterId],
   }))];
   // Current damage models combine weapon echoes into one packet for each of these frames.
   const pursuitFrames = ["elemental-pursuit", "destruction-pursuit"].filter((kind) => {
     const effects = (deck.effectiveWeaponSkillEffects ?? []).filter((effect) => effect.kind === kind && effect.effectiveAmountPercent > 0 &&
-      (effect.elementCode === undefined || effect.elementCode === "6"));
+      (effect.elementCode === undefined || effect.elementCode === deck.protagonist.elementCode));
     if (new Set(effects.map((effect) => effect.sourceSkillId)).size > 1 || new Set(effects.map((effect) => effect.stackingCapPercent)).size > 1) {
       throw new Error("異なる武器追撃の共存時のhit数は未対応です");
     }
@@ -122,12 +140,13 @@ export function generateBattleActions(input: unknown) {
   });
   const initialLevel = resolveProtagonistNormalAttackSupport(deck).initialMythicalLancerLevel;
   const random = randomStream(request.multiattack.seed);
-  let ownHits = 0;
-  let level = initialLevel;
-  let otherSelfReady = false;
-  let chocolateStacks = 0;
-  let chocolateExpiresAt = 0;
-  let deathSentenceExpiresOnTurn = 0;
+  const saved = options.state && battleActionStateSchema.parse(options.state);
+  let ownHits = saved?.protagonistHitCount ?? 0;
+  let level = saved?.mythicalLancerLevel ?? initialLevel;
+  let otherSelfReady = saved?.otherSelfReady ?? false;
+  let chocolateStacks = saved?.chocolateStacks ?? 0;
+  let chocolateExpiresAt = saved?.chocolateExpiresAt ?? 0;
+  let deathSentenceExpiresOnTurn = saved?.deathSentenceExpiresOnTurn ?? 0;
   let sequence = 0;
   const turns = [];
 
@@ -144,7 +163,7 @@ export function generateBattleActions(input: unknown) {
     return Math.max(guaranteed, random() < da / 100 ? 2 : 1);
   }
 
-  for (let turn = 1; turn <= request.turns; turn++) {
+  for (let turn = saved?.turn ?? 1; turn <= request.turns; turn++) {
     const elapsedSeconds = (turn - 1) * request.secondsPerTurn;
     if (elapsedSeconds >= chocolateExpiresAt) chocolateStacks = 0;
     const events: GeneratedBattleEvent[] = [];
@@ -170,14 +189,13 @@ export function generateBattleActions(input: unknown) {
     function effect(name: string, effect: "other-self-ready" | "charge-ready" | "mythical-lancer-level", value: number) {
       events.push({ sequence: ++sequence, kind: "effect", actorPosition: 0, name, effect, value });
     }
-    if (turn === 1) effect("テル・イブラームII（開幕）", "charge-ready", 100);
+    if (turn === 1 && ereshkigal) effect("テル・イブラームII（開幕）", "charge-ready", 100);
     for (const actor of actors) {
       const actionCount = actor.key === "sariel" && turn === 1 ? 3 : 1;
       for (let action = 0; action < actionCount; action++) {
-        const count = attackCount(actor.key, turn);
-        if (count === 3) tripleAttackActions++;
         const coupled = actor.key === "cidala" && turn <= 3;
-        const split = actor.key === "ilsa" ? 3 : actor.key === "protagonist" || coupled ? 2 : 1;
+        const split = actor.key === "ilsa" ? 3 : coupled ? 2 : actor.key === "protagonist"
+          ? resolveProtagonistNormalAttackSupport(deck, level).randomTargetHitCount : 1;
         const deathActive = turn < deathSentenceExpiresOnTurn;
         const calculationPatch: NormalAttackPatch = {
           mythicalLancerLevel: level,
@@ -194,13 +212,17 @@ export function generateBattleActions(input: unknown) {
             ...(actor.key === "cidala" ? { coupledConfectionActive: coupled } : {}),
           } }),
         };
+        const guaranteed = actor.key === "ilsa" || (actor.key === "sariel" && turn === 1) ? 3 : actor.key === "cidala" ? 2 : 1;
+        const count = options.resolveAttackCount?.(actor.position, calculationPatch, guaranteed) ?? attackCount(actor.key, turn);
+        if (!Number.isInteger(count) || count < guaranteed || count > 3) throw new Error("連続攻撃回数が保証値と一致しません");
+        if (count === 3) tripleAttackActions++;
         events.push({ sequence: ++sequence, kind: "normal", actorPosition: actor.position,
           name: NAMES[actor.key], attackCount: count, splitCount: split, bodyHitCount: count * split,
           pursuitHitCount: count * split * pursuitFrames.length, calculationPatch });
         if (actor.key === "protagonist") {
           ownHits += count * split * (1 + pursuitFrames.length);
           // The reaction uses the level at the start of this action, including when it crosses 40 hits.
-          ability(0, "mythical-arms", level, calculationPatch);
+          if (lancer && level > 0) ability(0, "mythical-arms", level, calculationPatch);
           if (otherSelfReady) {
             otherSelfReady = false;
             ability(0, "other-self", 2, calculationPatch);
@@ -220,20 +242,21 @@ export function generateBattleActions(input: unknown) {
       otherSelfReady = true;
       effect("他化自在（次の主人公通常攻撃で発動）", "other-self-ready", 1);
     }
-    if (turn <= 3) effect("テル・イブラームII", "charge-ready", 100);
-    const nextLevel = Math.min(5, initialLevel + Math.floor(ownHits / 40));
+    if (turn <= 3 && ereshkigal) effect("テル・イブラームII", "charge-ready", 100);
+    const nextLevel = lancer ? Math.min(5, initialLevel + Math.floor(ownHits / 40)) : 0;
     if (nextLevel !== level) {
       level = nextLevel;
       effect("神伝の槍手Lv", "mythical-lancer-level", level);
     }
     turns.push({ turn, elapsedSeconds, tripleAttackActions, events,
-      endState: { mythicalLancerLevel: level, protagonistHitCount: ownHits, otherSelfReady } });
+      endState: { turn: turn + 1, mythicalLancerLevel: level, protagonistHitCount: ownHits, otherSelfReady,
+        chocolateStacks, chocolateExpiresAt, deathSentenceExpiresOnTurn } });
   }
   return {
     schemaVersion: 1 as const,
     kind: "generated-battle-actions" as const,
     verificationStatus: "下書き" as const,
-    modelVersion: "dark-no-charge-v2",
+    modelVersion: "composition-no-charge-v3",
     automaticAbilityConditions: conditions,
     mode: request.multiattack.mode,
     seed: request.multiattack.seed,

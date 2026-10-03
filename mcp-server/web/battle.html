@@ -7,7 +7,7 @@
     <title>Battle Simulator — GBF Damage Lab</title>
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/battle.css" />
-    <script type="module" src="/battle.js?v=3"></script>
+    <script type="module" src="/battle.js?v=4"></script>
   </head>
   <body class="battle-page">
     <header class="top-app-bar battle-app-bar">
@@ -17,7 +17,7 @@
         <h1>戦闘シミュレート</h1>
       </div>
       <div class="header-actions">
-        <a class="tonal-button nav-button" href="/actions.html">闇編成の行動生成</a>
+        <a class="tonal-button nav-button" href="/actions.html">行動ルールの詳細検証</a>
         <span class="privacy-chip"><span aria-hidden="true">●</span> 端末内で処理</span>
         <a class="tonal-button nav-button" href="/progress.html">計算機カタログ</a>
         <a class="tonal-button nav-button" href="/">編成・計算へ戻る</a>
@@ -53,7 +53,7 @@
 
         <div class="battle-actions">
           <button id="attack-ougi-off" class="attack-button off" type="button"><span>奥義 OFF</span><strong>攻撃</strong></button>
-          <button id="attack-ougi-on" class="attack-button on" type="button"><span>奥義 ON</span><strong>攻撃</strong></button>
+          <button id="attack-ougi-on" class="attack-button on" type="button" disabled><span>奥義 ON</span><strong>未対応</strong></button>
         </div>
         <div class="simulation-controls" aria-label="シミュレート条件">
           <div class="mode-control">
@@ -64,13 +64,24 @@
               <button class="mode-button" data-simulation-mode="upside" type="button" aria-pressed="false">上振れ</button>
             </div>
           </div>
-          <div class="multiattack-summary" aria-label="編成から自動算出した連続攻撃率">
-            <div><span>DA率</span><strong id="double-attack-rate">計算中</strong></div>
-            <div><span>TA率</span><strong id="triple-attack-rate">計算中</strong></div>
+          <div class="multiattack-summary" aria-label="主人公の連続攻撃率">
+            <div><span>主人公DA率</span><strong id="double-attack-rate">計算中</strong></div>
+            <div><span>主人公TA率</span><strong id="triple-attack-rate">計算中</strong></div>
             <small id="multiattack-scope">ジョブ基礎・コンプリート・育成・武器から自動計算</small>
           </div>
         </div>
-        <p id="action-guidance" class="action-guidance">通常：乱数・クリティカル・連続攻撃を発生率に従って抽選します。</p>
+        <p id="action-guidance" class="action-guidance"></p>
+        <p class="section-note">選択した編成の順に通常攻撃・自動アビリティを実行します。編成を変更する場合は「編成・計算へ戻る」を使用してください。</p>
+        <p class="section-note">下書き：自動アビリティのダメージは実測未一致の候補値です。奥義・手動アビリティ・召喚・交代・劇毒は未対応。奥義ゲージは即時発動可能効果のみ反映します。木人の反撃先は主人公に固定しています。</p>
+        <details class="battle-settings">
+          <summary>連撃・開始時の強化</summary>
+          <label>敵最大HP <input id="enemy-max-hp-setting" type="number" min="1" step="1" /></label>
+          <label>1ターンの経過秒数 <input id="seconds-per-turn" type="number" min="1" max="3600" value="15" /></label>
+          <p class="section-note">キャラ連撃率の自動合成は未対応です。通常モードは全補正込みのDA/TA率を入力してください。未入力の比較シナリオは既知の確定連撃だけを使います。ランダム強化は装備している場合だけ指定します。開始後は設定を固定します。</p>
+          <div id="actor-settings"></div>
+        </details>
+        <details><summary>対応状況・計算の注意点</summary><ul id="battle-warnings"><li>前衛はLv80以上の闇シンダラ・サリエル・浴衣イルザに対応。未対応キャラは攻撃時に通知します。</li></ul></details>
+        <p id="battle-error" role="alert" class="error-text"></p>
       </section>
 
       <div class="battle-columns">

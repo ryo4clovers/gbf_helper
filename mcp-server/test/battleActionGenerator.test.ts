@@ -139,12 +139,34 @@ test("unsupported scopes, missing sampling rates and oversized inputs fail expli
     { recordedActions: [] }, { multiattack: { mode: "sample", seed: 1 } }, { multiattack: { mode: "minimum", seed: -1 } }]) {
     assert.throws(() => generateBattleActions({ ...request(), ...update }));
   }
-  const input = request(); input.deckConfig.protagonist.jobId = "110001";
+  const input = request(); input.deckConfig.protagonist.jobLevel = 20;
   assert.throws(() => generateBattleActions(input), /ランサー/);
   const unknown = request(); unknown.deckConfig.characters[0].characterId = "unknown";
   assert.throws(() => generateBattleActions(unknown));
   const duplicate = request(); duplicate.deckConfig.characters[1].characterId = duplicate.deckConfig.characters[0].characterId;
   assert.throws(() => generateBattleActions(duplicate), /各1人/);
   const summon = request(); summon.deckConfig.summons[0].position = "sub";
-  assert.throws(() => generateBattleActions(summon), /メイン4凸/);
+  assert.equal(generateBattleActions(summon).turns[0].endState.otherSelfReady, false);
+});
+
+test("each composition component enables only its own actions", () => {
+  const input = request();
+  input.deckConfig.characters = [input.deckConfig.characters[2]]; // sparse slot 3, Ilsa only
+  input.deckConfig.protagonist.jobId = "110001";
+  input.deckConfig.weapons = [];
+  input.deckConfig.summons = [];
+  const result = generateBattleActions(input);
+  assert.deepEqual(normals(result.turns[0].events).map((event) => [event.actorPosition, event.splitCount]), [[0, 1], [3, 3]]);
+  assert.deepEqual(abilities(result.turns[0].events), []);
+  assert.equal(result.turns[0].events.some((event) => event.kind === "effect"), false);
+  assert.equal(result.turns[6].endState.mythicalLancerLevel, 0);
+});
+
+test("resuming a turn carries timed effects and reaction progress", () => {
+  const input = request();
+  const batch = generateBattleActions(input);
+  const resumed = generateBattleActions({ ...input, turns: 2 }, { state: batch.turns[0].endState });
+  const withoutSequence = (events: GeneratedBattleEvent[]) => events.map(({ sequence, ...event }) => event);
+  assert.deepEqual(withoutSequence(resumed.turns[0].events), withoutSequence(batch.turns[1].events));
+  assert.deepEqual(resumed.turns[0].endState, batch.turns[1].endState);
 });
