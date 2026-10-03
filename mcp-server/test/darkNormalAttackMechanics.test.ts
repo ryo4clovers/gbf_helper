@@ -197,13 +197,14 @@ test("normal-only and Support Skill B maxima remain independent and reject inval
   for (const invalid of [-1, NaN, Infinity]) assert.throws(() => resolveBattleDamageEffects({}, 0, invalid), /finite and non-negative/);
 });
 
-test("rounds the amplified split before pursuit scaling only in the explicit Flurry rounding model", () => {
+test("rounds the amplified parent and then floors the derived echo in the explicit per-hit model", () => {
   const stages = { profile: PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES.normalAttack, damageCapUpPercent: 0,
     postAttenuationPercent: 50, randomTargetHitCount: 2, supplementalDamagePerHit: 100, criticalDamageBonusPercent: 0 };
-  // 101 / 2 * 1.5 = 75.75; ceil to 76, then 20% pursuit and independent flat 100.
-  assert.equal(applyNormalAttackHitStages(101, 20, { ...stages, beforePursuitRounding: "ceil" }), 115.2);
+  // 101 / 2 * 1.5 = 75.75; ceil to 76, floor the 20% echo to 15, then flat 100.
+  assert.equal(applyNormalAttackHitStages(101, 20, { ...stages, beforePursuitRounding: "ceil" }), 115);
   assert.equal(applyNormalAttackHitStages(101, 20, stages), 115.15);
   const result = calculate();
+  assert.equal(result.bodyDamageAttenuation.beforePursuitRounding, "ceil");
   assert.equal(result.bodyDamageDistribution.nominalPreparation, "none");
   assert.equal(result.guaranteedCriticalBodyDamageDistribution?.nominalPreparation, "none");
   assert.equal(result.pursuitDamage?.damageDistribution.nominalPreparation, "none");

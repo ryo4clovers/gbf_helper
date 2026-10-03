@@ -29,6 +29,36 @@ function makeDeck(effects: EffectiveWeaponSkillEffect[]): DeckSnapshot {
   };
 }
 
+test("integer hits receive damage-taken amplification after echo floor and before flat damage", () => {
+  const stages = {
+    profile: { id: "none", name: "none", lines: [] }, damageCapUpPercent: 0,
+    postAttenuationPercent: 0, enemyDamageTakenAmplificationPercent: 20,
+    randomTargetHitCount: 1, supplementalDamagePerHit: 77, criticalDamageBonusPercent: 0,
+    beforePursuitRounding: "ceil" as const,
+  };
+  // Raw 101.2 -> integer parent 102. Body: 102 + ceil(20.4) + 77.
+  assert.equal(applyNormalAttackHitStages(101.2, 100, stages), 200);
+  // Echo: floor(102 * .351) = 35; 35 + ceil(7) + 77 = 119.
+  // Applying damage-taken UP to the parent first would instead produce 120.
+  assert.equal(applyNormalAttackHitStages(101.2, 35.1, stages), 119);
+  assert.equal(applyNormalAttackHitStages(101.2, 35.1, { ...stages, enemyDamageTakenAmplificationPercent: 0 }), 112);
+  for (const split of [2, 3]) {
+    assert.equal(applyNormalAttackHitStages(101.2 * split, 35.1, { ...stages, randomTargetHitCount: split }), 119);
+  }
+});
+
+test("per-hit rounding preserves IEEE-754 boundary behavior before supplemental damage", () => {
+  const stages = {
+    profile: { id: "none", name: "none", lines: [] }, damageCapUpPercent: 0,
+    postAttenuationPercent: 0, randomTargetHitCount: 1, supplementalDamagePerHit: 0,
+    criticalDamageBonusPercent: 0, beforePursuitRounding: "ceil" as const,
+  };
+  // 180 * .35 = 62.99999999999999; do not erase the boundary before floor.
+  assert.equal(applyNormalAttackHitStages(180, 35, stages), 62);
+  // 100 * .07 = 7.000000000000001; the increase is rounded separately.
+  assert.equal(applyNormalAttackHitStages(100, 100, { ...stages, enemyDamageTakenAmplificationPercent: 7 }), 108);
+});
+
 test("connects the resolved 5.85% pursuit to the default 101 damage patterns", () => {
   const resolution = resolveCalculatorDeckConfig({
     schemaVersion: 1,

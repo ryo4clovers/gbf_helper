@@ -1,3 +1,5 @@
+import { scaleDamageCapThreshold } from "../../web/normal-attack-rounding.js";
+
 export interface DamageAttenuationLine {
 	/** Pre-attenuation damage at which this line starts. */
 	threshold: number;
@@ -16,6 +18,8 @@ export type DamageAttenuationRounding = "none" | "floor" | "ceil" | "nearest";
 export interface DamageAttenuationOptions {
 	/** Raises every attenuation threshold; 10 means +10%. */
 	damageCapUpPercent?: number;
+	/** Opt in for normal-hit calibration; existing ability profiles retain continuous lines. */
+	thresholdRounding?: "none" | "ceil-increase";
 	/** Applied once after every attenuation segment has been accumulated. */
 	rounding?: DamageAttenuationRounding;
 }
@@ -36,6 +40,7 @@ export interface DamageAttenuationResult {
 	inputDamage: number;
 	damageCapUpPercent: number;
 	thresholdMultiplier: number;
+	thresholdRounding: "none" | "ceil-increase";
 	scaledLines: DamageAttenuationLine[];
 	segments: AppliedDamageAttenuationSegment[];
 	unroundedDamage: number;
@@ -107,10 +112,15 @@ export function calculateDamageAttenuation(
 	assertFiniteNonNegative(damageCapUpPercent, "damageCapUpPercent");
 	const rounding = options.rounding ?? "none";
 	const thresholdMultiplier = 1 + damageCapUpPercent / 100;
+	const thresholdRounding = options.thresholdRounding ?? "none";
+	if (thresholdRounding !== "none" && thresholdRounding !== "ceil-increase") {
+		throw new Error(`unsupported threshold rounding mode: ${String(thresholdRounding)}`);
+	}
 	const scaledLines = profile.lines.map((line, index) => {
-		// Addition avoids common diagnostics noise such as 400000 * 1.1 = 440000.00000000006.
-		const threshold =
-			line.threshold + (line.threshold * damageCapUpPercent) / 100;
+		// Round only the increase; dividing before multiplication is intentional.
+		const threshold = thresholdRounding === "ceil-increase"
+			? scaleDamageCapThreshold(line.threshold, damageCapUpPercent)
+			: line.threshold + (line.threshold * damageCapUpPercent) / 100;
 		if (!Number.isFinite(threshold)) {
 			throw new Error(
 				`scaled profile.lines[${index}].threshold must be finite`,
@@ -147,6 +157,7 @@ export function calculateDamageAttenuation(
 		inputDamage,
 		damageCapUpPercent,
 		thresholdMultiplier,
+		thresholdRounding,
 		scaledLines,
 		segments,
 		unroundedDamage,

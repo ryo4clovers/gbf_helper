@@ -13,6 +13,7 @@ import {
   resolveEnemyAttackDamage,
   selectPartyMember,
 } from "/battle-state.js?v=3";
+import { scaleDamageCapThreshold, finalizeNormalAttackHit } from "/normal-attack-rounding.js";
 
 const $ = (id) => document.getElementById(id);
 const numberFormat = new Intl.NumberFormat("ja-JP", { maximumFractionDigits: 0 });
@@ -78,26 +79,23 @@ function bodyDamageForMultiplier(result, multiplier, criticalDamageBonusPercent,
     ?? result.baseDamage.articleTrace?.prePostCapDamage
     ?? result.baseDamage.unroundedDamageBeforeRandomAndCap
   ) * multiplier * (1 + criticalDamageBonusPercent / 100);
-  const thresholdMultiplier = 1 + attenuation.damageCapUpPercent / 100;
   let inputStart = 0;
   let attenuatedDamage = 0;
   for (let index = 0; inputStart < inputDamage; index += 1) {
     const line = attenuation.profile.lines[index];
     const inputEnd = Math.min(
       inputDamage,
-      line === undefined ? inputDamage : line.threshold * thresholdMultiplier,
+      line === undefined ? inputDamage : scaleDamageCapThreshold(line.threshold, attenuation.damageCapUpPercent),
     );
     const passRate = index === 0 ? 1 : attenuation.profile.lines[index - 1].passRate;
     attenuatedDamage += (inputEnd - inputStart) * passRate;
     inputStart = inputEnd;
   }
   const supplementalDamage = attenuation.supplementalDamagePerHit ?? result.otherWeaponSkills?.supplementalDamage?.effectiveAmount ?? 0;
-  const split = attenuatedDamage / (attenuation.randomTargetHitCount ?? 1);
-  const damageTakenMultiplier = 1 + (attenuation.enemyDamageTakenAmplificationPercent ?? 0) / 100;
-  const finalDamage = (attenuation.beforePursuitRounding === "ceil"
-    ? Math.ceil(Number((split * (1 + attenuation.postAttenuationPercent / 100) * damageTakenMultiplier).toFixed(12))) * pursuitPercent / 100
-    : split * pursuitPercent / 100 * (1 + attenuation.postAttenuationPercent / 100) * damageTakenMultiplier)
-    + supplementalDamage;
+  const finalDamage = finalizeNormalAttackHit(attenuatedDamage, pursuitPercent, {
+    ...attenuation, randomTargetHitCount: attenuation.randomTargetHitCount ?? 1,
+    supplementalDamagePerHit: supplementalDamage,
+  });
   return finalRounding === "ceil"
     ? Math.ceil(finalDamage)
     : Math.floor(finalDamage);

@@ -2565,7 +2565,7 @@ const issueNames = {
   "independent-component-randomness-provisional": "本体と追撃は独立乱数として計算しています",
   "critical-probability-unresolved": "クリティカル発生率の抽選規則は未確定のため、合計期待値には含めていません",
   "flurry-base-rounding-provisional": "通常攻撃の2分割に使う基礎値の丸め順は要検証です",
-  "flurry-pursuit-rounding-provisional": "2分割後の追撃計算に使う途中丸めは要検証です",
+  "flurry-pursuit-rounding-provisional": "通常本体・追撃の整数化と被ダメージUPの丸めは検証条件外で要検証です",
 };
 
 const calculationModelNames = {

@@ -44,6 +44,24 @@ test("scales all lines before applying damage-cap up", () => {
 	assert.equal(result.damage, 489_900);
 });
 
+test("ceil of the cap increase preserves floating-point line shifts without rounding the cap total", () => {
+  const profile = PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES.normalAttack;
+  const thresholds = (percent: number) => calculateDamageAttenuation(1_100_000, profile,
+    { damageCapUpPercent: percent, thresholdRounding: "ceil-increase" }).scaledLines.map(line => line.threshold);
+  assert.deepEqual(thresholds(68), [504_001, 672_000, 840_000, 1_008_001]);
+  assert.deepEqual(thresholds(95), [585_000, 780_000, 975_000, 1_170_000]);
+  assert.deepEqual(thresholds(7), [321_001, 428_001, 535_000, 642_001]);
+  assert.deepEqual(thresholds(0), [300_000, 400_000, 500_000, 600_000]);
+  const fractional = calculateDamageAttenuation(20_000,
+    { id: "fractional-cap", name: "fractional-cap", lines: [{ threshold: 12_345, passRate: 0.5 }] },
+    { damageCapUpPercent: 1.23, thresholdRounding: "ceil-increase" });
+  assert.equal(fractional.scaledLines[0].threshold, 12_497);
+  assert.equal(fractional.damage, 16_248.5);
+  assert.equal(fractional.thresholdRounding, "ceil-increase");
+  assert.equal(calculateDamageAttenuation(1, profile, { damageCapUpPercent: 68 }).thresholdRounding, "none");
+  assert.throws(() => calculateDamageAttenuation(1, profile, { thresholdRounding: "bad" as never }), /threshold rounding/);
+});
+
 test("reproduces the provisional standard charge-attack and chain-burst soft caps", () => {
 	const profiles = PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES;
 

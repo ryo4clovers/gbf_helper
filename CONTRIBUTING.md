@@ -100,6 +100,8 @@ node scripts/data-collection/analyze-recorded-battle.mjs --deck-capture <編成e
 - 効果量(%)を倍率へ変換した後に桁数をさらに減らさないでください。2026-10-03の追加記録では、渾身倍率の二重丸めを外し、乱数前切り上げを外した親ダメージ切り上げモデルが旧/新記録の主人公3成分に一致しました。詳細と未確定事項は`knowledge/mechanics/damage-calculation.md`へ記録しています。
 - 診断付きの解析も装備設定や表示値を含むローカル専用ファイルです。`captures/`などGit管理外に保存します。
 
+通常本体・追撃の丸めは`web/normal-attack-rounding.js`をサーバーと戦闘画面で共有します。通常経路は減衰ライン増加分を切り上げ、増幅・分割後の整数親から追撃を切り捨てて生成し、その整数hitに被ダメージUPの切り上げ増加分を加算します。固定与ダメージは最後です。`beforePursuitRounding: "ceil"`はこのhit処理を表し、非分割にも使います。減衰ライン計算では先に上限%を100で割り、IEEE-754の積を正規化しません。汎用減衰関数の`thresholdRounding`は既定`none`で、通常経路から`ceil-increase`を明示します。アビリティの丸めは別途検証が必要です。破壊追撃の4候補診断も現行の共通丸め処理を使用し、旧版全体の再現ではありません。2026-10-03の旧/追加記録5,460hitは全件一致しましたが、モデルは下書きを維持します。
+
 闇シンダラ(バレンタイン)・サリエル・浴衣イルザも攻撃順ごとに照合する場合は、`--recorded-state --compare-characters`を指定します。主人公と各キャラを`actorComparisons`へ分け、本体・自属性追撃・破壊追撃を集計します。未知キャラや有効なキャラクリティカルLBはエラーとし、黙って省略しません。
 
 - HTTP/MCPの同じ単発計算へ`attacker: { characterSlot: 1, currentHpPercent: 100, coupledConfectionActive: true }`を指定できます。`characterSlot`は前衛の編成枠1〜3です。`coupledConfectionActive`はシンダラだけ必須で、双子緒虎の有無を明示します。アビリティ未使用時の通常攻撃を対象とし、行動回数の生成や奥義は予測しません。

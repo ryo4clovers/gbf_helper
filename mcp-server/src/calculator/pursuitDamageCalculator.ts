@@ -5,29 +5,19 @@ import {
 } from "./randomMultiplierInference.js";
 import type { DeckSnapshot, EffectiveWeaponSkillEffect } from "./types.js";
 import { calculateDamageAttenuation, type DamageAttenuationProfile } from "./damageAttenuationCalculator.js";
+import { finalizeNormalAttackHit, type NormalAttackHitRoundingStages } from "../../web/normal-attack-rounding.js";
 
-export interface PursuitDamageStages {
+export interface PursuitDamageStages extends NormalAttackHitRoundingStages {
   profile: DamageAttenuationProfile;
   damageCapUpPercent: number;
-  postAttenuationPercent: number;
-  enemyDamageTakenAmplificationPercent?: number;
-  randomTargetHitCount: number;
-  supplementalDamagePerHit: number;
   criticalDamageBonusPercent: number;
-  /** Provisional Flurry echo model: round the amplified body before applying the echo %. */
-  beforePursuitRounding?: "ceil";
 }
 
 /** Damage is attenuated before Flurry splitting and per-hit supplemental damage. */
 export function applyNormalAttackHitStages(damage: number, percentage: number, stages: PursuitDamageStages): number {
-  const damageTakenMultiplier = 1 + (stages.enemyDamageTakenAmplificationPercent ?? 0) / 100;
-  const split = calculateDamageAttenuation(damage * (1 + stages.criticalDamageBonusPercent / 100), stages.profile,
-    { damageCapUpPercent: stages.damageCapUpPercent }).damage / stages.randomTargetHitCount;
-  if (stages.beforePursuitRounding === "ceil") {
-    const amplified = split * (1 + stages.postAttenuationPercent / 100) * damageTakenMultiplier;
-    return Math.ceil(Number(amplified.toFixed(12))) * percentage / 100 + stages.supplementalDamagePerHit;
-  }
-  return split * percentage / 100 * (1 + stages.postAttenuationPercent / 100) * damageTakenMultiplier + stages.supplementalDamagePerHit;
+  const attenuated = calculateDamageAttenuation(damage * (1 + stages.criticalDamageBonusPercent / 100), stages.profile,
+    { damageCapUpPercent: stages.damageCapUpPercent, thresholdRounding: "ceil-increase" }).damage;
+  return finalizeNormalAttackHit(attenuated, percentage, stages);
 }
 
 export interface EffectivePursuitDamageOptions extends RandomMultiplierInferenceOptions {

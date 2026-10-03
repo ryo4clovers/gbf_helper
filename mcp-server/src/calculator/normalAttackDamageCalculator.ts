@@ -11,6 +11,7 @@ import {
   type NormalAttackPowerResult,
 } from "./normalAttackPowerCalculator.js";
 import {
+  applyNormalAttackHitStages,
   calculateEffectivePursuitDamage,
   type EffectivePursuitDamageResult,
 } from "./pursuitDamageCalculator.js";
@@ -51,7 +52,6 @@ import {
   type OtherWeaponSkillResult,
 } from "./otherWeaponSkillCalculator.js";
 import {
-  calculateDamageAttenuation,
   PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES,
   type DamageAttenuationProfile,
 } from "./damageAttenuationCalculator.js";
@@ -106,6 +106,8 @@ export interface NormalAttackBodyAttenuationResult {
   enemyDamageTakenAmplificationPercent: number;
   randomTargetHitCount: number;
   supplementalDamagePerHit: number;
+  /** Integer parent and per-packet damage-taken rounding (article model). */
+  beforePursuitRounding?: "ceil";
   /** Dealt amplification is additive; enemy damage taken amplification is separate. */
   postAttenuationModel: "additive-percent" | "already-applied-provisional";
   verificationStatus: "下書き";
@@ -283,6 +285,7 @@ export function calculateNormalAttackDamage(
     enemyDamageTakenAmplificationPercent: battleDamageEffects.enemyDamageTakenAmplificationPercent,
     randomTargetHitCount: protagonistNormalAttackSupport.randomTargetHitCount,
     supplementalDamagePerHit,
+    ...(useArticleModel ? { beforePursuitRounding: "ceil" as const } : {}),
     postAttenuationModel:
       baseDamage.articleTrace === undefined ? "already-applied-provisional" : "additive-percent",
     verificationStatus: "下書き",
@@ -290,11 +293,7 @@ export function calculateNormalAttackDamage(
   const bodyAttenuationTransform = {
     id: `damage-attenuation:${bodyAttenuationProfile.id}`,
     apply: (damage: number) =>
-      calculateDamageAttenuation(damage, bodyAttenuationProfile, {
-        damageCapUpPercent: bodyDamageCapUpPercent,
-      }).damage / protagonistNormalAttackSupport.randomTargetHitCount * (1 + postAttenuationPercent / 100)
-      * (1 + battleDamageEffects.enemyDamageTakenAmplificationPercent / 100)
-      + supplementalDamagePerHit,
+      applyNormalAttackHitStages(damage, 100, { ...bodyDamageAttenuation, criticalDamageBonusPercent: 0 }),
   };
   // Preserve the fractional base through randomness. The previous Flurry ceil
   // compensated for precision lost in HP-dependent attack multipliers.
@@ -326,7 +325,7 @@ export function calculateNormalAttackDamage(
           enemyDamageTakenAmplificationPercent: battleDamageEffects.enemyDamageTakenAmplificationPercent,
           randomTargetHitCount: protagonistNormalAttackSupport.randomTargetHitCount,
           supplementalDamagePerHit, criticalDamageBonusPercent: guaranteedCriticalPercent,
-          ...(protagonistNormalAttackSupport.randomTargetHitCount > 1 ? { beforePursuitRounding: "ceil" as const } : {}),
+          beforePursuitRounding: "ceil",
         } } : {}),
       })
     : undefined;
