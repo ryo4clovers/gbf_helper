@@ -39,6 +39,8 @@ export interface ArticleBaseDamageTrace {
   postCapDamagePercent: number;
   finalRawDamage: number;
   finalRounding: "ceil";
+  /** Capture-derived diagnostic hypothesis, separate from the article's source model. */
+  weaponSkillRoundingStage?: "normal-weapon-skill" | "ex-weapon-skill";
 }
 
 export interface AppliedDamageStage {

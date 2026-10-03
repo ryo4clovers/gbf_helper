@@ -18,6 +18,11 @@ import type {
 const ARTICLE_SOURCE =
   "https://gbf-dmg-calc.hatenablog.com/entry/2026/07/30/184000" as const;
 
+export interface ArticleBaseDamageOptions {
+  /** Experimental capture-derived hypothesis; this rounding is not established by the article. */
+  weaponSkillRoundingStage?: "normal-weapon-skill" | "ex-weapon-skill";
+}
+
 export interface ArticleCrewAttackSteps {
   precisionStepRaw: number;
   precisionStep: number;
@@ -130,6 +135,7 @@ export function calculateArticleBaseDamage(
   attackPower: NormalAttackPowerResult,
   hpDependentAttack?: HpDependentAttackResult,
   damageElement: "character" | "destruction" = "character",
+  options: ArticleBaseDamageOptions = {},
 ): DefenseAdjustedBaseDamageResult {
   const target = requireTarget(input);
   const protagonistElementCode = input.deck.protagonist.elementCode;
@@ -165,7 +171,9 @@ export function calculateArticleBaseDamage(
   } = crewSteps;
 
   const weaponSkillRaw = crewAdjustedAttack * (1 + attackPower.totalEffectiveNormalAttackPercent / 100);
-  const exWeaponSkillRaw = weaponSkillRaw * (1 + attackPower.totalEffectiveExAttackPercent / 100);
+  const weaponSkill = options.weaponSkillRoundingStage === "normal-weapon-skill" ? Math.ceil(weaponSkillRaw) : weaponSkillRaw;
+  const exWeaponSkillRaw = weaponSkill * (1 + attackPower.totalEffectiveExAttackPercent / 100);
+  const exWeaponSkill = options.weaponSkillRoundingStage === "ex-weapon-skill" ? Math.ceil(exWeaponSkillRaw) : exWeaponSkillRaw;
   const characterAttackSummonAuraContributions = attackPower.characterAttackSummonAuraContributions ?? [];
   const characterAttackPercent = attackPower.totalCharacterAttackSummonAuraPercent ?? 0;
   const characterAttackContributions: DamageModifier[] = characterAttackSummonAuraContributions.map(
@@ -211,7 +219,7 @@ export function calculateArticleBaseDamage(
     (sum, contribution) => sum + contribution.amountPercent,
     0,
   );
-  const characterAttackRaw = exWeaponSkillRaw * (1 + characterAttackPercent / 100);
+  const characterAttackRaw = exWeaponSkill * (1 + characterAttackPercent / 100);
   const jobSupportAttackPercent = resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel).perpetuityAttackPercent;
   const jobSupportAttackRaw = characterAttackRaw * (1 + jobSupportAttackPercent / 100);
   const staminaRaw = jobSupportAttackRaw * (hpDependentAttack?.normalStaminaMultiplier ?? 1);
@@ -267,26 +275,26 @@ export function calculateArticleBaseDamage(
       crewAdjustedAttack,
       attackPower.totalEffectiveNormalAttackPercent,
       weaponSkillRaw,
-      weaponSkillRaw,
-      "none",
+      weaponSkill,
+      options.weaponSkillRoundingStage === "normal-weapon-skill" ? "ceil" : "none",
       attackPower.contributions,
     ),
-    ...(attackPower.exAttackContributions.length === 0
+    ...(attackPower.exAttackContributions.length === 0 && options.weaponSkillRoundingStage !== "ex-weapon-skill"
       ? []
       : [stage(
           "ex-weapon-skill",
-          weaponSkillRaw,
+          weaponSkill,
           attackPower.totalEffectiveExAttackPercent,
           exWeaponSkillRaw,
-          exWeaponSkillRaw,
-          "none",
+          exWeaponSkill,
+          options.weaponSkillRoundingStage === "ex-weapon-skill" ? "ceil" : "none",
           attackPower.exAttackContributions,
         )]),
     ...(characterAttackContributions.length === 0
       ? []
       : [stage(
           "character-attack",
-          exWeaponSkillRaw,
+          exWeaponSkill,
           characterAttackPercent,
           characterAttackRaw,
           characterAttackRaw,
@@ -373,6 +381,7 @@ export function calculateArticleBaseDamage(
     postCapDamagePercent,
     finalRawDamage,
     finalRounding: "ceil",
+    ...(options.weaponSkillRoundingStage === undefined ? {} : { weaponSkillRoundingStage: options.weaponSkillRoundingStage }),
   };
 
   return {

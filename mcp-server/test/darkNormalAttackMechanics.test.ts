@@ -9,6 +9,7 @@ import { convertDeckResponseToCalculatorDeckConfig } from "../src/calculator/cal
 import { calculateNormalAttackPower } from "../src/calculator/normalAttackPowerCalculator.ts";
 import { PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES } from "../src/calculator/damageAttenuationCalculator.ts";
 import { resolveBattleDamageEffects } from "../src/calculator/battleDamageEffects.ts";
+import { calculateNormalAttackDamage } from "../src/calculator/normalAttackDamageCalculator.ts";
 import type { CalculatorDeckConfig, DeckWeapon, SummonAuraEffectDefinition } from "../src/calculator/types.ts";
 
 function config(): CalculatorDeckConfig {
@@ -32,10 +33,10 @@ function config(): CalculatorDeckConfig {
       {slot:4,position:"back",characterId:"3040571000",attackOverride:1,hpOverride:1},
     ] };
 }
-function calculate(deckConfig = config(), modifiers = {}, extra = {}) {
+function calculate(deckConfig = config(), modifiers = {}, extra = {}, diagnostics = {}) {
   return calculateNormalAttackFromRequest({schemaVersion:1,deckConfig,
     supportSummon:{summonId:"2040090000"},enemy:{elementCode:"5",defense:10,maxHp:10_000_000},
-    modifiers:{damageCapPercent:3,normalAttackDamageCapPercent:5,...modifiers},...extra}).result;
+    modifiers:{damageCapPercent:3,normalAttackDamageCapPercent:5,...modifiers},...extra}, diagnostics).result;
 }
 
 test("imports only LB allocations, maps HP II to 103, and refuses malformed allocations", () => {
@@ -181,4 +182,57 @@ test("rounds the amplified split before pursuit scaling only in the explicit Flu
   assert.equal(result.destructionPursuitDamage?.stages?.beforePursuitRounding, undefined);
   const ordinary = config(); ordinary.protagonist.jobId = "100401";
   assert.equal(calculate(ordinary).bodyDamageDistribution.nominalPreparation, "none");
+});
+
+test("destruction rounding diagnostics preserve the production calculation and report all four draft hypotheses", () => {
+  const original = calculate();
+  const diagnosed = calculate(config(), {}, {}, { compareDestructionPursuitRounding: true });
+  const { destructionPursuitRoundingCandidates: candidates, ...rest } = diagnosed;
+  assert.deepEqual(rest, original);
+  assert.equal(original.destructionPursuitRoundingCandidates, undefined);
+  assert.deepEqual(candidates!.map(candidate => candidate.model), ["legacy-pre-random-ceil", "parent-ceil",
+    "normal-skill-ceil-and-parent-ceil", "ex-skill-ceil-and-parent-ceil"]);
+  assert.ok(candidates!.every(candidate => candidate.verificationStatus === "下書き"));
+  assert.deepEqual(candidates![0].pursuitDamage, original.destructionPursuitDamage);
+  assert.ok(candidates!.slice(1).every(candidate => candidate.pursuitDamage.damageDistribution.nominalPreparation === "none"
+    && candidate.pursuitDamage.stages?.beforePursuitRounding === "ceil"));
+  assert.throws(() => calculate(config(), {}, { compareDestructionPursuitRounding: true }), /Unrecognized/);
+});
+
+test("diagnostic tables distinguish different upstream rounding positions without using observed damage", () => {
+  const low = config(); low.protagonist.attackOverride = 101;
+  const diagnosed = calculate(low, {}, { enemy: { elementCode: "5", defense: 1 } }, { compareDestructionPursuitRounding: true });
+  const packets = [{ turn: 5, kind: "normal" as const, actorPosition: 0, targetSide: "enemy" as const,
+    targetPosition: 0, value: 1, concurrentAttackIndex: 2, elementCode: "98" }];
+  const first = compareRecordedNormalAttacks(diagnosed, packets, "6").destructionRoundingComparison!;
+  const pair = first.pairwise.find(pair => pair.left === "normal-skill-ceil-and-parent-ceil" && pair.right === "ex-skill-ceil-and-parent-ceil")!;
+  assert.equal(pair.comparedMultiplierCount, 101);
+  assert.ok(pair.differingMultiplierCount > 0);
+  const predicted = first.candidates[2].patterns[0].damage;
+  const second = compareRecordedNormalAttacks(diagnosed, [{ ...packets[0], value: predicted }], "6").destructionRoundingComparison!;
+  assert.deepEqual(first.pairwise, second.pairwise);
+  assert.deepEqual(first.candidates.map(c => c.patterns), second.candidates.map(c => c.patterns));
+  assert.deepEqual(second.candidates[2].observations[0].exactCandidateMultipliers,
+    second.candidates[2].patterns.filter(p => p.damage === predicted).map(p => p.multiplier));
+  assert.equal(second.candidates[2].components[0].exactMatchCount, 1);
+  assert.equal(first.candidates[2].components[0].exactMatchCount, 0);
+});
+
+test("rounding diagnostics identify equivalent hypotheses and omit diagnostics for decks without destruction pursuit", () => {
+  // A synthetic resolved destruction effect with no attack-skill multipliers makes both upstream ceilings identical.
+  const result = calculateNormalAttackDamage({ schemaVersion: 1, targetEnemySlot: 1,
+    deck: { schemaVersion: 1, protagonist: { attack: 101, elementCode: "6" }, weapons: [], summons: [], characters: [],
+      effectiveWeaponSkillEffects: [{ sourceWeaponSlot: 1, sourceWeaponId: "synthetic", sourceSkillId: "synthetic",
+        sourceSkillName: "synthetic", kind: "destruction-pursuit", baseAmountPercent: 20, effectiveAmountPercent: 20,
+        verificationStatus: "下書き", appliedModifiers: [] }] },
+    battle: { schemaVersion: 1, enemies: [{ slot: 1, enemyId: "synthetic", elementCode: "5", defense: 10 }],
+      enemyPassiveEffectCount: 0, fieldEffectCount: 0 } }, { compareDestructionPursuitRounding: true });
+  const comparison = compareRecordedNormalAttacks(result, [], "6").destructionRoundingComparison!;
+  const pair = comparison.pairwise.find(pair => pair.left === "normal-skill-ceil-and-parent-ceil" && pair.right === "ex-skill-ceil-and-parent-ceil")!;
+  assert.equal(pair.differingMultiplierCount, 0);
+  assert.equal(pair.leftOnlyDamageCount, 0);
+  assert.equal(pair.rightOnlyDamageCount, 0);
+  assert.ok(comparison.candidates.every(c => c.components.length === 0));
+  const low = config(); low.weapons = [];
+  assert.equal(calculate(low, {}, {}, { compareDestructionPursuitRounding: true }).destructionPursuitRoundingCandidates, undefined);
 });

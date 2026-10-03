@@ -4,6 +4,7 @@ import { resolveBattleSupportSummon } from "./summonCatalog.js";
 import {
   calculateNormalAttackDamage,
   type NormalAttackDamageResult,
+  type NormalAttackDamageOptions,
 } from "./normalAttackDamageCalculator.js";
 import type {
   AccountBonusSnapshot,
@@ -122,7 +123,8 @@ function modifier(
 }
 
 /** Shared, side-effect-free facade used by the local Web UI and the MCP tool. */
-export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCalculationResponse {
+export function calculateNormalAttackFromRequest(input: unknown,
+  diagnostics: Pick<NormalAttackDamageOptions, "compareDestructionPursuitRounding"> = {}): NormalAttackCalculationResponse {
   const request = normalAttackCalculationRequestSchema.parse(input);
   const battle: BattleSnapshot = {
     schemaVersion: 1,
@@ -251,6 +253,7 @@ export function calculateNormalAttackFromRequest(input: unknown): NormalAttackCa
     schemaVersion: 1,
     deckResolutionIssues: resolution.issues,
     result: calculateNormalAttackDamage(calculationInput, {
+      ...diagnostics,
       baseDamageModel: request.calculationModel,
       multiplierMin: request.random?.minimum,
       multiplierMax: request.random?.maximum,

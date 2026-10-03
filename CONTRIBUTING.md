@@ -91,6 +91,13 @@ node scripts/data-collection/analyze-recorded-battle.mjs --deck-capture <編成e
 - `normalAttackComparison.states`に攻撃ごとの条件と計算結果が入ります。トップレベルの`calculation`は開始条件の比較用計算です。1〜4ターンの奥義、他キャラの単発、パーティ全体の予測は別途実装が必要です。
 - HTTP/MCPの単発計算にも任意の`mythicalLancerLevel`と`battleEffects`を渡せます。後者は`enemyDefenseDownPercent`、`enemyDefenseDownBeyondCapPercent`、`enemySupplementalDamage`、`supportSkillSupplementalDamage`です。一般防御DOWNは50%上限、下限超過分を加算後に武器の防御無視を乗算します。サポアビ与ダメージはSupport Skill Bの最大値を使います。これらの数値・枠・丸めは下書きです。
 
+破壊追撃の丸めを比較するときは、上のコマンドへ`--compare-destruction-rounding`を追加します。
+
+- 採用中の乱数前切り上げ、増幅/分割後の切り上げのみ、通常攻刃直後と増幅/分割後の切り上げ、EX攻刃直後と増幅/分割後の切り上げの4候補を比較します。追加費用と出力を診断時に限るため、このオプションは通常のHTTP/MCP入力スキーマには追加していません。
+- `normalAttackComparison.destructionRoundingComparison.candidates`は一致数/最寄り差、`pairwise`は候補同士の全乱数予測の差を集計します。`--recorded-state`では各攻撃の`comparison.destructionRoundingComparison`に101通りの整数予測・丸め前後の武器枠・実測照合を残します。
+- 実測に最も一致する候補を自動採用しません。全乱数予測が同一なら同じ条件の追加記録では識別できないため、ATKや武器枠などを変える測定を検討します。候補はすべて下書きで、既定の予測・本体・闇追撃・Webバトル画面は維持します。
+- 診断付きの解析も装備設定や表示値を含むローカル専用ファイルです。`captures/`などGit管理外に保存します。
+
 - 戦闘開始は1件ずつ解析します。API通信は行わず、URLは記録の種類判定だけに使います。
 - ダメージの数値キーオブジェクト（疎な配列）、複数回行動、通常攻撃・追撃・奥義・自動アビリティ・ターン終了時ダメージ、敵回復を保持します。表示用の合計や桁配列は二重計上しません。
 - 各ダメージ・回復後の敵HPと照合し、欠落ターン・重複結果・HP不一致を報告します。

@@ -16,6 +16,8 @@ const battleCapture = argument("--battle-capture");
 const output = argument("--output");
 const accountBonusFile = argument("--account-bonuses");
 const useRecordedState = process.argv.includes("--recorded-state");
+const compareDestructionRounding = process.argv.includes("--compare-destruction-rounding");
+const diagnostics = { compareDestructionPursuitRounding: compareDestructionRounding };
 const compareTurnArgument = argument("--compare-turn");
 const compareTurn = compareTurnArgument === undefined ? undefined : Number(compareTurnArgument);
 if (compareTurn !== undefined && (!Number.isInteger(compareTurn) || compareTurn < 1)) throw new Error("--compare-turn must be a positive integer.");
@@ -25,7 +27,7 @@ if (mythicalLancerLevel !== undefined && (!Number.isInteger(mythicalLancerLevel)
 const crew = { shipAttackPercent: Number(argument("--ship") ?? 0), furnaceAttackPercent: Number(argument("--furnace") ?? 0) };
 if (Object.values(crew).some((value) => !Number.isFinite(value) || value < 0 || value > 100)) throw new Error("--ship and --furnace must be in 0..100.");
 if (!battleCapture || !output) {
-  console.error("usage: node scripts/data-collection/analyze-recorded-battle.mjs --battle-capture <export.json> [--deck-capture <export.json>] --output <local-report.json> [--defense <value>] [--ship <percent>] [--furnace <percent>] [--account-bonuses <local.json>] [--mythical-lancer-level <0..5>] [--compare-turn <turn>] [--recorded-state]");
+  console.error("usage: node scripts/data-collection/analyze-recorded-battle.mjs --battle-capture <export.json> [--deck-capture <export.json>] --output <local-report.json> [--defense <value>] [--ship <percent>] [--furnace <percent>] [--account-bonuses <local.json>] [--mythical-lancer-level <0..5>] [--compare-turn <turn>] [--recorded-state] [--compare-destruction-rounding]");
   process.exit(1);
 }
 const inputs = await Promise.all([deckCapture, battleCapture].filter(Boolean).map(async (file) =>
@@ -70,7 +72,7 @@ if (observation.deckConfig && defense !== undefined) {
       enemy: { elementCode: enemy.elementCode, defense, attack: 0, maxHp: enemy.maxHp },
       modifiers: { ...crew, ...accountModifiers },
     };
-    calculation = calculateNormalAttackFromRequest(calculationRequest);
+    calculation = calculateNormalAttackFromRequest(calculationRequest, diagnostics);
   } catch (error) {
     calculationError = error instanceof Error ? error.message : "Calculation failed.";
   }
@@ -78,7 +80,7 @@ if (observation.deckConfig && defense !== undefined) {
 if (compareTurn !== undefined && !observation.turns.some((turn) => turn.turn === compareTurn)) throw new Error("--compare-turn is absent from the recording.");
 const recordedStates = calculation && useRecordedState ? reconstructRecordedNormalAttackStates(observation,
   calculation.result.protagonistNormalAttackSupport.initialMythicalLancerLevel).filter((state) => compareTurn === undefined || state.turn === compareTurn) : undefined;
-const normalAttackComparison = recordedStates ? compareRecordedNormalAttackStates(calculationRequest, observation, recordedStates)
+const normalAttackComparison = recordedStates ? compareRecordedNormalAttackStates(calculationRequest, observation, recordedStates, diagnostics)
   : calculation && ownElement ? compareRecordedNormalAttacks(calculation.result,
   observation.turns.filter((turn) => compareTurn === undefined || turn.turn === compareTurn).flatMap((turn) => turn.packets), ownElement) : undefined;
 const report = {
@@ -98,6 +100,7 @@ const report = {
     accountModifiers,
     compareTurn,
     useRecordedState,
+    compareDestructionRounding,
     note: useRecordedState ? "記録された攻撃前の槍手Lv・HP、既知アビリティによる敵弱体を適用する条件付き照合。"
       : "記録されたLBと入力された船炉を使用。戦闘中のバフ・デバフは自動投入していない。",
   },
@@ -109,5 +112,9 @@ console.log(JSON.stringify({
   skillsWithoutNumericEffects: skillCoverage?.filter((skill) => skill.numericEffectKinds.length === 0).length,
   calculationStatus: calculation ? "provisional" : calculationError ? "error" : "not-requested",
   comparedComponents: normalAttackComparison?.components,
+  destructionRoundingCandidates: normalAttackComparison?.destructionRoundingComparison?.candidates.map((candidate) => ({
+    model: candidate.model, verificationStatus: candidate.verificationStatus, components: candidate.components,
+  })),
+  destructionRoundingIdentifiability: normalAttackComparison?.destructionRoundingComparison?.pairwise,
 }, null, 2));
 if (calculationError) process.exitCode = 1;

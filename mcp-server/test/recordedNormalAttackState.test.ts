@@ -176,3 +176,25 @@ test("compares repeated MC actions separately and keeps predictions independent 
   const forced = compareRecordedNormalAttackStates({ ...request, mythicalLancerLevel: 5 }, parsed, states);
   assert.ok(forced.states.every(s => s.appliedMythicalLancerLevel === 5));
 });
+
+test("aggregates rounding diagnostics by attack state without replacing the existing comparison", () => {
+  const parsed = observation([result(1, [...normal(), ...cidalaApplication(), ...normal()], 100), result(2, normal(), 200)]);
+  // Include Doombringer Lyre's destruction echo and enough normal boost for the supported grid effects.
+  const requestDeck = structuredClone(deck);
+  requestDeck.summons = [{ slot: 1, position: "main", summonId: "2040090000", uncapLevel: 6 }];
+  requestDeck.weapons.push({ slot: 2, position: "grid", weaponId: "1040916700", level: 150, skillLevel: 15 },
+    { slot: 3, position: "grid", weaponId: "1040916700", level: 150, skillLevel: 15 },
+    { slot: 4, position: "grid", weaponId: "1040817900", level: 200, skillLevel: 1 });
+  const states = reconstructRecordedNormalAttackStates(parsed, 3);
+  const request = { schemaVersion: 1 as const, deckConfig: requestDeck, supportSummon: { summonId: "2040090000" },
+    enemy: { elementCode: "5" as const, defense: 10 } };
+  const original = compareRecordedNormalAttackStates(request, parsed, states);
+  const diagnosed = compareRecordedNormalAttackStates(request, parsed, states, { compareDestructionPursuitRounding: true });
+  assert.deepEqual(diagnosed.components, original.components);
+  assert.deepEqual(diagnosed.observations, original.observations);
+  assert.equal(diagnosed.destructionRoundingComparison!.candidates.length, 4);
+  assert.ok(diagnosed.destructionRoundingComparison!.pairwise.every(pair => pair.stateCount === 3
+    && pair.comparedMultiplierCount === 303));
+  // This recording has no destruction packets; zero observations must not be described as successful validation.
+  assert.ok(diagnosed.destructionRoundingComparison!.candidates.every(candidate => candidate.components.length === 0));
+});

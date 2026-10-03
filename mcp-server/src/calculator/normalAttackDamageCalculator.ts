@@ -5,6 +5,7 @@ import {
   type DefenseAdjustedBaseDamageResult,
 } from "./baseDamageCalculator.js";
 import { calculateArticleBaseDamage } from "./articleBaseDamageCalculator.js";
+import { calculateDestructionPursuitRoundingCandidates, type DestructionPursuitRoundingCandidate } from "./destructionPursuitRounding.js";
 import {
   calculateBattleNormalAttackPower,
   type NormalAttackPowerResult,
@@ -74,6 +75,8 @@ export interface NormalAttackDamageOptions {
   bodyFinalRounding?: FinalDamageRounding;
   pursuitFinalRounding?: FinalDamageRounding;
   pursuitSourceSkillId?: string;
+  /** Offline diagnostic only: compare fixed hypotheses without selecting a best-fitting model. */
+  compareDestructionPursuitRounding?: boolean;
 }
 
 export interface CombinedNormalAttackDistribution {
@@ -138,6 +141,7 @@ export interface NormalAttackDamageResult {
   protagonistLimitBonusCritical?: ProtagonistLimitBonusCriticalResult;
   pursuitDamage?: EffectivePursuitDamageResult;
   destructionPursuitDamage?: EffectivePursuitDamageResult;
+  destructionPursuitRoundingCandidates?: DestructionPursuitRoundingCandidate[];
   protagonistHp?: ProtagonistHpResult;
   multiattackRates: ProtagonistMultiattackRateResult;
   otherWeaponSkills: OtherWeaponSkillResult;
@@ -314,7 +318,7 @@ export function calculateNormalAttackDamage(
   const destructionPursuitDamage = hasDestructionPursuit && useArticleModel
     ? calculateEffectivePursuitDamage(input.deck,
         calculateArticleBaseDamage(input, attackPower, hpDependentAttack, "destruction").articleTrace!.prePostCapDamage,
-        // Provisional pre-random ceil: discriminated by the low-damage destruction packets.
+        // Legacy provisional model. Diagnostic alternatives remain separate until independently discriminated.
         { ...sharedRandomOptions, kind: "destruction-pursuit", nominalPreparation: "ceil", stages: {
           profile: bodyAttenuationProfile, damageCapUpPercent: bodyDamageCapUpPercent,
           postAttenuationPercent: postAttenuationPercent + (advantageous ? 0 : normalAttackSkillFrames.elementalSuperiority.effectivePercent),
@@ -439,6 +443,9 @@ export function calculateNormalAttackDamage(
     protagonistLimitBonusCritical,
     pursuitDamage,
     destructionPursuitDamage,
+    ...(options.compareDestructionPursuitRounding && destructionPursuitDamage ? {
+      destructionPursuitRoundingCandidates: calculateDestructionPursuitRoundingCandidates(input, attackPower, hpDependentAttack, destructionPursuitDamage),
+    } : {}),
     protagonistHp: calculateProtagonistHp(input.deck),
     multiattackRates: calculateProtagonistMultiattackRates(input.deck),
     otherWeaponSkills,
