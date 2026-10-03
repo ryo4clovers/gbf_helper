@@ -13,6 +13,16 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
   try {
     await Promise.all([server.connect(serverTransport), client.connect(clientTransport)]);
     const tools = await client.listTools();
+    const automatic = tools.tools.find((tool) => tool.name === "calculate_automatic_ability_damage");
+    assert.equal(automatic?.annotations?.readOnlyHint, true);
+    assert.equal(automatic?.annotations?.destructiveHint, false);
+    const automaticDeck = JSON.parse(readFileSync(new URL("../examples/battle-actions-request.v1.json", import.meta.url), "utf8")).deckConfig;
+    const automaticResult = await client.callTool({ name: "calculate_automatic_ability_damage", arguments: {
+      abilityId: "mythical-arms", calculation: { schemaVersion: 1, deckConfig: automaticDeck,
+        enemy: { elementCode: "6", defense: 10 } },
+    } });
+    assert.notEqual(automaticResult.isError, true);
+    assert.equal((automaticResult.structuredContent as { verificationStatus: string }).verificationStatus, "下書き");
     const calculator = tools.tools.find((tool) => tool.name === "calculate_normal_attack_damage");
     const generator = tools.tools.find((tool) => tool.name === "generate_battle_actions");
     assert.ok(generator);

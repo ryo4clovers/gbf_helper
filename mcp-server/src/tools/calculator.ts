@@ -1,4 +1,5 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { calculateAutomaticAbilityDamage, automaticAbilityCalculationRequestSchema } from "../calculator/automaticAbilityDamage.js";
 import { generateBattleActions, battleActionGenerationRequestSchema } from "../calculator/battleActionGenerator.js";
 import { calculateNormalAttackFromRequest, normalAttackCalculationRequestSchema } from "../calculator/normalAttackCalculationRequest.js";
 import { createSelectableJobCatalog } from "../calculator/jobCatalogView.js";
@@ -14,11 +15,19 @@ const READ_ONLY_ANNOTATIONS = {
 };
 
 export function registerCalculatorTools(server: McpServer): void {
+  server.registerTool("calculate_automatic_ability_damage", {
+    title: "自動アビリティの単発計算（下書き）",
+    description: "ミソロジックアームズ・菓製猛虎・サイス・他化自在の1hit/発動合計の乱数範囲と内訳を計算。減衰ラインと丸めは候補で実測一致は未達。神伝Lv、発動直前の弱体、HP等を入力し、自分が今回付与する弱体は含めない。",
+    inputSchema: automaticAbilityCalculationRequestSchema.shape, annotations: READ_ONLY_ANNOTATIONS,
+  }, async (request) => {
+    const response = calculateAutomaticAbilityDamage(request);
+    return { content: [{ type: "text", text: JSON.stringify(response) }], structuredContent: { ...response } };
+  });
   server.registerTool(
     "generate_battle_actions",
     {
       title: "闇編成の行動生成（奥義OFF）",
-      description: "編成と初期条件から通常攻撃・自動発動順・単発計算用状態を生成する下書きモデル。闇ランサー・オリジン、エレシュキガルLv250、闇シンダラ、サリエル、浴衣イルザに限定。実効連撃率を指定した再現可能な抽選、または最低/最大連撃シナリオ。記録の行動列を使わず、自動アビリティのダメージ量と敵HPは未計算。",
+      description: "編成と初期条件から通常攻撃・自動発動順・単発計算用状態を生成する下書きモデル。闇ランサー・オリジン、エレシュキガルLv250、闇シンダラ、サリエル、浴衣イルザに限定。実効連撃率を指定した再現可能な抽選、または最低/最大連撃シナリオ。automaticAbilityConditionsで固定HP等を指定すると自動アビリティの候補ダメージを計算。敵HP推移と総ダメージは未計算。",
       inputSchema: battleActionGenerationRequestSchema.innerType().shape,
       annotations: READ_ONLY_ANNOTATIONS,
     },

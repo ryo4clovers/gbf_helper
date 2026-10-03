@@ -8041,12 +8041,19 @@
       "skillId": "2209",
       "name": "ベータ・リベレイション・アルブスII",
       "description": "アビリティのダメージ上限上昇/アビリティ命中確率上昇",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "ability-damage-cap-up",
+          "amountPercent": 50,
+          "verificationStatus": "下書き",
+          "source": "https://gbf.wiki/Supremacy（2026-10-03閲覧、二次情報・要検証）"
+        }
+      ],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-10-02",
       "unsupportedEffects": [
-        "アビリティのダメージ上限上昇/アビリティ命中確率上昇"
+        "アビリティ命中確率上昇"
       ]
     },
     {
@@ -8133,14 +8140,49 @@
             "minimumPercent": 280
           },
           "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/146896（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "special-ability-damage-cap-up",
+          "elementCode": "6",
+          "amountPercent": 30,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 280
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/433002（2026-10-03閲覧、二次情報・要検証）"
+        },
+        {
+          "kind": "special-ability-damage-dealt-up",
+          "elementCode": "6",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "activationCondition": {
+            "kind": "skill-boost-range",
+            "boostGroup": "any",
+            "targetSkillNamePrefixes": [
+              "闇",
+              "憎悪",
+              "奈落",
+              "黒霧方陣",
+              "冥堕禁呪"
+            ],
+            "minimumPercent": 280
+          },
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/433002（2026-10-03閲覧、二次情報・要検証）"
         }
       ],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-10-02）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証。数値補完: https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/146896（2026-10-03閲覧、二次情報・要検証）",
-      "confirmedAt": "2026-10-02",
-      "unsupportedEffects": [
-        "特殊アビリティ上限30%/アビリティ与ダメージ10%の別枠は未接続"
-      ]
+      "confirmedAt": "2026-10-02"
     },
     {
       "skillId": "2286",

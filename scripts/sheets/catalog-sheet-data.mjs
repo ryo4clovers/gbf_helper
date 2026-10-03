@@ -128,6 +128,8 @@ export const EFFECT_KIND_LABELS = Object.freeze({
   "destruction-pursuit": "破壊属性追撃",
   "separate-normal-supplemental-damage": "通常攻撃与ダメージ上昇（別枠）",
   "ability-damage-cap-up": "アビリティダメージ上限UP",
+  "special-ability-damage-cap-up": "アビリティダメージ上限UP（特殊枠）",
+  "special-ability-damage-dealt-up": "アビリティ与ダメージUP（特殊枠）",
   "ability-supplemental-damage": "アビリティ与ダメージ上昇",
   "supplemental-damage": "与ダメージ上昇",
   "elemental-pursuit": "属性追撃",

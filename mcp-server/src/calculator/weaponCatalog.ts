@@ -28,6 +28,8 @@ const effectSchema = z
       "debuff-resistance-up",
       "damage-dealt-up",
       "ability-damage-cap-up",
+      "special-ability-damage-cap-up",
+      "special-ability-damage-dealt-up",
       "ability-supplemental-damage",
       "supplemental-damage",
       "elemental-pursuit",

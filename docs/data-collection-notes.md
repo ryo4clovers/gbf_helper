@@ -5,6 +5,16 @@
 
 ## 闇属性編成の計算・戦闘再現
 
+### 自動アビリティ4種の候補ダメージを行動生成へ接続(2026-10-03)
+
+- 出典: 既存のペイン・アンド・ストレイン1本/2本のユーザー提供ログと強化設定、[Wikiランサー・オリジン](https://gbf.wiki/Lancer_Origin)、[シンダラ](https://gbf.wiki/Cidala_(Valentine))、[サリエル](https://gbf.wiki/Sariel)、[ヴェルサシア](https://gbf.wiki/Versusia)、[詳細ダメージ式](https://gbf.wiki/Damage_Formula/Detailed_Damage_Formula)（2026-10-03参照）。ゲーム操作・実機リクエストはなし。
+- 接続: ミソロジックアームズ、菓製猛虎、エクスキューショナーズ・サイス＋、他化自在を単発HTTP/MCPと生成器の任意入力`automaticAbilityConditions`へ追加。固定HP・アーティファクト状態を明示し、各発動直前の弱体状態で計算する。今回の菓製猛虎・刑死・他化自在の弱体はそのダメージ計算後に適用する。通常専用補正を除外し、指輪アビ上限・アーティファクトアビダメ・主人公ジョブLv/LBを接続。敵HP推移・奥義・通常攻撃込み総ダメージは未対応。
+- 数値候補: 菓製猛虎4倍×2、サイス8倍×1、他化自在3倍×2は二次情報。ミソロジックアームズは神伝Lv回のhit数と概算13.5万上限の資料はあるが素倍率が確定できず、1倍を仮置きして警告する。概算上限だけでは減衰ラインは決まらないため、[既存の減衰表](https://kikumarogaming.com/granbluefantasy-damegecaplist/)の同程度の上限を持つ**別アビリティ**のラインを比較候補として使用。対象4種のラインが確認できたという意味ではない。他化自在の破壊属性処理、増幅・固定加算・丸め順も下書き。
+- 武器: [Wiki Supremacy](https://gbf.wiki/Supremacy)と[GameWith超越終末](https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/433002)からβ IIのアビ上限50%、神闇の極技のアビ上限30%（特殊枠）・アビ与ダメージ10%（特殊枠）を下書き登録。既存の280%以上条件を使用し、特殊上限を一般の武器アビ上限100%枠へ含めない。命中率は未接続。貫破は通常攻撃限定ではないため共通の防御無視を使う。
+- 照合: 両編成の1〜3ターン、合計20発動39hitを比較。完全一致0/39、候補範囲内0/39、最寄り候補との最大絶対差256,818。**ダメージ再現は未達**。未一致を乱数差だけで説明せず、倍率・減衰ライン・補正範囲・固定加算順の検証を残す。船10%/炉10%、アビリティ用龍心補正5%/5%、対有利与ダメ5%、非クリティカルの入力仮定。主人公の全体コンプリート由来のアビ補正は自動接続しておらず、未入力差も切り分けが必要。
+- 検証: 追加テストは通常専用補正の除外、破壊属性の船炉/属性攻撃除外、固定加算と被ダメージUP、β/極技の枠・条件、生成イベントと単発計算の一致、弱体付与順、入力拒否、読み取り専用MCP。合成編成を使い、生記録をテストへ転記しない。`npm run check`の484件とビルドを通過。
+- ローカル保存先: `tools/network-recorder/captures/dark-2026-10-03/2026-10-03_automatic-ability-comparison-input.json`と`2026-10-03_automatic-ability-comparison-result.json`。`mcp-server/scripts/compare-automatic-abilities.mjs`で再計算できる。初期診断は`2026-10-03_auto-ability-initial-diagnostic.json`（サポート石未入力のため最終評価には使用しない）、補完後診断は`2026-10-03_auto-ability-supported-diagnostic.json`。全てGit管理外。新規draft処理なし、既存生レスポンスは保存済みのものを維持。
+
 ### 奥義OFFの闇編成で記録に依存しない行動生成を追加(2026-10-03)
 
 - 出典: 取得済みのジョブ・武器・キャラ・召喚石の実機効果文と各ナレッジの二次情報、既存41/55ターンのユーザー提供記録。公開Wikiの[サリエル](https://gbf.wiki/Sariel)、[シンダラ](https://gbf.wiki/Cidala_(Valentine))、[ランサー・オリジン](https://gbf.wiki/Lancer_Origin)、[エレシュキガル](https://gbf.wiki/Ereshkigal)の検索結果も効果順の参考とした。実機通信・ゲーム操作はなし。

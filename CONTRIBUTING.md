@@ -78,9 +78,34 @@ node scripts/generate-battle-actions.mjs examples/battle-actions-request.v1.json
 - `chargeAttack: false`と`manualAbilities: false`を必須にし、1〜100ターンを生成します。通常攻撃、分割と武器追撃のhit数、サリエルの開幕3回行動、通常攻撃後の自動アビリティ、シンダラ/刑死/他化自在の適用順と期限、神伝の槍手Lvを下書き接続します。ターン終了時のテル・イブラームIIは奥義即時発動可能という効果イベントだけで、奥義OFFのままです。
 - `multiattack.mode`は`minimum`/`maximum`/`sample`。連撃率未指定の前2者は既知の確定連撃だけに制約された比較シナリオで、総ダメージの上下限ではありません。抽選には`rates.protagonist`/`cidala`/`sariel`の`doubleAttackRatePercent`・`tripleAttackRatePercent`を全補正込みで明示します。`openingFourTurns`へ同じ2項目を指定すると開幕4ターンだけ置き換えます。イルザの確定TA、開幕サリエルの確定TA、シンダラの確定連撃を優先します。エレシュキガルのオーバースキル効果を無条件・永続の確定TAに置換しません。
 - 連撃率の自動合成、神伝Lvに伴う連撃率変化は未対応です。神伝Lvの攻撃補正と反応hit数は進行しますが、率は入力した実効率を継続使用します。シードは32bit非負整数で既定1、抽選はバージョン固定のLCGです。ゲームの乱数列を再現するものではありません。
-- `secondsPerTurn`は必須で、180秒弱体をターン数に読み替えません。各行動は当該ターン開始時刻で発生する仮定です。全員生存、単体敵、全攻撃命中、弱体成功、敵行動/解除なしのシナリオです。自動アビリティは`damage: null`を返し、未計算を0ダメージと表現しません。敵HP・味方HP・毒・奥義ゲージ・アーティファクト抽選等を含む戦闘全体のシミュレーションは未完成です。
+- `secondsPerTurn`は必須で、180秒弱体をターン数に読み替えません。各行動は当該ターン開始時刻で発生する仮定です。全員生存、単体敵、全攻撃命中、弱体成功、敵行動/解除なしのシナリオです。自動アビリティは計算条件未指定時に`damage: null`を返し、未計算を0ダメージと表現しません。敵HP・味方HP・毒・奥義ゲージ・アーティファクト抽選等を含む戦闘全体のシミュレーションは未完成です。
 - 各`kind: "normal"`イベントの`calculationPatch`は、通常計算APIの`mythicalLancerLevel`、`battleEffects`、キャラ選択と双子緒虎の有無です。HP・アーティファクト条件は別途明示します。キャラの`attacker`は既存条件とマージし、主人公へ渡すときは`attacker`を外してください。パッチの弱体状態は生成時点の値であり、実測状態からのコピーではありません。
 - 生成器は`recordedBattleParser`/`recordedNormalAttackState`に依存しません。記録は生成後の検証にだけ使用します。モデルの根拠・保留事項・未対応効果と編成解決の警告は、HTTP/MCP/CLIの全経路で保持します。
+
+### 自動アビリティの候補ダメージ
+
+`/actions.html`の「自動アビリティのダメージ計算」を有効にすると、各発動の1hit・合計範囲を表示します。**減衰ライン・丸め・一部倍率は候補で、既存ログとの一致は未達です。** 総ダメージによる編成順位の判定にはまだ使えません。
+
+- 単発入口はHTTP `POST /api/calculate-automatic-ability`、読み取り専用MCP `calculate_automatic_ability_damage`。入力は`{ abilityId, calculation, criticalDamageBonusPercent? }`で、`abilityId`は`mythical-arms` / `mission-chocolate` / `scythe-of-execution` / `other-self`です。`calculation`には通常攻撃と共通の編成・敵・加護・HP・modifiers・攻撃者・発動直前の弱体を渡します。`random`と`calculationModel`は受け付けず、0.95〜1.05の0.001刻み、articleモデルの基礎攻撃式を使います。
+- 対象はランサー・オリジンLv40以上、闇シンダラ、サリエル。他化自在はメイン4凸ヴェルサシアが必要です。イルザには今回の条件での自動アビリティがありません。主人公のジョブLv補正（アビダメ40%・上限20%）、アビリティLB、指輪のアビ上限、アーティファクトのアビダメを接続します。通常専用の上限・増幅・固定加算は含めません。貫破の防御無視は共通で適用します。
+- `modifiers.abilityDamagePercent` / `abilityDamageCapPercent`は大事なもの等の追加補正。主人公LBは`otherLimitBonusLevels`の5/32/84/89を読み、`abilityDamageLimitBonusPercent` / `abilityDamageCapLimitBonusPercent`の明示入力時はその値で置き換えます。全体コンプリートのアビ補正は自動取得せず、主人公の単発入力の追加補正へ足します。キャラと共通の条件へ主人公専用分を加えないでください。
+- クリティカルは単発APIの明示入力（既定0、不発条件）。発動率からの抽選や通常攻撃の確定クリティカルを流用しません。ミソロジックアームズの素倍率は資料で確定できず1倍を仮置きし、結果に必ず警告を残します。概算上限から減衰ラインを一意に決定したものではありません。
+- 行動生成API/CLIへ任意の`automaticAbilityConditions`を追加できます。例は下記。各キャラのHPを明示し、開始時ランダム強化がある場合は`artifactStartBuffs`も指定します。全ターン同じHP・アーティファクト状態、クリティカル不発のシナリオです。生成器は`abilityId`と`calculationPatch`を自動発動イベントにも付け、菓製猛虎/刑死/他化自在が**今回付与する弱体は今回のダメージには適用しません**。
+
+```json
+{
+  "enemy": { "elementCode": "5", "defense": 10, "maxHp": 1000000000 },
+  "modifiers": { "shipAttackPercent": 10, "furnaceAttackPercent": 10 },
+  "protagonistCurrentHpPercent": 100,
+  "characters": [
+    { "characterSlot": 1, "currentHpPercent": 100 },
+    { "characterSlot": 2, "currentHpPercent": 100 },
+    { "characterSlot": 3, "currentHpPercent": 100 }
+  ]
+}
+```
+
+ローカル照合用入力は`{ "schemaVersion": 1, "cases": [{ "label": "任意", "request": { ...単発API入力 }, "observedDamage": [整数の実測hit] }] }`。ビルド後に`node scripts/compare-automatic-abilities.mjs <入力.json> <新規出力.json>`で実測範囲内件数・101候補との完全一致数・最寄り差を保存します。既存出力は上書きしません。生exportやアカウント設定はGit管理外へ置き、記録から条件を復元する工程と予測式を分けてください。
 
 Network Recorderの書き出しはオフラインで解析し、実測トレースと予測計算を分けます。
 ビルド後、以下のスクリプトで編成・戦闘の書き出しを読み込めます。

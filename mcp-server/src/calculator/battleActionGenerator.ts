@@ -1,7 +1,20 @@
 import { z } from "zod";
 import { resolveCalculatorDeckConfig } from "./calculatorDeckResolver.js";
 import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttackSupport.js";
-import type { NormalAttackCalculationRequest } from "./normalAttackCalculationRequest.js";
+import { normalAttackCalculationRequestSchema, resolveDamageCalculationRequest, type NormalAttackCalculationRequest } from "./normalAttackCalculationRequest.js";
+import { calculateAutomaticAbilityDamage, AUTOMATIC_ABILITY_PROFILES, type AutomaticAbilityId } from "./automaticAbilityDamage.js";
+
+export const automaticAbilityConditionsSchema = normalAttackCalculationRequestSchema.pick({
+  enemy: true, modifiers: true, supportSummon: true,
+}).extend({
+  protagonistCurrentHpPercent: z.number().finite().min(1).max(100),
+  characters: z.array(normalAttackCalculationRequestSchema.shape.attacker.unwrap().omit({ coupledConfectionActive: true })
+    .extend({ currentHpPercent: z.number().finite().min(1).max(100) })).min(2).max(3),
+}).strict().superRefine((value, ctx) => {
+  if (new Set(value.characters.map((character) => character.characterSlot)).size !== value.characters.length) {
+    ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["characters"], message: "キャラ枠が重複しています" });
+  }
+});
 
 const rateSchema = z.object({
   doubleAttackRatePercent: z.number().finite().min(0).max(100),
@@ -16,6 +29,7 @@ export const battleActionGenerationRequestSchema = z.object({
   secondsPerTurn: z.number().finite().positive().max(3600),
   chargeAttack: z.literal(false),
   manualAbilities: z.literal(false),
+  automaticAbilityConditions: automaticAbilityConditionsSchema.optional().describe("自動アビリティを計算する固定HP・敵・加護・大事なもの条件。未指定はdamage:null。クリティカル不発、HP推移なしの候補モデル"),
   multiattack: z.object({
     mode: z.enum(["minimum", "maximum", "sample"]),
     seed: z.number().int().min(0).max(0xffffffff).default(1),
@@ -47,8 +61,10 @@ export type GeneratedBattleEvent = {
   calculationPatch: NormalAttackPatch;
 } | {
   kind: "automatic-ability";
+  abilityId: AutomaticAbilityId;
   hitCount: number;
-  damage: null;
+  calculationPatch: NormalAttackPatch;
+  damage: ReturnType<typeof calculateAutomaticAbilityDamage> | null;
 } | {
   kind: "effect";
   effect: "other-self-ready" | "charge-ready" | "mythical-lancer-level";
@@ -71,10 +87,12 @@ function randomStream(seed: number) {
   };
 }
 
-/** Pure action planning. Recorded actions, HP, conditions and random rolls are never inputs. */
+/** Pure action planning. Optional fixed damage conditions never come from a recorded action trace. */
 export function generateBattleActions(input: unknown) {
   const request = battleActionGenerationRequestSchema.parse(input);
-  const resolved = resolveCalculatorDeckConfig(request.deckConfig);
+  const conditions = request.automaticAbilityConditions;
+  const resolved = conditions ? resolveDamageCalculationRequest({ schemaVersion: 1, deckConfig: request.deckConfig,
+    enemy: conditions.enemy, supportSummon: conditions.supportSummon }).resolution : resolveCalculatorDeckConfig(request.deckConfig);
   const deck = resolved.deck;
   const main = deck.weapons.find((weapon) => weapon.position === "main");
   if (deck.protagonist.job?.masterId !== "190501" || (deck.protagonist.job.level ?? 0) < 40 ||
@@ -132,8 +150,21 @@ export function generateBattleActions(input: unknown) {
     const events: GeneratedBattleEvent[] = [];
     let tripleAttackActions = 0;
     let takenAmplification = 0;
-    function ability(actorPosition: number, name: string, hitCount: number) {
-      events.push({ sequence: ++sequence, kind: "automatic-ability", actorPosition, name, hitCount, damage: null });
+    function ability(actorPosition: number, abilityId: AutomaticAbilityId, hitCount: number, calculationPatch: NormalAttackPatch) {
+      let damage: ReturnType<typeof calculateAutomaticAbilityDamage> | null = null;
+      if (conditions) {
+        const character = conditions.characters.find((entry) => entry.characterSlot === actorPosition);
+        if (actorPosition > 0 && !character) throw new Error(`前衛${actorPosition}の固定HP・アーティファクト条件が必要です`);
+        damage = calculateAutomaticAbilityDamage({ abilityId, calculation: {
+          schemaVersion: 1, deckConfig: request.deckConfig, enemy: conditions.enemy, modifiers: conditions.modifiers,
+          supportSummon: conditions.supportSummon, protagonistCurrentHpPercent: conditions.protagonistCurrentHpPercent,
+          ...calculationPatch,
+          attacker: actorPosition === 0 ? undefined : { ...character, ...calculationPatch.attacker },
+        } });
+        if (damage.hitCount !== hitCount) throw new Error("生成hit数とアビリティモデルが一致しません");
+      }
+      events.push({ sequence: ++sequence, kind: "automatic-ability", actorPosition,
+        name: AUTOMATIC_ABILITY_PROFILES[abilityId].name, abilityId, hitCount, calculationPatch, damage });
       if (actorPosition === 0) ownHits += hitCount;
     }
     function effect(name: string, effect: "other-self-ready" | "charge-ready" | "mythical-lancer-level", value: number) {
@@ -169,18 +200,18 @@ export function generateBattleActions(input: unknown) {
         if (actor.key === "protagonist") {
           ownHits += count * split * (1 + pursuitFrames.length);
           // The reaction uses the level at the start of this action, including when it crosses 40 hits.
-          ability(0, "ミソロジックアームズ", level);
+          ability(0, "mythical-arms", level, calculationPatch);
           if (otherSelfReady) {
             otherSelfReady = false;
-            ability(0, "他化自在", 2);
+            ability(0, "other-self", 2, calculationPatch);
             takenAmplification = 20;
           }
         } else if (coupled) {
-          ability(actor.position, "菓製猛虎", 2);
+          ability(actor.position, "mission-chocolate", 2, calculationPatch);
           chocolateStacks = Math.min(10, chocolateStacks + 1);
           chocolateExpiresAt = elapsedSeconds + 180;
         } else if (actor.key === "sariel" && turn === 1) {
-          ability(actor.position, "エクスキューショナーズ・サイス＋", 1);
+          ability(actor.position, "scythe-of-execution", 1, calculationPatch);
           deathSentenceExpiresOnTurn = turn + 5;
         }
       }
@@ -202,7 +233,8 @@ export function generateBattleActions(input: unknown) {
     schemaVersion: 1 as const,
     kind: "generated-battle-actions" as const,
     verificationStatus: "下書き" as const,
-    modelVersion: "dark-no-charge-v1",
+    modelVersion: "dark-no-charge-v2",
+    automaticAbilityConditions: conditions,
     mode: request.multiattack.mode,
     seed: request.multiattack.seed,
     randomAlgorithm: "lcg32-1664525-1013904223",
@@ -213,9 +245,10 @@ export function generateBattleActions(input: unknown) {
       "連撃率は全補正込みの明示入力。武器/神伝Lv/覚醒/大事なもの/オーバースキル等からは自動合成しない",
       "連撃率未指定のminimum/maximumは既知の確定連撃だけによるシナリオ。総ダメージの厳密な上下限ではない",
       "40hitは主人公の通常・武器追撃・反応アビリティを数え、Lv更新は行動後。劇毒等の継続ダメージは数えない（要検証）",
+      ...(conditions ? ["自動アビリティは指定HPとアーティファクト状態を全ターン維持、クリティカル不発として計算。減衰・丸めは候補で実測一致は未達"] : []),
     ],
     unresolved: [
-      "HP/奥義ゲージの推移、敵行動、劇毒ダメージ、自動アビリティのダメージ量",
+      "HP/奥義ゲージの推移、敵行動、劇毒ダメージ、通常攻撃を含む総ダメージ",
       "アーティファクト抽選/被ターゲット回数効果、未接続のサブメンバー/召喚石等の行動効果",
       "計算パッチはHPやアーティファクト状態を含まない。単発計算には別途条件入力が必要",
     ],

@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ZodError } from "zod";
 import { generateBattleActions } from "./calculator/battleActionGenerator.js";
+import { calculateAutomaticAbilityDamage } from "./calculator/automaticAbilityDamage.js";
 import { convertDeckResponseToCalculatorDeckConfig } from "./calculator/calculatorDeckConfig.js";
 import { calculateNormalAttackFromRequest } from "./calculator/normalAttackCalculationRequest.js";
 import { createSelectableCharacterCatalog } from "./calculator/characterCatalogView.js";
@@ -123,6 +124,10 @@ const server = createServer(async (request, response) => {
     }
     if (request.method === "POST" && url.pathname === "/api/generate-actions") {
       json(response, 200, generateBattleActions(await readJsonBody(request)));
+      return;
+    }
+    if (request.method === "POST" && url.pathname === "/api/calculate-automatic-ability") {
+      json(response, 200, calculateAutomaticAbilityDamage(await readJsonBody(request)));
       return;
     }
     if (request.method === "POST" && url.pathname === "/api/convert-deck") {

@@ -132,8 +132,7 @@ function modifier(
 }
 
 /** Shared, side-effect-free facade used by the local Web UI and the MCP tool. */
-export function calculateNormalAttackFromRequest(input: unknown,
-  diagnostics: Pick<NormalAttackDamageOptions, "compareDestructionPursuitRounding"> = {}): NormalAttackCalculationResponse {
+export function resolveDamageCalculationRequest(input: unknown) {
   const request = normalAttackCalculationRequestSchema.parse(input);
   const battle: BattleSnapshot = {
     schemaVersion: 1,
@@ -262,6 +261,12 @@ export function calculateNormalAttackFromRequest(input: unknown,
     },
   };
 
+  return { request, calculationInput, resolution, supportSummon };
+}
+
+export function calculateNormalAttackFromRequest(input: unknown,
+  diagnostics: Pick<NormalAttackDamageOptions, "compareDestructionPursuitRounding"> = {}): NormalAttackCalculationResponse {
+  const { request, calculationInput, resolution, supportSummon } = resolveDamageCalculationRequest(input);
   return {
     schemaVersion: 1,
     deckResolutionIssues: resolution.issues,
