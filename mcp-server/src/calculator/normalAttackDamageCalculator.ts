@@ -103,9 +103,10 @@ export interface NormalAttackBodyAttenuationResult {
   specialFrameDamageCapPercent: number;
   specialFrameDamageCapContributions: EffectiveWeaponSkillEffect[];
   postAttenuationPercent: number;
+  enemyDamageTakenAmplificationPercent: number;
   randomTargetHitCount: number;
   supplementalDamagePerHit: number;
-  /** The current article model groups every post-cap percentage additively. */
+  /** Dealt amplification is additive; enemy damage taken amplification is separate. */
   postAttenuationModel: "additive-percent" | "already-applied-provisional";
   verificationStatus: "下書き";
 }
@@ -278,6 +279,7 @@ export function calculateNormalAttackDamage(
     specialFrameDamageCapPercent,
     specialFrameDamageCapContributions,
     postAttenuationPercent,
+    enemyDamageTakenAmplificationPercent: battleDamageEffects.enemyDamageTakenAmplificationPercent,
     randomTargetHitCount: protagonistNormalAttackSupport.randomTargetHitCount,
     supplementalDamagePerHit,
     postAttenuationModel:
@@ -290,6 +292,7 @@ export function calculateNormalAttackDamage(
       calculateDamageAttenuation(damage, bodyAttenuationProfile, {
         damageCapUpPercent: bodyDamageCapUpPercent,
       }).damage / protagonistNormalAttackSupport.randomTargetHitCount * (1 + postAttenuationPercent / 100)
+      * (1 + battleDamageEffects.enemyDamageTakenAmplificationPercent / 100)
       + supplementalDamagePerHit,
   };
   // Preserve the fractional base through randomness. The previous Flurry ceil
@@ -307,6 +310,7 @@ export function calculateNormalAttackDamage(
   // Preserve the calibrated low-damage/displayed-base path. Soft caps, split
   // hits and supplemental damage require raw input and the staged model.
   const needsStagedPursuit = protagonistNormalAttackSupport.randomTargetHitCount > 1 || supplementalDamagePerHit > 0
+    || battleDamageEffects.enemyDamageTakenAmplificationPercent > 0
     || preAttenuationNominalDamage * (options.multiplierMax ?? 1.05) > bodyAttenuationProfile.lines[0].threshold * (1 + bodyDamageCapUpPercent / 100);
   const guaranteedCriticalPercent = advantageous && protagonistNormalAttackSupport.criticalTriggerRatePercent === 100
     ? protagonistNormalAttackSupport.criticalDamageBonusPercent : 0;
@@ -318,6 +322,7 @@ export function calculateNormalAttackDamage(
         finalRounding: options.pursuitFinalRounding ?? options.finalRounding ?? "floor",
         ...(needsStagedPursuit ? { stages: {
           profile: bodyAttenuationProfile, damageCapUpPercent: bodyDamageCapUpPercent, postAttenuationPercent,
+          enemyDamageTakenAmplificationPercent: battleDamageEffects.enemyDamageTakenAmplificationPercent,
           randomTargetHitCount: protagonistNormalAttackSupport.randomTargetHitCount,
           supplementalDamagePerHit, criticalDamageBonusPercent: guaranteedCriticalPercent,
           ...(protagonistNormalAttackSupport.randomTargetHitCount > 1 ? { beforePursuitRounding: "ceil" as const } : {}),
@@ -342,6 +347,7 @@ export function calculateNormalAttackDamage(
         { ...sharedRandomOptions, kind: "destruction-pursuit", nominalPreparation: "none", stages: {
           profile: bodyAttenuationProfile, damageCapUpPercent: bodyDamageCapUpPercent,
           postAttenuationPercent: postAttenuationPercent + (advantageous ? 0 : normalAttackSkillFrames.elementalSuperiority.effectivePercent),
+          enemyDamageTakenAmplificationPercent: battleDamageEffects.enemyDamageTakenAmplificationPercent,
           randomTargetHitCount: protagonistNormalAttackSupport.randomTargetHitCount, supplementalDamagePerHit,
           criticalDamageBonusPercent: protagonistNormalAttackSupport.criticalDamageBonusPercent,
           beforePursuitRounding: "ceil",

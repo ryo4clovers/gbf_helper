@@ -31,6 +31,50 @@ function enemyCondition(debuff: unknown) {
   return { cmd: "condition", to: "boss", pos: 0, condition: { debuff } };
 }
 const cidalaStatuses = [{ status: "1427" }, { status: "7839" }];
+const otherSelfWindow = { cmd: "windoweffect", name: "他化自在", kind: "ab_all_2040448000_01_hit2" };
+
+test("Other Self starts only after its recorded application, survives buff-only snapshots, and expires next turn", () => {
+  const parsed = observation([
+    result(1, [...normal(), { cmd: "ability", pos: 0, name: "" }, otherSelfWindow,
+      enemyCondition([{ status: "7368_1" }]),
+      { cmd: "condition", to: "boss", pos: 0, condition: { buff: [] } }, ...normal(), ...normal()], 100),
+    // The last snapshot still has the icon, but it must not extend the duration.
+    result(2, normal(), 200),
+    result(3, [{ cmd: "ability", pos: 0 }, otherSelfWindow, enemyCondition([{ status: "7368_1" }]),
+      ...normal(), enemyCondition([]), ...normal()], 300),
+  ]);
+  assert.equal(parsed.turns[0].abilityActivations[1].sourceSummonId, "2040448000");
+  const states = reconstructRecordedNormalAttackStates(parsed, 3);
+  assert.deepEqual(states.map(s => s.battleEffects.enemyDamageTakenAmplificationPercent), [0, 20, 20, 0, 20, 0]);
+  // Damage observations are never consulted to choose the strength or timing.
+  for (const turn of parsed.turns) for (const packet of turn.packets) packet.value *= 99;
+  assert.deepEqual(reconstructRecordedNormalAttackStates(parsed, 3).map(s => s.battleEffects), states.map(s => s.battleEffects));
+});
+
+test("shared icons, unrelated window effects and unconfirmed Other Self applications do not imply amplification", () => {
+  const parsed = observation([result(1, [
+    ...normal(), { cmd: "ability", pos: 1 }, otherSelfWindow, enemyCondition([{ status: "7368_1" }]), ...normal(),
+    { cmd: "ability", pos: 0 }, { ...otherSelfWindow, kind: "unrelated" }, enemyCondition([{ status: "7368_1" }]), ...normal(),
+    { cmd: "ability", pos: 0 }, otherSelfWindow, enemyCondition([]), ...normal(),
+    // A later icon must not resurrect a failed/cleared application after an attack.
+    enemyCondition([{ status: "7368_1" }]), ...normal(),
+  ], 100)], { debuff: [{ status: "7368_1" }] });
+  const states = reconstructRecordedNormalAttackStates(parsed, 3);
+  assert.ok(states.every(s => s.battleEffects.enemyDamageTakenAmplificationPercent === 0));
+  assert.ok(states[0].warnings.some(w => w.includes("Unmapped DMG Taken Amplified")));
+  assert.equal(parsed.turns[0].abilityActivations.filter(a => a.sourceSummonId).length, 1);
+});
+
+test("an unconfirmed Other Self marker cannot leak into a later turn or another enemy", () => {
+  const parsed = observation([
+    result(1, [{ cmd: "ability", pos: 0 }, otherSelfWindow,
+      { ...enemyCondition([{ status: "7368_1" }]), pos: 1 }, ...normal(),
+      { cmd: "ability", pos: 0 }, otherSelfWindow], 100),
+    result(2, [enemyCondition([{ status: "7368_1" }]), ...normal()], 200),
+  ]);
+  assert.deepEqual(reconstructRecordedNormalAttackStates(parsed, 3).map(s => s.battleEffects.enemyDamageTakenAmplificationPercent), [0, 0]);
+});
+
 test("Ereshkigal charge buff applies only to subsequent allies in that turn and start buffs expire after turn one", () => {
   const allyNormal = [{ cmd: "normal_attack_start", from: "player", num: 1 },
     { cmd: "attack", from: "player", pos: 1, damage: [[{ pos: 0, value: 100, color: "6" }]] },

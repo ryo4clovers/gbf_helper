@@ -87,6 +87,7 @@ node scripts/data-collection/analyze-recorded-battle.mjs --deck-capture <編成e
 
 - `--recorded-state`は主人公の通常攻撃ごとに、直前の神伝の槍手Lv・HPと、既知アビリティの発動/状態更新から累積した敵弱体を使います。`--compare-turn`を併用すると1ターンだけ照合できます。明示した`--mythical-lancer-level`は記録Lvより優先します。
 - 現在の敵弱体モデルは闇シンダラの累積防御DOWN・被ダメージ上昇（最終適用から180秒）と、サリエルの刑死（記録の終了ターンを優先）です。状態アイコンの末尾数字から効果量を推定しません。累積回数は既知アビリティ後に対象状態が表示された場合に数える暫定モデルで、既存の状態が残る状況での失敗/耐性判定や未知キャラの効果には対応していません。
+- ヴェルサシアの他化自在は、主人公の無名アビリティに続く既知の`windoweffect`と敵状態更新を確認した後だけ、同ターンの通常本体・自属性追撃・破壊追撃へ被ダメージ20%UPを適用します。共通アイコン`7368`だけでは付与元・効果量・回数を決めません。単発HTTP/MCP入力は`battleEffects.enemyDamageTakenAmplificationPercent`で、与ダメージ増幅とは別乗算し、固定与ダメージ加算には掛けません。数値・枠・丸めは下書きで、奥義/アビリティへの適用、効果の自動生成、他の被ダメージUPとの共存・最大値選択は未対応です。
 - 神伝の槍手Lvは記録を優先し、別途40hitカウンタの暫定モデルと比較します。通常本体・追撃・アビリティの正のダメージパケットは各1、複数hit奥義は1コマンドで1と数えます。欠落・不整合は警告します。反応中のLv変化を含む行動列の自動生成は未対応です。
 - `normalAttackComparison.states`に攻撃ごとの条件と計算結果が入ります。トップレベルの`calculation`は開始条件の比較用計算です。1〜4ターンの奥義とパーティ全体の予測は別途実装が必要です。対応キャラの単発照合は下記を参照してください。
 - HTTP/MCPの単発計算にも任意の`mythicalLancerLevel`と`battleEffects`を渡せます。後者は`enemyDefenseDownPercent`、`enemyDefenseDownBeyondCapPercent`、`enemySupplementalDamage`、`supportSkillSupplementalDamage`です。一般防御DOWNは50%上限、下限超過分を加算後に武器の防御無視を乗算します。サポアビ与ダメージはSupport Skill Bの最大値を使います。これらの数値・枠・丸めは下書きです。

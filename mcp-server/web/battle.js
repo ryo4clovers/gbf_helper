@@ -93,9 +93,10 @@ function bodyDamageForMultiplier(result, multiplier, criticalDamageBonusPercent,
   }
   const supplementalDamage = attenuation.supplementalDamagePerHit ?? result.otherWeaponSkills?.supplementalDamage?.effectiveAmount ?? 0;
   const split = attenuatedDamage / (attenuation.randomTargetHitCount ?? 1);
+  const damageTakenMultiplier = 1 + (attenuation.enemyDamageTakenAmplificationPercent ?? 0) / 100;
   const finalDamage = (attenuation.beforePursuitRounding === "ceil"
-    ? Math.ceil(Number((split * (1 + attenuation.postAttenuationPercent / 100)).toFixed(12))) * pursuitPercent / 100
-    : split * pursuitPercent / 100 * (1 + attenuation.postAttenuationPercent / 100))
+    ? Math.ceil(Number((split * (1 + attenuation.postAttenuationPercent / 100) * damageTakenMultiplier).toFixed(12))) * pursuitPercent / 100
+    : split * pursuitPercent / 100 * (1 + attenuation.postAttenuationPercent / 100) * damageTakenMultiplier)
     + supplementalDamage;
   return finalRounding === "ceil"
     ? Math.ceil(finalDamage)

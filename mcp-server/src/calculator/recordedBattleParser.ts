@@ -97,7 +97,7 @@ export interface RecordedBattleTurn {
   normalActions: Array<RecordedEventLocation & { actorPosition: number; hits: number; actionIndex: number }>;
   packets: RecordedBattlePacket[];
   conditionEvents: RecordedConditionSnapshot[];
-  abilityActivations: Array<RecordedEventLocation & { actorPosition?: number; name?: string }>;
+  abilityActivations: Array<RecordedEventLocation & { actorPosition?: number; name?: string; sourceSummonId?: string }>;
 }
 
 /** Offline observation trace for comparison, not a predictive combat model. */
@@ -196,6 +196,13 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
         abilityActor = numeric(command.pos);
         actionName = typeof command.name === "string" && command.name ? command.name : undefined;
         result.abilityActivations.push({ ...location, actorPosition: abilityActor, name: actionName });
+      }
+      // Other Self is an unnamed ability followed by a named window effect.
+      // Match the public summon effect as well as the name; shared debuff icons
+      // do not identify their source or strength.
+      if (command.cmd === "windoweffect" && abilityActor === 0 && command.name === "他化自在"
+        && command.kind === "ab_all_2040448000_01_hit2") {
+        result.abilityActivations.push({ ...location, actorPosition: 0, name: "他化自在", sourceSummonId: "2040448000" });
       }
       if (command.cmd === "normal_attack_start" && command.from === "player") {
         normalAction = { ...location, actorPosition: numeric(command.num) ?? 0, hits: 0, actionIndex: normalActionIndex++ };

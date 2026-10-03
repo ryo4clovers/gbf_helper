@@ -97,6 +97,22 @@ function makeCurrentInput(): DamageCalculationInput {
   };
 }
 
+test("normal damage taken amplification connects body and low-damage pursuit without amplifying flat damage", () => {
+  const input = makeCurrentInput();
+  input.battleEffects = { enemyDamageTakenAmplificationPercent: 20, enemySupplementalDamage: 77 };
+  const result = calculateNormalAttackDamage(input, { multiplierMin: 1, multiplierMax: 1 });
+  const raw = result.bodyDamageDistribution.preparedNominalDamage;
+  assert.equal(result.bodyDamageDistribution.minimumDamage, Math.ceil(raw * 1.066 * 1.2 + 77));
+  assert.equal(result.pursuitDamage!.damageDistribution.minimumDamage, Math.floor(raw * 0.0585 * 1.066 * 1.2 + 77));
+  assert.equal(result.bodyDamageAttenuation.postAttenuationPercent, 6.6);
+  assert.equal(result.pursuitDamage!.stages!.enemyDamageTakenAmplificationPercent, 20);
+  // The effect alone must also select the staged path even below the soft cap.
+  input.battleEffects = { enemyDamageTakenAmplificationPercent: 20 };
+  assert.equal(calculateNormalAttackDamage(input).pursuitDamage!.stages!.enemyDamageTakenAmplificationPercent, 20);
+  input.battleEffects.enemyDamageTakenAmplificationPercent = -1;
+  assert.throws(() => calculateNormalAttackDamage(input), /finite and non-negative/);
+});
+
 test("connects staged base damage to independent 101-pattern body and pursuit distributions", () => {
   const result = calculateNormalAttackDamage(makeCurrentInput());
 

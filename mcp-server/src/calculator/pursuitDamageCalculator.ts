@@ -10,6 +10,7 @@ export interface PursuitDamageStages {
   profile: DamageAttenuationProfile;
   damageCapUpPercent: number;
   postAttenuationPercent: number;
+  enemyDamageTakenAmplificationPercent?: number;
   randomTargetHitCount: number;
   supplementalDamagePerHit: number;
   criticalDamageBonusPercent: number;
@@ -19,13 +20,14 @@ export interface PursuitDamageStages {
 
 /** Damage is attenuated before Flurry splitting and per-hit supplemental damage. */
 export function applyNormalAttackHitStages(damage: number, percentage: number, stages: PursuitDamageStages): number {
+  const damageTakenMultiplier = 1 + (stages.enemyDamageTakenAmplificationPercent ?? 0) / 100;
   const split = calculateDamageAttenuation(damage * (1 + stages.criticalDamageBonusPercent / 100), stages.profile,
     { damageCapUpPercent: stages.damageCapUpPercent }).damage / stages.randomTargetHitCount;
   if (stages.beforePursuitRounding === "ceil") {
-    const amplified = split * (1 + stages.postAttenuationPercent / 100);
+    const amplified = split * (1 + stages.postAttenuationPercent / 100) * damageTakenMultiplier;
     return Math.ceil(Number(amplified.toFixed(12))) * percentage / 100 + stages.supplementalDamagePerHit;
   }
-  return split * percentage / 100 * (1 + stages.postAttenuationPercent / 100) + stages.supplementalDamagePerHit;
+  return split * percentage / 100 * (1 + stages.postAttenuationPercent / 100) * damageTakenMultiplier + stages.supplementalDamagePerHit;
 }
 
 export interface EffectivePursuitDamageOptions extends RandomMultiplierInferenceOptions {

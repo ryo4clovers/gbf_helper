@@ -36,6 +36,7 @@ export const normalAttackCalculationRequestSchema = z
       enemySupplementalDamage: z.number().finite().min(0).max(1_000_000).optional(),
       supportSkillSupplementalDamage: z.number().finite().min(0).max(1_000_000).optional(),
       normalAttackSupplementalDamage: z.number().finite().min(0).max(1_000_000).optional(),
+      enemyDamageTakenAmplificationPercent: z.number().finite().min(0).max(1_000).optional(),
     }).strict().optional().describe("攻撃時点で有効な敵弱体・与ダメージ加算。一般防御DOWNは50%上限、サポアビ与ダメージは主人公と最大値を採用する下書きモデル"),
     supportSummon: z
       .object({

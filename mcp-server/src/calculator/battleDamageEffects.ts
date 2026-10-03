@@ -3,6 +3,8 @@ export interface BattleDamageEffects {
   enemyDefenseDownPercent?: number;
   enemyDefenseDownBeyondCapPercent?: number;
   enemySupplementalDamage?: number;
+  /** Normal-hit damage taken amplification, separate from dealt amplification and flat supplements. */
+  enemyDamageTakenAmplificationPercent?: number;
   /** Support Skill B: take the strongest amount, including the protagonist's support. */
   supportSkillSupplementalDamage?: number;
   /** Explicit normal-only buff (e.g. Ereshkigal charge attack); not a generic Standard supplemental buff. */
@@ -23,6 +25,7 @@ export function resolveBattleDamageEffects(effects: BattleDamageEffects = {}, pr
   return {
     standardDefenseDownPercent, beyondCapDefenseDownPercent, totalDefenseDownPercent,
     enemySupplementalDamage: effects.enemySupplementalDamage ?? 0,
+    enemyDamageTakenAmplificationPercent: effects.enemyDamageTakenAmplificationPercent ?? 0,
     normalAttackSupplementalDamage: effects.normalAttackSupplementalDamage ?? 0,
     supportSkillSupplementalDamage: Math.max(protagonistSupportAmount, effects.supportSkillSupplementalDamage ?? 0),
     verificationStatus: "下書き" as const,

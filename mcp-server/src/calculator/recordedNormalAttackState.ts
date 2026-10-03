@@ -6,6 +6,7 @@ const SARIEL_ID = "3040611000";
 const CIDALA_SOURCE = "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/436867";
 const SARIEL_SOURCE = "https://gbf.wiki/Sariel";
 const LANCER_SOURCE = "https://gbf.wiki/Lancer_Origin";
+const VERSUSIA_SOURCE = "https://gbf.wiki/Versusia";
 
 export interface RecordedNormalAttackState extends RecordedEventLocation {
   actorPosition: number;
@@ -60,6 +61,8 @@ export function reconstructRecordedNormalAttackStates(
   let unknownCidalaStacks = false;
   let cidalaApplication: { defenseApplied: boolean; supplementalApplied: boolean } | undefined;
   let sarielApplication: { applied: boolean } | undefined;
+  let otherSelfApplication = false;
+  let otherSelfExpiresBeforeTurn: number | undefined;
   const protagonist = observation.actors.find((actor) => actor.position === 0);
   let currentHp = protagonist?.initialHp;
   const maxHp = protagonist?.maxHp;
@@ -84,6 +87,11 @@ export function reconstructRecordedNormalAttackStates(
     if (event.targetSide !== "enemy" || event.targetPosition !== 0 || !event.kinds.includes("debuff")) return;
     enemyEffects = event.effects.filter((effect) => effect.kind === "debuff");
     const has = (id: string) => enemyEffects.some((effect) => effect.statusId.split("_")[0] === id);
+    if (!has("7368")) otherSelfExpiresBeforeTurn = undefined;
+    if (otherSelfApplication && has("7368")) {
+      otherSelfExpiresBeforeTurn = turn + 1;
+      otherSelfApplication = false;
+    }
     if (!has("1427")) { defenseStacks = 0; defenseExpiresAt = undefined; }
     if (!has("7839")) { supplementalStacks = 0; supplementalExpiresAt = undefined; }
     if (!has("1427") && !has("7839")) unknownCidalaStacks = false;
@@ -111,6 +119,7 @@ export function reconstructRecordedNormalAttackStates(
   for (const event of observation.initialConditions) snapshot(event, observation.battle.turn ?? 1, true);
 
   for (const turn of observation.turns) {
+    otherSelfApplication = false;
     const events = [
       ...turn.conditionEvents.map((event) => ({ ...event, kind: "condition" as const })),
       ...turn.abilityActivations.map((event) => ({ ...event, kind: "ability" as const })),
@@ -121,6 +130,7 @@ export function reconstructRecordedNormalAttackStates(
     for (const event of events) {
       if (event.kind === "condition") { snapshot(event, turn.turn); continue; }
       if (event.kind === "ability") {
+        otherSelfApplication = event.actorPosition === 0 && event.sourceSummonId === "2040448000" && event.name === "他化自在";
         cidalaApplication = actorId(event.actorPosition) === CIDALA_ID && event.name === "菓製猛虎"
           ? { defenseApplied: false, supplementalApplied: false } : undefined;
         sarielApplication = actorId(event.actorPosition) === SARIEL_ID && event.name === "エクスキューショナーズ・サイズ"
@@ -143,6 +153,7 @@ export function reconstructRecordedNormalAttackStates(
       }
       cidalaApplication = undefined;
       sarielApplication = undefined;
+      otherSelfApplication = false;
       if (!actorPositions.includes(event.actorPosition)) continue;
       const actor = observation.actors.find((actor) => actor.position === event.actorPosition);
       const actorHp = characterHp.get(event.actorPosition);
@@ -157,6 +168,10 @@ export function reconstructRecordedNormalAttackStates(
       const deathSentenceActive = enemyEffects.some((effect) => effect.statusId.split("_")[0] === "6058")
         && (deathSentenceExpiresBeforeTurn === undefined || turn.turn < deathSentenceExpiresBeforeTurn);
       const stateWarnings = [...warnings];
+      const otherSelfActive = otherSelfExpiresBeforeTurn !== undefined && turn.turn < otherSelfExpiresBeforeTurn;
+      if (enemyEffects.some(effect => effect.statusId.split("_")[0] === "7368") && otherSelfExpiresBeforeTurn === undefined) {
+        stateWarnings.push("Unmapped DMG Taken Amplified: no numeric effect has been inferred from its icon alone.");
+      }
       if (lancer && observedLevel !== undefined && observedLevel !== predictedLevel) stateWarnings.push("Recorded Mythical Lancer level differs from the provisional hit counter.");
       if (unknownCidalaStacks) stateWarnings.push("Initial stack counts are unknown; Cidala's tracked stacks may be incomplete.");
       if (deathSentenceActive && deathSentenceExpiresBeforeTurn === undefined) stateWarnings.push("Death Sentence expiry is unknown; only recorded presence is known.");
@@ -178,12 +193,13 @@ export function reconstructRecordedNormalAttackStates(
           enemyDefenseDownPercent: defenseStacks * 10,
           enemyDefenseDownBeyondCapPercent: deathSentenceActive ? 10 : 0,
           enemySupplementalDamage: supplementalStacks * 3_000,
+          enemyDamageTakenAmplificationPercent: otherSelfActive ? 20 : 0,
           supportSkillSupplementalDamage: deathSentenceActive && sarielFront && (actorElement ?? (dark ? "6" : undefined)) === "6" ? 30_000 : 0,
           ...(event.actorPosition > 0 && ereshChargeTurn === turn.turn ? { normalAttackSupplementalDamage: 50_000 } : {}),
         },
         cidala: { defenseStacks, supplementalStacks,
           defenseExpiresAtMilliseconds: defenseExpiresAt, supplementalExpiresAtMilliseconds: supplementalExpiresAt },
-        deathSentenceActive, warnings: stateWarnings, sources: [CIDALA_SOURCE, SARIEL_SOURCE, LANCER_SOURCE], verificationStatus: "下書き",
+        deathSentenceActive, warnings: stateWarnings, sources: [CIDALA_SOURCE, SARIEL_SOURCE, LANCER_SOURCE, VERSUSIA_SOURCE], verificationStatus: "下書き",
       });
     }
   }

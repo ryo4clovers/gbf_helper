@@ -1,8 +1,22 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { resolveCalculatorDeckConfig } from "../src/calculator/calculatorDeckResolver.ts";
-import { calculateEffectivePursuitDamage } from "../src/calculator/pursuitDamageCalculator.ts";
+import { applyNormalAttackHitStages, calculateEffectivePursuitDamage } from "../src/calculator/pursuitDamageCalculator.ts";
 import type { DeckSnapshot, EffectiveWeaponSkillEffect } from "../src/calculator/types.ts";
+
+test("damage taken amplification follows attenuation and splitting but never multiplies flat supplements", () => {
+  const stages = {
+    profile: { id: "synthetic", name: "synthetic", lines: [{ threshold: 1_000, passRate: 0.1 }] },
+    damageCapUpPercent: 0, postAttenuationPercent: 50,
+    enemyDamageTakenAmplificationPercent: 20,
+    randomTargetHitCount: 2, supplementalDamagePerHit: 77, criticalDamageBonusPercent: 0,
+  };
+  // 2000 raw -> 1100 attenuated -> 550 per split -> 825 dealt -> 990 taken -> +77.
+  assert.equal(applyNormalAttackHitStages(2_000, 100, stages), 1_067);
+  assert.equal(applyNormalAttackHitStages(2_000, 20, stages), 275);
+  assert.equal(applyNormalAttackHitStages(2_000, 20, { ...stages, beforePursuitRounding: "ceil" }), 275);
+  assert.equal(applyNormalAttackHitStages(2_000, 100, { ...stages, enemyDamageTakenAmplificationPercent: undefined }), 902);
+});
 
 function makeDeck(effects: EffectiveWeaponSkillEffect[]): DeckSnapshot {
   return {

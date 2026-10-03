@@ -48,6 +48,15 @@ function request() {
   };
 }
 
+test("HTTP/MCP request retains explicit damage taken amplification and rejects invalid percentages", () => {
+  const result = calculateNormalAttackFromRequest({ ...request(), battleEffects: { enemyDamageTakenAmplificationPercent: 20 } }).result;
+  assert.equal(result.bodyDamageAttenuation.enemyDamageTakenAmplificationPercent, 20);
+  assert.equal(result.pursuitDamage!.stages!.enemyDamageTakenAmplificationPercent, 20);
+  for (const amount of [-1, NaN, Infinity, 1_001]) {
+    assert.throws(() => calculateNormalAttackFromRequest({ ...request(), battleEffects: { enemyDamageTakenAmplificationPercent: amount } }));
+  }
+});
+
 function agniRequest() {
   return {
     schemaVersion: 1,
