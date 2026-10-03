@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import { calculateAutomaticAbilityDamage as calculate } from "../src/calculator/automaticAbilityDamage.ts";
 import { generateBattleActions } from "../src/calculator/battleActionGenerator.ts";
 import { resolveDamageCalculationRequest } from "../src/calculator/normalAttackCalculationRequest.ts";
+import { createSelectableJobCatalog } from "../src/calculator/jobCatalogView.ts";
 
 function setup() {
   return JSON.parse(readFileSync(new URL("../examples/battle-actions-request.v1.json", import.meta.url), "utf8"));
@@ -14,6 +15,69 @@ function request(abilityId = "mythical-arms") {
 }
 const conditions = { enemy: { elementCode: "6", defense: 10, maxHp: 1000000000 }, protagonistCurrentHpPercent: 100,
   characters: [{ characterSlot: 1, currentHpPercent: 100 }, { characterSlot: 2, currentHpPercent: 100 }] };
+
+test("shared ability bonuses apply once and protagonist completion/LB do not leak to characters", () => {
+  const input = request();
+  const catalog = createSelectableJobCatalog().jobs;
+  input.calculation.deckConfig.protagonist.completedJobIds = catalog
+    .filter((job) => ["ウィザード", "モンク", "ヤマト"].includes(job.name)).map((job) => job.jobId);
+  input.calculation.deckConfig.protagonist.otherLimitBonusLevels = { "5": 3, "32": 3, "84": 3, "89": 3 };
+  const calculation = { ...input.calculation, modifiers: { abilityDamagePercent: 5, abilityDamageCapPercent: 5,
+    abilityDamageLimitBonusPercent: 7, abilityDamageCapLimitBonusPercent: 8 } };
+  const protagonist = calculate({ ...input, calculation });
+  assert.deepEqual(protagonist.trace.damageContributions, { account: 5, artifact: 0, jobLevel: 40, limitBonus: 7, completion: 3 });
+  assert.equal(protagonist.trace.damageUpPercent, 55);
+  assert.equal(protagonist.trace.capContributions.accountAbilityCap, 5);
+  assert.equal(protagonist.trace.capContributions.limitBonusCap, 8);
+  assert.equal(protagonist.trace.capContributions.completionCap, 5);
+  const resolved = resolveDamageCalculationRequest(calculation).calculationInput.abilityDamage!;
+  assert.equal(resolved.abilityDamageUpPercent, 15);
+  assert.equal(resolved.abilityDamageCapUpPercent, 18);
+  for (const [slot, abilityId] of [[1, "mission-chocolate"], [2, "scythe-of-execution"]] as const) {
+    const withJob = calculate({ abilityId, calculation: { ...calculation, attacker: { characterSlot: slot, coupledConfectionActive: false } } });
+    const withoutJob = structuredClone(calculation);
+    delete withoutJob.deckConfig.protagonist.completedJobIds;
+    delete withoutJob.deckConfig.protagonist.otherLimitBonusLevels;
+    withoutJob.modifiers.abilityDamageLimitBonusPercent = 0;
+    withoutJob.modifiers.abilityDamageCapLimitBonusPercent = 0;
+    const baseline = calculate({ abilityId, calculation: { ...withoutJob, attacker: { characterSlot: slot, coupledConfectionActive: false } } });
+    assert.deepEqual(withJob.predictions, baseline.predictions);
+    assert.equal(withJob.trace.damageContributions.completion, 0);
+    assert.equal(withJob.trace.capContributions.limitBonusCap, 0);
+    assert.equal(withJob.trace.damageContributions.account, 5);
+  }
+});
+
+test("missing completion remains unknown, empty selection is zero, and LB overrides replace imported levels", () => {
+  const input = request();
+  delete input.calculation.deckConfig.protagonist.completedJobIds;
+  input.calculation.deckConfig.protagonist.otherLimitBonusLevels = { "5": 3, "32": 3, "84": 3, "89": 3 };
+  const missing = calculate(input);
+  assert.ok(missing.issues.some((issue) => issue.includes("completedJobIds未入力")));
+  assert.equal(missing.trace.damageContributions.completion, 0);
+  assert.equal(missing.trace.damageContributions.limitBonus, 10);
+  assert.equal(missing.trace.capContributions.limitBonusCap, 15);
+  input.calculation.deckConfig.protagonist.completedJobIds = [];
+  const empty = calculate(input);
+  assert.deepEqual(empty.predictions, missing.predictions);
+  assert.ok(!empty.issues.some((issue) => issue.includes("completedJobIds未入力")));
+  const zero = calculate({ ...input, calculation: { ...input.calculation,
+    modifiers: { abilityDamageLimitBonusPercent: 0, abilityDamageCapLimitBonusPercent: 0 } } });
+  assert.equal(zero.trace.damageContributions.limitBonus, 0);
+  assert.equal(zero.trace.capContributions.limitBonusCap, 0);
+});
+
+test("completion respects Class V exclusions and duplicate selected IDs", () => {
+  const input = request();
+  const catalog = createSelectableJobCatalog().jobs;
+  const mana = catalog.find((job) => job.name === "マナダイバー")!;
+  input.calculation.deckConfig.protagonist.completedJobIds = [mana.jobId, mana.jobId];
+  const origin = resolveDamageCalculationRequest(input.calculation);
+  assert.equal(origin.calculationInput.abilityDamage!.abilityDamageUpPercent, 3);
+  input.calculation.deckConfig.protagonist.jobId = mana.jobId;
+  const classV = resolveDamageCalculationRequest(input.calculation);
+  assert.equal(classV.calculationInput.abilityDamage!.abilityDamageUpPercent, 0);
+});
 
 test("automatic abilities retain uncertainty, independent hit ranges and immutable input", () => {
   const input = request(), before = structuredClone(input);

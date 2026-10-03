@@ -1,3 +1,4 @@
+import { BATTLE_SETUP_STORAGE_KEY } from "/battle-state.js?v=4";
 import {
   CALCULATOR_ENVIRONMENT_STORAGE_KEY,
   CALCULATOR_FORMATION_FORMAT,
@@ -2431,15 +2432,9 @@ function buildRequest() {
       shipAttackPercent: crewSupportEffects.shipAttackPercent,
       furnaceAttackPercent: crewSupportEffects.furnaceAttackPercent,
       jobNormalAttackDamagePercent: deckConfig.protagonist.nonClassVNormalAttackDamagePercent ?? completion.totals.normalAttackDamage ?? 0,
-      abilityDamagePercent:
-        (completion.totals.abilityDamage ?? 0)
-        + (outgoingMemorialModifiers.abilityDamagePercent ?? 0)
-        + abilityDamageLimitBonusPercent,
+      abilityDamagePercent: outgoingMemorialModifiers.abilityDamagePercent ?? 0,
       abilityDamageLimitBonusPercent,
-      abilityDamageCapPercent:
-        (completion.totals.abilityDamageCap ?? 0)
-        + (outgoingMemorialModifiers.abilityDamageCapPercent ?? 0)
-        + abilityDamageCapLimitBonusPercent,
+      abilityDamageCapPercent: outgoingMemorialModifiers.abilityDamageCapPercent ?? 0,
       abilityDamageCapLimitBonusPercent,
       protagonistDefensePercent:
         growth.totals.defensePercent
@@ -3054,7 +3049,7 @@ $("open-battle").addEventListener("click", () => {
   const request = currentTargetRequest(configuredRequest);
   persistRequest(configuredRequest);
   sessionStorage.setItem(
-    "gbf-helper-battle-setup-v1",
+    BATTLE_SETUP_STORAGE_KEY,
     JSON.stringify({ schemaVersion: 1, request: { ...request, attacker: undefined }, enemyMaxHp: request.enemy.maxHp ?? 1_000_000 }),
   );
   window.location.href = "/battle.html";

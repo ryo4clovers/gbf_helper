@@ -199,7 +199,7 @@ test("connects Armor Break ability-damage LB as additive percentage points", () 
   const lbRequest = request();
   const withLimitBonuses = calculateNormalAttackFromRequest({
     ...lbRequest,
-    modifiers: { ...lbRequest.modifiers, abilityDamagePercent: 44, abilityDamageLimitBonusPercent: 10 },
+    modifiers: { ...lbRequest.modifiers, abilityDamagePercent: 34, abilityDamageLimitBonusPercent: 10 },
     random: { minimum: 1, maximum: 1, step: 1 },
   }).result.abilityDamage!;
 
@@ -219,7 +219,7 @@ test("connects ability-damage cap LB to Armor Break attenuation thresholds", () 
   const lbRequest = request();
   const withLimitBonuses = calculateNormalAttackFromRequest({
     ...lbRequest,
-    modifiers: { ...lbRequest.modifiers, abilityDamageCapPercent: 15, abilityDamageCapLimitBonusPercent: 15 },
+    modifiers: { ...lbRequest.modifiers, abilityDamageCapPercent: 0, abilityDamageCapLimitBonusPercent: 15 },
     random: { minimum: 1, maximum: 1, step: 1 },
   }).result.abilityDamage!;
 

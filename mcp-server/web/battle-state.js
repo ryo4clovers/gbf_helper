@@ -1,6 +1,7 @@
 import { calculateCrewSupportEffects } from "./crew-support-config.js";
 
-export const BATTLE_SETUP_STORAGE_KEY = "gbf-helper-battle-setup-v1";
+// v2 separates shared ability modifiers from protagonist LB/completion totals.
+export const BATTLE_SETUP_STORAGE_KEY = "gbf-helper-battle-setup-v2";
 export const SIMULATION_MODES = Object.freeze({
   normal: "normal",
   downside: "downside",

@@ -1,5 +1,7 @@
 import { z } from "zod";
 import { resolveCalculatorDeckConfig } from "./calculatorDeckResolver.js";
+import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
+import { resolveAbilityBonuses } from "./abilityBonusResolver.js";
 import { resolveBattleSupportSummon } from "./summonCatalog.js";
 import {
   calculateNormalAttackDamage,
@@ -70,10 +72,10 @@ export const normalAttackCalculationRequestSchema = z
         extinctionCrestDoubleAttackRatePercent: optionalPercent,
         extinctionCrestTripleAttackRatePercent: optionalPercent,
         chainBurstPerformancePercent: optionalPercent,
-        abilityDamagePercent: optionalPercent,
-        abilityDamageLimitBonusPercent: optionalPercent,
-        abilityDamageCapPercent: optionalPercent,
-        abilityDamageCapLimitBonusPercent: optionalPercent,
+        abilityDamagePercent: optionalPercent.describe("大事なもの等の共通追加補正。主人公LB・コンプリート分を含めない"),
+        abilityDamageLimitBonusPercent: optionalPercent.describe("主人公アビダメLBの置換値。キャラには適用しない"),
+        abilityDamageCapPercent: optionalPercent.describe("大事なもの等の共通追加上限。主人公LB・コンプリート分を含めない"),
+        abilityDamageCapLimitBonusPercent: optionalPercent.describe("主人公アビ上限LBの置換値。キャラには適用しない"),
         protagonistDefensePercent: optionalPercent,
         incomingElementalDamageReductionPercents: z.array(z.number().finite().min(0).max(100)).max(20).optional(),
       })
@@ -253,12 +255,8 @@ export function resolveDamageCalculationRequest(input: unknown) {
       defensePercent: request.modifiers.protagonistDefensePercent ?? 0,
       elementalDamageReductionPercents: request.modifiers.incomingElementalDamageReductionPercents ?? [],
     },
-    abilityDamage: {
-      abilityDamageUpPercent: request.modifiers.abilityDamagePercent ?? 0,
-      limitBonusPercent: request.modifiers.abilityDamageLimitBonusPercent ?? 0,
-      abilityDamageCapUpPercent: request.modifiers.abilityDamageCapPercent ?? 0,
-      limitBonusDamageCapUpPercent: request.modifiers.abilityDamageCapLimitBonusPercent ?? 0,
-    },
+    abilityDamage: resolveAbilityBonuses(parseCalculatorDeckConfig(request.deckConfig).protagonist,
+      resolution.protagonistAbilityCompletion, request.modifiers, request.attacker !== undefined),
   };
 
   return { request, calculationInput, resolution, supportSummon };

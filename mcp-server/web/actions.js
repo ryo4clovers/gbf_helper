@@ -1,4 +1,4 @@
-import { BATTLE_SETUP_STORAGE_KEY } from "/battle-state.js?v=3";
+import { BATTLE_SETUP_STORAGE_KEY } from "/battle-state.js?v=4";
 
 const $ = (id) => document.getElementById(id);
 const actors = [["protagonist", "主人公"], ["cidala", "シンダラ"], ["sariel", "サリエル"]];

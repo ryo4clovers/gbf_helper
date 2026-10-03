@@ -1,6 +1,7 @@
 import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
 import { applyCalculatorDeckEquipmentRules } from "./calculatorDeckEquipmentRules.js";
 import { createSelectableJobCatalog } from "./jobCatalogView.js";
+import { calculateJobCompletionBonuses } from "../../web/job-completion-bonus-config.js";
 import { loadJobFallbackWeaponCatalog } from "./jobFallbackWeaponCatalog.js";
 import { loadIncrementalSummonCatalog, resolveCatalogSummonAura } from "./summonCatalog.js";
 import {
@@ -151,6 +152,7 @@ export interface CalculatorDeckResolution {
   mode: "catalog-derived" | "catalog-with-overrides";
   deck: DeckSnapshot;
   issues: CalculatorDeckResolutionIssue[];
+  protagonistAbilityCompletion: { damagePercent: number; capPercent: number; specified: boolean };
 }
 
 function calculateCatalogSummonStats(
@@ -252,6 +254,8 @@ export function resolveCalculatorDeckConfig(
   const summonCatalog = loadIncrementalSummonCatalog();
   const issues: CalculatorDeckResolutionIssue[] = [];
   const selectedJob = jobCatalog.jobs.find((job) => job.jobId === config.protagonist.jobId);
+  // Missing completion data is unknown, never the UI's default of all jobs.
+  const completion = calculateJobCompletionBonuses(config.protagonist.completedJobIds ?? [], jobCatalog.jobs, selectedJob);
   const resolvedWeaponStats = config.weapons.map((weapon) => {
     const master = catalog.weapons.get(weapon.weaponId);
     const fallbackMaster = weapon.isJobFallback
@@ -663,5 +667,10 @@ export function resolveCalculatorDeckConfig(
     mode: displayedStats === undefined ? "catalog-with-overrides" : "catalog-derived",
     deck,
     issues,
+    protagonistAbilityCompletion: {
+      damagePercent: completion.totals.abilityDamage ?? 0,
+      capPercent: completion.totals.abilityDamageCap ?? 0,
+      specified: config.protagonist.completedJobIds !== undefined,
+    },
   };
 }

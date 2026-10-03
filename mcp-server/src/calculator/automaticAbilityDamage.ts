@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
 import { normalAttackCalculationRequestSchema, resolveDamageCalculationRequest } from "./normalAttackCalculationRequest.js";
 import { prepareNormalAttackActor, selectedCharacter, resolveCharacterArtifact, resolveNormalAttackSupport } from "./characterNormalAttack.js";
 import { resolveCharacterMastery } from "./characterMastery.js";
@@ -87,11 +86,12 @@ export function calculateAutomaticAbilityDamage(input: unknown) {
       if (bonus.unit !== "percent") throw new Error("指輪のアビリティ上限はpercentで指定してください");
       return sum + bonus.value;
     }, 0);
-  const lb = parseCalculatorDeckConfig(calculation.deckConfig).protagonist.otherLimitBonusLevels ?? {};
-  const lbDamage = character ? 0 : [5, 32].reduce((sum, id) => sum + [0, 1, 3, 5][lb[String(id)] ?? 0], 0);
-  const lbCap = character ? 0 : [0, 3, 5, 10][lb["84"] ?? 0] + [0, 1, 3, 5][lb["89"] ?? 0];
-  const damageUpPercent = (calculation.modifiers.abilityDamagePercent ?? 0) + artifactAbilityPercent
-    + (character ? 0 : 40) + (calculation.modifiers.abilityDamageLimitBonusPercent ?? lbDamage);
+  const bonuses = original.abilityDamage!;
+  const damageContributions = { account: calculation.modifiers.abilityDamagePercent ?? 0,
+    artifact: artifactAbilityPercent, jobLevel: character ? 0 : 40,
+    limitBonus: bonuses.limitBonusPercent ?? 0,
+    completion: character ? 0 : resolution.protagonistAbilityCompletion.damagePercent };
+  const damageUpPercent = Object.values(damageContributions).reduce((sum, value) => sum + value, 0);
   const effectiveMultiplier = profile.multiplier + damageUpPercent / 100;
   const generalCap = base.deferredCapModifiers.filter((modifier) => modifier.stage === "damage-cap")
     .reduce((sum, modifier) => sum + modifier.amountPercent, 0);
@@ -104,7 +104,8 @@ export function calculateAutomaticAbilityDamage(input: unknown) {
     weaponSpecialGeneralCap: weaponCap("special-frame-damage-cap-up"), weaponAbilityCap: weapons.abilityDamageCap.effectivePercent,
     weaponSpecialAbilityCap: weaponCap("special-ability-damage-cap-up", 30), actorCap, summonCap: summons.capPercent,
     ringCap: ringCapPercent, jobLevelCap: character ? 0 : 20, accountAbilityCap: calculation.modifiers.abilityDamageCapPercent ?? 0,
-    limitBonusCap: calculation.modifiers.abilityDamageCapLimitBonusPercent ?? lbCap };
+    limitBonusCap: bonuses.limitBonusDamageCapUpPercent ?? 0,
+    completionCap: character ? 0 : resolution.protagonistAbilityCompletion.capPercent };
   const capPercent = Object.values(capContributions).reduce((sum, value) => sum + value, 0);
   const advantageous = profile.element === "destruction" || elementalSuperiorityPercent(actor.deck.protagonist.elementCode, target.elementCode) > 0;
   const amplificationPercent = (calculation.modifiers.damageDealtPercent ?? 0) + (advantageous ? calculation.modifiers.targetElementDamagePercent ?? 0 : 0)
@@ -122,13 +123,13 @@ export function calculateAutomaticAbilityDamage(input: unknown) {
   });
   const minimum = predictions[0].damage, maximum = predictions[100].damage;
   return {
-    schemaVersion: 1 as const, verificationStatus: "下書き" as const, modelVersion: "automatic-ability-candidate-v1", abilityId, abilityName: profile.name, hitCount,
+    schemaVersion: 1 as const, verificationStatus: "下書き" as const, modelVersion: "automatic-ability-candidate-v2", abilityId, abilityName: profile.name, hitCount,
     element: profile.element, criticalDamageBonusPercent,
     perHit: { minimum, maximum, mean: predictions.reduce((sum, p) => sum + p.damage, 0) / predictions.length },
     total: { minimum: minimum * hitCount, maximum: maximum * hitCount },
     predictions,
     trace: { commonPreAbilityDamage: base.articleTrace!.prePostCapDamage, intrinsicMultiplier: profile.multiplier,
-      damageUpPercent, effectiveMultiplier, capPercent, capContributions, amplificationPercent, supplementalDamage,
+      damageUpPercent, damageContributions, effectiveMultiplier, capPercent, capContributions, amplificationPercent, supplementalDamage,
       enemyDamageTakenAmplificationPercent: effects.enemyDamageTakenAmplificationPercent,
       attenuation: profile.attenuation, ringCapPercent, artifactAbilityPercent, level },
     deckResolutionIssues: resolution.issues,
@@ -136,7 +137,9 @@ export function calculateAutomaticAbilityDamage(input: unknown) {
       "既存の序盤ログとは未一致。倍率・減衰・補正範囲・丸めを含む候補値であり、実測再現値ではない",
       "減衰→被ダメージUP→固定加算→与ダメージ増幅→切り上げの順は下書き。通常専用補正は適用しない",
       "クリティカルは入力条件。発動確率・通常攻撃の確定クリティカルからは自動決定しない",
-      "主人公のジョブLv補正40%/20%とLBは自動加算。全体コンプリート等はmodifiersへ別途入力",
+      "主人公のジョブLv補正40%/20%・LB・選択済みジョブのコンプリート補正は主人公だけに自動加算（二次情報）",
+      ...(!character && !resolution.protagonistAbilityCompletion.specified
+        ? ["completedJobIds未入力のためアビリティのコンプリート補正は未反映（全取得を仮定しない）"] : []),
       ...(abilityId === "mythical-arms" ? [profile.multiplierStatus] : []),
       ...(weapons.supplementalDamage.effectiveAmount > 0 ? ["武器の敵最大HP依存与ダメージは加算上限値で計算（低HP敵は未検証）"] : []),
       ...(summons.enemyHpCapUnresolved || mastery.enemyHpCapUnresolved ? ["敵最大HP未入力のためHP依存の固定与ダメージは上限値で計算"] : []),
