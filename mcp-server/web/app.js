@@ -1168,7 +1168,7 @@ function removeSelectedJob() {
 }
 
 function catalogCharacter(characterId) {
-  return characterCatalog.find((character) => character.characterId === characterId);
+  return characterCatalog.find((character) => character.characterId === characterId || character.masterId === characterId);
 }
 
 function characterForSlot(config, slot) {
@@ -1238,12 +1238,11 @@ function createCharacterSlot(config, slot) {
   choice.className = "character-choice";
   choice.setAttribute("aria-label", `${slot <= 3 ? `前衛${slot}` : `サブ${slot - 3}`}のキャラクターを選択`);
   choice.addEventListener("click", () => openCharacterPicker(slot));
-  const art = document.createElement("span");
-  art.className = `character-art ${element?.className ?? "unknown"}`;
+  const art = createEquipmentArt(`character-art ${element?.className ?? "unknown"}`, master,
+    character ? "♟" : "+", `${master?.name ?? character?.nameHint ?? "キャラクター"}のキャラクター画像`);
   art.append(
     createText("slot-badge", slot <= 3 ? `FRONT ${slot}` : `SUB ${slot - 3}`),
     createText("rarity-badge", master?.rarity ?? "—"),
-    createText("character-symbol", character ? "♟" : "+"),
   );
   const info = document.createElement("span");
   info.className = "character-slot-info";
@@ -1300,9 +1299,8 @@ function renderCharacterResults(query = "") {
     button.type = "button";
     button.className = "catalog-weapon-card catalog-character-card";
     button.addEventListener("click", () => selectCharacter(character));
-    const art = document.createElement("span");
-    art.className = `catalog-art character-catalog-art ${element?.className ?? "unknown"}`;
-    art.append(createText("character-symbol", "♟"));
+    const art = createEquipmentArt(`catalog-art character-catalog-art ${element?.className ?? "unknown"}`,
+      character, "♟", `${character.name}のキャラクター画像`);
     const details = document.createElement("span");
     details.className = "catalog-weapon-details";
     details.append(

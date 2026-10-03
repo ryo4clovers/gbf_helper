@@ -26,6 +26,8 @@ const elementCodes: Record<string, string> = {
 
 export interface SelectableCharacterCatalogEntry {
   characterId: string;
+  masterId?: string;
+  imageUrl?: string;
   name: string;
   nameEn: string;
   elementCode: string;
@@ -42,6 +44,9 @@ export interface SelectableCharacterCatalog {
 export function createSelectableCharacterCatalog(
   knowledgeBasePath = KNOWLEDGE_BASE_PATH,
 ): SelectableCharacterCatalog {
+  const imageCatalog = z.object({ entries: z.record(z.object({
+    masterId: z.string().regex(/^30[234]\d{7}$/), wikiPage: z.string(),
+  })) }).parse(JSON.parse(readFileSync(new URL("../../catalog/character-images.v1.json", import.meta.url), "utf8")));
   const charactersPath = path.join(knowledgeBasePath, "characters");
   const characters = readdirSync(charactersPath)
     .filter((name) => name.endsWith(".md") && !name.startsWith("_") && name !== "README.md")
@@ -51,6 +56,10 @@ export function createSelectableCharacterCatalog(
       );
       return {
         characterId: frontmatter.id,
+        ...(imageCatalog.entries[frontmatter.id] ? {
+          masterId: imageCatalog.entries[frontmatter.id].masterId,
+          imageUrl: `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/m/${imageCatalog.entries[frontmatter.id].masterId}_01.jpg`,
+        } : {}),
         name: frontmatter.name_jp,
         nameEn: frontmatter.name_en,
         elementCode: elementCodes[frontmatter.element],

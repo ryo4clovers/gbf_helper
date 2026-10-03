@@ -36,4 +36,18 @@ test("creates a browser-safe catalog from all character knowledge", () => {
   assert.equal(catalog.characters.length, 1018);
   assert.equal(catalog.characters.some((character) => character.characterId === "fire-ssr-tien-normal"), true);
   assert.equal(JSON.stringify(catalog).includes("source"), false);
+  const ilsa = catalog.characters.find((character) => character.characterId === "dark-ssr-ilsa-yukata")!;
+  assert.equal(ilsa.masterId, "3040456000");
+  assert.equal(ilsa.imageUrl, "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/m/3040456000_01.jpg");
+  assert.equal(catalog.characters.find((character) => character.characterId === "dark-ssr-sariel-limited")?.masterId, "3040611000");
+  assert.equal(catalog.characters.find((character) => character.characterId === "dark-ssr-cidala-valentine")?.masterId, "3040512000");
+  // A seasonal version must not inherit another version's picture.
+  const summerIlsa = catalog.characters.find((character) => character.nameEn === "Ilsa (Summer)")!;
+  assert.ok(summerIlsa.imageUrl);
+  assert.notEqual(summerIlsa.masterId, ilsa.masterId);
+  const imageIds = catalog.characters.flatMap((character) => character.masterId ? [character.masterId] : []);
+  assert.equal(new Set(imageIds).size, imageIds.length, "ambiguous duplicate master IDs must not pick a character arbitrarily");
+  for (const character of catalog.characters) {
+    if (character.imageUrl) assert.match(character.imageUrl, /^https:\/\/prd-game-a-granbluefantasy\.akamaized\.net\/assets\/img\/sp\/assets\/npc\/m\/30[234]\d{7}_01\.jpg$/);
+  }
 });
