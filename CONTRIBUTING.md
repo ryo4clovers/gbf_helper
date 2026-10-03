@@ -63,6 +63,25 @@ git config --local commit.template .gitmessage
 
 ## 実測戦闘ログとの照合
 
+### 記録に依存しない行動生成
+
+ローカル戦闘画面の「闇編成の行動生成」から`/actions.html`を開きます。同じ処理をHTTPの`POST /api/generate-actions`、読み取り専用MCPの`generate_battle_actions`、CLIでも使用できます。通常攻撃の計算と実測ログの解析は従来の入口を維持します。
+
+```powershell
+cd mcp-server
+npm run build
+node scripts/generate-battle-actions.mjs examples/battle-actions-request.v1.json <新規ローカル出力.json>
+```
+
+- 入力例は合成編成です。ユーザーの設定・記録は含みません。実編成で使う場合は`deckConfig`を差し替え、出力は`captures/`等のGit管理外へ保存します。CLIは既存ファイルを上書きしません。
+- 現在は闇ランサー・オリジンLv40以上＋メインエレシュキガルLv250と、Lv80以上の闇シンダラ・サリエル・浴衣イルザの3人が対象です。3人の並び順は編成から解決します。他化自在はメイン4凸ヴェルサシアに限り対応します。
+- `chargeAttack: false`と`manualAbilities: false`を必須にし、1〜100ターンを生成します。通常攻撃、分割と武器追撃のhit数、サリエルの開幕3回行動、通常攻撃後の自動アビリティ、シンダラ/刑死/他化自在の適用順と期限、神伝の槍手Lvを下書き接続します。ターン終了時のテル・イブラームIIは奥義即時発動可能という効果イベントだけで、奥義OFFのままです。
+- `multiattack.mode`は`minimum`/`maximum`/`sample`。連撃率未指定の前2者は既知の確定連撃だけに制約された比較シナリオで、総ダメージの上下限ではありません。抽選には`rates.protagonist`/`cidala`/`sariel`の`doubleAttackRatePercent`・`tripleAttackRatePercent`を全補正込みで明示します。`openingFourTurns`へ同じ2項目を指定すると開幕4ターンだけ置き換えます。イルザの確定TA、開幕サリエルの確定TA、シンダラの確定連撃を優先します。エレシュキガルのオーバースキル効果を無条件・永続の確定TAに置換しません。
+- 連撃率の自動合成、神伝Lvに伴う連撃率変化は未対応です。神伝Lvの攻撃補正と反応hit数は進行しますが、率は入力した実効率を継続使用します。シードは32bit非負整数で既定1、抽選はバージョン固定のLCGです。ゲームの乱数列を再現するものではありません。
+- `secondsPerTurn`は必須で、180秒弱体をターン数に読み替えません。各行動は当該ターン開始時刻で発生する仮定です。全員生存、単体敵、全攻撃命中、弱体成功、敵行動/解除なしのシナリオです。自動アビリティは`damage: null`を返し、未計算を0ダメージと表現しません。敵HP・味方HP・毒・奥義ゲージ・アーティファクト抽選等を含む戦闘全体のシミュレーションは未完成です。
+- 各`kind: "normal"`イベントの`calculationPatch`は、通常計算APIの`mythicalLancerLevel`、`battleEffects`、キャラ選択と双子緒虎の有無です。HP・アーティファクト条件は別途明示します。キャラの`attacker`は既存条件とマージし、主人公へ渡すときは`attacker`を外してください。パッチの弱体状態は生成時点の値であり、実測状態からのコピーではありません。
+- 生成器は`recordedBattleParser`/`recordedNormalAttackState`に依存しません。記録は生成後の検証にだけ使用します。モデルの根拠・保留事項・未対応効果と編成解決の警告は、HTTP/MCP/CLIの全経路で保持します。
+
 Network Recorderの書き出しはオフラインで解析し、実測トレースと予測計算を分けます。
 ビルド後、以下のスクリプトで編成・戦闘の書き出しを読み込めます。
 出力には個人の装備設定や表示ステータスが含まれるため、`captures/`などGit管理外へ保存します。

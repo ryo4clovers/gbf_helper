@@ -14,6 +14,21 @@ test("lists and calls the normal attack calculator as a read-only MCP tool", asy
     await Promise.all([server.connect(serverTransport), client.connect(clientTransport)]);
     const tools = await client.listTools();
     const calculator = tools.tools.find((tool) => tool.name === "calculate_normal_attack_damage");
+    const generator = tools.tools.find((tool) => tool.name === "generate_battle_actions");
+    assert.ok(generator);
+    assert.equal(generator.annotations?.readOnlyHint, true);
+    assert.equal(generator.annotations?.destructiveHint, false);
+    assert.equal(generator.annotations?.openWorldHint, false);
+    assert.equal(generator.annotations?.idempotentHint, true);
+    const generatorInput = JSON.parse(readFileSync(new URL("../examples/battle-actions-request.v1.json", import.meta.url), "utf8"));
+    const generated = await client.callTool({ name: "generate_battle_actions", arguments: generatorInput });
+    assert.notEqual(generated.isError, true);
+    assert.equal((generated.structuredContent as { verificationStatus: string }).verificationStatus, "下書き");
+    assert.equal((generated.structuredContent as { turns: unknown[] }).turns.length, 6);
+    const missingRates = await client.callTool({ name: "generate_battle_actions", arguments: {
+      ...generatorInput, multiattack: { mode: "sample" },
+    } });
+    assert.equal(missingRates.isError, true);
     const jobCatalog = tools.tools.find((tool) => tool.name === "list_calculator_jobs");
     const fallbackWeaponCatalog = tools.tools.find(
       (tool) => tool.name === "list_job_fallback_weapons",

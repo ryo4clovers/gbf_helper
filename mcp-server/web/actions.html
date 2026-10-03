@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>行動生成 — GBF Damage Lab</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/actions.css" />
+  <script type="module" src="/actions.js"></script>
+</head>
+<body>
+  <header class="top-app-bar">
+    <div><p class="eyebrow">LOCAL BATTLE LAB</p><h1>闇編成の行動生成</h1></div>
+    <div class="header-actions"><a class="tonal-button nav-button" href="/battle.html">戦闘画面</a><a class="tonal-button nav-button" href="/">編成・計算</a></div>
+  </header>
+  <main class="actions-workspace">
+    <section class="surface actions-section">
+      <h2>奥義OFF・手動アビリティなし</h2>
+      <p>ランサー・オリジン＋エレシュキガルLv250、闇シンダラ・サリエル・浴衣イルザの行動順を生成します。自動アビリティの発動と効果期限までの下書きモデルです。敵の行動・HP推移・総ダメージは未対応です。</p>
+      <form id="action-form">
+        <label>編成JSONファイル <input id="deck-file" type="file" accept=".json,application/json" /></label>
+        <label for="deck-json">編成JSON（編成・計算画面から戦闘画面へ渡した設定があれば読み込みます）</label>
+        <textarea id="deck-json" rows="5" required spellcheck="false" placeholder="CalculatorDeckConfig v1 または単発計算リクエスト"></textarea>
+        <div class="actions-controls">
+          <label>ターン数 <input id="turns" type="number" min="1" max="100" value="6" required /></label>
+          <label>1ターンの秒数 <input id="seconds" type="number" min="0.1" max="3600" step="any" value="15" required /></label>
+          <label>連撃シナリオ <select id="mode"><option value="maximum">最大連撃</option><option value="minimum">最低連撃</option><option value="sample">確率で抽選</option></select></label>
+          <label>乱数シード <input id="seed" type="number" min="0" max="4294967295" value="1" required /></label>
+        </div>
+        <details id="rates-details"><summary>実効DA・TA率を指定する（抽選時は必須）</summary>
+          <p>武器・神伝の槍手Lv・覚醒・大事なもの等を含めた実効率を入力してください。開幕4ターンの値はオーバースキル等を含める場合の置換値です。空欄なら通常の値を使います。神伝Lvによる率の変化は自動計算しません。</p>
+          <div class="actions-table-wrap"><table><thead><tr><th>対象</th><th>DA %</th><th>TA %</th><th>開幕DA %</th><th>開幕TA %</th></tr></thead><tbody id="rate-rows"></tbody></table></div>
+        </details>
+        <p>率が未指定の最低・最大連撃は、既知の確定連撃を含む比較用シナリオです。実戦の確率や総ダメージの上下限を示すものではありません。全員生存・全攻撃命中・弱体成功を仮定します。</p>
+        <button id="generate" class="primary-button" type="submit">行動を生成</button>
+        <button id="download" class="tonal-button" type="button" disabled>結果JSONを保存</button>
+      </form>
+      <p id="action-status" role="status" aria-live="polite"></p>
+    </section>
+    <section id="result-section" class="surface actions-section" hidden>
+      <h2>生成された行動</h2>
+      <p>通常攻撃のhit数は分割後の本体と武器追撃です。自動アビリティのダメージ量は未計算です。</p>
+      <div id="action-result"></div>
+      <details><summary>適用条件・未対応項目</summary><ul id="limitations"></ul></details>
+    </section>
+  </main>
+</body>
+</html>

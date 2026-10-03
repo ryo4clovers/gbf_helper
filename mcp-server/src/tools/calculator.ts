@@ -1,4 +1,5 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { generateBattleActions, battleActionGenerationRequestSchema } from "../calculator/battleActionGenerator.js";
 import { calculateNormalAttackFromRequest, normalAttackCalculationRequestSchema } from "../calculator/normalAttackCalculationRequest.js";
 import { createSelectableJobCatalog } from "../calculator/jobCatalogView.js";
 import { createJobFallbackWeaponCatalogView } from "../calculator/jobFallbackWeaponCatalog.js";
@@ -13,6 +14,19 @@ const READ_ONLY_ANNOTATIONS = {
 };
 
 export function registerCalculatorTools(server: McpServer): void {
+  server.registerTool(
+    "generate_battle_actions",
+    {
+      title: "闇編成の行動生成（奥義OFF）",
+      description: "編成と初期条件から通常攻撃・自動発動順・単発計算用状態を生成する下書きモデル。闇ランサー・オリジン、エレシュキガルLv250、闇シンダラ、サリエル、浴衣イルザに限定。実効連撃率を指定した再現可能な抽選、または最低/最大連撃シナリオ。記録の行動列を使わず、自動アビリティのダメージ量と敵HPは未計算。",
+      inputSchema: battleActionGenerationRequestSchema.innerType().shape,
+      annotations: READ_ONLY_ANNOTATIONS,
+    },
+    async (request) => {
+      const response = generateBattleActions(request);
+      return { content: [{ type: "text", text: JSON.stringify(response) }], structuredContent: { ...response } };
+    },
+  );
   server.registerTool(
     "list_job_fallback_weapons",
     {

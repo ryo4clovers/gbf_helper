@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ZodError } from "zod";
+import { generateBattleActions } from "./calculator/battleActionGenerator.js";
 import { convertDeckResponseToCalculatorDeckConfig } from "./calculator/calculatorDeckConfig.js";
 import { calculateNormalAttackFromRequest } from "./calculator/normalAttackCalculationRequest.js";
 import { createSelectableCharacterCatalog } from "./calculator/characterCatalogView.js";
@@ -19,6 +20,9 @@ const WEB_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."
 const MAX_BODY_BYTES = 1_048_576;
 
 const staticFiles: Record<string, { file: string; contentType: string }> = {
+  "/actions.html": { file: "actions.html", contentType: "text/html; charset=utf-8" },
+  "/actions.js": { file: "actions.js", contentType: "text/javascript; charset=utf-8" },
+  "/actions.css": { file: "actions.css", contentType: "text/css; charset=utf-8" },
   "/": { file: "index.html", contentType: "text/html; charset=utf-8" },
   "/index.html": { file: "index.html", contentType: "text/html; charset=utf-8" },
   "/app.js": { file: "app.js", contentType: "text/javascript; charset=utf-8" },
@@ -115,6 +119,10 @@ const server = createServer(async (request, response) => {
     }
     if (request.method === "POST" && url.pathname === "/api/calculate") {
       json(response, 200, calculateNormalAttackFromRequest(await readJsonBody(request)));
+      return;
+    }
+    if (request.method === "POST" && url.pathname === "/api/generate-actions") {
+      json(response, 200, generateBattleActions(await readJsonBody(request)));
       return;
     }
     if (request.method === "POST" && url.pathname === "/api/convert-deck") {

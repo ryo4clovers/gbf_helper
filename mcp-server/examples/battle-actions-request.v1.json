@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "deckConfig": {
+    "schemaVersion": 1,
+    "format": "gbf-helper-calculator-deck",
+    "protagonist": { "elementCode": "6", "jobId": "190501", "jobLevel": 50, "attackOverride": 50000, "hpOverride": 10000 },
+    "weapons": [
+      { "slot": 1, "position": "main", "weaponId": "1040315100", "level": 250, "uncapLevel": 5, "skillLevel": 20 }
+    ],
+    "summons": [
+      { "slot": 1, "position": "main", "summonId": "2040448000", "uncapLevel": 4, "level": 150 }
+    ],
+    "characters": [
+      { "slot": 1, "position": "front", "characterId": "3040512000", "level": 80, "attackOverride": 40000, "hpOverride": 10000 },
+      { "slot": 2, "position": "front", "characterId": "3040611000", "level": 80, "attackOverride": 40000, "hpOverride": 10000 },
+      { "slot": 3, "position": "front", "characterId": "3040456000", "level": 80, "attackOverride": 40000, "hpOverride": 10000 }
+    ]
+  },
+  "turns": 6,
+  "secondsPerTurn": 15,
+  "chargeAttack": false,
+  "manualAbilities": false,
+  "multiattack": { "mode": "maximum", "seed": 1 }
+}
