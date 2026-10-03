@@ -65,3 +65,17 @@ test("mastery content requires a public master ID, valid slots and finite effect
   badValue.option.npcaugment.param_data[0].param.total_param = "Infinity";
   assert.throws(() => importCharacterEnhancementExports([{ apiCalls: [call(badValue, "/npczenith/content/index/123")] }]));
 });
+
+test("separate captures preserve character identity and import earring flat damage without scaling its internal level", () => {
+  const content = { data: encodeURIComponent('<input id="id-of-npc-master" value="3040611000">'),
+    option: { npcaugment: { param_data: [{ slot_number: 4, type: { id: "160008", name: "与ダメージ上昇" },
+      param: { total_param: "12000", disp_total_param: "+12000", level: "6" } }] } } };
+  const settings = importCharacterEnhancementExports([
+    { apiCalls: [call(masteryContent, "/npczenith/content/index/123")] },
+    { apiCalls: [call(content, "/npczenith/content/index/456")] },
+  ]);
+  assert.equal(settings.length, 2);
+  assert.equal(settings.find(s => s.characterId === "3040512000")?.mastery?.earring[0].value, 5);
+  assert.deepEqual(settings.find(s => s.characterId === "3040611000")?.mastery?.earring,
+    [{ bonusId: "160008", name: "与ダメージ上昇", value: 12_000, unit: "flat" }]);
+});

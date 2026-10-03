@@ -5,7 +5,7 @@ export interface BattleDamageEffects {
   enemySupplementalDamage?: number;
   /** Support Skill B: take the strongest amount, including the protagonist's support. */
   supportSkillSupplementalDamage?: number;
-  /** Explicit normal-attack buff amount (e.g. Ereshkigal charge attack). */
+  /** Explicit normal-only buff (e.g. Ereshkigal charge attack); not a generic Standard supplemental buff. */
   normalAttackSupplementalDamage?: number;
 }
 

@@ -193,7 +193,8 @@ export function calculateNormalAttackDamage(
   const character = selectedCharacter(input);
   input = prepareNormalAttackActor(input);
   const characterArtifact = resolveCharacterArtifact(input);
-  const characterMastery = resolveCharacterMastery(character, input.protagonistCurrentHpPercent ?? 100);
+  const target = input.battle.enemies.find((enemy) => enemy.slot === input.targetEnemySlot);
+  const characterMastery = resolveCharacterMastery(character, input.protagonistCurrentHpPercent ?? 100, target?.maxHp);
   const attackPower = calculateBattleNormalAttackPower(input.deck, input.battle);
   const hpDependentAttack = calculateHpDependentAttack(
     input.deck,
@@ -209,7 +210,6 @@ export function calculateNormalAttackDamage(
   const normalAttackSkillFrames = calculateNormalAttackSkillFrames(input.deck);
   const protagonistNormalAttackSupport = resolveNormalAttackSupport(input);
   const battleDamageEffects = resolveBattleDamageEffects(input.battleEffects, protagonistNormalAttackSupport.supplementalDamage);
-  const target = input.battle.enemies.find((enemy) => enemy.slot === input.targetEnemySlot);
   const summonDamageEffects = resolveSummonDamageEffects(input.deck, target?.elementCode, target?.maxHp, input.protagonistCurrentHpPercent ?? 100);
   const sharedRandomOptions = {
     multiplierMin: options.multiplierMin,
@@ -258,7 +258,9 @@ export function calculateNormalAttackDamage(
     + normalAttackSkillFrames.supplementalDamage.effectiveAmount
     + normalAttackSkillFrames.separateSupplementalDamage.effectiveAmount
     + battleDamageEffects.supportSkillSupplementalDamage + battleDamageEffects.enemySupplementalDamage
-    + summonDamageEffects.supplementalDamage + battleDamageEffects.normalAttackSupplementalDamage
+    + summonDamageEffects.supplementalDamage
+    // Earring (Standard) and the existing normal-only buff are provisional separate categories.
+    + battleDamageEffects.normalAttackSupplementalDamage + characterMastery.supplementalDamage
     + characterArtifact.normalAttackSupplementalDamage;
   const bodyDamageAttenuation: NormalAttackBodyAttenuationResult = {
     schemaVersion: 1,
@@ -521,7 +523,7 @@ export function calculateNormalAttackDamage(
       ...(criticalBodyDamage === undefined && protagonistLimitBonusCritical === undefined
         ? []
         : (["critical-damage-attenuation-unresolved"] as const)),
-      ...(otherWeaponSkills.supplementalDamage.effectiveAmount === 0 && !summonDamageEffects.enemyHpCapUnresolved
+      ...(otherWeaponSkills.supplementalDamage.effectiveAmount === 0 && !summonDamageEffects.enemyHpCapUnresolved && !characterMastery.enemyHpCapUnresolved
         ? []
         : (["supplemental-damage-enemy-hp-cap-unresolved"] as const)),
     ],

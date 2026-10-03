@@ -9,7 +9,7 @@ const SOURCES: Record<string, string> = {
 };
 
 const NORMAL_IRRELEVANT_ARTIFACTS = new Set(["攻撃力", "HP", "防御力", "ダブルアタック確率", "トリプルアタック確率",
-  "アビリティダメージ", "奥義ダメージ"]);
+  "アビリティダメージ", "奥義ダメージ", "弱体耐性"]);
 
 export function resolveCharacterArtifact(input: DamageCalculationInput) {
   const character = selectedCharacter(input);
