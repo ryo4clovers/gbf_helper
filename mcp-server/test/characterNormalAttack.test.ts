@@ -54,7 +54,7 @@ test("Cidala requires an explicit buff state and switches splitting and support 
   const inactive = calculateNormalAttackFromRequest({ ...input, attacker: { characterSlot: 1, coupledConfectionActive: false },
     battleEffects: { supportSkillSupplementalDamage: 30_000 } }).result;
   assert.equal(active.normalAttackSupport.randomTargetHitCount, 2);
-  assert.equal(active.bodyDamageDistribution.minimumDamage, 50_075);
+  assert.equal(active.bodyDamageDistribution.minimumDamage, 80_075);
   assert.equal(inactive.normalAttackSupport.randomTargetHitCount, 1);
   assert.equal(inactive.bodyDamageDistribution.minimumDamage, 30_150);
 });
@@ -68,6 +68,25 @@ test("character stamina LB remains separate from weapon stamina and follows the 
   assert.equal(half.baseDamage.articleTrace?.prePostCapDamage, 156);
   assert.equal(full.baseDamage.stages.find(stage => stage.stage === "character-stamina")?.totalPercent, 6);
   assert.equal(half.hpDependentAttack.totalEffectiveNormalStaminaPercent, 0);
+});
+
+test("Cidala's normal-only supplement shares the Ereshkigal maximum and adds Support Skill B separately", () => {
+  const input = request("3040512000");
+  for (const [active, buff, support, expected] of [
+    [true, 0, 0, 50_075], [true, 50_000, 0, 50_075],
+    [true, 0, 30_000, 80_075], [true, 50_000, 30_000, 80_075],
+    [false, 50_000, 30_000, 80_150], [false, 0, 30_000, 30_150],
+    [false, 0, 0, 150],
+  ] as const) {
+    const result = calculateNormalAttackFromRequest({ ...input,
+      attacker: { characterSlot: 1, coupledConfectionActive: active },
+      battleEffects: { normalAttackSupplementalDamage: buff, supportSkillSupplementalDamage: support },
+    }).result;
+    assert.equal(result.bodyDamageDistribution.minimumDamage, expected);
+    assert.equal(result.normalAttackSupport.supplementalDamage, 0);
+    assert.equal(result.battleDamageEffects.supportSkillSupplementalDamage, support);
+    assert.deepEqual(result.battleDamageEffects.normalAttackSupplementalDamageSources, { support: active ? 50_000 : 0, buff });
+  }
 });
 
 test("awakening type without a level never assumes max level; Lv9 amplification and Lv10 cap are distinct", () => {

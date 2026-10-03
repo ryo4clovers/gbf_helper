@@ -169,6 +169,34 @@ test("caps ordinary DEF DOWN before adding beyond-cap DOWN and applies weapon de
   assert.throws(() => calculate(config(), {}, { battleEffects: { unknown: 1 } }));
 });
 
+test("normal-only maximum and separate Support Skill B reach every split body and echo without amplification", () => {
+  const deck = config();
+  Object.assign(deck.characters[0], { characterId: "3040512000", attackOverride: 40_000, hpOverride: 2_000 });
+  const extra = { attacker: { characterSlot: 1, coupledConfectionActive: true } };
+  const base = calculate(deck, {}, extra);
+  const duplicate = calculate(deck, {}, { ...extra, battleEffects: { normalAttackSupplementalDamage: 50_000 } });
+  const stacked = calculate(deck, {}, { ...extra, battleEffects: { normalAttackSupplementalDamage: 50_000, supportSkillSupplementalDamage: 30_000 } });
+  const distributions = (r: typeof base) => [r.bodyDamageDistribution, r.pursuitDamage!.damageDistribution, r.destructionPursuitDamage!.damageDistribution];
+  assert.equal(base.normalAttackSupport.randomTargetHitCount, 2);
+  assert.deepEqual(distributions(duplicate), distributions(base));
+  for (const [i, distribution] of distributions(stacked).entries()) {
+    assert.equal(distribution.minimumDamage - distributions(base)[i].minimumDamage, 30_000);
+    assert.equal(distribution.maximumDamage - distributions(base)[i].maximumDamage, 30_000);
+  }
+  // Selecting MC must not import Cidala's normal-only support from the party.
+  const mc = calculate(deck);
+  assert.equal(mc.normalAttackSupport.normalAttackSupplementalDamage, 0);
+  assert.equal(mc.battleDamageEffects.supportSkillSupplementalDamage, 30_000);
+});
+
+test("normal-only and Support Skill B maxima remain independent and reject invalid support amounts", () => {
+  const effects = resolveBattleDamageEffects({ normalAttackSupplementalDamage: 70_000, supportSkillSupplementalDamage: 40_000 }, 30_000, 50_000);
+  assert.equal(effects.normalAttackSupplementalDamage, 70_000);
+  assert.equal(effects.supportSkillSupplementalDamage, 40_000);
+  assert.equal(resolveBattleDamageEffects({ normalAttackSupplementalDamage: 20_000 }, 0, 50_000).normalAttackSupplementalDamage, 50_000);
+  for (const invalid of [-1, NaN, Infinity]) assert.throws(() => resolveBattleDamageEffects({}, 0, invalid), /finite and non-negative/);
+});
+
 test("rounds the amplified split before pursuit scaling only in the explicit Flurry rounding model", () => {
   const stages = { profile: PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES.normalAttack, damageCapUpPercent: 0,
     postAttenuationPercent: 50, randomTargetHitCount: 2, supplementalDamagePerHit: 100, criticalDamageBonusPercent: 0 };

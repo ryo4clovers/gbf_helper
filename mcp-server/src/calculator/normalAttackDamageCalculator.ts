@@ -210,7 +210,8 @@ export function calculateNormalAttackDamage(
   const otherWeaponSkills = calculateOtherWeaponSkills(input.deck);
   const normalAttackSkillFrames = calculateNormalAttackSkillFrames(input.deck);
   const protagonistNormalAttackSupport = resolveNormalAttackSupport(input);
-  const battleDamageEffects = resolveBattleDamageEffects(input.battleEffects, protagonistNormalAttackSupport.supplementalDamage);
+  const battleDamageEffects = resolveBattleDamageEffects(input.battleEffects, protagonistNormalAttackSupport.supplementalDamage,
+    protagonistNormalAttackSupport.normalAttackSupplementalDamage);
   const summonDamageEffects = resolveSummonDamageEffects(input.deck, target?.elementCode, target?.maxHp, input.protagonistCurrentHpPercent ?? 100);
   const sharedRandomOptions = {
     multiplierMin: options.multiplierMin,

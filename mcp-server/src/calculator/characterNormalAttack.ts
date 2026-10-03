@@ -97,14 +97,17 @@ export function resolveNormalAttackSupport(input: DamageCalculationInput) {
   const character = selectedCharacter(input);
   if (!character) {
     const support = resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel);
-    return { ...support, normalAttackAmplificationPercent: 0, sources: [support.source] };
+    return { ...support, normalAttackSupplementalDamage: 0, normalAttackAmplificationPercent: 0, sources: [support.source] };
   }
   const cidala = character.masterId === "3040512000" && input.attacker?.coupledConfectionActive;
   const multiattackAwakeningLevel = character.awakening?.formCode === "4" ? character.awakening.level ?? 0 : 0;
   return { initialMythicalLancerLevel: 0, mythicalLancerLevel: 0, levelSource: "explicit-character-state",
     perpetuityAttackPercent: (character.perpetuityRing ? 10 : 0) + (character.masterId === "3040512000" && input.divineStampBookEnabled ? 10 : 0),
     randomTargetHitCount: cidala ? 2 : character.masterId === "3040456000" ? 3 : 1,
-    supplementalDamage: cidala ? 50_000 : 0, damageCapPercent: (character.perpetuityRing ? 5 : 0) + (multiattackAwakeningLevel >= 10 ? 5 : 0)
+    // Coupled Confection is normal-only, not Support Skill B. Its coexistence
+    // with Ereshkigal is provisional and verified conditionally against captures.
+    supplementalDamage: 0, normalAttackSupplementalDamage: cidala ? 50_000 : 0,
+    damageCapPercent: (character.perpetuityRing ? 5 : 0) + (multiattackAwakeningLevel >= 10 ? 5 : 0)
       + resolveCharacterArtifact(input).damageCapPercent,
     normalAttackAmplificationPercent: multiattackAwakeningLevel >= 9 ? 5 : 0,
     criticalDamageBonusPercent: 0, criticalTriggerRatePercent: 0,
