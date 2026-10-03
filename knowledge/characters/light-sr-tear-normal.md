@@ -1,7 +1,7 @@
 ---
 id: "light-sr-tear-normal"
 name_jp: "ティア"
-name_en: "Tear"
+name_en: "Tear Grants"
 rarity: SR
 element: "光"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "コラボイベント『空で繋ぐ絆の物語』期間中にテイ�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/32545) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。テイルズシリーズコラボキャラのため想定通り。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/32545) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。テイルズシリーズコラボキャラのため想定通り。 名称・版の照合: gbf.wiki (https://gbf.wiki/Tear_Grants)、公開characters表のID 3030137000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ティア(Tear)
+# ティア(Tear Grants)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 奥義ゲージ30%消費、対象に30%付与。
 - CT(クールタイム): 4ターン(Lv45で3ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: リザレクション(Lv65で性能強化)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 1ターンごとにHP回復(強化前800、Lv65後1000、2ターン合計1600→2000)。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: ホーリーランス(Lv35で習得)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 8回の単体ダメージ。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: イノセント・シャイン
 
@@ -77,4 +77,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
 - gbf.wikiでの正確なHP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1050/ATK4750は未検証。
-- テイルズシリーズコラボキャラのためgbf.wiki候補は自動検索で見つからず(想定通り)。
+- テイルズシリーズコラボキャラのため旧収集時はgbf.wiki候補を特定できず(想定通り)。

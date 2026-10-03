@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-aria-golden-knight"
 name_jp: "黄金の騎士(アリア)"
-name_en: "Aria (Golden Knight)"
+name_en: "Golden Knight"
 rarity: SSR
 element: "土"
 race: "エルーン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(期間限定、グランデフェス限定、�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/229049) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/229049) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Golden_Knight)、公開characters表のID 3040297000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 黄金の騎士(アリア)(Aria (Golden Knight))
+# 黄金の騎士(アリア)(Golden Knight)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 倍率5.0倍(上限約80万)。
 - CT(クールタイム): 8ターン(Lv55で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ヘリオドレイン(Lv75短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 奥義ゲージ+25%(基本弱体成功率150%)。
 - CT(クールタイム): 7ターン(Lv75で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 流転の剣(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 攻撃アビ投影時: 土属性追撃+20%(2ターン)。強化アビ投影時: DA/TA率UP(2ターン)。弱体アビ投影時: 弱体耐性+30%(2ターン)。回復アビ投影時: HP回復+10%(最大1000)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 星閉刃・黄昏
 
 - 効果: 敵に土属性ダメージを与え、自身のアビリティ再使用間隔を短縮する。
 - 数値/スケーリング: 倍率4.5倍。アビ再使用間隔-1ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -80,4 +80,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Aria」は未確認の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1200/ATK10000は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1200/ATK10000は未検証。

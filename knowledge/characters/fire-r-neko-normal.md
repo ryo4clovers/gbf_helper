@@ -1,7 +1,7 @@
 ---
 id: "fire-r-neko-normal"
 name_jp: "猫"
-name_en: "Neko (Cat)"
+name_en: "Young Cat (Event)"
 rarity: R
 element: "火"
 element_note: "主人公と同属性に変化。ファイル分類上は火属性として扱う。"
@@ -12,11 +12,11 @@ obtain: "イベント『猫島狂詩曲』のエンディングクリアで加�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/141003) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Karyl」は無関係の別キャラクターと判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/141003) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Karyl」は無関係の別キャラクターと判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Young_Cat_(Event))、公開characters表のID 3020072000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 猫(Neko (Cat))
+# 猫(Young Cat (Event))
 
 ## 概要
 

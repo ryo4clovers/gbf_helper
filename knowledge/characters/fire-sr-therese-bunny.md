@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-therese-bunny"
 name_jp: "テレーズ(バニー)"
-name_en: "Therese (Bunny)"
+name_en: "Therese"
 rarity: SR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(タンザナイトソード・ミコー入手�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21140) と gbf.wiki (https://gbf.wiki/Therese) の両方で確認(取得日: 2026-08-19)。両者ともHP1250/ATK6250で一致。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21140) と gbf.wiki (https://gbf.wiki/Therese) の両方で確認(取得日: 2026-08-19)。両者ともHP1250/ATK6250で一致。 名称・版の照合: gbf.wiki (https://gbf.wiki/Therese)、公開characters表のID 3030062000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# テレーズ(バニー)(Therese (Bunny))
+# テレーズ(バニー)(Therese)
 
 ## 概要
 

@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-lina-inverse-normal"
 name_jp: "リナ"
-name_en: "Lina Inverse"
+name_en: "Lina"
 rarity: SR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "コラボイベント『スレイヤーズまぐな』で加入"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/22822) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。スレイヤーズコラボキャラのため想定通り。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/22822) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。スレイヤーズコラボキャラのため想定通り。 名称・版の照合: gbf.wiki (https://gbf.wiki/Lina)、公開characters表のID 3030114000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# リナ(Lina Inverse)
+# リナ(Lina)
 
 ## 概要
 
@@ -38,28 +38,28 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 効果: 敵に無属性ダメージを与え、180秒の間、攻撃/防御をDOWNさせる。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 治癒(リカバリィ)(Lv65で性能強化)
 
 - 効果: 味方単体のHPを回復し、弱体効果を1つ回復する。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 爆裂陣(メガ・ブランド)(信頼度MAXで習得)
 
 - 効果: 敵全体に火属性と無属性ダメージを与える。敵の数が多いほど無属性ダメージがUPする。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 烈火球(バースト・フレア)(Lv35で発生するフェイトエピソードクリアで習得)
 
 - 効果: 敵全体に火属性ダメージを与える。敵の数が少ないほどダメージがUPする。
 - CT(クールタイム): 9ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 竜破斬(ドラグ・スレイブ)
 
@@ -81,4 +81,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
 - gbf.wikiでの正確なHP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1000/ATK5000は未検証。
-- スレイヤーズコラボキャラのためgbf.wiki候補は自動検索で見つからず(想定通り)。奥義発動時の呪文詠唱を省略できる専用スキン「呪文詠唱なし」が存在する。
+- スレイヤーズコラボキャラのため旧収集時はgbf.wiki候補を特定できず(想定通り)。奥義発動時の呪文詠唱を省略できる専用スキン「呪文詠唱なし」が存在する。

@@ -1,7 +1,7 @@
 ---
 id: "water-sr-lowain-normal"
 name_jp: "ローアイン(SR)"
-name_en: "Lowain (SR)"
+name_en: "Lowain (Event)"
 rarity: SR
 element: "水"
 race: "エルーン"
@@ -11,11 +11,11 @@ obtain: "シナリオイベント『とりまトッポブで。』期間中に�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/26816) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Lowain」はHP690(3★、クロスフェイトボーナス込み)/ATK4660(3★、クロスフェイトボーナス込み)で基本レアリティ(R)版と判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/26816) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Lowain」はHP690(3★、クロスフェイトボーナス込み)/ATK4660(3★、クロスフェイトボーナス込み)で基本レアリティ(R)版と判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Lowain_(Event))、公開characters表のID 3030123000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ローアイン(SR)(Lowain (SR))
+# ローアイン(SR)(Lowain (Event))
 
 ## 概要
 

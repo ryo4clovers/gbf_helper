@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-itadori-and-fushiguro-normal"
 name_jp: "虎杖悠仁＆伏黒恵"
-name_en: "Itadori Yuji & Fushiguro Megumi"
+name_en: "Yuji Itadori and Megumi Fushiguro"
 rarity: SSR
 element: "闇"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "呪術廻戦コラボ、第1話エピソード4クリアで加入"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし、コラボ後編は8月11日(金)追加)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/408042) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/408042) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Yuji_Itadori_and_Megumi_Fushiguro)、公開characters表のID 3040476000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 虎杖悠仁＆伏黒恵(Itadori Yuji & Fushiguro Megumi)
+# 虎杖悠仁＆伏黒恵(Yuji Itadori and Megumi Fushiguro)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 闇属性1.5倍ダメ(上限約17万)+3.0倍ダメ(上限約31.5万)。奥義ゲージ+20%UP。
 - CT(クールタイム): 6ターン(Lv55で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 鵺(Lv75で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率4.0倍(上限約51万)。光属性攻撃-20%DOWN(180秒、基本弱体成功率100%)。感電Lv+1(連撃率DOWN×感電Lv、最大でDA20%/TA20%DOWN、弱体耐性100%以外に必中、氷結Lvと共存可能)。
 - CT(クールタイム): 7ターン(Lv75で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 意気衝天(8月11日追加の後編クリアで解禁、使用可能3ターン後)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 確定トリプルアタック(1ターン)。闇属性+30%追撃効果(1ターン)。攻撃+50%UP(1回、別枠乗算、いつアサ系、通常ダメ上限116万まで上昇、奥義ダメ上限値+50万加算)。
 - CT(クールタイム): 12ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 黒閃・式神
 
 - 効果: 敵に極大の闇属性ダメージを与え、自分のダメアビ(1アビ/2アビ)を即使用可能にする。
 - 数値/スケーリング: 倍率12.5倍(極大、上限約242万)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -79,5 +79,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明(コラボ後編は8月11日(金)追加という記述のみ)。
-- gbf.wikiでの正確な英語名(name_en「Itadori Yuji & Fushiguro Megumi」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1228/ATK9860は未検証。
-- コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1228/ATK9860は未検証。
+- コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。

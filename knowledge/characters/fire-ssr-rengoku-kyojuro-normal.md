@@ -1,7 +1,7 @@
 ---
 id: "fire-ssr-rengoku-kyojuro-normal"
 name_jp: "煉獄杏寿郎"
-name_en: "Rengoku Kyojuro"
+name_en: "Kyojuro Rengoku"
 rarity: SSR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "鬼滅コラボイベント(コラボ内トレジャー交換で加入)
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/240018) (取得日: 2026-08-18)。「鬼滅の刃」コラボキャラ。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/240018) (取得日: 2026-08-18)。「鬼滅の刃」コラボキャラ。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/Kyojuro_Rengoku)、公開characters表のID 3040309000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 煉獄杏寿郎(Rengoku Kyojuro)
+# 煉獄杏寿郎(Kyojuro Rengoku)
 
 ## 概要
 

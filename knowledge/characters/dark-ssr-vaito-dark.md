@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-vaito-dark"
 name_jp: "闇ヴァイト"
-name_en: "Vaito (Dark)"
+name_en: "Veight"
 rarity: SSR
 element: "闇"
 race: "その他"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(ブラッディスカー入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/38204) のみ(取得日: 2026-08-18)。gbf.wiki候補は自動検索で見つからず。最終解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/38204) のみ(取得日: 2026-08-18)。旧収集時はgbf.wiki候補を特定できず。最終解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Veight)、公開characters表のID 3040094000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 闇ヴァイト(Vaito (Dark))
+# 闇ヴァイト(Veight)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 倍率1倍×6回(1回上限約10.4万)。DA率-100%/TA率-100%DOWN(180秒、基本弱体成功率90%)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ノーブルブラッド(Lv75で使用間隔短縮、Lv100で性能強化)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 攻撃+50%UP(別乗算/久遠枠加算)。防御+100%UP(Lv100前は+20%)。回避率+約60%UP。クリティカル確率UP(倍率30%/発動約100%、Lv100前は約70%)。必ずトリプルアタック(Lv100前はDA率+100%UP/TA率+20%UP)。敵対心UP(タゲ率約57%)。Lv100追加: バリア効果(耐久値5000)。
 - CT(クールタイム): 7ターン(Lv75で6ターンに短縮)。Lv100で再使用不可。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: スカーレットスレイヤー(Lv45で習得)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 奥義ゲージ+30%UP。奥義ダメージ+30%UP(1回)。奥義上限+10%UP(1回)。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: ローズオブブラッド(Lv95で習得)
 
@@ -63,14 +63,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 攻撃力+20%UP(別乗算/久遠枠加算)。防御力+100%UP。必ずDA以上。吸収(最大500回復)。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: プラウド・ブレイド(最終後)
 
 - 効果: 敵に闇属性ダメージを与え、自分に完全回避とHP回復を付与する。
 - 数値/スケーリング: 倍率5.0倍。完全回避(1回)。HP回復(最大4000)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 

@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-lelouch-normal"
 name_jp: "ルルーシュ"
-name_en: "Lelouch"
+name_en: "Lelouch Lamperouge"
 rarity: SSR
 element: "闇"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "コードギアスコラボ、EDクリアで加入"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし、コラボ開催期間に加入)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/154108) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/154108) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Lelouch_Lamperouge)、公開characters表のID 3040219000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ルルーシュ(Lelouch)
+# ルルーシュ(Lelouch Lamperouge)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 倍率1.0倍(1回あたり上限約11万)×5回。防御-20%DOWN(180秒)。
 - CT(クールタイム): 8ターン(Lv55で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ドルイドシステム(Lv75で使用間隔短縮、Lv90で性能強化)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 特殊強化(4ターン、Lv90後): 闇属性攻撃+30%UP、防御+30%UP、DA率+40%/TA率+15%UP。解析効果(3ターン): 弱体耐性-10%DOWN(基本弱体成功率100%、ピルファー等と共存不可、効果量高い方反映)。
 - CT(クールタイム): 8ターン(Lv75で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 黒の盤上(Lv45で習得、Lv100で性能強化)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 防御+50%UP(3ターン)。全属性ダメージ-50%カット(1ターン、Lv100後)。奇跡の条件発動時: 敵全体に無属性99万9999ダメ(Lv100後)、恐怖効果(3ターン)、味方全体に闇属性+20%追撃効果(3ターン)、味方のアビ使用間隔-1ターン短縮(Lv100後)。
 - CT(クールタイム): 9ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: ハドロン咆++(最終後、通常時は「ハドロン咆」)
 
 - 効果: 敵に闇属性ダメージを与え、味方全体の奥義ゲージをUPする。最終後はドルイドシステム(2アビ)も即時使用可能になる。
 - 数値/スケーリング: 倍率5.0倍(最終後、通常時は4.5倍)。奥義ゲージ+10%UP。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -80,5 +80,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Lelouch」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1800/ATK6125は未検証。
-- コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。2アビの闇属性攻撃UPは「特殊強化」扱いとなり、一部の「闇属性攻撃UP中〇〇」系スキル(テトラのストリーマエンブレム、アザゼルLBアビ、オリヴィエサポアビ等)の対象外となる特殊仕様がある。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1800/ATK6125は未検証。
+- コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。2アビの闇属性攻撃UPは「特殊強化」扱いとなり、一部の「闇属性攻撃UP中〇〇」系スキル(テトラのストリーマエンブレム、アザゼルLBアビ、オリヴィエサポアビ等)の対象外となる特殊仕様がある。

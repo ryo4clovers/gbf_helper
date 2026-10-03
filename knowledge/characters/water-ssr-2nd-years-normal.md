@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-2nd-years-normal"
 name_jp: "2年生チーム"
-name_en: "2nd Years"
+name_en: "Aqours Second-Years"
 rarity: SSR
 element: "水"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "ラブライブ!サンシャイン!!コラボイベント第1話クリ�
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/116085) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。最終上限解放後の最新仕様を記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/116085) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。最終上限解放後の最新仕様を記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Aqours_Second-Years)、公開characters表のID 3040183000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 2年生チーム(2nd Years)
+# 2年生チーム(Aqours Second-Years)
 
 ## 概要
 

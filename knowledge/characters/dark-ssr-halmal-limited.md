@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-halmal-limited"
 name_jp: "闇ハルマル(リミテッド)"
-name_en: "Halmal (Dark, Limited)"
+name_en: "Halluel and Malluel"
 rarity: SSR
 element: "闇"
 race: "星晶獣"
@@ -11,11 +11,11 @@ obtain: "グランデフェス限定ガチャ(永遠の落款を入手で解放)
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/384939) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/384939) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Halluel_and_Malluel)、公開characters表のID 3040443000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 闇ハルマル(リミテッド)(Halmal (Dark, Limited))
+# 闇ハルマル(リミテッド)(Halluel and Malluel)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 倍率1.5倍(1回あたり上限約14.8万)×4回。防御-10%DOWN(累積最大30%、回復不可)。弱体耐性-10%DOWN(累積最大30%、回復不可)。
 - CT(クールタイム): 4ターン(リンクアビで連動)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: アムルダード(リンクアビで連動、Lv補正なし)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 倍率1.5倍(1回あたり上限約14.8万)×4回。攻撃-10%DOWN(累積最大30%、回復不可)。特殊技ダメ-6%DOWN(累積最大30%、回復不可)。
 - CT(クールタイム): 4ターン(リンクアビで連動)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: ステルラ・レペンティーナ(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 無属性ダメージ(現HP10%、最大22万2222)×8回。強化効果無効化(最大5)。永遠の責め苦効果: 与ダメ+20%分加算(最大3万)、毎ターン敵最大HP1%分ダメージ(最大10万)、必中(弱体耐性100%以外)。
 - CT(クールタイム): 10ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: エターナル・ペイン
 
 - 効果: 敵に闇属性ダメージを与え、次のリンクアビリティが両方発動し、即時使用可能になる。
 - 数値/スケーリング: 倍率4.5倍。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -79,5 +79,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Halmal (Dark, Limited)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1500/ATK4400は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1500/ATK4400は未検証。
 - ハルマルには無印版・水着版が存在するが、本ファイルはリミテッド版(闇属性)のみを対象とする。加藤英美里が「ハールート」「マールート」の1人2役でCVを担当。

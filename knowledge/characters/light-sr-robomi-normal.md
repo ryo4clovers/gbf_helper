@@ -1,7 +1,7 @@
 ---
 id: "light-sr-robomi-normal"
 name_jp: "ロボミ(SR)"
-name_en: "Robomi (SR)"
+name_en: "Robomi (Event)"
 rarity: SR
 element: "光"
 race: "不明"
@@ -11,11 +11,11 @@ obtain: "イベント『ロボミ』期間中に信頼度をMAXにすると加�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21238) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Robomi Rocket」は召喚石ページ(キャラクターと無関係)だったため不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21238) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Robomi Rocket」は召喚石ページ(キャラクターと無関係)だったため不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Robomi_(Event))、公開characters表のID 3030079000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ロボミ(SR)(Robomi (SR))
+# ロボミ(SR)(Robomi (Event))
 
 ## 概要
 

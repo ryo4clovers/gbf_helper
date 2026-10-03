@@ -1,7 +1,7 @@
 ---
 id: "wind-sr-yuri-wind"
 name_jp: "風ユーリ"
-name_en: "Yuri (Wind)"
+name_en: "Juri"
 rarity: SR
 element: "風"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(キリジを入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/121985) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/121985) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Juri)、公開characters表のID 3030253000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 風ユーリ(Yuri (Wind))
+# 風ユーリ(Juri)
 
 ## 概要
 
@@ -38,21 +38,21 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 効果: 敵に風属性ダメージを与え、180秒の間防御20%DOWNを付与する。帝国兵の数に応じてダメージ・ダメージ上限がUPする(0人:約42万、1人:約50万、2人:上限約64万)。
 - CT(クールタイム): 7ターン(Lv45で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補は自動検索で見つからず)
+- ステータス: GameWithのみで確認(旧収集時はgbf.wiki候補を特定できず)
 
 ### アビリティ2: サー!イエス!サー!(Lv65で使用間隔短縮)
 
 - 効果: 帝国兵を補充して2人追加し、自分のHPを回復する(帝国兵が全員負傷したときのみ使用可能)。
 - CT(クールタイム): 10ターン(Lv65で9ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補は自動検索で見つからず)
+- ステータス: GameWithのみで確認(旧収集時はgbf.wiki候補を特定できず)
 
 ### アビリティ3: 進撃鼓舞(Lv35で習得)
 
 - 効果: 敵全体に風属性ダメージを与える。帝国兵の数に応じて自分の奥義ゲージがUPする(0人:5%、1人:20%、2人:30%)。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補は自動検索で見つからず)
+- ステータス: GameWithのみで確認(旧収集時はgbf.wiki候補を特定できず)
 
 ### 奥義: アサルト・ウェイブ
 
@@ -74,5 +74,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wiki候補は自動検索で見つからなかったため、正確なHP/ATKは未検証。GameWith記載のHP970/ATK7650は未検証。
+- 旧収集時はgbf.wiki候補を特定できなかったため、正確なHP/ATKは未検証。GameWith記載のHP970/ATK7650は未検証。
 - ユーリには水属性版・SSR版・ファラ&ユーリ版が存在するが、本ファイルは風属性SR版のみを対象とする。

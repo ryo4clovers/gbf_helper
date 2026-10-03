@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-ilsa-dress"
 name_jp: "ドレスイルザ"
-name_en: "Ilsa (Dress)"
+name_en: "Ilsa (Formal)"
 rarity: SSR
 element: "水"
 race: "エルーン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(期間限定、武器「ブライドキーパ�
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/505935) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/505935) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/Ilsa_(Formal))、公開characters表のID 3040599000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ドレスイルザ(Ilsa (Dress))
+# ドレスイルザ(Ilsa (Formal))
 
 ## 概要
 

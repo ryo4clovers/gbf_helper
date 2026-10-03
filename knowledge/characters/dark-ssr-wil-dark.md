@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-wil-dark"
 name_jp: "闇ウィル(SSR)"
-name_en: "Wil (Dark)"
+name_en: "Will (SSR)"
 rarity: SSR
 element: "闇"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(デュアリティソードを入手で解放)
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/470593) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/470593) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Will_(SSR))、公開characters表のID 3040557000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 闇ウィル(SSR)(Wil (Dark))
+# 闇ウィル(SSR)(Will (SSR))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率2.0倍(1回あたり上限約11万)×4回。DA率-10%DOWN(累積最大40%)。TA率-10%DOWN(累積最大40%)、各180秒。赦罪執行効果中: 敵に強襲効果(3ターン)、攻撃+300%UP(敵ブレイク時、1回、通常ダメ上限116万まで上昇、奥義ダメ上限値+50万加算)。
 - CT(クールタイム): 7ターン(Lv55で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 陰癒(Lv75で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: HP20%回復(最大1500)。奥義ゲージ+10%UP。自分の回復性能+20%UP(累積最大60%、永続・消去不可)。
 - CT(クールタイム): 7ターン(Lv75で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 宵護(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 弱体耐性+100%UP(3ターン)。バリア効果(耐久2000)。ディスペルガード効果(1回)。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: セイント・アウト
 
 - 効果: 敵に闇属性ダメージを与え、発動ターン中は自分が敵の全攻撃を回避する。
 - 数値/スケーリング: 倍率4.5倍(上限約168.5万)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -79,5 +79,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Wil (Dark)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1720/ATK6600は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1720/ATK6600は未検証。
 - ウィルにはSR版・R版が存在するが、本ファイルはSSR版(闇属性)のみを対象とする。

@@ -1,7 +1,7 @@
 ---
 id: "wind-sr-alisa-normal"
 name_jp: "アリサ(シャドバ)"
-name_en: "Alisa (Shadowverse)"
+name_en: "Arisa"
 rarity: SR
 element: "風"
 race: "不明"
@@ -11,11 +11,11 @@ obtain: "シャドバコラボにて加入後、信頼度を最大まで上げ�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/52052) のみ(取得日: 2026-08-19)。コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/52052) のみ(取得日: 2026-08-19)。コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。 名称・版の照合: gbf.wiki (https://gbf.wiki/Arisa)、公開characters表のID 3030179000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# アリサ(シャドバ)(Alisa (Shadowverse))
+# アリサ(シャドバ)(Arisa)
 
 ## 概要
 
@@ -71,4 +71,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
 - 種族はGameWithに「種族不明」と記載されており未検証。
-- コラボキャラクターのためgbf.wiki候補は自動検索で見つからなかった(想定通り)。GameWith記載のHP1100/ATK4200は未検証。
+- コラボキャラクターのため旧収集時はgbf.wiki候補を特定できなかった(想定通り)。GameWith記載のHP1100/ATK4200は未検証。

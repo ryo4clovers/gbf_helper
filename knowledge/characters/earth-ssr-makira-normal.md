@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-makira-normal"
 name_jp: "マキラ"
-name_en: "Makira"
+name_en: "Mahira"
 rarity: SSR
 element: "土"
 race: "ハーヴィン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(レジェフェス限定)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/47627) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。十二神将(干支キャラ)の最終上限解放後の内容を記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/47627) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。十二神将(干支キャラ)の最終上限解放後の内容を記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Mahira)、公開characters表のID 3040107000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# マキラ(Makira)
+# マキラ(Mahira)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 攻撃+25%(攻刃加算)。防御+25%。DA率+35%。TA率+20%。奥義上限+25%(5ターン)。
 - CT(クールタイム): 8ターン(Lv55で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 雲散鳥没/雲散鳥没++(Lv75で性能強化、Lv90で更に強化)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率5.0倍(上限約70万)。防御-15%(片面・アマブレ枠、180秒)。土属性防御-25%(180秒)。DA率-100%/TA率-50%(180秒、いずれも基本弱体成功率100%)。
 - CT(クールタイム): 7ターン(Lv90で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 花鳥風月(Lv45で習得)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 攻撃+25%(攻刃加算、3ターン)。土属性追撃+20%(3ターン)。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 鶏往開来(Lv100で習得)
 
@@ -63,14 +63,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 回避率+約30%(5ターン)。敵全体ダメージ倍率4.0倍(上限約50万)。オールポーション+1個。
 - CT(クールタイム): 12ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 鳥明叡知(最終上限解放後)
 
 - 効果: 敵に土属性ダメージを与え、味方全体に「鼓の音」を付与し、鼓舞激励(1アビ)の効果を延長する。
 - 数値/スケーリング: 倍率5.5倍。鼓の音+5(通常攻撃5回分)。1アビ効果+2ターン延長。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -87,5 +87,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Makira」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1260/ATK8900は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1260/ATK8900は未検証。
 - 「鼓の音」の詳細な段階別効果(1アビの最終前における鼓の音Lv別強化テーブル)は簡略化のため割愛。最終上限解放前の性能(奥義倍率5.0倍、2アビ倍率2.0~2.5倍、4アビ・サポアビ「飛ぶが如く」なし)は割愛。

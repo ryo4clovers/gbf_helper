@@ -1,7 +1,7 @@
 ---
 id: "light-sr-ezecrain-light"
 name_jp: "光エゼクレイン"
-name_en: "Ezecrain (Light)"
+name_en: "Ezecrain (Event)"
 rarity: SR
 element: "光"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『パープルスケール』で加入"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/71220) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/71220) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Ezecrain_(Event))、公開characters表のID 3030210000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 光エゼクレイン(Ezecrain (Light))
+# 光エゼクレイン(Ezecrain (Event))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/7
 - 数値/スケーリング: 倍率(上限約26万)。ダブルアタック確率DOWN(180秒)。
 - CT(クールタイム): 6ターン(Lv45で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ロイヒテン(Lv65で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/7
 - 数値/スケーリング: 倍率(上限約40万)。暗闇効果(180秒)。
 - CT(クールタイム): 7ターン(Lv65で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 紫水晶の導き(Lv35で習得)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/7
 - 数値/スケーリング: 攻防+20%UP(攻刃加算、3ターン、出現率33.2%)。連続攻撃確率UP(3ターン、出現率30.2%)。HP回復+再生効果(3ターン、出現率26.6%)。弱体効果を1つ回復/弱体無効(1回、マウント扱い、出現率7.8%)。奥義ゲージ+100%UP(出現率0.6%)。攻撃大幅UP(1ターン)。光属性+100%追撃効果。クリティカル確率UP(倍率50%/発動率100%)。トリプルアタック確率100%(攻撃大幅UP系まとめて出現率1.6%)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: チェイン・ヴァンジャンス
 

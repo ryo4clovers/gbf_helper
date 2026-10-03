@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-beth-normal"
 name_jp: "ベス"
-name_en: "Beth"
+name_en: "Malinda (Event)"
 rarity: SR
 element: "火"
 element_note: "育成次第で6属性いずれかに変化。このファイルでは火属性/攻撃タイプの結果を記載。"
@@ -12,11 +12,11 @@ obtain: "サイドストーリー『フォールオブドラゴン』で加入"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/22173) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Vania and Malinda」は不一致と判断し不採用。育成(ごはん)により結果が変化する特殊仕様のキャラのため、火属性/攻撃タイプ成長時を中心に大幅簡略化して記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/22173) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Vania and Malinda」は不一致と判断し不採用。育成(ごはん)により結果が変化する特殊仕様のキャラのため、火属性/攻撃タイプ成長時を中心に大幅簡略化して記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Malinda_(Event))、公開characters表のID 3030093000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ベス(Beth)
+# ベス(Malinda (Event))
 
 ## 概要
 

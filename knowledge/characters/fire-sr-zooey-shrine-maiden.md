@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-zooey-shrine-maiden"
 name_jp: "巫女ゾーイ"
-name_en: "Zooey (Shrine Maiden)"
+name_en: "Zooey (Event)"
 rarity: SR
 element: "火"
 race: "星晶獣"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『年年歳歳煩相似たり』ストーリ�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/87523) のみ(取得日: 2026-08-19)。gbf.wiki候補が壊れた検証用ページ(Broken/Character Validation)で使用不可のため不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/87523) のみ(取得日: 2026-08-19)。gbf.wiki候補が壊れた検証用ページ(Broken/Character Validation)で使用不可のため不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Zooey_(Event))、公開characters表のID 3030233000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 巫女ゾーイ(Zooey (Shrine Maiden))
+# 巫女ゾーイ(Zooey (Event))
 
 ## 概要
 

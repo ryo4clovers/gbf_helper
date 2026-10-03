@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-robelia-normal"
 name_jp: "ロベリア"
-name_en: "Robelia"
+name_en: "Lobelia"
 rarity: SSR
 element: "土"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "アーカルムの転世(十賢者、ザ・タワーの契約者)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/144741) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。十賢者(アーカルム)の最終上限解放後(Lv100/4アビ習得済み)の内容を記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/144741) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。十賢者(アーカルム)の最終上限解放後(Lv100/4アビ習得済み)の内容を記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Lobelia)、公開characters表のID 3040165000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ロベリア(Robelia)
+# ロベリア(Lobelia)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 倍率3倍(上限約40万)。土属性追撃+50%。
 - CT(クールタイム): 1ターン(他のリンクアビと共有)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ウォーブリンガー(Lv75強化、リンクアビリティ)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 倍率10倍(上限約112万)。アビ再使用間隔-3ターン。
 - CT(クールタイム): 1ターン(他のリンクアビと共有)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: レネゲイド・ファイアブランド(リンクアビリティ)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 攻撃+10%(別枠乗算、久遠枠加算)。アビリティ命中率+10%(弱体成功率も上昇)。アビ使用毎に土属性追加ダメージ倍率5倍(上限約40万、使用間隔0ターンのアビリティ使用時は発生しない)。
 - CT(クールタイム): 1ターン(他のリンクアビと共有)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: パルティシオン・ド・エール(Lv100で習得、「魔術師の正位置」発動時のみ使用可能)
 
@@ -63,14 +63,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 倍率2倍(上限約20万)。被ダメージ上昇(最大3万、弱体枠、3ターン)。攻撃回数1回+刻印数(最大11回)。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: ル・デルニエ・コンセール(最終上限解放後)
 
 - 効果: 敵に土属性ダメージと追加ダメージを与える。自身に魔術刻印を追加する。
 - 数値/スケーリング: 倍率5倍(上限202万)。追加ダメ倍率5倍(上限約63.5万)。魔術刻印+1。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -90,5 +90,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1416/ATK10901は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1416/ATK10901は未検証。
 - 十賢者の特殊仕様(至賢の領域による強化、最終上限解放前の性能差)は簡略化して最終後の内容のみ記載。最終上限解放前は奥義がラ・ドゥルール・オーヴァーチュア(倍率4.5倍/上限168.5万、刻印追加なし)、4アビ未習得、サポアビ「塔の逆位置」「魔術師の正位置」の追加効果なし。

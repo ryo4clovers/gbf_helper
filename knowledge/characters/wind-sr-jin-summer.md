@@ -1,7 +1,7 @@
 ---
 id: "wind-sr-jin-summer"
 name_jp: "ふんどしジン"
-name_en: "Jin (Summer)"
+name_en: "Jin (Wind)"
 rarity: SR
 element: "風"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『盛夏、来たりて』プレイ"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/35232) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/35232) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Jin_(Wind))、公開characters表のID 3030151000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ふんどしジン(Jin (Summer))
+# ふんどしジン(Jin (Wind))
 
 ## 概要
 
@@ -71,5 +71,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wiki候補は自動検索で見つからなかったため、正確なHP/ATKは未検証。GameWith記載のHP900/ATK5500は未検証。
+- 旧収集時はgbf.wiki候補を特定できなかったため、正確なHP/ATKは未検証。GameWith記載のHP900/ATK5500は未検証。
 - ジンには土属性版・克己浪人版・SSR版が存在するが、本ファイルは水着(風属性SR)版のみを対象とする。

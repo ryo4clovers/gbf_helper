@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-noeud-wind"
 name_jp: "風ノイシュ"
-name_en: "Noeud (Wind)"
+name_en: "Naoise"
 rarity: SSR
 element: "風"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(天の鹿児弓入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/208881) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/208881) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Naoise)、公開characters表のID 3040281000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 風ノイシュ(Noeud (Wind))
+# 風ノイシュ(Naoise)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 倍率2.0倍(上限約33万)。攻防-10%DOWN(累積最大40%、180秒、基本弱体成功率90%)。DA確率+5%UP(累積最大25%)。TA確率+3%UP(累積最大15%)。
 - CT(クールタイム): 1ターン(Lv55で0ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ゼクス(Lv75短縮、騎士の矢筒3本消費で即時再使用可能)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 倍率0.6倍(上限約4.8万)×10回。強化効果1つ消去。
 - CT(クールタイム): 6ターン(Lv75で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: アウスブレンデン(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 潜伏効果(単体攻撃のターゲットにほぼならない、5ターン)。攻撃+30%UP(別枠乗算、サポアビと同枠加算)。風属性追撃+30%(永続、被ダメで解除)。防御-50%DOWN(デメリット、クリアで消去可能)。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: ボアバースティ
 
 - 効果: 敵に風属性ダメージを与え、味方全体に風属性攻撃力UPと連続攻撃確率UPを付与する。
 - 数値/スケーリング: 倍率4.5倍。風属性攻撃力+15%UP(4ターン)。DA率+15%/TA率+15%UP(4ターン)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -79,5 +79,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Noeud (Wind)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1260/ATK8900は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1260/ATK8900は未検証。
 - ノイシュには火属性版・水着版・SR版(光・火)等の他バージョンが存在するが、本ファイルは風属性版のみを対象とする。

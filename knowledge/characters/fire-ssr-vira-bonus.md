@@ -1,7 +1,7 @@
 ---
 id: "fire-ssr-vira-bonus"
 name_jp: "火ヴィーラ(特典)"
-name_en: "Vira (Bonus)"
+name_en: "Vira (Promo)"
 rarity: SSR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "アニメ2期BD/DVD Vol.1購入特典シリアルコード(2019年12月
 has_ex_ability: false
 release_date: "2019-12-13"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/179017) (取得日: 2026-08-18)。アニメ2期BD/DVD購入特典キャラ「誓約の夜装ヴィーラ」。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/179017) (取得日: 2026-08-18)。アニメ2期BD/DVD購入特典キャラ「誓約の夜装ヴィーラ」。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/Vira_(Promo))、公開characters表のID 3040243000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 火ヴィーラ(特典)(Vira (Bonus))
+# 火ヴィーラ(特典)(Vira (Promo))
 
 ## 概要
 

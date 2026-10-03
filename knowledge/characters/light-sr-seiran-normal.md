@@ -1,7 +1,7 @@
 ---
 id: "light-sr-seiran-normal"
 name_jp: "セイラン"
-name_en: "Seiran"
+name_en: "Ceylan (Event)"
 rarity: SR
 element: "光"
 race: "エルーン"
@@ -11,11 +11,11 @@ obtain: "イベント「ヴィラ・デ・シェロカルテ～集え！千客�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21207) のみ(取得日: 2026-08-19)。gbf.wiki検索候補が壊れた検証用ページ(Broken/Character Validation)で使用不可のため不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21207) のみ(取得日: 2026-08-19)。gbf.wiki検索候補が壊れた検証用ページ(Broken/Character Validation)で使用不可のため不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Ceylan_(Event))、公開characters表のID 3030074000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# セイラン(Seiran)
+# セイラン(Ceylan (Event))
 
 ## 概要
 

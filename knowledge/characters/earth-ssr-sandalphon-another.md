@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-sandalphon-another"
 name_jp: "サンダルフォン(アナザー)"
-name_en: "Sandalphon (Another)"
+name_en: "Sandalphon (Earth Grand)"
 rarity: SSR
 element: "土"
 race: "星晶獣"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(期間限定、グランデフェス限定、�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/246433) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/246433) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Sandalphon_(Earth_Grand))、公開characters表のID 3040312000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# サンダルフォン(アナザー)(Sandalphon (Another))
+# サンダルフォン(アナザー)(Sandalphon (Earth Grand))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 倍率5倍(上限約61.5万)。元素不和(5ターン、消去不可、基本弱体成功率200%)。審判の檻(2ターン、基本弱体成功率90%)。
 - CT(クールタイム): 9ターン(Lv55で8ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: エクリプティカ(Lv75短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 倍率6倍(上限約63.5万)。選択属性攻撃-30%(180秒、基本弱体成功率100%)。自身の選択属性攻撃+30%(永続、消去不可)。
 - CT(クールタイム): 6ターン(Lv75で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: ザ・ヴァイス(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 奥義ダメージ+150%(消去不可、1ターン)。奥義上限+90%(消去不可、1ターン)。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: アイン・ソフ・オウル
 
 - 効果: 敵に土属性ダメージを与え、次の2アビ(エクリプティカ)を2回発動する(消去不可)。
 - 数値/スケーリング: 倍率4.5倍。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -80,4 +80,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。

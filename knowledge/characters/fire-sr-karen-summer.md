@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-karen-summer"
 name_jp: "水着カレン"
-name_en: "Karen (Summer)"
+name_en: "Carren (Event)"
 rarity: SR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "イベント『ポーチャーズデイ』で信頼度をMAXにする�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/63727) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/63727) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Carren_(Event))、公開characters表のID 3030200000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 水着カレン(Karen (Summer))
+# 水着カレン(Carren (Event))
 
 ## 概要
 
@@ -39,21 +39,21 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/6
 - 数値/スケーリング: 火属性攻撃+10%UP(3ターン)。灼熱効果(最大HPの2%ダメージ)。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: フレイミング・ウィズアウト(Lv65で性能強化・使用間隔短縮)
 
 - 効果: 敵に火属性ダメージを与え、180秒の間、敵のダブルアタック確率をDOWNさせる。
 - CT(クールタイム): 6ターン(Lv65で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: アクセラレーション(Lv35で習得)
 
 - 効果: ターン経過なしで通常攻撃を実行する。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: サンシャイン・ブルーム
 

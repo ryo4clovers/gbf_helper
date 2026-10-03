@@ -1,7 +1,7 @@
 ---
 id: "fire-ssr-3rd-years-normal"
 name_jp: "3年生チーム"
-name_en: "3rd Years"
+name_en: "Aqours Third-Years"
 rarity: SSR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "ラブライブ!サンシャイン!!コラボイベント(トレジャ�
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/116090) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/116090) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/Aqours_Third-Years)、公開characters表のID 3040185000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 3年生チーム(3rd Years)
+# 3年生チーム(Aqours Third-Years)
 
 ## 概要
 

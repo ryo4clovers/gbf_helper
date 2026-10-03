@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-octo-normal"
 name_jp: "オクトー"
-name_en: "Octo"
+name_en: "Eahta"
 rarity: SSR
 element: "土"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "十天衆(トレジャー交換等で入手・育成)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/54613) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。十天衆の限界超越システムを持つ非常に複雑な仕様のため、最終上限解放+限界超越Lv150の内容を大幅に簡略化して記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/54613) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。十天衆の限界超越システムを持つ非常に複雑な仕様のため、最終上限解放+限界超越Lv150の内容を大幅に簡略化して記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Eahta)、公開characters表のID 3040037000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# オクトー(Octo)
+# オクトー(Eahta)
 
 ## 概要
 
@@ -39,14 +39,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 攻撃+50%(攻刃加算、両面枠、3ターン)。クリティカル倍率100%(発動約75%、3ターン)。飛天効果: 奥義1回発動時+4%/上限+10%、2回発動時1発目+20%/上限+30%・2発目+24%/上限+40%。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 煉獄
 
 - 効果: 自身の奥義ゲージ30%を味方に均等に分配する。
 - CT(クールタイム): 0ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 神斬舞(Lv95で性能強化・短縮)
 
@@ -54,7 +54,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 奥義ゲージ+30%(基本弱体成功率100%、CT1以上時のみ)。合気Lv3時: 攻撃+20%(別枠乗算)/防御+50%/DA率約30%・TA率約30%UP/ダメージ上限+10%。
 - CT(クールタイム): 6ターン(Lv95で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 八命の廻り(Lv100で習得、Lv150で再使用可能に変更)
 
@@ -62,14 +62,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 3ターン。
 - CT(クールタイム): 使用可能10ターン後(Lv150で使用間隔10ターンに変更、再使用不可制限解除)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 尸祀噛顕鋳(限界超越後、Lv150で更に強化)
 
 - 効果: 敵に土属性ダメージを与え、即死効果を付与する。自身にDA率・TA率UP、土属性キャラに土属性攻撃UPと水属性ダメージカットを付与する。
 - 数値/スケーリング: Lv150時倍率13.5倍(上限約340万)。即死(基本弱体成功率50%)。DA率約50%UP/TA率約50%UP(3ターン、奥義使用ターン含む)。土属性攻撃+20%。水属性ダメ20%カット。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -89,5 +89,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Octo」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP2088/ATK12888は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP2088/ATK12888は未検証。
 - 十天衆の限界超越システム(Lv110~150の各段階の強化内容、「極星の光跡」によるステータス強化)は大幅に簡略化。最終上限解放前の性能(奥義倍率5.0倍/水ダメカなし)は割愛。

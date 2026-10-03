@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-erica-normal"
 name_jp: "エリカ"
-name_en: "Erica"
+name_en: "Erika"
 rarity: SSR
 element: "水"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(武器「ハイランドクーガー」入手�
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/361581) (取得日: 2026-08-18)。gbf.wiki検索候補「Erica Fontaine」はHP/ATK不一致(低レアリティ版、HP1100/ATK4000 vs GameWithのHP1600/ATK8000)だったため不採用、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/361581) (取得日: 2026-08-18)。旧収集時は別人物のErica Fontaineを候補にしてしまい、性能本文はGameWithのみで作成。2026-10-04に別人物であることを訂正。 名称・版の照合: gbf.wiki (https://gbf.wiki/Erika)、公開characters表のID 3040421000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# エリカ(Erica)
+# エリカ(Erika)
 
 ## 概要
 
@@ -77,5 +77,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 
 ## 未確認・要検証事項
 
-- gbf.wiki検索候補「Erica Fontaine」は低レアリティ版(HP1100/ATK4000)で、GameWithの記載(HP1600/ATK8000)と数値が一致しなかったため不採用。GameWithのみを基にしている。
+- 水SSRエリカはErika。光SRのErica Fontaine（エリカ・フォンティーヌ）は別人物であり、低レアリティ版ではない。2026-10-04に日本語名・属性・レアリティ・公開IDで識別を訂正。性能本文のHP/ATKやアビリティ数値は再照合待ち。
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。

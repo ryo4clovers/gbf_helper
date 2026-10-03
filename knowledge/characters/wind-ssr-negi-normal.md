@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-negi-normal"
 name_jp: "ネギ(ネギ・スプリングフィールド)"
-name_en: "Negi"
+name_en: "Negi Springfield"
 rarity: SSR
 element: "風"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "魔法先生ネギま!コラボイベント(ストーリー第1話エ�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/479782) (取得日: 2026-08-18)のみ。コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/479782) (取得日: 2026-08-18)のみ。コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。 名称・版の照合: gbf.wiki (https://gbf.wiki/Negi_Springfield)、公開characters表のID 3040574000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ネギ(ネギ・スプリングフィールド)(Negi)
+# ネギ(ネギ・スプリングフィールド)(Negi Springfield)
 
 ## 概要
 

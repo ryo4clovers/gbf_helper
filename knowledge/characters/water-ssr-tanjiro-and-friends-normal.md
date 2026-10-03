@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-tanjiro-and-friends-normal"
 name_jp: "炭治郎&禰豆子&善逸&伊之助"
-name_en: "Tanjiro, Nezuko, Zenitsu & Inosuke"
+name_en: "Tanjiro, Nezuko, Zenitsu, and Inosuke"
 rarity: SSR
 element: "水"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "『鬼滅の刃』コラボ第3話EP2クリアで加入"
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/244915) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。ファンからは「かまぼこ隊」の愛称でも呼ばれる。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/244915) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。ファンからは「かまぼこ隊」の愛称でも呼ばれる。 名称・版の照合: gbf.wiki (https://gbf.wiki/Tanjiro%2C_Nezuko%2C_Zenitsu%2C_and_Inosuke)、公開characters表のID 3040308000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 炭治郎&禰豆子&善逸&伊之助(Tanjiro, Nezuko, Zenitsu & Inosuke)
+# 炭治郎&禰豆子&善逸&伊之助(Tanjiro, Nezuko, Zenitsu, and Inosuke)
 
 ## 概要
 

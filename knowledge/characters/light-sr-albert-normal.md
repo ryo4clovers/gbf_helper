@@ -1,7 +1,7 @@
 ---
 id: "light-sr-albert-normal"
 name_jp: "アルベール(SR)"
-name_en: "Albert (SR)"
+name_en: "Albert (Event)"
 rarity: SR
 element: "光"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "イベント『神立、笠雲の合間に閃きて』クリアで仲�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/50337) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Albert」はHP1280(4★)/ATK4800(4★)でGameWith記載のHP1240/ATK3150と不一致(ページ内に「Albert (Event)」という別バージョンも掲載されており、そちらの誤りの可能性)のため不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/50337) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Albert」はHP1280(4★)/ATK4800(4★)でGameWith記載のHP1240/ATK3150と不一致(ページ内に「Albert (Event)」という別バージョンも掲載されており、そちらの誤りの可能性)のため不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Albert_(Event))、公開characters表のID 3030177000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# アルベール(SR)(Albert (SR))
+# アルベール(SR)(Albert (Event))
 
 ## 概要
 

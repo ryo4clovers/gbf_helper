@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-special-week-and-silence-suzuka-and-tokai-teio-normal"
 name_jp: "スペシャルウィーク&サイレンススズカ&トウカイテイオー"
-name_en: "Special Week & Silence Suzuka & Tokai Teio"
+name_en: "Special Week, Silence Suzuka, and Tokai Teio"
 rarity: SSR
 element: "土"
 race: "その他"
@@ -11,11 +11,11 @@ obtain: "ウマ娘コラボイベント第1話EP3クリアで加入"
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/311678) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。ウマ娘プリティーダービーコラボキャラ。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/311678) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。ウマ娘プリティーダービーコラボキャラ。 名称・版の照合: gbf.wiki (https://gbf.wiki/Special_Week%2C_Silence_Suzuka%2C_and_Tokai_Teio)、公開characters表のID 3040353000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# スペシャルウィーク&サイレンススズカ&トウカイテイオー(Special Week & Silence Suzuka & Tokai Teio)
+# スペシャルウィーク&サイレンススズカ&トウカイテイオー(Special Week, Silence Suzuka, and Tokai Teio)
 
 ## 概要
 

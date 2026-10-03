@@ -1,7 +1,7 @@
 ---
 id: "earth-sr-makira-normal"
 name_jp: "マキラ(SR)"
-name_en: "Makira (SR)"
+name_en: "Mahira (Event)"
 rarity: SR
 element: "土"
 race: "ハーヴィン"
@@ -11,11 +11,11 @@ obtain: "「年年歳歳(2017年)」チャレンジクエストクリアで加�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/85249) のみ(取得日: 2026-08-19)。十二神将キャラクターのためgbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/85249) のみ(取得日: 2026-08-19)。十二神将キャラクターのため旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Mahira_(Event))、公開characters表のID 3030229000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# マキラ(SR)(Makira (SR))
+# マキラ(SR)(Mahira (Event))
 
 ## 概要
 
@@ -44,14 +44,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/8
 - 効果: 4ターンの間、味方全体を特殊強化する(攻撃UP/防御UP/ダブルアタック確率UP)。発動と同時に「鼓の音」は消去される。
 - CT(クールタイム): 7ターン(Lv45で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(十二神将のためgbf.wiki候補なし)
+- ステータス: GameWithのみで確認(十二神将のため性能のWiki照合は未実施)
 
 ### アビリティ2: 飛花落葉(Lv65で使用間隔短縮)
 
 - 効果: 敵に土属性ダメージを与え(上限約35万)、180秒の間、土属性防御10%DOWNを付与する。
 - CT(クールタイム): 8ターン(Lv75で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(十二神将のためgbf.wiki候補なし)
+- ステータス: GameWithのみで確認(十二神将のため性能のWiki照合は未実施)
 
 ### アビリティ3: 鶏鳴之助(Lv45で習得)
 
@@ -59,7 +59,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/8
 - 数値/スケーリング: クリティカル倍率30%/発動率約50%。
 - CT(クールタイム): 9ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(十二神将のためgbf.wiki候補なし)
+- ステータス: GameWithのみで確認(十二神将のため性能のWiki照合は未実施)
 
 ### 奥義: 快鳥乱麻
 
@@ -81,5 +81,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/8
 - 「鼓の音」システムの詳細な段階別効果量とLv目安の全パターンは大幅に簡略化して記載した。詳細はGameWith元記事を参照のこと。
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
-- 十二神将キャラクターのためgbf.wiki候補は自動検索で見つからず。GameWith記載のHP1050/ATK6470は未検証。
+- 十二神将キャラクターのため旧収集時はgbf.wiki候補を特定できず。GameWith記載のHP1050/ATK6470は未検証。
 - マキラにはクリスマス版・SSR版が存在するが、本ファイルはSR版のみを対象とする。

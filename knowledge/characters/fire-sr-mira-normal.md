@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-mira-normal"
 name_jp: "ミラ"
-name_en: "Mira"
+name_en: "Milla Maxwell"
 rarity: SR
 element: "火"
 race: "不明(GameWithに記載なし)"
@@ -11,11 +11,11 @@ obtain: "コラボイベント『交差する運命の物語』期間中に『�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21239) のみ(取得日: 2026-08-19)。コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21239) のみ(取得日: 2026-08-19)。コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。 名称・版の照合: gbf.wiki (https://gbf.wiki/Milla_Maxwell)、公開characters表のID 3030080000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ミラ(Mira)
+# ミラ(Milla Maxwell)
 
 ## 概要
 
@@ -39,14 +39,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 攻撃力5%UP(累積可、4ターン持続)。
 - CT(クールタイム): 3ターン(Lv45で2ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(コラボキャラのためgbf.wiki候補なし)
+- ステータス: GameWithのみで確認(コラボキャラのため性能のWiki照合は未実施)
 
 ### アビリティ2: レイジングサン(Lv65で使用間隔短縮/性能強化)
 
 - 効果: 敵全体に火属性ダメージを与え、味方全体のダブルアタック確率をUPする。
 - CT(クールタイム): 8ターン(Lv65で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(コラボキャラのためgbf.wiki候補なし)
+- ステータス: GameWithのみで確認(コラボキャラのため性能のWiki照合は未実施)
 
 ### アビリティ3: ハイアーザンスカイ(Lv35で習得)
 
@@ -54,7 +54,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 奥義ゲージ+20%UP。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(コラボキャラのためgbf.wiki候補なし)
+- ステータス: GameWithのみで確認(コラボキャラのため性能のWiki照合は未実施)
 
 ### 奥義: スプリームエレメンツ
 
@@ -75,5 +75,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。種族もGameWithに記載がなく不明。
-- コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。GameWith記載のHP1030/ATK5250は未検証。
+- コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。GameWith記載のHP1030/ATK5250は未検証。
 - スーテラ(SR/火)・テレーズ(SR/火)との相性が良いとGameWithで紹介されている。

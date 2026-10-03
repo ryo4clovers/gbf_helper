@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-siete-normal"
 name_jp: "シエテ(十天衆)"
-name_en: "Siete"
+name_en: "Seofon"
 rarity: SSR
 element: "風"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "不明(GameWithに記載なし、十天衆)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/54611) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。十天衆キャラのため最終上限解放・限界超越後(Lv150)の性能を採用し、簡略化して記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/54611) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。十天衆キャラのため最終上限解放・限界超越後(Lv150)の性能を採用し、簡略化して記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Seofon)、公開characters表のID 3040036000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# シエテ(十天衆)(Siete)
+# シエテ(十天衆)(Seofon)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 奥義ダメ+80%UP/奥義上限+20%UP(1回)。剣光Lv+2(最大5、消去不可)。
 - CT(クールタイム): 7ターン(Lv55で6ターン、Lv90で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: インフィニート・クレアーレ+++(Lv95で性能強化・短縮、Lv130で更に強化)
 
@@ -47,14 +47,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 倍率1.0~1.5倍(上限25万、Lv130後)×10回。奥義ゲージ+30%UP。フェイタルチェインゲージ+30%UP(Lv130後)。
 - CT(クールタイム): 6ターン(Lv95で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: クオーレ・ディ・レオーネ(剣光Lv3以上で発動可能)
 
 - 効果: 風キャラに即時奥義発動と被ダメージ無効を付与する。
 - CT(クールタイム): 14ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 七星の煌めき(Lv100で習得、Lv150で再使用可能に変更)
 
@@ -62,14 +62,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 奥義ダメ+150%UP/奥義上限+90%UP(1ターン)。即時奥義発動。奥義ダメージ特殊上限UP。
 - CT(クールタイム): Lv150で使用間隔10ターン(それ以前は再使用不可)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: エスパーダ・ガラクシア(限界超越後、Lv150で更に強化)
 
 - 効果: 敵に風属性ダメージを与え、奥義時含む3ターンの間、味方の攻撃UP、ダメージ上限UP、自分の被ダメージ無効を付与する。
 - 数値/スケーリング: 倍率5.5倍(限界超越後、上限約230万。Lv150で極大倍率13.5倍、上限約340万)。味方攻撃+30%UP(攻刃加算、3ターン)。味方ダメージ上限+15%UP(3ターン、限界超越後追加)。自分の被ダメージ無効(1回)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動、Lv90/95/120/150強化後)
 
@@ -89,6 +89,6 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - 入手方法・リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Siete」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1777/ATK12777は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1777/ATK12777は未検証。
 - シエテは十天衆であり、限界超越Lv110~150にかけて奥義・アビリティ・サポアビが段階的に大きく強化される複雑なシステムを持つ。本ファイルは最終上限解放・限界超越Lv150時点の性能を中心に簡略化して記載しており、Lv110/120/130/140の個別差分やLv110解放「極星の光跡」の詳細強化内容は割愛。
 - シエテにはアナザー版([wind-ssr-seofon-event.md](./wind-ssr-seofon-event.md))・浴衣版等の他バージョンが存在するが、本ファイルは恒常十天衆版のみを対象とする。

@@ -1,7 +1,7 @@
 ---
 id: "fire-ssr-maria-teresa-holiday"
 name_jp: "マリアテレサ(クリスマス)"
-name_en: "Maria Teresa (Holiday)"
+name_en: "Maria Theresa (Holiday)"
 rarity: SSR
 element: "火"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(武器「ヴォラン・プニャーレ」入�
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/534768) (取得日: 2026-08-18)。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/534768) (取得日: 2026-08-18)。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/Maria_Theresa_(Holiday))、公開characters表のID 3040629000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# マリアテレサ(クリスマス)(Maria Teresa (Holiday))
+# マリアテレサ(クリスマス)(Maria Theresa (Holiday))
 
 ## 概要
 

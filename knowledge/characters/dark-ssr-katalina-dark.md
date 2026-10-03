@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-katalina-dark"
 name_jp: "闇カタリナ"
-name_en: "Katalina (Dark)"
+name_en: "Katalina (Promo)"
 rarity: SSR
 element: "闇"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "GRANBLUE FANTASY The Animation Blu-ray&DVD Vol.1 完全生産限定版�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし、アニメ第1巻BD/DVD特典)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/55457) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/55457) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Katalina_(Promo))、公開characters表のID 3040118000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 闇カタリナ(Katalina (Dark))
+# 闇カタリナ(Katalina (Promo))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 倍率(上限約62万)。確定トリプルアタック(次の攻撃)。
 - CT(クールタイム): 7ターン(Lv55で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: リカバー(Lv75で性能強化)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 再生効果(ターン毎に500回復、Lv75後、3ターン)。
 - CT(クールタイム): 9ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: ライトウォール・ディヴァイド(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 被ダメージ-25%カット。
 - CT(クールタイム): 3ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: インペル・ネイル
 
 - 効果: 敵に闇属性ダメージを与える。
 - 数値/スケーリング: 倍率4.5倍。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -77,5 +77,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要(GameWithの記載も一部数値が省略されている)。
 - リリース日はGameWithに記載がなく不明(アニメ第1巻BD/DVD特典)。
-- gbf.wikiでの正確な英語名(name_en「Katalina (Dark)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1540/ATK7330は未検証。
-- 特典配布キャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。カタリナにはリミテッド版・SR版・水着版が存在するが、本ファイルは闇属性版(エルステ帝国軍中尉)のみを対象とする。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1540/ATK7330は未検証。
+- 特典配布キャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。カタリナにはリミテッド版・SR版・水着版が存在するが、本ファイルは闇属性版(エルステ帝国軍中尉)のみを対象とする。

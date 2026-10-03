@@ -3,6 +3,16 @@
 `knowledge/` を充実させていく上での、情報源・収集方法・運用方針をまとめる作業メモ。
 セッションをまたいでも参照できるよう、リポジトリ内で管理する(Claude側の一時的な記憶には残さない)。
 
+### キャラクター英名172件と出典URL5件の不整合を訂正(2026-10-04)
+
+- 出典: 前回取得した公開Wikiのcharacters表と個別ID照合結果を使用。名称と版が一致した176件のうち、英名の異なる172件をWikiの版識別付きページ名へ揃えた。誤訳だけでなく、略称・姓名順・Event/Promo等の表記差も含み、括弧内をゲーム内の正式名称とは断定しない。本文見出し・カテゴリREADME索引も同期した。
+- 代表例: Silva (Grand)→Sylvia、Lyria (Wind)→Lecia (SSR)、Kokkoro (Water)→Cucouroux (SSR)、Niyah→Nier、Indra→Indala、Shindara→Cidala、Frau→Fraux。公開Wikiを名称・版の出典として各frontmatterに追加し、旧収集時の名称未特定と現在の性能未検証を区別した。水SSRのErikaと光SRのErica Fontaineは別人物であり、低レアリティ版とする旧記述も訂正。
+- URL訂正: 闇ゼタのGameWithを[52315](https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/52315)、火ツバサを[118209](https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/118209)へ訂正。旧55457は闇カタリナ、旧126569はランスロット＆ヴェインの記事とページタイトルで確認した。火スーテラ（イベント）のWikiはSutera→Sutera (Event)、光エウロペ（ドレス）はEuropa (Holiday)→Europa (Formal)、シフト後イングヴェイはYngwie→Yngwie (Legend of Bravado and Revelry)へ訂正。
+- 確度: 出典URLを訂正した5件の旧「両サイトで数値一致」の主張を撤回し、性能本文は再照合待ちとした。イベント版スーテラの5★表記と、ツバサ1アビCT・2アビの敵CT解釈に見つかった不整合も保留事項へ記録。今回は名称・出典の修正で、性能・数値の全面再検証ではない。全ファイルの下書きステータス、安定ID・ファイル名・画像ID・スタイルを維持。
+- 差分一覧: [キャラクターの英名・出典URL訂正](./character-name-source-corrections-2026-10-04.md)に172件の旧/新表記と5件の旧/新出典を保存。公開Wikiの名称照合とGameWith記事タイトルの再確認であり、実機API通信・ゲーム操作なし。
+- 検証: 変更したキャラ174ファイルのfrontmatterは英名・出典・更新日だけが変わり、ID等の他項目は維持。見出しとREADME索引が新英名に一致すること、画像カタログを再生成して全1,018件の対応が完全に同じになることを確認。Windows Node.jsで`npm run check`（498テスト）と`npm run build`を通過した。
+- 生データ: 公開情報の作業用ファイルはOS一時フォルダ。追加参照したイベント版スーテラ原文は`gbf-sutera-event-source.txt`。アカウント由来データの追加、draft処理はなし。
+
 ### サムネイル未対応176件の公開IDを個別照合(2026-10-04)
 
 - 出典: [公開Wikiのcharactersテーブル](https://gbf.wiki/Special:CargoTables/characters)をJina経由で再参照。`id,_pageName=name,element,rarity,jpname,link_gamewith,style_id,style_name,series`をoffset 0/500/1000で取得した計1,024行と、既存ナレッジの日本語名・版・出典URLを照合。ゲームAPI通信・操作なし。

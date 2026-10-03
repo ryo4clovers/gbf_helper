@@ -1,7 +1,7 @@
 ---
 id: "wind-sr-charlotta-wind"
 name_jp: "風シャルロッテ"
-name_en: "Charlotta (Wind)"
+name_en: "Charlotta (Event)"
 rarity: SR
 element: "風"
 race: "ハーヴィン"
@@ -11,11 +11,11 @@ obtain: "イベント『お子様ランチde OH MY リュミエ~ル♪』EDク�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/58031) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/58031) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Charlotta_(Event))、公開characters表のID 3030192000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 風シャルロッテ(Charlotta (Wind))
+# 風シャルロッテ(Charlotta (Event))
 
 ## 概要
 
@@ -70,5 +70,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wiki候補は自動検索で見つからなかったため、正確なHP/ATKは未検証。GameWith記載のHP1140/ATK4425は未検証。
+- 旧収集時はgbf.wiki候補を特定できなかったため、正確なHP/ATKは未検証。GameWith記載のHP1140/ATK4425は未検証。
 - シャルロッテには通常版・光属性(リミテッド)版・ハロウィン版・水着版・SSR版が存在するが、本ファイルは風属性SR版のみを対象とする。

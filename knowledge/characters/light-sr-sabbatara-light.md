@@ -1,7 +1,7 @@
 ---
 id: "light-sr-sabbatara-light"
 name_jp: "光サビルバラ"
-name_en: "Sabbatara (Light)"
+name_en: "Sevilbarra (Event)"
 rarity: SR
 element: "光"
 race: "ハーヴィン"
@@ -11,11 +11,11 @@ obtain: "イベント『白詰草想話』の第1話クリアで加入"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/132658) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/132658) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Sevilbarra_(Event))、公開characters表のID 3030258000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 光サビルバラ(Sabbatara (Light))
+# 光サビルバラ(Sevilbarra (Event))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 倍率1.5倍(上限約26万)。奥義ゲージ25/50/75/100/120/140/160/180/200につき1回ずつ攻撃回数増加(最大10回)。
 - CT(クールタイム): 7ターン(Lv45で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 闇衣削ぎ(Lv65で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 倍率2.0倍(上限約26万)。ストレングス効果(最大30%~最小10%、2ターン)。
 - CT(クールタイム): 6ターン(Lv65で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 刃撃(Lv35で習得)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 奥義ゲージ上昇量+50%UP(1ターン)。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 月下魄落
 

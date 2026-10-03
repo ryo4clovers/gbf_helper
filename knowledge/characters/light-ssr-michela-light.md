@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-michela-light"
 name_jp: "光マイシェラ"
-name_en: "Michela (Light)"
+name_en: "Mishra (SSR)"
 rarity: SSR
 element: "光"
 race: "エルーン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(武器「森神の祈杖」入手で開放)"
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/251231) (取得日: 2026-08-18)。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/251231) (取得日: 2026-08-18)。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/Mishra_(SSR))、公開characters表のID 3040317000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 光マイシェラ(Michela (Light))
+# 光マイシェラ(Mishra (SSR))
 
 ## 概要
 

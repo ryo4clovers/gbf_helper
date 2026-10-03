@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-tendo-akira-normal"
 name_jp: "天道輝"
-name_en: "Akira Tendo"
+name_en: "Teru Tendo"
 rarity: SR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "コラボイベント『サイコー! FANTASY ～理由(ワケ)あっ�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21237) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。アイドルマスターSideMコラボキャラのため想定通り。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21237) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。アイドルマスターSideMコラボキャラのため想定通り。 名称・版の照合: gbf.wiki (https://gbf.wiki/Teru_Tendo)、公開characters表のID 3030097000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 天道輝(Akira Tendo)
+# 天道輝(Teru Tendo)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 倍率1~2倍(上限約24万)。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ハイテンションMC(Lv65で効果時間延長)
 
@@ -47,14 +47,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: DA率+10%UP(2ターン、Lv65で3ターンに延長)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 一点集中(Lv35で習得)
 
 - 効果: 次に使用するアビリティの効果を3倍にする。
 - CT(クールタイム): 10ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: ブライテスト・スター
 
@@ -77,4 +77,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
 - gbf.wikiでの正確なHP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP850/ATK5900は未検証。
-- アイドルマスターSideMコラボキャラのためgbf.wiki候補は自動検索で見つからず(想定通り)。
+- アイドルマスターSideMコラボキャラのため旧収集時はgbf.wiki候補を特定できず(想定通り)。

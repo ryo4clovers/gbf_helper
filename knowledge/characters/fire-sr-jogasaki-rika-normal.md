@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-jogasaki-rika-normal"
 name_jp: "城ヶ崎莉嘉"
-name_en: "Rika Jogasaki"
+name_en: "Rika Jougasaki"
 rarity: SR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "コラボ第7弾期間中のチャレンジクエストクリアで加�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21247) のみ(取得日: 2026-08-19)。コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21247) のみ(取得日: 2026-08-19)。コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。 名称・版の照合: gbf.wiki (https://gbf.wiki/Rika_Jougasaki)、公開characters表のID 3030088000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 城ヶ崎莉嘉(Rika Jogasaki)
+# 城ヶ崎莉嘉(Rika Jougasaki)
 
 ## 概要
 
@@ -38,7 +38,7 @@ THE IDOLM@STER CINDERELLA GIRLS(デレマス/モバマス)コラボキャラク�
 - 効果: 敵に火属性ダメージを与える(上限約20万)。敵に180秒間灼熱効果を付与する。暗闇状態の敵に使用するとサポートによる奥義ゲージUPに追加で+10%される。
 - CT(クールタイム): 7ターン(Lv45で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(コラボキャラのためgbf.wiki候補なし)
+- ステータス: GameWithのみで確認(コラボキャラのため性能のWiki照合は未実施)
 
 ### アビリティ2: セクシー☆パッション(Lv65で性能強化、Lv80で強化)
 
@@ -46,14 +46,14 @@ THE IDOLM@STER CINDERELLA GIRLS(デレマス/モバマス)コラボキャラク�
 - 数値/スケーリング: 攻撃30%UP(Lv80前)→攻撃50%UP(Lv80後)。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(コラボキャラのためgbf.wiki候補なし)
+- ステータス: GameWithのみで確認(コラボキャラのため性能のWiki照合は未実施)
 
 ### アビリティ3: 全力ラブアタック(Lv35で習得、Lv90で強化)
 
 - 効果: OD時の敵に3倍火属性ダメージを与える(上限約45万)。使用時モードゲージが減少する。美嘉がメインかサブにいる場合は4倍になる。Lv90でOD時の敵に5倍(美嘉編成時6倍)に強化される。
 - CT(クールタイム): 7ターン(Lv90で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(コラボキャラのためgbf.wiki候補なし)
+- ステータス: GameWithのみで確認(コラボキャラのため性能のWiki照合は未実施)
 
 ### 奥義: DOKIDOKI☆リズム(通常)/SUPER☆LOVE(最終上限解放後)
 
@@ -74,5 +74,5 @@ THE IDOLM@STER CINDERELLA GIRLS(デレマス/モバマス)コラボキャラク�
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
-- コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。GameWith記載のHP960/ATK7200は未検証。
+- コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。GameWith記載のHP960/ATK7200は未検証。
 - アンナ(SR/火)との相性が良いとGameWithで紹介されている(暗闇付与との組み合わせ)。

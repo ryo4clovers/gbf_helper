@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-shion-normal"
 name_jp: "シオン"
-name_en: "Shion"
+name_en: "Shion (Collab)"
 rarity: SSR
 element: "闇"
 race: "その他(悪鬼)"
@@ -11,11 +11,11 @@ obtain: "転スラコラボ限定ガチャ(剛力丸・改を入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし、転スラコラボ開催期間に加入)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/472947) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/472947) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Shion_(Collab))、公開characters表のID 3040560000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# シオン(Shion)
+# シオン(Shion (Collab))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 無属性99万9999ダメージ。防御-50%DOWN(1ターン)。被ダメージ+3万上昇(1ターン)。
 - CT(クールタイム): 8ターン(Lv55で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 剛力(Lv75で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 奥義ゲージ+200%UP。奥義ダメ+80%UP(1回)。奥義上限+20%UP。奥義ダメ特殊上限+30%UP(1ターン)。
 - CT(クールタイム): 9ターン(Lv75で8ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 鬼刀砲(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率1.5倍(1回あたり上限約10.5万)×6回。攻撃-10%DOWN(累積最大40%)。DA率-10%DOWN(累積最大40%)。TA率-10%DOWN(累積最大40%)、各180秒。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 斬鬼裂刃(自分のHPを最大値の15%消費)
 
 - 効果: 敵に極大の闇属性ダメージを与え、追加ダメージも与える。自分は効果時間中必ずトリプルアタックになる。
 - 数値/スケーリング: 倍率12.5倍(極大、上限約242万)。闇属性6.0倍追加ダメージ(上限約80万)。確定トリプルアタック(2ターン)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -80,5 +80,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Shion」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1402/ATK10590は未検証。
-- コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。リムル＝テンペスト([dark-ssr-rimuru-normal.md](./dark-ssr-rimuru-normal.md))との連携が前提の性能設計。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1402/ATK10590は未検証。
+- コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。リムル＝テンペスト([dark-ssr-rimuru-normal.md](./dark-ssr-rimuru-normal.md))との連携が前提の性能設計。

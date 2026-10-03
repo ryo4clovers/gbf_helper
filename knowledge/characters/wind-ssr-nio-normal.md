@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-nio-normal"
 name_jp: "ニオ(十天衆)"
-name_en: "Nio"
+name_en: "Niyon"
 rarity: SSR
 element: "風"
 race: "ハーヴィン"
@@ -11,11 +11,11 @@ obtain: "不明(GameWithに記載なし、十天衆)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/54614) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。十天衆キャラのため最終上限解放・限界超越後(Lv150)の性能を採用し、簡略化して記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/54614) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。十天衆キャラのため最終上限解放・限界超越後(Lv150)の性能を採用し、簡略化して記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Niyon)、公開characters表のID 3040038000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ニオ(十天衆)(Nio)
+# ニオ(十天衆)(Niyon)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 昏睡(4~6ターン、均等確率、基本弱体成功率75%、行動不能・ダメージ1.5倍・被ダメ時約20%で解除)。喪心の旋律(6ターン)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: クオリア(Lv95で性能強化・短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 攻撃+30%UP(攻刃加算、3ターン)。防御+30%UP(3ターン)。DA確率+45%UP(3ターン)。特殊強化: 攻撃+30%UP(攻刃加算、3ターン)。DA確率+20%UP/TA確率+20%UP(3ターン)。
 - CT(クールタイム): 7ターン(Lv95で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: デファンデュ++(Lv85性能強化、Lv130で更に強化)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 調律Lv+1(最大10、回復不可、弱体無効以外必中)。クリティカル率UP(倍率30%/発動率100%、3ターン)。バリア効果(耐久3000、3ターン)。会心効果(クリティカル時与ダメ加算、敵最大HP1%分最大5万、3ターン)。通常攻撃与ダメ+10%UP(天司枠加算、3ターン)。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 九界の繁栄(Lv100で習得、Lv150で再使用可能に変更)
 
@@ -63,14 +63,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: トリプルアタック確率+100%UP(4ターン)。風属性追撃+50%(4ターン)。静謐の幻想(1ターン、延長不可・消去不可)。
 - CT(クールタイム): Lv150で使用間隔10ターン(それ以前は再使用不可)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: ファーノナス・フリド(超越後、Lv150で更に強化)
 
 - 効果: 敵に風属性ダメージを与え、敵全体に追加ダメージ、魅了、連続攻撃確率DOWNを付与する。味方全体のニオ特殊強化効果を延長する。
 - 数値/スケーリング: 倍率5.5倍(超越後、上限約230万。Lv150で極大倍率13.5倍、上限約340万)。風属性3倍追加ダメ(上限約20万)。魅了(阻害率約25%、180秒)。DA率-100%DOWN/TA率-約20%DOWN(180秒)。ニオ特殊強化効果+3ターン延長。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動、Lv90/95/120/150強化後)
 
@@ -89,5 +89,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - 入手方法・リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Nio」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1599/ATK12199は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1599/ATK12199は未検証。
 - ニオは十天衆であり、限界超越Lv110~150にかけて奥義・アビリティ・サポアビが段階的に大きく強化される複雑なシステムを持つ。本ファイルは最終上限解放・限界超越Lv150時点の性能を中心に簡略化して記載しており、Lv110/120/130/140の個別差分やLv110解放「極星の光跡」の詳細強化内容は割愛。

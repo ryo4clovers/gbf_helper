@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-aliza-normal"
 name_jp: "アリーザ"
-name_en: "Aliza (SR)"
+name_en: "Aliza (Event)"
 rarity: SR
 element: "火"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『臆病勇者と囚われの姫君』(バル�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21009) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Aliza」はHP1400(4★)/ATK9830(4★)でGameWithのHP840/ATK6700と一致せず、別バージョン(SSR相当など)のページと判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21009) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Aliza」はHP1400(4★)/ATK9830(4★)でGameWithのHP840/ATK6700と一致せず、別バージョン(SSR相当など)のページと判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Aliza_(Event))、公開characters表のID 3030015000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# アリーザ(Aliza (SR))
+# アリーザ(Aliza (Event))
 
 ## 概要
 

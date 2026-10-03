@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-stahn-normal"
 name_jp: "スタン(テイルズ)"
-name_en: "Stahn"
+name_en: "Stahn Aileron"
 rarity: SR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "コラボイベント『空で繋ぐ絆の物語』期間中に信頼�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/32538) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。テイルズオブデスティニーコラボキャラのため想定通り。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/32538) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。テイルズオブデスティニーコラボキャラのため想定通り。 名称・版の照合: gbf.wiki (https://gbf.wiki/Stahn_Aileron)、公開characters表のID 3030136000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# スタン(テイルズ)(Stahn)
+# スタン(テイルズ)(Stahn Aileron)
 
 ## 概要
 
@@ -38,7 +38,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 効果: 敵に火属性ダメージを与え、10ターンの間、自分のアビリティダメージをUPする(累積)。
 - CT(クールタイム): 3ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 鳳凰天駆(Lv65でターン短縮)
 
@@ -46,14 +46,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 6回のダメージ。
 - CT(クールタイム): 7ターン(Lv65で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 獅吼爆炎陣(Lv35で習得)
 
 - 効果: 敵全体に火属性ダメージを与える。敵の数が少ないほどダメージがUPする。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 皇王天翔翼
 
@@ -75,4 +75,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
 - gbf.wikiでの正確なHP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP830/ATK6180は未検証。
-- テイルズオブデスティニーコラボキャラのためgbf.wiki候補は自動検索で見つからず(想定通り)。今回のコラボ版は「テイルズ オブ アスタリア」の設定準拠。
+- テイルズオブデスティニーコラボキャラのため旧収集時はgbf.wiki候補を特定できず(想定通り)。今回のコラボ版は「テイルズ オブ アスタリア」の設定準拠。

@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-toga-himiko-normal"
 name_jp: "トガヒミコ"
-name_en: "Toga Himiko"
+name_en: "Himiko Toga"
 rarity: SSR
 element: "闇"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "ヒロアカコラボ、エンディングクリアで加入"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし、ヒロアカコラボ開催期間に加入)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/433262) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/433262) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Himiko_Toga)、公開characters表のID 3040506000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# トガヒミコ(Toga Himiko)
+# トガヒミコ(Himiko Toga)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率1.5倍(1回あたり上限約15.5万)×5回。攻防-10%DOWN(累積最大40%、180秒)。吸収効果(最大1000、5ターン)。
 - CT(クールタイム): 6ターン(Lv55で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ドレインシリンジ(Lv75で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率8.0倍(上限約80万)。奥義ゲージ+30%変換。
 - CT(クールタイム): 8ターン(Lv75で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: ブラッドラヴァー
 
@@ -55,20 +55,20 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 闇属性+50%追撃効果(1ターン)。確定トリプルアタック(1ターン)。2回行動(1ターン)。
 - CT(クールタイム): 4ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 私はもっと"好き"になる(Lv45で習得、再使用不可、使用可能まで2ターン)
 
 - 効果: 主人公の血を摂取し、”個性”を発動する(消去不可、3ターン)。変身中は他のアビと奥義の内容が変化する。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: ブラッドステインド(変身前)
 
 - 効果: 敵に闇属性ダメージを与え、ブラッドラヴァー(3アビ)を即使用可能にする。
 - 数値/スケーリング: 倍率4.5倍(上限約168.5万)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ## スキル構成(変身後、すべて再使用不可)
 
@@ -77,28 +77,28 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 効果: 自分にテンションLv4・弱体耐性UP・カウンター効果を付与する。
 - 数値/スケーリング: テンションLv4(攻撃+100%UP、5ターン)。弱体耐性+100%UP(5ターン)。3倍カウンター効果(被ダメージ、5回、5ターン)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: パラマウント・ケア
 
 - 効果: 自分のHPと弱体効果を全回復し、パラマウントケア効果(永続・消去不可)を付与する。
 - 数値/スケーリング: HP100%回復(最大1万)。パラマウントケア: 闇属性攻撃+50%UP、防御+100%UP、必ずDA以上、ダメージ上限+10%UP、奥義ゲージ上昇量+10%UP。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: トランスグレス
 
 - 効果: 自分に奥義バースト効果・奥義ダメ/奥義上限UP・奥義再発動を付与する。ターン終了時にHPが減少する(回復不可)。
 - 数値/スケーリング: 奥義ダメ+60%UP/奥義上限+10%UP(1回、消去不可)。奥義再発動(1回、消去不可)。HP-1000減少(回復不可、5ターン)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: シリンジサーカス(変身後)
 
 - 効果: 敵に闇属性ダメージを与え、ランダムな弱体効果2つを付与する。
 - 数値/スケーリング: 倍率4.5倍(上限約168.5万)。弱体候補: 攻撃-25%DOWN(3ターン)、防御-25%DOWN(3ターン)、火傷Lv+1(最大10、回復不可)、劇毒Lv+1(最大10、回復不可、180秒)、暗闇(3ターン)、麻痺(2ターン)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -115,5 +115,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Toga Himiko」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1570/ATK7350は未検証。
-- コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。「変身」システムにより変身前/変身後で奥義とアビリティが完全に変化する特殊仕様を持つ。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1570/ATK7350は未検証。
+- コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。「変身」システムにより変身前/変身後で奥義とアビリティが完全に変化する特殊仕様を持つ。

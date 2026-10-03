@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-ourolyathe-limited"
 name_jp: "オロロジャイア(リミテッド)"
-name_en: "Ourolyathe (Limited)"
+name_en: "Orologia"
 rarity: SSR
 element: "闇"
 race: "その他"
@@ -11,11 +11,11 @@ obtain: "グランデフェス限定ガチャ"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/453316) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/453316) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Orologia)、公開characters表のID 3040536000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# オロロジャイア(リミテッド)(Ourolyathe (Limited))
+# オロロジャイア(リミテッド)(Orologia)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: ミスティカオーラム効果(5ターン、消去不可): 弱体効果無効(1回)。Lv1闇属性攻撃力+50%UP、Lv2クリティカル確率UP(倍率20%、発動100%)、Lv3与ダメージ+10%UP(天司枠加算)、Lv4ダメージ上限+10%UP。
 - CT(クールタイム): 11ターン(Lv55で10ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: イアム・ディプラーヴォ(Lv75で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率8.0倍(上限約82万)。攻撃-10%DOWN(累積最大40%、180秒)。
 - CT(クールタイム): 8ターン(Lv75で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: カーザ・トラクト(Lv45で習得、因果干渉Lv4時「ヴィンケレ・カルクルス」に変化)
 
@@ -55,21 +55,21 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: アビリティ再使用間隔-1ターン短縮。攻撃+10%UP(累積最大30%、別枠乗算)。防御+10%UP(累積最大30%)。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3(変化後): ヴィンケレ・カルクルス(因果干渉Lv4時、3種から選択、再使用不可)
 
 - 効果: 自分以外の闇属性キャラ単体に選択した強化を付与する。
 - 数値/スケーリング: 選択1「サピエンティア・モータス」: アビリティ即時使用可能、同じアビリティを連続2回まで発動可能。選択2「フォルティス・モータス」: 3回行動(1ターン)、トリプルアタック確率+100%UP(1ターン)。選択3「ナヴィタス・モータス」: 即座に奥義発動可能、奥義再発動(1回)、奥義ダメ+50%UP/奥義上限+20%UP(1回)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: アキエスファルクス
 
 - 効果: 敵に闇属性ダメージを与え、味方全体のミスティカオーラム効果(1アビ)を1ターン延長する。因果干渉Lv4時は奥義ダメ・奥義上限もUPする。
 - 数値/スケーリング: 倍率4.5倍(上限約168.5万)。因果干渉Lv4時: 奥義ダメ+50%UP、奥義上限+30%UP。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -88,5 +88,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Ourolyathe (Limited)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1280/ATK9600は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1280/ATK9600は未検証。
 - 男性態・女性態の両方の姿を持つ特殊な設定のキャラクター。gender欄は簡略化して記載。

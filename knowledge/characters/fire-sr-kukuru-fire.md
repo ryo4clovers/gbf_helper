@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-kukuru-fire"
 name_jp: "火ククル(SR)"
-name_en: "Kukuru (Fire)"
+name_en: "Cucouroux"
 rarity: SR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(ドルフェーン入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/38205) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/38205) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Cucouroux)、公開characters表のID 3030155000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 火ククル(SR)(Kukuru (Fire))
+# 火ククル(SR)(Cucouroux)
 
 ## 概要
 
@@ -39,21 +39,21 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 敵対心DOWN(3ターン)。
 - CT(クールタイム): 5ターン(Lv45で4ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ガンパウダーケッグ(Lv65で使用間隔短縮)
 
 - 効果: 火薬樽を集める(最大5個)。
 - CT(クールタイム): 3ターン(Lv65で2ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: ガトリングバレッジ(Lv35で習得)
 
 - 効果: 3ターンの間、自分に連続攻撃確率UPを付与する。火薬樽の数に応じて効果がUPする。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: サリューブリッツ
 

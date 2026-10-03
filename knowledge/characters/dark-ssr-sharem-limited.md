@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-sharem-limited"
 name_jp: "へレル・ベン・シャレム(リミテッド)"
-name_en: "Sharem (Limited)"
+name_en: "Helel ben Shalem"
 rarity: SSR
 element: "闇"
 race: "その他"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(グランデフェス限定、バブ・エル�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/180314) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/180314) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Helel_ben_Shalem)、公開characters表のID 3040251000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# へレル・ベン・シャレム(リミテッド)(Sharem (Limited))
+# へレル・ベン・シャレム(リミテッド)(Helel ben Shalem)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 倍率8.0倍(上限約116万)。宵の宣告: 防御-15%DOWN(基本弱体成功率200%)、弱体耐性-10%DOWN(基本弱体成功率200%)、攻撃力/防御力下限50%共有。
 - CT(クールタイム): 8ターン(Lv55で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: インヴィジブルタッチ(Lv75で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: バリア効果(最大4000、消費まで継続)。
 - CT(クールタイム): 7ターン(Lv75で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: ロス・エンドス(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 攻撃-50%DOWN(6ターン)。DA確率-100%DOWN(6ターン)。TA確率-100%DOWN(6ターン)。特殊技ダメージ-20%DOWN(6ターン)。命中率-50%DOWN(6ターン)。
 - CT(クールタイム): 12ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: ケイオス・レギオン
 
 - 効果: 敵に闇属性ダメージを与え、味方全体の闇属性攻撃をUPする(奥義時含む4ターン)。宵の宣告(防御DOWN)状態の敵には追加ダメージも発生する。
 - 数値/スケーリング: 倍率4.5倍。闇属性攻撃+30%UP(4ターン)。宵の宣告状態の敵に闇属性7.0倍ダメージ(上限約116万、防御DOWN判定が条件、弱体耐性DOWN判定のみでは発動しない)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -80,5 +80,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Sharem (Limited)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1270/ATK8880は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1270/ATK8880は未検証。
 - シャレムには水属性版・土属性版が存在するが、本ファイルはリミテッド版(闇属性)のみを対象とする。

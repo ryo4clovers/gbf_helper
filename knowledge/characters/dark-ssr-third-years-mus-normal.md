@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-third-years-mus-normal"
 name_jp: "3年生チーム(μ's)"
-name_en: "Third Years (μ's)"
+name_en: "Μ's Third-Years"
 rarity: SSR
 element: "闇"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "ラブライブコラボ加入キャラ(絢瀬絵里＆矢澤にこ＆�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし、コラボ開催期間に加入)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/161780) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/161780) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/%CE%9C's_Third-Years)、公開characters表のID 3040231000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 3年生チーム(μ's)(Third Years (μ's))
+# 3年生チーム(μ's)(Μ's Third-Years)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 奥義ダメージ+50%UP(1回、Lv90後)。奥義ダメージ上限+20%UP(1回、Lv90後追加)。
 - CT(クールタイム): 7ターン(Lv55で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: にっこにっこにー！(Lv75で使用間隔短縮、Lv90で性能強化・使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: DA率+25%UP(2ターン)。TA率+25%UP(2ターン)。与ダメ加算(敵最大HP1%分、最大25252、Lv90後追加)。
 - CT(クールタイム): 8ターン(Lv75で7ターン、Lv90で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: スピリチュアルやね(初期から習得、Lv95で性能強化)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 光属性攻撃-20%DOWN(180秒、Lv95後)。闇属性防御-20%DOWN(180秒、Lv95後)。DA率-40~50%/TA率約-20%DOWN(Lv95後追加)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 心のメロディ(Lv45で習得、Lv100で性能強化)
 
@@ -63,14 +63,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 全属性ダメージ-40%カット(1ターン)。リフレクト効果(30%、1回、1ターン、Lv100後)。バリア効果(耐久1500、消費まで永続、Lv100後)。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: どんなときもずっと(最終後、通常時は「それは僕たちの奇跡」)
 
 - 効果: 敵に闇属性ダメージを与え、味方全体のHPを回復する。奥義時含む6ターンの間、味方全体に闇属性攻撃UPを付与する。最終後は再生効果も追加される。
 - 数値/スケーリング: 倍率5.0倍(最終後、通常時は4.5倍)。HP20%回復(最大500)。闇属性攻撃+15%UP(6ターン)。再生効果(最大300、6ターン、最終後追加)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -86,5 +86,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Third Years (μ's)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP2219/ATK6233は未検証。
-- コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。3人組ユニットキャラクターとして簡略化して扱っている。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP2219/ATK6233は未検証。
+- コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。3人組ユニットキャラクターとして簡略化して扱っている。

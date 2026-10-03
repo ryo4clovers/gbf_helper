@@ -1,7 +1,7 @@
 ---
 id: "water-sr-lily-normal"
 name_jp: "リリィ(SR)"
-name_en: "Lily (SR)"
+name_en: "Lily (Event)"
 rarity: SR
 element: "水"
 race: "クリスタリア"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『氷晶宮でミックスパイを』で加�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/43871) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Lily」はHP1876(5★)/ATK7720(5★)でGameWithのHP1140/ATK3800と一致せず、別バージョン(SSR相当など)のページと判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/43871) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Lily」はHP1876(5★)/ATK7720(5★)でGameWithのHP1140/ATK3800と一致せず、別バージョン(SSR相当など)のページと判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Lily_(Event))、公開characters表のID 3030165000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# リリィ(SR)(Lily (SR))
+# リリィ(SR)(Lily (Event))
 
 ## 概要
 

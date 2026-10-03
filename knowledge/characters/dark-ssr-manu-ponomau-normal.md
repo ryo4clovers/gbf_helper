@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-manu-ponomau-normal"
 name_jp: "マヌ＝ポヌマウ"
-name_en: "Manu Ponomau"
+name_en: "Manu Ponumau"
 rarity: SSR
 element: "闇"
 race: "ヴォルヴィル"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(マッシブ・メンター・ドリルを入�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/559459) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/559459) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Manu_Ponumau)、公開characters表のID 3040653000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# マヌ＝ポヌマウ(Manu Ponomau)
+# マヌ＝ポヌマウ(Manu Ponumau)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 倍率1.5倍(1回あたり上限14.8万)×4回。攻防-10%DOWN(累積最大40%、180秒)。アビ与ダメ+1万上昇(累積最大5万)。
 - CT(クールタイム): 6ターン(Lv55で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ビギニング・ワーキング(Lv75で使用間隔短縮)
 
@@ -47,21 +47,21 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: ストレングス効果(最大20%~最小10%、3ターン)。ブロック効果(20%軽減、発動100%、3ターン)。弱体効果無効(1回)。
 - CT(クールタイム): 9ターン(Lv75で8ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: スイッチング・スリーピング(Lv45で習得、サブメンバーが闇キャラのみ時使用可能、再使用不可)
 
 - 効果: 自分とサブメンバー一人を入れ替え、頑丈ヘルメット効果(消去不可)を付与する。自分にのんびりの力効果(消去不可)も付与する。
 - 数値/スケーリング: 頑丈ヘルメット効果(消去不可): 防御+50%UP、光属性ダメ-20%軽減、弱体効果無効、光属性被ダメ最大値5000固定、奥義ゲージ上昇量-35%DOWN。のんびりの力効果: 戦闘不能等でバトルメンバー登場時に特製ヘルメット効果を付与。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: ボーリング・ドーリング
 
 - 効果: 敵に闇属性ダメージを与え、強化効果を1つ無効化する。自分が特製ヘルメット効果中は追加ダメージも与える。
 - 数値/スケーリング: 倍率4.5倍(上限約168.5万)。特製ヘルメット効果中: 追加ダメ倍率8.0倍(上限約80万)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -81,5 +81,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Manu Ponomau」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1814/ATK7130は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1814/ATK7130は未検証。
 - 新種族「ヴォルヴィル」の詳細な種族設定はGameWith記載のみで、gbf.wikiでの裏付けは未確認。

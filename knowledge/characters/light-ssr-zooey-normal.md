@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-zooey-normal"
 name_jp: "ゾーイ(SSR)"
-name_en: "Zooey"
+name_en: "Zooey (Promo)"
 rarity: SSR
 element: "光"
 race: "星晶獣"
@@ -11,11 +11,11 @@ obtain: "VISAカード(クレジットカード)入会特典、またはリン�
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/27185) (取得日: 2026-08-18)。gbf.wikiページ取得に失敗した(内容未取得)ため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/27185) (取得日: 2026-08-18)。gbf.wikiページ取得に失敗した(内容未取得)ため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/Zooey_(Promo))、公開characters表のID 3040078000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ゾーイ(SSR)(Zooey)
+# ゾーイ(SSR)(Zooey (Promo))
 
 ## 概要
 

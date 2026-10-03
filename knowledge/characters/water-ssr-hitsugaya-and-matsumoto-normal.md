@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-hitsugaya-and-matsumoto-normal"
 name_jp: "日番谷冬獅郎＆松本乱菊"
-name_en: "Hitsugaya & Matsumoto"
+name_en: "Toshiro Hitsugaya and Rangiku Matsumoto"
 rarity: SSR
 element: "水"
 race: "不明"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(『BLEACH』コラボ、武器「氷輪丸」�
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/569185) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/569185) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/Toshiro_Hitsugaya_and_Rangiku_Matsumoto)、公開characters表のID 3040669000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 日番谷冬獅郎＆松本乱菊(Hitsugaya & Matsumoto)
+# 日番谷冬獅郎＆松本乱菊(Toshiro Hitsugaya and Rangiku Matsumoto)
 
 ## 概要
 

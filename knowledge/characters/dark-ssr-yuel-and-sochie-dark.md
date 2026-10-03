@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-yuel-and-sochie-dark"
 name_jp: "闇ユエル&ソシエ"
-name_en: "Yuel & Sochie (Dark)"
+name_en: "Yuel and Societte"
 rarity: SSR
 element: "闇"
 race: "エルーン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(緋翔蒼舞扇を入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/370387) (取得日: 2026-08-18)のみ。gbf.wiki検索候補「Sapphire Dance: Gentiana」は無関係の水属性召喚石ページ(This article is about the Water summon stone)だったため不採用。GameWithのみで作成。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/370387) (取得日: 2026-08-18)のみ。gbf.wiki検索候補「Sapphire Dance: Gentiana」は無関係の水属性召喚石ページ(This article is about the Water summon stone)だったため不採用。GameWithのみで作成。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Yuel_and_Societte)、公開characters表のID 3040430000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 闇ユエル&ソシエ(Yuel & Sochie (Dark))
+# 闇ユエル&ソシエ(Yuel and Societte)
 
 ## 概要
 
@@ -38,7 +38,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 効果: 自分に紅之舞・唐紅効果(消去不可)を付与し、ターン進行時に攻撃行動を2回行う。
 - CT(クールタイム): 7ターン(リンクアビリティで連動)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 蒼之舞・朧月(リンクアビで連動、2回被ダメで解除)
 
@@ -46,7 +46,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 被ダメージ-3000減少。
 - CT(クールタイム): 7ターン(リンクアビリティで連動)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 双狐舞踊(Lv45で習得、敵特殊技時と被ダメ無しのターン終了時に自動発動)
 
@@ -54,14 +54,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 倍率3.0倍(1回あたり上限約23万)×2回。攻防-10%DOWN(累積最大40%、180秒)。1アビ強化時: 倍率4.5倍(上限35万)。2アビ強化時: 2回発動。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 蒼紅の舞・融炎
 
 - 効果: 敵に闇属性ダメージを与え、狐火状態を付与する。自分のアビリティ再使用間隔を短縮する。
 - 数値/スケーリング: 倍率4.5倍。狐火(4ターン、確率で敵通常攻撃miss、毎ターンHP1%減少、最大5万)。アビリティ再使用間隔-2ターン短縮。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -78,5 +78,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Yuel & Sochie (Dark)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認。gbf.wiki検索候補「Sapphire Dance: Gentiana」は水属性の召喚石ページであり、このキャラクターとは無関係のため不採用とした。GameWith記載のHP1500/ATK7200は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。gbf.wiki検索候補「Sapphire Dance: Gentiana」は水属性の召喚石ページであり、このキャラクターとは無関係のため不採用とした。GameWith記載のHP1500/ATK7200は未検証。
 - ユエルには火・水・水着の他バージョン、ソシエには水・火・風の他バージョンが存在するが、本ファイルは闇属性のコンビ版のみを対象とする。1アビ・2アビはリンクアビリティのため使用間隔が共有される。

@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-lei-limited"
 name_jp: "レイ(リミテッド)"
-name_en: "Lei (Limited)"
+name_en: "Rei"
 rarity: SSR
 element: "闇"
 race: "ハーヴィン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(レジェフェス限定、シューニャを�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/188954) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/188954) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Rei)、公開characters表のID 3040265000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# レイ(リミテッド)(Lei (Limited))
+# レイ(リミテッド)(Rei)
 
 ## 概要
 
@@ -38,7 +38,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 効果: 自分以外の闇属性キャラ単体にターン進行時の2回行動を付与する(再使用で解除、レイがバトルメンバーから離れると消去)。
 - CT(クールタイム): 1ターン(Lv55で0ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 解脱(Lv75で使用間隔短縮)
 
@@ -46,27 +46,27 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 攻撃力+30%UP(別枠乗算、久遠枠加算)。ダメ上限+20%UP。回避率約+30%UP。確定トリプルアタック。防御-50%DOWN(下限無視、デメリット)。
 - CT(クールタイム): 1ターン(Lv75で0ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 白眼視
 
 - 効果: 敵全体に白眼視(消去不可)を付与し、敵からの属性ダメージを1ターン0にする(必中、弱体耐性100%以外)。レイがバトルメンバーから離れると消去。
 - CT(クールタイム): 12ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 天の逆手(Lv45で習得、使用可能10ターン後、再使用不可、自分がバトルメンバー時のみ)
 
 - 効果: ターンの進行時に経過ターンを5ターン進める。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 五眼掌握・寂光浄土(奥義ダメージ無し)
 
 - 効果: 敵に「天網の星眼」(永続・消去不可)を付与し、強化効果を1つ消去し、複数の弱体効果を付与する。
 - 数値/スケーリング: 天網の星眼: 敵被ダメに味方与ダメの10%分加算(最大3万、基本弱体成功率200%)。弱体耐性-15%DOWN(180秒)。光属性攻撃-30%DOWN(180秒)。DA確率-100%DOWN(180秒)。TA確率-30%DOWN(180秒)。各基本成功率120%。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -83,5 +83,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Lei (Limited)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1000/ATK10000は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1000/ATK10000は未検証。
 - 自身は通常攻撃せず味方単体を強化する特殊な運用スタイルを持つキャラ。POSE選択による名称/演出変化システムは未反映(簡略化)。

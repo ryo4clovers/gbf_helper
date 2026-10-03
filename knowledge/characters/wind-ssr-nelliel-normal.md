@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-nelliel-normal"
 name_jp: "ネリエル(ネリエル・トゥ・オーデルシュヴァンク)"
-name_en: "Nelliel"
+name_en: "Nelliel Tu Odelschwanck"
 rarity: SSR
 element: "風"
 race: "その他"
@@ -11,11 +11,11 @@ obtain: "BLEACHコラボイベント(レジェンドガチャ、羚騎士入手�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/569186) (取得日: 2026-08-18)のみ。コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/569186) (取得日: 2026-08-18)のみ。コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。 名称・版の照合: gbf.wiki (https://gbf.wiki/Nelliel_Tu_Odelschwanck)、公開characters表のID 3040668000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ネリエル(ネリエル・トゥ・オーデルシュヴァンク)(Nelliel)
+# ネリエル(ネリエル・トゥ・オーデルシュヴァンク)(Nelliel Tu Odelschwanck)
 
 ## 概要
 

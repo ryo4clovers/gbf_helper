@@ -1,7 +1,7 @@
 ---
 id: "dark-sr-olivia-summer"
 name_jp: "水着オリヴィエ"
-name_en: "Olivia (Summer)"
+name_en: "Olivia (Event)"
 rarity: SR
 element: "闇"
 race: "星晶獣"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『ビリビリ☆エレクトリカルサマ�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/113300) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/113300) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Olivia_(Event))、公開characters表のID 3030246000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 水着オリヴィエ(Olivia (Summer))
+# 水着オリヴィエ(Olivia (Event))
 
 ## 概要
 
@@ -70,5 +70,5 @@ SSRバージョンのオリヴィエと似た性能を持つイベント限定SR
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wiki候補は自動検索で見つからなかったため、正確なHP/ATKは未検証。GameWith記載のHP1200/ATK5300は未検証。
+- 旧収集時はgbf.wiki候補を特定できなかったため、正確なHP/ATKは未検証。GameWith記載のHP1200/ATK5300は未検証。
 - オリヴィエには土属性版・リミテッド版・SSR版が存在するが、本ファイルは水着(闇属性SR)版のみを対象とする。

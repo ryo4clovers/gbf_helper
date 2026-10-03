@@ -1,7 +1,7 @@
 ---
 id: "earth-sr-solids-normal"
 name_jp: "ソリッズ(土)"
-name_en: "Solids"
+name_en: "Soriz"
 rarity: SR
 element: "土"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(インパクトナックル入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21015) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21015) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Soriz)、公開characters表のID 3030020000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ソリッズ(土)(Solids)
+# ソリッズ(土)(Soriz)
 
 ## 概要
 
@@ -39,14 +39,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 2～3倍ダメージ(Lv45で3～4倍に強化)。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補は自動検索で見つからず)
+- ステータス: GameWithのみで確認(旧収集時はgbf.wiki候補を特定できず)
 
 ### アビリティ2: クロスカウンター(Lv65で使用間隔短縮・反撃ダメージ上昇、Lv80でDA率UP追加)
 
 - 効果: 3ターンの間、3回まで敵の通常攻撃を回避して反撃する。
 - CT(クールタイム): 8ターン(Lv65で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補は自動検索で見つからず)
+- ステータス: GameWithのみで確認(旧収集時はgbf.wiki候補を特定できず)
 
 ### アビリティ3: マッスルフューリー(Lv35で習得、Lv90で強化)
 
@@ -54,7 +54,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 最大約1.5倍(累積4回、Lv90で最大約1.6倍・累積6回に強化)。
 - CT(クールタイム): 2ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補は自動検索で見つからず)
+- ステータス: GameWithのみで確認(旧収集時はgbf.wiki候補を特定できず)
 
 ### 奥義: 剛破天衝
 
@@ -75,5 +75,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wiki候補は自動検索で見つからなかったため、正確なHP/ATKは未検証。GameWith記載のHP1040/ATK9000は未検証。
+- 旧収集時はgbf.wiki候補を特定できなかったため、正確なHP/ATKは未検証。GameWith記載のHP1040/ATK9000は未検証。
 - ソリッズにはSSR版・光属性(SR)版が存在するが、本ファイルは土属性(SR)版のみを対象とする。

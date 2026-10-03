@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-abby-normal"
 name_jp: "アビー(SR)"
-name_en: "Abby (SR)"
+name_en: "Abby (Promo)"
 rarity: SR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "古戦場イベントの戦貨ガチャ/勲章報酬、ノベル特典�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/20996) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Abby」はHP1100(4★)/ATK10500(4★)でSSR相当のステータスのため不一致と判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/20996) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Abby」はHP1100(4★)/ATK10500(4★)でSSR相当のステータスのため不一致と判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Abby_(Promo))、公開characters表のID 3030011000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# アビー(SR)(Abby (SR))
+# アビー(SR)(Abby (Promo))
 
 ## 概要
 

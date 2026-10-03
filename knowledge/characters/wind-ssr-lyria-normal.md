@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-lyria-normal"
 name_jp: "リーシャ(恒常、風属性)"
-name_en: "Lyria (Wind)"
+name_en: "Lecia (SSR)"
 rarity: SSR
 element: "風"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(スカイバケーション入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/470592) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/470592) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Lecia_(SSR))、公開characters表のID 3040556000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# リーシャ(恒常、風属性)(Lyria (Wind))
+# リーシャ(恒常、風属性)(Lecia (SSR))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 攻撃+60%(攻刃枠加算、3ターン)。クリティカル倍率30%(発動100%、3ターン)。通常攻撃与ダメ+10%(3ターン)。
 - CT(クールタイム): 3ターン(他のリンクアビと共有)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: フリーティングガスト(Lv75で性能強化、リンクアビリティ)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率7倍(上限63.5万、Lv75強化)。弱体耐性-10%(累積、最大30%、180秒)。風属性防御-10%(累積、最大40%、180秒、基本弱体成功率100%)。
 - CT(クールタイム): 3ターン(他のリンクアビと共有)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: リフレッシングコマンド(Lv45で習得、リンクアビリティ)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: バリア耐久2000。再生(1000回復、3ターン)。高揚(10%、3ターン)。
 - CT(クールタイム): 3ターン(他のリンクアビと共有)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: スカイソード・リンケージ
 
 - 効果: 敵に風属性ダメージを与え、自身が次のリンクアビリティ使用時に他のリンクアビリティ全てを発動する。
 - 数値/スケーリング: 倍率4.5倍(上限168.5万)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -80,4 +80,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Lyria (Wind)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1310/ATK9450は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1310/ATK9450は未検証。

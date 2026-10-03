@@ -1,7 +1,7 @@
 ---
 id: "dark-r-vikala-normal"
 name_jp: "ビカラ(R)"
-name_en: "Vikala (R)"
+name_en: "Vikala (Event)"
 rarity: R
 element: "闇"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "『年年歳歳PREMIUM』にて、全ユーザーの累計1億Pt到達�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし、2024年12月25日開催イベント配布)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/246404) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/246404) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Vikala_(Event))、公開characters表のID 3020073000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ビカラ(R)(Vikala (R))
+# ビカラ(R)(Vikala (Event))
 
 ## 概要
 
@@ -64,5 +64,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明(2024年12月25日開催の『年年歳歳PREMIUM』で配布)。
-- gbf.wiki候補は自動検索で見つからなかったため、正確なHP/ATKは未検証。GameWith記載のHP810/ATK3950は未検証(ただし本キャラは攻撃行動を行わない特殊仕様)。
+- 旧収集時はgbf.wiki候補を特定できなかったため、正確なHP/ATKは未検証。GameWith記載のHP810/ATK3950は未検証(ただし本キャラは攻撃行動を行わない特殊仕様)。
 - ビカラには通常版・水着版が存在するが、本ファイルはR版のみを対象とする。

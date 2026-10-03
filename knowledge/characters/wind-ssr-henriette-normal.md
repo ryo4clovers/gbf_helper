@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-henriette-normal"
 name_jp: "アンリエット"
-name_en: "Henriette"
+name_en: "Arriet"
 rarity: SSR
 element: "風"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "不明(GameWithに記載なし)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21267) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。バランス調整後・最終解放後の性能を採用し、簡略化して記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21267) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。バランス調整後・最終解放後の性能を採用し、簡略化して記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Arriet)、公開characters表のID 3040058000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# アンリエット(Henriette)
+# アンリエット(Arriet)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: アビ再使用間隔-1ターン。2回行動(1ターン、楽器得意キャラは3回行動)。
 - CT(クールタイム): 10ターン(Lv55で9ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: シークレットガーデン(Lv75短縮、調整後、Lv95で性能強化)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 攻撃+10%UP(累積最大30%、別枠乗算)。防御+10%UP(累積最大30%)。奥義ゲージ上昇量+30%UP(3ターン)。Lv95後: DA率+10%UP(累積最大50%)。TA率+4%UP(累積最大20%)。
 - CT(クールタイム): 8ターン(Lv75で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: ユーフォリア(Lv45で習得、調整後)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 攻防-25%DOWN(両面枠、180秒、基本弱体成功率100%)。調律Lv+1(最大10、回復不可、180秒、毎ターンHP1万減少×調律Lv最大10万、弱体無効以外必中)。敵モードゲージ減少量UP(大、3ターン)。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: ミステーロ・アルモニア(Lv100で習得、使用可能10ターン後、再使用不可)
 
@@ -63,14 +63,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 楽器得意風キャラが通常攻撃時、敵に風属性追加ダメ(倍率2倍、上限約13.5万)×2回。敵特殊技時、風キャラHP回復(最大1000)、弱体効果1つ回復。楽器得意風キャラ連撃時は使用可能ターンが1ターン短縮。
 - CT(クールタイム): 再使用不可。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: メロディ・アレグリア(最終後、通常時は「アフェクション・メロディ」)
 
 - 効果: 敵に風属性ダメージを与え、睡眠効果を付与する。最終後は強化効果無効化とシークレットガーデン(2アビ)の即時使用可能も追加される。
 - 数値/スケーリング: 倍率5倍(最終後、通常時は4.5倍、上限168.5万)。睡眠(3ターン、基本弱体成功率75%)。最終後: 強化効果1つ無効化。シークレットガーデン即時使用可能。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -88,5 +88,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - 入手方法・リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Henriette」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1300/ATK8750は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1300/ATK8750は未検証。
 - アンリエットには光属性版が存在するが、本ファイルは風属性版のみを対象とする。

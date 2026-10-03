@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-joy-hama"
 name_jp: "ジョイ(ハマ)"
-name_en: "Joy (Hama)"
+name_en: "Joy (Event SSR)"
 rarity: SSR
 element: "風"
 race: "その他"
@@ -11,11 +11,11 @@ obtain: "11周年イベント「十二神将演義」のストーリークリア
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/489593) (取得日: 2026-08-18)のみ。gbf.wiki検索候補「Joy (Event)」は同キャラの別バージョン(低レアリティ)ページで、HP108/ATK6000(GameWith側HP1080/ATK9011と大きく不一致)のため不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/489593) (取得日: 2026-08-18)のみ。gbf.wiki検索候補「Joy (Event)」は同キャラの別バージョン(低レアリティ)ページで、HP108/ATK6000(GameWith側HP1080/ATK9011と大きく不一致)のため不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Joy_(Event_SSR))、公開characters表のID 3040588000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ジョイ(ハマ)(Joy (Hama))
+# ジョイ(ハマ)(Joy (Event SSR))
 
 ## 概要
 
@@ -79,4 +79,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名・HP/ATK・詳細アビリティ効果は未確認(候補ページが別バージョンだったため)。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。

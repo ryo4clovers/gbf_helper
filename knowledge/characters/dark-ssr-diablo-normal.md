@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-diablo-normal"
 name_jp: "ディアブロ"
-name_en: "Diablo"
+name_en: "Diablo (Collab)"
 rarity: SSR
 element: "闇"
 race: "その他(悪魔公)"
@@ -11,11 +11,11 @@ obtain: "転スラコラボ限定ガチャ(期間限定、黒の鉤爪を入手�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし、転スラコラボ開催期間に加入)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/472945) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/472945) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Diablo_(Collab))、公開characters表のID 3040561000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ディアブロ(Diablo)
+# ディアブロ(Diablo (Collab))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率1.0倍(1回あたり上限約17万)×3回。防御-10%DOWN(累積最大40%、180秒)。奥義ゲージ+20%UP。
 - CT(クールタイム): 7ターン(Lv55で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 崩壊する世界(エンド・オブ・ワールド)(Lv75で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率4.0倍(上限約70万)。誘惑世界崩壊時: 倍率10倍(上限116万)、攻撃回数2倍。
 - CT(クールタイム): 8ターン(Lv75で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 誘惑者(オトスモノ)(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 誘惑効果(行動阻害率約25%、6ターン)。攻撃-25%DOWN(6ターン)。DA率-100%DOWN(6ターン)。TA率-100%DOWN(6ターン)。
 - CT(クールタイム): 12ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 絶望の時間(ディスペアータイム)
 
 - 効果: 敵に闇属性ダメージを与え、敵を誘惑世界に閉じ込める(回復不可)。崩壊する世界(2アビ)が即時使用可能になる。
 - 数値/スケーリング: 倍率4.5倍(上限約168.5万)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -80,5 +80,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Diablo」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1307/ATK8666は未検証。
-- コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。リムル＝テンペスト([dark-ssr-rimuru-normal.md](./dark-ssr-rimuru-normal.md))との連携が前提の性能設計。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1307/ATK8666は未検証。
+- コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。リムル＝テンペスト([dark-ssr-rimuru-normal.md](./dark-ssr-rimuru-normal.md))との連携が前提の性能設計。

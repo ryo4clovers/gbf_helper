@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-indra-normal"
 name_jp: "インダラ"
-name_en: "Indra"
+name_en: "Indala"
 rarity: SSR
 element: "闇"
 race: "十二神将"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(天干地支剣・巳之飾を入手で解放)
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし、2025年11月レジェフェス後は2027年復刻まで登場停止)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/479751) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/479751) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Indala)、公開characters表のID 3040569000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# インダラ(Indra)
+# インダラ(Indala)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率8.0倍(上限約83万)。DA率-10%DOWN(累積最大40%)。TA率-10%DOWN(累積最大40%)。劇毒Lv+1(最大10、回復不可)、各180秒。
 - CT(クールタイム): 7ターン(Lv55で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 蜿蜒長蛇(Lv75で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率2.0倍(1回あたり上限約15万)×4回。奥義ゲージ+10%UP。
 - CT(クールタイム): 7ターン(Lv75で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 常山蛇勢(Lv45で習得、不休活期が効果時間4ターン以上時のみ使用可能)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 常山蛇勢(5ターン、消去不可): アビ倍率+0.5倍加算、アビ上限+20%UP、アビ与ダメ+10%UP(天司枠加算)。不休活期効果-3ターン短縮。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 金牙神然
 
 - 効果: 敵に闇属性ダメージを与え、流刀蛇尾(1アビ)と蜿蜒長蛇(2アビ)が即時使用可能になる。自分の蛇紋Lvが上昇し、Lv5時はリセットして不休活期効果を再付与する。
 - 数値/スケーリング: 倍率5.0倍(上限約168.5万)。蛇紋Lv+1(最大5、消去不可)。蛇紋Lv5時: リセットして不休活期効果(12ターン)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -80,4 +80,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。2025年11月レジェフェス後は2027年復刻まで登場停止との記載あり。
-- gbf.wikiでの正確な英語名(name_en「Indra」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1280/ATK8800は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1280/ATK8800は未検証。

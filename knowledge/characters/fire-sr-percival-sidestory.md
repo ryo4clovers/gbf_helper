@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-percival-sidestory"
 name_jp: "パーシヴァル(SR)"
-name_en: "Percival (SR)"
+name_en: "Percival (Event)"
 rarity: SR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『氷炎牆に鬩ぐ』ストーリー開始�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/45878) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Percival」はHP1540(4★)/ATK9120(4★)でSSR相当のステータスのため不一致と判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/45878) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Percival」はHP1540(4★)/ATK9120(4★)でSSR相当のステータスのため不一致と判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Percival_(Event))、公開characters表のID 3030168000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# パーシヴァル(SR)(Percival (SR))
+# パーシヴァル(SR)(Percival (Event))
 
 ## 概要
 

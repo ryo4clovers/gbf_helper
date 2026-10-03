@@ -1,7 +1,7 @@
 ---
 id: "light-sr-saarya-light"
 name_jp: "光サーヤ"
-name_en: "Saarya (Light)"
+name_en: "Sarya"
 rarity: SR
 element: "光"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(スリングショット入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/71187) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/71187) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Sarya)、公開characters表のID 3030209000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 光サーヤ(Saarya (Light))
+# 光サーヤ(Sarya)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/7
 - 数値/スケーリング: 観察効果(4ターン、Lvに応じ効果量変化、最大Lv3)。
 - CT(クールタイム): 4ターン(Lv45で3ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 行動分析(Lv65で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/7
 - 数値/スケーリング: 攻撃-15%DOWN(180秒)。
 - CT(クールタイム): 7ターン(Lv65で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 偽証論破(Lv35で習得)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/7
 - 数値/スケーリング: 倍率(上限約17万)。運の尽き(観察Lvに応じて効果量変化、最大25%UP)。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: キーン・インサイト
 

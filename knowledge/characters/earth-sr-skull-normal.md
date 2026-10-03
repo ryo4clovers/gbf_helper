@@ -1,7 +1,7 @@
 ---
 id: "earth-sr-skull-normal"
 name_jp: "スカル(SR)"
-name_en: "Skull (SR)"
+name_en: "Skull (Event)"
 rarity: SR
 element: "土"
 race: "ハーヴィン"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『自由をその手に』開始時に加入"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21780) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Skull」はHP885(4★)/ATK7950(4★)でGameWithのHP720/ATK6150と不一致のため、別バージョンのページと判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21780) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Skull」はHP885(4★)/ATK7950(4★)でGameWithのHP720/ATK6150と不一致のため、別バージョンのページと判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Skull_(Event))、公開characters表のID 3030112000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# スカル(SR)(Skull (SR))
+# スカル(SR)(Skull (Event))
 
 ## 概要
 

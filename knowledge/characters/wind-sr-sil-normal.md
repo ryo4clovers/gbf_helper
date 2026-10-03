@@ -1,7 +1,7 @@
 ---
 id: "wind-sr-sil-normal"
 name_jp: "スィール"
-name_en: "Sil"
+name_en: "Syr (Event)"
 rarity: SR
 element: "風"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "シナリオイベント『その胸にひとひらの輝きが』期�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21188) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Broken/Character Validation」はメンテナンス用の壊れたページと判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21188) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Broken/Character Validation」はメンテナンス用の壊れたページと判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Syr_(Event))、公開characters表のID 3030067000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# スィール(Sil)
+# スィール(Syr (Event))
 
 ## 概要
 

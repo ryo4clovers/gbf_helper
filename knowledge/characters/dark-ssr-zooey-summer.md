@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-zooey-summer"
 name_jp: "水着ゾーイ"
-name_en: "Zooey (Summer)"
+name_en: "Zooey (Grand)"
 rarity: SSR
 element: "闇"
 race: "星晶獣"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(グランデフェス限定、リボン入手�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/36158) のみ(取得日: 2026-08-18)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/36158) のみ(取得日: 2026-08-18)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Zooey_(Grand))、公開characters表のID 3040092000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 水着ゾーイ(Zooey (Summer))
+# 水着ゾーイ(Zooey (Grand))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 倍率3.0倍(上限約63万)。逆境効果(最小26.6%~最大79.8%、3ターン)。
 - CT(クールタイム): 9ターン(Lv55で8ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: コンジャクション(Lv75で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 被ダメージ無効(1ターン)。HP吸収効果(消去不可、4ターン、吸収倍率はダメージの1倍、上限は最大HPの約15%)。
 - CT(クールタイム): 16ターン(Lv75で14ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: サンダー(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 倍率3.0倍(上限約47万)。ランダム弱体(攻撃-10%DOWN/防御-10%DOWN/弱体耐性-10%DOWN、いずれも累積最大30%、基本弱体成功率100%、180秒)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: ガンマ・レイ
 
 - 効果: 敵に闇属性ダメージを与える。
 - 数値/スケーリング: 倍率4.5倍。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 

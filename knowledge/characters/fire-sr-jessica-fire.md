@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-jessica-fire"
 name_jp: "火ジェシカ"
-name_en: "Jessica (Fire)"
+name_en: "Jessica (Event)"
 rarity: SR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『臆病勇者と囚われの姫君』(アー�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21008) のみ(取得日: 2026-08-19)。gbf.wiki検索候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21008) のみ(取得日: 2026-08-19)。gbf.wiki検索候補は自動検索で見つからず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Jessica_(Event))、公開characters表のID 3030016000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 火ジェシカ(Jessica (Fire))
+# 火ジェシカ(Jessica (Event))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 2.5～3倍ダメージ(Lv45で3～3.5倍に強化)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補は自動検索で見つからず)
+- ステータス: GameWithのみで確認(旧収集時はgbf.wiki候補を特定できず)
 
 ### アビリティ2: フレンジー(Lv65で強化)
 
@@ -47,14 +47,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 攻撃力15%UP(Lv65で20%UPに強化)。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補は自動検索で見つからず)
+- ステータス: GameWithのみで確認(旧収集時はgbf.wiki候補を特定できず)
 
 ### アビリティ3: ショートアーリー(Lv35で習得)
 
 - 効果: 4ターンの間、自身のダブルアタック確率をUPする。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補は自動検索で見つからず)
+- ステータス: GameWithのみで確認(旧収集時はgbf.wiki候補を特定できず)
 
 ### 奥義: ミーネンヴェルファー
 
@@ -75,5 +75,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wiki候補は自動検索で見つからなかったため、正確なHP/ATK・詳細アビリティ効果は未確認。GameWith記載のHP1125/ATK5625は未検証。
+- 旧収集時はgbf.wiki候補を特定できなかったため、正確なHP/ATK・詳細アビリティ効果は未確認。GameWith記載のHP1125/ATK5625は未検証。
 - ジェシカにはイベント版・水着版・浴衣版・SSR版・闇属性版・土属性版が存在するが、本ファイルは火属性(SR)版のみを対象とする。水着版は別ファイル([fire-sr-jessica-summer.md](./fire-sr-jessica-summer.md))で記載済み。

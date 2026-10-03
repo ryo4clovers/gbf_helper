@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-anila-normal"
 name_jp: "アニラ(SR)"
-name_en: "Anila (SR)"
+name_en: "Anila (Event)"
 rarity: SR
 element: "火"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "『年年歳歳(2015年版)』で信頼度を最大にすると加入�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21779) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21779) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Anila_(Event))、公開characters表のID 3030110000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# アニラ(SR)(Anila (SR))
+# アニラ(SR)(Anila (Event))
 
 ## 概要
 
@@ -38,21 +38,21 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 効果: 1ターンの間、敵の全ての攻撃を回避する。そのターンは通常攻撃と奥義発動をしない。
 - CT(クールタイム): 4ターン(Lv45で3ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 竜吟虎嘯(Lv65で性能強化)
 
 - 効果: 3ターンの間、味方全体の奥義ゲージ上昇量と弱体効果耐性をUPする。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 合従連衡(Lv35で習得)
 
 - 効果: 3ターンの間、自身のHPが多いほど攻撃力がUPし、少ないほど防御力がUPする。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 百花羊乱
 

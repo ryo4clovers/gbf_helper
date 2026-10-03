@@ -1,7 +1,7 @@
 ---
 id: "dark-sr-elize-normal"
 name_jp: "エリーゼ"
-name_en: "Elize"
+name_en: "Elize Lutus"
 rarity: SR
 element: "闇"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "コラボイベント『空で繋ぐ絆の物語』で入手できる�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/32543) のみ(取得日: 2026-08-19)。コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/32543) のみ(取得日: 2026-08-19)。コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。 名称・版の照合: gbf.wiki (https://gbf.wiki/Elize_Lutus)、公開characters表のID 3030138000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# エリーゼ(Elize)
+# エリーゼ(Elize Lutus)
 
 ## 概要
 
@@ -70,4 +70,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
-- コラボキャラクターのためgbf.wiki候補は自動検索で見つからなかった(想定通り)。GameWith記載のHP810/ATK5450は未検証。
+- コラボキャラクターのため旧収集時はgbf.wiki候補を特定できなかった(想定通り)。GameWith記載のHP810/ATK5450は未検証。

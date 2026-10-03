@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-vaishravana-grand"
 name_jp: "バイシュラ(リミテッド)"
-name_en: "Vaishravana (Grand)"
+name_en: "Bhaisa"
 rarity: SSR
 element: "土"
 race: "エルーン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(医王善杖入手で解放)"
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537569) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。十二神将の1人。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537569) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。十二神将の1人。 名称・版の照合: gbf.wiki (https://gbf.wiki/Bhaisa)、公開characters表のID 3040630000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# バイシュラ(リミテッド)(Vaishravana (Grand))
+# バイシュラ(リミテッド)(Bhaisa)
 
 ## 概要
 

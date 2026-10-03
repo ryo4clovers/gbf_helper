@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-anchira-normal"
 name_jp: "アンチラ(十二神将)"
-name_en: "Anchira"
+name_en: "Andira"
 rarity: SSR
 element: "風"
 race: "エルーン"
@@ -11,11 +11,11 @@ obtain: "不明(GameWithに記載なし)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21765) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。十二神将キャラのため最終上限解放後の性能を採用し、簡略化して記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21765) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。十二神将キャラのため最終上限解放後の性能を採用し、簡略化して記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Andira)、公開characters表のID 3040071000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# アンチラ(十二神将)(Anchira)
+# アンチラ(十二神将)(Andira)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: マルチ参戦者HP回復(1000)。味方HP全回復。防御-25%DOWN(デメリット、2ターン)。弱体耐性-25%DOWN(デメリット、2ターン)。
 - CT(クールタイム): 12ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 君子万年++(Lv75/Lv90で性能強化)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 敵対心100%(消去不可、1ターン)。バリア効果(耐久3500、Lv90以降消費まで永続)。風属性追撃+30%(Lv90以降、被ダメまで継続)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 葦編三絶+(Lv45で習得、Lv100で性能強化)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 攻撃+50%UP(攻刃加算、6ターン)。防御+50%UP。DA率+30%UP/TA率+15%UP。弱体成功率+30%UP。2回目使用: クリティカル率UP(倍率20%/発動50%)。3回目使用: ダメ上限+10%UP。
 - CT(クールタイム): 8ターン(Lv100で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 三令五申(Lv95で習得)
 
@@ -63,14 +63,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 倍率5倍(上限63.5万)。三猿効果(Lv1~3): 攻撃-5%DOWN×Lv、毎ターン2016ダメージ(不見猿)。防御-5%DOWN×Lv(不言猿)。アンチラの奥義ダメ+15%UP×Lv/奥義上限+10%UP×Lv(不聞猿)。基本弱体成功率100%。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 千手千猿・猿皇波(最終後、通常時は「金牙神然」)
 
 - 効果: 敵に風属性ダメージを与え、強化効果を1つ無効化する。自分に「身外身の術」(消去不可)を付与する。
 - 数値/スケーリング: 倍率5.5倍(最終後、通常時は5.0倍)。強化効果1つ無効化(最終後)。身外身の術: 攻撃力+20%UP(別枠乗算)。DA率+20%/TA率+10%UP。風属性追撃+20%。敵の全ての攻撃を回避(回避成功時に効果解除)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動、Lv95強化後)
 
@@ -86,6 +86,6 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - 入手方法・リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Anchira」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1660/ATK8940は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1660/ATK8940は未検証。
 - 3アビ「葦編三絶」はLv100未満では経過ターンに応じて効果量が変動する特殊仕様(1~3ターン目上昇、4ターン目以降減少)だが、本ファイルは最終解放後(Lv100、1ターン目から最大効果量)の性能を記載。
 - アンチラには水着版・SR版が存在するが、本ファイルは恒常SSR版のみを対象とする。

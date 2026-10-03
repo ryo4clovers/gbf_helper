@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-yuri-water"
 name_jp: "水ユーリ"
-name_en: "Yuri (Water)"
+name_en: "Juri (SSR)"
 rarity: SSR
 element: "水"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(武器「義勇のキリジ」入手で解放)
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/435429) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/435429) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/Juri_(SSR))、公開characters表のID 3040509000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 水ユーリ(Yuri (Water))
+# 水ユーリ(Juri (SSR))
 
 ## 概要
 

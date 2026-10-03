@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-lyria-style-shift"
 name_jp: "リーシャ(スタイルシフト、碧騎士)"
-name_en: "Lyria (Style Shift)"
+name_en: "Lecia (Inheritor of the Blue Mantle)"
 rarity: SSR
 element: "風"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "12周年イベント報酬でスタイルシフト解放(期間限定)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/548625) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/548625) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Lecia_(Inheritor_of_the_Blue_Mantle))、公開characters表のID 3040101000・スタイル2と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# リーシャ(スタイルシフト、碧騎士)(Lyria (Style Shift))
+# リーシャ(スタイルシフト、碧騎士)(Lecia (Inheritor of the Blue Mantle))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 倍率3倍(上限約31.5万)×2回。風属性防御-10%(累積、最大40%、180秒)。TA確率+10%(累積、最大50%)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ウィンドベール
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 弱体効果無効(1回)。土属性ダメ-50%(3ターン)。再生(最大1000、3ターン)。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 碧の剣風(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 倍率9倍(上限約102万)。攻撃+100%(別枠乗算、1回、1ターン、通常ダメ上限116万まで上昇/奥義ダメ上限+50万加算)。風属性追撃+30%(1ターン)。
 - CT(クールタイム): 12ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: トワイライトソード・リユニオン
 
 - 効果: 敵に風属性ダメージを与え、ウィンドベール(2アビ)の再使用間隔を短縮する。秩序の凱旋Lv5時は自身に「碧の鎧効果」も追加付与する。
 - 数値/スケーリング: 倍率4.5倍(上限168.5万)。2アビ使用間隔-1ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -79,4 +79,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Lyria (Style Shift)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1900/ATK8500は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1900/ATK8500は未検証。

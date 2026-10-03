@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-shatora-normal"
 name_jp: "シャトラ(十二神将)"
-name_en: "Shatora"
+name_en: "Catura"
 rarity: SSR
 element: "風"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ・期間限定(天干地支像・丑之飾入�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/246430) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。十二神将キャラのため最終解放後(Lv100)の性能を採用し、簡略化して記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/246430) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。十二神将キャラのため最終解放後(Lv100)の性能を採用し、簡略化して記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Catura)、公開characters表のID 3040313000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# シャトラ(十二神将)(Shatora)
+# シャトラ(十二神将)(Catura)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 奥義ゲージ+100%UP。HP回復(最大12021、サポアビ回復性能20%UP込み)。2回目発動時: 弱体効果を全て回復。3回目発動時: 奥義再発動(1回)。HP最大以上に回復時: 活性効果(1000、3ターン)。
 - CT(クールタイム): 14ターン(Lv55で12ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 金石糸竹(Lv75短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 倍率1倍(上限約8万)×12回(使用毎に+3回、最大24回)。竹篦効果(消去不可、4ターン、敵最大HP1%分の与ダメ加算、使用毎に最大8000加算、最大4万、基本弱体成功率120%)。
 - CT(クールタイム): 8ターン(Lv75で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 莫逆之友(Lv45で習得、Lv95で性能強化)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 発動消費: 奥義ゲージ60%(Lv95以降は30%)。維持消費: 毎ターン奥義ゲージ60%(変更なし)。
 - CT(クールタイム): 0ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 祝福之鬨(Lv100で習得、バトルメンバーに主人公がいる時のみ使用可能)
 
@@ -63,14 +63,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 主人公とシャトラ(丑頂天効果、消去不可、3ターン): 奥義ダメ+30%/奥義上限+10%UP。奥義時風キャラに奥義与ダメ+10万上昇(累積最大40万、2ターン)。その他メンバー(幸丑云効果、消去不可、3ターン): 毎ターンHP2021回復。ターン終了時弱体効果1つ回復。奥義時主人公とシャトラの奥義ゲージ+10%UP。
 - CT(クールタイム): 12ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 王丑円満(最終後、通常時は「金牙神然」)
 
 - 効果: 敵に風属性ダメージを与え、自分のアビリティ再使用間隔を短縮する。最終後は追加ダメージと風属性防御DOWNも付与する。
 - 数値/スケーリング: 倍率5.5倍(最終後、通常時は5.0倍)。アビ再使用間隔-3ターン。最終後追加: 風属性4倍ダメ(上限63.5万)。敵の風防御-10%DOWN(累積最大40%、180秒)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -88,6 +88,6 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Shatora」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1147/ATK11043は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1147/ATK11043は未検証。
 - 十二神将の複雑な多段強化システムのため、本ファイルは最終解放後(Lv100)の性能を中心に簡略化して記載。段階的な強化の詳細(Lv55/75/90/95/100の個別差分)は一部割愛。
 - シャトラには水着版・水属性(クリスマス)版・R版(土属性)等の他バージョンが存在するが、本ファイルは風属性・恒常十二神将版のみを対象とする。

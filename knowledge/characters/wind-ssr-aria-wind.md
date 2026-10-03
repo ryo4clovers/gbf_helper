@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-aria-wind"
 name_jp: "風アリア"
-name_en: "Aria (Wind)"
+name_en: "Alliah"
 rarity: SSR
 element: "風"
 race: "エルーン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/370390) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/370390) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Alliah)、公開characters表のID 3040431000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 風アリア(Aria (Wind))
+# 風アリア(Alliah)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 各効果2ターン。候補: クリティカル確率UP(倍率50%/発動100%)、ブロック効果(被ダメ50%軽減)、必ずトリプルアタック、ダメ上限+30%UP、吸収(最大1000)、再攻撃効果、奥義ダメ+100%UP、奥義上限+50%UP。
 - CT(クールタイム): 7ターン(Lv55で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: レイジ・オブ・トワイライト(Lv75短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 倍率11倍(上限約121.5万)。強化効果+3ターン延長。
 - CT(クールタイム): 13ターン(Lv75で12ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 王道の剣(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 奥義ゲージ+30%UP(投影成功時)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 星閉刃・黄昏
 
 - 効果: 敵に風属性ダメージを与え、強化効果を1つ無効化する。
 - 数値/スケーリング: 倍率4.5倍。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -80,6 +80,6 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Aria (Wind)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1000/ATK11000は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1000/ATK11000は未検証。
 - 3アビ「王道の剣」のアビリティコピー対応表(風属性キャラ80体以上分)はGameWithに詳細記載があるが、情報量が膨大なため本ファイルでは割愛。
 - アリアには浴衣版・恒常版(黄金の騎士)等の他バージョンが存在するが、本ファイルは風属性版のみを対象とする。

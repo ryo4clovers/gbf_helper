@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-raziel-normal"
 name_jp: "ラジエル"
-name_en: "Raziel"
+name_en: "Raziel (Event)"
 rarity: SSR
 element: "光"
 race: "星晶獣"
@@ -11,11 +11,11 @@ obtain: "10周年イベント「HEART OF THE SUN」クリアで加入(無料配�
 has_ex_ability: false
 release_date: "2024-03-12"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/440491), gbf.wiki (https://gbf.wiki/Raziel_(Event)) (取得日: 2026-08-18、両サイトのHP/ATK・奥義倍率・アビ効果の数値一致を確認)"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/440491), gbf.wiki (https://gbf.wiki/Raziel_(Event)) (取得日: 2026-08-18、両サイトのHP/ATK・奥義倍率・アビ効果の数値一致を確認) 名称・版の照合: gbf.wiki (https://gbf.wiki/Raziel_(Event))、公開characters表のID 3040516000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ラジエル(Raziel)
+# ラジエル(Raziel (Event))
 
 ## 概要
 

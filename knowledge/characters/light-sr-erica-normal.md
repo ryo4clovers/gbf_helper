@@ -1,7 +1,7 @@
 ---
 id: "light-sr-erica-normal"
 name_jp: "エリカ"
-name_en: "Erica"
+name_en: "Erica Fontaine"
 rarity: SR
 element: "光"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "コラボイベント『サクラ大戦 ～空駆ける乙女～』期�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/29419) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。サクラ大戦コラボキャラのため想定通り。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/29419) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。サクラ大戦コラボキャラのため想定通り。 名称・版の照合: gbf.wiki (https://gbf.wiki/Erica_Fontaine)、公開characters表のID 3030131000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# エリカ(Erica)
+# エリカ(Erica Fontaine)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 8回のダメージ。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: サクレ・デ・リュミエール(Lv65で使用間隔短縮)
 
@@ -47,14 +47,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: HP回復(上限1000)。
 - CT(クールタイム): 9ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: グラース・オ・スィエル(Lv35で習得)
 
 - 効果: 味方単体を一定確率で復活させる。失敗した場合、2ターン後に再度使用可能。光武F2搭乗中のみ使用可。
 - CT(クールタイム): 15ターン(成功時)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: エヴァンジル
 
@@ -77,4 +77,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
 - gbf.wikiでの正確なHP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1100/ATK4000は未検証。
-- サクラ大戦コラボキャラのためgbf.wiki候補は自動検索で見つからず(想定通り)。
+- サクラ大戦コラボキャラのため旧収集時はgbf.wiki候補を特定できず(想定通り)。

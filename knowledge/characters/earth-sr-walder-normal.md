@@ -1,7 +1,7 @@
 ---
 id: "earth-sr-walder-normal"
 name_jp: "ウェルダー(SR)"
-name_en: "Walder (SR)"
+name_en: "Walder (Event)"
 rarity: SR
 element: "土"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『俺達のレンジャーサイン!』オー�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/60977) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Walder」はHP800(3★)/ATK4250(3★、クロスフェイトボーナス込み)で基本レアリティ(R)版と判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/60977) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Walder」はHP800(3★)/ATK4250(3★、クロスフェイトボーナス込み)で基本レアリティ(R)版と判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Walder_(Event))、公開characters表のID 3030197000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ウェルダー(SR)(Walder (SR))
+# ウェルダー(SR)(Walder (Event))
 
 ## 概要
 

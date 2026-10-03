@@ -1,7 +1,7 @@
 ---
 id: "light-sr-nicholas-light"
 name_jp: "シロウ(SR)"
-name_en: "Nicholas (Light)"
+name_en: "Nicholas (Event)"
 rarity: SR
 element: "光"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『ロボミ外伝』でストーリーを進�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/33962) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Nicholas」は元素値06(闇属性)・HP1850(4★)/ATK7550(4★)で別バージョン(基本版)のページと判断し不採用(ページ内に「Nicholas (Event)」「Nicholas」「Nicholas (Light)」が別バージョンとして掲載されている)。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/33962) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Nicholas」は元素値06(闇属性)・HP1850(4★)/ATK7550(4★)で別バージョン(基本版)のページと判断し不採用(ページ内に「Nicholas (Event)」「Nicholas」「Nicholas (Light)」が別バージョンとして掲載されている)。 名称・版の照合: gbf.wiki (https://gbf.wiki/Nicholas_(Event))、公開characters表のID 3030141000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# シロウ(SR)(Nicholas (Light))
+# シロウ(SR)(Nicholas (Event))
 
 ## 概要
 

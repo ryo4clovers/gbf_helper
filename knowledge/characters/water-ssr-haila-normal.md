@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-haila-normal"
 name_jp: "ハイラ"
-name_en: "Haila"
+name_en: "Payila"
 rarity: SSR
 element: "水"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(武器「天干地支扇・辰之飾」入手�
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431273) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。十二神将(干支キャラ)。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431273) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。十二神将(干支キャラ)。 名称・版の照合: gbf.wiki (https://gbf.wiki/Payila)、公開characters表のID 3040502000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ハイラ(Haila)
+# ハイラ(Payila)
 
 ## 概要
 

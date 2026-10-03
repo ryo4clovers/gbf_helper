@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-first-years-team-normal"
 name_jp: "1年生チーム(津島善子＆国木田花丸＆黒澤ルビィ)"
-name_en: "First-Years Team"
+name_en: "Aqours First-Years"
 rarity: SSR
 element: "土"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "ラブライブ！サンシャイン!!コラボイベント(トレジ�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/116086) (取得日: 2026-08-18)のみ。コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/116086) (取得日: 2026-08-18)のみ。コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。 名称・版の照合: gbf.wiki (https://gbf.wiki/Aqours_First-Years)、公開characters表のID 3040184000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 1年生チーム(津島善子＆国木田花丸＆黒澤ルビィ)(First-Years Team)
+# 1年生チーム(津島善子＆国木田花丸＆黒澤ルビィ)(Aqours First-Years)
 
 ## 概要
 

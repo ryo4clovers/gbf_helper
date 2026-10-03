@@ -1,7 +1,7 @@
 ---
 id: "light-sr-naoise-light"
 name_jp: "光ノイシュ"
-name_en: "Naoise (Light)"
+name_en: "Naoise (Promo)"
 rarity: SR
 element: "光"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "古戦場イベントの戦貨ガチャにて解放武器を入手す�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21002) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Naoise」は風属性版のページ(元素値04、GameWith記載のHP1320/ATK5400と全く異なるスキル構成)で不一致のため不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21002) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Naoise」は風属性版のページ(元素値04、GameWith記載のHP1320/ATK5400と全く異なるスキル構成)で不一致のため不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Naoise_(Promo))、公開characters表のID 3030000000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 光ノイシュ(Naoise (Light))
+# 光ノイシュ(Naoise (Promo))
 
 ## 概要
 

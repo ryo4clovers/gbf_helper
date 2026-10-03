@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-salasa-normal"
 name_jp: "サラーサ"
-name_en: "Salasa"
+name_en: "Threo"
 rarity: SSR
 element: "土"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "十天衆(トレジャー交換等で入手・育成)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/54605) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。十天衆の限界超越システムと斧/剣モードのフォームチェンジを持つ非常に複雑な仕様のため、最終上限解放+限界超越Lv150の内容を大幅に簡略化して記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/54605) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。十天衆の限界超越システムと斧/剣モードのフォームチェンジを持つ非常に複雑な仕様のため、最終上限解放+限界超越Lv150の内容を大幅に簡略化して記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Threo)、公開characters表のID 3040032000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# サラーサ(Salasa)
+# サラーサ(Threo)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 倍率3.5~4.0倍(上限約63.5万、剣モードは3回)。逆境(最小30%~最大90%、3ターン)。通常攻撃与ダメ+30%(1ターン)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ベルセルクフォージ(Lv85で性能強化)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 斧: カウンター倍率3.0倍(回避・被ダメ、3回、3ターン)。剣: 攻撃大幅UP(1回、いつアサ系、通常ダメ上限116万まで上昇/奥義ダメ上限+50万加算)。土属性追撃+30%(3ターン)。
 - CT(クールタイム): 6ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: グラウンドゼロ(Lv95/Lv130で性能強化・短縮)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 消費HPの300倍無属性ダメ(上限204万)。土属性防御-25%(180秒、基本弱体成功率100%)。バリア耐久1万5000(消費まで継続)。
 - CT(クールタイム): 8ターン(Lv95で7ターン、Lv130で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 三寅の祝福(Lv100で習得)
 
@@ -63,14 +63,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 - 数値/スケーリング: 攻撃+280%(別枠乗算、1ターン)。奥義特殊上限+30%。奥義ゲージ100%(3ターン)。
 - CT(クールタイム): 使用可能10ターン後、使用間隔10ターン(Lv150で再使用不可制限が解除)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: オリジン・ブレイカー(斧モード)/ゼロ・リグレッション(剣モード、限界超越後)
 
 - 効果: 敵に土属性ダメージを与え、フォームチェンジする。斧モードは強化効果1つ無効化+土属性攻撃UP、剣モードは無属性ダメージを追加で与える。
 - 数値/スケーリング: Lv150時倍率13.5倍(上限約340万)。斧: 土属性攻撃+20%(4ターン)。剣: 無属性99万9999ダメージ×3回。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -90,5 +90,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/5
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Salasa」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1833/ATK13393(Lv100時点)は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1833/ATK13393(Lv100時点)は未検証。
 - 十天衆の限界超越システム(Lv110~150の各段階の強化内容、斧/剣モード別の細かな差異)は大幅に簡略化。最終上限解放前・バランス調整前の性能は割愛。

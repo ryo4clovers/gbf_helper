@@ -1,7 +1,7 @@
 ---
 id: "water-sr-pamela-normal"
 name_jp: "パメラ"
-name_en: "Pamela"
+name_en: "Pamela (Promo)"
 rarity: SR
 element: "水"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "イベント『プレガンド・コーラス』のチャレンジク�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/25306) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Side-scrolling Quotes」は無関係のページ(サイドスクロールゲームの引用集ページ)と判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/25306) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Side-scrolling Quotes」は無関係のページ(サイドスクロールゲームの引用集ページ)と判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Pamela_(Promo))、公開characters表のID 3030145000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# パメラ(Pamela)
+# パメラ(Pamela (Promo))
 
 ## 概要
 

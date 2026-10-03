@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-kokkoro-water"
 name_jp: "水ククル(SSR)"
-name_en: "Kokkoro (Water)"
+name_en: "Cucouroux (SSR)"
 rarity: SSR
 element: "水"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "不明(要確認)"
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/102101) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。最終上限解放後・バランス調整後の最新仕様を記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/102101) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。最終上限解放後・バランス調整後の最新仕様を記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Cucouroux_(SSR))、公開characters表のID 3040159000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 水ククル(SSR)(Kokkoro (Water))
+# 水ククル(SSR)(Cucouroux (SSR))
 
 ## 概要
 

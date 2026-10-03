@@ -1,7 +1,7 @@
 ---
 id: "water-r-haira-normal"
 name_jp: "ハイラ(R)"
-name_en: "Haira (R)"
+name_en: "Payila (Event)"
 rarity: R
 element: "水"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "『年年歳歳 年の瀬らぁめん大決戦』報酬"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/479756) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/479756) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Payila_(Event))、公開characters表のID 3020075000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ハイラ(R)(Haira (R))
+# ハイラ(R)(Payila (Event))
 
 ## 概要
 
@@ -64,5 +64,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wiki候補は自動検索で見つからなかったため、正確なHP/ATKは未検証。GameWith記載のHP724/ATK4740は未検証(ただし本キャラは攻撃行動を行わない特殊仕様)。
+- 旧収集時はgbf.wiki候補を特定できなかったため、正確なHP/ATKは未検証。GameWith記載のHP724/ATK4740は未検証(ただし本キャラは攻撃行動を行わない特殊仕様)。
 - ハイラには通常版・水着版が存在するが、本ファイルはR版のみを対象とする。

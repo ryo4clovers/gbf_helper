@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-veldora-normal"
 name_jp: "ヴェルドラ(ヴェルドラ=テンペスト)"
-name_en: "Veldora"
+name_en: "Veldora Tempest"
 rarity: SSR
 element: "風"
 race: "その他(竜種)"
@@ -11,11 +11,11 @@ obtain: "転生したらスライムだった件コラボイベント(後編エ�
 has_ex_ability: false
 release_date: "2024-11-20"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/471105) (取得日: 2026-08-18)のみ。コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/471105) (取得日: 2026-08-18)のみ。コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。 名称・版の照合: gbf.wiki (https://gbf.wiki/Veldora_Tempest)、公開characters表のID 3040559000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ヴェルドラ(ヴェルドラ=テンペスト)(Veldora)
+# ヴェルドラ(ヴェルドラ=テンペスト)(Veldora Tempest)
 
 ## 概要
 

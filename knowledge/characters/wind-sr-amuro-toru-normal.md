@@ -1,7 +1,7 @@
 ---
 id: "wind-sr-amuro-toru-normal"
 name_jp: "安室透"
-name_en: "Amuro Toru"
+name_en: "Tōru Amuro"
 rarity: SR
 element: "風"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "名探偵コナンコラボの第6話エピソード2クリア"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/99418) のみ(取得日: 2026-08-19)。コラボキャラクターのためgbf.wiki候補は自動検索で見つからず(想定通り)。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/99418) のみ(取得日: 2026-08-19)。コラボキャラクターのため旧収集時はgbf.wiki候補を特定できず(想定通り)。 名称・版の照合: gbf.wiki (https://gbf.wiki/T%C5%8Dru_Amuro)、公開characters表のID 3030238000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 安室透(Amuro Toru)
+# 安室透(Tōru Amuro)
 
 ## 概要
 
@@ -70,4 +70,4 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/9
 
 - 各アビリティの正確な性能はゲーム内表示での再検証が必要。
 - リリース日はGameWithに記載がなく不明。
-- コラボキャラクターのためgbf.wiki候補は自動検索で見つからなかった(想定通り)。GameWith記載のHP925/ATK5300は未検証。
+- コラボキャラクターのため旧収集時はgbf.wiki候補を特定できなかった(想定通り)。GameWith記載のHP925/ATK5300は未検証。

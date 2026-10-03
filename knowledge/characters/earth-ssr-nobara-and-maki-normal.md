@@ -1,7 +1,7 @@
 ---
 id: "earth-ssr-nobara-and-maki-normal"
 name_jp: "釘崎野薔薇&禪院真希"
-name_en: "Nobara Kugisaki & Maki Zenin"
+name_en: "Nobara Kugisaki and Maki Zen'in"
 rarity: SSR
 element: "土"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "呪術廻戦コラボイベント第4話EP2クリアで加入"
 has_ex_ability: false
 release_date: "2023-08-11"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/411310) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。呪術廻戦コラボキャラ。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/411310) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。呪術廻戦コラボキャラ。 名称・版の照合: gbf.wiki (https://gbf.wiki/Nobara_Kugisaki_and_Maki_Zen'in)、公開characters表のID 3040477000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 釘崎野薔薇&禪院真希(Nobara Kugisaki & Maki Zenin)
+# 釘崎野薔薇&禪院真希(Nobara Kugisaki and Maki Zen'in)
 
 ## 概要
 

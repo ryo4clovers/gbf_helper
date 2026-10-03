@@ -1,7 +1,7 @@
 ---
 id: "earth-sr-volenna-normal"
 name_jp: "ボレミア(SR)"
-name_en: "Volenna (SR)"
+name_en: "Volenna (Event)"
 rarity: SR
 element: "土"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "イベント『砂縛の涙、ひとしずく』信頼度を750で解�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21148) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Volenna」はHP880(3★)/ATK3600(3★)で基本レアリティ(R)版と判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21148) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Volenna」はHP880(3★)/ATK3600(3★)で基本レアリティ(R)版と判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Volenna_(Event))、公開characters表のID 3030056000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ボレミア(SR)(Volenna (SR))
+# ボレミア(SR)(Volenna (Event))
 
 ## 概要
 

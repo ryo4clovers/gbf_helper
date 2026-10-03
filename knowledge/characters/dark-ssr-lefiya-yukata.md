@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-lefiya-yukata"
 name_jp: "浴衣レフィーエ"
-name_en: "Le Fay (Yukata)"
+name_en: "De La Fille (Yukata)"
 rarity: SSR
 element: "闇"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(ディアマントフルレを入手で解放)
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/440206) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/440206) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/De_La_Fille_(Yukata))、公開characters表のID 3040520000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 浴衣レフィーエ(Le Fay (Yukata))
+# 浴衣レフィーエ(De La Fille (Yukata))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率3.0倍(上限約63.5万)。強化効果+1ターン延長。
 - CT(クールタイム): 8ターン(Lv55で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: イルミネーションソレイユ(Lv75で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: HP回復(最大2000)。奥義ゲージ+10%UP。バリア効果(耐久2000、七宝石Lv7時)。
 - CT(クールタイム): 7ターン(Lv75で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: ジュエルプロテクション(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: ジュエルプロテクション(5ターン、消去不可): 奥義ゲージ上昇量+10%UP、被ダメージを光属性に変換、光属性ダメージ-30%軽減、活性(1000回復、HP回復しない時奥義ゲージ10%)。
 - CT(クールタイム): 12ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: アイリス・ルーセント
 
 - 効果: 敵に闇属性ダメージを与え、イルミネーションソレイユ(2アビ)を即時使用可能にし、闇属性キャラに闇属性追撃効果を付与する。七宝石Lvに応じて追加ダメージも発生する。
 - 数値/スケーリング: 倍率4.5倍(上限約168.5万)。闇属性+10%追撃効果(4ターン)。七宝石Lvに応じ追加ダメ: 闇属性1.0倍ダメ(上限約18.5万)×七宝石Lv数(最大7回)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -80,5 +80,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Le Fay (Yukata)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1786/ATK6270は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1786/ATK6270は未検証。
 - レフィーエには無印版・土属性版・水着版が存在するが、本ファイルは浴衣版(闇属性)のみを対象とする。

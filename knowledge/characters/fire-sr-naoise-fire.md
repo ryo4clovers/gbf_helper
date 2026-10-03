@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-naoise-fire"
 name_jp: "火ノイシュ(SR)"
-name_en: "Naoise (Fire, SR)"
+name_en: "Naoise (Event)"
 rarity: SR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "イベント「英雄再起」期間中に信頼度MAXで加入"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21255) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Naoise (Fire)」はHP1920(4★)/ATK7200(4★)でSSR相当のステータスのため不一致と判断し不採用。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21255) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Naoise (Fire)」はHP1920(4★)/ATK7200(4★)でSSR相当のステータスのため不一致と判断し不採用。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Naoise_(Event))、公開characters表のID 3030096000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 火ノイシュ(SR)(Naoise (Fire, SR))
+# 火ノイシュ(SR)(Naoise (Event))
 
 ## 概要
 

@@ -1,7 +1,7 @@
 ---
 id: "light-sr-kumbhira-normal"
 name_jp: "クビラ(SR)"
-name_en: "Kumbhira (SR)"
+name_en: "Kumbhira (Event)"
 rarity: SR
 element: "光"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "2019年12月開催ブレイブグラウンドで加入(年年歳歳イ�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし、2019年12月ブレイブグラウンド実装)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/180993) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/180993) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Kumbhira_(Event))、公開characters表のID 3030279000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# クビラ(SR)(Kumbhira (SR))
+# クビラ(SR)(Kumbhira (Event))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 倍率3.0倍(上限約36万)。光属性防御-5%DOWN(累積、最大20%、180秒)。大凛風効果(3ターン)。
 - CT(クールタイム): 8ターン(Lv45で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: 猪突猛進(Lv65で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 倍率4.0倍(上限約50万)。DA確率+100%UP(1ターン)。
 - CT(クールタイム): 8ターン(Lv65で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: 一心発起(Lv35で習得)
 
@@ -55,7 +55,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/1
 - 数値/スケーリング: 吸収効果(最大800、3ターン)。カウンター回数+2回(3ターン)。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: 勇往亥進
 

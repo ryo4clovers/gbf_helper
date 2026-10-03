@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-rei-and-unit00-normal"
 name_jp: "レイ＆零号機"
-name_en: "Rei & Unit-00"
+name_en: "Rei & Unit 00"
 rarity: SSR
 element: "水"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "『エヴァンゲリオン』コラボストーリー後編第4話Ep4�
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/527744) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/527744) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/Rei_%26_Unit_00)、公開characters表のID 3040623000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# レイ＆零号機(Rei & Unit-00)
+# レイ＆零号機(Rei & Unit 00)
 
 ## 概要
 

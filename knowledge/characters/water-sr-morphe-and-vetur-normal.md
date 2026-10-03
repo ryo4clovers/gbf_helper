@@ -1,7 +1,7 @@
 ---
 id: "water-sr-morphe-and-vetur-normal"
 name_jp: "モルフェとヴェトル"
-name_en: "Morphe and Vetur (romanization unconfirmed — official English name not verified)"
+name_en: "Morphe and Phoebe (Event)"
 rarity: SR
 element: "水"
 race: "不明"
@@ -11,11 +11,11 @@ obtain: "サイドストーリー『リペイント・ザ・メモリー』2話�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/30935) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Side-scrolling Quotes」は無関係のページ(サイドスクロールゲームの引用集ページ)と判断し不採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/30935) のみ(取得日: 2026-08-19)。gbf.wiki検索候補「Side-scrolling Quotes」は無関係のページ(サイドスクロールゲームの引用集ページ)と判断し不採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Morphe_and_Phoebe_(Event))、公開characters表のID 3030135000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# モルフェとヴェトル(Morphe and Vetur)
+# モルフェとヴェトル(Morphe and Phoebe (Event))
 
 ## 概要
 

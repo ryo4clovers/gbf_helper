@@ -1,7 +1,7 @@
 ---
 id: "dark-ssr-sevastian-dark"
 name_jp: "闇セワスチアン(SSR)"
-name_en: "Sevastian (Dark)"
+name_en: "Sevastien (SSR)"
 rarity: SSR
 element: "闇"
 race: "エルーン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(オートルフォワ・エペを入手で解�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/462202) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/462202) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Sevastien_(SSR))、公開characters表のID 3040548000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 闇セワスチアン(SSR)(Sevastian (Dark))
+# 闇セワスチアン(SSR)(Sevastien (SSR))
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 闇属性+20%追撃効果。アビリティダメージ+0.6倍加算/上限+30%UP。毎ターン最大HPの20%消費。
 - CT(クールタイム): 6ターン(Lv55で5ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ラピエサージュ(Lv75で使用間隔短縮)
 
@@ -47,7 +47,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率2.0倍(1回あたり上限約6.8万)×8回。攻撃+10%UP(累積最大40%、別枠乗算)。防御+10%UP(累積最大40%)。与ダメージ+1万上昇(累積最大5万)。
 - CT(クールタイム): 8ターン(Lv75で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: エペ・デ・ソリテール(Lv45で習得)
 
@@ -55,14 +55,14 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 数値/スケーリング: 倍率3.0倍(上限約62万)。闇属性防御-10%DOWN(累積最大40%、180秒)。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: ルージュ・テンペート
 
 - 効果: 敵に闇属性ダメージを与え、自分が敵の全ての攻撃を回避する(1回)。血風の闘乱状態の時は2回発動する。
 - 数値/スケーリング: 倍率4.5倍(上限約168.5万)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動)
 
@@ -80,5 +80,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Sevastian (Dark)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1050/ATK9000は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1050/ATK9000は未検証。
 - セワスチアンには無印版が存在するが、本ファイルは闇属性版のみを対象とする。

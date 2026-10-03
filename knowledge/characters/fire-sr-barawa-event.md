@@ -1,7 +1,7 @@
 ---
 id: "fire-sr-barawa-event"
 name_jp: "火バロワ(イベ)"
-name_en: "Barawa (Fire, Event)"
+name_en: "Barawa (Event)"
 rarity: SR
 element: "火"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "シナリオイベント『名探偵バロワ～呪われた財宝を�
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/36786) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/36786) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。 名称・版の照合: gbf.wiki (https://gbf.wiki/Barawa_(Event))、公開characters表のID 3030154000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 火バロワ(イベ)(Barawa (Fire, Event))
+# 火バロワ(イベ)(Barawa (Event))
 
 ## 概要
 
@@ -38,7 +38,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 効果: 味方全体の奥義ダメージをUPする(累積、奥義使用でリセット)。
 - CT(クールタイム): 5ターン(Lv45で4ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ハッタリ(Lv65でターン短縮)
 
@@ -46,7 +46,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: 倍率(最大1000倍、ランダム、最大999万ダメージ)。
 - CT(クールタイム): 8ターン(Lv65で7ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: ブルドーズ(Lv35で習得)
 
@@ -54,7 +54,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 数値/スケーリング: あとには退けんぞ効果(5ターン、消去不可)。
 - CT(クールタイム): 1ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: リーズニング・ヴィトゥ
 

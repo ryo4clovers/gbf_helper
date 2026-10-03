@@ -1,7 +1,7 @@
 ---
 id: "light-sr-amira-normal"
 name_jp: "アーミラ(SR)"
-name_en: "Amira (SR)"
+name_en: "Amira (Promo)"
 rarity: SR
 element: "光"
 race: "不明"
@@ -11,11 +11,11 @@ obtain: "神撃のバハムートGENESIS Blu-ray第4巻初回限定版特典(現
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-19
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21186) のみ(取得日: 2026-08-19)。gbf.wiki候補は自動検索で見つからず。他社ゲーム『神撃のバハムート』由来のキャラクターのため想定通り。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21186) のみ(取得日: 2026-08-19)。旧収集時はgbf.wiki候補を特定できず。他社ゲーム『神撃のバハムート』由来のキャラクターのため想定通り。最終上限解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Amira_(Promo))、公開characters表のID 3030065000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# アーミラ(SR)(Amira (SR))
+# アーミラ(SR)(Amira (Promo))
 
 ## 概要
 
@@ -38,7 +38,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 効果: 3ターンの間、味方全体の光属性攻撃力をUPする。
 - CT(クールタイム): 5ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ピポットブロー(Lv65で使用間隔短縮・性能強化、Lv90で光属性追撃付与追加)
 
@@ -46,21 +46,21 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 5回のダメージ。光属性攻撃UP(3ターン)。
 - CT(クールタイム): 9ターン(Lv65で8ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: アングラ(Lv35で習得)
 
 - 効果: 自身が即座に奥義発動可能状態になる。
 - CT(クールタイム): 7ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: 半神半魔(Lv75で習得)
 
 - 効果: 6ターンの間、闇属性の特性を得て、闇属性追撃が発生する。奥義ゲージを100%消費する。
 - CT(クールタイム): 10ターン。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: アヴァンタジア(通常時)
 

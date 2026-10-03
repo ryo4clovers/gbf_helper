@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-second-years-normal"
 name_jp: "2年生チーム(μ's) 園田海未&高坂穂乃果&南ことり"
-name_en: "Second-Years (μ's)"
+name_en: "Μ's Second-Years"
 rarity: SSR
 element: "光"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "ラブライブ！コラボイベント第2話エピソード1クリア
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/161777) (取得日: 2026-08-18)。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/161777) (取得日: 2026-08-18)。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/%CE%9C's_Second-Years)、公開characters表のID 3040230000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# 2年生チーム(μ's) 園田海未&高坂穂乃果&南ことり(Second-Years (μ's))
+# 2年生チーム(μ's) 園田海未&高坂穂乃果&南ことり(Μ's Second-Years)
 
 ## 概要
 

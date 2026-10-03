@@ -1,7 +1,7 @@
 ---
 id: "wind-ssr-lena-wind"
 name_jp: "レナ(風属性)"
-name_en: "Lena (Wind)"
+name_en: "Lennah"
 rarity: SSR
 element: "風"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "不明(GameWithに記載なし)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21048) (取得日: 2026-08-18)のみ。gbf.wiki候補は自動検索で見つからず。バランス調整後・最終解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/21048) (取得日: 2026-08-18)のみ。旧収集時はgbf.wiki候補を特定できず。バランス調整後・最終解放後の性能を採用。 名称・版の照合: gbf.wiki (https://gbf.wiki/Lennah)、公開characters表のID 3040021000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# レナ(風属性)(Lena (Wind))
+# レナ(風属性)(Lennah)
 
 ## 概要
 
@@ -39,7 +39,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: 強化効果1つ無効化。劇毒Lv+1(最大10、回復不可、180秒、最大1万ダメ×劇毒Lv最大10万、弱体無効以外必中)。
 - CT(クールタイム): 5ターン(Lv55で4ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ2: ルネサンス++(Lv75/Lv95で性能強化)
 
@@ -47,28 +47,28 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 - 数値/スケーリング: HP20%回復(最大2000)。弱体効果1つ回復。活性効果(3ターン、HP500回復、回復しない時奥義ゲージ+10%UP)。
 - CT(クールタイム): 7ターン(Lv75で6ターンに短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ3: エスポワール(Lv45で習得)
 
 - 効果: 味方全体の弱体効果を1つ回復する。
 - CT(クールタイム): 3ターン(Lv75短縮)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### アビリティ4: ヌ・ムブリエ・パ(Lv100で習得、調整後)
 
 - 効果: 味方単体を復活させる(HP100%)。
 - CT(クールタイム): 16ターン(調整後、調整前は20ターン)。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### 奥義: ル・アンフェー・デ・フルール(最終後、通常時は「ル・ジャルダン・デ・フルール」、調整後)
 
 - 効果: 敵に風属性ダメージを与え、自分に「魔生花」効果(最大2段階、永続、消去不可)を付与し、奥義性能を高める。最終後はルネサンス(2アビ)も発動する。
 - 数値/スケーリング: 倍率5.0倍(最終後、通常時は4.5倍)。魔生花1段階目: 奥義ダメ+15%/奥義上限+15%UP。2段階目: 奥義ダメ+25%/奥義上限+50%UP。最終後: ルネサンス(2アビ)発動。
 - 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki候補なし)
+- ステータス: GameWithのみで確認(性能のWiki照合は未実施)
 
 ### サポートスキル(常時発動、調整後)
 
@@ -86,5 +86,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/2
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - 入手方法・リリース日はGameWithに記載がなく不明。
-- gbf.wikiでの正確な英語名(name_en「Lena (Wind)」は未検証の推定表記)・HP/ATK・詳細アビリティ効果は未確認(候補ページが見つからなかったため)。GameWith記載のHP1870/ATK7790は未検証。
+- 英名・版は2026-10-04に公開Wikiと照合。HP/ATK・詳細アビリティ効果は引き続き未検証。GameWith記載のHP1870/ATK7790は未検証。
 - レナには土属性版が存在するが、本ファイルは風属性版のみを対象とする。

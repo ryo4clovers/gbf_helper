@@ -21,16 +21,16 @@
 | [earth-ssr-fylkis-normal.md](./earth-ssr-fylkis-normal.md) | フィルキス / Fylkis | SSR | 土 | 下書き |
 | [earth-ssr-apollonia-summer.md](./earth-ssr-apollonia-summer.md) | 水着アポロニア / Apollonia (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-mccoy-normal.md](./earth-ssr-mccoy-normal.md) | マッコイ / McCoy | SSR | 土 | 下書き |
-| [earth-ssr-vaishravana-grand.md](./earth-ssr-vaishravana-grand.md) | バイシュラ(リミテッド) / Vaishravana (Grand) | SSR | 土 | 下書き |
+| [earth-ssr-vaishravana-grand.md](./earth-ssr-vaishravana-grand.md) | バイシュラ(リミテッド) / Bhaisa | SSR | 土 | 下書き |
 | [earth-ssr-bennu-holiday.md](./earth-ssr-bennu-holiday.md) | ベンヌ(クリスマス) / Bennu (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-reinhardtzar-holiday.md](./earth-ssr-reinhardtzar-holiday.md) | ラインハルザ(クリスマス) / Reinhardtzar (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-berceau-normal.md](./earth-ssr-berceau-normal.md) | ベルソー / Berceau | SSR | 土 | 下書き |
 | [earth-ssr-gon-normal.md](./earth-ssr-gon-normal.md) | ゴン / Gon | SSR | 土 | 下書き |
 | [earth-ssr-lich-summer.md](./earth-ssr-lich-summer.md) | 水着リッチ / Lich (Summer) | SSR | 土 | 下書き |
-| [earth-ssr-vlana-dress.md](./earth-ssr-vlana-dress.md) | ドレスフラウ / Vlana (Dress) | SSR | 土 | 下書き |
+| [earth-ssr-vlana-dress.md](./earth-ssr-vlana-dress.md) | ドレスフラウ / Fraux (Formal) | SSR | 土 | 下書き |
 | [earth-ssr-siegfried-grand.md](./earth-ssr-siegfried-grand.md) | ジークフリート(リミテッド) / Siegfried (Grand) | SSR | 土 | 下書き |
-| [earth-ssr-lou-summer.md](./earth-ssr-lou-summer.md) | 水着ルオー(土属性) / Lou (Summer) | SSR | 土 | 下書き |
-| [earth-ssr-shindara-super.md](./earth-ssr-shindara-super.md) | スーパーシンダラ(スタイルシフト) / Shindara (Super Style) | SSR | 土 | 下書き |
+| [earth-ssr-lou-summer.md](./earth-ssr-lou-summer.md) | 水着ルオー(土属性) / Lu Woh (Summer) | SSR | 土 | 下書き |
+| [earth-ssr-shindara-super.md](./earth-ssr-shindara-super.md) | スーパーシンダラ(スタイルシフト) / Cidala (Super Cidala) | SSR | 土 | 下書き |
 | [earth-ssr-makura-valentine.md](./earth-ssr-makura-valentine.md) | マコラ(バレンタイン、土属性) / Makura (Valentine) | SSR | 土 | 下書き |
 | [earth-ssr-jack-rakan-normal.md](./earth-ssr-jack-rakan-normal.md) | ジャック・ラカン / Jack Rakan | SSR | 土 | 下書き |
 | [earth-ssr-maleagant-normal.md](./earth-ssr-maleagant-normal.md) | メレアガンス / Maleagant | SSR | 土 | 下書き |
@@ -45,10 +45,10 @@
 | [earth-ssr-helel-ben-shalem-holiday.md](./earth-ssr-helel-ben-shalem-holiday.md) | シャレム(クリスマス、土属性) / Helel ben Shalem (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-dante-halloween.md](./earth-ssr-dante-halloween.md) | ダーント(ハロウィン) / Dante (Halloween) | SSR | 土 | 下書き |
 | [earth-ssr-paris-normal.md](./earth-ssr-paris-normal.md) | パリス(SSR) / Paris | SSR | 土 | 下書き |
-| [earth-ssr-nobara-and-maki-normal.md](./earth-ssr-nobara-and-maki-normal.md) | 釘崎野薔薇&禪院真希 / Nobara Kugisaki & Maki Zenin | SSR | 土 | 下書き |
+| [earth-ssr-nobara-and-maki-normal.md](./earth-ssr-nobara-and-maki-normal.md) | 釘崎野薔薇&禪院真希 / Nobara Kugisaki and Maki Zen'in | SSR | 土 | 下書き |
 | [earth-ssr-pholia-yukata.md](./earth-ssr-pholia-yukata.md) | フォリア(浴衣、土属性) / Pholia (Yukata) | SSR | 土 | 下書き |
 | [earth-ssr-yaia-normal.md](./earth-ssr-yaia-normal.md) | ヤイア(SSR) / Yaia | SSR | 土 | 下書き |
-| [earth-ssr-orchis-earth.md](./earth-ssr-orchis-earth.md) | オーキス(土属性) / Orchis (Earth) | SSR | 土 | 下書き |
+| [earth-ssr-orchis-earth.md](./earth-ssr-orchis-earth.md) | オーキス(土属性) / Orchid | SSR | 土 | 下書き |
 | [earth-ssr-amelia-normal.md](./earth-ssr-amelia-normal.md) | エミリア / Amelia | SSR | 土 | 下書き |
 | [earth-ssr-europa-holiday.md](./earth-ssr-europa-holiday.md) | エウロペ(クリスマス、土属性) / Europa (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-adam-normal.md](./earth-ssr-adam-normal.md) | アダム / Adam | SSR | 土 | 下書き |
@@ -59,8 +59,8 @@
 | [earth-ssr-jamil-normal.md](./earth-ssr-jamil-normal.md) | ジャミル(SSR、土属性) / Jamil | SSR | 土 | 下書き |
 | [earth-ssr-skull-and-balurga-normal.md](./earth-ssr-skull-and-balurga-normal.md) | スカル&バルルガン / Skull and Balurga | SSR | 土 | 下書き |
 | [earth-ssr-laguna-normal.md](./earth-ssr-laguna-normal.md) | ラグナ(SSR) / Laguna | SSR | 土 | 下書き |
-| [earth-ssr-special-week-and-silence-suzuka-and-tokai-teio-normal.md](./earth-ssr-special-week-and-silence-suzuka-and-tokai-teio-normal.md) | スペシャルウィーク&サイレンススズカ&トウカイテイオー / Special Week & Silence Suzuka & Tokai Teio | SSR | 土 | 下書き |
-| [earth-ssr-shindara-normal.md](./earth-ssr-shindara-normal.md) | シンダラ / Shindara | SSR | 土 | 下書き |
+| [earth-ssr-special-week-and-silence-suzuka-and-tokai-teio-normal.md](./earth-ssr-special-week-and-silence-suzuka-and-tokai-teio-normal.md) | スペシャルウィーク&サイレンススズカ&トウカイテイオー / Special Week, Silence Suzuka, and Tokai Teio | SSR | 土 | 下書き |
+| [earth-ssr-shindara-normal.md](./earth-ssr-shindara-normal.md) | シンダラ / Cidala | SSR | 土 | 下書き |
 | [earth-ssr-satyr-earth.md](./earth-ssr-satyr-earth.md) | サテュロス(土属性) / Satyr (Earth) | SSR | 土 | 下書き |
 | [earth-ssr-anthuria-holiday.md](./earth-ssr-anthuria-holiday.md) | アンスリア(クリスマス、土属性) / Anthuria (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-benjamin-normal.md](./earth-ssr-benjamin-normal.md) | ベンジャミン / Benjamin | SSR | 土 | 下書き |
@@ -71,7 +71,7 @@
 | [light-ssr-payila-summer.md](./light-ssr-payila-summer.md) | ハイラ(水着) / Payila (Summer) | SSR | 光 | 下書き |
 | [wind-ssr-gwynne-yukata.md](./wind-ssr-gwynne-yukata.md) | グウィン(浴衣) / Gwynne (Yukata) | SSR | 風 | 下書き |
 | [light-ssr-yoruichi-shihoin-normal.md](./light-ssr-yoruichi-shihoin-normal.md) | 四楓院夜一 / Yoruichi Shihoin | SSR | 光 | 下書き |
-| [light-ssr-europa-holiday.md](./light-ssr-europa-holiday.md) | エウロペ(ドレス) / Europa (Holiday) | SSR | 光 | 下書き |
+| [light-ssr-europa-holiday.md](./light-ssr-europa-holiday.md) | エウロペ(ドレス) / Europa (Formal) | SSR | 光 | 下書き |
 | [light-ssr-anthuria-summer.md](./light-ssr-anthuria-summer.md) | アンスリア(水着) / Anthuria (Summer) | SSR | 光 | 下書き |
 | [light-ssr-arriet-light.md](./light-ssr-arriet-light.md) | アンリエット(光) / Arriet (Light) | SSR | 光 | 下書き |
 | [light-ssr-caesar-grand.md](./light-ssr-caesar-grand.md) | シーザー(リミテッド) / Caesar (Grand) | SSR | 光 | 下書き |
@@ -87,34 +87,34 @@
 | [light-ssr-vikala-yukata.md](./light-ssr-vikala-yukata.md) | ビカラ(浴衣) / Vikala (Yukata) | SSR | 光 | 下書き |
 | [light-ssr-basara-grand.md](./light-ssr-basara-grand.md) | バサラ(リミテッド) / Basara (Grand) | SSR | 光 | 下書き |
 | [light-ssr-feena-light.md](./light-ssr-feena-light.md) | フィーナ(光) / Feena (Light) | SSR | 光 | 下書き |
-| [light-ssr-mini-goblin-light.md](./light-ssr-mini-goblin-light.md) | ミニゴブ(光) | SSR | 光 | 下書き |
+| [light-ssr-mini-goblin-light.md](./light-ssr-mini-goblin-light.md) | ミニゴブ(光) / Goblin Mage (SSR) | SSR | 光 | 下書き |
 | [light-ssr-zooey-holiday.md](./light-ssr-zooey-holiday.md) | ゾーイ(クリスマス) / Zooey (Holiday) | SSR | 光 | 下書き |
 | [light-ssr-wilnas-halloween.md](./light-ssr-wilnas-halloween.md) | ウィルナス(光/ハロウィン) / Wilnas (Halloween) | SSR | 光 | 下書き |
-| [light-ssr-nave-light.md](./light-ssr-nave-light.md) | ナーヴェ(光) | SSR | 光 | 下書き |
+| [light-ssr-nave-light.md](./light-ssr-nave-light.md) | ナーヴェ(光) / Novei | SSR | 光 | 下書き |
 | [light-ssr-ragazzo-summer.md](./light-ssr-ragazzo-summer.md) | ラガッツォ(水着) / Ragazzo (Summer) | SSR | 光 | 下書き |
 | [light-ssr-cucouroux-summer.md](./light-ssr-cucouroux-summer.md) | ククル(水着) / Cucouroux (Summer) | SSR | 光 | 下書き |
 | [light-ssr-sui-normal.md](./light-ssr-sui-normal.md) | スイ / Sui | SSR | 光 | 下書き |
 | [light-ssr-anne-light.md](./light-ssr-anne-light.md) | アン(光) / Anne (Light) | SSR | 光 | 下書き |
 | [light-ssr-horus-summer.md](./light-ssr-horus-summer.md) | ホルス(水着) / Horus (Summer) | SSR | 光 | 下書き |
-| [light-ssr-raziel-normal.md](./light-ssr-raziel-normal.md) | ラジエル / Raziel | SSR | 光 | 下書き |
+| [light-ssr-raziel-normal.md](./light-ssr-raziel-normal.md) | ラジエル / Raziel (Event) | SSR | 光 | 下書き |
 | [light-ssr-sandalphon-grand.md](./light-ssr-sandalphon-grand.md) | サンダルフォン(リミテッド) | SSR | 光 | 下書き |
 | [light-ssr-robertina-light.md](./light-ssr-robertina-light.md) | ロベルティナ(光) | SSR | 光 | 下書き |
 | [light-ssr-illnott-holiday.md](./light-ssr-illnott-holiday.md) | イルノート(クリスマス) / Illnott (Holiday) | SSR | 光 | 下書き |
-| [light-ssr-bolemia-light.md](./light-ssr-bolemia-light.md) | ボレミア(光) | SSR | 光 | 下書き |
+| [light-ssr-bolemia-light.md](./light-ssr-bolemia-light.md) | ボレミア(光) / Volenna (SSR) | SSR | 光 | 下書き |
 | [light-ssr-utsusemi-normal.md](./light-ssr-utsusemi-normal.md) | ウツセミ / Utsusemi | SSR | 光 | 下書き |
-| [light-ssr-siegfried-another-light.md](./light-ssr-siegfried-another-light.md) | ジークフリート(光/アナザー) | SSR | 光 | 下書き |
+| [light-ssr-siegfried-another-light.md](./light-ssr-siegfried-another-light.md) | ジークフリート(光/アナザー) / Siegfried (Light) | SSR | 光 | 下書き |
 | [light-ssr-seruel-summer.md](./light-ssr-seruel-summer.md) | セルエル(水着) / Seruel (Summer) | SSR | 光 | 下書き |
 | [light-ssr-yurius-summer.md](./light-ssr-yurius-summer.md) | ユリウス(水着) / Yurius (Summer) | SSR | 光 | 下書き |
 | [light-ssr-cosmos-grand.md](./light-ssr-cosmos-grand.md) | コスモス(リミテッド) | SSR | 光 | 下書き |
-| [light-ssr-drossel-light.md](./light-ssr-drossel-light.md) | ドロッセル(光) | SSR | 光 | 下書き |
+| [light-ssr-drossel-light.md](./light-ssr-drossel-light.md) | ドロッセル(光) / Drusilla (SSR) | SSR | 光 | 下書き |
 | [light-ssr-monika-summer.md](./light-ssr-monika-summer.md) | モニカ(水着) / Monika (Summer) | SSR | 光 | 下書き |
-| [light-ssr-lu-oh-grand.md](./light-ssr-lu-oh-grand.md) | ルオー(リミテッド) | SSR | 光 | 下書き |
+| [light-ssr-lu-oh-grand.md](./light-ssr-lu-oh-grand.md) | ルオー(リミテッド) / Lu Woh | SSR | 光 | 下書き |
 | [light-ssr-makura-normal.md](./light-ssr-makura-normal.md) | マコラ(十二神将) | SSR | 光 | 下書き |
 | [light-ssr-florence-halloween.md](./light-ssr-florence-halloween.md) | フロレンス(光/ハロウィン) / Florence (Halloween) | SSR | 光 | 下書き |
 | [light-ssr-mugen-halloween.md](./light-ssr-mugen-halloween.md) | ムゲン(光/ハロウィン) / Mugen (Halloween) | SSR | 光 | 下書き |
 | [light-ssr-sturm-summer.md](./light-ssr-sturm-summer.md) | スツルム(水着) / Sturm (Summer) | SSR | 光 | 下書き |
 | [light-ssr-prishe-normal.md](./light-ssr-prishe-normal.md) | プリッシュ / Prishe | SSR | 光 | 下書き |
-| [light-ssr-yoh-light.md](./light-ssr-yoh-light.md) | ヨウ(光) / Yoh (Light) | SSR | 光 | 下書き |
+| [light-ssr-yoh-light.md](./light-ssr-yoh-light.md) | 光ヨウ(SSR) / You | SSR | 光 | 下書き |
 | [light-ssr-narmaya-yukata.md](./light-ssr-narmaya-yukata.md) | ナルメア(浴衣) / Narmaya (Yukata) | SSR | 光 | 下書き |
 | [light-ssr-yuni-grand.md](./light-ssr-yuni-grand.md) | ユニ(リミテッド) / Yuni (Grand) | SSR | 光 | 下書き |
 | [light-ssr-ladiva-valentine.md](./light-ssr-ladiva-valentine.md) | ファスティバ(バレンタイン) / Ladiva (Valentine) | SSR | 光 | 下書き |
@@ -133,7 +133,7 @@
 | [light-ssr-farrah-and-juri-normal.md](./light-ssr-farrah-and-juri-normal.md) | ファラ＆ユーリ / Farrah and Juri | SSR | 光 | 下書き |
 | [light-ssr-aglovale-valentine.md](./light-ssr-aglovale-valentine.md) | アグロヴァル(バレンタイン) / Aglovale (Valentine) | SSR | 光 | 下書き |
 | [light-ssr-cagliostro-grand.md](./light-ssr-cagliostro-grand.md) | カリオストロ(リミテッド) / Cagliostro (Grand) | SSR | 光 | 下書き |
-| [light-ssr-michela-light.md](./light-ssr-michela-light.md) | マイシェラ(光) / Michela (Light) | SSR | 光 | 下書き |
+| [light-ssr-michela-light.md](./light-ssr-michela-light.md) | 光マイシェラ / Mishra (SSR) | SSR | 光 | 下書き |
 | [light-ssr-nicholas-light.md](./light-ssr-nicholas-light.md) | シロウ(光) / Nicholas (Light) | SSR | 光 | 下書き |
 | [light-ssr-lily-holiday.md](./light-ssr-lily-holiday.md) | リリィ(クリスマス) / Lily (Holiday) | SSR | 光 | 下書き |
 | [light-ssr-feather-normal.md](./light-ssr-feather-normal.md) | フェザー / Feather (SSR) | SSR | 光 | 下書き |
@@ -148,7 +148,7 @@
 | [light-ssr-jeanne-darc-grand.md](./light-ssr-jeanne-darc-grand.md) | ジャンヌダルク(リミテッド) / Jeanne d'Arc (Grand) | SSR | 光 | 下書き |
 | [light-ssr-hallessena-halloween.md](./light-ssr-hallessena-halloween.md) | ハレゼナ(ハロウィン) / Hallessena (Halloween) | SSR | 光 | 下書き |
 | [light-ssr-sara-light.md](./light-ssr-sara-light.md) | サラ(光) / Sara (Light) | SSR | 光 | 下書き |
-| [light-ssr-second-years-normal.md](./light-ssr-second-years-normal.md) | 2年生チーム(μ's) / Second-Years (μ's) | SSR | 光 | 下書き |
+| [light-ssr-second-years-normal.md](./light-ssr-second-years-normal.md) | 2年生チーム(μ's) 園田海未&高坂穂乃果&南ことり / Μ's Second-Years | SSR | 光 | 下書き |
 | [light-ssr-halluel-and-malluel-summer.md](./light-ssr-halluel-and-malluel-summer.md) | ハールート・マールート(水着) / Halluel and Malluel (Summer) | SSR | 光 | 下書き |
 | [light-ssr-geisenborger-normal.md](./light-ssr-geisenborger-normal.md) | ガイゼンボーガ / Geisenborger | SSR | 光 | 下書き |
 | [light-ssr-melissabelle-valentine.md](./light-ssr-melissabelle-valentine.md) | メリッサベル(バレンタイン) / Melissabelle (Valentine) | SSR | 光 | 下書き |
@@ -163,7 +163,7 @@
 | [light-ssr-conan-edogawa-normal.md](./light-ssr-conan-edogawa-normal.md) | 江戸川コナン / Conan Edogawa | SSR | 光 | 下書き |
 | [light-ssr-robomi-normal.md](./light-ssr-robomi-normal.md) | ロボミ(SSR) / Robomi | SSR | 光 | 下書き |
 | [light-ssr-sandalphon-normal.md](./light-ssr-sandalphon-normal.md) | サンダルフォン / Sandalphon (Event) | SSR | 光 | 下書き |
-| [light-ssr-zooey-gun-normal.md](./light-ssr-zooey-gun-normal.md) | ゾーイ(銃) / Zooey (Light) | SSR | 光 | 下書き |
+| [light-ssr-zooey-gun-normal.md](./light-ssr-zooey-gun-normal.md) | 銃ゾーイ(SSR) / Zooey | SSR | 光 | 下書き |
 | [light-ssr-mary-holiday.md](./light-ssr-mary-holiday.md) | マリー(クリスマス) / Mary (Holiday) | SSR | 光 | 下書き |
 | [light-ssr-vira-grand.md](./light-ssr-vira-grand.md) | ヴィーラ(リミテッド) / Vira (Grand) | SSR | 光 | 下書き |
 | [light-ssr-sakura-kinomoto-normal.md](./light-ssr-sakura-kinomoto-normal.md) | 木之本桜 / Sakura Kinomoto | SSR | 光 | 下書き |
@@ -175,7 +175,7 @@
 | [light-ssr-juliet-light.md](./light-ssr-juliet-light.md) | ジュリエット / Juliet | SSR | 光 | 下書き |
 | [light-ssr-heles-summer.md](./light-ssr-heles-summer.md) | ヘルエス(水着) / Heles (Summer) | SSR | 光 | 下書き |
 | [light-ssr-rosamia-normal.md](./light-ssr-rosamia-normal.md) | ロザミア(SSR) / Rosamia (SSR) | SSR | 光 | 下書き |
-| [light-ssr-zooey-normal.md](./light-ssr-zooey-normal.md) | ゾーイ(SSR) / Zooey | SSR | 光 | 下書き |
+| [light-ssr-zooey-normal.md](./light-ssr-zooey-normal.md) | ゾーイ(SSR) / Zooey (Promo) | SSR | 光 | 下書き |
 | [light-ssr-ferry-normal.md](./light-ssr-ferry-normal.md) | フェリ(SSR) / Ferry (SSR) | SSR | 光 | 下書き |
 | [light-ssr-io-grand.md](./light-ssr-io-grand.md) | イオ(リミテッド) / Io (Grand) | SSR | 光 | 下書き |
 | [light-ssr-zeta-summer.md](./light-ssr-zeta-summer.md) | ゼタ(水着) / Zeta (Summer) | SSR | 光 | 下書き |
@@ -186,7 +186,7 @@
 | [light-ssr-tweyen-normal.md](./light-ssr-tweyen-normal.md) | ソーン / Tweyen | SSR | 光 | 下書き |
 | [light-ssr-sophia-light.md](./light-ssr-sophia-light.md) | 光ソフィア / Sophia (Light) | SSR | 光 | 下書き |
 | [light-ssr-charlotta-halloween.md](./light-ssr-charlotta-halloween.md) | シャルロッテ(ハロウィン) / Charlotta (Halloween) | SSR | 光 | 下書き |
-| [light-ssr-lefiya-summer.md](./light-ssr-lefiya-summer.md) | 水着レフィーエ / Lefiya (Summer) | SSR | 光 | 下書き |
+| [light-ssr-lefiya-summer.md](./light-ssr-lefiya-summer.md) | 水着レフィーエ / De La Fille (Summer) | SSR | 光 | 下書き |
 | [light-ssr-seruel-normal.md](./light-ssr-seruel-normal.md) | セルエル / Seruel | SSR | 光 | 下書き |
 | [light-ssr-sarunan-light.md](./light-ssr-sarunan-light.md) | 光サルナーン / Sarunan (Light) | SSR | 光 | 下書き |
 | [light-ssr-lefiya-normal.md](./light-ssr-lefiya-normal.md) | レ・フィーエ / De La Fille | SSR | 光 | 下書き |
@@ -196,8 +196,8 @@
 | [fire-ssr-parashurama-normal.md](./fire-ssr-parashurama-normal.md) | パラシュラーマ / Parashurama | SSR | 火 | 下書き |
 | [fire-ssr-eustace-yukata.md](./fire-ssr-eustace-yukata.md) | 浴衣ユーステス / Eustace (Yukata) | SSR | 火 | 下書き |
 | [fire-ssr-lyria-event.md](./fire-ssr-lyria-event.md) | ルリア(SSR) / Lyria (Event SSR) | SSR | 火 | 下書き |
-| [fire-ssr-sanchira-normal.md](./fire-ssr-sanchira-normal.md) | サンチラ / Sanchira | SSR | 火 | 下書き |
-| [fire-ssr-maria-teresa-holiday.md](./fire-ssr-maria-teresa-holiday.md) | マリアテレサ(クリスマス) / Maria Teresa (Holiday) | SSR | 火 | 下書き |
+| [fire-ssr-sanchira-normal.md](./fire-ssr-sanchira-normal.md) | サンチラ / Sandira | SSR | 火 | 下書き |
+| [fire-ssr-maria-teresa-holiday.md](./fire-ssr-maria-teresa-holiday.md) | マリアテレサ(クリスマス) / Maria Theresa (Holiday) | SSR | 火 | 下書き |
 | [fire-ssr-asuka-unit02-normal.md](./fire-ssr-asuka-unit02-normal.md) | アスカ&2号機 / Asuka & Unit 02 | SSR | 火 | 下書き |
 | [fire-ssr-kurapika-normal.md](./fire-ssr-kurapika-normal.md) | クラピカ / Kurapika | SSR | 火 | 下書き |
 | [fire-ssr-atum-summer.md](./fire-ssr-atum-summer.md) | 水着アトゥム / Atum (Summer) | SSR | 火 | 下書き |
@@ -211,13 +211,13 @@
 | [fire-ssr-sato-normal.md](./fire-ssr-sato-normal.md) | さと / Sato | SSR | 火 | 下書き |
 | [fire-ssr-chichiri-normal.md](./fire-ssr-chichiri-normal.md) | チチリ / Chichiri | SSR | 火 | 下書き |
 | [fire-ssr-elmott-yukata.md](./fire-ssr-elmott-yukata.md) | 浴衣エルモート / Elmott (Yukata) | SSR | 火 | 下書き |
-| [fire-ssr-feeney-grand.md](./fire-ssr-feeney-grand.md) | フェニー(リミテッド) / Feeney (Grand) | SSR | 火 | 下書き |
+| [fire-ssr-feeney-grand.md](./fire-ssr-feeney-grand.md) | フェニー(リミテッド) / Fenie | SSR | 火 | 下書き |
 | [fire-ssr-nehan-valentine.md](./fire-ssr-nehan-valentine.md) | 火ネハン(バレンタイン) / Nehan (Valentine) | SSR | 火 | 下書き |
-| [fire-ssr-bakugo-katsuki-normal.md](./fire-ssr-bakugo-katsuki-normal.md) | 爆豪勝己 / Bakugo Katsuki | SSR | 火 | 下書き |
+| [fire-ssr-bakugo-katsuki-normal.md](./fire-ssr-bakugo-katsuki-normal.md) | 爆豪勝己 / Katsuki Bakugo | SSR | 火 | 下書き |
 | [fire-ssr-zeta-grand.md](./fire-ssr-zeta-grand.md) | ゼタ(リミテッド) / Zeta (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-noa-holiday.md](./fire-ssr-noa-holiday.md) | 火ノア(クリスマス) / Noa (Holiday) | SSR | 火 | 下書き |
 | [fire-ssr-barawa-and-sarya-normal.md](./fire-ssr-barawa-and-sarya-normal.md) | バロワ&サーヤ / Barawa and Sarya | SSR | 火 | 下書き |
-| [fire-ssr-sabir-vala-fire.md](./fire-ssr-sabir-vala-fire.md) | 火サビルバラ / Sabir Vala (Fire) | SSR | 火 | 下書き |
+| [fire-ssr-sabir-vala-fire.md](./fire-ssr-sabir-vala-fire.md) | 火サビルバラ / Sevilbarra (SSR) | SSR | 火 | 下書き |
 | [fire-ssr-ragazzo-normal.md](./fire-ssr-ragazzo-normal.md) | ラガッツォ / Ragazzo | SSR | 火 | 下書き |
 | [fire-ssr-dorothy-and-claudia-summer.md](./fire-ssr-dorothy-and-claudia-summer.md) | 水着ドロシー&クラウディア / Dorothy and Claudia (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-enyo-summer.md](./fire-ssr-enyo-summer.md) | 水着エニュオ / Enyo (Summer) | SSR | 火 | 下書き |
@@ -240,7 +240,7 @@
 | [fire-ssr-lilele-fire.md](./fire-ssr-lilele-fire.md) | 火リルル / Lilele (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-wilnas-grand.md](./fire-ssr-wilnas-grand.md) | ウィルナス(リミテッド) / Wilnas (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-altair-holiday.md](./fire-ssr-altair-holiday.md) | 火アルタイル(クリスマス) / Altair (Holiday) | SSR | 火 | 下書き |
-| [fire-ssr-hijikata-and-okita-normal.md](./fire-ssr-hijikata-and-okita-normal.md) | 土方十四郎&沖田総悟 / Hijikata and Okita | SSR | 火 | 下書き |
+| [fire-ssr-hijikata-and-okita-normal.md](./fire-ssr-hijikata-and-okita-normal.md) | 土方十四郎&沖田総悟 / Shinsengumi | SSR | 火 | 下書き |
 | [fire-ssr-elmott-normal.md](./fire-ssr-elmott-normal.md) | エルモート(SSR) / Elmott (SSR) | SSR | 火 | 下書き |
 | [fire-ssr-naoise-fire.md](./fire-ssr-naoise-fire.md) | 火ノイシュ / Naoise (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-izmir-yukata.md](./fire-ssr-izmir-yukata.md) | 浴衣イシュミール / Izmir (Yukata) | SSR | 火 | 下書き |
@@ -248,10 +248,10 @@
 | [fire-ssr-shion-normal.md](./fire-ssr-shion-normal.md) | シオン / Shion | SSR | 火 | 下書き |
 | [fire-ssr-kumbhira-summer.md](./fire-ssr-kumbhira-summer.md) | 水着クビラ / Kumbhira (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-vaseraga-fire.md](./fire-ssr-vaseraga-fire.md) | 火バザラガ / Vaseraga (Fire) | SSR | 火 | 下書き |
-| [fire-ssr-rengoku-kyojuro-normal.md](./fire-ssr-rengoku-kyojuro-normal.md) | 煉獄杏寿郎 / Rengoku Kyojuro | SSR | 火 | 下書き |
+| [fire-ssr-rengoku-kyojuro-normal.md](./fire-ssr-rengoku-kyojuro-normal.md) | 煉獄杏寿郎 / Kyojuro Rengoku | SSR | 火 | 下書き |
 | [fire-ssr-nemone-holiday.md](./fire-ssr-nemone-holiday.md) | ネモネ(クリスマス) / Nemone (Holiday) | SSR | 火 | 下書き |
 | [fire-ssr-azazel-halloween.md](./fire-ssr-azazel-halloween.md) | アザゼル(ハロウィン) / Azazel (Halloween) | SSR | 火 | 下書き |
-| [fire-ssr-tatsuzaki-hiiro-normal.md](./fire-ssr-tatsuzaki-hiiro-normal.md) | 竜ヶ崎ヒイロ / Tatsuzaki Hiiro | SSR | 火 | 下書き |
+| [fire-ssr-tatsuzaki-hiiro-normal.md](./fire-ssr-tatsuzaki-hiiro-normal.md) | 竜ヶ崎ヒイロ / Hiro Ryugasaki | SSR | 火 | 下書き |
 | [fire-ssr-mimlemel-summer.md](./fire-ssr-mimlemel-summer.md) | 水着ミムルメモル / Mimlemel (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-abby-normal.md](./fire-ssr-abby-normal.md) | アビー(SSR) / Abby | SSR | 火 | 下書き |
 | [fire-ssr-satyr-normal.md](./fire-ssr-satyr-normal.md) | サテュロス / Satyr | SSR | 火 | 下書き |
@@ -262,18 +262,18 @@
 | [fire-ssr-teena-summer.md](./fire-ssr-teena-summer.md) | 水着ティナ / Teena (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-scathacha-valentine.md](./fire-ssr-scathacha-valentine.md) | スカーサハ(バレンタイン) / Scathacha (Valentine) | SSR | 火 | 下書き |
 | [fire-ssr-yuisis-fire.md](./fire-ssr-yuisis-fire.md) | 火ユイシス / Yuisis (Fire) | SSR | 火 | 下書き |
-| [fire-ssr-vira-bonus.md](./fire-ssr-vira-bonus.md) | 火ヴィーラ(特典) / Vira (Bonus) | SSR | 火 | 下書き |
+| [fire-ssr-vira-bonus.md](./fire-ssr-vira-bonus.md) | 火ヴィーラ(特典) / Vira (Promo) | SSR | 火 | 下書き |
 | [fire-ssr-siegfried-fire.md](./fire-ssr-siegfried-fire.md) | 火ジーク / Siegfried (Fire) | SSR | 火 | 下書き |
 | [fire-ssr-colossus-normal.md](./fire-ssr-colossus-normal.md) | コロッサス / Colossus | SSR | 火 | 下書き |
 | [fire-ssr-tabina-normal.md](./fire-ssr-tabina-normal.md) | タヴィーナ / Tabina | SSR | 火 | 下書き |
-| [fire-ssr-kallen-normal.md](./fire-ssr-kallen-normal.md) | カレン / Kallen | SSR | 火 | 下書き |
+| [fire-ssr-kallen-normal.md](./fire-ssr-kallen-normal.md) | カレン / Kallen Kouzuki | SSR | 火 | 下書き |
 | [fire-ssr-alanaan-normal.md](./fire-ssr-alanaan-normal.md) | アラナン / Alanaan | SSR | 火 | 下書き |
-| [fire-ssr-frau-normal.md](./fire-ssr-frau-normal.md) | フラウ / Frau | SSR | 火 | 下書き |
+| [fire-ssr-frau-normal.md](./fire-ssr-frau-normal.md) | フラウ / Fraux | SSR | 火 | 下書き |
 | [fire-ssr-athena-normal.md](./fire-ssr-athena-normal.md) | アテナ / Athena | SSR | 火 | 下書き |
 | [fire-ssr-shiva-grand.md](./fire-ssr-shiva-grand.md) | シヴァ(リミテッド) / Shiva (Grand) | SSR | 火 | 下書き |
 | [fire-ssr-lancelot-and-vane-normal.md](./fire-ssr-lancelot-and-vane-normal.md) | ランスロット&ヴェイン / Lancelot and Vane | SSR | 火 | 下書き |
 | [fire-ssr-tsubasa-normal.md](./fire-ssr-tsubasa-normal.md) | ツバサ / Tsubasa | SSR | 火 | 下書き |
-| [fire-ssr-3rd-years-normal.md](./fire-ssr-3rd-years-normal.md) | 3年生チーム / 3rd Years | SSR | 火 | 下書き |
+| [fire-ssr-3rd-years-normal.md](./fire-ssr-3rd-years-normal.md) | 3年生チーム / Aqours Third-Years | SSR | 火 | 下書き |
 | [fire-ssr-ilsa-summer.md](./fire-ssr-ilsa-summer.md) | 水着イルザ / Ilsa (Summer) | SSR | 火 | 下書き |
 | [fire-ssr-therese-normal.md](./fire-ssr-therese-normal.md) | テレーズ(SSR) / Therese (SSR) | SSR | 火 | 下書き |
 | [fire-ssr-charioce-xvii-normal.md](./fire-ssr-charioce-xvii-normal.md) | シャリオス17世 / Charioce XVII | SSR | 火 | 下書き |
@@ -301,28 +301,28 @@
 | [fire-ssr-magisa-normal.md](./fire-ssr-magisa-normal.md) | マギサ / Magisa | SSR | 火 | 下書き |
 | [fire-ssr-yuel-fire.md](./fire-ssr-yuel-fire.md) | 火ユエル / Yuel (Fire) | SSR | 火 | 下書き |
 | [water-ssr-you-summer.md](./water-ssr-you-summer.md) | 水着ヨウ / You (Summer) | SSR | 水 | 下書き |
-| [water-ssr-hitsugaya-and-matsumoto-normal.md](./water-ssr-hitsugaya-and-matsumoto-normal.md) | 日番谷冬獅郎＆松本乱菊 / Hitsugaya & Matsumoto | SSR | 水 | 下書き |
+| [water-ssr-hitsugaya-and-matsumoto-normal.md](./water-ssr-hitsugaya-and-matsumoto-normal.md) | 日番谷冬獅郎＆松本乱菊 / Toshiro Hitsugaya and Rangiku Matsumoto | SSR | 水 | 下書き |
 | [water-ssr-olivier-normal.md](./water-ssr-olivier-normal.md) | オリヴィエ・ミラ・アームストロング / Olivier Mira Armstrong | SSR | 水 | 下書き |
 | [water-ssr-alliah-yukata.md](./water-ssr-alliah-yukata.md) | 浴衣アリア / Alliah (Yukata) | SSR | 水 | 下書き |
 | [water-ssr-octavia-grand.md](./water-ssr-octavia-grand.md) | オクタヴィア(リミテッド) / Octavia (Grand) | SSR | 水 | 下書き |
 | [water-ssr-ange-normal.md](./water-ssr-ange-normal.md) | アンジェ / Ange (SSR) | SSR | 水 | 下書き |
 | [water-ssr-gawain-valentine.md](./water-ssr-gawain-valentine.md) | 水ガウェイン(バレンタイン) / Gawain (Valentine) | SSR | 水 | 下書き |
 | [water-ssr-darydara-normal.md](./water-ssr-darydara-normal.md) | ダリダラ / Darydara | SSR | 水 | 下書き |
-| [water-ssr-rei-and-unit00-normal.md](./water-ssr-rei-and-unit00-normal.md) | レイ＆零号機 / Rei & Unit-00 | SSR | 水 | 下書き |
+| [water-ssr-rei-and-unit00-normal.md](./water-ssr-rei-and-unit00-normal.md) | レイ＆零号機 / Rei & Unit 00 | SSR | 水 | 下書き |
 | [water-ssr-chichiri-water.md](./water-ssr-chichiri-water.md) | 水チチリ / Chichiri (Water) | SSR | 水 | 下書き |
 | [water-ssr-tien-halloween.md](./water-ssr-tien-halloween.md) | エッセル(ハロウィン) / Tien (Halloween) | SSR | 水 | 下書き |
 | [water-ssr-joel-normal.md](./water-ssr-joel-normal.md) | ジョエル / Joel (SSR) | SSR | 水 | 下書き |
-| [water-ssr-silva-grand.md](./water-ssr-silva-grand.md) | シルヴィア(リミテッド) / Silva (Grand) | SSR | 水 | 下書き |
-| [water-ssr-ilsa-dress.md](./water-ssr-ilsa-dress.md) | ドレスイルザ / Ilsa (Dress) | SSR | 水 | 下書き |
+| [water-ssr-silva-grand.md](./water-ssr-silva-grand.md) | シルヴィア(リミテッド) / Sylvia | SSR | 水 | 下書き |
+| [water-ssr-ilsa-dress.md](./water-ssr-ilsa-dress.md) | ドレスイルザ / Ilsa (Formal) | SSR | 水 | 下書き |
 | [water-ssr-shukra-normal.md](./water-ssr-shukra-normal.md) | シュクラ / Shukra | SSR | 水 | 下書き |
 | [water-ssr-yatima-grand.md](./water-ssr-yatima-grand.md) | ヤチマ(リミテッド) / Yatima (Grand) | SSR | 水 | 下書き |
 | [water-ssr-uruki-normal.md](./water-ssr-uruki-normal.md) | ウルキ / Uruki | SSR | 水 | 下書き |
 | [water-ssr-nier-yukata.md](./water-ssr-nier-yukata.md) | 浴衣ニーア / Nier (Yukata) | SSR | 水 | 下書き |
 | [water-ssr-tefnut-summer.md](./water-ssr-tefnut-summer.md) | 水着テフヌト / Tefnut (Summer) | SSR | 水 | 下書き |
 | [water-ssr-nectar-water.md](./water-ssr-nectar-water.md) | 水ネクタル / Nectar (Water) | SSR | 水 | 下書き |
-| [water-ssr-yuri-water.md](./water-ssr-yuri-water.md) | 水ユーリ / Yuri (Water) | SSR | 水 | 下書き |
-| [water-ssr-delrifado-water.md](./water-ssr-delrifado-water.md) | 水デリフォード / Delrifado (Water) | SSR | 水 | 下書き |
-| [water-ssr-haila-normal.md](./water-ssr-haila-normal.md) | ハイラ / Haila | SSR | 水 | 下書き |
+| [water-ssr-yuri-water.md](./water-ssr-yuri-water.md) | 水ユーリ / Juri (SSR) | SSR | 水 | 下書き |
+| [water-ssr-delrifado-water.md](./water-ssr-delrifado-water.md) | 水デリフォード / Deliford (SSR) | SSR | 水 | 下書き |
+| [water-ssr-haila-normal.md](./water-ssr-haila-normal.md) | ハイラ / Payila | SSR | 水 | 下書き |
 | [water-ssr-gabriel-grand.md](./water-ssr-gabriel-grand.md) | ガブリエル(リミテッド) / Gabriel (Grand) | SSR | 水 | 下書き |
 | [water-ssr-vikala-halloween.md](./water-ssr-vikala-halloween.md) | 水ビカラ(ハロウィン) / Vikala (Halloween) | SSR | 水 | 下書き |
 | [water-ssr-anila-yukata.md](./water-ssr-anila-yukata.md) | 浴衣アニラ / Anila (Yukata) | SSR | 水 | 下書き |
@@ -332,10 +332,10 @@
 | [water-ssr-sen-valentine.md](./water-ssr-sen-valentine.md) | セン(バレンタイン) / Sen (Valentine) | SSR | 水 | 下書き |
 | [water-ssr-erin-normal.md](./water-ssr-erin-normal.md) | エリン(SSR) / Erin (SSR) | SSR | 水 | 下書き |
 | [water-ssr-catura-holiday.md](./water-ssr-catura-holiday.md) | 水シャトラ(クリスマス) / Catura (Holiday) | SSR | 水 | 下書き |
-| [water-ssr-erica-normal.md](./water-ssr-erica-normal.md) | エリカ / Erica | SSR | 水 | 下書き |
-| [water-ssr-yngwie-shift.md](./water-ssr-yngwie-shift.md) | イングヴェイ(シフト後) / Yngwie (Style Shift) | SSR | 水 | 下書き |
-| [water-ssr-jeanne-dark-summer.md](./water-ssr-jeanne-dark-summer.md) | 水着闇ジャンヌ / Jeanne d'Arc (Dark Summer) | SSR | 水 | 下書き |
-| [water-ssr-vermeersch-grand.md](./water-ssr-vermeersch-grand.md) | ワムデュス(リミテッド) / Vermeersch (Grand) | SSR | 水 | 下書き |
+| [water-ssr-erica-normal.md](./water-ssr-erica-normal.md) | エリカ / Erika | SSR | 水 | 下書き |
+| [water-ssr-yngwie-shift.md](./water-ssr-yngwie-shift.md) | イングヴェイ(シフト後) / Yngwie (Legend of Bravado and Revelry) | SSR | 水 | 下書き |
+| [water-ssr-jeanne-dark-summer.md](./water-ssr-jeanne-dark-summer.md) | 水着闇ジャンヌ / Jeanne d'Arc (Water Summer) | SSR | 水 | 下書き |
+| [water-ssr-vermeersch-grand.md](./water-ssr-vermeersch-grand.md) | ワムデュス(リミテッド) / Wamdus | SSR | 水 | 下書き |
 | [water-ssr-clarisse-summer.md](./water-ssr-clarisse-summer.md) | 水着クラリス / Clarisse (Summer) | SSR | 水 | 下書き |
 | [water-ssr-gwynne-normal.md](./water-ssr-gwynne-normal.md) | グウィン / Gwynne | SSR | 水 | 下書き |
 | [water-ssr-sophia-water.md](./water-ssr-sophia-water.md) | 水ソフィア / Sophia (Water) | SSR | 水 | 下書き |
@@ -351,7 +351,7 @@
 | [water-ssr-isaac-normal.md](./water-ssr-isaac-normal.md) | アイザック / Isaac | SSR | 水 | 下書き |
 | [water-ssr-zeta-water.md](./water-ssr-zeta-water.md) | 水ゼタ / Zeta (Water) | SSR | 水 | 下書き |
 | [water-ssr-filene-normal.md](./water-ssr-filene-normal.md) | フィルレイン / Filene | SSR | 水 | 下書き |
-| [water-ssr-tanjiro-and-friends-normal.md](./water-ssr-tanjiro-and-friends-normal.md) | 炭治郎&禰豆子&善逸&伊之助 / Tanjiro, Nezuko, Zenitsu & Inosuke | SSR | 水 | 下書き |
+| [water-ssr-tanjiro-and-friends-normal.md](./water-ssr-tanjiro-and-friends-normal.md) | 炭治郎&禰豆子&善逸&伊之助 / Tanjiro, Nezuko, Zenitsu, and Inosuke | SSR | 水 | 下書き |
 | [water-ssr-mirin-holiday.md](./water-ssr-mirin-holiday.md) | ミリン(クリスマス) / Mirin (Holiday) | SSR | 水 | 下書き |
 | [water-ssr-rosetta-halloween.md](./water-ssr-rosetta-halloween.md) | ロゼッタ(ハロウィン) / Rosetta (Halloween) | SSR | 水 | 下書き |
 | [water-ssr-juliet-water.md](./water-ssr-juliet-water.md) | 水ジュリエット / Juliet (Water) | SSR | 水 | 下書き |
@@ -360,20 +360,20 @@
 | [water-ssr-shura-normal.md](./water-ssr-shura-normal.md) | シュラ / Shura | SSR | 水 | 下書き |
 | [water-ssr-milleore-and-zaharrilao-normal.md](./water-ssr-milleore-and-zaharrilao-normal.md) | ミラオル&ザーリリャオー / Milleore and Sahli Lao | SSR | 水 | 下書き |
 | [water-ssr-sturm-water.md](./water-ssr-sturm-water.md) | 水スツルム / Sturm (Water) | SSR | 水 | 下書き |
-| [water-ssr-vampy-and-vess-normal.md](./water-ssr-vampy-and-vess-normal.md) | ヴァンピィ&ベス / Vampy and Vess | SSR | 水 | 下書き |
+| [water-ssr-vampy-and-vess-normal.md](./water-ssr-vampy-and-vess-normal.md) | ヴァンピィ&ベス / Vania and Malinda | SSR | 水 | 下書き |
 | [water-ssr-lecia-water.md](./water-ssr-lecia-water.md) | 水リーシャ / Lecia (Water) | SSR | 水 | 下書き |
 | [water-ssr-europa-summer.md](./water-ssr-europa-summer.md) | 水着エウロペ / Europa (Summer) | SSR | 水 | 下書き |
 | [water-ssr-cagliostro-summer.md](./water-ssr-cagliostro-summer.md) | 水着カリオストロ / Cagliostro (Summer) | SSR | 水 | 下書き |
 | [water-ssr-sandalphon-summer.md](./water-ssr-sandalphon-summer.md) | 水着サンダルフォン / Sandalphon (Summer) | SSR | 水 | 下書き |
 | [water-ssr-macula-marius-normal.md](./water-ssr-macula-marius-normal.md) | マキュラ・マリウス / Macula Marius | SSR | 水 | 下書き |
-| [water-ssr-haseena-leela-normal.md](./water-ssr-haseena-leela-normal.md) | ハーゼリーラ / Haseena Leela | SSR | 水 | 下書き |
-| [water-ssr-maria-teresa-normal.md](./water-ssr-maria-teresa-normal.md) | マリア・テレサ / Maria Teresa | SSR | 水 | 下書き |
+| [water-ssr-haseena-leela-normal.md](./water-ssr-haseena-leela-normal.md) | ハーゼリーラ / Haaselia | SSR | 水 | 下書き |
+| [water-ssr-maria-teresa-normal.md](./water-ssr-maria-teresa-normal.md) | マリア・テレサ / Maria Theresa | SSR | 水 | 下書き |
 | [water-ssr-aglovale-normal.md](./water-ssr-aglovale-normal.md) | アグロヴァル / Aglovale | SSR | 水 | 下書き |
 | [water-ssr-europa-grand.md](./water-ssr-europa-grand.md) | エウロペ(リミテッド) / Europa (Grand) | SSR | 水 | 下書き |
-| [water-ssr-folia-grand.md](./water-ssr-folia-grand.md) | フォリア(リミテッド) / Folia (Grand) | SSR | 水 | 下書き |
+| [water-ssr-folia-grand.md](./water-ssr-folia-grand.md) | フォリア(リミテッド) / Pholia | SSR | 水 | 下書き |
 | [water-ssr-grea-summer.md](./water-ssr-grea-summer.md) | 水着グレア / Grea (Summer) | SSR | 水 | 下書き |
-| [water-ssr-2nd-years-normal.md](./water-ssr-2nd-years-normal.md) | 2年生チーム / 2nd Years | SSR | 水 | 下書き |
-| [water-ssr-kokkoro-water.md](./water-ssr-kokkoro-water.md) | 水ククル(SSR) / Kokkoro (Water) | SSR | 水 | 下書き |
+| [water-ssr-2nd-years-normal.md](./water-ssr-2nd-years-normal.md) | 2年生チーム / Aqours Second-Years | SSR | 水 | 下書き |
+| [water-ssr-kokkoro-water.md](./water-ssr-kokkoro-water.md) | 水ククル(SSR) / Cucouroux (SSR) | SSR | 水 | 下書き |
 | [water-ssr-vajra-normal.md](./water-ssr-vajra-normal.md) | ヴァジラ / Vajra | SSR | 水 | 下書き |
 | [water-ssr-yuel-water.md](./water-ssr-yuel-water.md) | 水ユエル / Yuel (Water) | SSR | 水 | 下書き |
 | [water-ssr-anne-water.md](./water-ssr-anne-water.md) | アン / Anne | SSR | 水 | 下書き |
@@ -402,10 +402,10 @@
 | [earth-ssr-beatrix-earth.md](./earth-ssr-beatrix-earth.md) | 土ベアトリクス / Beatrix (Earth) | SSR | 土 | 下書き |
 | [earth-ssr-monika-valentine.md](./earth-ssr-monika-valentine.md) | モニカ(バレンタイン) / Monika (Valentine) | SSR | 土 | 下書き |
 | [earth-ssr-lamretta-normal.md](./earth-ssr-lamretta-normal.md) | ラムレッダ(SSR) / Lamretta (SSR) | SSR | 土 | 下書き |
-| [earth-ssr-sandalphon-another.md](./earth-ssr-sandalphon-another.md) | サンダルフォン(アナザー) / Sandalphon (Another) | SSR | 土 | 下書き |
+| [earth-ssr-sandalphon-another.md](./earth-ssr-sandalphon-another.md) | サンダルフォン(アナザー) / Sandalphon (Earth Grand) | SSR | 土 | 下書き |
 | [earth-ssr-fiorito-normal.md](./earth-ssr-fiorito-normal.md) | フィオリト / Fiorito | SSR | 土 | 下書き |
 | [earth-ssr-mireille-and-risette-normal.md](./earth-ssr-mireille-and-risette-normal.md) | ミレイユ&リゼット / Mireille and Risette | SSR | 土 | 下書き |
-| [earth-ssr-aria-golden-knight.md](./earth-ssr-aria-golden-knight.md) | 黄金の騎士(アリア) / Aria (Golden Knight) | SSR | 土 | 下書き |
+| [earth-ssr-aria-golden-knight.md](./earth-ssr-aria-golden-knight.md) | 黄金の騎士(アリア) / Golden Knight | SSR | 土 | 下書き |
 | [earth-ssr-diantha-earth.md](./earth-ssr-diantha-earth.md) | ディアンサ(土属性) / Diantha (Earth) | SSR | 土 | 下書き |
 | [earth-ssr-silva-summer.md](./earth-ssr-silva-summer.md) | 水着シルヴァ / Silva (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-leona-grand.md](./earth-ssr-leona-grand.md) | レオナ(リミテッド) / Leona (Grand) | SSR | 土 | 下書き |
@@ -420,10 +420,10 @@
 | [earth-ssr-ladiva-normal.md](./earth-ssr-ladiva-normal.md) | ファスティバ(SSR) / Ladiva (SSR) | SSR | 土 | 下書き |
 | [earth-ssr-baal-normal.md](./earth-ssr-baal-normal.md) | バアル / Baal | SSR | 土 | 下書き |
 | [earth-ssr-medusa-normal.md](./earth-ssr-medusa-normal.md) | メドゥーサ(恒常) / Medusa | SSR | 土 | 下書き |
-| [earth-ssr-robelia-normal.md](./earth-ssr-robelia-normal.md) | ロベリア / Robelia | SSR | 土 | 下書き |
+| [earth-ssr-robelia-normal.md](./earth-ssr-robelia-normal.md) | ロベリア / Lobelia | SSR | 土 | 下書き |
 | [earth-ssr-caim-normal.md](./earth-ssr-caim-normal.md) | カイム / Caim | SSR | 土 | 下書き |
 | [earth-ssr-dante-and-freiheit-normal.md](./earth-ssr-dante-and-freiheit-normal.md) | ダーント&フライハイト / Dante and Freiheit | SSR | 土 | 下書き |
-| [earth-ssr-first-years-team-normal.md](./earth-ssr-first-years-team-normal.md) | 1年生チーム / First-Years Team | SSR | 土 | 下書き |
+| [earth-ssr-first-years-team-normal.md](./earth-ssr-first-years-team-normal.md) | 1年生チーム(津島善子＆国木田花丸＆黒澤ルビィ) / Aqours First-Years | SSR | 土 | 下書き |
 | [earth-ssr-rosetta-summer.md](./earth-ssr-rosetta-summer.md) | 水着ロゼッタ / Rosetta (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-cain-grand.md](./earth-ssr-cain-grand.md) | カイン(リミテッド) / Cain (Grand) | SSR | 土 | 下書き |
 | [earth-ssr-soriz-normal.md](./earth-ssr-soriz-normal.md) | ソリッズ(SSR) / Soriz (SSR) | SSR | 土 | 下書き |
@@ -435,7 +435,7 @@
 | [earth-ssr-medusa-promo.md](./earth-ssr-medusa-promo.md) | メドゥーサ(特典) / Medusa (Promo) | SSR | 土 | 下書き |
 | [earth-ssr-de-la-fille-earth.md](./earth-ssr-de-la-fille-earth.md) | 土レ・フィーエ / De La Fille (Earth) | SSR | 土 | 下書き |
 | [earth-ssr-razia-normal.md](./earth-ssr-razia-normal.md) | ラスティナ(SSR) / Razia | SSR | 土 | 下書き |
-| [earth-ssr-makira-normal.md](./earth-ssr-makira-normal.md) | マキラ / Makira | SSR | 土 | 下書き |
+| [earth-ssr-makira-normal.md](./earth-ssr-makira-normal.md) | マキラ / Mahira | SSR | 土 | 下書き |
 | [earth-ssr-eustace-halloween.md](./earth-ssr-eustace-halloween.md) | ユーステス(ハロウィン) / Eustace (Halloween) | SSR | 土 | 下書き |
 | [earth-ssr-nemone-normal.md](./earth-ssr-nemone-normal.md) | ネモネ / Nemone | SSR | 土 | 下書き |
 | [earth-ssr-ayer-normal.md](./earth-ssr-ayer-normal.md) | アイル / Ayer | SSR | 土 | 下書き |
@@ -446,18 +446,18 @@
 | [earth-ssr-clarisse-holiday.md](./earth-ssr-clarisse-holiday.md) | クラリス(クリスマス) / Clarisse (Holiday) | SSR | 土 | 下書き |
 | [earth-ssr-vira-summer.md](./earth-ssr-vira-summer.md) | 水着ヴィーラ / Vira (Summer) | SSR | 土 | 下書き |
 | [earth-ssr-sara-normal.md](./earth-ssr-sara-normal.md) | サラ(SSR) / Sara | SSR | 土 | 下書き |
-| [earth-ssr-octo-normal.md](./earth-ssr-octo-normal.md) | オクトー / Octo | SSR | 土 | 下書き |
-| [earth-ssr-salasa-normal.md](./earth-ssr-salasa-normal.md) | サラーサ / Salasa | SSR | 土 | 下書き |
+| [earth-ssr-octo-normal.md](./earth-ssr-octo-normal.md) | オクトー / Eahta | SSR | 土 | 下書き |
+| [earth-ssr-salasa-normal.md](./earth-ssr-salasa-normal.md) | サラーサ / Threo | SSR | 土 | 下書き |
 | [earth-ssr-siegfried-earth.md](./earth-ssr-siegfried-earth.md) | ジークフリート(土属性) / Siegfried | SSR | 土 | 下書き |
 | [earth-ssr-melleau-normal.md](./earth-ssr-melleau-normal.md) | メルゥ / Melleau | SSR | 土 | 下書き |
 | [earth-ssr-arulumaya-normal.md](./earth-ssr-arulumaya-normal.md) | アルルメイヤ / Arulumaya | SSR | 土 | 下書き |
 | [earth-ssr-cagliostro-earth.md](./earth-ssr-cagliostro-earth.md) | カリオストロ(土属性) / Cagliostro (Earth) | SSR | 土 | 下書き |
 | [earth-ssr-aletheia-normal.md](./earth-ssr-aletheia-normal.md) | アレーティア / Aletheia | SSR | 土 | 下書き |
-| [wind-ssr-nelliel-normal.md](./wind-ssr-nelliel-normal.md) | ネリエル / Nelliel | SSR | 風 | 下書き |
-| [wind-ssr-megu-and-marippe-dress.md](./wind-ssr-megu-and-marippe-dress.md) | メグ&まりっぺ(ドレス) / Meg and Marippe (Dress) | SSR | 風 | 下書き |
+| [wind-ssr-nelliel-normal.md](./wind-ssr-nelliel-normal.md) | ネリエル(ネリエル・トゥ・オーデルシュヴァンク) / Nelliel Tu Odelschwanck | SSR | 風 | 下書き |
+| [wind-ssr-megu-and-marippe-dress.md](./wind-ssr-megu-and-marippe-dress.md) | メグ&まりっぺ(ドレス) / Meg and Mari (Formal) | SSR | 風 | 下書き |
 | [wind-ssr-notus-normal.md](./wind-ssr-notus-normal.md) | ノトス / Notus | SSR | 風 | 下書き |
 | [wind-ssr-echidna-normal.md](./wind-ssr-echidna-normal.md) | エキドナ / Echidna | SSR | 風 | 下書き |
-| [wind-ssr-lyria-style-shift.md](./wind-ssr-lyria-style-shift.md) | リーシャ(スタイルシフト、碧騎士) / Lyria (Style Shift) | SSR | 風 | 下書き |
+| [wind-ssr-lyria-style-shift.md](./wind-ssr-lyria-style-shift.md) | リーシャ(スタイルシフト、碧騎士) / Lecia (Inheritor of the Blue Mantle) | SSR | 風 | 下書き |
 | [wind-ssr-walfrid-grand.md](./wind-ssr-walfrid-grand.md) | ヴァルフリート(リミテッド) / Walfrid (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-lulou-holou-normal.md](./wind-ssr-lulou-holou-normal.md) | ルロウホロウ / Lulou Holou | SSR | 風 | 下書き |
 | [wind-ssr-metera-grand.md](./wind-ssr-metera-grand.md) | メーテラ(リミテッド) / Metera (Grand) | SSR | 風 | 下書き |
@@ -469,12 +469,12 @@
 | [wind-ssr-skuld-normal.md](./wind-ssr-skuld-normal.md) | スクルド / Skuld | SSR | 風 | 下書き |
 | [wind-ssr-cagliostro-and-clarisse-normal.md](./wind-ssr-cagliostro-and-clarisse-normal.md) | カリオストロ&クラリス / Cagliostro and Clarisse | SSR | 風 | 下書き |
 | [wind-ssr-mahira-summer.md](./wind-ssr-mahira-summer.md) | 水着マキラ / Mahira (Summer) | SSR | 風 | 下書き |
-| [wind-ssr-joy-hama.md](./wind-ssr-joy-hama.md) | ジョイ(ハマ) / Joy (Hama) | SSR | 風 | 下書き |
-| [wind-ssr-negi-normal.md](./wind-ssr-negi-normal.md) | ネギ(ネギ・スプリングフィールド) / Negi | SSR | 風 | 下書き |
+| [wind-ssr-joy-hama.md](./wind-ssr-joy-hama.md) | ジョイ(ハマ) / Joy (Event SSR) | SSR | 風 | 下書き |
+| [wind-ssr-negi-normal.md](./wind-ssr-negi-normal.md) | ネギ(ネギ・スプリングフィールド) / Negi Springfield | SSR | 風 | 下書き |
 | [wind-ssr-setsuna-sakurazaki.md](./wind-ssr-setsuna-sakurazaki.md) | 桜咲刹那 / Setsuna Sakurazaki | SSR | 風 | 下書き |
 | [wind-ssr-raphael-grand.md](./wind-ssr-raphael-grand.md) | ラファエル(リミテッド) / Raphael (Grand) | SSR | 風 | 下書き |
-| [wind-ssr-veldora-normal.md](./wind-ssr-veldora-normal.md) | ヴェルドラ(ヴェルドラ=テンペスト) / Veldora | SSR | 風 | 下書き |
-| [wind-ssr-lyria-normal.md](./wind-ssr-lyria-normal.md) | リーシャ(恒常、風属性) / Lyria (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-veldora-normal.md](./wind-ssr-veldora-normal.md) | ヴェルドラ(ヴェルドラ=テンペスト) / Veldora Tempest | SSR | 風 | 下書き |
+| [wind-ssr-lyria-normal.md](./wind-ssr-lyria-normal.md) | リーシャ(恒常、風属性) / Lecia (SSR) | SSR | 風 | 下書き |
 | [wind-ssr-vane-grand.md](./wind-ssr-vane-grand.md) | ヴェイン(リミテッド) / Vane (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-noire-normal.md](./wind-ssr-noire-normal.md) | ノワール(キャラ) / Noire | SSR | 風 | 下書き |
 | [wind-ssr-galleon-summer.md](./wind-ssr-galleon-summer.md) | 水着ガレヲン / Galleon (Summer) | SSR | 風 | 下書き |
@@ -499,7 +499,7 @@
 | [wind-ssr-ultimate-friday-normal.md](./wind-ssr-ultimate-friday-normal.md) | U・フライデー / Ultimate Friday | SSR | 風 | 下書き |
 | [wind-ssr-charlotta-grand.md](./wind-ssr-charlotta-grand.md) | 風シャルロッテ(リミテッド) / Charlotta (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-therese-wind.md](./wind-ssr-therese-wind.md) | 風テレーズ / Therese (Wind) | SSR | 風 | 下書き |
-| [wind-ssr-aria-wind.md](./wind-ssr-aria-wind.md) | 風アリア / Aria (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-aria-wind.md](./wind-ssr-aria-wind.md) | 風アリア / Alliah | SSR | 風 | 下書き |
 | [wind-ssr-lich-halloween.md](./wind-ssr-lich-halloween.md) | リッチ(ハロウィン) / Lich (Halloween) | SSR | 風 | 下書き |
 | [wind-ssr-nami-and-robin-normal.md](./wind-ssr-nami-and-robin-normal.md) | ナミ&ロビン / Nami & Robin | SSR | 風 | 下書き |
 | [wind-ssr-eustace-summer.md](./wind-ssr-eustace-summer.md) | 水着ユーステス / Eustace (Summer) | SSR | 風 | 下書き |
@@ -518,14 +518,14 @@
 | [wind-ssr-narmaya-grand.md](./wind-ssr-narmaya-grand.md) | ナルメア(リミテッド) / Narmaya (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-nezha-normal.md](./wind-ssr-nezha-normal.md) | ナタク / Nezha | SSR | 風 | 下書き |
 | [wind-ssr-nectar-normal.md](./wind-ssr-nectar-normal.md) | ネクタル / Nectar | SSR | 風 | 下書き |
-| [wind-ssr-shatora-normal.md](./wind-ssr-shatora-normal.md) | シャトラ(十二神将) / Shatora | SSR | 風 | 下書き |
+| [wind-ssr-shatora-normal.md](./wind-ssr-shatora-normal.md) | シャトラ(十二神将) / Catura | SSR | 風 | 下書き |
 | [wind-ssr-shinobu-kocho-normal.md](./wind-ssr-shinobu-kocho-normal.md) | 胡蝶しのぶ / Shinobu Kocho | SSR | 風 | 下書き |
 | [wind-ssr-sutera-normal.md](./wind-ssr-sutera-normal.md) | スーテラ(SSR) / Sutera (SSR) | SSR | 風 | 下書き |
 | [wind-ssr-florence-normal.md](./wind-ssr-florence-normal.md) | フロレンス / Florence | SSR | 風 | 下書き |
 | [wind-ssr-mimori-amamiya-normal.md](./wind-ssr-mimori-amamiya-normal.md) | 天宮ミモリ / Mimori Amamiya | SSR | 風 | 下書き |
 | [wind-ssr-albert-summer.md](./wind-ssr-albert-summer.md) | 水着アルベール / Albert (Summer) | SSR | 風 | 下書き |
 | [wind-ssr-anila-summer.md](./wind-ssr-anila-summer.md) | 水着アニラ / Anila (Summer) | SSR | 風 | 下書き |
-| [wind-ssr-noeud-wind.md](./wind-ssr-noeud-wind.md) | 風ノイシュ / Noeud (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-noeud-wind.md](./wind-ssr-noeud-wind.md) | 風ノイシュ / Naoise | SSR | 風 | 下書き |
 | [wind-ssr-kaede-takagaki-normal.md](./wind-ssr-kaede-takagaki-normal.md) | 高垣楓 / Kaede Takagaki | SSR | 風 | 下書き |
 | [wind-ssr-grimnir-valentine.md](./wind-ssr-grimnir-valentine.md) | グリームニル(バレンタイン) / Grimnir (Valentine) | SSR | 風 | 下書き |
 | [wind-ssr-yodarha-wind.md](./wind-ssr-yodarha-wind.md) | 風ヨダルラーハ / Yodarha (Wind) | SSR | 風 | 下書き |
@@ -535,7 +535,7 @@
 | [wind-ssr-societte-wind.md](./wind-ssr-societte-wind.md) | 風ソシエ / Societte (Wind) | SSR | 風 | 下書き |
 | [wind-ssr-monika-grand.md](./wind-ssr-monika-grand.md) | モニカ(リミテッド) / Monika (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-stan-and-aliza-normal.md](./wind-ssr-stan-and-aliza-normal.md) | スタン&アリーザ / Stan and Aliza | SSR | 風 | 下書き |
-| [wind-ssr-first-years-mus-normal.md](./wind-ssr-first-years-mus-normal.md) | 1年生チーム(μ's) / μ's First Years | SSR | 風 | 下書き |
+| [wind-ssr-first-years-mus-normal.md](./wind-ssr-first-years-mus-normal.md) | 1年生チーム(μ's) / Μ's First-Years | SSR | 風 | 下書き |
 | [wind-ssr-suzaku-kururugi-normal.md](./wind-ssr-suzaku-kururugi-normal.md) | 枢木スザク / Suzaku Kururugi | SSR | 風 | 下書き |
 | [wind-ssr-morrigna-normal.md](./wind-ssr-morrigna-normal.md) | バイヴカハ / Morrigna | SSR | 風 | 下書き |
 | [wind-ssr-grimnir-limited.md](./wind-ssr-grimnir-limited.md) | グリームニル(リミテッド) / Grimnir (Limited) | SSR | 風 | 下書き |
@@ -560,24 +560,24 @@
 | [wind-ssr-melissabelle-normal.md](./wind-ssr-melissabelle-normal.md) | メリッサベル / Melissabelle | SSR | 風 | 下書き |
 | [wind-ssr-lecia-grand.md](./wind-ssr-lecia-grand.md) | リーシャ(リミテッド) / Lecia (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-korwa-normal.md](./wind-ssr-korwa-normal.md) | コルワ / Korwa | SSR | 風 | 下書き |
-| [wind-ssr-anchira-normal.md](./wind-ssr-anchira-normal.md) | アンチラ(十二神将) / Anchira | SSR | 風 | 下書き |
+| [wind-ssr-anchira-normal.md](./wind-ssr-anchira-normal.md) | アンチラ(十二神将) / Andira | SSR | 風 | 下書き |
 | [wind-ssr-rosetta-grand.md](./wind-ssr-rosetta-grand.md) | ロゼッタ(リミテッド) / Rosetta (Grand) | SSR | 風 | 下書き |
 | [wind-ssr-feena-normal.md](./wind-ssr-feena-normal.md) | フィーナ(SSR) / Feena | SSR | 風 | 下書き |
-| [wind-ssr-henriette-normal.md](./wind-ssr-henriette-normal.md) | アンリエット / Henriette | SSR | 風 | 下書き |
+| [wind-ssr-henriette-normal.md](./wind-ssr-henriette-normal.md) | アンリエット / Arriet | SSR | 風 | 下書き |
 | [wind-ssr-petra-normal.md](./wind-ssr-petra-normal.md) | ペトラ(SSR) / Petra | SSR | 風 | 下書き |
 | [wind-ssr-carmelina-normal.md](./wind-ssr-carmelina-normal.md) | カルメリーナ / Carmelina | SSR | 風 | 下書き |
-| [wind-ssr-nio-normal.md](./wind-ssr-nio-normal.md) | ニオ(十天衆) / Nio | SSR | 風 | 下書き |
-| [wind-ssr-siete-normal.md](./wind-ssr-siete-normal.md) | シエテ(十天衆) / Siete | SSR | 風 | 下書き |
-| [wind-ssr-lena-wind.md](./wind-ssr-lena-wind.md) | レナ(風属性) / Lena (Wind) | SSR | 風 | 下書き |
+| [wind-ssr-nio-normal.md](./wind-ssr-nio-normal.md) | ニオ(十天衆) / Niyon | SSR | 風 | 下書き |
+| [wind-ssr-siete-normal.md](./wind-ssr-siete-normal.md) | シエテ(十天衆) / Seofon | SSR | 風 | 下書き |
+| [wind-ssr-lena-wind.md](./wind-ssr-lena-wind.md) | レナ(風属性) / Lennah | SSR | 風 | 下書き |
 | [wind-ssr-christina-normal.md](./wind-ssr-christina-normal.md) | クリスティーナ / Christina | SSR | 風 | 下書き |
 | [wind-ssr-metera-wind.md](./wind-ssr-metera-wind.md) | 風メーテラ(SSR) / Metera (Wind) | SSR | 風 | 下書き |
-| [wind-ssr-netzach-normal.md](./wind-ssr-netzach-normal.md) | ネツァワルピリ / Netzach | SSR | 風 | 下書き |
+| [wind-ssr-netzach-normal.md](./wind-ssr-netzach-normal.md) | ネツァワルピリ / Nezahualpilli | SSR | 風 | 下書き |
 | [wind-ssr-gawain-wind.md](./wind-ssr-gawain-wind.md) | 風ガウェイン / Gawain (Wind) | SSR | 風 | 下書き |
 | [dark-ssr-ichigo-kurosaki-normal.md](./dark-ssr-ichigo-kurosaki-normal.md) | 黒崎一護 / Ichigo Kurosaki | SSR | 闇 | 下書き |
 | [dark-ssr-osiris-yukata.md](./dark-ssr-osiris-yukata.md) | 浴衣オシリス / Osiris (Yukata) | SSR | 闇 | 下書き |
 | [dark-ssr-shao-normal.md](./dark-ssr-shao-normal.md) | シャオ(SSR) / Shao (SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-greed-and-ling-yao-normal.md](./dark-ssr-greed-and-ling-yao-normal.md) | グリード＆リン･ヤオ / Greed & Ling Yao | SSR | 闇 | 下書き |
-| [dark-ssr-manu-ponomau-normal.md](./dark-ssr-manu-ponomau-normal.md) | マヌ＝ポヌマウ / Manu Ponomau | SSR | 闇 | 下書き |
+| [dark-ssr-manu-ponomau-normal.md](./dark-ssr-manu-ponomau-normal.md) | マヌ＝ポヌマウ / Manu Ponumau | SSR | 闇 | 下書き |
 | [dark-ssr-wamdus-valentine.md](./dark-ssr-wamdus-valentine.md) | 闇ワムデュス(バレンタイン) / Wamdus (Valentine) | SSR | 闇 | 下書き |
 | [dark-ssr-constance-normal.md](./dark-ssr-constance-normal.md) | コンスタンツィア / Constance | SSR | 闇 | 下書き |
 | [dark-ssr-zeta-holiday.md](./dark-ssr-zeta-holiday.md) | ゼタ(クリスマス) / Zeta (Holiday) | SSR | 闇 | 下書き |
@@ -589,40 +589,40 @@
 | [dark-ssr-seofon-yukata.md](./dark-ssr-seofon-yukata.md) | 浴衣シエテ / Seofon (Yukata) | SSR | 闇 | 下書き |
 | [dark-ssr-tsukuyomi-normal.md](./dark-ssr-tsukuyomi-normal.md) | ツクヨミ / Tsukuyomi | SSR | 闇 | 下書き |
 | [dark-ssr-lobelia-valentine.md](./dark-ssr-lobelia-valentine.md) | 闇ロベリア(バレンタイン) / Lobelia (Valentine) | SSR | 闇 | 下書き |
-| [dark-ssr-evangeline-normal.md](./dark-ssr-evangeline-normal.md) | エヴァンジェリン / Evangeline | SSR | 闇 | 下書き |
+| [dark-ssr-evangeline-normal.md](./dark-ssr-evangeline-normal.md) | エヴァンジェリン / Evangeline A.K. McDowell | SSR | 闇 | 下書き |
 | [dark-ssr-koku-normal.md](./dark-ssr-koku-normal.md) | コク / Koku | SSR | 闇 | 下書き |
-| [dark-ssr-indra-normal.md](./dark-ssr-indra-normal.md) | インダラ / Indra | SSR | 闇 | 下書き |
+| [dark-ssr-indra-normal.md](./dark-ssr-indra-normal.md) | インダラ / Indala | SSR | 闇 | 下書き |
 | [dark-ssr-aletheia-dark.md](./dark-ssr-aletheia-dark.md) | 闇アレーティア / Aletheia (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-yggdrasil-holiday.md](./dark-ssr-yggdrasil-holiday.md) | 闇ユグドラシル(クリスマス) / Yggdrasil (Holiday) | SSR | 闇 | 下書き |
 | [dark-ssr-rimuru-normal.md](./dark-ssr-rimuru-normal.md) | リムル＝テンペスト / Rimuru Tempest | SSR | 闇 | 下書き |
-| [dark-ssr-diablo-normal.md](./dark-ssr-diablo-normal.md) | ディアブロ / Diablo | SSR | 闇 | 下書き |
-| [dark-ssr-shion-normal.md](./dark-ssr-shion-normal.md) | シオン / Shion | SSR | 闇 | 下書き |
-| [dark-ssr-wil-dark.md](./dark-ssr-wil-dark.md) | 闇ウィル(SSR) / Wil (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-diablo-normal.md](./dark-ssr-diablo-normal.md) | ディアブロ / Diablo (Collab) | SSR | 闇 | 下書き |
+| [dark-ssr-shion-normal.md](./dark-ssr-shion-normal.md) | シオン / Shion (Collab) | SSR | 闇 | 下書き |
+| [dark-ssr-wil-dark.md](./dark-ssr-wil-dark.md) | 闇ウィル(SSR) / Will (SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-satyr-halloween.md](./dark-ssr-satyr-halloween.md) | 闇サテュロス(ハロウィン) / Satyr (Halloween) | SSR | 闇 | 下書き |
 | [dark-ssr-florence-dark.md](./dark-ssr-florence-dark.md) | 闇フロレンス / Florence (Dark) | SSR | 闇 | 下書き |
-| [dark-ssr-sevastian-dark.md](./dark-ssr-sevastian-dark.md) | 闇セワスチアン(SSR) / Sevastian (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-sevastian-dark.md](./dark-ssr-sevastian-dark.md) | 闇セワスチアン(SSR) / Sevastien (SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-hekate-summer.md](./dark-ssr-hekate-summer.md) | 水着ヘカテー / Hekate (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-hallessena-summer.md](./dark-ssr-hallessena-summer.md) | 水着ハレゼナ / Hallessena (Summer) | SSR | 闇 | 下書き |
-| [dark-ssr-ourolyathe-limited.md](./dark-ssr-ourolyathe-limited.md) | オロロジャイア(リミテッド) / Ourolyathe (Limited) | SSR | 闇 | 下書き |
+| [dark-ssr-ourolyathe-limited.md](./dark-ssr-ourolyathe-limited.md) | オロロジャイア(リミテッド) / Orologia | SSR | 闇 | 下書き |
 | [dark-ssr-chloe-dark.md](./dark-ssr-chloe-dark.md) | 闇クロエ / Chloe (Dark) | SSR | 闇 | 下書き |
-| [dark-ssr-lefiya-yukata.md](./dark-ssr-lefiya-yukata.md) | 浴衣レフィーエ / Le Fay (Yukata) | SSR | 闇 | 下書き |
+| [dark-ssr-lefiya-yukata.md](./dark-ssr-lefiya-yukata.md) | 浴衣レフィーエ / De La Fille (Yukata) | SSR | 闇 | 下書き |
 | [dark-ssr-magus-summer.md](./dark-ssr-magus-summer.md) | 水着メイガス / Magus (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-cidala-valentine.md](./dark-ssr-cidala-valentine.md) | 闇シンダラ(バレンタイン) / Cidala (Valentine) | SSR | 闇 | 下書き |
-| [dark-ssr-toga-himiko-normal.md](./dark-ssr-toga-himiko-normal.md) | トガヒミコ / Toga Himiko | SSR | 闇 | 下書き |
+| [dark-ssr-toga-himiko-normal.md](./dark-ssr-toga-himiko-normal.md) | トガヒミコ / Himiko Toga | SSR | 闇 | 下書き |
 | [dark-ssr-tyra-normal.md](./dark-ssr-tyra-normal.md) | ティラ / Tyra | SSR | 闇 | 下書き |
 | [dark-ssr-lowain-dark.md](./dark-ssr-lowain-dark.md) | 闇ローアイン(SSR) / Lowain (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-yuni-holiday.md](./dark-ssr-yuni-holiday.md) | 闇ユニ(クリスマス) / Yuni (Holiday) | SSR | 闇 | 下書き |
 | [dark-ssr-tikoh-halloween.md](./dark-ssr-tikoh-halloween.md) | 闇ティコ(ハロウィン) / Tikoh (Halloween) | SSR | 闇 | 下書き |
 | [dark-ssr-meg-and-mari-normal.md](./dark-ssr-meg-and-mari-normal.md) | メグ＆まりっぺ / Meg and Mari | SSR | 闇 | 下書き |
-| [dark-ssr-itadori-and-fushiguro-normal.md](./dark-ssr-itadori-and-fushiguro-normal.md) | 虎杖悠仁＆伏黒恵 / Itadori Yuji & Fushiguro Megumi | SSR | 闇 | 下書き |
+| [dark-ssr-itadori-and-fushiguro-normal.md](./dark-ssr-itadori-and-fushiguro-normal.md) | 虎杖悠仁＆伏黒恵 / Yuji Itadori and Megumi Fushiguro | SSR | 闇 | 下書き |
 | [dark-ssr-cupitan-summer.md](./dark-ssr-cupitan-summer.md) | 水着クピタン / Cupitan (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-jasmine-normal.md](./dark-ssr-jasmine-normal.md) | 闇ジャスミン(SSR) / Jasmine (SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-ilsa-yukata.md](./dark-ssr-ilsa-yukata.md) | 浴衣イルザ / Ilsa (Yukata) | SSR | 闇 | 下書き |
 | [dark-ssr-azusa-summer.md](./dark-ssr-azusa-summer.md) | 水着アズサ / Azusa (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-cendrillon-normal.md](./dark-ssr-cendrillon-normal.md) | サンドリヨン / Cendrillon | SSR | 闇 | 下書き |
-| [dark-ssr-halmal-limited.md](./dark-ssr-halmal-limited.md) | 闇ハルマル(リミテッド) / Halmal (Dark, Limited) | SSR | 闇 | 下書き |
+| [dark-ssr-halmal-limited.md](./dark-ssr-halmal-limited.md) | 闇ハルマル(リミテッド) / Halluel and Malluel | SSR | 闇 | 下書き |
 | [dark-ssr-fiorito-holiday.md](./dark-ssr-fiorito-holiday.md) | 闇フィオリト(クリスマス) / Fiorito (Holiday) | SSR | 闇 | 下書き |
-| [dark-ssr-yuel-and-sochie-dark.md](./dark-ssr-yuel-and-sochie-dark.md) | 闇ユエル&ソシエ / Yuel & Sochie (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-yuel-and-sochie-dark.md](./dark-ssr-yuel-and-sochie-dark.md) | 闇ユエル&ソシエ / Yuel and Societte | SSR | 闇 | 下書き |
 | [dark-ssr-bowman-normal.md](./dark-ssr-bowman-normal.md) | ボーマン / Bowman | SSR | 闇 | 下書き |
 | [dark-ssr-jessica-dark.md](./dark-ssr-jessica-dark.md) | 闇ジェシカ / Jessica (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-zoro-and-sanji-normal.md](./dark-ssr-zoro-and-sanji-normal.md) | ゾロ&サンジ / Zoro & Sanji | SSR | 闇 | 下書き |
@@ -640,18 +640,18 @@
 | [dark-ssr-amira-summer.md](./dark-ssr-amira-summer.md) | 水着アーミラ / Amira (Summer) | SSR | 闇 | 下書き |
 | [dark-ssr-black-knight-and-orchis-normal.md](./dark-ssr-black-knight-and-orchis-normal.md) | 黒騎士&オルキス / Black Knight & Orchis | SSR | 闇 | 下書き |
 | [dark-ssr-predator-normal.md](./dark-ssr-predator-normal.md) | プレデター(SSR) / Predator (SSR) | SSR | 闇 | 下書き |
-| [dark-ssr-lei-limited.md](./dark-ssr-lei-limited.md) | レイ(リミテッド) / Lei (Limited) | SSR | 闇 | 下書き |
+| [dark-ssr-lei-limited.md](./dark-ssr-lei-limited.md) | レイ(リミテッド) / Rei | SSR | 闇 | 下書き |
 | [dark-ssr-seox-event.md](./dark-ssr-seox-event.md) | シス(イベント) / Seox (Event) | SSR | 闇 | 下書き |
 | [dark-ssr-lucius-normal.md](./dark-ssr-lucius-normal.md) | ルシウス(SSR) / Lucius (SSR) | SSR | 闇 | 下書き |
 | [dark-ssr-vikala-normal.md](./dark-ssr-vikala-normal.md) | ビカラ / Vikala | SSR | 闇 | 下書き |
-| [dark-ssr-sharem-limited.md](./dark-ssr-sharem-limited.md) | へレル・ベン・シャレム(リミテッド) / Sharem (Limited) | SSR | 闇 | 下書き |
+| [dark-ssr-sharem-limited.md](./dark-ssr-sharem-limited.md) | へレル・ベン・シャレム(リミテッド) / Helel ben Shalem | SSR | 闇 | 下書き |
 | [dark-ssr-kou-normal.md](./dark-ssr-kou-normal.md) | コウ / Kou | SSR | 闇 | 下書き |
-| [dark-ssr-third-years-mus-normal.md](./dark-ssr-third-years-mus-normal.md) | 3年生チーム(μ's) / Third Years (μ's) | SSR | 闇 | 下書き |
+| [dark-ssr-third-years-mus-normal.md](./dark-ssr-third-years-mus-normal.md) | 3年生チーム(μ's) / Μ's Third-Years | SSR | 闇 | 下書き |
 | [dark-ssr-anthuria-yukata.md](./dark-ssr-anthuria-yukata.md) | 浴衣アンスリア / Anthuria (Yukata) | SSR | 闇 | 下書き |
 | [dark-ssr-kolulu-normal.md](./dark-ssr-kolulu-normal.md) | コルル / Kolulu | SSR | 闇 | 下書き |
-| [dark-ssr-lelouch-normal.md](./dark-ssr-lelouch-normal.md) | ルルーシュ / Lelouch | SSR | 闇 | 下書き |
-| [dark-ssr-kyaru-normal.md](./dark-ssr-kyaru-normal.md) | キャル / Kyaru | SSR | 闇 | 下書き |
-| [dark-ssr-niyah-normal.md](./dark-ssr-niyah-normal.md) | ニーア / Niyah | SSR | 闇 | 下書き |
+| [dark-ssr-lelouch-normal.md](./dark-ssr-lelouch-normal.md) | ルルーシュ / Lelouch Lamperouge | SSR | 闇 | 下書き |
+| [dark-ssr-kyaru-normal.md](./dark-ssr-kyaru-normal.md) | キャル / Karyl | SSR | 闇 | 下書き |
+| [dark-ssr-niyah-normal.md](./dark-ssr-niyah-normal.md) | ニーア / Nier | SSR | 闇 | 下書き |
 | [dark-ssr-ferry-grand.md](./dark-ssr-ferry-grand.md) | 闇フェリ(リミテッド) / Ferry (Grand) | SSR | 闇 | 下書き |
 | [dark-ssr-clarisse-valentine.md](./dark-ssr-clarisse-valentine.md) | 闇クラリス(バレンタイン) / Clarisse (Valentine) | SSR | 闇 | 下書き |
 | [dark-ssr-tanya-normal.md](./dark-ssr-tanya-normal.md) | ターニャ(SSR) / Tanya (SSR) | SSR | 闇 | 下書き |
@@ -660,17 +660,17 @@
 | [dark-ssr-freezie-normal.md](./dark-ssr-freezie-normal.md) | フーちゃん(フリーシア) / Freezie | SSR | 闇 | 下書き |
 | [dark-ssr-wulf-and-renie-normal.md](./dark-ssr-wulf-and-renie-normal.md) | ウーフとレニー / Wulf and Renie | SSR | 闇 | 下書き |
 | [dark-ssr-joker-normal.md](./dark-ssr-joker-normal.md) | ジョーカー / Joker | SSR | 闇 | 下書き |
-| [dark-ssr-lunal-dark.md](./dark-ssr-lunal-dark.md) | 闇ルナール(SSR) / Lunal (Dark, SSR) | SSR | 闇 | 下書き |
-| [dark-ssr-sirow-dark.md](./dark-ssr-sirow-dark.md) | 闇シロウ / Sirow (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-lunal-dark.md](./dark-ssr-lunal-dark.md) | 闇ルナール(SSR) / Lunalu (SSR) | SSR | 闇 | 下書き |
+| [dark-ssr-sirow-dark.md](./dark-ssr-sirow-dark.md) | 闇シロウ / Nicholas | SSR | 闇 | 下書き |
 | [dark-ssr-olivia-grand.md](./dark-ssr-olivia-grand.md) | オリヴィエ(リミテッド) / Olivia (Grand) | SSR | 闇 | 下書き |
 | [dark-ssr-azazel-normal.md](./dark-ssr-azazel-normal.md) | アザゼル / Azazel | SSR | 闇 | 下書き |
 | [dark-ssr-cagliostro-dark.md](./dark-ssr-cagliostro-dark.md) | 闇カリオストロ / Cagliostro (Dark) | SSR | 闇 | 下書き |
-| [dark-ssr-katalina-dark.md](./dark-ssr-katalina-dark.md) | 闇カタリナ / Katalina (Dark) | SSR | 闇 | 下書き |
+| [dark-ssr-katalina-dark.md](./dark-ssr-katalina-dark.md) | 闇カタリナ / Katalina (Promo) | SSR | 闇 | 下書き |
 | [dark-ssr-zeta-dark.md](./dark-ssr-zeta-dark.md) | 闇ゼタ / Zeta (Dark) | SSR | 闇 | 下書き |
 | [dark-ssr-orchid-grand.md](./dark-ssr-orchid-grand.md) | オーキス(リミテッド) / Orchid (Grand) | SSR | 闇 | 下書き |
 | [dark-ssr-marquiares-normal.md](./dark-ssr-marquiares-normal.md) | マルキアレス / Marquiares | SSR | 闇 | 下書き |
-| [dark-ssr-vaito-dark.md](./dark-ssr-vaito-dark.md) | 闇ヴァイト / Vaito (Dark) | SSR | 闇 | 下書き |
-| [dark-ssr-zooey-summer.md](./dark-ssr-zooey-summer.md) | 水着ゾーイ / Zooey (Summer) | SSR | 闇 | 下書き |
+| [dark-ssr-vaito-dark.md](./dark-ssr-vaito-dark.md) | 闇ヴァイト / Veight | SSR | 闇 | 下書き |
+| [dark-ssr-zooey-summer.md](./dark-ssr-zooey-summer.md) | 水着ゾーイ / Zooey (Grand) | SSR | 闇 | 下書き |
 | [dark-ssr-forte-normal.md](./dark-ssr-forte-normal.md) | フォルテ / Forte | SSR | 闇 | 下書き |
 | [dark-ssr-black-knight-grand.md](./dark-ssr-black-knight-grand.md) | 黒騎士(リミテッド) / Black Knight (Grand) | SSR | 闇 | 下書き |
 | [dark-ssr-jeanne-darc-dark.md](./dark-ssr-jeanne-darc-dark.md) | 闇ジャンヌダルク / Jeanne d'Arc (Dark) | SSR | 闇 | 下書き |
@@ -687,26 +687,26 @@
 | [dark-ssr-cerberus-normal.md](./dark-ssr-cerberus-normal.md) | ケルベロス / Cerberus | SSR | 闇 | 下書き |
 | [dark-ssr-lady-grey-normal.md](./dark-ssr-lady-grey-normal.md) | レディ・グレイ / Lady Grey | SSR | 闇 | 下書き |
 | [light-sr-tyre-yukata.md](./light-sr-tyre-yukata.md) | 浴衣タイアー / Tyre (Yukata) | SR | 光 | 下書き |
-| [light-sr-kumbhira-normal.md](./light-sr-kumbhira-normal.md) | クビラ(SR) / Kumbhira (SR) | SR | 光 | 下書き |
+| [light-sr-kumbhira-normal.md](./light-sr-kumbhira-normal.md) | クビラ(SR) / Kumbhira (Event) | SR | 光 | 下書き |
 | [light-sr-philosophia-normal.md](./light-sr-philosophia-normal.md) | フィラソピラ(SR) / Philosophia (SR) | SR | 光 | 下書き |
 | [light-sr-bridgette-and-cordelia-normal.md](./light-sr-bridgette-and-cordelia-normal.md) | ブリジール&コーデリア / Bridgette and Cordelia | SR | 光 | 下書き |
 | [light-sr-mirin-light.md](./light-sr-mirin-light.md) | 光ミリン(SR) / Mirin (Light) | SR | 光 | 下書き |
-| [light-sr-sabbatara-light.md](./light-sr-sabbatara-light.md) | 光サビルバラ / Sabbatara (Light) | SR | 光 | 下書き |
+| [light-sr-sabbatara-light.md](./light-sr-sabbatara-light.md) | 光サビルバラ / Sevilbarra (Event) | SR | 光 | 下書き |
 | [light-sr-elta-light.md](./light-sr-elta-light.md) | 光エルタ / Elta (Light) | SR | 光 | 下書き |
 | [light-sr-barawa-light.md](./light-sr-barawa-light.md) | 光バロワ / Barawa (Light) | SR | 光 | 下書き |
-| [light-sr-zeta-normal.md](./light-sr-zeta-normal.md) | ゼタ(SR) / Zeta (SR) | SR | 光 | 下書き |
+| [light-sr-zeta-normal.md](./light-sr-zeta-normal.md) | ゼタ(SR) / Zeta (Event) | SR | 光 | 下書き |
 | [light-sr-feena-holiday.md](./light-sr-feena-holiday.md) | フィーナ(クリスマス) / Feena (Holiday) | SR | 光 | 下書き |
 | [light-sr-sophia-normal.md](./light-sr-sophia-normal.md) | ソフィア(SR) / Sophia (SR) | SR | 光 | 下書き |
-| [light-sr-ezecrain-light.md](./light-sr-ezecrain-light.md) | 光エゼクレイン / Ezecrain (Light) | SR | 光 | 下書き |
-| [light-sr-saarya-light.md](./light-sr-saarya-light.md) | 光サーヤ / Saarya (Light) | SR | 光 | 下書き |
+| [light-sr-ezecrain-light.md](./light-sr-ezecrain-light.md) | 光エゼクレイン / Ezecrain (Event) | SR | 光 | 下書き |
+| [light-sr-saarya-light.md](./light-sr-saarya-light.md) | 光サーヤ / Sarya | SR | 光 | 下書き |
 | [light-sr-jeanne-darc-normal.md](./light-sr-jeanne-darc-normal.md) | ジャンヌダルク(SR) / Jeanne d'Arc (SR) | SR | 光 | 下書き |
 | [light-sr-vermeil-normal.md](./light-sr-vermeil-normal.md) | ヴェリトール(SR) / Vermeil (SR) | SR | 光 | 下書き |
-| [light-sr-albert-normal.md](./light-sr-albert-normal.md) | アルベール(SR) / Albert (SR) | SR | 光 | 下書き |
+| [light-sr-albert-normal.md](./light-sr-albert-normal.md) | アルベール(SR) / Albert (Event) | SR | 光 | 下書き |
 | [light-sr-nakoruru-normal.md](./light-sr-nakoruru-normal.md) | ナコルル / Nakoruru | SR | 光 | 下書き |
 | [light-sr-johann-normal.md](./light-sr-johann-normal.md) | ヨハン(ガチャ) / Johann | SR | 光 | 下書き |
-| [light-sr-nicholas-light.md](./light-sr-nicholas-light.md) | シロウ(SR) / Nicholas (Light) | SR | 光 | 下書き |
-| [light-sr-tear-normal.md](./light-sr-tear-normal.md) | ティア / Tear | SR | 光 | 下書き |
-| [light-sr-erica-normal.md](./light-sr-erica-normal.md) | エリカ / Erica | SR | 光 | 下書き |
+| [light-sr-nicholas-light.md](./light-sr-nicholas-light.md) | シロウ(SR) / Nicholas (Event) | SR | 光 | 下書き |
+| [light-sr-tear-normal.md](./light-sr-tear-normal.md) | ティア / Tear Grants | SR | 光 | 下書き |
+| [light-sr-erica-normal.md](./light-sr-erica-normal.md) | エリカ / Erica Fontaine | SR | 光 | 下書き |
 | [light-sr-novei-promo.md](./light-sr-novei-promo.md) | ナーヴェ / Novei (Promo) | SR | 光 | 下書き |
 | [light-sr-koshimizu-sachiko-normal.md](./light-sr-koshimizu-sachiko-normal.md) | 輿水幸子 / Sachiko Koshimizu | SR | 光 | 下書き |
 | [light-sr-soriz-event.md](./light-sr-soriz-event.md) | ソリッズ(光) / Soriz (Event) | SR | 光 | 下書き |
@@ -714,11 +714,11 @@
 | [light-sr-ladiva-holiday.md](./light-sr-ladiva-holiday.md) | ファスティバ(クリスマス) / Ladiva (Holiday) | SR | 光 | 下書き |
 | [light-sr-ferry-halloween.md](./light-sr-ferry-halloween.md) | フェリ(ハロウィン) / Ferry (Halloween) | SR | 光 | 下書き |
 | [light-sr-sophie-normal.md](./light-sr-sophie-normal.md) | ソフィ / Sophie | SR | 光 | 下書き |
-| [light-sr-robomi-normal.md](./light-sr-robomi-normal.md) | ロボミ(SR) / Robomi (SR) | SR | 光 | 下書き |
+| [light-sr-robomi-normal.md](./light-sr-robomi-normal.md) | ロボミ(SR) / Robomi (Event) | SR | 光 | 下書き |
 | [light-sr-feather-normal.md](./light-sr-feather-normal.md) | フェザー / Feather (SR) | SR | 光 | 下書き |
 | [light-sr-jj-normal.md](./light-sr-jj-normal.md) | J・J / J.J. | SR | 光 | 下書き |
-| [light-sr-seiran-normal.md](./light-sr-seiran-normal.md) | セイラン / Seiran | SR | 光 | 下書き |
-| [light-sr-amira-normal.md](./light-sr-amira-normal.md) | アーミラ(SR) / Amira (SR) | SR | 光 | 下書き |
+| [light-sr-seiran-normal.md](./light-sr-seiran-normal.md) | セイラン / Ceylan (Event) | SR | 光 | 下書き |
+| [light-sr-amira-normal.md](./light-sr-amira-normal.md) | アーミラ(SR) / Amira (Promo) | SR | 光 | 下書き |
 | [light-sr-baotorda-normal.md](./light-sr-baotorda-normal.md) | バウタオーダ(SR) / Baotorda (SR) | SR | 光 | 下書き |
 | [light-sr-johann-event.md](./light-sr-johann-event.md) | ヨハン(イベント) / Johann (Event) | SR | 光 | 下書き |
 | [light-sr-rosamia-normal.md](./light-sr-rosamia-normal.md) | ロザミア(SR) / Rosamia (SR) | SR | 光 | 下書き |
@@ -726,14 +726,14 @@
 | [light-sr-noa-normal.md](./light-sr-noa-normal.md) | ノア / Noa | SR | 光 | 下書き |
 | [light-sr-arusha-normal.md](./light-sr-arusha-normal.md) | アルシャ / Arusha | SR | 光 | 下書き |
 | [light-sr-ferry-normal.md](./light-sr-ferry-normal.md) | フェリ(SR) / Ferry | SR | 光 | 下書き |
-| [light-sr-naoise-light.md](./light-sr-naoise-light.md) | 光ノイシュ / Naoise (Light) | SR | 光 | 下書き |
+| [light-sr-naoise-light.md](./light-sr-naoise-light.md) | 光ノイシュ / Naoise (Promo) | SR | 光 | 下書き |
 | [fire-sr-ferry-summer.md](./fire-sr-ferry-summer.md) | 水着フェリ / Ferry (Summer) | SR | 火 | 下書き |
 | [fire-sr-cassius-yukata.md](./fire-sr-cassius-yukata.md) | 浴衣カシウス / Cassius (Yukata) | SR | 火 | 下書き |
 | [fire-sr-friday-summer.md](./fire-sr-friday-summer.md) | 水着フライデー / Friday (Summer) | SR | 火 | 下書き |
-| [fire-sr-astel-fire.md](./fire-sr-astel-fire.md) | 火アステール / Astel (Fire) | SR | 火 | 下書き |
+| [fire-sr-astel-fire.md](./fire-sr-astel-fire.md) | 火アステール / Aster | SR | 火 | 下書き |
 | [fire-sr-rosine-normal.md](./fire-sr-rosine-normal.md) | ロジーヌ(SR) / Rosine (SR) | SR | 火 | 下書き |
 | [fire-sr-teena-valentine.md](./fire-sr-teena-valentine.md) | ティナ(バレンタイン) / Teena (Valentine) | SR | 火 | 下書き |
-| [fire-sr-zooey-shrine-maiden.md](./fire-sr-zooey-shrine-maiden.md) | 巫女ゾーイ / Zooey (Shrine Maiden) | SR | 火 | 下書き |
+| [fire-sr-zooey-shrine-maiden.md](./fire-sr-zooey-shrine-maiden.md) | 巫女ゾーイ / Zooey (Event) | SR | 火 | 下書き |
 | [fire-sr-ippatsu-normal.md](./fire-sr-ippatsu-normal.md) | イッパツ(SR) / Ippatsu (SR) | SR | 火 | 下書き |
 | [fire-sr-karva-normal.md](./fire-sr-karva-normal.md) | カルバ(SR) / Karva (SR) | SR | 火 | 下書き |
 | [fire-sr-beatrix-halloween.md](./fire-sr-beatrix-halloween.md) | ベアトリクス(ハロウィン) / Beatrix (Halloween) | SR | 火 | 下書き |
@@ -742,34 +742,34 @@
 | [fire-sr-grea-event.md](./fire-sr-grea-event.md) | グレア(SR) / Grea (Event) | SR | 火 | 下書き |
 | [fire-sr-elmott-blazing-teacher.md](./fire-sr-elmott-blazing-teacher.md) | 炎獄先生エルモート / Blazing Teacher Elmott | SR | 火 | 下書き |
 | [fire-sr-ghandagoza-summer.md](./fire-sr-ghandagoza-summer.md) | 水着ガンダゴウザ / Ghandagoza (Summer) | SR | 火 | 下書き |
-| [fire-sr-karen-summer.md](./fire-sr-karen-summer.md) | 水着カレン / Karen (Summer) | SR | 火 | 下書き |
-| [fire-sr-sutera-event.md](./fire-sr-sutera-event.md) | スーテラ(イベント) / Sutera | SR | 火 | 下書き |
-| [fire-sr-lyria-normal.md](./fire-sr-lyria-normal.md) | ルリア / Lyria | SR | 主人公と同じ(便宜上火) | 下書き |
+| [fire-sr-karen-summer.md](./fire-sr-karen-summer.md) | 水着カレン / Carren (Event) | SR | 火 | 下書き |
+| [fire-sr-sutera-event.md](./fire-sr-sutera-event.md) | スーテラ(イベント) / Sutera (Event) | SR | 火 | 下書き |
+| [fire-sr-lyria-normal.md](./fire-sr-lyria-normal.md) | ルリア / Lyria (Event) | SR | 主人公と同じ(便宜上火) | 下書き |
 | [fire-sr-lucius-fire.md](./fire-sr-lucius-fire.md) | 火ルシウス / Lucius (Fire) | SR | 火 | 下書き |
-| [fire-sr-percival-sidestory.md](./fire-sr-percival-sidestory.md) | パーシヴァル(SR) / Percival (SR) | SR | 火 | 下書き |
+| [fire-sr-percival-sidestory.md](./fire-sr-percival-sidestory.md) | パーシヴァル(SR) / Percival (Event) | SR | 火 | 下書き |
 | [fire-sr-akagi-miria-normal.md](./fire-sr-akagi-miria-normal.md) | 赤城みりあ / Miria Akagi | SR | 火 | 下書き |
 | [fire-sr-dante-normal.md](./fire-sr-dante-normal.md) | ダーント(SR) / Dante (SR) | SR | 火 | 下書き |
-| [fire-sr-kukuru-fire.md](./fire-sr-kukuru-fire.md) | 火ククル(SR) / Kukuru (Fire) | SR | 火 | 下書き |
-| [fire-sr-barawa-event.md](./fire-sr-barawa-event.md) | 火バロワ(イベ) / Barawa (Fire, Event) | SR | 火 | 下書き |
-| [fire-sr-stahn-normal.md](./fire-sr-stahn-normal.md) | スタン(テイルズ) / Stahn | SR | 火 | 下書き |
+| [fire-sr-kukuru-fire.md](./fire-sr-kukuru-fire.md) | 火ククル(SR) / Cucouroux | SR | 火 | 下書き |
+| [fire-sr-barawa-event.md](./fire-sr-barawa-event.md) | 火バロワ(イベ) / Barawa (Event) | SR | 火 | 下書き |
+| [fire-sr-stahn-normal.md](./fire-sr-stahn-normal.md) | スタン(テイルズ) / Stahn Aileron | SR | 火 | 下書き |
 | [fire-sr-gemini-normal.md](./fire-sr-gemini-normal.md) | ジェミニ / Gemini Sunrise | SR | 火 | 下書き |
 | [fire-sr-sen-normal.md](./fire-sr-sen-normal.md) | セン / Sen | SR | 火 | 下書き |
-| [fire-sr-kanzuki-karin-normal.md](./fire-sr-kanzuki-karin-normal.md) | 神月かりん / Karin Kanzuki | SR | 火 | 下書き |
-| [fire-sr-cecile-normal.md](./fire-sr-cecile-normal.md) | セシール / Cecile | SR | 火 | 下書き |
+| [fire-sr-kanzuki-karin-normal.md](./fire-sr-kanzuki-karin-normal.md) | 神月かりん / Karin | SR | 火 | 下書き |
+| [fire-sr-cecile-normal.md](./fire-sr-cecile-normal.md) | セシール / Cecile (Promo) | SR | 火 | 下書き |
 | [fire-sr-ryan-normal.md](./fire-sr-ryan-normal.md) | ライアン(SR) / Ryan (SR) | SR | 火 | 下書き |
-| [fire-sr-lina-inverse-normal.md](./fire-sr-lina-inverse-normal.md) | リナ / Lina Inverse | SR | 火 | 下書き |
+| [fire-sr-lina-inverse-normal.md](./fire-sr-lina-inverse-normal.md) | リナ / Lina | SR | 火 | 下書き |
 | [fire-sr-sutera-fire.md](./fire-sr-sutera-fire.md) | 火スーテラ / Sutera (Fire) | SR | 火 | 下書き |
-| [fire-sr-anila-normal.md](./fire-sr-anila-normal.md) | アニラ(SR) / Anila (SR) | SR | 火 | 下書き |
-| [fire-sr-tendo-akira-normal.md](./fire-sr-tendo-akira-normal.md) | 天道輝 / Akira Tendo | SR | 火 | 下書き |
-| [fire-sr-naoise-fire.md](./fire-sr-naoise-fire.md) | 火ノイシュ(SR) / Naoise (Fire, SR) | SR | 火 | 下書き |
+| [fire-sr-anila-normal.md](./fire-sr-anila-normal.md) | アニラ(SR) / Anila (Event) | SR | 火 | 下書き |
+| [fire-sr-tendo-akira-normal.md](./fire-sr-tendo-akira-normal.md) | 天道輝 / Teru Tendo | SR | 火 | 下書き |
+| [fire-sr-naoise-fire.md](./fire-sr-naoise-fire.md) | 火ノイシュ(SR) / Naoise (Event) | SR | 火 | 下書き |
 | [fire-sr-anna-normal.md](./fire-sr-anna-normal.md) | アンナ(SR) / Anna (SR) | SR | 火 | 下書き |
-| [fire-sr-beth-normal.md](./fire-sr-beth-normal.md) | ベス / Beth | SR | 変動(便宜上火) | 下書き |
-| [fire-sr-jogasaki-rika-normal.md](./fire-sr-jogasaki-rika-normal.md) | 城ヶ崎莉嘉 / Rika Jogasaki | SR | 火 | 下書き |
+| [fire-sr-beth-normal.md](./fire-sr-beth-normal.md) | ベス / Malinda (Event) | SR | 変動(便宜上火) | 下書き |
+| [fire-sr-jogasaki-rika-normal.md](./fire-sr-jogasaki-rika-normal.md) | 城ヶ崎莉嘉 / Rika Jougasaki | SR | 火 | 下書き |
 | [fire-sr-elmott-summer.md](./fire-sr-elmott-summer.md) | 水着エルモート / Elmott (Summer) | SR | 火 | 下書き |
-| [fire-sr-mira-normal.md](./fire-sr-mira-normal.md) | ミラ / Mira | SR | 火 | 下書き |
+| [fire-sr-mira-normal.md](./fire-sr-mira-normal.md) | ミラ / Milla Maxwell | SR | 火 | 下書き |
 | [fire-sr-mary-normal.md](./fire-sr-mary-normal.md) | マリー(SR) / Mary (SR) | SR | 火 | 下書き |
 | [fire-sr-sarya-event.md](./fire-sr-sarya-event.md) | サーヤ(イベント) / Sarya (Event) | SR | 火 | 下書き |
-| [fire-sr-therese-bunny.md](./fire-sr-therese-bunny.md) | テレーズ(バニー) / Therese (Bunny) | SR | 火 | 下書き |
+| [fire-sr-therese-bunny.md](./fire-sr-therese-bunny.md) | テレーズ(バニー) / Therese | SR | 火 | 下書き |
 | [fire-sr-dorothy-normal.md](./fire-sr-dorothy-normal.md) | ドロシー / Dorothy | SR | 火 | 下書き |
 | [fire-sr-honda-mio-normal.md](./fire-sr-honda-mio-normal.md) | 本田未央 / Mio Honda | SR | 火 | 下書き |
 | [fire-sr-carren-normal.md](./fire-sr-carren-normal.md) | カレン / Carren | SR | 火 | 下書き |
@@ -777,9 +777,9 @@
 | [fire-sr-jessica-summer.md](./fire-sr-jessica-summer.md) | 水着ジェシカ / Jessica (Summer) | SR | 火 | 下書き |
 | [fire-sr-ezecrain-normal.md](./fire-sr-ezecrain-normal.md) | エゼクレイン / Ezecrain | SR | 火 | 下書き |
 | [fire-sr-elmott-normal.md](./fire-sr-elmott-normal.md) | エルモート(SR) / Elmott (SR) | SR | 火 | 下書き |
-| [fire-sr-jessica-fire.md](./fire-sr-jessica-fire.md) | 火ジェシカ / Jessica (Fire) | SR | 火 | 下書き |
-| [fire-sr-aliza-normal.md](./fire-sr-aliza-normal.md) | アリーザ / Aliza (SR) | SR | 火 | 下書き |
-| [fire-sr-abby-normal.md](./fire-sr-abby-normal.md) | アビー(SR) / Abby (SR) | SR | 火 | 下書き |
+| [fire-sr-jessica-fire.md](./fire-sr-jessica-fire.md) | 火ジェシカ / Jessica (Event) | SR | 火 | 下書き |
+| [fire-sr-aliza-normal.md](./fire-sr-aliza-normal.md) | アリーザ / Aliza (Event) | SR | 火 | 下書き |
+| [fire-sr-abby-normal.md](./fire-sr-abby-normal.md) | アビー(SR) / Abby (Promo) | SR | 火 | 下書き |
 | [fire-sr-rackam-normal.md](./fire-sr-rackam-normal.md) | ラカム(SR) / Rackam (SR) | SR | 火 | 下書き |
 | [fire-sr-alec-normal.md](./fire-sr-alec-normal.md) | アレク / Alec | SR | 火 | 下書き |
 | [water-sr-joel-normal.md](./water-sr-joel-normal.md) | ジョエル(SR) / Joel (SR) | SR | 水 | 下書き |
@@ -788,29 +788,29 @@
 | [water-sr-farrah-summer.md](./water-sr-farrah-summer.md) | 水着ファラ / Farrah (Summer) | SR | 水 | 下書き |
 | [water-sr-lilele-summer.md](./water-sr-lilele-summer.md) | 水着リルル / Lilele (Summer) | SR | 水 | 下書き |
 | [water-sr-aliza-water.md](./water-sr-aliza-water.md) | 水アリーザ(SR) / Aliza (Water) | SR | 水 | 下書き |
-| [water-sr-yuel-normal.md](./water-sr-yuel-normal.md) | ユエル(SR) / Yuel (Water) | SR | 水 | 下書き |
+| [water-sr-yuel-normal.md](./water-sr-yuel-normal.md) | ユエル(SR) / Yuel (Event) | SR | 水 | 下書き |
 | [water-sr-owen-normal.md](./water-sr-owen-normal.md) | オーウェン / Owen | SR | 水 | 下書き |
 | [water-sr-charlotta-summer.md](./water-sr-charlotta-summer.md) | 水着シャルロッテ / Charlotta (Summer) | SR | 水 | 下書き |
 | [water-sr-nitta-minami-normal.md](./water-sr-nitta-minami-normal.md) | 新田美波 / Minami Nitta | SR | 水 | 下書き |
 | [water-sr-lamretta-water.md](./water-sr-lamretta-water.md) | 水ラムレッダ / Lamretta (Water) | SR | 水 | 下書き |
 | [water-sr-mina-normal.md](./water-sr-mina-normal.md) | マイム / Mina | SR | 水 | 下書き |
 | [water-sr-erin-normal.md](./water-sr-erin-normal.md) | エリン(SR) / Erin (SR) | SR | 水 | 下書き |
-| [water-sr-lily-normal.md](./water-sr-lily-normal.md) | リリィ(SR) / Lily (SR) | SR | 水 | 下書き |
+| [water-sr-lily-normal.md](./water-sr-lily-normal.md) | リリィ(SR) / Lily (Event) | SR | 水 | 下書き |
 | [water-sr-anastasia-normal.md](./water-sr-anastasia-normal.md) | アナスタシア(アーニャ) / Anastasia | SR | 水 | 下書き |
 | [water-sr-pengy-gacha.md](./water-sr-pengy-gacha.md) | ペンギー(ガチャ) / Pengy | SR | 水 | 下書き |
 | [water-sr-camieux-summer.md](./water-sr-camieux-summer.md) | 水着クムユ / Camieux (Summer) | SR | 水 | 下書き |
-| [water-sr-diantha-normal.md](./water-sr-diantha-normal.md) | ディアンサ / Diantha | SR | 水 | 下書き |
-| [water-sr-morphe-and-vetur-normal.md](./water-sr-morphe-and-vetur-normal.md) | モルフェとヴェトル / Morphe and Vetur | SR | 水 | 下書き |
-| [water-sr-lowain-normal.md](./water-sr-lowain-normal.md) | ローアイン(SR) / Lowain (SR) | SR | 水 | 下書き |
-| [water-sr-pamela-normal.md](./water-sr-pamela-normal.md) | パメラ / Pamela | SR | 水 | 下書き |
+| [water-sr-diantha-normal.md](./water-sr-diantha-normal.md) | ディアンサ / Diantha (Promo) | SR | 水 | 下書き |
+| [water-sr-morphe-and-vetur-normal.md](./water-sr-morphe-and-vetur-normal.md) | モルフェとヴェトル / Morphe and Phoebe (Event) | SR | 水 | 下書き |
+| [water-sr-lowain-normal.md](./water-sr-lowain-normal.md) | ローアイン(SR) / Lowain (Event) | SR | 水 | 下書き |
+| [water-sr-pamela-normal.md](./water-sr-pamela-normal.md) | パメラ / Pamela (Promo) | SR | 水 | 下書き |
 | [water-sr-naga-normal.md](./water-sr-naga-normal.md) | ナーガ / Naga | SR | 水 | 下書き |
-| [water-sr-lancelot-normal.md](./water-sr-lancelot-normal.md) | ランスロット(SR) / Lancelot (SR) | SR | 水 | 下書き |
+| [water-sr-lancelot-normal.md](./water-sr-lancelot-normal.md) | ランスロット(SR) / Lancelot (Event) | SR | 水 | 下書き |
 | [water-sr-vane-gacha.md](./water-sr-vane-gacha.md) | ヴェイン(ガチャ) / Vane (SR) | SR | 水 | 下書き |
 | [water-sr-sig-gacha.md](./water-sr-sig-gacha.md) | シグ(ガチャ) / Sig (SR) | SR | 水 | 下書き |
 | [water-sr-chun-li-normal.md](./water-sr-chun-li-normal.md) | 春麗(チュンリー) / Chun-Li | SR | 水 | 下書き |
 | [water-sr-sakuraba-kaoru-normal.md](./water-sr-sakuraba-kaoru-normal.md) | 桜庭薫 / Kaoru Sakuraba | SR | 水 | 下書き |
 | [water-sr-suframare-summer.md](./water-sr-suframare-summer.md) | 水着スフラマール / Suframare (Summer) | SR | 水 | 下書き |
-| [water-sr-romeo-normal.md](./water-sr-romeo-normal.md) | ロミオ(SR) / Romeo (SR) | SR | 水 | 下書き |
+| [water-sr-romeo-normal.md](./water-sr-romeo-normal.md) | ロミオ(SR) / Romeo (Event) | SR | 水 | 下書き |
 | [water-sr-sahli-lao-normal.md](./water-sr-sahli-lao-normal.md) | ザーリリャオー / Sahli Lao | SR | 水 | 下書き |
 | [water-sr-pengy-event.md](./water-sr-pengy-event.md) | ペンギー(イベント) / Pengy (Event) | SR | 水 | 下書き |
 | [water-sr-kawashima-mizuki-normal.md](./water-sr-kawashima-mizuki-normal.md) | 川島瑞樹 / Mizuki Kawashima | SR | 水 | 下書き |
@@ -825,7 +825,7 @@
 | [water-sr-io-normal.md](./water-sr-io-normal.md) | イオ(SR) / Io (SR) | SR | 水 | 下書き |
 | [water-sr-katalina-normal.md](./water-sr-katalina-normal.md) | カタリナ(SR) / Katalina (SR) | SR | 水 | 下書き |
 | [water-sr-mishra-normal.md](./water-sr-mishra-normal.md) | マイシェラ / Mishra | SR | 水 | 下書き |
-| [water-sr-therese-normal.md](./water-sr-therese-normal.md) | テレーズ(SR) / Therese (SR) | SR | 水 | 下書き |
+| [water-sr-therese-normal.md](./water-sr-therese-normal.md) | テレーズ(SR) / Therese (Event) | SR | 水 | 下書き |
 | [earth-sr-zaja-halloween.md](./earth-sr-zaja-halloween.md) | ザザ(ハロウィン) / Zaja (Halloween) | SR | 土 | 下書き |
 | [earth-sr-la-coiffe-normal.md](./earth-sr-la-coiffe-normal.md) | コワフュール(SR) / La Coiffe (SR) | SR | 土 | 下書き |
 | [earth-sr-lancelot-and-vane-summer.md](./earth-sr-lancelot-and-vane-summer.md) | 水着ランスロット&ヴェイン / Lancelot and Vane (Summer) | SR | 土 | 下書き |
@@ -838,25 +838,25 @@
 | [earth-sr-leona-normal.md](./earth-sr-leona-normal.md) | レオナ / Leona | SR | 土 | 下書き |
 | [earth-sr-carmelina-normal.md](./earth-sr-carmelina-normal.md) | カルメリーナ(SR) / Carmelina (SR) | SR | 土 | 下書き |
 | [earth-sr-nezahualpilli-normal.md](./earth-sr-nezahualpilli-normal.md) | ネツァワルピリ(SR) / Nezahualpilli (SR) | SR | 土 | 下書き |
-| [earth-sr-makira-normal.md](./earth-sr-makira-normal.md) | マキラ(SR) / Makira (SR) | SR | 土 | 下書き |
+| [earth-sr-makira-normal.md](./earth-sr-makira-normal.md) | マキラ(SR) / Mahira (Event) | SR | 土 | 下書き |
 | [earth-sr-mimlemel-and-pun-kin-halloween.md](./earth-sr-mimlemel-and-pun-kin-halloween.md) | ミムルメモル&パンプキン(ハロウィン) / Mimlemel and Pun-Kin (Halloween) | SR | 土 | 下書き |
 | [earth-sr-yamanbagiri-kunihiro-normal.md](./earth-sr-yamanbagiri-kunihiro-normal.md) | 山姥切国広 / Yamanbagiri Kunihiro | SR | 土 | 下書き |
 | [earth-sr-ayer-summer.md](./earth-sr-ayer-summer.md) | 水着アイル / Ayer (Summer) | SR | 土 | 下書き |
-| [earth-sr-walder-normal.md](./earth-sr-walder-normal.md) | ウェルダー(SR) / Walder (SR) | SR | 土 | 下書き |
+| [earth-sr-walder-normal.md](./earth-sr-walder-normal.md) | ウェルダー(SR) / Walder (Event) | SR | 土 | 下書き |
 | [earth-sr-cain-normal.md](./earth-sr-cain-normal.md) | カイン(SR) / Cain (SR) | SR | 土 | 下書き |
 | [earth-sr-jin-summer.md](./earth-sr-jin-summer.md) | 水着ジン / Jin (Summer) | SR | 土 | 下書き |
 | [earth-sr-herja-normal.md](./earth-sr-herja-normal.md) | ヘリヤ(SR) / Herja (SR) | SR | 土 | 下書き |
 | [earth-sr-jessica-earth.md](./earth-sr-jessica-earth.md) | ジェシカ(土) / Jessica (Earth) | SR | 土 | 下書き |
-| [earth-sr-paris-normal.md](./earth-sr-paris-normal.md) | パリス(SR) / Paris (SR) | SR | 土 | 下書き |
+| [earth-sr-paris-normal.md](./earth-sr-paris-normal.md) | パリス(SR) / Paris (Event) | SR | 土 | 下書き |
 | [earth-sr-jj-summer.md](./earth-sr-jj-summer.md) | 水着J・J / J.J. (Summer) | SR | 土 | 下書き |
 | [earth-sr-sara-summer.md](./earth-sr-sara-summer.md) | 水着サラ / Sara (Summer) | SR | 土 | 下書き |
 | [earth-sr-almeida-normal.md](./earth-sr-almeida-normal.md) | アルメイダ / Almeida | SR | 土 | 下書き |
 | [earth-sr-jamil-normal.md](./earth-sr-jamil-normal.md) | ジャミル(土) / Jamil | SR | 土 | 下書き |
 | [earth-sr-laguna-normal.md](./earth-sr-laguna-normal.md) | ラグナ / Laguna | SR | 土 | 下書き |
 | [earth-sr-redluck-normal.md](./earth-sr-redluck-normal.md) | レッドラック / Redluck | SR | 土 | 下書き |
-| [earth-sr-aufstern-normal.md](./earth-sr-aufstern-normal.md) | アウフスタ / Aufstern | SR | 土 | 下書き |
+| [earth-sr-aufstern-normal.md](./earth-sr-aufstern-normal.md) | アウフスタ / Augusta (Promo) | SR | 土 | 下書き |
 | [earth-sr-tokitoki-airi-normal.md](./earth-sr-tokitoki-airi-normal.md) | 十時愛梨 / Airi Totoki | SR | 土 | 下書き |
-| [earth-sr-skull-normal.md](./earth-sr-skull-normal.md) | スカル(SR) / Skull (SR) | SR | 土 | 下書き |
+| [earth-sr-skull-normal.md](./earth-sr-skull-normal.md) | スカル(SR) / Skull (Event) | SR | 土 | 下書き |
 | [earth-sr-yaia-normal.md](./earth-sr-yaia-normal.md) | ヤイア(SR) / Yaia (SR) | SR | 土 | 下書き |
 | [earth-sr-jasmine-normal.md](./earth-sr-jasmine-normal.md) | ジャスミン(SR) / Jasmine (SR) | SR | 土 | 下書き |
 | [earth-sr-galadar-normal.md](./earth-sr-galadar-normal.md) | ガラドア(SR) / Galadar (SR) | SR | 土 | 下書き |
@@ -865,56 +865,56 @@
 | [earth-sr-eugen-summer.md](./earth-sr-eugen-summer.md) | 水着オイゲン / Eugen (Summer) | SR | 土 | 下書き |
 | [earth-sr-futaba-anzu-normal.md](./earth-sr-futaba-anzu-normal.md) | 双葉杏 / Anzu Futaba | SR | 土 | 下書き |
 | [earth-sr-claudia-normal.md](./earth-sr-claudia-normal.md) | クラウディア / Claudia | SR | 土 | 下書き |
-| [earth-sr-volenna-normal.md](./earth-sr-volenna-normal.md) | ボレミア(SR) / Volenna (SR) | SR | 土 | 下書き |
+| [earth-sr-volenna-normal.md](./earth-sr-volenna-normal.md) | ボレミア(SR) / Volenna (Event) | SR | 土 | 下書き |
 | [earth-sr-ladiva-normal.md](./earth-sr-ladiva-normal.md) | ファスティバ / Ladiva | SR | 土 | 下書き |
 | [earth-sr-rackam-holiday.md](./earth-sr-rackam-holiday.md) | ラカム(クリスマス) / Rackam (Holiday) | SR | 土 | 下書き |
 | [earth-sr-mariah-normal.md](./earth-sr-mariah-normal.md) | マライア / Mariah | SR | 土 | 下書き |
-| [earth-sr-yuri-normal.md](./earth-sr-yuri-normal.md) | ユーリ(土) / Yuri | SR | 土 | 下書き |
+| [earth-sr-yuri-normal.md](./earth-sr-yuri-normal.md) | ユーリ(土) / Juri (Event) | SR | 土 | 下書き |
 | [earth-sr-farrah-normal.md](./earth-sr-farrah-normal.md) | ファラ(SR) / Farrah (SR) | SR | 土 | 下書き |
 | [earth-sr-jin-event.md](./earth-sr-jin-event.md) | ジン(砂神) / Jin (Event) | SR | 土 | 下書き |
 | [earth-sr-sara-event.md](./earth-sr-sara-event.md) | サラ(SR) / Sara (Event) | SR | 土 | 下書き |
-| [earth-sr-solids-normal.md](./earth-sr-solids-normal.md) | ソリッズ(土) / Solids | SR | 土 | 下書き |
+| [earth-sr-solids-normal.md](./earth-sr-solids-normal.md) | ソリッズ(土) / Soriz | SR | 土 | 下書き |
 | [earth-sr-lamretta-normal.md](./earth-sr-lamretta-normal.md) | ラムレッダ(SR) / Lamretta (SR) | SR | 土 | 下書き |
 | [earth-sr-gayne-normal.md](./earth-sr-gayne-normal.md) | ガイーヌ / Gayne | SR | 土 | 下書き |
 | [earth-sr-eugen-normal.md](./earth-sr-eugen-normal.md) | オイゲン / Eugen | SR | 土 | 下書き |
 | [wind-sr-spinnah-christmas.md](./wind-sr-spinnah-christmas.md) | スピナー(クリスマス) / Spinnah (Holiday) | SR | 風 | 下書き |
 | [wind-sr-joy-normal.md](./wind-sr-joy-normal.md) | ジョイ(プロトジョヤ) / Joy (Event) | SR | 風 | 下書き |
 | [wind-sr-krugne-normal.md](./wind-sr-krugne-normal.md) | クルーニ(SR) / Krugne (SR) | SR | 風 | 下書き |
-| [wind-sr-korwa-uniform.md](./wind-sr-korwa-uniform.md) | 制服コルワ / Korwa (Uniform) | SR | 風 | 下書き |
+| [wind-sr-korwa-uniform.md](./wind-sr-korwa-uniform.md) | 制服コルワ / Korwa (SR) | SR | 風 | 下書き |
 | [wind-sr-yaia-christmas.md](./wind-sr-yaia-christmas.md) | ヤイア(クリスマス) / Yaia (Holiday) | SR | 風 | 下書き |
 | [wind-sr-arthur-and-mordred-normal.md](./wind-sr-arthur-and-mordred-normal.md) | アーサー&モルドレッド / Arthur and Mordred | SR | 風 | 下書き |
-| [wind-sr-yuri-wind.md](./wind-sr-yuri-wind.md) | 風ユーリ / Yuri (Wind) | SR | 風 | 下書き |
+| [wind-sr-yuri-wind.md](./wind-sr-yuri-wind.md) | 風ユーリ / Juri | SR | 風 | 下書き |
 | [wind-sr-yuisis-yukata.md](./wind-sr-yuisis-yukata.md) | 浴衣ユイシス(SR) / Yuisis (Yukata) | SR | 風 | 下書き |
-| [wind-sr-amuro-toru-normal.md](./wind-sr-amuro-toru-normal.md) | 安室透 / Amuro Toru | SR | 風 | 下書き |
+| [wind-sr-amuro-toru-normal.md](./wind-sr-amuro-toru-normal.md) | 安室透 / Tōru Amuro | SR | 風 | 下書き |
 | [wind-sr-mikasa-normal.md](./wind-sr-mikasa-normal.md) | ミカサ / Mikasa | SR | 風 | 下書き |
 | [wind-sr-arthur-normal.md](./wind-sr-arthur-normal.md) | アーサー(SR) / Arthur (Event) | SR | 風 | 下書き |
 | [wind-sr-mirin-normal.md](./wind-sr-mirin-normal.md) | ミリン / Mirin | SR | 風 | 下書き |
 | [wind-sr-karteira-normal.md](./wind-sr-karteira-normal.md) | カルテイラ(SR) / Karteira (SR) | SR | 風 | 下書き |
 | [wind-sr-chloe-summer.md](./wind-sr-chloe-summer.md) | 水着クロエ / Chloe (Summer) | SR | 風 | 下書き |
 | [wind-sr-ichinose-shiki-normal.md](./wind-sr-ichinose-shiki-normal.md) | 一ノ瀬志希 / Shiki Ichinose | SR | 風 | 下書き |
-| [wind-sr-charlotta-wind.md](./wind-sr-charlotta-wind.md) | 風シャルロッテ / Charlotta (Wind) | SR | 風 | 下書き |
+| [wind-sr-charlotta-wind.md](./wind-sr-charlotta-wind.md) | 風シャルロッテ / Charlotta (Event) | SR | 風 | 下書き |
 | [wind-sr-sevastien-normal.md](./wind-sr-sevastien-normal.md) | セワスチアン / Sevastien | SR | 風 | 下書き |
 | [wind-sr-tyre-normal.md](./wind-sr-tyre-normal.md) | タイアー / Tyre | SR | 風 | 下書き |
-| [wind-sr-alisa-normal.md](./wind-sr-alisa-normal.md) | アリサ(シャドバ) / Alisa (Shadowverse) | SR | 風 | 下書き |
+| [wind-sr-alisa-normal.md](./wind-sr-alisa-normal.md) | アリサ(シャドバ) / Arisa | SR | 風 | 下書き |
 | [wind-sr-haohmaru-normal.md](./wind-sr-haohmaru-normal.md) | 覇王丸 / Haohmaru | SR | 風 | 下書き |
-| [wind-sr-myun-normal.md](./wind-sr-myun-normal.md) | ミュオン / Myun | SR | 風 | 下書き |
-| [wind-sr-anthuria-normal.md](./wind-sr-anthuria-normal.md) | アンチラ(SR) / Anthuria (SR) | SR | 風 | 下書き |
+| [wind-sr-myun-normal.md](./wind-sr-myun-normal.md) | ミュオン / Meteon (Event) | SR | 風 | 下書き |
+| [wind-sr-anthuria-normal.md](./wind-sr-anthuria-normal.md) | アンチラ(SR) / Andira (Event) | SR | 風 | 下書き |
 | [wind-sr-sen-christmas.md](./wind-sr-sen-christmas.md) | セン(クリスマス) / Sen (Holiday) | SR | 風 | 下書き |
 | [wind-sr-mimlemel-and-stumpeye-normal.md](./wind-sr-mimlemel-and-stumpeye-normal.md) | ミムルメモル&切り株 / Mimlemel and Stumpeye | SR | 風 | 下書き |
-| [wind-sr-jin-summer.md](./wind-sr-jin-summer.md) | ふんどしジン / Jin (Summer) | SR | 風 | 下書き |
+| [wind-sr-jin-summer.md](./wind-sr-jin-summer.md) | ふんどしジン / Jin (Wind) | SR | 風 | 下書き |
 | [wind-sr-shinguji-sakura-normal.md](./wind-sr-shinguji-sakura-normal.md) | 真宮寺さくら / Sakura Shinguji | SR | 風 | 下書き |
 | [wind-sr-eso-normal.md](./wind-sr-eso-normal.md) | エシオ(SR) / Eso (SR) | SR | 風 | 下書き |
 | [wind-sr-rashid-normal.md](./wind-sr-rashid-normal.md) | ラシード / Rashid | SR | 風 | 下書き |
 | [wind-sr-robertina-normal.md](./wind-sr-robertina-normal.md) | ロベルティナ / Robertina (Promo) | SR | 風 | 下書き |
 | [wind-sr-sevilbarra-normal.md](./wind-sr-sevilbarra-normal.md) | サビルバラ / Sevilbarra | SR | 風 | 下書き |
 | [wind-sr-ryu-normal.md](./wind-sr-ryu-normal.md) | リュウ / Ryu | SR | 風 | 下書き |
-| [wind-sr-farrah-wind.md](./wind-sr-farrah-wind.md) | 風ファラ / Farrah (Wind) | SR | 風 | 下書き |
+| [wind-sr-farrah-wind.md](./wind-sr-farrah-wind.md) | 風ファラ / Farrah (Event) | SR | 風 | 下書き |
 | [wind-sr-goblin-mage-normal.md](./wind-sr-goblin-mage-normal.md) | ミニゴブ / Goblin Mage | SR | 風 | 下書き |
 | [wind-sr-kashiwagi-tsubasa-normal.md](./wind-sr-kashiwagi-tsubasa-normal.md) | 柏木翼 / Tsubasa Kashiwagi | SR | 風 | 下書き |
 | [wind-sr-lecia-summer.md](./wind-sr-lecia-summer.md) | 水着リーシャ(SR) / Lecia (Summer) | SR | 風 | 下書き |
 | [wind-sr-lecia-normal.md](./wind-sr-lecia-normal.md) | リーシャ(SR) / Lecia | SR | 風 | 下書き |
 | [wind-sr-maekawa-miku-normal.md](./wind-sr-maekawa-miku-normal.md) | 前川みく / Miku Maekawa | SR | 風 | 下書き |
-| [wind-sr-sil-normal.md](./wind-sr-sil-normal.md) | スィール / Sil | SR | 風 | 下書き |
+| [wind-sr-sil-normal.md](./wind-sr-sil-normal.md) | スィール / Syr (Event) | SR | 風 | 下書き |
 | [wind-sr-hazen-normal.md](./wind-sr-hazen-normal.md) | ヘイゼン(SR) / Hazen (SR) | SR | 風 | 下書き |
 | [wind-sr-aster-wind.md](./wind-sr-aster-wind.md) | アステール / Aster (Event) | SR | 風 | 下書き |
 | [wind-sr-mimlemel-normal.md](./wind-sr-mimlemel-normal.md) | ミムルメモル / Mimlemel | SR | 風 | 下書き |
@@ -931,10 +931,10 @@
 | [dark-sr-you-normal.md](./dark-sr-you-normal.md) | ヨウ / You (Event) | SR | 闇 | 下書き |
 | [dark-sr-richard-dark.md](./dark-sr-richard-dark.md) | 闇リチャード / Richard (Dark) | SR | 闇 | 下書き |
 | [dark-sr-skull-dark.md](./dark-sr-skull-dark.md) | 闇スカル / Skull (Dark) | SR | 闇 | 下書き |
-| [dark-sr-cassius-normal.md](./dark-sr-cassius-normal.md) | カシウス / Cassius | SR | 闇 | 下書き |
+| [dark-sr-cassius-normal.md](./dark-sr-cassius-normal.md) | カシウス / Cassius (Event) | SR | 闇 | 下書き |
 | [dark-sr-feather-halloween.md](./dark-sr-feather-halloween.md) | フェザー(ハロウィン) / Feather (Halloween) | SR | 闇 | 下書き |
 | [dark-sr-arulumaya-yukata.md](./dark-sr-arulumaya-yukata.md) | 浴衣アルルメイヤ / Arulumaya (Yukata) | SR | 闇 | 下書き |
-| [dark-sr-olivia-summer.md](./dark-sr-olivia-summer.md) | 水着オリヴィエ / Olivia (Summer) | SR | 闇 | 下書き |
+| [dark-sr-olivia-summer.md](./dark-sr-olivia-summer.md) | 水着オリヴィエ / Olivia (Event) | SR | 闇 | 下書き |
 | [dark-sr-narmaya-valentine.md](./dark-sr-narmaya-valentine.md) | ナルメア(バレンタイン) / Narmaya (Valentine) | SR | 闇 | 下書き |
 | [dark-sr-randall-normal.md](./dark-sr-randall-normal.md) | ランドル(SR) / Randall (SR) | SR | 闇 | 下書き |
 | [dark-sr-vania-normal.md](./dark-sr-vania-normal.md) | ヴァンピィ(SR) / Vania (SR) | SR | 闇 | 下書き |
@@ -943,17 +943,17 @@
 | [dark-sr-deliford-normal.md](./dark-sr-deliford-normal.md) | デリフォード(SR) / Deliford (SR) | SR | 闇 | 下書き |
 | [dark-sr-cagliostro-normal.md](./dark-sr-cagliostro-normal.md) | カリオストロ(SR) / Cagliostro (Event) | SR | 闇 | 下書き |
 | [dark-sr-ludmila-normal.md](./dark-sr-ludmila-normal.md) | ルドミリア / Ludmila | SR | 闇 | 下書き |
-| [dark-sr-luna-normal.md](./dark-sr-luna-normal.md) | ルナ(シャドバ) / Luna (Shadowverse) | SR | 闇 | 下書き |
+| [dark-sr-luna-normal.md](./dark-sr-luna-normal.md) | ルナ(シャドバ) / Luna | SR | 闇 | 下書き |
 | [dark-sr-tanya-normal.md](./dark-sr-tanya-normal.md) | ターニャ(SR) / Tanya (SR) | SR | 闇 | 下書き |
 | [dark-sr-kanzaki-ranko-normal.md](./dark-sr-kanzaki-ranko-normal.md) | 神崎蘭子 / Ranko Kanzaki | SR | 闇 | 下書き |
-| [dark-sr-elize-normal.md](./dark-sr-elize-normal.md) | エリーゼ / Elize | SR | 闇 | 下書き |
+| [dark-sr-elize-normal.md](./dark-sr-elize-normal.md) | エリーゼ / Elize Lutus | SR | 闇 | 下書き |
 | [dark-sr-stahn-normal.md](./dark-sr-stahn-normal.md) | スタン(SR) / Stan (Event) | SR | 闇 | 下書き |
 | [dark-sr-shao-normal.md](./dark-sr-shao-normal.md) | シャオ / Shao | SR | 闇 | 下書き |
 | [dark-sr-will-normal.md](./dark-sr-will-normal.md) | ウィル(SR) / Will (SR) | SR | 闇 | 下書き |
 | [dark-sr-shirasaka-koume-normal.md](./dark-sr-shirasaka-koume-normal.md) | 白坂小梅 / Koume Shirasaka | SR | 闇 | 下書き |
 | [dark-sr-tanya-summer.md](./dark-sr-tanya-summer.md) | 水着ターニャ / Tanya (Summer) | SR | 闇 | 下書き |
 | [dark-sr-yuri-lowell-normal.md](./dark-sr-yuri-lowell-normal.md) | ユーリ(テイルズ) / Yuri Lowell | SR | 闇 | 下書き |
-| [dark-sr-zehek-normal.md](./dark-sr-zehek-normal.md) | ゼヘク(SR) / Zehek (SR) | SR | 闇 | 下書き |
+| [dark-sr-zehek-normal.md](./dark-sr-zehek-normal.md) | ゼヘク(SR) / Zehek (Event) | SR | 闇 | 下書き |
 | [dark-sr-zaja-normal.md](./dark-sr-zaja-normal.md) | ザザ / Zaja | SR | 闇 | 下書き |
 | [dark-sr-rita-normal.md](./dark-sr-rita-normal.md) | リタ / Rita | SR | 闇 | 下書き |
 | [dark-sr-jogasaki-mika-normal.md](./dark-sr-jogasaki-mika-normal.md) | 城ヶ崎美嘉 / Mika Jougasaki | SR | 闇 | 下書き |
@@ -967,7 +967,7 @@
 | [light-r-daetta-normal.md](./light-r-daetta-normal.md) | ダエッタ / Daetta | R | 光 | 下書き |
 | [light-r-feather-normal.md](./light-r-feather-normal.md) | フェザー(R) / Feather | R | 光 | 下書き |
 | [light-r-rosamia-normal.md](./light-r-rosamia-normal.md) | ロザミア(R) / Rosamia | R | 光 | 下書き |
-| [fire-r-neko-normal.md](./fire-r-neko-normal.md) | 猫 / Neko (Cat) | R | 火 | 下書き |
+| [fire-r-neko-normal.md](./fire-r-neko-normal.md) | 猫 / Young Cat (Event) | R | 火 | 下書き |
 | [fire-r-drusilla-normal.md](./fire-r-drusilla-normal.md) | ドロッセル(R) / Drusilla | R | 火 | 下書き |
 | [fire-r-ippatsu-summer.md](./fire-r-ippatsu-summer.md) | 水着イッパツ / Ippatsu (Summer) | R | 火 | 下書き |
 | [fire-r-rosine-normal.md](./fire-r-rosine-normal.md) | ロジーヌ / Rosine | R | 火 | 下書き |
@@ -978,14 +978,14 @@
 | [fire-r-ippatsu-normal.md](./fire-r-ippatsu-normal.md) | イッパツ(R) / Ippatsu | R | 火 | 下書き |
 | [fire-r-karva-normal.md](./fire-r-karva-normal.md) | カルバ / Karva | R | 火 | 下書き |
 | [fire-r-barawa-normal.md](./fire-r-barawa-normal.md) | バロワ(R) / Barawa (R) | R | 火 | 下書き |
-| [fire-r-cumyu-fire.md](./fire-r-cumyu-fire.md) | 火クムユ / Cumyu (Fire) | R | 火 | 下書き |
+| [fire-r-cumyu-fire.md](./fire-r-cumyu-fire.md) | 火クムユ / Camieux | R | 火 | 下書き |
 | [fire-r-elmelaura-normal.md](./fire-r-elmelaura-normal.md) | エルメラウラ / Elmelaura | R | 火 | 下書き |
 | [fire-r-mary-summer.md](./fire-r-mary-summer.md) | 水着マリー / Mary (Summer) | R | 火 | 下書き |
 | [fire-r-anna-summer.md](./fire-r-anna-summer.md) | 水着アンナ / Anna (Summer) | R | 火 | 下書き |
 | [fire-r-mary-normal.md](./fire-r-mary-normal.md) | マリー(R) / Mary | R | 火 | 下書き |
 | [fire-r-anna-normal.md](./fire-r-anna-normal.md) | アンナ(R) / Anna | R | 火 | 下書き |
 | [fire-r-ryan-normal.md](./fire-r-ryan-normal.md) | ライアン(R) / Ryan | R | 火 | 下書き |
-| [water-r-haira-normal.md](./water-r-haira-normal.md) | ハイラ(R) / Haira (R) | R | 水 | 下書き |
+| [water-r-haira-normal.md](./water-r-haira-normal.md) | ハイラ(R) / Payila (Event) | R | 水 | 下書き |
 | [water-r-randall-normal.md](./water-r-randall-normal.md) | ランドル(R) / Randall | R | 水 | 下書き |
 | [water-r-cailana-normal.md](./water-r-cailana-normal.md) | カイラナ(R) / Cailana | R | 水 | 下書き |
 | [water-r-aristella-normal.md](./water-r-aristella-normal.md) | アリステラ / Alistair | R | 水 | 下書き |
@@ -995,7 +995,7 @@
 | [water-r-suframare-normal.md](./water-r-suframare-normal.md) | スフラマール / Suframare | R | 水 | 下書き |
 | [water-r-richard-normal.md](./water-r-richard-normal.md) | リチャード / Richard | R | 水 | 下書き |
 | [water-r-deliford-normal.md](./water-r-deliford-normal.md) | デリフォード(R) / Deliford | R | 水 | 下書き |
-| [earth-r-catura-normal.md](./earth-r-catura-normal.md) | シャトラ(R) / Catura (R) | R | 土 | 下書き |
+| [earth-r-catura-normal.md](./earth-r-catura-normal.md) | シャトラ(R) / Catura (Event) | R | 土 | 下書き |
 | [earth-r-la-coiffe-normal.md](./earth-r-la-coiffe-normal.md) | コワフュール / La Coiffe | R | 土 | 下書き |
 | [earth-r-balurga-normal.md](./earth-r-balurga-normal.md) | バルルガン / Balurga | R | 土 | 下書き |
 | [earth-r-nene-normal.md](./earth-r-nene-normal.md) | ネネ / Nene | R | 土 | 下書き |
@@ -1022,7 +1022,7 @@
 | [wind-r-petra-normal.md](./wind-r-petra-normal.md) | ペトラ / Petra | R | 風 | 下書き |
 | [wind-r-hazen-normal.md](./wind-r-hazen-normal.md) | ヘイゼン(R) / Hazen | R | 風 | 下書き |
 | [wind-r-eso-normal.md](./wind-r-eso-normal.md) | エシオ / Eso | R | 風 | 下書き |
-| [dark-r-vikala-normal.md](./dark-r-vikala-normal.md) | ビカラ(R) / Vikala (R) | R | 闇 | 下書き |
+| [dark-r-vikala-normal.md](./dark-r-vikala-normal.md) | ビカラ(R) / Vikala (Event) | R | 闇 | 下書き |
 | [dark-r-bakura-normal.md](./dark-r-bakura-normal.md) | バクラ / Bakura | R | 闇 | 下書き |
 | [dark-r-lunalu-summer.md](./dark-r-lunalu-summer.md) | 水着ルナール / Lunalu (Summer) | R | 闇 | 下書き |
 | [dark-r-lunalu-normal.md](./dark-r-lunalu-normal.md) | ルナール / Lunalu | R | 闇 | 下書き |

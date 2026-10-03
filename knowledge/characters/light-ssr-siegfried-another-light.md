@@ -1,7 +1,7 @@
 ---
 id: "light-ssr-siegfried-another-light"
 name_jp: "ジークフリート(光/アナザー)"
-name_en: "Siegfried (Another, Light)"
+name_en: "Siegfried (Light)"
 rarity: SSR
 element: "光"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(武器「黒竜騎士団制式帯剣・対竜�
 has_ex_ability: false
 release_date: ""
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/420295) (取得日: 2026-08-18)。gbf.wiki上で該当ページが検索から見つからず、クロスチェック未実施。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/420295) (取得日: 2026-08-18)。gbf.wiki上で該当ページが検索から見つからず、クロスチェック未実施。 名称・版の照合: gbf.wiki (https://gbf.wiki/Siegfried_(Light))、公開characters表のID 3040485000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# ジークフリート(光/アナザー)(Siegfried (Another, Light))
+# ジークフリート(光/アナザー)(Siegfried (Light))
 
 ## 概要
 
@@ -76,5 +76,5 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 ## 未確認・要検証事項
 
-- gbf.wiki検索でこのキャラクター(光属性版ジークフリート・アナザー)に対応するページが見つからず、GameWithのみを情報源としている。英語名・HP/ATK・release_date等の一次情報での確認が必要。
+- 旧収集時はこのキャラクター(光属性版ジークフリート・アナザー)のWikiページを特定できず、性能本文はGameWithのみを基にした。名称・版は2026-10-04にWikiと照合。英語名・HP/ATK・release_date等の一次情報での確認が必要。
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。

@@ -1,7 +1,7 @@
 ---
 id: "water-ssr-maria-teresa-normal"
 name_jp: "マリア・テレサ"
-name_en: "Maria Teresa"
+name_en: "Maria Theresa"
 rarity: SSR
 element: "水"
 race: "ドラフ"
@@ -11,11 +11,11 @@ obtain: "十賢者(アーカルム関連イベント等で加入)"
 has_ex_ability: false
 release_date: "不明(要確認)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/144750) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。十賢者(女帝)。「限界超越」システムによりLv100以降も段階的に強化される(2026年7月実装開始、第1弾対象)。本ファイルでは超越後の最新仕様を記載。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/144750) (取得日: 2026-08-18)。gbf.wiki候補が見つからなかったため、GameWithのみで作成。十賢者(女帝)。「限界超越」システムによりLv100以降も段階的に強化される(2026年7月実装開始、第1弾対象)。本ファイルでは超越後の最新仕様を記載。 名称・版の照合: gbf.wiki (https://gbf.wiki/Maria_Theresa)、公開characters表のID 3040160000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# マリア・テレサ(Maria Teresa)
+# マリア・テレサ(Maria Theresa)
 
 ## 概要
 

@@ -1,7 +1,7 @@
 ---
 id: "fire-ssr-sanchira-normal"
 name_jp: "サンチラ"
-name_en: "Sanchira"
+name_en: "Sandira"
 rarity: SSR
 element: "火"
 race: "ヒューマン"
@@ -11,11 +11,11 @@ obtain: "レジェンドガチャ(武器「天干地支弓・午之飾」入手�
 has_ex_ability: false
 release_date: "不明(要確認、十二神将「午」担当キャラ、2026年実装)"
 status: 下書き
-last_updated: 2026-08-18
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537542) (取得日: 2026-08-18)。十二神将(干支)キャラ。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。"
+last_updated: 2026-10-04
+source: "本文の旧収集記録: GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537542) (取得日: 2026-08-18)。十二神将(干支)キャラ。gbf.wiki候補ページが見つからなかったため、GameWithのみで作成。 名称・版の照合: gbf.wiki (https://gbf.wiki/Sandira)、公開characters表のID 3040633000・スタイル1と照合(2026-10-04)。括弧内はWikiの版識別表記を採用。名称の照合であり、本文性能の再検証ではない。"
 ---
 
-# サンチラ(Sanchira)
+# サンチラ(Sandira)
 
 ## 概要
 
