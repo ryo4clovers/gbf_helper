@@ -1,4 +1,5 @@
 import { getAllApiCalls, getAllAssets, getApiCallById, clearAll } from "./db.js";
+import { URL_FILTER_PRESETS, collectUrlFilters, filterRecordsByUrl } from "./viewer-filters.js";
 import {
   createRecorderState,
   findRecordedWeaponSkills,
@@ -10,7 +11,31 @@ import {
 const theadRow = document.getElementById("theadRow");
 const tbody = document.getElementById("tbody");
 const summary = document.getElementById("summary");
-const filterInputs = [...document.querySelectorAll(".filter")];
+const filterInput = document.getElementById("urlFilter");
+const presetContainer = document.getElementById("filterPresets");
+const presetInputs = [];
+for (const group of new Set(URL_FILTER_PRESETS.map((preset) => preset.group))) {
+  const fieldset = document.createElement("fieldset");
+  const legend = document.createElement("legend");
+  legend.textContent = group;
+  fieldset.append(legend);
+  for (const preset of URL_FILTER_PRESETS.filter((entry) => entry.group === group)) {
+    const label = document.createElement("label");
+    label.className = "preset";
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.value = preset.value;
+    const caption = document.createElement("span");
+    caption.textContent = preset.label;
+    const path = document.createElement("code");
+    path.textContent = preset.value;
+    caption.append(path);
+    label.append(input, caption);
+    fieldset.append(label);
+    presetInputs.push(input);
+  }
+  presetContainer.append(fieldset);
+}
 const tabApiBtn = document.getElementById("tabApi");
 const tabAssetsBtn = document.getElementById("tabAssets");
 
@@ -134,16 +159,11 @@ async function loadAll() {
 }
 
 function currentFilters() {
-  return filterInputs.map((input) => input.value.trim().toLowerCase()).filter(Boolean);
+  return collectUrlFilters(filterInput.value, presetInputs.filter((input) => input.checked).map((input) => input.value));
 }
 
 function filteredList(list) {
-  const filters = currentFilters();
-  if (filters.length === 0) return list;
-  return list.filter((record) => {
-    const url = record.url.toLowerCase();
-    return filters.some((filter) => url.includes(filter));
-  });
+  return filterRecordsByUrl(list, currentFilters());
 }
 
 function currentList() {
@@ -227,7 +247,8 @@ function setTab(tab) {
 
 tabApiBtn.addEventListener("click", () => setTab("api"));
 tabAssetsBtn.addEventListener("click", () => setTab("assets"));
-for (const filterInput of filterInputs) filterInput.addEventListener("input", render);
+filterInput.addEventListener("input", render);
+for (const input of presetInputs) input.addEventListener("change", render);
 document.getElementById("reload").addEventListener("click", loadAll);
 
 document.getElementById("export").addEventListener("click", async () => {

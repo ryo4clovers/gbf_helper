@@ -3,6 +3,15 @@
 `knowledge/` を充実させていく上での、情報源・収集方法・運用方針をまとめる作業メモ。
 セッションをまたいでも参照できるよう、リポジトリ内で管理する(Claude側の一時的な記憶には残さない)。
 
+### RecorderのURL検索をカンマ入力と15項目のチェックボックスへ変更(2026-10-04)
+
+- 出典: ユーザー指定の15種類のURLと、提供された`gbf-network-recorder-export-1791105524523.json`をオフラインで確認。ゲーム操作・実機API通信は行っていない。
+- 実装: 6枠の検索欄を1枠へ変更。半角カンマ区切りの各語と選択したチェック項目をORで合成し、大文字小文字・空白・空条件・重複を正規化。一覧・件数・絞り込みエクスポート・WebMCP現在条件に共通で適用。条件なしは全件、全件エクスポートは従来通り。v0.4.0へ更新。
+- URL表記: 提供記録では`/party/deck`と`/weapon_bullet/weapon_bullet`が末尾スラッシュなしだったため、定型条件の末尾スラッシュを省略。主人公LBは先頭スラッシュ付き`/zenith/bonus_list`でキャラLBと区別。`result.json`は通常攻撃・アビリティ・召喚の結果3種にも一致する。
+- 追加候補: `/rest/quest/decks_info/`に選択サポート石、`/rest/raid/get_hiddenweapon`に戦闘中の秘器情報、`/quest/create_quest`に戦闘IDが含まれることを確認。指定の15項目へ勝手に追加せず、READMEに任意入力候補として記録。`/npc/npc/`で装備アーティファクトのスキル情報と覚醒情報を含む例も確認した。
+- 検証: 新規検索テスト5件、既存WebMCPテスト6件とJavaScript構文検査を通過。ローカルの空DBでブラウザー表示、15チェックボックス、カンマ入力との併用を確認。拡張の記録・保存処理とDB形式は変更していない。
+- 生データ: ユーザー指定のDownloads原本を読み取りのみで使用。今回の用途はRecorder改善のためのURL/構造確認で、性能ナレッジへの取り込み・draft処理は行わない。原本・本文・個体ID・画面確認用画像はコミットしない。
+
 ### 出典を訂正したキャラクター5件の性能を再照合(2026-10-04)
 
 - 対象・出典: [闇ゼタ](../knowledge/characters/dark-ssr-zeta-dark.md)、[ツバサ](../knowledge/characters/fire-ssr-tsubasa-normal.md)、[イベントスーテラ](../knowledge/characters/fire-sr-sutera-event.md)、[ドレスエウロペ](../knowledge/characters/light-ssr-europa-holiday.md)、[シフト後イングヴェイ](../knowledge/characters/water-ssr-yngwie-shift.md)の正しい版のGameWith性能表とWiki原文（Jina経由）を照合。スーテラは神ゲー攻略も追加参照した。各ファイルに直接リンク・確認日・数値ごとの出典差を記載。
