@@ -275,6 +275,8 @@ test("resolves the sanitized Hades support summon from battle state", () => {
     [
       ["normal-skill-boost", 170],
       ["elemental-attack-up", 30],
+      ["elemental-attack-up", 20],
+      ["character-hp-up", 20],
     ],
   );
 });

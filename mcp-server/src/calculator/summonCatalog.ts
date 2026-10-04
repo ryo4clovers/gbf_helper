@@ -121,6 +121,7 @@ const summonCatalogSchema = z
               z
                 .object({
                   uncapLevel: z.number().int().nonnegative(),
+                  minimumLevel: z.number().int().positive().optional(),
                   auraDescription: z.string().min(1),
                   auraEffects: z.array(auraEffectSchema),
                   verificationStatus: z.enum(["検証済み", "下書き"]),
@@ -156,7 +157,7 @@ export interface IncrementalSummonCatalog {
   summons: Map<string, SummonMasterCatalogEntry>;
 }
 
-/** Uses an exact verified uncap override when available, otherwise the catalog default. */
+/** Uses the highest reached level threshold within the selected uncap stage. */
 export function resolveCatalogSummonAura(
   master: SummonMasterCatalogEntry,
   uncapLevel?: number,
@@ -165,7 +166,12 @@ export function resolveCatalogSummonAura(
   SummonMasterCatalogEntry,
   "auraDescription" | "auraEffects" | "verificationStatus" | "source" | "confirmedAt"
 > {
-  const override = master.auraOverrides?.find((candidate) => candidate.uncapLevel === uncapLevel);
+  const selectedUncap = uncapLevel ?? master.selectionDefaults?.uncapLevel;
+  const selectedLevel = level ?? master.selectionDefaults?.level;
+  const override = master.auraOverrides?.filter((candidate) => candidate.uncapLevel === selectedUncap
+    && (candidate.minimumLevel === undefined || (selectedLevel !== undefined && selectedLevel >= candidate.minimumLevel)))
+    .reduce<NonNullable<SummonMasterCatalogEntry["auraOverrides"]>[number] | undefined>((best, candidate) =>
+      best === undefined || (candidate.minimumLevel ?? 0) > (best.minimumLevel ?? 0) ? candidate : best, undefined);
   if (!override && master.auraMinimumLevel !== undefined && ((level !== undefined && level < master.auraMinimumLevel)
     || (uncapLevel !== undefined && uncapLevel < (master.selectionDefaults?.uncapLevel ?? 0)))) {
     return { ...master, auraEffects: [{ kind: "utility", description: `この段階の加護は未接続（登録値はLv${master.auraMinimumLevel}）` }] };

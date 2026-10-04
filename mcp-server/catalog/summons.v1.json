@@ -1009,7 +1009,7 @@
       "elementCode": "6",
       "rarityCode": "4",
       "auraName": "ハデスの加護",
-      "auraDescription": "スキル「闇」「憎悪」「奈落」の効果が170%UP。メイン召喚石に装備時、闇属性攻撃力が30%UP",
+      "auraDescription": "スキル「闇」「憎悪」「奈落」の効果が170%UP。メイン召喚石に装備時、闇属性攻撃力が30%UP。サブ装備時、闇属性キャラの闇属性攻撃力20%UP/HP20%UP",
       "auraEffects": [
         {
           "kind": "normal-skill-boost",
@@ -1030,12 +1030,28 @@
           "activation": "main-only",
           "description": "メイン召喚石に装備時、闇属性攻撃力が30%UP",
           "stackingGroup": "hades-transcendence-elemental-attack"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "6",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "hades-transcendence-elemental-attack",
+          "description": "サブ装備時、闇属性キャラの闇属性攻撃力が20%UP"
+        },
+        {
+          "kind": "character-hp-up",
+          "elementCode": "6",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "hades-transcendence-hp",
+          "description": "サブ装備時、闇属性キャラのHPが20%UP"
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": true,
-      "source": "ゲーム内startレスポンスの支援召喚石と加護説明で確認。紫禍黒麒麟との属性攻撃枠の共存規則はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/537603 (2026-10-03閲覧・実機未検証)",
-      "confirmedAt": "2026-09-05",
+      "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+      "confirmedAt": "2026-10-05",
       "levelStats": {
         "maximumLevel": 250,
         "points": [
@@ -1077,7 +1093,326 @@
         "plusMark": 0,
         "attack": 4281,
         "hp": 1387
-      }
+      },
+      "auraMinimumLevel": 250,
+      "auraOverrides": [
+        {
+          "uncapLevel": 0,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "always",
+              "description": "スキル「闇」「憎悪」「奈落」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 1,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "always",
+              "description": "スキル「闇」「憎悪」「奈落」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 2,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "always",
+              "description": "スキル「闇」「憎悪」「奈落」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 3,
+          "auraDescription": "スキル効果120%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 120,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "always",
+              "description": "スキル「闇」「憎悪」「奈落」の効果が120%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 4,
+          "auraDescription": "スキル効果140%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 140,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "always",
+              "description": "スキル「闇」「憎悪」「奈落」の効果が140%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 5,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "always",
+              "description": "スキル「闇」「憎悪」「奈落」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 1,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "always",
+              "description": "スキル「闇」「憎悪」「奈落」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 210,
+          "auraDescription": "スキル効果150%UP/サブ装備時、闇属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "always",
+              "description": "スキル「闇」「憎悪」「奈落」の効果が150%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "hades-transcendence-elemental-attack",
+              "description": "サブ装備時、闇属性キャラの闇属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "6",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "hades-transcendence-hp",
+              "description": "サブ装備時、闇属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 230,
+          "auraDescription": "スキル効果160%UP/サブ装備時、闇属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "always",
+              "description": "スキル「闇」「憎悪」「奈落」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "hades-transcendence-elemental-attack",
+              "description": "サブ装備時、闇属性キャラの闇属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "6",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "hades-transcendence-hp",
+              "description": "サブ装備時、闇属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 240,
+          "auraDescription": "スキル効果160%UP/メイン装備時、闇属性攻撃力30%UP/サブ装備時、闇属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "always",
+              "description": "スキル「闇」「憎悪」「奈落」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、闇属性攻撃力が30%UP",
+              "stackingGroup": "hades-transcendence-elemental-attack"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "hades-transcendence-elemental-attack",
+              "description": "サブ装備時、闇属性キャラの闇属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "6",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "hades-transcendence-hp",
+              "description": "サブ装備時、闇属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 250,
+          "auraDescription": "スキル効果170%UP/メイン装備時、闇属性攻撃力30%UP/サブ装備時、闇属性攻撃力20%UP・HP20%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "6",
+              "amountPercent": 170,
+              "targetSkillNamePrefixes": [
+                "闇",
+                "憎悪",
+                "奈落"
+              ],
+              "activation": "always",
+              "description": "スキル「闇」「憎悪」「奈落」の効果が170%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、闇属性攻撃力が30%UP",
+              "stackingGroup": "hades-transcendence-elemental-attack"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "6",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "stackingGroup": "hades-transcendence-elemental-attack",
+              "description": "サブ装備時、闇属性キャラの闇属性攻撃力が20%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "6",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "stackingGroup": "hades-transcendence-hp",
+              "description": "サブ装備時、闇属性キャラのHPが20%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "Lv250のサブ闇属性攻撃20%・HP20%はユーザー提供所持詳細で2026-09-09確認。段階別値はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/147575 (2026-10-05参照、二次情報)。紫禍黒麒麟との属性攻撃は同枠最大値（既存下書き）",
+          "confirmedAt": "2026-10-05"
+        }
+      ]
     },
     {
       "summonId": "2040094000",

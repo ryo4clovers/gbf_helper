@@ -21,7 +21,7 @@ test("creates a deterministic browser-safe summon catalog", () => {
     agni?.imageUrl,
     "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/summon/m/2040094000.jpg",
   );
-  assert.equal(hades?.auraEffects.length, 2);
+  assert.equal(hades?.auraEffects.length, 4);
   assert.equal(hades?.auraEffects[0]?.kind, "normal-skill-boost");
   assert.equal(hades?.supportSelectable, true);
   assert.deepEqual(agni?.selectionDefaults, {
