@@ -75,12 +75,11 @@ export function calculateCombatHp(input: {
   const unroundedHp = baseHp * (100 - effectiveWeaponHpReductionPercent) / 100
     * roundPercentage(100 + gridHpPercent + summonAuraPercent + otherHpPercent) / 100;
   // Weapon HP skills and percentage summon HP auras share one additive stage in the
-  // observed mixed setup. A weapon-skill fractional result rounds up; summon-only
-  // observations retain their separately verified floor. Tyranny-only observations
-  // (2026-10-05) round the remaining max HP up, including without HP-up skills.
-  const percentageAdjustedHp = appliedWeaponSkillEffects.length === 0 && appliedHpReductionEffects.length === 0
-    ? Math.floor(unroundedHp)
-    : Math.ceil(unroundedHp);
+  // observed mixed setup. The 2026-10-05 summon-only Hades battle also supports
+  // ceil: the former floor branch was one HP low in four slots. Earlier summon
+  // display observations had integer products and did not distinguish floor/ceil.
+  // Keep rounding provisional for other auras and combinations.
+  const percentageAdjustedHp = Math.ceil(unroundedHp);
   const hasFraction = !Number.isInteger(unroundedHp);
   const summonAuraFlatHp = appliedFlatAuras.reduce((sum, aura) => sum + aura.amount, 0);
   const issues: ProtagonistHpResult["issues"] = [];

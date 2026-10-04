@@ -49,7 +49,7 @@ test("marks fractional HP rounding as unresolved", () => {
   input.protagonist.hp = 4631;
   const result = calculateProtagonistHp(input);
 
-  assert.equal(result?.hp, 5557);
+  assert.equal(result?.hp, 5558);
   assert.deepEqual(result?.issues, ["fractional-rounding-unresolved"]);
 });
 

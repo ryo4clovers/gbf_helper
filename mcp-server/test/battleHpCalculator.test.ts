@@ -48,8 +48,37 @@ test("API separates display HP from combat HP and does not re-add flat enhanceme
     ] }, enemy: { elementCode: "5", defense: 10 }, modifiers: { divineStampBookEnabled: true } };
   const result = calculateNormalAttackFromRequest(request);
   assert.equal(result.characterStats[0].hp, 1266 + 4000 + 1000);
-  assert.equal(result.battleHp.characters[0].result?.hp, 6892);
+  assert.equal(result.battleHp.characters[0].result?.hp, 6893);
   assert.equal(result.battleHp.characters[1].result?.hp, 1100);
   assert.equal(result.battleHp.protagonist?.hp, 1000, "manual MC display already contains LB");
   assert.deepEqual(result.battleHp.protagonist, result.result.protagonistHp);
+});
+
+test("summon-only combat HP rounds up for protagonist, front and back slots without altering display HP", () => {
+  // Synthetic stats cover every fractional residue of a 20% aura, plus an integer.
+  for (const baseHp of [2000, 2001, 2002, 2003, 2004]) {
+    const request = { schemaVersion: 1, deckConfig: { schemaVersion: 1, format: "gbf-helper-calculator-deck",
+      protagonist: { elementCode: "6", attackOverride: 1000, hpOverride: baseHp }, weapons: [],
+      summons: [{ slot: 1, position: "sub", summonId: "2040090000", uncapLevel: 6, level: 250 }],
+      characters: [
+        { slot: 1, position: "front", characterId: "3040456000", elementCode: "6", hpOverride: baseHp, attackOverride: 1000 },
+        { slot: 4, position: "back", characterId: "synthetic", elementCode: "6", hpOverride: baseHp, attackOverride: 1000 },
+        { slot: 5, position: "back", characterId: "other-element", elementCode: "1", hpOverride: baseHp, attackOverride: 1000 },
+      ] }, enemy: { elementCode: "5", defense: 10 } };
+    const before = structuredClone(request), result = calculateNormalAttackFromRequest(request);
+    const expected = Math.ceil(baseHp * 120 / 100);
+    assert.equal(result.battleHp.protagonist?.hp, expected);
+    assert.equal(result.battleHp.protagonistStart?.hp, expected);
+    for (const slot of [1, 4]) {
+      const character = result.battleHp.characters.find(c => c.slot === slot)!;
+      assert.equal(character.result?.hp, expected);
+      assert.equal(character.result?.baseHp, baseHp);
+      assert.equal(character.start?.hp, expected);
+      assert.equal(character.start?.damage, 0);
+      assert.equal(character.result?.issues.includes("fractional-rounding-unresolved"), baseHp % 5 !== 0);
+    }
+    assert.equal(result.battleHp.characters.find(c => c.slot === 5)?.result?.hp, baseHp);
+    assert.equal(result.result.protagonistHp?.baseHp, baseHp);
+    assert.deepEqual(request, before);
+  }
 });

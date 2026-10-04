@@ -22,10 +22,10 @@ function request(): any {
   } };
 }
 
-test("Tyranny rounds remaining maximum HP up even without HP-up skills; summon-only rounding stays unchanged", () => {
+test("percentage-adjusted maximum HP rounds up even without HP-up skills", () => {
   assert.equal(calculateCombatHp({ baseHp: 5007, elementCode: "6", effects: [effect("weapon-hp-down", 10)] })!.hp, 4507);
   assert.equal(calculateCombatHp({ baseHp: 5007, elementCode: "6", effects: [effect("weapon-hp-down", 10, "1")] })!.hp, 5007);
-  assert.equal(calculateCombatHp({ baseHp: 5007, otherHpPercent: -10 })!.hp, 4506);
+  assert.equal(calculateCombatHp({ baseHp: 5007, otherHpPercent: -10 })!.hp, 4507);
   const input = request(); input.deckConfig.weapons[0].weaponId = "1040106400";
   const result = calculateNormalAttackFromRequest(input).battleHp;
   assert.equal(result.protagonist!.hp, 4507);
