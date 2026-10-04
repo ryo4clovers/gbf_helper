@@ -20,12 +20,12 @@ export function calculateIlsaDamage(calculation: NormalAttackCalculationRequest,
     source: "https://gbf.wiki/User:Cajunwildcat/Skill_Attenuation", multiplierStatus: "二次情報・要検証",
   };
   const result = calculateProfileDamage(calculation, kind === "ability" ? "ilsa-sin" : "ilsa-charge", profile, 0, kind, 1);
-  return { ...result, modelVersion: "ilsa-skill-candidate-v1", attenuationEvidence: { status: "候補" as const,
-    source: kind === "ability" ? "実測85発に最大2差の共通4ライン仮説。内部ID未取得" : "Wiki標準奥義表・ユーザー指定" },
+  return { ...result, modelVersion: "ilsa-skill-candidate-v2", attenuationEvidence: { status: "候補" as const,
+    source: kind === "ability" ? "共通4ライン仮説。上限増加分ceilで旧実測85発中84一致・最大1差、追加2戦8発一致。内部ID未取得" : "Wiki標準奥義表・ユーザー指定" },
     issues: [
       kind === "ability" ? "不散花別の4ラインは実測候補。2個60%・1個40%区間と丸めは追加検証が必要"
         : "奥義は4.5倍・固定加算2000・標準減衰表の下書き。キャラ覚醒と登録済みの武器覚醒補正を反映。その他の奥義専用武器スキルは未接続",
-      "アビリティ・奥義の武器技巧抽選と上限貫通は未接続。1アビの確定クリティカルは有利属性に適用",
+      "上限貫通と上限増加分の切り上げを適用。1アビの確定クリティカルは有利属性に適用",
       ...result.issues.filter((issue) => /HP依存|未接続/.test(issue)),
     ] };
 }

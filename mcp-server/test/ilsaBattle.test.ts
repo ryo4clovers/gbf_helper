@@ -170,8 +170,45 @@ test("Ilsa charge includes awakening and fixed CA damage before critical, withou
   assert.equal(charge.trace.damageContributions.awakening, 5);
   assert.equal(charge.trace.fixedChargeDamage, 2000);
   const raw = (charge.trace.commonPreAbilityDamage * 4.5 * 1.05 * .95 + 2000) * 1.2;
-  const attenuated = calculateDamageAttenuation(raw, charge.trace.attenuation, { damageCapUpPercent: charge.trace.capPercent }).damage;
+  const attenuated = calculateDamageAttenuation(raw, charge.trace.attenuation, {
+    damageCapUpPercent: charge.trace.capPercent, thresholdRounding: "ceil-increase",
+  }).damage;
   assert.equal(charge.predictions[0].damage, Math.ceil((attenuated + charge.trace.supplementalDamage) * (1 + charge.trace.amplificationPercent / 100)));
   request.deckConfig.characters[2].awakening.formCode = "2";
   assert.equal(calculateIlsaDamage(request, "charge", 1).trace.capContributions.awakeningChargeCap, 15);
+});
+
+test("ability and charge round each cap increase before attenuation, without intermediate damage rounding", () => {
+  const request = input().calculation;
+  request.enemy.defense = 1;
+  request.attacker = { characterSlot: 3 };
+  request.deckConfig.weapons = [];
+  request.deckConfig.summons = [];
+  request.deckConfig.characters[2] = {
+    slot: 3, position: "front", characterId: "3040456000", level: 80, attackOverride: 1000000, hpOverride: 2000,
+  };
+  for (const cap of [0, 28, 43]) for (const kind of ["ability", "charge"] as const) {
+    request.modifiers = { damageCapPercent: cap, damageDealtPercent: 3.6 };
+    request.battleEffects = { enemySupplementalDamage: 1234 };
+    const result = calculateIlsaDamage(request, kind, 1);
+    const trace = result.trace;
+    assert.equal(trace.capPercent, cap);
+    assert.equal(trace.thresholdRounding, "ceil-increase");
+    // Literal boundaries pin the percent/100 multiplication order, including the
+    // floating-point increment at 28%. Do not replace this with decimal rounding.
+    const thresholds = kind === "ability"
+      ? cap === 28 ? [1152001, 1536001, 1920001, 2304001]
+        : cap === 43 ? [1287000, 1716000, 2145000, 2574000] : [900000, 1200000, 1500000, 1800000]
+      : cap === 28 ? [1920001, 2176001, 2304001, 3200001]
+        : cap === 43 ? [2145000, 2431000, 2574000, 3575000] : [1500000, 1700000, 1800000, 2500000];
+    const rates = kind === "ability" ? [.8, .6, .4, .01] : [.6, .3, .05, .01];
+    for (const prediction of result.predictions) {
+      const raw = trace.commonPreAbilityDamage * trace.effectiveMultiplier * prediction.randomMultiplier + trace.fixedChargeDamage;
+      assert.ok(raw > thresholds[3], "synthetic attack traverses all four boundaries");
+      const attenuated = thresholds[0] + (thresholds[1] - thresholds[0]) * rates[0]
+        + (thresholds[2] - thresholds[1]) * rates[1] + (thresholds[3] - thresholds[2]) * rates[2]
+        + (raw - thresholds[3]) * rates[3];
+      assert.equal(prediction.damage, Math.ceil((attenuated + 1234) * 1.036));
+    }
+  }
 });

@@ -154,21 +154,25 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
     const randomMultiplier = (950 + index) / 1000;
     const rawDamage = (base.articleTrace!.prePostCapDamage * effectiveMultiplier * randomMultiplier + fixedChargeDamage)
       * (1 + criticalDamageBonusPercent / 100);
-    const attenuated = calculateDamageAttenuation(rawDamage, attenuationProfile, { damageCapUpPercent: capPercent }).damage;
+    // Match normal attacks: round the cap increase, preserving scaleDamageCapThreshold's
+    // floating-point evaluation order. Supported by the 2026-10-05 ability/CA comparison.
+    const attenuated = calculateDamageAttenuation(rawDamage, attenuationProfile, {
+      damageCapUpPercent: capPercent, thresholdRounding: "ceil-increase",
+    }).damage;
     const damage = Math.ceil((attenuated * (1 + effects.enemyDamageTakenAmplificationPercent / 100) + supplementalDamage)
       * (1 + amplificationPercent / 100));
     return { randomMultiplier, damage };
   });
   const minimum = predictions[0].damage, maximum = predictions[100].damage;
   return {
-    schemaVersion: 1 as const, verificationStatus: "下書き" as const, modelVersion: "automatic-ability-candidate-v2", abilityId, abilityName: profile.name, hitCount,
+    schemaVersion: 1 as const, verificationStatus: "下書き" as const, modelVersion: "automatic-ability-candidate-v3", abilityId, abilityName: profile.name, hitCount,
     element: profile.element, criticalDamageBonusPercent,
     perHit: { minimum, maximum, mean: predictions.reduce((sum, p) => sum + p.damage, 0) / predictions.length },
     total: { minimum: minimum * hitCount, maximum: maximum * hitCount },
     predictions,
     trace: { commonPreAbilityDamage: base.articleTrace!.prePostCapDamage, intrinsicMultiplier: profile.multiplier,
       damageUpPercent, damageContributions, effectiveMultiplier, fixedChargeDamage, capPercent, capContributions, amplificationPercent, supplementalDamage,
-      enemyDamageTakenAmplificationPercent: effects.enemyDamageTakenAmplificationPercent,
+      enemyDamageTakenAmplificationPercent: effects.enemyDamageTakenAmplificationPercent, thresholdRounding: "ceil-increase" as const,
       attenuation: attenuationProfile, weaponOverskills, weaponCritical, ringCapPercent, artifactAbilityPercent, level },
     attenuationEvidence: profile.attenuationTableId ? {
       status: "実機設定確認" as const, tableId: profile.attenuationTableId, actionId: profile.actionId,
@@ -178,7 +182,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
     issues: [profile.attenuationTableId
       ? "減衰ID・4ライン・通過率はキャラ詳細の実機設定を確認済み。倍率・編成補正・境界実測・丸めは未検証"
       : "減衰ラインは同概算上限の別アビリティからの候補で、対象ごとの実機検証が必要",
-      "既存の序盤ログとは未一致。倍率・減衰・補正範囲・丸めを含む候補値であり、実測再現値ではない",
+      "上限増加分の切り上げはイルザ2アビ・奥義と主人公奥義の照合で支持。対象・編成ごとの倍率・補正範囲・丸めは引き続き要検証",
       "減衰→被ダメージUP→固定加算→与ダメージ増幅→切り上げの順は下書き。通常専用補正は適用しない",
       "有利属性の武器技巧100%以上は自動適用。100%未満の武器技巧抽選とキャラLBクリティカルは未接続。追加のバフクリティカルは入力条件",
       "主人公のジョブLv補正40%/20%・LB・選択済みジョブのコンプリート補正は主人公だけに自動加算（二次情報）",

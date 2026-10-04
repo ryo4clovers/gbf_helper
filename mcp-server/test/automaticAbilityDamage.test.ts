@@ -84,7 +84,7 @@ test("automatic abilities retain uncertainty, independent hit ranges and immutab
   const result = calculate(input);
   assert.deepEqual(input, before);
   assert.equal(result.verificationStatus, "下書き");
-  assert.ok(result.issues.some((issue) => issue.includes("未一致")));
+  assert.ok(result.issues.some((issue) => issue.includes("対象・編成ごと") && issue.includes("要検証")));
   assert.equal(result.hitCount, 2);
   assert.equal(result.predictions.length, 101);
   assert.equal(result.total.minimum, result.perHit.minimum * 2);

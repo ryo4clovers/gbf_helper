@@ -3,6 +3,17 @@
 `knowledge/` を充実させていく上での、情報源・収集方法・運用方針をまとめる作業メモ。
 セッションをまたいでも参照できるよう、リポジトリ内で管理する(Claude側の一時的な記憶には残さない)。
 
+### アビリティ・奥義の上限増加分の丸めを照合(2026-10-05)
+
+- 出典: 保存済みユーザー提供の方陣編成2戦、旧イルザ減衰測定85発、別のイルザ戦闘記録をオフライン再計算。追加の通信・ゲーム操作・原本取得なし。
+- 切り分け: 上限ラインの連続値/増加分ceil、減衰前入力の丸め、減衰後の丸め、固定与ダメージの位置を36候補で比較。増加分ceilだけで直近のアビ/奥義20件が14一致から20一致へ改善。途中ダメージをceil/floorする処理は追加せず、倍率・ライン・通過率・編成補正を維持。
+- 実装: `基礎ライン + ceil(基礎ライン × (上限UP% / 100))` を通常と共通化。Numberの除算→乗算→ceilの順序を保持し、28%で生じる端数も含めた候補として扱う。共通モデルv3・イルザモデルv2、traceにthresholdRoundingを追加。実装済みの上限貫通を未接続と表示していたイルザ警告も訂正。
+- 結果: 直近2戦のイルザ2アビ8/8・奥義6/6、主人公奥義6/6が整数一致。通常/追撃/追加hit521/521、最大HP4/4も維持。チェインバースト各1件は対象外。各hitが乱数0.950〜1.050の101候補内で一致する照合であり、乱数列の予測ではない。
+- 交差確認: 旧85発は49一致/最大2差から84一致/最大1差へ改善（1個24/24、2個29/29、3個31/32）。別戦のイルザ2アビ7/7・奥義6/6・通常/追撃315/315、主人公奥義4/4は一致を維持。別戦の旧診断に残る主人公通常/追撃12件の不一致は今回の変更前後で同じ。
+- 保留: 旧3個・高火力・貫通6%の1発は+1残差。未観測区間、内部減衰ID、他アビリティ/奥義への一般化は未検証。下書きを維持し、全条件の丸め確定とはしない。
+- 保存: Git管理外 `captures/awakening-battle-2026-10-05/` のextract-rounding.mjs・rounding-observations・rounding-candidates、`captures/ilsa-ability-2026-10-04/` のcompare-ceil-increase.mjs・2026-10-05_diagnostic_ilsa-ceil-increase.json、`captures/ilsa-ui-fix-2026-10-04/` のcompare-rounding.mjs・rounding-charge-comparison.json（いずれもtools/network-recorder配下）。draft処理なし。
+- 検証: 上限0/28/43%の合成編成でアビ/奥義の101乱数を検査し、固定加算・最終切り上げまで確認。Windows Node.jsでcheck（562テスト）・build成功。
+
 ### 方陣編成の攻撃・覚醒・オーバースキルを接続(2026-10-05)
 
 - 出典: 直前に保存したユーザー提供の独立2戦を再使用。[GameWith セレストグレース・アーテル](https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/448535)、[フォービドゥンアガスティ](https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/385303)、[Wiki Damage Cap](https://gbf.wiki/Damage_Cap)、[Overskills](https://gbf.wiki/Overskills)を2026-10-05参照。ゲームAPI通信なし。
