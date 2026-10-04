@@ -892,14 +892,46 @@
       "auraDescription": "スキル「光」「雷電」「天光」の効果が170%UP / ◆メイン召喚石に装備時、光属性攻撃力が30%UP / サブ加護: 光属性キャラの光属性攻撃力が20%UP/HP20%UP",
       "auraEffects": [
         {
-          "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「光」「雷電」「天光」の効果が170%UP / ◆メイン召喚石に装備時、光属性攻撃力が30%UP / サブ加護: 光属性キャラの光属性攻撃力が20%UP/HP20%UP"
+          "kind": "normal-skill-boost",
+          "elementCode": "5",
+          "amountPercent": 170,
+          "targetSkillNamePrefixes": [
+            "光",
+            "雷電",
+            "天光"
+          ],
+          "activation": "always",
+          "description": "スキル「光」「雷電」「天光」の効果が170%UP"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "5",
+          "amountPercent": 30,
+          "activation": "main-only",
+          "description": "メイン召喚石に装備時、光属性攻撃力が30%UP",
+          "stackingGroup": "zeus-transcendence-elemental-attack"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "5",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "zeus-transcendence-elemental-attack",
+          "description": "サブ装備時、光属性キャラの光属性攻撃力が20%UP"
+        },
+        {
+          "kind": "character-hp-up",
+          "elementCode": "5",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "zeus-transcendence-hp",
+          "description": "サブ装備時、光属性キャラのHPが20%UP"
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
-      "confirmedAt": "2026-09-09",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認。段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。同一神石の属性攻撃はメイン/サブ間を含め最大値とする下書きモデル",
+      "confirmedAt": "2026-10-05",
       "levelStats": {
         "maximumLevel": 250,
         "points": [
@@ -941,7 +973,326 @@
         "plusMark": 0,
         "attack": 4071,
         "hp": 1450
-      }
+      },
+      "auraMinimumLevel": 250,
+      "auraOverrides": [
+        {
+          "uncapLevel": 0,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "always",
+              "description": "スキル「光」「雷電」「天光」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 1,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "always",
+              "description": "スキル「光」「雷電」「天光」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 2,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "always",
+              "description": "スキル「光」「雷電」「天光」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 3,
+          "auraDescription": "スキル効果120%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 120,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "always",
+              "description": "スキル「光」「雷電」「天光」の効果が120%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 4,
+          "auraDescription": "スキル効果140%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 140,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "always",
+              "description": "スキル「光」「雷電」「天光」の効果が140%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 5,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "always",
+              "description": "スキル「光」「雷電」「天光」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 1,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "always",
+              "description": "スキル「光」「雷電」「天光」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 210,
+          "auraDescription": "スキル効果150%UP/サブ装備時、光属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "always",
+              "description": "スキル「光」「雷電」「天光」の効果が150%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "5",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zeus-transcendence-elemental-attack",
+              "description": "サブ装備時、光属性キャラの光属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "5",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zeus-transcendence-hp",
+              "description": "サブ装備時、光属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 230,
+          "auraDescription": "スキル効果160%UP/サブ装備時、光属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "always",
+              "description": "スキル「光」「雷電」「天光」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "5",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zeus-transcendence-elemental-attack",
+              "description": "サブ装備時、光属性キャラの光属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "5",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zeus-transcendence-hp",
+              "description": "サブ装備時、光属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 240,
+          "auraDescription": "スキル効果160%UP/メイン装備時、光属性攻撃力30%UP/サブ装備時、光属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "always",
+              "description": "スキル「光」「雷電」「天光」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "5",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、光属性攻撃力が30%UP",
+              "stackingGroup": "zeus-transcendence-elemental-attack"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "5",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zeus-transcendence-elemental-attack",
+              "description": "サブ装備時、光属性キャラの光属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "5",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zeus-transcendence-hp",
+              "description": "サブ装備時、光属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 250,
+          "auraDescription": "スキル効果170%UP/メイン装備時、光属性攻撃力30%UP/サブ装備時、光属性攻撃力20%UP・HP20%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "5",
+              "amountPercent": 170,
+              "targetSkillNamePrefixes": [
+                "光",
+                "雷電",
+                "天光"
+              ],
+              "activation": "always",
+              "description": "スキル「光」「雷電」「天光」の効果が170%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "5",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、光属性攻撃力が30%UP",
+              "stackingGroup": "zeus-transcendence-elemental-attack"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "5",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "stackingGroup": "zeus-transcendence-elemental-attack",
+              "description": "サブ装備時、光属性キャラの光属性攻撃力が20%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "5",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "stackingGroup": "zeus-transcendence-hp",
+              "description": "サブ装備時、光属性キャラのHPが20%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認。段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。同一神石の属性攻撃はメイン/サブ間を含め最大値とする下書きモデル",
+          "confirmedAt": "2026-10-05"
+        }
+      ]
     },
     {
       "summonId": "2040084000",
@@ -952,14 +1303,46 @@
       "auraDescription": "スキル「土」「大地」「地裂」の効果が170%UP / ◆メイン召喚石に装備時、土属性攻撃力が30%UP / サブ加護: 土属性キャラの土属性攻撃力が20%UP/HP20%UP",
       "auraEffects": [
         {
-          "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「土」「大地」「地裂」の効果が170%UP / ◆メイン召喚石に装備時、土属性攻撃力が30%UP / サブ加護: 土属性キャラの土属性攻撃力が20%UP/HP20%UP"
+          "kind": "normal-skill-boost",
+          "elementCode": "3",
+          "amountPercent": 170,
+          "targetSkillNamePrefixes": [
+            "土",
+            "大地",
+            "地裂"
+          ],
+          "activation": "always",
+          "description": "スキル「土」「大地」「地裂」の効果が170%UP"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "3",
+          "amountPercent": 30,
+          "activation": "main-only",
+          "description": "メイン召喚石に装備時、土属性攻撃力が30%UP",
+          "stackingGroup": "titan-transcendence-elemental-attack"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "3",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "titan-transcendence-elemental-attack",
+          "description": "サブ装備時、土属性キャラの土属性攻撃力が20%UP"
+        },
+        {
+          "kind": "character-hp-up",
+          "elementCode": "3",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "titan-transcendence-hp",
+          "description": "サブ装備時、土属性キャラのHPが20%UP"
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
-      "confirmedAt": "2026-09-09",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認。段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。同一神石の属性攻撃はメイン/サブ間を含め最大値とする下書きモデル",
+      "confirmedAt": "2026-10-05",
       "levelStats": {
         "maximumLevel": 250,
         "points": [
@@ -1001,7 +1384,326 @@
         "plusMark": 0,
         "attack": 3571,
         "hp": 1700
-      }
+      },
+      "auraMinimumLevel": 250,
+      "auraOverrides": [
+        {
+          "uncapLevel": 0,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "always",
+              "description": "スキル「土」「大地」「地裂」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 1,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "always",
+              "description": "スキル「土」「大地」「地裂」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 2,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "always",
+              "description": "スキル「土」「大地」「地裂」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 3,
+          "auraDescription": "スキル効果120%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 120,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "always",
+              "description": "スキル「土」「大地」「地裂」の効果が120%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 4,
+          "auraDescription": "スキル効果140%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 140,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "always",
+              "description": "スキル「土」「大地」「地裂」の効果が140%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 5,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "always",
+              "description": "スキル「土」「大地」「地裂」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 1,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "always",
+              "description": "スキル「土」「大地」「地裂」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 210,
+          "auraDescription": "スキル効果150%UP/サブ装備時、土属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "always",
+              "description": "スキル「土」「大地」「地裂」の効果が150%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "3",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "titan-transcendence-elemental-attack",
+              "description": "サブ装備時、土属性キャラの土属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "3",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "titan-transcendence-hp",
+              "description": "サブ装備時、土属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 230,
+          "auraDescription": "スキル効果160%UP/サブ装備時、土属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "always",
+              "description": "スキル「土」「大地」「地裂」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "3",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "titan-transcendence-elemental-attack",
+              "description": "サブ装備時、土属性キャラの土属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "3",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "titan-transcendence-hp",
+              "description": "サブ装備時、土属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 240,
+          "auraDescription": "スキル効果160%UP/メイン装備時、土属性攻撃力30%UP/サブ装備時、土属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "always",
+              "description": "スキル「土」「大地」「地裂」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "3",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、土属性攻撃力が30%UP",
+              "stackingGroup": "titan-transcendence-elemental-attack"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "3",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "titan-transcendence-elemental-attack",
+              "description": "サブ装備時、土属性キャラの土属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "3",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "titan-transcendence-hp",
+              "description": "サブ装備時、土属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 250,
+          "auraDescription": "スキル効果170%UP/メイン装備時、土属性攻撃力30%UP/サブ装備時、土属性攻撃力20%UP・HP20%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "3",
+              "amountPercent": 170,
+              "targetSkillNamePrefixes": [
+                "土",
+                "大地",
+                "地裂"
+              ],
+              "activation": "always",
+              "description": "スキル「土」「大地」「地裂」の効果が170%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "3",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、土属性攻撃力が30%UP",
+              "stackingGroup": "titan-transcendence-elemental-attack"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "3",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "stackingGroup": "titan-transcendence-elemental-attack",
+              "description": "サブ装備時、土属性キャラの土属性攻撃力が20%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "3",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "stackingGroup": "titan-transcendence-hp",
+              "description": "サブ装備時、土属性キャラのHPが20%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認。段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。同一神石の属性攻撃はメイン/サブ間を含め最大値とする下書きモデル",
+          "confirmedAt": "2026-10-05"
+        }
+      ]
     },
     {
       "summonId": "2040090000",
@@ -1439,7 +2141,8 @@
           "elementCode": "1",
           "amountPercent": 30,
           "activation": "main-only",
-          "description": "メイン召喚石に装備時、火属性攻撃力が30%UP"
+          "description": "メイン召喚石に装備時、火属性攻撃力が30%UP",
+          "stackingGroup": "agni-transcendence-elemental-attack"
         },
         {
           "kind": "character-hp-up",
@@ -1454,12 +2157,13 @@
           "elementCode": "1",
           "amountPercent": 20,
           "activation": "sub-only",
-          "description": "サブ装備時、火属性キャラの火属性攻撃力が20%UP"
+          "description": "サブ装備時、火属性キャラの火属性攻撃力が20%UP",
+          "stackingGroup": "agni-transcendence-elemental-attack"
         }
       ],
       "verificationStatus": "検証済み",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内deckレスポンスで主加護と、別編成比較でサブ加護の火属性攻撃20%・HP20%・同系統HP非重複を確認",
+      "source": "ユーザー提供のゲーム内deckレスポンスで主加護と、別編成比較でサブ加護の火属性攻撃20%・HP20%・同系統HP非重複を確認。段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。同一神石の属性攻撃はメイン/サブ間を含め最大値とする下書きモデル",
       "confirmedAt": "2026-09-10",
       "levelStats": {
         "maximumLevel": 250,
@@ -1502,7 +2206,326 @@
         "plusMark": 0,
         "attack": 4157,
         "hp": 1414
-      }
+      },
+      "auraMinimumLevel": 250,
+      "auraOverrides": [
+        {
+          "uncapLevel": 0,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
+              "activation": "always",
+              "description": "スキル「火」「業火」「紅蓮」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 1,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
+              "activation": "always",
+              "description": "スキル「火」「業火」「紅蓮」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 2,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
+              "activation": "always",
+              "description": "スキル「火」「業火」「紅蓮」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 3,
+          "auraDescription": "スキル効果120%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 120,
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
+              "activation": "always",
+              "description": "スキル「火」「業火」「紅蓮」の効果が120%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 4,
+          "auraDescription": "スキル効果140%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 140,
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
+              "activation": "always",
+              "description": "スキル「火」「業火」「紅蓮」の効果が140%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 5,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
+              "activation": "always",
+              "description": "スキル「火」「業火」「紅蓮」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 1,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
+              "activation": "always",
+              "description": "スキル「火」「業火」「紅蓮」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 210,
+          "auraDescription": "スキル効果150%UP/サブ装備時、火属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
+              "activation": "always",
+              "description": "スキル「火」「業火」「紅蓮」の効果が150%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "1",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "agni-transcendence-elemental-attack",
+              "description": "サブ装備時、火属性キャラの火属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "1",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "fire-character-hp",
+              "description": "サブ装備時、火属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 230,
+          "auraDescription": "スキル効果160%UP/サブ装備時、火属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
+              "activation": "always",
+              "description": "スキル「火」「業火」「紅蓮」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "1",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "agni-transcendence-elemental-attack",
+              "description": "サブ装備時、火属性キャラの火属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "1",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "fire-character-hp",
+              "description": "サブ装備時、火属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 240,
+          "auraDescription": "スキル効果160%UP/メイン装備時、火属性攻撃力30%UP/サブ装備時、火属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
+              "activation": "always",
+              "description": "スキル「火」「業火」「紅蓮」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "1",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、火属性攻撃力が30%UP",
+              "stackingGroup": "agni-transcendence-elemental-attack"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "1",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "agni-transcendence-elemental-attack",
+              "description": "サブ装備時、火属性キャラの火属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "1",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "fire-character-hp",
+              "description": "サブ装備時、火属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 250,
+          "auraDescription": "スキル効果170%UP/メイン装備時、火属性攻撃力30%UP/サブ装備時、火属性攻撃力20%UP・HP20%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "1",
+              "amountPercent": 170,
+              "targetSkillNamePrefixes": [
+                "火",
+                "業火",
+                "紅蓮"
+              ],
+              "activation": "always",
+              "description": "スキル「火」「業火」「紅蓮」の効果が170%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "1",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、火属性攻撃力が30%UP",
+              "stackingGroup": "agni-transcendence-elemental-attack"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "1",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "stackingGroup": "fire-character-hp",
+              "description": "サブ装備時、火属性キャラのHPが20%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "1",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "description": "サブ装備時、火属性キャラの火属性攻撃力が20%UP",
+              "stackingGroup": "agni-transcendence-elemental-attack"
+            }
+          ],
+          "verificationStatus": "検証済み",
+          "source": "ユーザー提供のゲーム内deckレスポンスで主加護と、別編成比較でサブ加護の火属性攻撃20%・HP20%・同系統HP非重複を確認。段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。同一神石の属性攻撃はメイン/サブ間を含め最大値とする下書きモデル",
+          "confirmedAt": "2026-10-05"
+        }
+      ]
     },
     {
       "summonId": "2040098000",
@@ -1513,14 +2536,46 @@
       "auraDescription": "スキル「風」「竜巻」「乱気」の効果が170%UP / ◆メイン召喚石に装備時、風属性攻撃力が30%UP / サブ加護: 風属性キャラの風属性攻撃力が20%UP/HP20%UP",
       "auraEffects": [
         {
-          "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「風」「竜巻」「乱気」の効果が170%UP / ◆メイン召喚石に装備時、風属性攻撃力が30%UP / サブ加護: 風属性キャラの風属性攻撃力が20%UP/HP20%UP"
+          "kind": "normal-skill-boost",
+          "elementCode": "4",
+          "amountPercent": 170,
+          "targetSkillNamePrefixes": [
+            "風",
+            "竜巻",
+            "乱気"
+          ],
+          "activation": "always",
+          "description": "スキル「風」「竜巻」「乱気」の効果が170%UP"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "4",
+          "amountPercent": 30,
+          "activation": "main-only",
+          "description": "メイン召喚石に装備時、風属性攻撃力が30%UP",
+          "stackingGroup": "zephyrus-transcendence-elemental-attack"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "4",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "zephyrus-transcendence-elemental-attack",
+          "description": "サブ装備時、風属性キャラの風属性攻撃力が20%UP"
+        },
+        {
+          "kind": "character-hp-up",
+          "elementCode": "4",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "zephyrus-transcendence-hp",
+          "description": "サブ装備時、風属性キャラのHPが20%UP"
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
-      "confirmedAt": "2026-09-09",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認。段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。同一神石の属性攻撃はメイン/サブ間を含め最大値とする下書きモデル",
+      "confirmedAt": "2026-10-05",
       "levelStats": {
         "maximumLevel": 250,
         "points": [
@@ -1562,7 +2617,326 @@
         "plusMark": 0,
         "attack": 4121,
         "hp": 1421
-      }
+      },
+      "auraMinimumLevel": 250,
+      "auraOverrides": [
+        {
+          "uncapLevel": 0,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "always",
+              "description": "スキル「風」「竜巻」「乱気」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 1,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "always",
+              "description": "スキル「風」「竜巻」「乱気」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 2,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "always",
+              "description": "スキル「風」「竜巻」「乱気」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 3,
+          "auraDescription": "スキル効果120%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 120,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "always",
+              "description": "スキル「風」「竜巻」「乱気」の効果が120%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 4,
+          "auraDescription": "スキル効果140%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 140,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "always",
+              "description": "スキル「風」「竜巻」「乱気」の効果が140%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 5,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "always",
+              "description": "スキル「風」「竜巻」「乱気」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 1,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "always",
+              "description": "スキル「風」「竜巻」「乱気」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 210,
+          "auraDescription": "スキル効果150%UP/サブ装備時、風属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "always",
+              "description": "スキル「風」「竜巻」「乱気」の効果が150%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "4",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zephyrus-transcendence-elemental-attack",
+              "description": "サブ装備時、風属性キャラの風属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "4",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zephyrus-transcendence-hp",
+              "description": "サブ装備時、風属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 230,
+          "auraDescription": "スキル効果160%UP/サブ装備時、風属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "always",
+              "description": "スキル「風」「竜巻」「乱気」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "4",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zephyrus-transcendence-elemental-attack",
+              "description": "サブ装備時、風属性キャラの風属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "4",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zephyrus-transcendence-hp",
+              "description": "サブ装備時、風属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 240,
+          "auraDescription": "スキル効果160%UP/メイン装備時、風属性攻撃力30%UP/サブ装備時、風属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "always",
+              "description": "スキル「風」「竜巻」「乱気」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "4",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、風属性攻撃力が30%UP",
+              "stackingGroup": "zephyrus-transcendence-elemental-attack"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "4",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zephyrus-transcendence-elemental-attack",
+              "description": "サブ装備時、風属性キャラの風属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "4",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "zephyrus-transcendence-hp",
+              "description": "サブ装備時、風属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 250,
+          "auraDescription": "スキル効果170%UP/メイン装備時、風属性攻撃力30%UP/サブ装備時、風属性攻撃力20%UP・HP20%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "4",
+              "amountPercent": 170,
+              "targetSkillNamePrefixes": [
+                "風",
+                "竜巻",
+                "乱気"
+              ],
+              "activation": "always",
+              "description": "スキル「風」「竜巻」「乱気」の効果が170%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "4",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、風属性攻撃力が30%UP",
+              "stackingGroup": "zephyrus-transcendence-elemental-attack"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "4",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "stackingGroup": "zephyrus-transcendence-elemental-attack",
+              "description": "サブ装備時、風属性キャラの風属性攻撃力が20%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "4",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "stackingGroup": "zephyrus-transcendence-hp",
+              "description": "サブ装備時、風属性キャラのHPが20%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認。段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。同一神石の属性攻撃はメイン/サブ間を含め最大値とする下書きモデル",
+          "confirmedAt": "2026-10-05"
+        }
+      ]
     },
     {
       "summonId": "2040100000",
@@ -1573,14 +2947,46 @@
       "auraDescription": "スキル「水」「渦潮」「霧氷」の効果が170%UP / ◆メイン召喚石に装備時、水属性攻撃力が30%UP / サブ加護: 水属性キャラの水属性攻撃力が20%UP/HP20%UP",
       "auraEffects": [
         {
-          "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「水」「渦潮」「霧氷」の効果が170%UP / ◆メイン召喚石に装備時、水属性攻撃力が30%UP / サブ加護: 水属性キャラの水属性攻撃力が20%UP/HP20%UP"
+          "kind": "normal-skill-boost",
+          "elementCode": "2",
+          "amountPercent": 170,
+          "targetSkillNamePrefixes": [
+            "水",
+            "渦潮",
+            "霧氷"
+          ],
+          "activation": "always",
+          "description": "スキル「水」「渦潮」「霧氷」の効果が170%UP"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "2",
+          "amountPercent": 30,
+          "activation": "main-only",
+          "description": "メイン召喚石に装備時、水属性攻撃力が30%UP",
+          "stackingGroup": "varuna-transcendence-elemental-attack"
+        },
+        {
+          "kind": "elemental-attack-up",
+          "elementCode": "2",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "varuna-transcendence-elemental-attack",
+          "description": "サブ装備時、水属性キャラの水属性攻撃力が20%UP"
+        },
+        {
+          "kind": "character-hp-up",
+          "elementCode": "2",
+          "amountPercent": 20,
+          "activation": "sub-only",
+          "stackingGroup": "varuna-transcendence-hp",
+          "description": "サブ装備時、水属性キャラのHPが20%UP"
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
-      "confirmedAt": "2026-09-09",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認。段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。同一神石の属性攻撃はメイン/サブ間を含め最大値とする下書きモデル",
+      "confirmedAt": "2026-10-05",
       "levelStats": {
         "maximumLevel": 250,
         "points": [
@@ -1622,7 +3028,326 @@
         "plusMark": 0,
         "attack": 3930,
         "hp": 1471
-      }
+      },
+      "auraMinimumLevel": 250,
+      "auraOverrides": [
+        {
+          "uncapLevel": 0,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "always",
+              "description": "スキル「水」「渦潮」「霧氷」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 1,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "always",
+              "description": "スキル「水」「渦潮」「霧氷」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 2,
+          "auraDescription": "スキル効果80%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 80,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "always",
+              "description": "スキル「水」「渦潮」「霧氷」の効果が80%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 3,
+          "auraDescription": "スキル効果120%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 120,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "always",
+              "description": "スキル「水」「渦潮」「霧氷」の効果が120%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 4,
+          "auraDescription": "スキル効果140%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 140,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "always",
+              "description": "スキル「水」「渦潮」「霧氷」の効果が140%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 5,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "always",
+              "description": "スキル「水」「渦潮」「霧氷」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 1,
+          "auraDescription": "スキル効果150%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "always",
+              "description": "スキル「水」「渦潮」「霧氷」の効果が150%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 210,
+          "auraDescription": "スキル効果150%UP/サブ装備時、水属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 150,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "always",
+              "description": "スキル「水」「渦潮」「霧氷」の効果が150%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "2",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "varuna-transcendence-elemental-attack",
+              "description": "サブ装備時、水属性キャラの水属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "2",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "varuna-transcendence-hp",
+              "description": "サブ装備時、水属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 230,
+          "auraDescription": "スキル効果160%UP/サブ装備時、水属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "always",
+              "description": "スキル「水」「渦潮」「霧氷」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "2",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "varuna-transcendence-elemental-attack",
+              "description": "サブ装備時、水属性キャラの水属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "2",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "varuna-transcendence-hp",
+              "description": "サブ装備時、水属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 240,
+          "auraDescription": "スキル効果160%UP/メイン装備時、水属性攻撃力30%UP/サブ装備時、水属性攻撃力10%UP・HP10%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 160,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "always",
+              "description": "スキル「水」「渦潮」「霧氷」の効果が160%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "2",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、水属性攻撃力が30%UP",
+              "stackingGroup": "varuna-transcendence-elemental-attack"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "2",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "varuna-transcendence-elemental-attack",
+              "description": "サブ装備時、水属性キャラの水属性攻撃力が10%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "2",
+              "amountPercent": 10,
+              "activation": "sub-only",
+              "stackingGroup": "varuna-transcendence-hp",
+              "description": "サブ装備時、水属性キャラのHPが10%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。0〜4凸は既存召喚石ナレッジのGameWith値。枠・重複時の最大値選択は下書き",
+          "confirmedAt": "2026-10-05"
+        },
+        {
+          "uncapLevel": 6,
+          "minimumLevel": 250,
+          "auraDescription": "スキル効果170%UP/メイン装備時、水属性攻撃力30%UP/サブ装備時、水属性攻撃力20%UP・HP20%UP",
+          "auraEffects": [
+            {
+              "kind": "normal-skill-boost",
+              "elementCode": "2",
+              "amountPercent": 170,
+              "targetSkillNamePrefixes": [
+                "水",
+                "渦潮",
+                "霧氷"
+              ],
+              "activation": "always",
+              "description": "スキル「水」「渦潮」「霧氷」の効果が170%UP"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "2",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "description": "メイン召喚石に装備時、水属性攻撃力が30%UP",
+              "stackingGroup": "varuna-transcendence-elemental-attack"
+            },
+            {
+              "kind": "elemental-attack-up",
+              "elementCode": "2",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "stackingGroup": "varuna-transcendence-elemental-attack",
+              "description": "サブ装備時、水属性キャラの水属性攻撃力が20%UP"
+            },
+            {
+              "kind": "character-hp-up",
+              "elementCode": "2",
+              "amountPercent": 20,
+              "activation": "sub-only",
+              "stackingGroup": "varuna-transcendence-hp",
+              "description": "サブ装備時、水属性キャラのHPが20%UP"
+            }
+          ],
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認。段階別加護はGameWith https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/431318 (2026-10-05参照、二次情報)。同一神石の属性攻撃はメイン/サブ間を含め最大値とする下書きモデル",
+          "confirmedAt": "2026-10-05"
+        }
+      ]
     },
     {
       "summonId": "2040114000",
