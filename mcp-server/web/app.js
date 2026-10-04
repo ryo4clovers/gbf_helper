@@ -19,6 +19,7 @@ import {
   upsertCalculatorProfile,
 } from "/calculator-state-storage.js?v=11";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
+import { createWeaponAwakeningControls, weaponAwakeningSummary } from "/weapon-awakening-controls.js?v=1";
 import {
   PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
@@ -1687,6 +1688,7 @@ function createWeaponSlot(config, slot) {
       currentWeapon.level == null ? undefined : `Lv${currentWeapon.level}`,
       currentWeapon.uncapLevel == null ? undefined : uncapLabel(currentWeapon.uncapLevel),
       currentWeapon.skillLevel == null ? undefined : `SLv${currentWeapon.skillLevel}`,
+      weaponAwakeningSummary(currentWeapon, master?.awakening),
       `+${currentWeapon.plusMark ?? 0}`,
     ].filter(Boolean).join("・");
     parameterSummary.title = `HP ${currentWeapon.hpOverride == null ? "—" : numberFormat.format(currentWeapon.hpOverride)} / ATK ${currentWeapon.attackOverride == null ? "—" : numberFormat.format(currentWeapon.attackOverride)}`;
@@ -1698,6 +1700,7 @@ function createWeaponSlot(config, slot) {
     let stats;
     let levelInput;
     let skillInput;
+    let awakeningControls;
     const uncapStages = createEquipmentUncapStages(master?.uncaps, master?.rarityCode, master?.levelStats);
     const fallbackUncap = uncapStages.at(-1)?.uncapLevel;
     const requestedUncap = weapon.uncapLevel ?? master?.selectionDefaults?.uncapLevel ?? fallbackUncap;
@@ -1733,6 +1736,7 @@ function createWeaponSlot(config, slot) {
           skillInput.disabled = maximumSkillLevel === 1;
         }
         applyCatalogWeaponLevelStats(weapon, master);
+        awakeningControls?.refresh();
         writeDeckConfig(config);
         updateParameterSummary();
         if (stats) {
@@ -1768,6 +1772,7 @@ function createWeaponSlot(config, slot) {
         }
         weapon.level = value;
         applyCatalogWeaponLevelStats(weapon, master);
+        awakeningControls?.refresh();
         writeDeckConfig(config);
         updateParameterSummary();
         if (stats) {
@@ -1829,6 +1834,14 @@ function createWeaponSlot(config, slot) {
       ),
       stats,
     );
+    if (master?.awakening || weapon.awakening) {
+      awakeningControls = createWeaponAwakeningControls(weapon, master?.awakening, () => {
+        writeDeckConfig(config);
+        updateParameterSummary();
+        void calculate();
+      });
+      controls.append(awakeningControls.element);
+    }
     updateParameterSummary();
     article.title = "右クリックで武器パラメータを設定";
     article.addEventListener("contextmenu", (event) => {

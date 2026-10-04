@@ -254,6 +254,8 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .equipment-strengthening-fields .weapon-slot-controls label { min-width: 0; display: flex; flex-direction: column; align-items: stretch; gap: 5px; }
 .equipment-strengthening-fields .weapon-slot-controls input,
 .equipment-strengthening-fields .weapon-slot-controls select { width: 100%; min-height: 42px; padding: 8px 10px; font-size: .84rem; }
+.weapon-awakening-controls { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; border-top: 1px solid var(--outline-soft); padding-top: 12px; }
+.weapon-awakening-controls .field-note { grid-column: 1 / -1; margin: 0; line-height: 1.6; }
 .equipment-strengthening-fields .weapon-attack { grid-column: 1 / -1; padding-top: 10px; border-top: 1px solid var(--outline-soft); font-size: .82rem; }
 
 .weapon-picker { width: min(680px, calc(100% - 28px)); max-height: min(760px, calc(100vh - 40px)); padding: 0; border: 0; border-radius: 36px 22px 36px 22px; color: var(--ink); background: var(--surface); box-shadow: 0 30px 90px rgba(20,15,45,.35); overflow: hidden; }

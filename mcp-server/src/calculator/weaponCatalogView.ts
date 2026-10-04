@@ -1,4 +1,5 @@
 import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
+import { weaponAwakeningOptions } from "./weaponAwakening.js";
 
 export interface SelectableWeaponCatalogEntry {
   weaponId: string;
@@ -9,6 +10,7 @@ export interface SelectableWeaponCatalogEntry {
   weaponKindCode: string;
   rarityCode: string;
   seriesId?: string;
+  awakening?: ReturnType<typeof weaponAwakeningOptions>;
   selectionDefaults?: {
     level?: number;
     uncapLevel?: number;
@@ -60,6 +62,7 @@ export function createSelectableWeaponCatalog(): SelectableWeaponCatalog {
       weaponKindCode: weapon.weaponKindCode,
       rarityCode: weapon.rarityCode,
       seriesId: weapon.seriesId,
+      ...(weaponAwakeningOptions(weapon.weaponId) ? { awakening: weaponAwakeningOptions(weapon.weaponId) } : {}),
       selectionDefaults: weapon.selectionDefaults,
       levelStats: weapon.levelStats,
       uncaps: weapon.uncaps,

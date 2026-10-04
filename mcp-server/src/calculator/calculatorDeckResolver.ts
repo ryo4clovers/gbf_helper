@@ -10,6 +10,7 @@ import {
 } from "./summonAuraEffectResolver.js";
 import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 import { resolveEffectiveWeaponSkillEffects } from "./weaponEffectResolver.js";
+import type { WeaponAwakeningIssueCode } from "./weaponAwakening.js";
 import { resolveCharacterSkillBoosts } from "./characterSkillBoosts.js";
 import { hasCharacterNormalAttackModel } from "./characterNormalAttack.js";
 import { resolveCharacterModelId } from "./characterIdentity.js";
@@ -125,6 +126,7 @@ function criticalLimitBonuses(
 }
 
 export type CalculatorDeckResolutionIssueCode =
+  | WeaponAwakeningIssueCode
   | "protagonist-lb-components-unresolved"
   | "missing-stat-override"
   | "character-stats-unresolved"

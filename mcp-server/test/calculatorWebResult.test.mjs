@@ -126,7 +126,7 @@ test("weapon and summon parameter editors open from occupied slots with right cl
 
   assert.match(html, /id="equipment-strengthening"/u);
   assert.match(html, /id="equipment-strengthening-fields"/u);
-  assert.match(html, /右クリックでLv・解放・SLv・＋を入力/u);
+  assert.match(html, /右クリックでLv・解放・SLv・＋・覚醒を入力/u);
   assert.match(html, /右クリックでLv・＋を入力/u);
   assert.match(app, /function openEquipmentStrengthening\(\{ kind, name, slotLabel, controls \}\)/u);
   for (const name of ["createWeaponSlot", "createSummonSlot"]) {

@@ -8,8 +8,10 @@ import type {
   WeaponSkillEffectDefinition,
 } from "./types.js";
 import type { CharacterSkillBoost } from "./characterSkillBoosts.js";
+import { resolveWeaponAwakenings, type WeaponAwakeningIssueCode } from "./weaponAwakening.js";
 
 export type WeaponEffectResolutionIssueCode =
+  | WeaponAwakeningIssueCode
   | "weapon-skill-level-unresolved"
   | "multiple-weapon-skill-boosts-assumed-additive";
 
@@ -312,5 +314,6 @@ export function resolveEffectiveWeaponSkillEffects(
     };
   });
 
-  return { effects, issues };
+  const awakening = resolveWeaponAwakenings(weapons);
+  return { effects: [...effects, ...awakening.effects], issues: [...issues, ...awakening.issues] };
 }

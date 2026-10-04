@@ -7,7 +7,7 @@ import type {
 } from "./types.js";
 
 const statusSchema = z.enum(["検証済み", "下書き"]);
-const effectSchema = z
+export const weaponSkillEffectSchema = z
   .object({
     kind: z.enum([
       "normal-attack-up",
@@ -29,6 +29,10 @@ const effectSchema = z
       "debuff-resistance-up",
       "damage-dealt-up",
       "ability-damage-cap-up",
+      "ability-damage-up",
+      "charge-damage-up",
+      "charge-damage-cap-up",
+      "charge-supplemental-damage",
       "special-ability-damage-cap-up",
       "special-ability-damage-dealt-up",
       "ability-supplemental-damage",
@@ -81,7 +85,7 @@ const effectSchema = z
     if (effect.stackingCapPercent !== undefined && effect.kind !== "elemental-pursuit") {
       context.addIssue({ code: "custom", message: "stackingCapPercent is only supported for elemental-pursuit" });
     }
-    const isFlat = ["ability-supplemental-damage", "supplemental-damage", "normal-supplemental-damage", "separate-normal-supplemental-damage"].includes(effect.kind);
+    const isFlat = ["charge-supplemental-damage", "ability-supplemental-damage", "supplemental-damage", "normal-supplemental-damage", "separate-normal-supplemental-damage"].includes(effect.kind);
     if (isFlat && effect.amountFlat === undefined) {
       context.addIssue({ code: "custom", message: `${effect.kind} requires amountFlat` });
     }
@@ -194,7 +198,7 @@ const skillEntrySchema = z
     skillId: z.string().min(1),
     name: z.string().min(1),
     description: z.string().min(1),
-    effects: z.array(effectSchema),
+    effects: z.array(weaponSkillEffectSchema),
     normalAttackAmountTable: skillAmountTableAssignmentSchema.optional(),
     normalStaminaAmountTable: skillAmountTableAssignmentSchema.optional(),
     magnaStaminaAmountTable: skillAmountTableAssignmentSchema.optional(),

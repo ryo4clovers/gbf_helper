@@ -25,7 +25,7 @@ test("shared ability bonuses apply once and protagonist completion/LB do not lea
   const calculation = { ...input.calculation, modifiers: { abilityDamagePercent: 5, abilityDamageCapPercent: 5,
     abilityDamageLimitBonusPercent: 7, abilityDamageCapLimitBonusPercent: 8 } };
   const protagonist = calculate({ ...input, calculation });
-  assert.deepEqual(protagonist.trace.damageContributions, { account: 5, artifact: 0, jobLevel: 40, limitBonus: 7, completion: 3 });
+  assert.deepEqual(protagonist.trace.damageContributions, { account: 5, artifact: 0, weapon: 0, jobLevel: 40, limitBonus: 7, completion: 3 });
   assert.equal(protagonist.trace.damageUpPercent, 55);
   assert.equal(protagonist.trace.capContributions.accountAbilityCap, 5);
   assert.equal(protagonist.trace.capContributions.limitBonusCap, 8);

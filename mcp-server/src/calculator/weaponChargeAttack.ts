@@ -39,6 +39,6 @@ export function calculateWeaponChargeDamage(calculation: NormalAttackCalculation
       : "エレシュキガルの倍率はWiki、固定加算2000は仮置きで実測照合が必要",
       weapon.id === "fallen-sword" ? "標準奥義減衰表を使用。内部減衰ID・丸めは未確認"
         : "極大奥義の減衰は概算上限2527500から標準表1.5倍を仮置き。4ラインは未検証",
-      "奥義専用武器スキル・ジョブ固有奥義補正・武器技巧抽選・上限貫通・チェインバーストは未対応",
+      "登録済みのリミテッド武器覚醒は反映。その他の奥義専用武器スキル・ジョブ固有奥義補正・武器技巧抽選・上限貫通・チェインバーストは未対応",
       ...result.issues.filter((issue) => /HP依存|未接続/.test(issue))] };
 }

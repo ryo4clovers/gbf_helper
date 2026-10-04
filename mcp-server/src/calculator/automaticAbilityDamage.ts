@@ -111,6 +111,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
   const caLevels = (calculation.deckConfig.protagonist as { otherLimitBonusLevels?: Record<string, number> })?.otherLimitBonusLevels ?? {};
   const caLb = ["21", "35", "41", "91"].reduce((sum, id) => sum + (id === "91" ? [0, 2, 4, 8] : [0, 1, 3, 5])[caLevels[id] ?? 0], 0);
   const damageContributions = { account: (charge ? calculation.modifiers.chargeDamagePercent : calculation.modifiers.abilityDamagePercent) ?? 0,
+    weapon: charge ? weapons.chargeDamage.effectivePercent : weapons.abilityDamage.effectivePercent,
     artifact: artifactAbilityPercent, jobLevel: character || charge ? 0 : 40,
     limitBonus: charge ? (character ? 0 : caLb) : bonuses.limitBonusPercent ?? 0,
     completion: character || charge ? 0 : resolution.protagonistAbilityCompletion.damagePercent,
@@ -127,6 +128,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
     + (original.attacker?.artifactStartBuffs?.damageCapUp && character.artifact?.skills.some((skill) => skill.skillId === "50211") ? 10 : 0) : support.damageCapPercent - (original.battleEffects?.damageCapPercent ?? 0);
   const capContributions = { generalCap, battleBuffCap: original.battleEffects?.damageCapPercent ?? 0, weaponGeneralCap: weaponCap("normal-frame-damage-cap-up"),
     awakeningChargeCap: charge ? awakening.chargeCapPercent : 0,
+    weaponChargeCap: charge ? weapons.chargeDamageCap.effectivePercent : 0,
     weaponSpecialGeneralCap: weaponCap("special-frame-damage-cap-up"), weaponAbilityCap: charge ? 0 : weapons.abilityDamageCap.effectivePercent,
     weaponSpecialAbilityCap: charge ? 0 : weaponCap("special-ability-damage-cap-up", 30), actorCap, summonCap: summons.capPercent,
     ringCap: ringCapPercent, jobLevelCap: character || charge ? 0 : 20, accountAbilityCap: (charge ? calculation.modifiers.chargeDamageCapPercent : calculation.modifiers.abilityDamageCapPercent) ?? 0,
@@ -137,7 +139,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
   const amplificationPercent = (calculation.modifiers.damageDealtPercent ?? 0) + (advantageous ? calculation.modifiers.targetElementDamagePercent ?? 0 : 0)
     + (charge ? 0 : weaponCap("special-ability-damage-dealt-up", 10)) + weapons.damageDealt.effectivePercent + summons.amplificationPercent + artifact.fullHpAmplificationPercent
     + (advantageous ? frames.elementalSuperiority.effectivePercent : 0) + level * 2;
-  const supplementalDamage = weapons.supplementalDamage.effectiveAmount + (charge ? 0 : weapons.abilitySupplementalDamage.effectiveAmount)
+  const supplementalDamage = weapons.supplementalDamage.effectiveAmount + (charge ? weapons.chargeSupplementalDamage.effectiveAmount : weapons.abilitySupplementalDamage.effectiveAmount)
     + effects.supportSkillSupplementalDamage + effects.enemySupplementalDamage + summons.supplementalDamage + mastery.supplementalDamage;
   criticalDamageBonusPercent += advantageous ? original.battleEffects?.criticalDamageBonusPercent ?? 0 : 0;
   const fixedChargeDamage = charge ? profile.fixedChargeDamage ?? 0 : 0;

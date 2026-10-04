@@ -30,6 +30,7 @@
 | [weapon-skill-id-other-collection.md](./weapon-skill-id-other-collection.md) | 通常攻刃系以外のweapon skill_idの属性別収集状況 | 下書き |
 | [weapon-critical-skills.md](./weapon-critical-skills.md) | 通常技巧系武器スキルのクリティカル率 | 下書き |
 | [weapon-skill-effect-tables.md](./weapon-skill-effect-tables.md) | 武器スキル種別ごとの効果量・計算枠・上限の横断表 | 下書き |
+| [weapon-awakening.md](./weapon-awakening.md) | リミテッド武器30本の覚醒タイプ・Lv別効果と計算接続 | 下書き |
 | [weapon-master-id.md](./weapon-master-id.md) | 武器マスターIDのレアリティ・武器種・内部番号構造 | 下書き |
 | [summon-master-id.md](./summon-master-id.md) | 召喚石マスターIDのレアリティ・内部番号構造 | 下書き |
 | [summon-aura-types.md](./summon-aura-types.md) | 召喚石の加護・召喚仕様 | 下書き |

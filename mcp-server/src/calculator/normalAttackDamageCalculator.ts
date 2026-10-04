@@ -443,7 +443,7 @@ export function calculateNormalAttackDamage(
     ? undefined
     : calculateArmorBreakDamage({
         commonPreAbilityDamage: baseDamage.articleTrace.prePostCapDamage,
-        abilityDamageUpPercent: input.abilityDamage.abilityDamageUpPercent,
+        abilityDamageUpPercent: input.abilityDamage.abilityDamageUpPercent + otherWeaponSkills.abilityDamage.effectivePercent,
         limitBonusPercent: input.abilityDamage.limitBonusPercent,
         damageCapUpPercent:
           generalDamageCapPercent

@@ -19,6 +19,10 @@ export interface OtherWeaponSkillResult {
   damageDealt: OtherWeaponSkillRateSummary;
   supplementalDamage: OtherWeaponSkillFlatSummary;
   abilityDamageCap: OtherWeaponSkillRateSummary;
+  abilityDamage: OtherWeaponSkillRateSummary;
+  chargeDamage: OtherWeaponSkillRateSummary;
+  chargeDamageCap: OtherWeaponSkillRateSummary;
+  chargeSupplementalDamage: OtherWeaponSkillFlatSummary;
   abilitySupplementalDamage: OtherWeaponSkillFlatSummary;
   healingCap: OtherWeaponSkillRateSummary;
   debuffResistance: OtherWeaponSkillRateSummary;
@@ -36,6 +40,10 @@ function matchingEffects(
     | "damage-dealt-up"
     | "supplemental-damage"
     | "ability-damage-cap-up"
+    | "ability-damage-up"
+    | "charge-damage-up"
+    | "charge-damage-cap-up"
+    | "charge-supplemental-damage"
     | "ability-supplemental-damage"
     | "healing-cap-up"
     | "debuff-resistance-up",
@@ -95,6 +103,12 @@ export function calculateOtherWeaponSkills(deck: DeckSnapshot): OtherWeaponSkill
     damageDealt,
     supplementalDamage,
     abilityDamageCap,
+    abilityDamage: summarizeRate(matchingEffects(deck, "ability-damage-up")),
+    chargeDamage: summarizeRate(matchingEffects(deck, "charge-damage-up")),
+    // Provisional shared weapon limits from knowledge/mechanics/weapon-skill-effect-tables.md.
+    // Only awakening supplies these effects today; interactions with unregistered CA skills remain unverified.
+    chargeDamageCap: summarizeRate(matchingEffects(deck, "charge-damage-cap-up"), 75),
+    chargeSupplementalDamage: summarizeFlat(matchingEffects(deck, "charge-supplemental-damage"), 1_000_000),
     abilitySupplementalDamage,
     healingCap,
     debuffResistance,

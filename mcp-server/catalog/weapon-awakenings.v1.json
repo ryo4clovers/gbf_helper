@@ -1,0 +1,384 @@
+{
+  "schemaVersion": 1,
+  "verificationStatus": "下書き",
+  "checkedAt": "2026-10-05",
+  "sources": [
+    "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/391692",
+    "https://gbf.wiki/Weapon_Awakening",
+    "https://gbf.wiki/Fallen_Sword"
+  ],
+  "note": "二次情報。連撃DAはGameWith内に10%/20%の不一致があり、Wikiと個別記載に従い20%候補。全属性適用・既存武器枠との共存は要実測。formCodeは計算機の識別子で実機番号との対応は未確認。",
+  "minimumWeaponLevel": 150,
+  "minimumUncapLevel": 4,
+  "maximumLevel": 4,
+  "types": [
+    {
+      "formCode": "limited-attack",
+      "name": "攻撃",
+      "effects": [
+        {
+          "level": 2,
+          "kind": "normal-attack-up",
+          "amountPercent": 15
+        },
+        {
+          "level": 3,
+          "kind": "normal-frame-damage-cap-up",
+          "amountPercent": 5
+        },
+        {
+          "level": 4,
+          "kind": "normal-attack-up",
+          "amountPercent": 25
+        }
+      ]
+    },
+    {
+      "formCode": "limited-defense",
+      "name": "防御",
+      "effects": [
+        {
+          "level": 2,
+          "kind": "normal-hp-up",
+          "amountPercent": 15
+        },
+        {
+          "level": 3,
+          "kind": "weapon-defense-up",
+          "amountPercent": 20
+        },
+        {
+          "level": 4,
+          "kind": "normal-hp-up",
+          "amountPercent": 25
+        }
+      ]
+    },
+    {
+      "formCode": "limited-charge",
+      "name": "奥義",
+      "effects": [
+        {
+          "level": 2,
+          "kind": "charge-damage-up",
+          "amountPercent": 20
+        },
+        {
+          "level": 3,
+          "kind": "charge-damage-cap-up",
+          "amountPercent": 10
+        },
+        {
+          "level": 4,
+          "kind": "charge-supplemental-damage",
+          "amountFlat": 100000
+        }
+      ]
+    },
+    {
+      "formCode": "limited-ability",
+      "name": "アビダメ",
+      "effects": [
+        {
+          "level": 2,
+          "kind": "ability-damage-cap-up",
+          "amountPercent": 10
+        },
+        {
+          "level": 3,
+          "kind": "ability-damage-up",
+          "amountPercent": 20
+        },
+        {
+          "level": 4,
+          "kind": "ability-damage-cap-up",
+          "amountPercent": 15
+        }
+      ]
+    },
+    {
+      "formCode": "limited-healing",
+      "name": "回復",
+      "effects": [
+        {
+          "level": 2,
+          "kind": "healing-cap-up",
+          "amountPercent": 10
+        },
+        {
+          "level": 3,
+          "kind": "debuff-resistance-up",
+          "amountPercent": 10
+        },
+        {
+          "level": 4,
+          "kind": "healing-cap-up",
+          "amountPercent": 20
+        }
+      ]
+    },
+    {
+      "formCode": "limited-multiattack",
+      "name": "連撃",
+      "effects": [
+        {
+          "level": 2,
+          "kind": "triple-attack-rate-up",
+          "amountPercent": 5
+        },
+        {
+          "level": 3,
+          "kind": "double-attack-rate-up",
+          "amountPercent": 20
+        },
+        {
+          "level": 4,
+          "kind": "triple-attack-rate-up",
+          "amountPercent": 5
+        }
+      ]
+    }
+  ],
+  "weapons": [
+    {
+      "weaponId": "1040612700",
+      "name": "絶拳",
+      "types": [
+        "limited-attack",
+        "limited-ability"
+      ]
+    },
+    {
+      "weaponId": "1040216300",
+      "name": "アトランティス",
+      "types": [
+        "limited-attack",
+        "limited-charge"
+      ]
+    },
+    {
+      "weaponId": "1040215300",
+      "name": "セラステス",
+      "types": [
+        "limited-attack",
+        "limited-defense"
+      ]
+    },
+    {
+      "weaponId": "1040022000",
+      "name": "泡沫夢幻",
+      "types": [
+        "limited-attack",
+        "limited-multiattack"
+      ]
+    },
+    {
+      "weaponId": "1040112500",
+      "name": "アーク",
+      "types": [
+        "limited-attack",
+        "limited-defense"
+      ]
+    },
+    {
+      "weaponId": "1040311600",
+      "name": "バブ･エル･マンデブ",
+      "types": [
+        "limited-attack",
+        "limited-ability"
+      ]
+    },
+    {
+      "weaponId": "1040502500",
+      "name": "ベネディーア",
+      "types": [
+        "limited-attack",
+        "limited-ability"
+      ]
+    },
+    {
+      "weaponId": "1040709000",
+      "name": "悪滅の雷",
+      "types": [
+        "limited-attack",
+        "limited-defense"
+      ]
+    },
+    {
+      "weaponId": "1040906400",
+      "name": "イクサバ",
+      "types": [
+        "limited-multiattack",
+        "limited-healing"
+      ]
+    },
+    {
+      "weaponId": "1040004600",
+      "name": "ミュルグレス",
+      "types": [
+        "limited-attack",
+        "limited-defense"
+      ]
+    },
+    {
+      "weaponId": "1040410000",
+      "name": "ブルースフィア",
+      "types": [
+        "limited-attack",
+        "limited-healing"
+      ]
+    },
+    {
+      "weaponId": "1040708700",
+      "name": "太歳精弓",
+      "types": [
+        "limited-charge",
+        "limited-ability"
+      ]
+    },
+    {
+      "weaponId": "1040504300",
+      "name": "エーケイ・フォーエイ",
+      "types": [
+        "limited-defense",
+        "limited-charge"
+      ]
+    },
+    {
+      "weaponId": "1040110600",
+      "name": "刃鏡片",
+      "types": [
+        "limited-attack",
+        "limited-ability"
+      ]
+    },
+    {
+      "weaponId": "1040910000",
+      "name": "一期一振",
+      "types": [
+        "limited-multiattack",
+        "limited-healing"
+      ]
+    },
+    {
+      "weaponId": "1040105400",
+      "name": "エターナル・ラヴ",
+      "types": [
+        "limited-defense",
+        "limited-ability"
+      ]
+    },
+    {
+      "weaponId": "1040108200",
+      "name": "リユニオン",
+      "types": [
+        "limited-charge",
+        "limited-healing"
+      ]
+    },
+    {
+      "weaponId": "1040212700",
+      "name": "虚無ノ哭風",
+      "types": [
+        "limited-attack",
+        "limited-ability"
+      ]
+    },
+    {
+      "weaponId": "1040404300",
+      "name": "ガンバンテイン",
+      "types": [
+        "limited-attack",
+        "limited-ability"
+      ]
+    },
+    {
+      "weaponId": "1040309000",
+      "name": "サティフィケイト",
+      "types": [
+        "limited-attack",
+        "limited-defense"
+      ]
+    },
+    {
+      "weaponId": "1040207000",
+      "name": "エデン",
+      "types": [
+        "limited-multiattack",
+        "limited-healing"
+      ]
+    },
+    {
+      "weaponId": "1040008700",
+      "name": "ブルトガング",
+      "types": [
+        "limited-defense",
+        "limited-ability"
+      ]
+    },
+    {
+      "weaponId": "1040108700",
+      "name": "パラゾニウム",
+      "types": [
+        "limited-attack",
+        "limited-charge"
+      ]
+    },
+    {
+      "weaponId": "1040014300",
+      "name": "フォールン・ソード",
+      "types": [
+        "limited-multiattack",
+        "limited-healing"
+      ]
+    },
+    {
+      "weaponId": "1040812000",
+      "name": "ケラク",
+      "types": [
+        "limited-attack",
+        "limited-healing"
+      ]
+    },
+    {
+      "weaponId": "1040211600",
+      "name": "ガリレオ･サイト",
+      "types": [
+        "limited-attack",
+        "limited-defense"
+      ]
+    },
+    {
+      "weaponId": "1040312900",
+      "name": "八幡薙刀",
+      "types": [
+        "limited-attack",
+        "limited-multiattack"
+      ]
+    },
+    {
+      "weaponId": "1040911500",
+      "name": "スカイエース",
+      "types": [
+        "limited-attack",
+        "limited-defense"
+      ]
+    },
+    {
+      "weaponId": "1040213400",
+      "name": "聖布の槍",
+      "types": [
+        "limited-attack",
+        "limited-multiattack"
+      ]
+    },
+    {
+      "weaponId": "1040809100",
+      "name": "ウン･ハイル",
+      "types": [
+        "limited-attack",
+        "limited-charge"
+      ]
+    }
+  ]
+}
