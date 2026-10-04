@@ -11,7 +11,7 @@ obtain: "レジェンドガチャ(第三双寅行弓を入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-10-03
+last_updated: 2026-10-04
 source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/436867) と gbf.wiki (https://gbf.wiki/Cidala_(Valentine)) を参照(取得日: 2026-08-18、2026-10-03に序盤の自動発動と累積弱体を再確認)。HP1118/ATK8810は両者一致。2026-10-03にSupplemental Damage (https://gbf.wiki/Supplemental_Damage)を参照し、ユーザー提供の旧29ターン・追加55ターン記録で通常専用与ダメージの共存候補をオフライン照合。数値・共存枠・丸めは下書き。"
 ---
 
@@ -54,8 +54,9 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 効果: 敵全体に闇属性ダメージを2回与え、攻防をDOWNさせ、被ダメージを上昇させ、強化効果を1つ無効化する。
 - 数値/スケーリング: 倍率4.0倍(1回あたり上限約58万)×2回。攻防-10%DOWN(累積最大40%、180秒)。被ダメ最大+3000上昇(累積3万、180秒、基本弱体成功率100%)。
 - CT(クールタイム): 7ターン。
-- 出典: GameWith
-- ステータス: GameWithのみで確認(gbf.wiki側の当該部分は未取得)
+- 実機減衰設定: `action_id: 239421`、`damage_limit_type`の先頭値`5000001`。基礎ライン50/60/70/80万、超過分通過率50/25/5/1%。詳細と各フィールドは[ダメージプロファイル](../abilities/damage-profiles.md#菓製猛虎の実機減衰設定とwiki照合2026-10-04)を参照。
+- 出典: GameWith、[キャラWiki](https://gbf.wiki/Cidala_(Valentine))、ユーザー提供のキャラ詳細2件と18戦36hit、[Skill AttenuationのID 5000001](https://gbf.wiki/User:Cajunwildcat/Skill_Attenuation)（2026-10-04照合）。
+- ステータス: 減衰ID・4ライン・通過率は実機設定を確認、2hitは戦闘記録で確認。倍率・弱体数値・補正枠・丸めは要検証。実機設定の確認と各境界でのダメージ検証を区別する。
 
 ### 奥義: 一寅托生
 
@@ -94,6 +95,6 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 
 - 各アビリティの正確な性能はゲーム内表示での再確認が必要。
 - リリース日はGameWithに記載がなく不明。
-- 1アビ・2アビ・3アビの詳細効果はgbf.wikiの当該部分が取得範囲外だったため、GameWithのみで記載(基本的な情報は信頼度が高いと判断)。
+- 1アビ・2アビの詳細効果は旧収集時にGameWithのみで記載。3アビは2026-10-04にWikiと実機減衰設定を照合済みだが、倍率・弱体数値・補正・丸めの実測検証は残る。
 - gbf.wikiは4★表記のステータス(HP1118/ATK8810)を掲載。5★上限解放の有無は本ページの情報からは確認できず。
 - シンダラには土属性版・スーパーシンダラ版が存在するが、本ファイルはバレンタイン版(闇属性)のみを対象とする。双子の十二神将(フアンとパイ)としての設定を簡略化している。
