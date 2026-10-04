@@ -4,6 +4,8 @@ import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttack
 import { normalAttackCalculationRequestSchema, resolveDamageCalculationRequest, type NormalAttackCalculationRequest } from "./normalAttackCalculationRequest.js";
 import { calculateAutomaticAbilityDamage, AUTOMATIC_ABILITY_PROFILES, type AutomaticAbilityId } from "./automaticAbilityDamage.js";
 
+import { applyIlsaBattleEffects, initialIlsaState, ilsaBattleStateSchema, resetIlsaOnCharge } from "./ilsaBattleState.js";
+
 export const automaticAbilityConditionsSchema = normalAttackCalculationRequestSchema.pick({
   enemy: true, modifiers: true, supportSummon: true,
 }).extend({
@@ -55,11 +57,14 @@ export const battleActionStateSchema = z.object({
   otherSelfReady: z.boolean(),
   chocolateStacks: z.number().int().min(0).max(10),
   chocolateExpiresAt: z.number().finite().min(0).max(360000),
+  ilsa: ilsaBattleStateSchema.optional(),
+  defeatedPositions: z.array(z.number().int().min(0).max(3)).max(4).optional(),
   deathSentenceExpiresOnTurn: z.number().int().min(0).max(106),
 }).strict();
 export type BattleActionState = z.infer<typeof battleActionStateSchema>;
 type GenerationOptions = {
   state?: BattleActionState;
+  ilsaCharge?: { enabled: boolean; gauge: number };
   calculationContext?: Pick<NormalAttackCalculationRequest, "enemy" | "supportSummon">;
   resolveAttackCount?: (position: number, patch: NormalAttackPatch, guaranteed: number) => number;
 };
@@ -73,6 +78,10 @@ export type GeneratedBattleEvent = {
   splitCount: number;
   bodyHitCount: number;
   pursuitHitCount: number;
+  calculationPatch: NormalAttackPatch;
+} | {
+  kind: "charge-attack";
+  hitCount: 1;
   calculationPatch: NormalAttackPatch;
 } | {
   kind: "automatic-ability";
@@ -141,6 +150,8 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
   const initialLevel = resolveProtagonistNormalAttackSupport(deck).initialMythicalLancerLevel;
   const random = randomStream(request.multiattack.seed);
   const saved = options.state && battleActionStateSchema.parse(options.state);
+  let ilsa = actors.some((actor) => actor.key === "ilsa") ? saved?.ilsa ?? initialIlsaState() : undefined;
+  let ilsaGauge = options.ilsaCharge?.gauge ?? 0;
   let ownHits = saved?.protagonistHitCount ?? 0;
   let level = saved?.mythicalLancerLevel ?? initialLevel;
   let otherSelfReady = saved?.otherSelfReady ?? false;
@@ -186,12 +197,15 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
         name: AUTOMATIC_ABILITY_PROFILES[abilityId].name, abilityId, hitCount, calculationPatch, damage });
       if (actorPosition === 0) ownHits += hitCount;
     }
-    function effect(name: string, effect: "other-self-ready" | "charge-ready" | "mythical-lancer-level", value: number) {
-      events.push({ sequence: ++sequence, kind: "effect", actorPosition: 0, name, effect, value });
+    function effect(name: string, effect: "other-self-ready" | "charge-ready" | "mythical-lancer-level", value: number, actorPosition = 0) {
+      if (saved?.defeatedPositions?.includes(actorPosition)) return;
+      events.push({ sequence: ++sequence, kind: "effect", actorPosition, name, effect, value });
     }
     if (turn === 1 && ereshkigal) effect("テル・イブラームII（開幕）", "charge-ready", 100);
     for (const actor of actors) {
-      const actionCount = actor.key === "sariel" && turn === 1 ? 3 : 1;
+      if (saved?.defeatedPositions?.includes(actor.position)) continue;
+      const actionCount = actor.key === "sariel" && turn === 1 ? 3
+        : actor.key === "ilsa" && ilsa?.multistrikeTurn === turn ? ilsa.multistrikeActions : 1;
       for (let action = 0; action < actionCount; action++) {
         const coupled = actor.key === "cidala" && turn <= 3;
         const split = actor.key === "ilsa" ? 3 : coupled ? 2 : actor.key === "protagonist"
@@ -212,15 +226,30 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
             ...(actor.key === "cidala" ? { coupledConfectionActive: coupled } : {}),
           } }),
         };
+        calculationPatch.battleEffects = applyIlsaBattleEffects(calculationPatch.battleEffects ?? {}, ilsa, turn,
+          actor.key !== "protagonist" || deck.protagonist.elementCode === "6");
+        if (actor.key === "ilsa" && ilsa && options.ilsaCharge?.enabled && ilsaGauge >= 100) {
+          ilsaGauge = 0;
+          effect("バースト・イレイザー：奥義ゲージ消費", "charge-ready", 0, actor.position);
+          events.push({ sequence: ++sequence, kind: "charge-attack", actorPosition: actor.position,
+            name: "バースト・イレイザー", hitCount: 1, calculationPatch });
+          ilsa = resetIlsaOnCharge(ilsa, turn);
+          continue;
+        }
         const guaranteed = actor.key === "ilsa" || (actor.key === "sariel" && turn === 1) ? 3 : actor.key === "cidala" ? 2 : 1;
         const count = options.resolveAttackCount?.(actor.position, calculationPatch, guaranteed) ?? attackCount(actor.key, turn);
         if (!Number.isInteger(count) || count < guaranteed || count > 3) throw new Error("連続攻撃回数が保証値と一致しません");
         if (count === 3) tripleAttackActions++;
         events.push({ sequence: ++sequence, kind: "normal", actorPosition: actor.position,
           name: NAMES[actor.key], attackCount: count, splitCount: split, bodyHitCount: count * split,
-          pursuitHitCount: count * split * pursuitFrames.length, calculationPatch });
+          pursuitHitCount: count * split * (pursuitFrames.length + ((calculationPatch.battleEffects?.abilityNormalPursuitPercent ?? 0) > 0 ? 1 : 0)), calculationPatch });
+        if (actor.key === "ilsa" && options.ilsaCharge) {
+          // TA gains 37%; apply the passive -35% once per attack action, never per split hit.
+          ilsaGauge = Math.min(100, ilsaGauge + Math.floor(37 * .65));
+          effect("確定TA：奥義ゲージ+24%（上昇量35%DOWN）", "charge-ready", ilsaGauge, actor.position);
+        }
         if (actor.key === "protagonist") {
-          ownHits += count * split * (1 + pursuitFrames.length);
+          ownHits += count * split * (1 + pursuitFrames.length + ((calculationPatch.battleEffects?.abilityNormalPursuitPercent ?? 0) > 0 ? 1 : 0));
           // The reaction uses the level at the start of this action, including when it crosses 40 hits.
           if (lancer && level > 0) ability(0, "mythical-arms", level, calculationPatch);
           if (otherSelfReady) {
@@ -250,13 +279,14 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
     }
     turns.push({ turn, elapsedSeconds, tripleAttackActions, events,
       endState: { turn: turn + 1, mythicalLancerLevel: level, protagonistHitCount: ownHits, otherSelfReady,
-        chocolateStacks, chocolateExpiresAt, deathSentenceExpiresOnTurn } });
+        chocolateStacks, chocolateExpiresAt, deathSentenceExpiresOnTurn, ...(ilsa ? { ilsa } : {}),
+        ...(saved?.defeatedPositions ? { defeatedPositions: saved.defeatedPositions } : {}) } });
   }
   return {
     schemaVersion: 1 as const,
     kind: "generated-battle-actions" as const,
     verificationStatus: "下書き" as const,
-    modelVersion: "composition-no-charge-v3",
+    modelVersion: "composition-ilsa-v4",
     automaticAbilityConditions: conditions,
     mode: request.multiattack.mode,
     seed: request.multiattack.seed,

@@ -33,6 +33,9 @@ export const normalAttackCalculationRequestSchema = z
     protagonistCurrentHpPercent: z.number().finite().min(1).max(100).default(100),
     mythicalLancerLevel: z.number().int().min(0).max(5).optional().describe("攻撃時点の神伝の槍手Lv。省略時は開始時の槍/斧本数"),
     battleEffects: z.object({
+      criticalDamageBonusPercent: optionalPercent,
+      damageCapPercent: optionalPercent,
+      abilityNormalPursuitPercent: optionalPercent,
       enemyDefenseDownPercent: z.number().finite().min(0).max(100).optional(),
       enemyDefenseDownBeyondCapPercent: z.number().finite().min(0).max(99).optional(),
       enemySupplementalDamage: z.number().finite().min(0).max(1_000_000).optional(),
@@ -72,6 +75,8 @@ export const normalAttackCalculationRequestSchema = z
         extinctionCrestDoubleAttackRatePercent: optionalPercent,
         extinctionCrestTripleAttackRatePercent: optionalPercent,
         chainBurstPerformancePercent: optionalPercent,
+        chargeDamagePercent: optionalPercent,
+        chargeDamageCapPercent: optionalPercent,
         abilityDamagePercent: optionalPercent.describe("大事なもの等の共通追加補正。主人公LB・コンプリート分を含めない"),
         abilityDamageLimitBonusPercent: optionalPercent.describe("主人公アビダメLBの置換値。キャラには適用しない"),
         abilityDamageCapPercent: optionalPercent.describe("大事なもの等の共通追加上限。主人公LB・コンプリート分を含めない"),

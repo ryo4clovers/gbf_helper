@@ -14,6 +14,7 @@ import {
   applyNormalAttackHitStages,
   calculateEffectivePursuitDamage,
   type EffectivePursuitDamageResult,
+  type PursuitDamageStages,
 } from "./pursuitDamageCalculator.js";
 import {
   calculateCriticalBodyDamage,
@@ -130,7 +131,7 @@ export interface ProtagonistLimitBonusCriticalResult extends ProtagonistLimitBon
 
 export interface NormalAttackDamageResult {
   attacker?: { characterSlot: number; characterId: string; name?: string; verificationStatus: "下書き";
-    modelScope: "abilities-unused"; unresolvedInputs: string[] };
+    modelScope: "abilities-unused" | "explicit-battle-effects"; unresolvedInputs: string[] };
   schemaVersion: 1;
   status: "provisional";
   attackPower: NormalAttackPowerResult;
@@ -149,6 +150,7 @@ export interface NormalAttackDamageResult {
   guaranteedCriticalBodyDamageDistribution?: DamageDistributionSummary;
   criticalBodyDamage?: CriticalBodyDamageResult;
   protagonistLimitBonusCritical?: ProtagonistLimitBonusCriticalResult;
+  abilityPursuitDamage?: { frame: "skill-side-a"; effectivePursuitPercentage: number; stages: PursuitDamageStages; baseDamage: number; damageDistribution: DamageDistributionSummary };
   pursuitDamage?: EffectivePursuitDamageResult;
   destructionPursuitDamage?: EffectivePursuitDamageResult;
   destructionPursuitRoundingCandidates?: DestructionPursuitRoundingCandidate[];
@@ -329,6 +331,14 @@ export function calculateNormalAttackDamage(
         } } : {}),
       })
     : undefined;
+  const abilityPursuitPercent = input.battleEffects?.abilityNormalPursuitPercent ?? 0;
+  const abilityPursuitDamage = abilityPursuitPercent > 0 ? { frame: "skill-side-a" as const,
+    effectivePursuitPercentage: abilityPursuitPercent, baseDamage: preAttenuationNominalDamage,
+    damageDistribution: summarizeDamageDistribution(preAttenuationNominalDamage, { ...sharedRandomOptions,
+      nominalPreparation: bodyNominalPreparation, finalRounding: "floor", damageTransform: {
+        id: "skill-side-a-echo", apply: (damage) => applyNormalAttackHitStages(damage, abilityPursuitPercent,
+          { ...bodyDamageAttenuation, criticalDamageBonusPercent: guaranteedCriticalPercent, beforePursuitRounding: "ceil" }) } }),
+    stages: { ...bodyDamageAttenuation, criticalDamageBonusPercent: guaranteedCriticalPercent, beforePursuitRounding: "ceil" as const } } : undefined;
   const guaranteedCriticalBodyDamageDistribution = advantageous && protagonistNormalAttackSupport.criticalTriggerRatePercent === 100
     ? summarizeDamageDistribution(preAttenuationNominalDamage, {
         ...sharedRandomOptions, nominalPreparation: bodyNominalPreparation,
@@ -415,6 +425,7 @@ export function calculateNormalAttackDamage(
   const distributions = [
     guaranteedCriticalBodyDamageDistribution ?? bodyDamageDistribution,
     ...(pursuitDamage === undefined ? [] : [pursuitDamage.damageDistribution]),
+    ...(abilityPursuitDamage === undefined ? [] : [abilityPursuitDamage.damageDistribution]),
     ...(destructionPursuitDamage === undefined ? [] : [destructionPursuitDamage.damageDistribution]),
   ];
   const abilityPostAttenuationPercent = [
@@ -457,7 +468,8 @@ export function calculateNormalAttackDamage(
     schemaVersion: 1,
     status: "provisional",
     ...(character ? { attacker: { characterSlot: character.slot, characterId: character.masterId, name: character.name,
-      verificationStatus: "下書き" as const, modelScope: "abilities-unused" as const,
+      verificationStatus: "下書き" as const,
+      modelScope: input.battleEffects ? "explicit-battle-effects" as const : "abilities-unused" as const,
       unresolvedInputs: [
         ...(character.perpetuityRing === undefined ? ["perpetuityRing"] : []),
         ...(character.masterId === "3040512000" && input.divineStampBookEnabled === undefined ? ["divineStampBookEnabled"] : []),
@@ -484,6 +496,7 @@ export function calculateNormalAttackDamage(
     criticalBodyDamage,
     protagonistLimitBonusCritical,
     pursuitDamage,
+    abilityPursuitDamage,
     destructionPursuitDamage,
     ...(options.compareDestructionPursuitRounding && destructionPursuitDamage ? {
       destructionPursuitRoundingCandidates: calculateDestructionPursuitRoundingCandidates(input, attackPower, hpDependentAttack, destructionPursuitDamage),

@@ -95,9 +95,13 @@ export function prepareNormalAttackActor(input: DamageCalculationInput): DamageC
 
 export function resolveNormalAttackSupport(input: DamageCalculationInput) {
   const character = selectedCharacter(input);
+  const buffCritical = input.battleEffects?.criticalDamageBonusPercent ?? 0;
+  const buffCap = input.battleEffects?.damageCapPercent ?? 0;
   if (!character) {
     const support = resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel);
-    return { ...support, normalAttackSupplementalDamage: 0, normalAttackAmplificationPercent: 0, sources: [support.source] };
+    return { ...support, damageCapPercent: support.damageCapPercent + buffCap,
+      criticalDamageBonusPercent: support.criticalDamageBonusPercent + buffCritical,
+      criticalTriggerRatePercent: buffCritical > 0 ? 100 : support.criticalTriggerRatePercent, normalAttackSupplementalDamage: 0, normalAttackAmplificationPercent: 0, sources: [support.source] };
   }
   const cidala = character.masterId === "3040512000" && input.attacker?.coupledConfectionActive;
   const multiattackAwakeningLevel = character.awakening?.formCode === "4" ? character.awakening.level ?? 0 : 0;
@@ -107,10 +111,10 @@ export function resolveNormalAttackSupport(input: DamageCalculationInput) {
     // Coupled Confection is normal-only, not Support Skill B. Its coexistence
     // with Ereshkigal is provisional and verified conditionally against captures.
     supplementalDamage: 0, normalAttackSupplementalDamage: cidala ? 50_000 : 0,
-    damageCapPercent: (character.perpetuityRing ? 5 : 0) + (multiattackAwakeningLevel >= 10 ? 5 : 0)
+    damageCapPercent: buffCap + (character.perpetuityRing ? 5 : 0) + (multiattackAwakeningLevel >= 10 ? 5 : 0)
       + resolveCharacterArtifact(input).damageCapPercent,
     normalAttackAmplificationPercent: multiattackAwakeningLevel >= 9 ? 5 : 0,
-    criticalDamageBonusPercent: 0, criticalTriggerRatePercent: 0,
+    criticalDamageBonusPercent: buffCritical, criticalTriggerRatePercent: buffCritical > 0 ? 100 : 0,
     verificationStatus: "下書き" as const, source: SOURCES[character.masterId], sources: [SOURCES[character.masterId],
       ...(character.masterId === "3040512000" && input.divineStampBookEnabled ? ["https://gbf.wiki/Wonders#Other"] : []),
       "https://gbf.wiki/Character_Extended_Mastery_Perks#Awakening", "https://gbf.wiki/Character_Extended_Mastery_Perks#Perpetuity_Ring"] };

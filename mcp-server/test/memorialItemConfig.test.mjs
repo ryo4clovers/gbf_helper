@@ -20,6 +20,8 @@ test("applies the matching Four Saints item and fixed account items", () => {
   assert.equal(result.chainBurstPerformancePercent, 5);
   assert.equal(result.abilityDamagePercent, 5);
   assert.equal(result.abilityDamageCapPercent, 5);
+  assert.equal(result.chargeDamagePercent, 5);
+  assert.equal(result.chargeDamageCapPercent, 5);
   assert.equal(result.defensePercent, 22);
   assert.deepEqual(result.incomingElementalDamageReductionPercents, [5, 5]);
 });

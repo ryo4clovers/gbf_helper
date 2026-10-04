@@ -1,5 +1,9 @@
 /** Explicit, provisional battle effects; application/expiry belongs to the caller's battle state. */
 export interface BattleDamageEffects {
+  /** Guaranteed critical buff (advantage only), general cap, and Skill Side A echo. */
+  criticalDamageBonusPercent?: number;
+  damageCapPercent?: number;
+  abilityNormalPursuitPercent?: number;
   enemyDefenseDownPercent?: number;
   enemyDefenseDownBeyondCapPercent?: number;
   enemySupplementalDamage?: number;

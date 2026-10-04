@@ -156,7 +156,7 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
       ...(activeChocolate && generated.endState.chocolateStacks ? [{ name: `菓製猛虎 ${generated.endState.chocolateStacks}` }] : []),
       ...(generated.endState.deathSentenceExpiresOnTurn > generated.turn ? [{ name: "刑死" }] : []),
     ];
-    if (next.enemy.attacks && options.enemyAttack) {
+    if (generated.advancesTurn !== false && next.enemy.attacks && options.enemyAttack && next.party[0].hp > 0) {
       const target = next.party[0];
       const amount = Math.max(0, Math.floor(options.enemyAttack.damage));
       target.hp = clamp(target.hp - amount, 0, target.maxHp);
@@ -164,7 +164,18 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
     }
   }
   next.warnings = generated.warnings;
-  next.turn += 1;
+  if (generated.advancesTurn !== false) next.turn += 1;
+  if (next.actionState) {
+    const defeated = next.party.filter((member) => member.hp <= 0).map((member) => member.slot);
+    const ilsa = next.party.find((member) => ["3040456000", "dark-ssr-ilsa-yukata"].includes(member.id));
+    const newDeaths = defeated.filter((position) => position !== ilsa?.slot && !next.actionState.defeatedPositions?.includes(position));
+    if (ilsa?.hp > 0 && next.actionState.ilsa && newDeaths.length) {
+      next.actionState.ilsa.flowers = Math.min(3, next.actionState.ilsa.flowers + newDeaths.length);
+      next.actionState.ilsa.readyOnTurn = [next.turn, next.turn, next.turn];
+    }
+    if (defeated.length || next.actionState.defeatedPositions) next.actionState.defeatedPositions = defeated;
+    if (next.turn < (next.actionState.ilsa?.sinExpiresOnTurn ?? 0)) next.enemy.debuffs.push({ name: "攻防25%DOWN" });
+  }
   return next;
 }
 

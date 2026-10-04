@@ -8,8 +8,8 @@ import {
   resolveDamageMultiplier,
   resolveEnemyAttackDamage,
   selectPartyMember,
-} from "/battle-state.js?v=4";
-import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js";
+} from "/battle-state.js?v=5";
+import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=2";
 import { scaleDamageCapThreshold, finalizeNormalAttackHit } from "/normal-attack-rounding.js";
 
 const $ = (id) => document.getElementById(id);
@@ -118,7 +118,7 @@ function damagePacketsForHit(result, request, mode, note) {
     criticalDamageBonusPercent,
   );
   const criticalNote = criticalTriggered
-    ? `・クリティカル ×${numberFormat.format(1 + criticalDamageBonusPercent / 100)}`
+    ? `・クリティカル ×${(1 + criticalDamageBonusPercent / 100).toLocaleString("ja-JP", { maximumFractionDigits: 3 })}`
     : "";
   const packets = [{
     kind: "damage",
@@ -138,6 +138,12 @@ function damagePacketsForHit(result, request, mode, note) {
       note: `追撃 ${numberFormat.format(result.pursuitDamage.effectivePursuitPercentage)}%・独立乱数 ${pursuitMultiplier.toFixed(3)}`,
     });
   }
+  if (result.abilityPursuitDamage) {
+    const pursuit = result.abilityPursuitDamage, multiplier = randomMultiplier(request, mode);
+    packets.push({ kind: "pursuit", damage: bodyDamageForMultiplier(result, multiplier, criticalDamageBonusPercent,
+      { pursuitPercent: pursuit.effectivePursuitPercentage, rawBaseDamage: pursuit.baseDamage,
+        finalRounding: "floor", attenuation: pursuit.stages }), note: "闇属性追撃20%（アビ通常枠）" });
+  }
   if (result.destructionPursuitDamage) {
     const pursuit = result.destructionPursuitDamage;
     const multiplier = randomMultiplier(request, mode);
@@ -154,7 +160,8 @@ function damagePackets(result, request, mode, attackCount, note) {
   for (let hit = 1; hit <= attackCount; hit += 1) {
     const hitNote = attackCount === 1 ? note : `${note} ${hit}/${attackCount}hit`;
     for (let randomHit = 0; randomHit < (result.bodyDamageAttenuation.randomTargetHitCount ?? 1); randomHit += 1) {
-      packets.push(...damagePacketsForHit(result, request, mode, hitNote));
+      packets.push(...damagePacketsForHit(result, request, mode,
+        (result.bodyDamageAttenuation.randomTargetHitCount ?? 1) > 1 ? `${hitNote}・分割${randomHit + 1}/${result.bodyDamageAttenuation.randomTargetHitCount}` : hitNote));
     }
   }
   return packets;
@@ -271,6 +278,8 @@ function renderEnemy() {
   effectList($("enemy-debuffs"), enemy.debuffs);
 }
 
+function isIlsa(member) { return ["3040456000", "dark-ssr-ilsa-yukata"].includes(member.id); }
+
 function renderParty() {
   const list = $("party-list");
   list.replaceChildren();
@@ -292,15 +301,34 @@ function renderParty() {
     card.addEventListener("click", () => { state = selectPartyMember(state, member.id); renderParty(); });
     card.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); state = selectPartyMember(state, member.id); renderParty(); } });
     const abilities = card.querySelector(".ability-row");
-    for (let number = 1; number <= 4; number += 1) {
+    for (let number = 1; number <= (isIlsa(member) ? 3 : 4); number += 1) {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "ability-button";
       button.textContent = `ABILITY ${number}`;
       button.disabled = true;
       button.title = "手動アビリティは未対応です。対応済みの自動アビリティは攻撃後に実行します";
+      if (isIlsa(member)) {
+        const remaining = Math.max(0, (state.actionState?.ilsa?.readyOnTurn[number - 1] ?? 1) - state.turn);
+        const names = ["ウォー・エターナル", "ウェイジズ・オブ・シン", "ディヴァ・サタニカ"];
+        button.textContent = `${number}アビ${remaining ? `（あと${remaining}T）` : ""}`;
+        button.title = names[number - 1];
+        button.disabled = actionPending || member.hp <= 0 || state.enemy.hp <= 0 || remaining > 0;
+        button.addEventListener("click", (event) => { event.stopPropagation(); attack(false,
+          { kind: "ilsa-ability", characterSlot: member.slot, ability: number }); });
+        button.addEventListener("keydown", (event) => event.stopPropagation());
+      }
       abilities.append(button);
     }
+    const effects = document.createElement("div"); effects.className = "supporting-text";
+    const ilsa = state.actionState?.ilsa;
+    effects.textContent = [
+      ...(isIlsa(member) ? [`不散花 ${ilsa?.flowers ?? 1} / 確定TA・3分割`,
+        ...(ilsa?.multistrikeTurn === state.turn ? [`攻撃行動${ilsa.multistrikeActions}回`] : [])] : []),
+      ...(member.elementCode === "6" && state.turn < (ilsa?.warEternalExpiresOnTurn ?? 0)
+        ? [`1アビ強化 あと${ilsa.warEternalExpiresOnTurn - state.turn}T`] : []),
+    ].join(" ／ ");
+    card.append(effects);
     list.append(card);
   }
 }
@@ -353,9 +381,9 @@ function render() {
   $("undo-action").disabled = history.length === 0 || actionPending;
   $("battle-status").textContent = state.enemy.hp === 0 ? "BATTLE FINISHED" : "BATTLE IN PROGRESS";
   $("attack-ougi-off").disabled = state.enemy.hp === 0 || actionPending;
-  $("attack-ougi-on").disabled = true;
+  $("attack-ougi-on").disabled = actionPending || state.enemy.hp === 0 || !state.party.some((member) => isIlsa(member) && member.hp > 0);
   $("reset-battle").disabled = actionPending;
-  for (const input of document.querySelectorAll(".battle-settings input, .battle-settings select")) input.disabled = actionPending || state.turn > 1;
+  for (const input of document.querySelectorAll(".battle-settings input, .battle-settings select")) input.disabled = actionPending || state.events.length > 0;
   $("action-guidance").textContent = modeGuidance[simulationMode];
   for (const button of document.querySelectorAll("[data-simulation-mode]")) {
     const selected = button.dataset.simulationMode === simulationMode;
@@ -383,14 +411,14 @@ function render() {
   }));
 }
 
-async function attack(ougiEnabled) {
-  if (actionPending || state.enemy.hp === 0 || ougiEnabled) return;
+async function attack(ougiEnabled, action) {
+  if (actionPending || state.enemy.hp === 0) return;
   const selectedMode = simulationMode;
   actionPending = true;
   $("battle-error").textContent = "";
   render();
   try {
-    const request = buildBattleTurnRequest(setup, state, selectedMode, readSettings());
+    const request = buildBattleTurnRequest(setup, state, selectedMode, readSettings(), action, ougiEnabled);
     const response = await fetch("/api/simulate-turn", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(request) });
     const generated = await response.json();
     if (!response.ok) throw new Error(generated.error ?? "編成の行動を計算できませんでした");
@@ -401,7 +429,7 @@ async function attack(ougiEnabled) {
         if (event.actorPosition === 0) protagonistResult = event.calculation;
         packets.push(...damagePackets(event.calculation, setup.request, selectedMode, event.attackCount, "通常攻撃")
           .map((packet) => ({ ...packet, actorPosition: event.actorPosition })));
-      } else if (event.kind === "automatic-ability") packets.push(...automaticAbilityPackets(event, selectedMode));
+      } else if (["automatic-ability", "manual-ability", "charge-attack"].includes(event.kind)) packets.push(...automaticAbilityPackets(event, selectedMode));
       else packets.push(event);
     }
     if (protagonistResult) acceptCalculatedRates(protagonistResult);
@@ -421,7 +449,7 @@ function renderSettings() {
   for (const member of state.party.slice(1)) {
     const row = document.createElement("fieldset");
     const legend = document.createElement("legend"); legend.textContent = member.name; row.append(legend);
-    for (const [key, label] of [["da", "DA率 (%)"], ["ta", "TA率 (%)"]]) {
+    for (const [key, label] of (isIlsa(member) ? [] : [["da", "DA率 (%)"], ["ta", "TA率 (%)"]])) {
       const element = document.createElement("label"); element.textContent = label;
       const input = document.createElement("input"); input.type = "number"; input.min = "0"; input.max = "100"; input.step = "any";
       input.placeholder = "未指定"; input.id = `${key}-${member.slot}`; element.append(input); row.append(element);
@@ -440,7 +468,7 @@ function readSettings() {
   if (!Number.isSafeInteger(enemyMaxHp) || enemyMaxHp < 1) throw new Error("敵最大HPは正の整数で入力してください");
   const characters = {};
   for (const member of state.party.slice(1)) {
-    const da = $(`da-${member.slot}`).value, ta = $(`ta-${member.slot}`).value;
+    const da = $(`da-${member.slot}`)?.value ?? "", ta = $(`ta-${member.slot}`)?.value ?? "";
     if ((da === "") !== (ta === "")) throw new Error(`${member.name}のDA率・TA率を両方入力してください`);
     const artifact = $(`artifact-${member.slot}`).value;
     characters[member.slot] = {
@@ -480,7 +508,7 @@ for (const button of document.querySelectorAll("[data-item]")) {
 
 renderSettings();
 $("enemy-max-hp-setting").addEventListener("input", () => {
-  if (actionPending || state.turn > 1) return;
+  if (actionPending || state.events.length > 0) return;
   const value = Number($("enemy-max-hp-setting").value);
   if (!Number.isSafeInteger(value) || value < 1) { $("battle-error").textContent = "敵最大HPは正の整数で入力してください"; return; }
   initialState.enemy.maxHp = initialState.enemy.hp = value;

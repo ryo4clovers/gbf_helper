@@ -16,7 +16,7 @@ test("turn request uses actual HP, sparse formation slots and resumed effects, n
   assert.equal(request.calculation.enemy.maxHp, 1000);
   assert.deepEqual(request.characters, [{ characterSlot: 3, currentHpPercent: 50 }]);
   state.party[0].hp = 0;
-  assert.throws(() => buildBattleTurnRequest(setup, state, "downside", { characters: {} }), /戦闘不能/);
+  assert.deepEqual(buildBattleTurnRequest(setup, state, "downside", { characters: {} }).defeatedPositions, [0]);
 });
 
 test("party packets stop at victory and do not apply later effects or retaliation", () => {
@@ -51,4 +51,31 @@ test("automatic-ability mode selection uses independent per-hit predictions", ()
   assert.deepEqual(automaticAbilityPackets(event, "normal", () => calls++ ? .9 : 0).map((packet) => packet.damage), [10, 20]);
   assert.deepEqual(automaticAbilityPackets(event, "downside").map((packet) => packet.damage), [10, 10]);
   assert.throws(() => automaticAbilityPackets({ ...event, damage: null }, "normal"), /未計算/);
+});
+
+test("manual skill packets keep the turn, avoid retaliation, and preserve state for undo", () => {
+  const initial = createInitialBattleState(setup); initial.enemy.attacks = true;
+  const generated = { turn: 1, elapsedSeconds: 0, advancesTurn: false, warnings: [],
+    endState: { turn: 1, ilsa: { flowers: 1, readyOnTurn: [1, 9, 1], sinExpiresOnTurn: 6 } } };
+  const result = applyGeneratedTurn(initial, generated, [{ actorPosition: 3, kind: "manual-ability", damage: 100 }],
+    { enemyAttack: { damage: 50 } });
+  assert.equal(result.turn, 1);
+  assert.equal(result.party[0].hp, 100);
+  assert.equal(result.enemy.hp, 900);
+  assert.equal(result.actionState.ilsa.readyOnTurn[1], 9);
+  assert.equal(initial.actionState, undefined);
+});
+
+test("ally defeat on retaliation immediately updates flowers and buttons, without recounting on the next action", () => {
+  const initial = createInitialBattleState(setup); initial.enemy.attacks = true;
+  initial.party[1].id = "3040456000";
+  const generated = { turn: 1, elapsedSeconds: 0, advancesTurn: true, warnings: [],
+    endState: { turn: 2, ilsa: { flowers: 1, readyOnTurn: [13, 9, 10] } } };
+  const result = applyGeneratedTurn(initial, generated, [], { enemyAttack: { damage: 100 } });
+  assert.equal(result.actionState.ilsa.flowers, 2);
+  assert.deepEqual(result.actionState.ilsa.readyOnTurn, [2, 2, 2]);
+  assert.deepEqual(result.actionState.defeatedPositions, [0]);
+  const request = buildBattleTurnRequest(setup, result, "downside", { characters: {} });
+  assert.equal(request.characters[0].chargeGauge, initial.party[1].charge);
+  assert.deepEqual(request.defeatedPositions, [0]);
 });
