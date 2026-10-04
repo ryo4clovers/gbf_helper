@@ -2,6 +2,7 @@
 // so endpoints recorded both with and without one are included.
 export const URL_FILTER_PRESETS = [
   { group: "編成・主人公", label: "編成情報", value: "/party/deck" },
+  { group: "編成・主人公", label: "出撃前編成・サポート召喚石", value: "/rest/quest/decks_info" },
   { group: "編成・主人公", label: "主人公ジョブ情報", value: "/party/job_equipped" },
   { group: "編成・主人公", label: "主人公LB", value: "/zenith/bonus_list" },
   { group: "キャラ強化", label: "キャラLB情報", value: "/npczenith/bonus_list" },

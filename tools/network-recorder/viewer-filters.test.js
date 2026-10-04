@@ -19,9 +19,9 @@ test("empty terms and unchecked presets include all records; no match includes n
   assert.deepEqual(filterRecordsByUrl(records, collectUrlFilters("absent")), []);
 });
 
-test("all 15 presets match endpoints with trailing slash, arguments or query", () => {
-  assert.equal(URL_FILTER_PRESETS.length, 15);
-  assert.equal(new Set(URL_FILTER_PRESETS.map((p) => p.value)).size, 15);
+test("all 16 presets match endpoints with trailing slash, arguments or query", () => {
+  assert.equal(URL_FILTER_PRESETS.length, 16);
+  assert.equal(new Set(URL_FILTER_PRESETS.map((p) => p.value)).size, 16);
   for (const preset of URL_FILTER_PRESETS) {
     const filters = collectUrlFilters("", [preset.value]);
     const path = preset.value.startsWith("/") ? preset.value : `/rest/raid/${preset.value}`;
