@@ -21,6 +21,7 @@ export const weaponSkillEffectSchema = z
       "normal-enmity-up",
       "normal-hp-up",
       "weapon-hp-down",
+      "battle-start-hp-damage",
       "magna-hp-up",
       "critical-rate-up",
       "double-attack-rate-up",

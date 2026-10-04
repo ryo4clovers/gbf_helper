@@ -38,6 +38,8 @@ npm run build       # 配布用JavaScriptの生成
 
 ### 計算機カタログ画面
 
+- 暴君は戦闘最大HP、修羅は最大HP確定後の開始時HPへ別々に適用します。`battleHp.protagonistStart` / `characters[].start` が開始HPとダメージ内訳を返し、戦闘設定の `protagonistInitialHp` / `characterInitialHp` へ渡します。戦闘中の再計算・回復では再適用しません。旧保存設定は編成画面から戦闘を開き直してください。効果量・実測範囲は `knowledge/mechanics/battle-start-hp.md` を参照。
+
 - リミテッド武器30本の覚醒は `mcp-server/catalog/weapon-awakenings.v1.json` で、対象ID・選択可能な2タイプ・Lvごとの増分・出典を管理します。武器を右クリックして「覚醒タイプ」「覚醒Lv1〜4」を選択すると、加護対象外の効果を共通計算へ接続します。4凸Lv150未満は効果を停止して設定を保持。武器の表示HP/ATK自体へ割合効果を足しません。`awakening.formCode` の `limited-attack` / `limited-defense` / `limited-charge` / `limited-ability` / `limited-healing` / `limited-multiattack` は計算機用のIDです。実機番号は未照合なので推測変換せず、未知の設定を保存して警告・選び直しへ誘導します。キャラ覚醒・他シリーズの武器覚醒とは別です。
 - 編成済みキャラは左クリックで選択、右クリック（またはフォーカス後Shift+F10）でキャラクター情報ダイアログを開きます。Lv・＋・表示HP/ATK・自動算出設定・LB/指輪/覚醒の既存入力をダイアログ内で編集し、変更は即時計算・保存します。カードにはステータス要約だけを表示し、自動計算後にカードと開いているダイアログの値を同じ編成枠へ更新します。
 - キャラの画像は`mcp-server/catalog/character-images.v1.json`のナレッジIDと公開マスターIDの対応表から、CDNの`npc/m/{masterId}_01.jpg`を組み立てます。スタイル2は`styleId: 2`と`_01_st2.jpg`を使用し、同一マスターでも画像を分けます。選択ダイアログと編成枠で遅延読み込みし、未対応・読み込み失敗時はアイコンを残します。編成の既存IDは変更せず、数値IDの編成も画像・名称の表示に限って通常スタイルへ照合します。数値IDだけからスタイル2を推定しません。

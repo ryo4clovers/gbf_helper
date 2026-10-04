@@ -1,4 +1,4 @@
-import { BATTLE_SETUP_STORAGE_KEY, battleSetupStatIssues } from "/battle-state.js?v=8";
+import { BATTLE_SETUP_STORAGE_KEY, battleSetupStatIssues } from "/battle-state.js?v=10";
 import {
   CALCULATOR_ENVIRONMENT_STORAGE_KEY,
   CALCULATOR_FORMATION_FORMAT,
@@ -3229,6 +3229,9 @@ $("open-battle").addEventListener("click", async () => {
       BATTLE_SETUP_STORAGE_KEY,
       JSON.stringify({ schemaVersion: 1, request: { ...request, attacker: undefined },
         protagonistMaxHp: response.battleHp.protagonist?.hp,
+        initialHpResolved: true,
+        protagonistInitialHp: response.battleHp.protagonistStart?.hp,
+        characterInitialHp: Object.fromEntries(response.battleHp.characters.map(entry => [entry.slot, entry.start?.hp])),
         characterMaxHp: Object.fromEntries(response.battleHp.characters.map(entry => [entry.slot, entry.result?.hp])),
         enemyMaxHp: request.enemy.maxHp ?? 1_000_000 }),
     );

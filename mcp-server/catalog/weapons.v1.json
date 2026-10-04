@@ -61936,7 +61936,8 @@
         "level": 150,
         "uncapLevel": 4,
         "attack": 2710,
-        "hp": 260
+        "hp": 260,
+        "skillLevel": 15
       },
       "levelStats": {
         "maximumLevel": 150,
@@ -61958,21 +61959,18 @@
           }
         ]
       },
-      "skillSlots": [],
-      "listedSkills": [
+      "skillSlots": [
         {
           "sourceKey": "skill1",
-          "name": "Mistfall's Tyranny",
-          "description": "Big boost to dark allies' ATK / 10% cut to dark allies' max HP"
+          "skillId": "395"
         },
         {
           "sourceKey": "skill2",
-          "name": "Mistfall's Trium III",
-          "description": "Big boost to dark allies' multiattack rate"
+          "skillId": "402"
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証",
+      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証 スキルID・名称・効果文はユーザー提供編成レスポンスで確認（2026-10-05）。数値・全体性能は下書き",
       "uncaps": {
         "minimum": 0,
         "base": 3,

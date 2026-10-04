@@ -6667,10 +6667,16 @@
         "tableId": "normal-large",
         "elementCode": "1"
       },
-      "unsupportedEffects": [
-        "バトル開始時に最大HPの20%のダメージ"
+      "effects": [
+        {
+          "kind": "battle-start-hp-damage",
+          "elementCode": "1",
+          "amountPercent": 20,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/Weapon_Skills#Bloodshed（2026-10-05参照）。加護・SLv対象外、通常/方陣合算40%上限は二次情報。1979の1本条件の開始HPのみ実測一致",
+          "confirmedAt": "2026-10-05"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -6683,10 +6689,16 @@
         "tableId": "normal-large",
         "elementCode": "2"
       },
-      "unsupportedEffects": [
-        "バトル開始時に最大HPの20%のダメージ"
+      "effects": [
+        {
+          "kind": "battle-start-hp-damage",
+          "elementCode": "2",
+          "amountPercent": 20,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/Weapon_Skills#Bloodshed（2026-10-05参照）。加護・SLv対象外、通常/方陣合算40%上限は二次情報。1979の1本条件の開始HPのみ実測一致",
+          "confirmedAt": "2026-10-05"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -6699,10 +6711,16 @@
         "tableId": "normal-large",
         "elementCode": "3"
       },
-      "unsupportedEffects": [
-        "バトル開始時に最大HPの20%のダメージ"
+      "effects": [
+        {
+          "kind": "battle-start-hp-damage",
+          "elementCode": "3",
+          "amountPercent": 20,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/Weapon_Skills#Bloodshed（2026-10-05参照）。加護・SLv対象外、通常/方陣合算40%上限は二次情報。1979の1本条件の開始HPのみ実測一致",
+          "confirmedAt": "2026-10-05"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -6715,10 +6733,16 @@
         "tableId": "normal-large",
         "elementCode": "4"
       },
-      "unsupportedEffects": [
-        "バトル開始時に最大HPの20%のダメージ"
+      "effects": [
+        {
+          "kind": "battle-start-hp-damage",
+          "elementCode": "4",
+          "amountPercent": 20,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/Weapon_Skills#Bloodshed（2026-10-05参照）。加護・SLv対象外、通常/方陣合算40%上限は二次情報。1979の1本条件の開始HPのみ実測一致",
+          "confirmedAt": "2026-10-05"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -6731,10 +6755,16 @@
         "tableId": "normal-large",
         "elementCode": "5"
       },
-      "unsupportedEffects": [
-        "バトル開始時に最大HPの20%のダメージ"
+      "effects": [
+        {
+          "kind": "battle-start-hp-damage",
+          "elementCode": "5",
+          "amountPercent": 20,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/Weapon_Skills#Bloodshed（2026-10-05参照）。加護・SLv対象外、通常/方陣合算40%上限は二次情報。1979の1本条件の開始HPのみ実測一致",
+          "confirmedAt": "2026-10-05"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -6747,10 +6777,16 @@
         "tableId": "normal-large",
         "elementCode": "6"
       },
-      "unsupportedEffects": [
-        "バトル開始時に最大HPの20%のダメージ"
+      "effects": [
+        {
+          "kind": "battle-start-hp-damage",
+          "elementCode": "6",
+          "amountPercent": 20,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/Weapon_Skills#Bloodshed（2026-10-05参照）。加護・SLv対象外、通常/方陣合算40%上限は二次情報。1979の1本条件の開始HPのみ実測一致",
+          "confirmedAt": "2026-10-05"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -7592,17 +7628,41 @@
       "skillId": "1977",
       "name": "嵐竜方陣・修羅III",
       "description": "風属性キャラの攻撃力上昇(大)/バトル開始時に最大HPの20%のダメージ",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "battle-start-hp-damage",
+          "elementCode": "4",
+          "amountPercent": 20,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/Weapon_Skills#Bloodshed（2026-10-05参照）。加護・SLv対象外、通常/方陣合算40%上限は二次情報。1979の1本条件の開始HPのみ実測一致",
+          "confirmedAt": "2026-10-05"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "knowledge/wind-ssr-magna-reverse-tiamat-shot-aura.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/wind-ssr-magna-reverse-tiamat-shot-aura.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "攻撃力上昇(大)の数値・SLv曲線"
+      ]
     },
     {
       "skillId": "1979",
       "name": "黒霧方陣・修羅III",
       "description": "闇属性キャラの攻撃力上昇(大)/バトル開始時に最大HPの20%のダメージ",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "battle-start-hp-damage",
+          "elementCode": "6",
+          "amountPercent": 20,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/Weapon_Skills#Bloodshed（2026-10-05参照）。加護・SLv対象外、通常/方陣合算40%上限は二次情報。1979の1本条件の開始HPのみ実測一致",
+          "confirmedAt": "2026-10-05"
+        }
+      ],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-revans-forbidden-agastia-rebuild.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/dark-ssr-revans-forbidden-agastia-rebuild.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "unsupportedEffects": [
+        "攻撃力上昇(大)の数値・SLv曲線"
+      ]
     },
     {
       "skillId": "1993",
@@ -9600,6 +9660,39 @@
       "unsupportedEffects": [
         "バトル開始時から4ターンの間、闇属性キャラのオーバースキル・マルチによる連撃効果が必ず発動 ◆メイン装備時"
       ]
+    },
+    {
+      "skillId": "395",
+      "name": "黒霧方陣・暴君",
+      "description": "闇属性キャラの攻撃力上昇(大)/闇属性キャラの最大HP-10%",
+      "effects": [
+        {
+          "kind": "weapon-hp-down",
+          "elementCode": "6",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "source": "ユーザー提供の編成・戦闘開始レスポンス（2026-10-05）。ID・名称・効果文を確認。10%減少後の最大HP切り上げを今回の2人で照合。複数本・他HP補正との共存は要検証",
+          "confirmedAt": "2026-10-05"
+        }
+      ],
+      "unsupportedEffects": [
+        "攻撃力上昇(大)の数値・SLv曲線"
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の編成・戦闘開始レスポンス（2026-10-05）。ID・名称・効果文を確認。10%減少後の最大HP切り上げを今回の2人で照合。複数本・他HP補正との共存は要検証",
+      "confirmedAt": "2026-10-05"
+    },
+    {
+      "skillId": "402",
+      "name": "黒霧方陣・三手III",
+      "description": "闇属性キャラの連続攻撃確率上昇(大)",
+      "effects": [],
+      "unsupportedEffects": [
+        "連続攻撃確率上昇(大)の数値・SLv曲線"
+      ],
+      "verificationStatus": "下書き",
+      "source": "ユーザー提供の編成レスポンス（2026-10-05）。ID・名称・効果文を確認、数値は未接続",
+      "confirmedAt": "2026-10-05"
     }
   ]
 }

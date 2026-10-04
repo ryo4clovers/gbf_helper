@@ -109,6 +109,10 @@ export function createInitialBattleState(setup) {
       crewSupportEffects.battleStartChargeGaugePercent,
       setup.characterMaxHp?.[character.slot],
     ));
+  for (const member of [protagonist, ...characters]) {
+    const initialHp = member.slot === 0 ? setup.protagonistInitialHp : setup.characterInitialHp?.[member.slot];
+    if (Number.isSafeInteger(initialHp) && initialHp > 0) member.hp = Math.min(member.maxHp, initialHp);
+  }
   const enemyMaxHp = Math.max(1, Math.floor(setup.enemyMaxHp ?? 1_000_000));
   const summons = [
     ...deck.summons

@@ -9,7 +9,7 @@ import {
   resolveDamageMultiplier,
   resolveEnemyAttackDamage,
   selectPartyMember,
-} from "/battle-state.js?v=9";
+} from "/battle-state.js?v=10";
 import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=4";
 import { scaleDamageCapThreshold, finalizeNormalAttackHit } from "/normal-attack-rounding.js";
 
@@ -185,6 +185,9 @@ function enemyAttackFromResult(result, mode) {
 
 const setup = loadSetup();
 const setupStatIssues = battleSetupStatIssues(setup.request.deckConfig);
+if (!setup.initialHpResolved) {
+  setupStatIssues.push("開始時HPの補正が未計算です。編成画面から「戦闘シミュレート」を開き直してください。");
+}
 if (setup.request.deckConfig.characters.some(c => c.position === "front" && !Number.isSafeInteger(setup.characterMaxHp?.[c.slot]))) {
   setupStatIssues.push("戦闘最大HPが未計算です。編成画面から「戦闘シミュレーション」を開き直してください。");
 }

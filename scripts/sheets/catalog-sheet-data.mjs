@@ -111,6 +111,7 @@ export const EFFECT_KIND_LABELS = Object.freeze({
   "normal-enmity-up": "通常背水",
   "normal-hp-up": "通常HPUP",
   "weapon-hp-down": "武器最大HP減少",
+  "battle-start-hp-damage": "開幕HPダメージ",
   "magna-hp-up": "方陣HPUP",
   "normal-skill-boost": "通常スキル効果量UP",
   "character-hp-up": "キャラHPUP",

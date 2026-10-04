@@ -72,12 +72,13 @@ export function calculateCombatHp(input: {
   const hpOverskillPercent = weaponSkillHpPercent >= 420 ? Math.min(20, (weaponSkillHpPercent - 400) / 20) : 0;
   const gridHpPercent = roundPercentage(Math.min(400, weaponSkillHpPercent) * (1 + hpOverskillPercent / 100));
   const otherHpPercent = input.otherHpPercent ?? 0;
-  const unroundedHp = baseHp * (1 - effectiveWeaponHpReductionPercent / 100)
+  const unroundedHp = baseHp * (100 - effectiveWeaponHpReductionPercent) / 100
     * roundPercentage(100 + gridHpPercent + summonAuraPercent + otherHpPercent) / 100;
   // Weapon HP skills and percentage summon HP auras share one additive stage in the
   // observed mixed setup. A weapon-skill fractional result rounds up; summon-only
-  // observations retain their separately verified floor.
-  const percentageAdjustedHp = appliedWeaponSkillEffects.length === 0
+  // observations retain their separately verified floor. Tyranny-only observations
+  // (2026-10-05) round the remaining max HP up, including without HP-up skills.
+  const percentageAdjustedHp = appliedWeaponSkillEffects.length === 0 && appliedHpReductionEffects.length === 0
     ? Math.floor(unroundedHp)
     : Math.ceil(unroundedHp);
   const hasFraction = !Number.isInteger(unroundedHp);

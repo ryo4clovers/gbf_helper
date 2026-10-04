@@ -36,6 +36,7 @@
 | [summon-aura-types.md](./summon-aura-types.md) | 召喚石の加護・召喚仕様 | 下書き |
 | [team-building-basics.md](./team-building-basics.md) | パーティ編成の基本(サブ限・適正編成など) | 下書き |
 | [battle-flow.md](./battle-flow.md) | 戦闘の流れ(ターン制、行動順など) | 下書き |
+| [battle-start-hp.md](./battle-start-hp.md) | 暴君の最大HP減少・修羅の開始時HPと実測カバレッジ | 下書き |
 | [multi-battle.md](./multi-battle.md) | マルチバトル(参加人数、貢献度、報酬など) | 下書き |
 | [glossary.md](./glossary.md) | 頻出用語・略語集(MC、サブ、フルオート等) | 未着手 |
 
