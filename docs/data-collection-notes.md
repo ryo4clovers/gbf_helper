@@ -3,6 +3,16 @@
 `knowledge/` を充実させていく上での、情報源・収集方法・運用方針をまとめる作業メモ。
 セッションをまたいでも参照できるよう、リポジトリ内で管理する(Claude側の一時的な記憶には残さない)。
 
+### 浴衣イルザ2アビの戦闘記録から減衰設定を検索(2026-10-04)
+
+- 出典: ユーザー提供の`gbf-network-recorder-filtered-export-1791110894887.json`・`gbf-network-recorder-export-1791110938793.json`と不散花別性能の参考画像。本文・base64のテキスト資産・JSON内の埋め込みJSON/HTML文字列・Unicodeエスケープをオフライン検索。ゲームAPI通信・操作なし。
+- カバレッジ: 全件版は通信643件とassets 705件、絞り込み版は28件と1件。絞り込みの全通信はURL＋本文のハッシュで全件版と一致。全件版のテキスト728件（assetsのJavaScript 245件を含む）を検索した。start 8件は7戦＋2ターン目の再読み込み1件、2アビ7使用、通常攻撃1使用、イルザのキャラ詳細2件。
+- 結果: 減衰9フィールドが見つかったのはキャラ詳細2件の1〜3アビのみ、計54欄すべて空欄。startのability、結果のstatus.ability・scenarioには表示用ID/説明、状態と最終ダメージはあるが、減衰表を確認できなかった。保存済みJSにもdamage_limit/damage_deduction/attenuation/damage_capや対象アビリティ・状態ID等の検索で対応定義は見つからなかった。
+- 状態: サポート説明は開始時に不散花1個を付与。全startと2アビ後に状態ID75551を観測し、2・3個時の状態は今回未収録。2アビは全7回1hit、criticalフラグは全件true、最終ダメージ2,206,811〜2,221,327。これは補正後の実測であり素の上限ではない。
+- 保留: 性能変化は実機説明でも確認できるが、個数別の減衰ID切替なのか共通表への上限補正なのかは未確認。未収録の通信や別表現の設定が存在しないとは断定しない。参考画像の140/190/240万から減衰ID・4ラインを推定して登録しない。計算実装・確度の昇格はなし。
+- 検証: オフライン解析で絞り込み版の全件包含、減衰54欄の空欄、start/2アビ後の状態ID一致、各1hitをassert。Windows Node.jsで`npm run check`（502テスト）・`npm run build`を通過。
+- 保存先: `tools/network-recorder/captures/ilsa-ability-2026-10-04/`に生レスポンス2ファイルを保存。再現スクリプト`audit-attenuation.mjs`と結果`2026-10-04_analysis_ilsa-attenuation-search.json`もローカル専用。原本・個体ID・全hit列をコミットしない。Downloads入力のためdraft消去対象なし。
+
 ### 他の計算対象アビリティを実機減衰設定で照合(2026-10-04)
 
 - 出典: ユーザー提供済みのキャラ詳細をオフラインで再解析し、公開キャラID・action_id・damage_limit_type・damage_limit1〜4・damage_deduction1〜4を比較。[User:Cajunwildcat/Skill Attenuation](https://gbf.wiki/User:Cajunwildcat/Skill_Attenuation)は同日のJina取得原文を再利用。ゲームAPI通信・操作なし。
