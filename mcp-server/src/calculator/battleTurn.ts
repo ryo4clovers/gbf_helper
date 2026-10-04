@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { calculateWeaponChargeDamage } from "./weaponChargeAttack.js";
 import { battleActionStateSchema, generateBattleActions } from "./battleActionGenerator.js";
 import { calculateNormalAttackFromRequest, normalAttackCalculationRequestSchema, type NormalAttackCalculationRequest } from "./normalAttackCalculationRequest.js";
 import { applyIlsaBattleEffects, castIlsaAbility, initialIlsaState, ilsaOnAllyDefeat, ILSA_ID } from "./ilsaBattleState.js";
@@ -14,6 +15,7 @@ export const battleTurnRequestSchema = z.object({
   action: z.object({ kind: z.literal("ilsa-ability"), characterSlot: z.number().int().min(1).max(3),
     ability: z.union([z.literal(1), z.literal(2), z.literal(3)]) }).strict().optional(),
   ilsaChargeEnabled: z.boolean().default(false),
+  protagonistCharge: z.object({ enabled: z.boolean(), gauge: z.number().finite().min(0).max(100) }).strict().optional(),
   defeatedPositions: z.array(z.number().int().min(0).max(3)).max(4).optional(),
   mode: z.enum(["normal", "downside", "upside"]),
   secondsPerTurn: z.number().finite().positive().max(3600),
@@ -36,7 +38,7 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
   const normals: ReturnType<typeof calculateNormalAttackFromRequest>["result"][] = [];
   const warnings = new Set<string>([
     "下書き：自動アビリティは実測未一致の候補値。武器技巧は不発、イルザ1アビは適用。総ダメージも参考値です。",
-    "手動アビリティ・奥義は浴衣イルザのみ対応。召喚・交代・劇毒・被ターゲット効果は未対応です。",
+    "手動アビリティは浴衣イルザのみ、奥義は対応メイン武器と浴衣イルザ。チェインバースト・召喚・交代・劇毒・被ターゲット効果は未対応です。",
   ]);
   const deck = resolveCalculatorDeckConfig(request.calculation.deckConfig).deck;
   const ilsaCharacter = deck.characters.find((entry) => entry.position === "front" && entry.masterId === ILSA_ID);
@@ -90,12 +92,12 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     };
   }
   const ilsaSettings = request.characters.find((entry) => entry.characterSlot === ilsaCharacter?.slot);
-  if (request.ilsaChargeEnabled && (!ilsaCharacter || ilsaSettings?.chargeGauge === undefined)) throw new Error("イルザの奥義ゲージが必要です");
-  if (ilsaSettings?.chargeGauge !== undefined) warnings.add("イルザの通常TAゲージ増加は37%×0.65を切り捨てる24%の暫定値。武器等の追加ゲージ上昇補正は未接続です。");
+  if (request.ilsaChargeEnabled && ilsaCharacter && ilsaSettings?.chargeGauge === undefined) throw new Error("イルザの奥義ゲージが必要です");
+  if (ilsaSettings?.chargeGauge !== undefined) warnings.add("イルザの通常TAゲージ増加は37%×0.65を切り捨てる24%の暫定値。エレシュキガルLv250の上昇量DOWNを反映。他の追加ゲージ上昇補正は未接続です。");
   const plan = generateBattleActions({ schemaVersion: 1, deckConfig: request.calculation.deckConfig,
     turns: request.state?.turn ?? 1, secondsPerTurn: request.secondsPerTurn, chargeAttack: false, manualAbilities: false,
     multiattack: { mode: "minimum", seed: 1 },
-  }, { state, calculationContext: request.calculation,
+  }, { state, calculationContext: request.calculation, protagonistCharge: request.protagonistCharge,
     ilsaCharge: ilsaSettings?.chargeGauge === undefined ? undefined : { enabled: request.ilsaChargeEnabled, gauge: ilsaSettings.chargeGauge },
     resolveAttackCount: (position, patch, guaranteed) => {
     const response = calculateNormalAttackFromRequest(calculationFor(patch));
@@ -123,17 +125,26 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
   const events = turn.events.map((event) => {
     if (event.kind === "normal") return { ...event, calculation: normals[index++] };
     if (event.kind === "charge-attack") {
-      const damage = calculateIlsaDamage(calculationFor(event.calculationPatch), "charge", state.ilsa?.flowers ?? 1);
+      const calculation = calculationFor(event.calculationPatch);
+      const damage = event.actorPosition === 0 ? calculateWeaponChargeDamage(calculation)
+        : calculateIlsaDamage(calculation, "charge", state.ilsa?.flowers ?? 1);
+      const criticalBuff = request.calculation.enemy.elementCode === "5" ? event.criticalBuff : undefined;
+      const criticalDamage = criticalBuff && event.actorPosition === 0 ? calculateWeaponChargeDamage(calculation, criticalBuff.damagePercent) : undefined;
       for (const issue of damage.issues) warnings.add(issue);
-      return { ...event, damage };
+      return { ...event, damage, criticalBuff, criticalDamage };
     }
     if (event.kind === "automatic-ability") {
       const { random: _random, calculationModel: _model, ...calculation } = calculationFor(event.calculationPatch);
       const damage = calculateAutomaticAbilityDamage({ abilityId: event.abilityId, calculation });
+      const criticalBuff = request.calculation.enemy.elementCode === "5" || damage.element === "destruction" ? event.criticalBuff : undefined;
+      const criticalDamage = criticalBuff ? calculateAutomaticAbilityDamage({ abilityId: event.abilityId, calculation, criticalDamageBonusPercent: criticalBuff.damagePercent }) : undefined;
       for (const issue of damage.issues) warnings.add(issue);
-      return { ...event, damage };
+      return { ...event, damage, criticalBuff, criticalDamage };
     }
     return event;
   });
-  return { schemaVersion: 1, verificationStatus: "下書き", modelVersion: plan.modelVersion, ...turn, advancesTurn: true, events, warnings: [...warnings] };
+  if (request.protagonistCharge) warnings.add("主人公の通常ゲージはSA10/DA22/TA37%の暫定値。追加ゲージ補正・被ダメージ時のゲージは未接続");
+  const protagonistCalculation = normals.length && turn.events.some((event) => event.kind === "normal" && event.actorPosition === 0)
+    ? undefined : defeated.includes(0) ? undefined : calculateNormalAttackFromRequest(calculationFor({})).result;
+  return { schemaVersion: 1, verificationStatus: "下書き", modelVersion: plan.modelVersion, ...turn, advancesTurn: true, events, protagonistCalculation, warnings: [...warnings] };
 }

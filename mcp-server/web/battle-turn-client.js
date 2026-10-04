@@ -7,6 +7,7 @@ export function buildBattleTurnRequest(setup, state, mode, settings, action, ils
     calculation: { ...calculation, enemy: { ...calculation.enemy, maxHp: state.enemy.maxHp },
       protagonistCurrentHpPercent: Math.max(1, hpPercent(state.party[0])) },
     state: state.actionState, action, ilsaChargeEnabled,
+    protagonistCharge: { enabled: ilsaChargeEnabled, gauge: state.party[0].charge },
     ...(defeatedPositions.length || state.actionState?.defeatedPositions ? { defeatedPositions } : {}),
     mode, secondsPerTurn: settings.secondsPerTurn,
     characters: state.party.slice(1).map((member) => ({ characterSlot: member.slot,
@@ -18,10 +19,11 @@ export function buildBattleTurnRequest(setup, state, mode, settings, action, ils
 /** Select independent random damage for each automatic-ability hit. */
 export function automaticAbilityPackets(event, mode, random = Math.random) {
   if (!event.damage) throw new Error(`${event.name}のダメージが未計算です`);
-  const predictions = event.damage.predictions;
   return Array.from({ length: event.hitCount }, (_, index) => {
+    const critical = event.criticalDamage && event.criticalBuff && (mode === "upside" || (mode === "normal" && random() < event.criticalBuff.ratePercent / 100));
+    const predictions = (critical ? event.criticalDamage : event.damage).predictions;
     const selected = mode === "downside" ? 0 : mode === "upside" ? predictions.length - 1 : Math.floor(random() * predictions.length);
     return { kind: event.kind ?? "automatic-ability", actorPosition: event.actorPosition, damage: predictions[selected].damage,
-      note: `${event.name} ${index + 1}/${event.hitCount}hit・下書きのダメージ候補` };
+      note: `${event.name} ${index + 1}/${event.hitCount}hit${critical ? "・武器奥義クリティカル" : ""}・下書きのダメージ候補` };
   });
 }

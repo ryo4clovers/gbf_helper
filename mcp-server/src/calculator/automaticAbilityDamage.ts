@@ -70,7 +70,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
   if (profile.characterId !== character?.masterId) throw new Error("アビリティと攻撃者が一致しません");
   if (character && (character.level ?? 0) < 80) throw new Error("自動アビリティはキャラクターLv80以上に対応しています");
   if (!character && original.deck.protagonist.elementCode !== "6") throw new Error("自動アビリティ計算は闇属性の主人公に対応しています");
-  if (!character && (original.deck.protagonist.job?.masterId !== "190501" || (original.deck.protagonist.job.level ?? 0) < 40)) {
+  if (!charge && !character && (original.deck.protagonist.job?.masterId !== "190501" || (original.deck.protagonist.job.level ?? 0) < 40)) {
     throw new Error("主人公の自動アビリティはランサー・オリジンLv40以上に対応しています");
   }
   if (abilityId === "other-self" && !original.deck.summons.some((summon) =>
@@ -108,10 +108,12 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
     }, 0);
   const bonuses = original.abilityDamage!;
   const awakening = characterAwakeningBonuses(character?.awakening?.level, character?.awakening?.formCode);
+  const caLevels = (calculation.deckConfig.protagonist as { otherLimitBonusLevels?: Record<string, number> })?.otherLimitBonusLevels ?? {};
+  const caLb = ["21", "35", "41", "91"].reduce((sum, id) => sum + (id === "91" ? [0, 2, 4, 8] : [0, 1, 3, 5])[caLevels[id] ?? 0], 0);
   const damageContributions = { account: (charge ? calculation.modifiers.chargeDamagePercent : calculation.modifiers.abilityDamagePercent) ?? 0,
-    artifact: artifactAbilityPercent, jobLevel: character ? 0 : 40,
-    limitBonus: bonuses.limitBonusPercent ?? 0,
-    completion: character ? 0 : resolution.protagonistAbilityCompletion.damagePercent,
+    artifact: artifactAbilityPercent, jobLevel: character || charge ? 0 : 40,
+    limitBonus: charge ? (character ? 0 : caLb) : bonuses.limitBonusPercent ?? 0,
+    completion: character || charge ? 0 : resolution.protagonistAbilityCompletion.damagePercent,
     ...(charge ? { awakening: awakening.chargeDamagePercent, ringChargeDamage: (character?.mastery?.ring ?? []).filter((bonus) => bonus.name === "奥義ダメージ")
       .reduce((sum, bonus) => { if (bonus.unit !== "percent") throw new Error("指輪奥義ダメージはpercentで指定してください"); return sum + bonus.value; }, 0) } : {}) };
   const damageUpPercent = Object.values(damageContributions).reduce((sum, value) => sum + value, 0);
@@ -127,9 +129,9 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
     awakeningChargeCap: charge ? awakening.chargeCapPercent : 0,
     weaponSpecialGeneralCap: weaponCap("special-frame-damage-cap-up"), weaponAbilityCap: charge ? 0 : weapons.abilityDamageCap.effectivePercent,
     weaponSpecialAbilityCap: charge ? 0 : weaponCap("special-ability-damage-cap-up", 30), actorCap, summonCap: summons.capPercent,
-    ringCap: ringCapPercent, jobLevelCap: character ? 0 : 20, accountAbilityCap: (charge ? calculation.modifiers.chargeDamageCapPercent : calculation.modifiers.abilityDamageCapPercent) ?? 0,
-    limitBonusCap: bonuses.limitBonusDamageCapUpPercent ?? 0,
-    completionCap: character ? 0 : resolution.protagonistAbilityCompletion.capPercent };
+    ringCap: ringCapPercent, jobLevelCap: character || charge ? 0 : 20, accountAbilityCap: (charge ? calculation.modifiers.chargeDamageCapPercent : calculation.modifiers.abilityDamageCapPercent) ?? 0,
+    limitBonusCap: charge ? 0 : bonuses.limitBonusDamageCapUpPercent ?? 0,
+    completionCap: character || charge ? 0 : resolution.protagonistAbilityCompletion.capPercent };
   const capPercent = Object.values(capContributions).reduce((sum, value) => sum + value, 0);
   const advantageous = profile.element === "destruction" || elementalSuperiorityPercent(actor.deck.protagonist.elementCode, target.elementCode) > 0;
   const amplificationPercent = (calculation.modifiers.damageDealtPercent ?? 0) + (advantageous ? calculation.modifiers.targetElementDamagePercent ?? 0 : 0)

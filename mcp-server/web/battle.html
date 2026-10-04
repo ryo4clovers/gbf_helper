@@ -7,7 +7,7 @@
     <title>Battle Simulator — GBF Damage Lab</title>
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/battle.css" />
-    <script type="module" src="/battle.js?v=8"></script>
+    <script type="module" src="/battle.js?v=9"></script>
   </head>
   <body class="battle-page">
     <header class="top-app-bar battle-app-bar">
@@ -53,7 +53,7 @@
 
         <div class="battle-actions">
           <button id="attack-ougi-off" class="attack-button off" type="button"><span>奥義 OFF</span><strong>攻撃</strong></button>
-          <button id="attack-ougi-on" class="attack-button on" type="button" disabled><span>イルザ奥義 ON</span><strong>攻撃</strong></button>
+          <button id="attack-ougi-on" class="attack-button on" type="button" disabled><span>奥義 ON</span><strong>攻撃</strong></button>
         </div>
         <div class="simulation-controls" aria-label="シミュレート条件">
           <div class="mode-control">
@@ -72,7 +72,7 @@
         </div>
         <p id="action-guidance" class="action-guidance"></p>
         <p class="section-note">選択した編成の順に通常攻撃・自動アビリティを実行します。編成を変更する場合は「編成・計算へ戻る」を使用してください。</p>
-        <p class="section-note">浴衣イルザは1〜3アビと奥義に対応。「イルザ奥義 ON」でゲージ100%時に発動します。他のメンバーの奥義・手動アビリティ、召喚・交代・劇毒は未対応。ダメージは下書きで、2アビの減衰は実測候補です。木人の反撃先は主人公に固定しています。</p>
+        <p class="section-note">「奥義 ON」で主人公と浴衣イルザがゲージ100%時に発動します。武器奥義はフォールン・ソード4凸Lv150／エレシュキガルLv250に対応。浴衣イルザは1〜3アビも使用できます。他キャラの奥義・手動アビリティ、チェインバースト・召喚・交代・劇毒は未対応。ダメージは下書きで、2アビの減衰は実測候補です。木人の反撃先は主人公に固定しています。</p>
         <details class="battle-settings">
           <summary>連撃・開始時の強化</summary>
           <label>敵最大HP <input id="enemy-max-hp-setting" type="number" min="1" step="1" /></label>

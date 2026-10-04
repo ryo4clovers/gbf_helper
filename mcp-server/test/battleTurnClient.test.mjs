@@ -53,6 +53,39 @@ test("automatic-ability mode selection uses independent per-hit predictions", ()
   assert.throws(() => automaticAbilityPackets({ ...event, damage: null }, "normal"), /未計算/);
 });
 
+test("weapon critical rolls independently per skill hit, and comparison modes choose both damage and critical", () => {
+  const event = { hitCount: 2, name: "武器奥義", actorPosition: 0, criticalBuff: { ratePercent: 30, damagePercent: 50 },
+    damage: { predictions: [{ damage: 10 }, { damage: 20 }] }, criticalDamage: { predictions: [{ damage: 15 }, { damage: 30 }] } };
+  const rolls = [0, 0, .9, .9];
+  assert.deepEqual(automaticAbilityPackets(event, "normal", () => rolls.shift()).map(p => p.damage), [15, 20]);
+  assert.deepEqual(automaticAbilityPackets(event, "upside").map(p => p.damage), [30, 30]);
+  assert.deepEqual(automaticAbilityPackets(event, "downside").map(p => p.damage), [10, 10]);
+});
+
+test("party barrier absorbs retaliation, persists partially, expires and restores with undo", () => {
+  const initial = createInitialBattleState(setup); initial.enemy.attacks = true;
+  const turn = (n) => ({ turn: n, elapsedSeconds: 0, warnings: [], endState: { turn: n + 1 } });
+  const shield = { actorPosition: 0, kind: "effect", effect: "party-shield", name: "バリア", value: 1500, expiresOnTurn: 5 };
+  const next = applyGeneratedTurn(initial, turn(1), [shield], { enemyAttack: { damage: 600 } });
+  assert.equal(next.party[0].hp, 100);
+  assert.equal(next.party[0].shield.amount, 900);
+  assert.equal(next.party[1].shield.amount, 1500);
+  assert.equal(initial.party[0].shield, undefined);
+  const hit = applyGeneratedTurn(next, turn(2), [], { enemyAttack: { damage: 950 } });
+  assert.equal(hit.party[0].hp, 50); assert.equal(hit.party[0].shield.amount, 0);
+  const expired = applyGeneratedTurn({ ...next, turn: 5 }, turn(5), [], { enemyAttack: { damage: 60 } });
+  assert.equal(expired.party[0].hp, 40);
+});
+
+test("weapon dispel removes only one removable enemy buff", () => {
+  const initial = createInitialBattleState(setup);
+  initial.enemy.buffs = [{ name: "消去不可", removable: false }, { name: "防御UP" }, { name: "攻撃UP" }];
+  const next = applyGeneratedTurn(initial, { turn: 1, endState: {}, warnings: [] },
+    [{ actorPosition: 0, kind: "effect", effect: "dispel", name: "強化消去", value: 1 }]);
+  assert.deepEqual(next.enemy.buffs.map(b => b.name), ["消去不可", "攻撃UP"]);
+  assert.equal(initial.enemy.buffs.length, 3);
+});
+
 test("manual skill packets keep the turn, avoid retaliation, and preserve state for undo", () => {
   const initial = createInitialBattleState(setup); initial.enemy.attacks = true;
   const generated = { turn: 1, elapsedSeconds: 0, advancesTurn: false, warnings: [],

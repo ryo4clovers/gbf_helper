@@ -204,6 +204,8 @@ export function calculateArticleBaseDamage(
     ),
     ...accountModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
     ...jobModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
+    { stage: "elemental-attack", amountPercent: input.battleEffects?.elementAttackPercent ?? 0,
+      sourceType: "user-input", sourceId: "battle-element-attack", sourceName: "戦闘中の属性攻撃UP", verificationStatus: "下書き" },
   ];
   const superiorityPercent = damageElement === "destruction" ? 50 : elementalSuperiorityPercent(protagonistElementCode, target.elementCode);
   if (superiorityPercent !== 0) {

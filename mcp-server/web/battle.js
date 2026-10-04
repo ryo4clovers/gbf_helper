@@ -9,8 +9,8 @@ import {
   resolveDamageMultiplier,
   resolveEnemyAttackDamage,
   selectPartyMember,
-} from "/battle-state.js?v=8";
-import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=2";
+} from "/battle-state.js?v=9";
+import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=3";
 import { scaleDamageCapThreshold, finalizeNormalAttackHit } from "/normal-attack-rounding.js";
 
 const $ = (id) => document.getElementById(id);
@@ -99,7 +99,7 @@ function bodyDamageForMultiplier(result, multiplier, criticalDamageBonusPercent,
     : Math.floor(finalDamage);
 }
 
-function damagePacketsForHit(result, request, mode, note) {
+function damagePacketsForHit(result, request, mode, note, criticalBuff) {
   const bodyMultiplier = randomMultiplier(request, mode);
   const critical = result.criticalBodyDamage;
   const weaponCriticalTriggered = critical !== undefined
@@ -108,10 +108,11 @@ function damagePacketsForHit(result, request, mode, note) {
   const triggeredLimitBonusCriticals = limitBonusCriticalSources.filter(
     (source) => resolveCritical(mode, source.triggerRatePercent),
   );
+  const weaponBuffCritical = criticalBuff && resolveCritical(mode, criticalBuff.ratePercent) ? criticalBuff.damagePercent : 0;
   const criticalDamageBonusPercent =
     (result.guaranteedCriticalBodyDamageDistribution ? result.protagonistNormalAttackSupport.criticalDamageBonusPercent : 0) +
     (weaponCriticalTriggered ? (critical.criticalDamageMultiplier - 1) * 100 : 0) +
-    triggeredLimitBonusCriticals.reduce((sum, source) => sum + source.damageBonusPercent, 0);
+    triggeredLimitBonusCriticals.reduce((sum, source) => sum + source.damageBonusPercent, 0) + (request.enemy.elementCode === "5" ? weaponBuffCritical : 0);
   const criticalTriggered = criticalDamageBonusPercent > 0;
   const bodyDamage = bodyDamageForMultiplier(
     result,
@@ -149,20 +150,20 @@ function damagePacketsForHit(result, request, mode, note) {
     const pursuit = result.destructionPursuitDamage;
     const multiplier = randomMultiplier(request, mode);
     packets.push({ kind: "pursuit", damage: bodyDamageForMultiplier(result, multiplier,
-      pursuit.stages.criticalDamageBonusPercent, { pursuitPercent: pursuit.effectivePursuitPercentage,
+      pursuit.stages.criticalDamageBonusPercent + weaponBuffCritical, { pursuitPercent: pursuit.effectivePursuitPercentage,
         rawBaseDamage: pursuit.damageDistribution.preparedNominalDamage, finalRounding: "floor", attenuation: pursuit.stages }),
       note: `破壊属性追撃 ${numberFormat.format(pursuit.effectivePursuitPercentage)}%・独立乱数 ${multiplier.toFixed(3)}` });
   }
   return packets;
 }
 
-function damagePackets(result, request, mode, attackCount, note) {
+function damagePackets(result, request, mode, attackCount, note, criticalBuff) {
   const packets = [];
   for (let hit = 1; hit <= attackCount; hit += 1) {
     const hitNote = attackCount === 1 ? note : `${note} ${hit}/${attackCount}hit`;
     for (let randomHit = 0; randomHit < (result.bodyDamageAttenuation.randomTargetHitCount ?? 1); randomHit += 1) {
       packets.push(...damagePacketsForHit(result, request, mode,
-        (result.bodyDamageAttenuation.randomTargetHitCount ?? 1) > 1 ? `${hitNote}・分割${randomHit + 1}/${result.bodyDamageAttenuation.randomTargetHitCount}` : hitNote));
+        (result.bodyDamageAttenuation.randomTargetHitCount ?? 1) > 1 ? `${hitNote}・分割${randomHit + 1}/${result.bodyDamageAttenuation.randomTargetHitCount}` : hitNote, criticalBuff));
     }
   }
   return packets;
@@ -303,6 +304,15 @@ function renderParty() {
       <div class="charge-row"><span>奥義</span><span class="charge-bar"><span style="width:${member.charge}%"></span></span><strong>${member.charge}%</strong></div>
       <div class="ability-row"></div>`;
     card.querySelector(".party-member-name").textContent = member.name;
+    const buffs = [];
+    const weaponState = state.actionState?.weaponCharge;
+    if (member.slot === 0 && weaponState) {
+      if (weaponState.darkAttackStacks) buffs.push("闇攻撃+" + weaponState.darkAttackStacks * 10 + "%");
+      if (state.turn < weaponState.criticalExpiresOnTurn) buffs.push("クリティカル（確率30%・倍率50%）");
+      if (state.turn < weaponState.tripleAttackExpiresOnTurn) buffs.push("TA確定");
+    }
+    if (member.shield?.amount > 0 && state.turn < member.shield.expiresOnTurn) buffs.push("バリア " + numberFormat.format(member.shield.amount));
+    if (buffs.length) { const label = document.createElement("p"); label.className = "section-note"; label.textContent = buffs.join(" / "); card.append(label); }
     if (member.slot > 0 && !setup.request.deckConfig.characters.find((entry) => entry.slot === member.slot)?.hpOverride) {
       card.querySelector(".party-values span").textContent = "表示HP 未入力";
       card.querySelector(".party-member-header strong").textContent = "—";
@@ -392,7 +402,7 @@ function render() {
   $("battle-status").textContent = setupStatIssues.length ? "編成の入力が必要です" : state.enemy.hp === 0 ? "BATTLE FINISHED" : "BATTLE IN PROGRESS";
   if (setupStatIssues.length) $("battle-error").textContent = setupStatIssues.join("\n");
   $("attack-ougi-off").disabled = setupStatIssues.length > 0 || state.enemy.hp === 0 || actionPending;
-  $("attack-ougi-on").disabled = setupStatIssues.length > 0 || actionPending || state.enemy.hp === 0 || !state.party.some((member) => isIlsa(member) && member.hp > 0);
+  $("attack-ougi-on").disabled = setupStatIssues.length > 0 || actionPending || state.enemy.hp === 0 || !state.party.some((member) => (member.slot === 0 || isIlsa(member)) && member.hp > 0);
   $("reset-battle").disabled = actionPending;
   for (const input of document.querySelectorAll(".battle-settings input, .battle-settings select")) input.disabled = actionPending || state.events.length > 0;
   $("action-guidance").textContent = modeGuidance[simulationMode];
@@ -434,11 +444,11 @@ async function attack(ougiEnabled, action) {
     const generated = await response.json();
     if (!response.ok) throw new Error(generated.error ?? "編成の行動を計算できませんでした");
     const packets = [];
-    let protagonistResult;
+    let protagonistResult = generated.protagonistCalculation;
     for (const event of generated.events) {
       if (event.kind === "normal") {
         if (event.actorPosition === 0) protagonistResult = event.calculation;
-        packets.push(...damagePackets(event.calculation, setup.request, selectedMode, event.attackCount, "通常攻撃")
+        packets.push(...damagePackets(event.calculation, setup.request, selectedMode, event.attackCount, "通常攻撃", event.criticalBuff)
           .map((packet) => ({ ...packet, actorPosition: event.actorPosition })));
       } else if (["automatic-ability", "manual-ability", "charge-attack"].includes(event.kind)) packets.push(...automaticAbilityPackets(event, selectedMode));
       else packets.push(event);

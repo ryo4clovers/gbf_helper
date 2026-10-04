@@ -155,6 +155,17 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
     if (!member || member.hp <= 0) throw new Error("行動者が前衛に存在しないか、戦闘不能です");
     if (packet.kind === "effect") {
       if (packet.effect === "charge-ready") member.charge = packet.value;
+      if (packet.effect === "party-shield") {
+        for (const ally of next.party.filter((entry) => entry.hp > 0)) {
+          if (next.turn >= (ally.shield?.expiresOnTurn ?? 0) || packet.value >= ally.shield.amount) {
+            ally.shield = { amount: packet.value, expiresOnTurn: packet.expiresOnTurn };
+          }
+        }
+      }
+      if (packet.effect === "dispel") {
+        const removable = next.enemy.buffs.findIndex((buff) => buff.removable !== false);
+        if (removable >= 0) next.enemy.buffs.splice(removable, 1);
+      }
       appendEvent(next, { kind: "effect", actor: member.name, target: member.name, amount: null, note: packet.name });
     } else {
       const amount = Math.max(0, Math.floor(packet.damage));
@@ -172,9 +183,12 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
     ];
     if (generated.advancesTurn !== false && next.enemy.attacks && options.enemyAttack && next.party[0].hp > 0) {
       const target = next.party[0];
-      const amount = Math.max(0, Math.floor(options.enemyAttack.damage));
+      const incoming = Math.max(0, Math.floor(options.enemyAttack.damage));
+      const absorbed = next.turn < (target.shield?.expiresOnTurn ?? 0) ? Math.min(incoming, target.shield.amount) : 0;
+      if (absorbed) target.shield.amount -= absorbed;
+      const amount = incoming - absorbed;
       target.hp = clamp(target.hp - amount, 0, target.maxHp);
-      appendEvent(next, { kind: "enemy-damage", actor: next.enemy.name, target: target.name, amount, note: options.enemyAttack.note });
+      appendEvent(next, { kind: "enemy-damage", actor: next.enemy.name, target: target.name, amount, note: `${options.enemyAttack.note ?? ""}${absorbed ? `・バリア吸収 ${absorbed}` : ""}` });
     }
   }
   next.warnings = generated.warnings;

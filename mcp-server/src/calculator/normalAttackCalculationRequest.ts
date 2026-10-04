@@ -34,6 +34,7 @@ export const normalAttackCalculationRequestSchema = z
     protagonistCurrentHpPercent: z.number().finite().min(1).max(100).default(100),
     mythicalLancerLevel: z.number().int().min(0).max(5).optional().describe("攻撃時点の神伝の槍手Lv。省略時は開始時の槍/斧本数"),
     battleEffects: z.object({
+      elementAttackPercent: optionalPercent,
       criticalDamageBonusPercent: optionalPercent,
       damageCapPercent: optionalPercent,
       abilityNormalPursuitPercent: optionalPercent,
