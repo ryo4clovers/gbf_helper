@@ -211,7 +211,7 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
       }
       if (command.cmd === "normal_attack_end") normalAction = undefined;
       const isNormal = command.cmd === "attack";
-      const isCharge = command.cmd === "special";
+      const isCharge = command.cmd === "special" || command.cmd === "special_npc";
       const isDamage = command.cmd === "damage" || command.cmd === "loop_damage";
       const isHeal = command.cmd === "heal";
       if (!isNormal && !isCharge && !isDamage && !isHeal) continue;

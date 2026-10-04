@@ -101,6 +101,7 @@ export type NormalAttackCalculationRequest = z.input<typeof normalAttackCalculat
 
 export interface NormalAttackCalculationResponse {
   schemaVersion: 1;
+  characterStats: ReturnType<typeof resolveCalculatorDeckConfig>["characterStats"];
   deckResolutionIssues: ReturnType<typeof resolveCalculatorDeckConfig>["issues"];
   result: NormalAttackDamageResult;
   supportSummon?: {
@@ -273,6 +274,7 @@ export function calculateNormalAttackFromRequest(input: unknown,
   return {
     schemaVersion: 1,
     deckResolutionIssues: resolution.issues,
+    characterStats: resolution.characterStats,
     result: calculateNormalAttackDamage(calculationInput, {
       ...diagnostics,
       baseDamageModel: request.calculationModel,

@@ -157,3 +157,21 @@ test("Ilsa candidate curves and CA modifier isolation", () => {
   assert.deepEqual(base.predictions, boosted.predictions);
   assert.equal(base.hitCount, 1); // Neither TA nor three-way split applies to skills/CA.
 });
+
+test("Ilsa charge includes awakening and fixed CA damage before critical, without changing abilities", () => {
+  const request = input().calculation;
+  request.attacker = { characterSlot: 3 };
+  request.deckConfig.characters[2].awakening = { level: 1, formCode: "4" };
+  const abilityBefore = calculateIlsaDamage(request, "ability", 1);
+  request.deckConfig.characters[2].awakening.level = 10;
+  assert.deepEqual(calculateIlsaDamage(request, "ability", 1).predictions, abilityBefore.predictions);
+  request.battleEffects = { criticalDamageBonusPercent: 20 };
+  const charge = calculateIlsaDamage(request, "charge", 1);
+  assert.equal(charge.trace.damageContributions.awakening, 5);
+  assert.equal(charge.trace.fixedChargeDamage, 2000);
+  const raw = (charge.trace.commonPreAbilityDamage * 4.5 * 1.05 * .95 + 2000) * 1.2;
+  const attenuated = calculateDamageAttenuation(raw, charge.trace.attenuation, { damageCapUpPercent: charge.trace.capPercent }).damage;
+  assert.equal(charge.predictions[0].damage, Math.ceil((attenuated + charge.trace.supplementalDamage) * (1 + charge.trace.amplificationPercent / 100)));
+  request.deckConfig.characters[2].awakening.formCode = "2";
+  assert.equal(calculateIlsaDamage(request, "charge", 1).trace.capContributions.awakeningChargeCap, 15);
+});

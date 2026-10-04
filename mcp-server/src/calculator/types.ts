@@ -658,6 +658,7 @@ export interface CalculatorDeckSummonConfig {
 }
 
 export interface CalculatorDeckCharacterConfig {
+  displayedStatMode?: "auto" | "manual";
   mastery?: CharacterMasteryBonuses;
   artifact?: CharacterArtifact;
   elementCode?: string;
@@ -766,6 +767,8 @@ export interface DamageCalculationInput {
 }
 
 export interface CharacterLimitBonuses {
+  attackFlatBonus?: number;
+  hpFlatBonus?: number;
   elementAttackLevels?: number[];
   staminaLevel?: number;
   criticalLevels?: number[];

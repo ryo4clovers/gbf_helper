@@ -165,6 +165,12 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .character-slot-controls { padding: 8px; border-top: 1px solid var(--outline-soft); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; background: white; }
 .character-slot-controls label { min-width: 0; color: var(--ink-soft); font-size: .68rem; font-weight: 800; }
 .character-slot-controls input { min-height: 30px; margin-top: 3px; padding: 4px 6px; border-radius: 8px; font-size: .72rem; }
+.character-slot-controls label:has(select) { grid-column: 1 / -1; }
+.character-slot-controls select { width: 100%; font-size: .72rem; }
+.character-stat-settings { padding: 8px; font-size: .75rem; }
+.character-stat-settings label { display: block; margin-top: 6px; }
+.character-stat-settings input, .character-stat-settings select { width: 100%; min-width: 0; min-height: 30px; padding: 4px 6px; }
+.character-stat-settings p { white-space: pre-line; overflow-wrap: anywhere; }
 .catalog-weapon-card.catalog-character-card { grid-template-columns: 112px minmax(0, 1fr) auto; }
 .catalog-art.character-catalog-art { width: 112px; height: 64px; min-height: 0; aspect-ratio: 7 / 4; font-size: 1.8rem; }
 .catalog-character-card .catalog-skill-list { color: var(--tertiary); }

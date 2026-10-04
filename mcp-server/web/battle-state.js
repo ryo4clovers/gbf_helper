@@ -96,6 +96,9 @@ export function createInitialBattleState(setup) {
     deck.protagonist.elementCode,
     crewSupportEffects.battleStartChargeGaugePercent,
   );
+  if (Number.isFinite(setup.protagonistMaxHp) && setup.protagonistMaxHp > 0) {
+    protagonist.hp = protagonist.maxHp = Math.floor(setup.protagonistMaxHp);
+  }
   const characters = deck.characters
     .filter((character) => character.position === "front")
     .sort((left, right) => left.slot - right.slot)

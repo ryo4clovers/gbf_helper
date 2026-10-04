@@ -42,7 +42,7 @@ export function hasCharacterNormalAttackModel(characterId: string): boolean {
   return Object.hasOwn(SOURCES, characterId);
 }
 
-/** Import only damage-related allocations; flat stats already belong to displayed ATK/HP. */
+/** Flat LB totals are used only when deriving stats; manual displayed totals already include them. */
 export function importCharacterLimitBonuses(value: unknown): CharacterLimitBonuses {
   const rows = (value as { bonus_list?: unknown[] })?.bonus_list;
   if (!Array.isArray(rows)) throw new Error("Character LB list is missing");
@@ -57,7 +57,9 @@ export function importCharacterLimitBonuses(value: unknown): CharacterLimitBonus
     if (!Number.isInteger(stars) || stars < 0 || stars > 3) throw new Error("Character LB stars must be in 0..3");
     return [stars];
   });
-  return { elementAttackLevels: byName("闇属性攻撃力"), staminaLevel: byName("渾身")[0],
+  return { attackFlatBonus: byName("攻撃力").reduce((sum, lv) => sum + [0, 500, 800, 1000][lv], 0),
+    hpFlatBonus: byName("HP").reduce((sum, lv) => sum + [0, 250, 500, 750][lv], 0),
+    elementAttackLevels: byName("闇属性攻撃力"), staminaLevel: byName("渾身")[0],
     criticalLevels: byName("クリティカル確率") };
 }
 

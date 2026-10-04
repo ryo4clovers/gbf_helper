@@ -9,7 +9,7 @@ import {
   resolveDamageMultiplier,
   resolveEnemyAttackDamage,
   selectPartyMember,
-} from "/battle-state.js?v=6";
+} from "/battle-state.js?v=7";
 import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=2";
 import { scaleDamageCapThreshold, finalizeNormalAttackHit } from "/normal-attack-rounding.js";
 

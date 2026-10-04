@@ -11,6 +11,7 @@ import { resolveBattleDamageEffects } from "./battleDamageEffects.js";
 import { resolveSummonDamageEffects } from "./summonDamageEffects.js";
 import { calculateDamageAttenuation, type DamageAttenuationProfile } from "./damageAttenuationCalculator.js";
 import { elementalSuperiorityPercent } from "./baseDamageCalculator.js";
+import { characterAwakeningBonuses } from "./characterDisplayedStats.js";
 
 export const automaticAbilityIdSchema = z.enum(["mythical-arms", "mission-chocolate", "scythe-of-execution", "other-self"]);
 export type AutomaticAbilityId = z.infer<typeof automaticAbilityIdSchema>;
@@ -56,6 +57,7 @@ export interface SkillDamageProfile {
   name: string; multiplier: number; element: "character" | "destruction"; characterId: string | undefined;
   attenuationTableId?: string; actionId?: string; attenuation: DamageAttenuationProfile;
   source: string; multiplierStatus: string;
+  fixedChargeDamage?: number;
 }
 
 /** Shared outgoing skill stages; charge attacks deliberately exclude ability-only bonuses. */
@@ -105,11 +107,12 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
       return sum + bonus.value;
     }, 0);
   const bonuses = original.abilityDamage!;
+  const awakening = characterAwakeningBonuses(character?.awakening?.level, character?.awakening?.formCode);
   const damageContributions = { account: (charge ? calculation.modifiers.chargeDamagePercent : calculation.modifiers.abilityDamagePercent) ?? 0,
     artifact: artifactAbilityPercent, jobLevel: character ? 0 : 40,
     limitBonus: bonuses.limitBonusPercent ?? 0,
     completion: character ? 0 : resolution.protagonistAbilityCompletion.damagePercent,
-    ...(charge ? { ringChargeDamage: (character?.mastery?.ring ?? []).filter((bonus) => bonus.name === "奥義ダメージ")
+    ...(charge ? { awakening: awakening.chargeDamagePercent, ringChargeDamage: (character?.mastery?.ring ?? []).filter((bonus) => bonus.name === "奥義ダメージ")
       .reduce((sum, bonus) => { if (bonus.unit !== "percent") throw new Error("指輪奥義ダメージはpercentで指定してください"); return sum + bonus.value; }, 0) } : {}) };
   const damageUpPercent = Object.values(damageContributions).reduce((sum, value) => sum + value, 0);
   const effectiveMultiplier = charge ? profile.multiplier * (1 + damageUpPercent / 100) : profile.multiplier + damageUpPercent / 100;
@@ -121,6 +124,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
   const actorCap = character ? (character.perpetuityRing ? 5 : 0)
     + (original.attacker?.artifactStartBuffs?.damageCapUp && character.artifact?.skills.some((skill) => skill.skillId === "50211") ? 10 : 0) : support.damageCapPercent - (original.battleEffects?.damageCapPercent ?? 0);
   const capContributions = { generalCap, battleBuffCap: original.battleEffects?.damageCapPercent ?? 0, weaponGeneralCap: weaponCap("normal-frame-damage-cap-up"),
+    awakeningChargeCap: charge ? awakening.chargeCapPercent : 0,
     weaponSpecialGeneralCap: weaponCap("special-frame-damage-cap-up"), weaponAbilityCap: charge ? 0 : weapons.abilityDamageCap.effectivePercent,
     weaponSpecialAbilityCap: charge ? 0 : weaponCap("special-ability-damage-cap-up", 30), actorCap, summonCap: summons.capPercent,
     ringCap: ringCapPercent, jobLevelCap: character ? 0 : 20, accountAbilityCap: (charge ? calculation.modifiers.chargeDamageCapPercent : calculation.modifiers.abilityDamageCapPercent) ?? 0,
@@ -134,10 +138,12 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
   const supplementalDamage = weapons.supplementalDamage.effectiveAmount + (charge ? 0 : weapons.abilitySupplementalDamage.effectiveAmount)
     + effects.supportSkillSupplementalDamage + effects.enemySupplementalDamage + summons.supplementalDamage + mastery.supplementalDamage;
   criticalDamageBonusPercent += advantageous ? original.battleEffects?.criticalDamageBonusPercent ?? 0 : 0;
-  const nominal = base.articleTrace!.prePostCapDamage * effectiveMultiplier * (1 + criticalDamageBonusPercent / 100);
+  const fixedChargeDamage = charge ? profile.fixedChargeDamage ?? 0 : 0;
   const predictions = Array.from({ length: 101 }, (_, index) => {
     const randomMultiplier = (950 + index) / 1000;
-    const attenuated = calculateDamageAttenuation(nominal * randomMultiplier, profile.attenuation, { damageCapUpPercent: capPercent }).damage;
+    const rawDamage = (base.articleTrace!.prePostCapDamage * effectiveMultiplier * randomMultiplier + fixedChargeDamage)
+      * (1 + criticalDamageBonusPercent / 100);
+    const attenuated = calculateDamageAttenuation(rawDamage, profile.attenuation, { damageCapUpPercent: capPercent }).damage;
     const damage = Math.ceil((attenuated * (1 + effects.enemyDamageTakenAmplificationPercent / 100) + supplementalDamage)
       * (1 + amplificationPercent / 100));
     return { randomMultiplier, damage };
@@ -150,7 +156,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
     total: { minimum: minimum * hitCount, maximum: maximum * hitCount },
     predictions,
     trace: { commonPreAbilityDamage: base.articleTrace!.prePostCapDamage, intrinsicMultiplier: profile.multiplier,
-      damageUpPercent, damageContributions, effectiveMultiplier, capPercent, capContributions, amplificationPercent, supplementalDamage,
+      damageUpPercent, damageContributions, effectiveMultiplier, fixedChargeDamage, capPercent, capContributions, amplificationPercent, supplementalDamage,
       enemyDamageTakenAmplificationPercent: effects.enemyDamageTakenAmplificationPercent,
       attenuation: profile.attenuation, ringCapPercent, artifactAbilityPercent, level },
     attenuationEvidence: profile.attenuationTableId ? {

@@ -64,6 +64,19 @@ test("deduplicates repeated results and reports a missing turn without inventing
   assert.ok(result.warnings[0].includes("Turn gap"));
 });
 
+test("special_npc includes visual charge pieces once without counting total again", () => {
+  const result = parseRecordedBattleExports([{ apiCalls: [capture(start(), "/rest/raid/start.json", 10),
+    capture({ scenario: [
+      { cmd: "special_npc", target: "boss", pos: 1, name: "合成奥義", list: [{ damage: [
+        { pos: 0, value: 100, hp: 4900 }, { pos: 0, value: 200, hp: 4700 },
+      ] }], total: [{ value: 300 }] }, { cmd: "turn_change", turn: 2 },
+    ] }, "/rest/raid/normal_attack_result.json", 20)] }]);
+  assert.equal(result.summary.totalDamage, 300);
+  assert.equal(result.summary.hpMismatchCount, 0);
+  assert.equal(result.turns[0].packets.filter(p => p.kind === "charge").length, 2);
+  assert.equal(result.turns[0].packets[0].actorPosition, 1);
+});
+
 test("retains a legitimately repeated ability result at a later timestamp", () => {
   const ability = { scenario: [{ cmd: "damage", to: "boss", list: [{ value: 100, pos: 0 }] }] };
   const result = parseRecordedBattleExports([{ apiCalls: [

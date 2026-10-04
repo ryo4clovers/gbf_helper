@@ -70,6 +70,19 @@ function request() {
   };
 }
 
+test("formation retains automatic stat inputs and recalculates cached display values", () => {
+  const input = request();
+  const c = input.deckConfig.characters[0];
+  Object.assign(c, { displayedStatMode: "auto", awakening: { level: 10, formCode: "4" },
+    limitBonuses: { attackFlatBonus: 1000 }, mastery: { ring: [], earring: [] }, artifact: { skills: [] } });
+  const formation = createCalculatorFormation(input);
+  const restored = mergeCalculatorFormation(request(), parseCalculatorFormation(serializeCalculatorFormation(formation)));
+  assert.equal(restored.deckConfig.characters[0].displayedStatMode, "auto");
+  assert.deepEqual(restored.deckConfig.characters[0].awakening, c.awakening);
+  assert.deepEqual(restored.deckConfig.characters[0].limitBonuses, c.limitBonuses);
+  assert.equal(formation.deckConfig.characters[0].attackOverride, undefined);
+});
+
 test("preserves protagonist LB selections in formation save and reload", () => {
   const current = request();
   current.deckConfig.protagonist.attackLimitBonusLevel = 2;

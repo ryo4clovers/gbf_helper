@@ -13,6 +13,7 @@ import { resolveEffectiveWeaponSkillEffects } from "./weaponEffectResolver.js";
 import { resolveCharacterSkillBoosts } from "./characterSkillBoosts.js";
 import { hasCharacterNormalAttackModel } from "./characterNormalAttack.js";
 import { resolveCharacterModelId } from "./characterIdentity.js";
+import { calculateCharacterDisplayedStats } from "./characterDisplayedStats.js";
 import type {
   CalculatorDeckConfig,
   CalculatorDeckProtagonistConfig,
@@ -126,6 +127,7 @@ function criticalLimitBonuses(
 export type CalculatorDeckResolutionIssueCode =
   | "protagonist-lb-components-unresolved"
   | "missing-stat-override"
+  | "character-stats-unresolved"
   | "job-master-data-unresolved"
   | "main-weapon-incompatible-with-job"
   | "weapon-master-data-unresolved"
@@ -149,6 +151,7 @@ export interface CalculatorDeckResolutionIssue {
 }
 
 export interface CalculatorDeckResolution {
+  characterStats: ReturnType<typeof calculateCharacterDisplayedStats>[];
   schemaVersion: 1;
   mode: "catalog-derived" | "catalog-with-overrides";
   deck: DeckSnapshot;
@@ -280,6 +283,8 @@ export function resolveCalculatorDeckConfig(
   const contributingSummonIndexes = config.summons.flatMap((summon, index) =>
     summon.position === "main" || summon.position === "grid" ? [index] : []
   );
+  const characterStats = config.characters.map(character => calculateCharacterDisplayedStats(character,
+    resolvedWeaponStats, contributingSummonIndexes.map(index => resolvedSummonStats[index])));
   const canDeriveDisplayedStats =
     config.protagonist.rank !== undefined &&
     selectedJob !== undefined &&
@@ -502,7 +507,9 @@ export function resolveCalculatorDeckConfig(
   });
   config.characters.forEach((character, index) => {
     const modelId = resolveCharacterModelId(character.characterId);
-    appendMissingStatIssues(issues, `characters.${index}`, character.attackOverride, character.hpOverride);
+    const stats = characterStats[index];
+    appendMissingStatIssues(issues, `characters.${index}`, stats.attack, stats.hp);
+    for (const message of stats.issues) issues.push({ severity: "warning", code: "character-stats-unresolved", path: `characters.${index}`, message });
     issues.push({
       severity: "warning",
       code: hasCharacterNormalAttackModel(modelId) ? "character-passives-partially-supported" : "character-passives-unresolved",
@@ -621,7 +628,7 @@ export function resolveCalculatorDeckConfig(
               },
       };
     }),
-    characters: config.characters.map((character) => ({
+    characters: config.characters.map((character, index) => ({
       awakening: character.awakening,
       perpetuityRing: character.perpetuityRing,
       elementCode: character.elementCode,
@@ -635,8 +642,8 @@ export function resolveCalculatorDeckConfig(
       level: character.level,
       uncapLevel: character.uncapLevel,
       plusMark: character.plusMark,
-      attack: character.attackOverride,
-      hp: character.hpOverride,
+      attack: characterStats[index].attack,
+      hp: characterStats[index].hp,
     })),
   };
 
@@ -668,6 +675,7 @@ export function resolveCalculatorDeckConfig(
     schemaVersion: 1,
     mode: displayedStats === undefined ? "catalog-with-overrides" : "catalog-derived",
     deck,
+    characterStats,
     issues,
     protagonistAbilityCompletion: {
       damagePercent: completion.totals.abilityDamage ?? 0,

@@ -42,6 +42,16 @@ function setup() {
   };
 }
 
+test("battle uses freshly calculated protagonist HP without overwriting the base stat input", () => {
+  const input = setup(), before = structuredClone(input.request);
+  input.protagonistMaxHp = 4321;
+  const state = createInitialBattleState(input);
+  assert.equal(state.party[0].maxHp, 4321);
+  assert.equal(state.party[0].hp, 4321);
+  assert.deepEqual(input.request, before);
+  assert.notEqual(state.party[1].maxHp, 4321);
+});
+
 test("battle starts at turn 1 with the front party and support summon", () => {
   const state = createInitialBattleState(setup());
 

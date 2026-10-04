@@ -174,6 +174,7 @@ const masteryBonusSchema = z.object({
 
 const characterSchema = z
   .object({
+    displayedStatMode: z.enum(["auto", "manual"]).optional(),
     mastery: z.object({ ring: z.array(masteryBonusSchema).max(4), earring: z.array(masteryBonusSchema).max(1) }).strict().optional(),
     artifact: z.object({ skills: z.array(z.object({
       skillId: z.string().regex(/^\d+$/).max(16), name: z.string().min(1).max(200),
@@ -183,6 +184,8 @@ const characterSchema = z
     perpetuityRing: z.boolean().optional(),
     elementCode: z.enum(["1", "2", "3", "4", "5", "6"]).optional(),
     limitBonuses: z.object({
+      attackFlatBonus: z.number().int().min(0).max(10000).optional(),
+      hpFlatBonus: z.number().int().min(0).max(10000).optional(),
       elementAttackLevels: z.array(z.number().int().min(0).max(3)).max(2).optional(),
       staminaLevel: z.number().int().min(0).max(3).optional(),
       criticalLevels: z.array(z.number().int().min(0).max(3)).max(3).optional(),

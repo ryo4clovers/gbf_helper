@@ -15,7 +15,7 @@ export function ilsaSinProfile(flowers: number): SkillDamageProfile {
 
 export function calculateIlsaDamage(calculation: NormalAttackCalculationRequest, kind: "ability" | "charge", flowers: number) {
   const profile: SkillDamageProfile = kind === "ability" ? ilsaSinProfile(flowers) : {
-    name: "バースト・イレイザー", multiplier: 4.5, element: "character", characterId: ILSA_ID,
+    name: "バースト・イレイザー", multiplier: 4.5, fixedChargeDamage: 2000, element: "character", characterId: ILSA_ID,
     attenuation: PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES.chargeAttackMassive,
     source: "https://gbf.wiki/User:Cajunwildcat/Skill_Attenuation", multiplierStatus: "二次情報・要検証",
   };
@@ -24,7 +24,7 @@ export function calculateIlsaDamage(calculation: NormalAttackCalculationRequest,
     source: kind === "ability" ? "実測85発に最大2差の共通4ライン仮説。内部ID未取得" : "Wiki標準奥義表・ユーザー指定" },
     issues: [
       kind === "ability" ? "不散花別の4ラインは実測候補。2個60%・1個40%区間と丸めは追加検証が必要"
-        : "奥義は4.5倍・標準減衰表の下書き。武器の奥義専用補正・覚醒奥義補正は未接続",
+        : "奥義は4.5倍・固定加算2000・標準減衰表の下書き。覚醒補正を反映。武器の奥義専用補正は未接続",
       "アビリティ・奥義の武器技巧抽選と上限貫通は未接続。1アビの確定クリティカルは有利属性に適用",
       ...result.issues.filter((issue) => /HP依存|未接続/.test(issue)),
     ] };

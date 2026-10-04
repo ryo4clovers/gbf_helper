@@ -1,4 +1,4 @@
-import { BATTLE_SETUP_STORAGE_KEY, battleSetupStatIssues } from "/battle-state.js?v=6";
+import { BATTLE_SETUP_STORAGE_KEY, battleSetupStatIssues } from "/battle-state.js?v=7";
 import {
   CALCULATOR_ENVIRONMENT_STORAGE_KEY,
   CALCULATOR_FORMATION_FORMAT,
@@ -17,7 +17,7 @@ import {
   serializeCalculatorFormation,
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
-} from "/calculator-state-storage.js?v=10";
+} from "/calculator-state-storage.js?v=11";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
 import {
   PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS,
@@ -1187,15 +1187,20 @@ function createCharacterNumberField(config, character, key, label, options = {})
   input.step = "1";
   input.placeholder = "—";
   input.value = character[key] == null ? "" : String(character[key]);
+  if (["hpOverride", "attackOverride"].includes(key) && character.displayedStatMode === "auto") {
+    input.readOnly = true;
+    input.title = "装備とキャラ強化から自動算出。直接入力する場合は計算方法を切り替えてください";
+  }
   input.setAttribute("aria-label", `${character.nameHint ?? character.characterId}の${label}`);
   input.addEventListener("change", () => {
     const value = Number(input.value);
-    const current = characterForSlot(config, character.slot);
+    const latest = readDeckConfig();
+    const current = characterForSlot(latest, character.slot);
     if (!current) return;
     if (input.value === "") delete current[key];
     else if (Number.isInteger(value) && value >= Number(input.min) && value <= Number(input.max)) current[key] = value;
     else return;
-    writeDeckConfig(config);
+    writeDeckConfig(latest);
     void calculate();
   });
   field.append(input);
@@ -1215,14 +1220,15 @@ function createCharacterPlusField(config, character) {
   input.addEventListener("change", () => {
     const value = Number(input.value);
     if (!Number.isInteger(value) || value < 0 || value > characterPlusBonus.maximum) return;
-    const current = characterForSlot(config, character.slot);
+    const latest = readDeckConfig();
+    const current = characterForSlot(latest, character.slot);
     if (!current) return;
     const difference = value - (current.plusMark ?? 0);
     current.plusMark = value;
     if (current.attackOverride != null) current.attackOverride += difference * characterPlusBonus.attackPerMark;
     if (current.hpOverride != null) current.hpOverride += difference * characterPlusBonus.hpPerMark;
-    writeDeckConfig(config);
-    renderCharacterEditor(config);
+    writeDeckConfig(latest);
+    renderCharacterEditor(latest);
     void calculate();
   });
   field.append(input);
@@ -1265,8 +1271,81 @@ function createCharacterSlot(config, slot) {
       createCharacterNumberField(config, character, "attackOverride", "表示ATK"),
     );
     article.append(controls);
+    const methodLabel = document.createElement("label"); methodLabel.textContent = "HP・ATK計算 ";
+    const method = document.createElement("select"); method.setAttribute("aria-label", `${character.nameHint ?? character.characterId}のHP・ATK計算`);
+    for (const [value, label] of [["manual", "表示値を直接入力"], ["auto", "装備・強化から自動算出（Lv80・3キャラ）"]]) {
+      const option = document.createElement("option"); option.value = value; option.textContent = label; method.append(option);
+    }
+    method.value = character.displayedStatMode ?? "manual";
+    method.addEventListener("change", () => {
+      const latest = readDeckConfig(), entry = characterForSlot(latest, slot);
+      entry.displayedStatMode = method.value;
+      if (method.value === "auto") { delete entry.attackOverride; delete entry.hpOverride; }
+      writeDeckConfig(latest); renderCharacterEditor(latest); void calculate();
+    });
+    methodLabel.append(method); controls.append(methodLabel);
+    if (character.displayedStatMode === "auto") article.append(createCharacterStatSettings(character));
   }
   return article;
+}
+
+function createCharacterStatSettings(character) {
+  const details = document.createElement("details"), summary = document.createElement("summary");
+  details.className = "character-stat-settings";
+  summary.textContent = "キャラ強化・ステータス内訳"; details.append(summary);
+  const note = document.createElement("p"); note.className = "supporting-text";
+  note.textContent = "未設定の強化は0として計算。指輪・アーティファクトの登録済み固定値も反映します。久遠の別枠攻撃は表示ATKへ重複加算しません。"; details.append(note);
+  const ringValue = name => (character.mastery?.ring ?? []).filter(b => b.name === name && b.unit === "flat").reduce((sum, b) => sum + b.value, 0);
+  const setRingValue = (c, name, value) => {
+    c.mastery ??= { ring: [], earring: [] };
+    const bonusId = (c.mastery.ring ?? []).find(b => b.name === name)?.bonusId ?? "10001";
+    c.mastery.ring = [...(c.mastery.ring ?? []).filter(b => b.name !== name), { bonusId, name, value, unit: "flat" }];
+  };
+  const fields = [
+    ["LB攻撃力合計", character.limitBonuses?.attackFlatBonus ?? 0, 10000, (c, v) => { (c.limitBonuses ??= {}).attackFlatBonus = v; }],
+    ["LBHP合計", character.limitBonuses?.hpFlatBonus ?? 0, 10000, (c, v) => { (c.limitBonuses ??= {}).hpFlatBonus = v; }],
+    ["指輪攻撃力", ringValue("攻撃力"), 10000, (c, v) => setRingValue(c, "攻撃力", v)],
+    ["指輪HP", ringValue("HP"), 10000, (c, v) => setRingValue(c, "HP", v)],
+    ["覚醒Lv", character.awakening?.level ?? 1, 10, (c, v) => { c.awakening = { formCode: c.awakening?.formCode ?? "1", level: v }; }],
+  ];
+  for (const [label, value, max, update] of fields) {
+    const field = document.createElement("label"); field.textContent = label;
+    const input = document.createElement("input"); input.type = "number"; input.min = label === "覚醒Lv" ? "1" : "0"; input.max = String(max); input.value = String(value);
+    input.setAttribute("aria-label", `${character.nameHint ?? character.characterId}の${label}`);
+    input.addEventListener("change", () => { if (!input.checkValidity() || input.value === "") return;
+      const latest = readDeckConfig(); update(characterForSlot(latest, character.slot), Number(input.value)); writeDeckConfig(latest); void calculate(); });
+    field.append(input); details.append(field);
+  }
+  const label = document.createElement("label"); label.textContent = "覚醒タイプ";
+  const select = document.createElement("select"); select.setAttribute("aria-label", `${character.nameHint ?? character.characterId}の覚醒タイプ`);
+  for (const [value, name] of [["1", "バランス"], ["2", "攻撃"], ["3", "防御"], ["4", "連続攻撃"]]) {
+    const option = document.createElement("option"); option.value = value; option.textContent = name; select.append(option);
+  }
+  select.value = character.awakening?.formCode ?? "1";
+  select.addEventListener("change", () => { const latest = readDeckConfig(), entry = characterForSlot(latest, character.slot);
+    entry.awakening = { level: entry.awakening?.level ?? 1, formCode: select.value }; writeDeckConfig(latest); void calculate(); });
+  label.append(select); details.append(label);
+  const breakdown = document.createElement("p"); breakdown.className = "supporting-text"; breakdown.dataset.characterStatsSlot = String(character.slot); details.append(breakdown);
+  return details;
+}
+
+function applyCharacterStats(response) {
+  const config = readDeckConfig();
+  for (const stats of response.characterStats ?? []) {
+    const character = characterForSlot(config, stats.slot);
+    if (!character || character.displayedStatMode !== "auto") continue;
+    for (const [key, label] of [["hp", "表示HP"], ["attack", "表示ATK"]]) {
+      if (stats[key] === undefined) delete character[`${key}Override`]; else character[`${key}Override`] = stats[key];
+      const input = [...document.querySelectorAll(".character-slot input")].find(input => input.getAttribute("aria-label") === `${character.nameHint ?? character.characterId}の${label}`);
+      if (input) input.value = stats[key] === undefined ? "" : String(stats[key]);
+    }
+    const breakdown = document.querySelector(`[data-character-stats-slot="${stats.slot}"]`);
+    if (breakdown) {
+      const names = { base: "キャラ基礎", plus: "+", awakening: "覚醒", limitBonus: "LB", ring: "指輪", artifact: "アーティファクト", equipment: "装備", proficiency: "得意武器" };
+      breakdown.textContent = stats.breakdown ? ["attack", "hp"].map(key => `${key === "attack" ? "ATK" : "HP"}: ` + Object.entries(stats.breakdown[key]).map(([name, value]) => `${names[name]} ${value}`).join(" / ")).join("\n") : stats.issues.join("\n");
+    }
+  }
+  writeDeckConfig(config);
 }
 
 function renderCharacterEditor(config = readDeckConfig()) {
@@ -1362,6 +1441,9 @@ function selectCharacter(master) {
     position: editingCharacterSlot <= 3 ? "front" : "back",
     characterId: master.characterId,
     nameHint: master.name,
+    elementCode: master.elementCode,
+    level: 80,
+    displayedStatMode: ["3040456000", "3040512000", "3040611000"].includes(master.masterId) && !master.styleId ? "auto" : "manual",
     plusMark: 0,
   });
   writeDeckConfig(config);
@@ -2920,6 +3002,8 @@ async function calculate() {
     ]);
     const predictions = { normal: normalPrediction, advantage: advantagePrediction };
     rememberSuccessfulCalculation(request, response, predictions);
+    // Ignore stale responses after a newer edit; derived values are only a UI cache.
+    if (JSON.stringify(buildRequest()) === JSON.stringify(request)) applyCharacterStats(response);
     render(response, predictions);
   } catch (error) {
     $("deck-state").textContent = error instanceof Error ? error.message : "計算に失敗しました";
@@ -3044,22 +3128,33 @@ $("save-config").addEventListener("click", () => {
   }
 });
 
-$("open-battle").addEventListener("click", () => {
-  const configuredRequest = buildRequest();
-  const statIssues = battleSetupStatIssues(configuredRequest.deckConfig);
-  if (statIssues.length) {
-    $("deck-state").textContent = statIssues.join("\n");
+$("open-battle").addEventListener("click", async () => {
+  const button = $("open-battle"); button.disabled = true;
+  try {
+    let configuredRequest = buildRequest();
+    const response = await postJson("/api/calculate", currentTargetRequest(configuredRequest));
+    if (JSON.stringify(buildRequest()) !== JSON.stringify(configuredRequest)) throw new Error("計算中に編成が変更されました。もう一度戦闘シミュレートを押してください");
+    applyCharacterStats(response);
+    configuredRequest = buildRequest();
+    const statIssues = battleSetupStatIssues(configuredRequest.deckConfig);
+    if (statIssues.length) {
+      $("deck-state").textContent = statIssues.join("\n");
+      $("deck-state").classList.add("error-text");
+      $("deck-state").scrollIntoView({ block: "center" });
+      return;
+    }
+    const request = currentTargetRequest(configuredRequest);
+    persistRequest(configuredRequest);
+    sessionStorage.setItem(
+      BATTLE_SETUP_STORAGE_KEY,
+      JSON.stringify({ schemaVersion: 1, request: { ...request, attacker: undefined },
+        protagonistMaxHp: response.result.protagonistHp?.hp, enemyMaxHp: request.enemy.maxHp ?? 1_000_000 }),
+    );
+    window.location.href = "/battle.html";
+  } catch (error) {
+    $("deck-state").textContent = error instanceof Error ? error.message : "編成を計算できませんでした";
     $("deck-state").classList.add("error-text");
-    $("deck-state").scrollIntoView({ block: "center" });
-    return;
-  }
-  const request = currentTargetRequest(configuredRequest);
-  persistRequest(configuredRequest);
-  sessionStorage.setItem(
-    BATTLE_SETUP_STORAGE_KEY,
-    JSON.stringify({ schemaVersion: 1, request: { ...request, attacker: undefined }, enemyMaxHp: request.enemy.maxHp ?? 1_000_000 }),
-  );
-  window.location.href = "/battle.html";
+  } finally { button.disabled = false; }
 });
 
 $("visual-tab").addEventListener("click", () => setEditorMode("visual"));
