@@ -13,6 +13,10 @@
 
 作業の正本ルールは `AGENTS.md` と `CONTRIBUTING.md`。以下はその要約と、セッションをまたいで伝えるべき点。
 
+cloverが依頼整理・クラウドでの公開情報調査・作業分担・進捗・レビューと検証確認を指揮します。
+ユーザーには必要な実測資料と仕様判断を具体的に依頼します。出典・参照日・確定/仮説・実測範囲を分け、
+採用する計算情報と回帰テストを対応させます。clover発の機能案は提案し、ユーザー採用前には実装しません。
+
 ## 絶対ルール(最優先)
 
 1. **実機 API を直接叩かない。** `game.granbluefantasy.jp` 配下のエンドポイントを `fetch()` 等で呼び出すことは、1 回でも、ループでも、禁止。ゲーム内の操作はすべて人間(ユーザー)が行う(規約)。
@@ -52,9 +56,11 @@ npm run build      # 配布用 JS 生成
 
 Windows チェックアウトでは Windows 版 Node.js を使う(`esbuild` が OS 固有バイナリのため、WSL/Linux と `node_modules/` を共有しない)。
 
-## エージェント間の排他
+## エージェント間の作業分担
 
-- **Codex と Claude はリポジトリを同時に編集しない。** 自分の編集を終えたら、相手に渡す前にコミットする。
+- **1タスク・1ブランチ・1worktree。同じworktreeを同時に編集しない。** 別worktreeでの並行編集は、担当範囲が合意されている場合のみ行う。詳細は `docs/multi-agent-workflow.md`。
+- 最初に絶対パス、ブランチ、基点コミット、担当ファイル、検証方法を報告する。共通計算コア・スキーマ・カタログ・索引・lockfileは担当を一本化し、統合は1件ずつ。
+- 他人の変更を上書き・reset・stash・コミットしない。コミット・merge・push・PR作成はその操作の許可を確認する。レビューは合意したコミットを専用worktreeで確認する。
 - コミットの支援表記: Claude は `Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>`、Codex は `Assisted-by: OpenAI Codex`(実際に関与した場合のみ)。
 - 編集の前後で `git status` を確認し、無関係な変更を巻き込まない。
 
@@ -63,6 +69,8 @@ Windows チェックアウトでは Windows 版 Node.js を使う(`esbuild` が 
 ## 現在の状態(自動生成: {{GENERATED_AT}})
 
 - ブランチ: **{{BRANCH}}**
+- worktree絶対パス: `{{WORKTREE_PATH}}`
+- 現在のHEAD: `{{HEAD_COMMIT}}`（タスクの基点は別途合意する）
 - 作業ツリー: {{WORKTREE_STATUS}}
 
 ### 直近のコミット

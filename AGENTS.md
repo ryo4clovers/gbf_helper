@@ -5,6 +5,7 @@
 - This repository stores Granblue Fantasy knowledge for AI-assisted retrieval and future calculation tools.
 - Prefer small, reviewable changes that preserve the existing Markdown and JSON formats.
 - Do not introduce a database, embeddings, or a new framework unless the task explicitly requires it.
+- clover coordinates requests, public-source research in its cloud environment, task ownership, progress, review, and verification. Ask the user for specification decisions or necessary in-game observations. Record sources, access dates, uncertainty, and observation coverage, and connect adopted calculation claims to regression tests. Ideas discovered by clover are proposals until the user adopts them; do not implement them independently. See `docs/multi-agent-workflow.md`.
 
 ## Source and data policy
 
@@ -22,7 +23,10 @@
 - Update the category README index when adding, removing, or renaming an indexed knowledge file.
 - Keep collection history in `docs/data-collection-notes.md`; keep durable development instructions in `CONTRIBUTING.md` or this file.
 - Do not overwrite unrelated user changes. Check `git status` before and after editing.
-- Codex and Claude must not edit the repository concurrently. After completing an edit, commit the resulting changes before handing work to the other agent.
+- Use one task, one branch, and one worktree per implementation agent. Codex and Claude must not edit the same worktree concurrently. Separate worktrees may be edited in parallel only with agreed, non-overlapping ownership; see `docs/multi-agent-workflow.md`.
+- Before editing, report the absolute worktree path, branch, base commit, owned files, and verification plan. Stop if existing changes or ownership are unclear. Never reset, stash, overwrite, or commit another agent's work.
+- Assign one owner for shared calculator code, schemas, catalogs/knowledge indexes, dependency lockfiles, and workflow instructions. Coordinate cross-cutting changes before editing and integrate one task at a time.
+- Review committed changes at an agreed commit in a separate worktree. Report checks and remaining risks before integration. Commit, merge, push, and PR creation require authorization for that action; finishing an edit alone is not permission to commit.
 - When handing work to a fresh session, generate a handoff prompt with `node prompts/generate-handoff.mjs --task "..."` (Claude Code: the `session-handoff` skill). See `prompts/README.md`.
 
 ## Required verification

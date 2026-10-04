@@ -38,7 +38,7 @@ const porcelain = git("status", "--porcelain");
 const changed = porcelain ? porcelain.split("\n").filter(Boolean).length : 0;
 const worktreeStatus = changed === 0
   ? "クリーン(未コミットの変更なし)"
-  : `**未コミットの変更 ${changed} 件あり** — 引き継ぎ前にコミットまたは退避すること`;
+  : `**未コミットの変更 ${changed} 件あり** — 引き継ぎを止めて所有者に相談。許可なくコミット・stash・resetしないこと`;
 const recentCommits = git("log", "--oneline", "-12") || "(コミット履歴を取得できませんでした)";
 
 // --- knowledge/ 件数 ------------------------------------------------------
@@ -152,6 +152,8 @@ let out = fs.readFileSync(TEMPLATE, "utf8");
 const fills = {
   GENERATED_AT: generatedAt,
   BRANCH: branch,
+  WORKTREE_PATH: REPO,
+  HEAD_COMMIT: git("rev-parse", "HEAD") || "(不明)",
   WORKTREE_STATUS: worktreeStatus,
   RECENT_COMMITS: recentCommits,
   KNOWLEDGE_COUNTS: knowledgeCounts,

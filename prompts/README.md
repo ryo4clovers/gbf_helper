@@ -39,4 +39,6 @@ node prompts/generate-handoff.mjs --task "武器の天星器シリーズを処�
 
 - 運用ルールが変わったら **`handoff-template.md` の固定部分を更新**する(正本は `AGENTS.md` / `CONTRIBUTING.md`。雛形はその要約)。
 - 自動で埋まる項目(件数・コミット等)を増やしたいときは `generate-handoff.mjs` を編集する。
+- worktree絶対パスと現在のHEADも出力する。タスクの基点・担当範囲・レビュー対象SHAは別途明示する。
+- 複数担当での分担・引き継ぎは [運用ガイド](../docs/multi-agent-workflow.md) に従う。
 - 雛形と生成スクリプトはコミット対象。生成結果(`handoff.txt` 等)はコミットしない。
