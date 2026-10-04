@@ -212,12 +212,14 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
       if (command.cmd === "normal_attack_end") normalAction = undefined;
       const isNormal = command.cmd === "attack";
       const isCharge = command.cmd === "special" || command.cmd === "special_npc";
+      // Enemy specials carry authoritative post-hit HP in list, just like normal attacks.
+      const isEnemySpecial = command.cmd === "super" && command.target === "player";
       const isDamage = command.cmd === "damage" || command.cmd === "loop_damage";
       const isHeal = command.cmd === "heal";
-      if (!isNormal && !isCharge && !isDamage && !isHeal) continue;
+      if (!isNormal && !isCharge && !isEnemySpecial && !isDamage && !isHeal) continue;
       const targetSide = isNormal
         ? command.from === "player" ? "enemy" : "party"
-        : (isCharge ? command.target === "boss" : command.to === "boss") ? "enemy" : "party";
+        : isEnemySpecial ? "party" : (isCharge ? command.target === "boss" : command.to === "boss") ? "enemy" : "party";
       if (isNormal && normalAction && targetSide === "enemy") normalAction.hits += 1;
       const kind = isHeal ? "heal" : isNormal ? "normal" : isCharge ? "charge" : endingTurn ? "turn-end" : "ability";
       for (const hit of values(isNormal ? command.damage : command.list)) {
@@ -229,7 +231,7 @@ export function parseRecordedBattleExports(inputs: unknown[]) {
           turn, kind, targetSide, targetPosition: numeric(hit.pos) ?? 0, value: amount,
           actorPosition: targetSide !== "enemy" || isHeal || kind === "turn-end" ? undefined
             : isNormal || isCharge ? numeric(command.pos) : abilityActor,
-          actionName: isCharge && typeof command.name === "string" ? command.name : actionName,
+          actionName: (isCharge || isEnemySpecial) && typeof command.name === "string" ? command.name : actionName,
           elementCode: hit.attr !== undefined || hit.color !== undefined ? String(hit.attr ?? hit.color) : undefined,
           concurrentAttackIndex: numeric(hit.concurrent_attack_count),
           ...(typeof hit.critical === "boolean" ? { critical: hit.critical } : {}),

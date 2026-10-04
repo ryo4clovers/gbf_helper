@@ -10,9 +10,9 @@ import { applyIlsaBattleEffects, initialIlsaState, ilsaBattleStateSchema, resetI
 export const automaticAbilityConditionsSchema = normalAttackCalculationRequestSchema.pick({
   enemy: true, modifiers: true, supportSummon: true,
 }).extend({
-  protagonistCurrentHpPercent: z.number().finite().min(1).max(100),
+  protagonistCurrentHpPercent: z.number().finite().positive().max(100),
   characters: z.array(normalAttackCalculationRequestSchema.shape.attacker.unwrap().omit({ coupledConfectionActive: true })
-    .extend({ currentHpPercent: z.number().finite().min(1).max(100) })).max(3),
+    .extend({ currentHpPercent: z.number().finite().positive().max(100) })).max(3),
 }).strict().superRefine((value, ctx) => {
   if (new Set(value.characters.map((character) => character.characterSlot)).size !== value.characters.length) {
     ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["characters"], message: "キャラ枠が重複しています" });

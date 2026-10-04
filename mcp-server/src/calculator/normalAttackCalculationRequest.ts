@@ -27,11 +27,11 @@ export const normalAttackCalculationRequestSchema = z
     deckConfig: z.record(z.unknown()).describe("CalculatorDeckConfig v1"),
     attacker: z.object({
       characterSlot: z.number().int().min(1).max(3),
-      currentHpPercent: z.number().finite().min(1).max(100).optional(),
+      currentHpPercent: z.number().finite().positive().max(100).optional(),
       coupledConfectionActive: z.boolean().optional(),
       artifactStartBuffs: z.object({ attackUp: z.boolean(), damageCapUp: z.boolean() }).strict().optional(),
     }).strict().optional().describe("前衛キャラの単発通常攻撃。シンダラ(バレンタイン)/サリエル/浴衣イルザのアビリティ未使用時に対応。シンダラは双子緒虎の有無を明示"),
-    protagonistCurrentHpPercent: z.number().finite().min(1).max(100).default(100),
+    protagonistCurrentHpPercent: z.number().finite().positive().max(100).default(100),
     mythicalLancerLevel: z.number().int().min(0).max(5).optional().describe("攻撃時点の神伝の槍手Lv。省略時は開始時の槍/斧本数"),
     battleEffects: z.object({
       elementAttackPercent: optionalPercent,

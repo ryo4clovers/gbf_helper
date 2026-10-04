@@ -10,7 +10,7 @@ import {
   resolveEnemyAttackDamage,
   selectPartyMember,
 } from "/battle-state.js?v=9";
-import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=3";
+import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=4";
 import { scaleDamageCapThreshold, finalizeNormalAttackHit } from "/normal-attack-rounding.js";
 
 const $ = (id) => document.getElementById(id);

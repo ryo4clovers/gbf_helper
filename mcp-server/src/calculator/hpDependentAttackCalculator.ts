@@ -95,10 +95,10 @@ export function calculateHpDependentAttack(
 ): HpDependentAttackResult {
   if (
     !Number.isFinite(protagonistCurrentHpPercent) ||
-    protagonistCurrentHpPercent < 1 ||
+    protagonistCurrentHpPercent <= 0 ||
     protagonistCurrentHpPercent > 100
   ) {
-    throw new Error("protagonistCurrentHpPercent must be between 1 and 100");
+    throw new Error("protagonistCurrentHpPercent must be greater than 0 and at most 100");
   }
   const elementCode = deck.protagonist.elementCode;
   const applicable = (deck.effectiveWeaponSkillEffects ?? [])

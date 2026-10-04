@@ -215,6 +215,25 @@ test("uses the last preceding HP update for each attack and never takes HP from 
   assert.deepEqual(reconstructRecordedNormalAttackStates(parsed, 3).map(s => s.protagonistCurrentHpPercent), [40, 100]);
 });
 
+test("enemy specials update actual HP before later attacks, including sub-one-percent HP and recovery", () => {
+  const parsed = observation([
+    result(1, [...normal(), { cmd: "super", target: "player", name: "合成特殊技", total: 995,
+      list: [{ damage: [{ pos: 0, value: 995, hp: 5 }] }] }], 100),
+    result(2, [...normal(), { cmd: "heal", to: "player", list: [{ pos: 0, value: 500, hp: 505 }] },
+      ...normal(), { cmd: "super", target: "player", name: "合成バリア併用", total: 1000,
+        list: [{ damage: [{ pos: 0, value: 1000, hp: 500 }] }] }, ...normal()], 200),
+  ]);
+  const states = reconstructRecordedNormalAttackStates(parsed, 3);
+  assert.deepEqual(states.map(s => s.protagonistCurrentHpPercent), [100, .5, 50.5, 50]);
+  // Authoritative HP, rather than subtraction of displayed damage, also handles barriers.
+  assert.deepEqual(states.map(s => s.countedProtagonistHits), [0, 1, 2, 3]);
+  assert.equal(parsed.summary.totalDamage, 400);
+  const special = parsed.turns[0].packets.find(p => p.targetSide === "party")!;
+  assert.equal(special.hpAfter, 5);
+  assert.equal(special.actionName, "合成特殊技");
+  assert.equal(special.actorPosition, undefined);
+});
+
 test("character states follow reaction order, HP updates and Cidala buff removal without future state leakage", () => {
   const normalBy = (actor: number) => normal().map(command => ({ ...command,
     ...(command.cmd === "attack" ? { pos: actor } : { num: actor }) }));

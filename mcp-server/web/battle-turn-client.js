@@ -5,13 +5,14 @@ export function buildBattleTurnRequest(setup, state, mode, settings, action, ils
   const { attacker, battleEffects, mythicalLancerLevel, ...calculation } = setup.request;
   return {
     calculation: { ...calculation, enemy: { ...calculation.enemy, maxHp: state.enemy.maxHp },
-      protagonistCurrentHpPercent: Math.max(1, hpPercent(state.party[0])) },
+      // Dead actors are excluded by defeatedPositions; use a valid placeholder only for them.
+      protagonistCurrentHpPercent: state.party[0].hp > 0 ? hpPercent(state.party[0]) : 100 },
     state: state.actionState, action, ilsaChargeEnabled,
     protagonistCharge: { enabled: ilsaChargeEnabled, gauge: state.party[0].charge },
     ...(defeatedPositions.length || state.actionState?.defeatedPositions ? { defeatedPositions } : {}),
     mode, secondsPerTurn: settings.secondsPerTurn,
     characters: state.party.slice(1).map((member) => ({ characterSlot: member.slot,
-      currentHpPercent: hpPercent(member), ...settings.characters[member.slot],
+      ...settings.characters[member.slot], currentHpPercent: hpPercent(member),
       ...(["3040456000", "dark-ssr-ilsa-yukata"].includes(member.id) ? { chargeGauge: member.charge } : {}) })),
   };
 }
