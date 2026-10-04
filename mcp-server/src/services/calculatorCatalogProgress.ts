@@ -1,8 +1,9 @@
 import { readFileSync } from "node:fs";
 import { z } from "zod";
-import { createSelectableCharacterCatalog } from "../calculator/characterCatalogView.js";
-import { createSelectableSummonCatalog } from "../calculator/summonCatalogView.js";
-import { createSelectableWeaponCatalog } from "../calculator/weaponCatalogView.js";
+import { loadIncrementalWeaponCatalog } from "../calculator/weaponCatalog.js";
+import { loadIncrementalSummonCatalog } from "../calculator/summonCatalog.js";
+import { weaponCoverage, weaponEffectTypes, type CatalogEffectCoverage, summonCoverage, characterCoverage, emptyFacets, seriesLabels, type CatalogCoverage, type CatalogFacets } from "./catalogCoverage.js";
+import { createSelectableCharacterCatalog, readCharacterCatalogRecords } from "../calculator/characterCatalogView.js";
 
 const targetsSchema = z.object({
   schemaVersion: z.literal(1),
@@ -25,6 +26,8 @@ export interface CalculatorCatalogItem {
   rarity: string;
   verificationStatus: "検証済み" | "下書き" | "未着手";
   detail: string;
+  facets: CatalogFacets;
+  coverage: CatalogCoverage;
 }
 
 export interface CalculatorCatalogProgressCategory {
@@ -36,6 +39,7 @@ export interface CalculatorCatalogProgressCategory {
   coveragePercent: number;
   exceedsTarget: boolean;
   items: CalculatorCatalogItem[];
+  stateCounts: Record<string, number>;
 }
 
 export interface CalculatorCatalogProgressView {
@@ -83,13 +87,26 @@ function category(
     coveragePercent: percentage(items.length, targetCount),
     exceedsTarget: items.length > targetCount,
     items,
+    stateCounts: {
+      connected: items.filter(item => item.coverage.connection === "connected").length,
+      partial: items.filter(item => item.coverage.connection === "partial").length,
+      unconnected: items.filter(item => item.coverage.connection === "unconnected").length,
+      unknown: items.filter(item => item.coverage.connection === "unknown").length,
+      missing: items.filter(item => item.coverage.missing.length > 0).length,
+      unverified: items.filter(item => item.verificationStatus !== "検証済み").length,
+    },
   };
 }
 
 /** Builds a browser-safe view of calculator catalog coverage and registered entries. */
 export function createCalculatorCatalogProgressView(): CalculatorCatalogProgressView {
   const targets = readTargets();
-  const weapons = createSelectableWeaponCatalog().weapons.map((weapon): CalculatorCatalogItem => ({
+  const weaponCatalog = loadIncrementalWeaponCatalog();
+  const summonCatalog = loadIncrementalSummonCatalog();
+  const skillCoverageCache = new Map<string, CatalogEffectCoverage[]>();
+  const weapons = [...weaponCatalog.weapons.values()].sort((a, b) => a.name.localeCompare(b.name, "ja")).map((weapon): CalculatorCatalogItem => ({
+    coverage: weaponCoverage(weapon, weaponCatalog.skills, skillCoverageCache),
+    facets: { ...emptyFacets(), weaponKind: [WEAPON_KIND_CODES[weapon.weaponKindCode] ?? "未設定"], series: weapon.seriesId ? [seriesLabels[weapon.seriesId] ?? `シリーズID ${weapon.seriesId}（表示名未登録）`] : [], skills: [...weapon.skillSlots.flatMap(slot => weaponCatalog.skills.get(slot.skillId)?.name ?? []), ...(weapon.listedSkills ?? []).map(skill => skill.name)], effectTypes: weaponEffectTypes(weapon, weaponCatalog.skills) },
     id: weapon.weaponId,
     name: weapon.name,
     nameEn: weapon.nameEn,
@@ -98,7 +115,9 @@ export function createCalculatorCatalogProgressView(): CalculatorCatalogProgress
     verificationStatus: weapon.verificationStatus,
     detail: [WEAPON_KIND_CODES[weapon.weaponKindCode] ?? "武器種未設定", weapon.levelStats ? "Lv境界あり" : "Lv境界なし"].join(" · "),
   }));
-  const summons = createSelectableSummonCatalog().summons.map((summon): CalculatorCatalogItem => ({
+  const summons = [...summonCatalog.summons.values()].sort((a, b) => a.name.localeCompare(b.name, "ja")).map((summon): CalculatorCatalogItem => ({
+    coverage: summonCoverage(summon),
+    facets: emptyFacets(),
     id: summon.summonId,
     name: summon.name,
     elementCode: summon.elementCode,
@@ -106,7 +125,10 @@ export function createCalculatorCatalogProgressView(): CalculatorCatalogProgress
     verificationStatus: summon.verificationStatus,
     detail: summon.supportSelectable ? "サポート選択可" : "サポート選択不可",
   }));
-  const characters = createSelectableCharacterCatalog().characters.map((character): CalculatorCatalogItem => ({
+  const characterRecords = readCharacterCatalogRecords();
+  const characterRecordsById = new Map(characterRecords.map(record => [record.data.id, record]));
+  const characters = createSelectableCharacterCatalog(undefined, characterRecords).characters.map((character): CalculatorCatalogItem => ({
+    ...characterCoverage(character.characterId, character.masterId, character.styleId, characterRecordsById.get(character.characterId)),
     id: character.characterId,
     name: character.name,
     nameEn: character.nameEn,

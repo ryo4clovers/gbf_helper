@@ -41,20 +41,30 @@ export interface SelectableCharacterCatalog {
   characters: SelectableCharacterCatalogEntry[];
 }
 
+export interface CharacterCatalogRecord {
+  data: z.infer<typeof characterFrontmatterSchema>;
+  content: string;
+}
+/** Read once per request; raw knowledge records stay server-side. */
+export function readCharacterCatalogRecords(knowledgeBasePath = KNOWLEDGE_BASE_PATH): CharacterCatalogRecord[] {
+  const charactersPath = path.join(knowledgeBasePath, "characters");
+  return readdirSync(charactersPath)
+    .filter(name => name.endsWith(".md") && !name.startsWith("_") && name !== "README.md")
+    .map(name => {
+      const parsed = matter(readFileSync(path.join(charactersPath, name), "utf8"));
+      return { data: characterFrontmatterSchema.parse(parsed.data), content: parsed.content };
+    });
+}
+
 /** Browser-safe character metadata. Character instance and account data are never included. */
 export function createSelectableCharacterCatalog(
   knowledgeBasePath = KNOWLEDGE_BASE_PATH,
+  records = readCharacterCatalogRecords(knowledgeBasePath),
 ): SelectableCharacterCatalog {
   const imageCatalog = z.object({ entries: z.record(z.object({
     masterId: z.string().regex(/^30[234]\d{7}$/), wikiPage: z.string(), styleId: z.literal(2).optional(),
   })) }).parse(JSON.parse(readFileSync(new URL("../../catalog/character-images.v1.json", import.meta.url), "utf8")));
-  const charactersPath = path.join(knowledgeBasePath, "characters");
-  const characters = readdirSync(charactersPath)
-    .filter((name) => name.endsWith(".md") && !name.startsWith("_") && name !== "README.md")
-    .map((name): SelectableCharacterCatalogEntry => {
-      const frontmatter = characterFrontmatterSchema.parse(
-        matter(readFileSync(path.join(charactersPath, name), "utf8")).data,
-      );
+  const characters = records.map(({ data: frontmatter }): SelectableCharacterCatalogEntry => {
       const image = imageCatalog.entries[frontmatter.id];
       return {
         characterId: frontmatter.id,

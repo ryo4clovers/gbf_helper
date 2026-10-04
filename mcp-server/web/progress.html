@@ -28,7 +28,7 @@
           <span class="step">DATA</span>
           <div>
             <h2>計算機で選択できるデータ</h2>
-            <p>武器・召喚石・キャラクターの登録数と、現在のカタログ内容を確認できます。</p>
+            <p>登録内容の不足・計算への接続・検証状態を分けて確認できます。件数の母数は現在の登録データです。</p>
           </div>
         </div>
         <p id="target-note" class="scope-note">基準件数を読み込んでいます</p>
@@ -49,6 +49,11 @@
           </label>
         </div>
         <div id="catalog-tabs" class="catalog-tabs" role="tablist" aria-label="カタログ種別"></div>
+        <div id="catalog-filters" class="catalog-filters" aria-label="カタログ絞り込み"></div>
+        <button id="clear-filters" type="button" class="tonal-button">絞り込みをクリア</button>
+        <p class="coverage-legend">○ 対応済み · △ 一部対応 · × 未対応 · ？ 未確認 · ― 対象外。欠損と対象外は別です。詳細で理由を確認できます。</p>
+        <p class="coverage-legend">「登録効果は接続あり」は登録された数値効果の範囲です。全性能の対応や実測一致を意味しません。下書きは未検証です。得意武器等は元データの明示表記のみを使用し、シリーズ未登録を「なし」とは扱いません。</p>
+        <p id="skill-filter-note" class="coverage-legend">武器のスキル名検索は説明のみの名称も対象です。効果分類は登録された構造化数値効果に基づき、名称から推測しません。HP上昇には守護・神威などの登録HP効果が含まれます。未分類は効果なしを意味しません。</p>
         <div class="list-status-row">
           <p id="list-status" aria-live="polite"></p>
           <p class="list-legend"><span>属性</span><span>レアリティ</span><span>検証状態</span></p>

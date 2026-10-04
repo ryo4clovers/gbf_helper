@@ -81,3 +81,36 @@
   .catalog-row { grid-template-columns: 1fr; gap: 6px; }
   .catalog-detail, .catalog-badges { grid-column: 1; }
 }
+.catalog-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.filter-field { display: grid; gap: 5px; font-size: .8rem; color: var(--ink-soft); }
+.filter-field select { width: 100%; min-width: 0; padding: 9px; border-radius: 10px; border: 1px solid var(--outline-soft); color: var(--ink); background: var(--surface-container); }
+.filter-check { display: flex; align-items: center; gap: 8px; font-size: .85rem; }
+.coverage-legend { font-size: .8rem; color: var(--ink-soft); line-height: 1.7; }
+.summary-state { font-size: .8rem; margin: 8px 0; }
+.summary-note { line-height: 1.5; text-align: left; }
+.catalog-badges { flex-wrap: wrap; }
+.catalog-row { grid-template-columns: minmax(180px, 1fr) minmax(100px, .6fr) minmax(260px, 1.3fr); }
+.coverage-details { font-size: .8rem; margin: 8px 0 16px; overflow-wrap: anywhere; line-height: 1.6; }
+.coverage-details summary { cursor: pointer; color: var(--primary); padding: 6px 0; }
+.coverage-details p { margin: 6px 0; }
+.effect-detail { margin: 12px 0; }
+.evidence { color: var(--ink-soft); font-size: .72rem; }
+.missing-reasons { color: #8a291c; }
+.matrix-scroll { overflow-x: auto; }
+.coverage-matrix { width: 100%; border-collapse: collapse; font-size: .8rem; }
+.coverage-matrix caption { padding: 12px; text-align: left; font-weight: 700; }
+.coverage-matrix th, .coverage-matrix td { padding: 12px 8px; border-bottom: 1px solid var(--outline-soft); vertical-align: top; text-align: left; }
+.coverage-matrix thead { background: var(--surface-container); }
+.matrix-identity { min-width: 150px; }
+.matrix-details { min-width: 190px; max-width: 350px; }
+.matrix-cell { white-space: nowrap; font: inherit; color: var(--ink); background: var(--surface-container); border: 1px solid var(--outline-soft); border-radius: 8px; padding: 7px; cursor: pointer; }
+.catalog-entry { border-bottom: 1px solid var(--outline-soft); }
+@media(max-width:860px) { .catalog-row { grid-template-columns: 1fr; } .catalog-badges { justify-content: flex-start; } }
+.filter-check input[type="checkbox"] { width: 18px; height: 18px; min-width: 18px; padding: 0; margin: 0; accent-color: var(--primary); }
+.filter-check { white-space: nowrap; }
+.matrix-details .coverage-details { max-width: 350px; }
+
+.filter-field input[type="search"] { width: 100%; min-width: 0; padding: 9px; border-radius: 10px; border: 1px solid var(--outline-soft); color: var(--ink); background: var(--surface-container); font: inherit; }
+
+.coverage-matrix th, .coverage-matrix td { white-space: normal; }
+.coverage-matrix tbody tr:last-child td { border-bottom: 1px solid var(--outline-soft); font-weight: 400; }
