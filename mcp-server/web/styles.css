@@ -162,6 +162,7 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .character-slot-name, .character-slot-meta { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .character-slot-name { font-size: .84rem; font-weight: 800; }
 .character-slot-meta { margin-top: 2px; color: var(--ink-soft); font-size: .75rem; }
+.character-parameter-summary { margin: 0; padding: 8px 11px; border-top: 1px solid var(--outline-soft); color: var(--ink-soft); font-size: .75rem; white-space: pre-line; }
 .character-slot-controls { padding: 8px; border-top: 1px solid var(--outline-soft); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; background: white; }
 .character-slot-controls label { min-width: 0; color: var(--ink-soft); font-size: .68rem; font-weight: 800; }
 .character-slot-controls input { min-height: 30px; margin-top: 3px; padding: 4px 6px; border-radius: 8px; font-size: .72rem; }
@@ -171,6 +172,15 @@ h1 { margin: 0; font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter
 .character-stat-settings label { display: block; margin-top: 6px; }
 .character-stat-settings input, .character-stat-settings select { width: 100%; min-width: 0; min-height: 30px; padding: 4px 6px; }
 .character-stat-settings p { white-space: pre-line; overflow-wrap: anywhere; }
+#character-strengthening { width: min(620px, calc(100vw - 32px)); padding: 20px; }
+#character-strengthening .character-slot-controls { padding: 16px; gap: 12px; border: 1px solid var(--outline-soft); border-radius: 18px; background: var(--surface-high); }
+#character-strengthening .character-slot-controls label { font-size: .84rem; }
+#character-strengthening input, #character-strengthening select { min-height: 42px; padding: 8px 10px; font-size: .84rem; }
+#character-strengthening .character-stat-settings { margin-top: 12px; padding: 12px; font-size: .84rem; }
+.character-stat-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; }
+@media (max-width: 480px) {
+  .character-stat-fields, #character-strengthening .character-slot-controls { grid-template-columns: 1fr; }
+}
 .catalog-weapon-card.catalog-character-card { grid-template-columns: 112px minmax(0, 1fr) auto; }
 .catalog-art.character-catalog-art { width: 112px; height: 64px; min-height: 0; aspect-ratio: 7 / 4; font-size: 1.8rem; }
 .catalog-character-card .catalog-skill-list { color: var(--tertiary); }

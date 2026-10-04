@@ -1187,6 +1187,7 @@ function createCharacterNumberField(config, character, key, label, options = {})
   input.step = "1";
   input.placeholder = "—";
   input.value = character[key] == null ? "" : String(character[key]);
+  input.dataset.characterField = key;
   if (["hpOverride", "attackOverride"].includes(key) && character.displayedStatMode === "auto") {
     input.readOnly = true;
     input.title = "装備とキャラ強化から自動算出。直接入力する場合は計算方法を切り替えてください";
@@ -1201,6 +1202,7 @@ function createCharacterNumberField(config, character, key, label, options = {})
     else if (Number.isInteger(value) && value >= Number(input.min) && value <= Number(input.max)) current[key] = value;
     else return;
     writeDeckConfig(latest);
+    updateCharacterStatDisplays(latest);
     void calculate();
   });
   field.append(input);
@@ -1229,6 +1231,7 @@ function createCharacterPlusField(config, character) {
     if (current.hpOverride != null) current.hpOverride += difference * characterPlusBonus.hpPerMark;
     writeDeckConfig(latest);
     renderCharacterEditor(latest);
+    updateCharacterStatDisplays(latest);
     void calculate();
   });
   field.append(input);
@@ -1262,36 +1265,76 @@ function createCharacterSlot(config, slot) {
   article.append(choice);
 
   if (character) {
-    const controls = document.createElement("div");
-    controls.className = "character-slot-controls";
-    controls.append(
-      createCharacterNumberField(config, character, "level", "Lv", { minimum: 1, maximum: 150 }),
-      createCharacterPlusField(config, character),
-      createCharacterNumberField(config, character, "hpOverride", "表示HP"),
-      createCharacterNumberField(config, character, "attackOverride", "表示ATK"),
-    );
-    article.append(controls);
-    const methodLabel = document.createElement("label"); methodLabel.textContent = "HP・ATK計算 ";
-    const method = document.createElement("select"); method.setAttribute("aria-label", `${character.nameHint ?? character.characterId}のHP・ATK計算`);
-    for (const [value, label] of [["manual", "表示値を直接入力"], ["auto", "装備・強化から自動算出（Lv80・3キャラ）"]]) {
-      const option = document.createElement("option"); option.value = value; option.textContent = label; method.append(option);
-    }
-    method.value = character.displayedStatMode ?? "manual";
-    method.addEventListener("change", () => {
-      const latest = readDeckConfig(), entry = characterForSlot(latest, slot);
-      entry.displayedStatMode = method.value;
-      if (method.value === "auto") { delete entry.attackOverride; delete entry.hpOverride; }
-      writeDeckConfig(latest); renderCharacterEditor(latest); void calculate();
+    const summary = document.createElement("p");
+    summary.className = "character-parameter-summary";
+    summary.dataset.characterSummarySlot = String(slot);
+    summary.textContent = characterParameterSummary(character);
+    article.append(summary);
+    article.title = "右クリックでキャラクター情報を設定";
+    article.addEventListener("contextmenu", event => {
+      event.preventDefault();
+      openCharacterStrengthening(slot);
     });
-    methodLabel.append(method); controls.append(methodLabel);
-    if (character.displayedStatMode === "auto") article.append(createCharacterStatSettings(character));
+    choice.addEventListener("keydown", event => {
+      if (event.key === "ContextMenu" || (event.shiftKey && event.key === "F10")) {
+        event.preventDefault();
+        openCharacterStrengthening(slot);
+      }
+    });
   }
   return article;
+}
+
+function characterParameterSummary(character) {
+  return `Lv${character.level ?? "—"}・+${character.plusMark ?? 0}・${character.displayedStatMode === "auto" ? "自動算出" : "直接入力"}\nHP ${character.hpOverride == null ? "—" : numberFormat.format(character.hpOverride)} / ATK ${character.attackOverride == null ? "—" : numberFormat.format(character.attackOverride)}`;
+}
+
+function renderCharacterStrengtheningFields(slot) {
+  const config = readDeckConfig(), character = characterForSlot(config, slot);
+  if (!character) return;
+  const controls = document.createElement("div");
+  controls.className = "character-slot-controls";
+  controls.append(
+    createCharacterNumberField(config, character, "level", "Lv", { minimum: 1, maximum: 150 }),
+    createCharacterPlusField(config, character),
+    createCharacterNumberField(config, character, "hpOverride", "表示HP"),
+    createCharacterNumberField(config, character, "attackOverride", "表示ATK"),
+  );
+  const methodLabel = document.createElement("label"); methodLabel.textContent = "HP・ATK計算 ";
+  const method = document.createElement("select"); method.setAttribute("aria-label", `${character.nameHint ?? character.characterId}のHP・ATK計算`);
+  for (const [value, label] of [["manual", "表示値を直接入力"], ["auto", "装備・強化から自動算出（Lv80・3キャラ）"]]) {
+    const option = document.createElement("option"); option.value = value; option.textContent = label; method.append(option);
+  }
+  method.value = character.displayedStatMode ?? "manual";
+  method.addEventListener("change", () => {
+    const latest = readDeckConfig(), entry = characterForSlot(latest, slot);
+    entry.displayedStatMode = method.value;
+    if (method.value === "auto") { delete entry.attackOverride; delete entry.hpOverride; }
+    writeDeckConfig(latest); renderCharacterEditor(latest); renderCharacterStrengtheningFields(slot);
+    $("character-strengthening-fields").querySelector("select")?.focus();
+    void calculate();
+  });
+  methodLabel.append(method); controls.append(methodLabel);
+  $("character-strengthening-fields").replaceChildren(controls,
+    ...(character.displayedStatMode === "auto" ? [createCharacterStatSettings(character)] : []));
+}
+
+function openCharacterStrengthening(slot) {
+  const character = characterForSlot(readDeckConfig(), slot);
+  if (!character) return;
+  const dialog = $("character-strengthening");
+  dialog.dataset.characterSlot = String(slot);
+  $("character-strengthening-title").textContent = `${catalogCharacter(character.characterId)?.name ?? character.nameHint ?? character.characterId}のキャラクター情報`;
+  renderCharacterStrengtheningFields(slot);
+  if (!dialog.open) dialog.showModal();
+  $("character-strengthening-fields").querySelector("input")?.focus();
+  void calculate();
 }
 
 function createCharacterStatSettings(character) {
   const details = document.createElement("details"), summary = document.createElement("summary");
   details.className = "character-stat-settings";
+  details.open = true;
   summary.textContent = "キャラ強化・ステータス内訳"; details.append(summary);
   const note = document.createElement("p"); note.className = "supporting-text";
   note.textContent = "未設定の強化は0として計算。指輪・アーティファクトの登録済み固定値も反映します。久遠の別枠攻撃は表示ATKへ重複加算しません。"; details.append(note);
@@ -1308,13 +1351,15 @@ function createCharacterStatSettings(character) {
     ["指輪HP", ringValue("HP"), 10000, (c, v) => setRingValue(c, "HP", v)],
     ["覚醒Lv", character.awakening?.level ?? 1, 10, (c, v) => { c.awakening = { formCode: c.awakening?.formCode ?? "1", level: v }; }],
   ];
+  const fieldsGrid = document.createElement("div");
+  fieldsGrid.className = "character-stat-fields";
   for (const [label, value, max, update] of fields) {
     const field = document.createElement("label"); field.textContent = label;
     const input = document.createElement("input"); input.type = "number"; input.min = label === "覚醒Lv" ? "1" : "0"; input.max = String(max); input.value = String(value);
     input.setAttribute("aria-label", `${character.nameHint ?? character.characterId}の${label}`);
     input.addEventListener("change", () => { if (!input.checkValidity() || input.value === "") return;
       const latest = readDeckConfig(); update(characterForSlot(latest, character.slot), Number(input.value)); writeDeckConfig(latest); void calculate(); });
-    field.append(input); details.append(field);
+    field.append(input); fieldsGrid.append(field);
   }
   const label = document.createElement("label"); label.textContent = "覚醒タイプ";
   const select = document.createElement("select"); select.setAttribute("aria-label", `${character.nameHint ?? character.characterId}の覚醒タイプ`);
@@ -1324,7 +1369,7 @@ function createCharacterStatSettings(character) {
   select.value = character.awakening?.formCode ?? "1";
   select.addEventListener("change", () => { const latest = readDeckConfig(), entry = characterForSlot(latest, character.slot);
     entry.awakening = { level: entry.awakening?.level ?? 1, formCode: select.value }; writeDeckConfig(latest); void calculate(); });
-  label.append(select); details.append(label);
+  label.append(select); fieldsGrid.append(label); details.append(fieldsGrid);
   const breakdown = document.createElement("p"); breakdown.className = "supporting-text"; breakdown.dataset.characterStatsSlot = String(character.slot); details.append(breakdown);
   return details;
 }
@@ -1334,10 +1379,8 @@ function applyCharacterStats(response) {
   for (const stats of response.characterStats ?? []) {
     const character = characterForSlot(config, stats.slot);
     if (!character || character.displayedStatMode !== "auto") continue;
-    for (const [key, label] of [["hp", "表示HP"], ["attack", "表示ATK"]]) {
+    for (const key of ["hp", "attack"]) {
       if (stats[key] === undefined) delete character[`${key}Override`]; else character[`${key}Override`] = stats[key];
-      const input = [...document.querySelectorAll(".character-slot input")].find(input => input.getAttribute("aria-label") === `${character.nameHint ?? character.characterId}の${label}`);
-      if (input) input.value = stats[key] === undefined ? "" : String(stats[key]);
     }
     const breakdown = document.querySelector(`[data-character-stats-slot="${stats.slot}"]`);
     if (breakdown) {
@@ -1346,6 +1389,19 @@ function applyCharacterStats(response) {
     }
   }
   writeDeckConfig(config);
+  updateCharacterStatDisplays(config);
+}
+
+function updateCharacterStatDisplays(config) {
+  for (const character of config.characters) {
+    const summary = document.querySelector(`[data-character-summary-slot="${character.slot}"]`);
+    if (summary) summary.textContent = characterParameterSummary(character);
+    if ($("character-strengthening").dataset.characterSlot !== String(character.slot)) continue;
+    for (const key of ["hpOverride", "attackOverride"]) {
+      const input = $("character-strengthening-fields").querySelector(`[data-character-field="${key}"]`);
+      if (input && (input.readOnly || document.activeElement !== input)) input.value = character[key] == null ? "" : String(character[key]);
+    }
+  }
 }
 
 function renderCharacterEditor(config = readDeckConfig()) {
@@ -3169,6 +3225,13 @@ $("job-picker").addEventListener("click", (event) => {
 });
 $("equipment-strengthening").addEventListener("click", (event) => {
   if (event.target === $("equipment-strengthening")) $("equipment-strengthening").close();
+});
+$("character-strengthening").addEventListener("click", event => {
+  if (event.target === $("character-strengthening")) $("character-strengthening").close();
+});
+$("character-strengthening").addEventListener("close", () => {
+  $("character-strengthening-fields").replaceChildren();
+  delete $("character-strengthening").dataset.characterSlot;
 });
 $("close-character-picker").addEventListener("click", () => $("character-picker").close());
 $("remove-character").addEventListener("click", removeSelectedCharacter);

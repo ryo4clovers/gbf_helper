@@ -129,7 +129,12 @@ test("weapon and summon parameter editors open from occupied slots with right cl
   assert.match(html, /右クリックでLv・解放・SLv・＋を入力/u);
   assert.match(html, /右クリックでLv・＋を入力/u);
   assert.match(app, /function openEquipmentStrengthening\(\{ kind, name, slotLabel, controls \}\)/u);
-  assert.equal((app.match(/article\.addEventListener\("contextmenu"/gu) ?? []).length, 2);
+  for (const name of ["createWeaponSlot", "createSummonSlot"]) {
+    const start = app.indexOf(`function ${name}(`);
+    assert.ok(start >= 0);
+    const slotImplementation = app.slice(start, app.indexOf("\nfunction ", start + 1));
+    assert.match(slotImplementation, /article\.addEventListener\("contextmenu"/u);
+  }
   assert.match(app, /kind: "weapon"/u);
   assert.match(app, /kind: "summon"/u);
   assert.match(styles, /\.equipment-strengthening-fields \.weapon-slot-controls \{/u);
