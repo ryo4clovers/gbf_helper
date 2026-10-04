@@ -53,7 +53,7 @@ test("awakening catalog covers 30 known masters, two choices each and cumulative
 
 test("unknown imports, unsupported combinations and unavailable levels remain explicit and never apply", () => {
   const base: DeckWeapon = { ...weapon("1040014300", "multiattack"), masterId: "1040014300", skills: [] };
-  for (const patch of [{ awakening: { formCode: "7", level: 4 } }, { awakening: { formCode: "limited-attack", level: 4 } },
+  for (const patch of [{ awakening: { formCode: "6", level: 4 } }, { awakening: { formCode: "limited-attack", level: 4 } },
     { awakening: { formCode: "limited-multiattack", level: 5 } }, { awakening: { formCode: "limited-multiattack" } },
     { masterId: "1040314300" }]) {
     const result = resolveWeaponAwakenings([{ ...base, ...patch }]);
@@ -68,8 +68,48 @@ test("unknown imports, unsupported combinations and unavailable levels remain ex
   assert.equal(resolveWeaponAwakenings([{ ...base, uncapLevel: undefined }]).effects.length, 3);
 });
 
+test("observed numeric forms match semantic forms only for their observed weapon masters", () => {
+  for (const [id, form, code] of [["1040108700", "attack", "1"], ["1040014300", "multiattack", "7"]]) {
+    for (const level of [1, 2, 3, 4]) {
+      const semantic = config([weapon(id, form, level)]);
+      const imported = structuredClone(semantic);
+      imported.weapons[0].awakening!.formCode = code;
+      assert.deepEqual(calculateNormalAttackFromRequest(request(imported)), calculateNormalAttackFromRequest(request(semantic)));
+      assert.equal(imported.weapons[0].awakening!.formCode, code); // Preserve original imported selection.
+      assert.ok(weaponAwakeningOptions(id)!.types.find(t => t.formCode === `limited-${form}`)!.gameFormCodes.includes(code));
+    }
+  }
+  // Even another eligible attack weapon must not inherit an unobserved game mapping.
+  for (const id of ["1040014300", "1040314300", "1040809000"]) {
+    const result = resolveWeaponAwakenings([{ ...weapon(id), masterId: id, skills: [], awakening: { formCode: "1", level: 4 } }]);
+    assert.equal(result.effects.length, 0);
+    assert.equal(result.issues[0].code, "weapon-awakening-unresolved");
+  }
+});
+
+test("Parazonium native skills and awakening combine with Fallen multiattack and two cap weapons", () => {
+  const input = config([weapon("1040014300", "multiattack"), weapon("1040200700", undefined, 4, 2),
+    weapon("1040314300", undefined, 4, 3), weapon("1040314300", undefined, 4, 4), weapon("1040108700", "attack", 1, 5)]);
+  const before = calculateNormalAttackFromRequest(request(input)).result;
+  input.weapons[4].awakening!.level = 4;
+  const after = calculateNormalAttackFromRequest(request(input)).result;
+  assert.equal(before.attackPower.totalEffectiveNormalAttackPercent, 64);
+  assert.equal(after.attackPower.totalEffectiveNormalAttackPercent, 104);
+  const cap = (result: typeof before) => result.bodyDamageAttenuation.capModifiers
+    .filter(m => "kind" in m && m.kind === "normal-frame-damage-cap-up")
+    .reduce((sum, m) => sum + ("effectiveAmountPercent" in m ? m.effectiveAmountPercent : 0), 0);
+  assert.equal(cap(before), 14);
+  assert.equal(cap(after), 19);
+  assert.equal(after.multiattackRates!.uncappedWeaponSkillDoubleAttackRatePercent, 23.5);
+  assert.equal(after.multiattackRates!.uncappedWeaponSkillTripleAttackRatePercent, 13.5);
+  assert.equal(after.otherWeaponSkills.supplementalDamage.effectiveAmount, 100000);
+  assert.equal(after.attackPower.baseAttack, before.attackPower.baseAttack);
+});
+
 test("awakening attack is normal-frame, applies across elements and is never aura or SLv boosted", () => {
   const input = config([weapon("1040108700", "attack")]);
+  input.weapons[0].position = "grid";
+  input.weapons[0].slot = 2; // A dark main weapon would set the protagonist's element to dark.
   input.protagonist.elementCode = "1"; // Off-element awakening remains active; native dark skills do not.
   const original = structuredClone(input);
   const low = resolveCalculatorDeckConfig(input);

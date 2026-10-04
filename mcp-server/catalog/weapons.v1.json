@@ -63055,7 +63055,8 @@
         "level": 150,
         "uncapLevel": 4,
         "attack": 3200,
-        "hp": 310
+        "hp": 310,
+        "skillLevel": 15
       },
       "levelStats": {
         "maximumLevel": 150,
@@ -63077,7 +63078,16 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "631"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "637"
+        }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",
@@ -63091,7 +63101,7 @@
         }
       ],
       "verificationStatus": "下書き",
-      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証",
+      "source": "gbf.wiki Cargo weaponsテーブルをr.jina.ai経由で2026-09-09参照。ID・名称・属性・武器種・上限解放境界ステータス・スキル文は二次情報のため要検証。2026-10-05ユーザー提供の編成・武器詳細でLv150時のスキル631/637・名称・効果文を確認（低Lvの切替は未対応）",
       "uncaps": {
         "minimum": 0,
         "base": 3,
@@ -63099,7 +63109,8 @@
         "reduced": 0,
         "verificationStatus": "下書き",
         "source": "gbf.wiki Cargo weaponsテーブル（2026-09-09取得）の上限解放範囲"
-      }
+      },
+      "confirmedAt": "2026-10-05"
     },
     {
       "weaponId": "1040108800",

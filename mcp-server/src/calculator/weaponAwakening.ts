@@ -12,24 +12,29 @@ const catalogSchema = z.object({
     effects: z.array(z.object({ level: z.number().int().min(2).max(4) }).passthrough()
       .transform(({ level, ...effect }) => ({ level, effect: weaponSkillEffectSchema.parse(effect) }))),
   }).strict()),
-  weapons: z.array(z.object({ weaponId: z.string(), name: z.string(), types: z.array(z.string()).length(2) }).strict()),
+  weapons: z.array(z.object({ weaponId: z.string(), name: z.string(), types: z.array(z.string()).length(2),
+    observedGameForms: z.record(z.string().regex(/^\d+$/), z.string()).optional(),
+  }).strict()),
 }).strict();
 
 const catalog = catalogSchema.parse(JSON.parse(readFileSync(new URL("../../catalog/weapon-awakenings.v1.json", import.meta.url), "utf8")));
 const types = new Map(catalog.types.map(type => [type.formCode, type]));
 const weapons = new Map(catalog.weapons.map(weapon => [weapon.weaponId, weapon]));
 if (types.size !== catalog.types.length || weapons.size !== catalog.weapons.length
-  || catalog.weapons.some(weapon => new Set(weapon.types).size !== 2 || weapon.types.some(type => !types.has(type)))) {
+  || catalog.weapons.some(weapon => new Set(weapon.types).size !== 2 || weapon.types.some(type => !types.has(type))
+    || Object.values(weapon.observedGameForms ?? {}).some(type => !weapon.types.includes(type)))) {
   throw new Error("Weapon awakening catalog has duplicate or unresolved IDs");
 }
 
-/** Public master data shared by the selector and calculator; no inventory or game form IDs. */
+/** Public master data; observed game form codes are scoped to the weapon master, never inventory IDs. */
 export function weaponAwakeningOptions(weaponId: string) {
   const weapon = weapons.get(weaponId);
   if (!weapon) return undefined;
   return { minimumWeaponLevel: catalog.minimumWeaponLevel, minimumUncapLevel: catalog.minimumUncapLevel,
     maximumLevel: catalog.maximumLevel, verificationStatus: catalog.verificationStatus,
-    sources: catalog.sources, types: weapon.types.map(code => types.get(code)!) };
+    sources: catalog.sources, types: weapon.types.map(code => ({ ...types.get(code)!,
+      gameFormCodes: Object.entries(weapon.observedGameForms ?? {}).filter(([, type]) => type === code).map(([form]) => form),
+    })) };
 }
 
 export type WeaponAwakeningIssueCode = "weapon-awakening-unresolved" | "weapon-awakening-inactive" | "weapon-awakening-unverified";
@@ -42,11 +47,11 @@ export function resolveWeaponAwakenings(deckWeapons: DeckWeapon[]) {
     const selection = weapon.awakening;
     if (!selection || (selection.level ?? 0) === 0 && !selection.formCode) return;
     const options = weaponAwakeningOptions(weapon.masterId);
-    const type = options?.types.find(type => type.formCode === selection.formCode);
+    const type = options?.types.find(type => type.formCode === selection.formCode || type.gameFormCodes.includes(selection.formCode ?? ""));
     const path = `weapons.${index}.awakening`;
     if (!type || !Number.isInteger(selection.level) || selection.level! < 1 || selection.level! > options!.maximumLevel) {
       issues.push({ code: "weapon-awakening-unresolved", path,
-        message: `${weapon.name ?? weapon.masterId}: 覚醒タイプ・Lvが未対応または不明のため未反映です。武器設定で対応タイプとLv1〜4を選択してください（実機のタイプ番号は未照合）。` });
+        message: `${weapon.name ?? weapon.masterId}: 覚醒タイプ・Lvが未対応または不明のため未反映です。武器設定で対応タイプとLv1〜4を選択してください（実機番号は武器ごとに照合済みのものだけ対応）。` });
       return;
     }
     // Legacy imports without evolution can prove the unlock through Lv150, which requires 4★.
@@ -65,7 +70,7 @@ export function resolveWeaponAwakenings(deckWeapons: DeckWeapon[]) {
         verificationStatus: "下書き", appliedModifiers: [] });
     }
     if (increments.length) issues.push({ code: "weapon-awakening-unverified", path,
-      message: `${weapon.name ?? weapon.masterId}: 覚醒・${type.name}Lv${selection.level}を加護対象外・全属性共通として反映（二次情報・要検証）。複数本/既存武器枠との上限・丸めは実測未確認です。` });
+      message: `${weapon.name ?? weapon.masterId}: 覚醒・${type.name}Lv${selection.level}を加護対象外・全属性共通の下書きモデルで反映。実機で確認した表示効果量と、未確認の対象範囲・合算上限・戦闘時の丸めは区別してください。` });
   });
   return { effects, issues };
 }

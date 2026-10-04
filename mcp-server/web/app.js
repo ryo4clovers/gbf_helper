@@ -19,7 +19,7 @@ import {
   upsertCalculatorProfile,
 } from "/calculator-state-storage.js?v=11";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
-import { createWeaponAwakeningControls, weaponAwakeningSummary } from "/weapon-awakening-controls.js?v=1";
+import { createWeaponAwakeningControls, weaponAwakeningSummary } from "/weapon-awakening-controls.js?v=2";
 import {
   PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,

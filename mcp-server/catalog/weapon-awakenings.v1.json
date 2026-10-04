@@ -7,7 +7,7 @@
     "https://gbf.wiki/Weapon_Awakening",
     "https://gbf.wiki/Fallen_Sword"
   ],
-  "note": "二次情報。連撃DAはGameWith内に10%/20%の不一致があり、Wikiと個別記載に従い20%候補。全属性適用・既存武器枠との共存は要実測。formCodeは計算機の識別子で実機番号との対応は未確認。",
+  "note": "数値・枠の未確認部分は二次情報。2026-10-05のユーザー提供編成・武器詳細でパラゾニウム攻撃form1（攻刃40%・上限5%）、フォールン連続攻撃form7（DA20%・TA10%）の表示を確認。実機番号の対応は観測した武器に限定。全属性適用・加護独立・合算上限・戦闘時の丸めは要検証。",
   "minimumWeaponLevel": 150,
   "minimumUncapLevel": 4,
   "maximumLevel": 4,
@@ -322,7 +322,10 @@
       "types": [
         "limited-attack",
         "limited-charge"
-      ]
+      ],
+      "observedGameForms": {
+        "1": "limited-attack"
+      }
     },
     {
       "weaponId": "1040014300",
@@ -330,7 +333,10 @@
       "types": [
         "limited-multiattack",
         "limited-healing"
-      ]
+      ],
+      "observedGameForms": {
+        "7": "limited-multiattack"
+      }
     },
     {
       "weaponId": "1040812000",

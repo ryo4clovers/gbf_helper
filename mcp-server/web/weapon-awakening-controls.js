@@ -1,3 +1,7 @@
+function matchesForm(type, code) {
+  return type.formCode === code || (type.gameFormCodes ?? []).includes(code);
+}
+
 const labels = {
   "normal-attack-up": "通常攻刃", "normal-frame-damage-cap-up": "ダメージ上限",
   "normal-hp-up": "HP", "weapon-defense-up": "防御", "charge-damage-up": "奥義ダメージ",
@@ -9,7 +13,7 @@ const labels = {
 
 export function weaponAwakeningSummary(weapon, options) {
   if (!weapon.awakening) return undefined;
-  const type = options?.types.find(type => type.formCode === weapon.awakening.formCode);
+  const type = options?.types.find(type => matchesForm(type, weapon.awakening.formCode));
   return `覚醒${type?.name ?? "未対応"}Lv${weapon.awakening.level ?? "?"}`;
 }
 
@@ -26,7 +30,7 @@ export function createWeaponAwakeningControls(weapon, options, onChange) {
   typeSelect.append(new Option("なし", ""));
   for (const type of options?.types ?? []) typeSelect.append(new Option(type.name, type.formCode));
   const original = weapon.awakening;
-  if (original && !options?.types.some(type => type.formCode === original.formCode)) {
+  if (original && !options?.types.some(type => matchesForm(type, original.formCode))) {
     typeSelect.append(new Option(`未対応（${original.formCode ?? "タイプ不明"}）`, original.formCode ?? "unknown"));
   }
   for (let level = 1; level <= (options?.maximumLevel ?? 4); level++) levelSelect.append(new Option(String(level), String(level)));
@@ -35,10 +39,10 @@ export function createWeaponAwakeningControls(weapon, options, onChange) {
   container.append(typeLabel, levelLabel, note);
   const refresh = () => {
     const selection = weapon.awakening;
-    const type = options?.types.find(type => type.formCode === selection?.formCode);
+    const type = options?.types.find(type => matchesForm(type, selection?.formCode));
     const eligible = options && (weapon.level ?? 0) >= options.minimumWeaponLevel
       && (weapon.uncapLevel === undefined || weapon.uncapLevel >= options.minimumUncapLevel);
-    typeSelect.value = selection ? selection.formCode ?? "unknown" : "";
+    typeSelect.value = selection ? type?.formCode ?? selection.formCode ?? "unknown" : "";
     levelSelect.value = String(selection?.level ?? 1);
     // Unknown imported settings can always be cleared/replaced; no numeric form IDs are guessed.
     typeSelect.disabled = !eligible && !selection;
