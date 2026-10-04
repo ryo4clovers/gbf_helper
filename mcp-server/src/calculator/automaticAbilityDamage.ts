@@ -165,7 +165,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
   });
   const minimum = predictions[0].damage, maximum = predictions[100].damage;
   return {
-    schemaVersion: 1 as const, verificationStatus: "下書き" as const, modelVersion: "automatic-ability-candidate-v3", abilityId, abilityName: profile.name, hitCount,
+    schemaVersion: 1 as const, verificationStatus: "下書き" as const, modelVersion: "automatic-ability-candidate-v4", abilityId, abilityName: profile.name, hitCount,
     element: profile.element, criticalDamageBonusPercent,
     perHit: { minimum, maximum, mean: predictions.reduce((sum, p) => sum + p.damage, 0) / predictions.length },
     total: { minimum: minimum * hitCount, maximum: maximum * hitCount },

@@ -77,15 +77,19 @@ function amountAtCurrentHp(
   const rawBaseAmountPercent = curve.kind === "stamina"
     ? calculateRawStaminaAmountPercent(curve.coefficient, skillLevel, hpPercent)
     : calculateEnmityAmountPercent(effect.baseAmountPercent, hpPercent);
-  const baseAmountPercent = roundPercentage(rawBaseAmountPercent);
+  const baseAmountPercent = rawBaseAmountPercent;
   const boostMultiplier = effect.baseAmountPercent === 0
     ? 1
     : effect.effectiveAmountPercent / effect.baseAmountPercent;
   return {
     ...effect,
     baseAmountPercent,
-    // Observed HP25 data only matches when the aura is applied before display rounding.
-    effectiveAmountPercent: roundPercentage(rawBaseAmountPercent * boostMultiplier),
+    // Keep stamina precision through aura scaling and damage calculation. Six-decimal
+    // rounding crosses a final integer boundary in the 2026-10-05 Ilsa comparison.
+    // Enmity retains its existing rounding until separately verified.
+    effectiveAmountPercent: curve.kind === "stamina"
+      ? rawBaseAmountPercent * boostMultiplier
+      : roundPercentage(rawBaseAmountPercent * boostMultiplier),
   };
 }
 
@@ -109,12 +113,10 @@ export function calculateHpDependentAttack(
     (effect) => effect.kind === "magna-stamina-up",
   );
   const enmityContributions = applicable.filter((effect) => effect.kind === "normal-enmity-up");
-  const totalEffectiveNormalStaminaPercent = roundPercentage(
-    staminaContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
-  );
-  const totalEffectiveMagnaStaminaPercent = roundPercentage(
-    magnaStaminaContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
-  );
+  const totalEffectiveNormalStaminaPercent =
+    staminaContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0);
+  const totalEffectiveMagnaStaminaPercent =
+    magnaStaminaContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0);
   const totalEffectiveNormalEnmityPercent = roundPercentage(Math.min(
     800,
     enmityContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0),
@@ -138,8 +140,7 @@ export function calculateHpDependentAttack(
     totalEffectiveNormalStaminaPercent,
     totalEffectiveMagnaStaminaPercent,
     totalEffectiveNormalEnmityPercent,
-    // Percentages already have six decimal places. Rounding the converted
-    // multiplier again discards two more digits and can change integer damage.
+    // Display rounding belongs in the view, not in the damage multipliers.
     normalStaminaMultiplier: 1 + totalEffectiveNormalStaminaPercent / 100,
     magnaStaminaMultiplier: 1 + totalEffectiveMagnaStaminaPercent / 100,
     normalEnmityMultiplier: 1 + totalEffectiveNormalEnmityPercent / 100,

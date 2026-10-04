@@ -29,8 +29,8 @@ test("retaliation recalculates stamina/enmity using combat max HP; recovery and 
   const before = mcNormal(first), after = mcNormal(turn(config, damaged));
   assert.equal(before.hpDependentAttack.totalEffectiveNormalEnmityPercent, 0);
   assert.equal(after.hpDependentAttack.totalEffectiveNormalEnmityPercent, .5);
-  assert.equal(before.hpDependentAttack.totalEffectiveNormalStaminaPercent, 5.587798);
-  assert.equal(after.hpDependentAttack.totalEffectiveNormalStaminaPercent, 2.567266);
+  assert.equal(before.hpDependentAttack.totalEffectiveNormalStaminaPercent, 2.1 + (100 / 65) ** 2.9);
+  assert.equal(after.hpDependentAttack.totalEffectiveNormalStaminaPercent, 2.1 + (50 / 65) ** 2.9);
   assert.ok(after.bodyDamageDistribution.preparedNominalDamage < before.bodyDamageDistribution.preparedNominalDamage);
   const recovered = applyItem(damaged, { name: "合成回復", scope: "all", healPercent: 50 });
   assert.equal(recovered.party[0].hp, 10000);

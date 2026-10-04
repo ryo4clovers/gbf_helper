@@ -10,6 +10,10 @@ import { calculateArticleBaseDamage } from "../src/calculator/articleBaseDamageC
 import { calculateNormalAttackPower } from "../src/calculator/normalAttackPowerCalculator.ts";
 import type { DeckSnapshot, EffectiveWeaponSkillEffect } from "../src/calculator/types.ts";
 
+// Historical percentage checkpoints were recorded to six decimals; calculation
+// keeps full precision and is checked separately at an integer damage boundary.
+const displaySixDecimals = (value: number) => Math.round(value * 1e6) / 1e6;
+
 test("reproduces published stamina and enmity checkpoints", () => {
   assert.equal(calculateStaminaAmountPercent(80, 15, 100), 5.59);
   assert.equal(calculateStaminaAmountPercent(80, 15, 75), 3.61);
@@ -85,9 +89,9 @@ test("adds same-frame skills and multiplies normal stamina and enmity as separat
   };
 
   const result = calculateHpDependentAttack(deck, 50);
-  assert.equal(result.totalEffectiveNormalStaminaPercent, 11.295971);
+  assert.equal(displaySixDecimals(result.totalEffectiveNormalStaminaPercent), 11.295971);
   assert.equal(result.totalEffectiveNormalEnmityPercent, 30.8);
-  assert.equal(result.normalStaminaMultiplier, 1.11295971);
+  assert.equal(result.normalStaminaMultiplier, 1 + (2.1 + (50 / 65) ** 2.9) * 4.4 / 100);
   assert.equal(result.normalEnmityMultiplier, 1.308);
 });
 
@@ -131,10 +135,10 @@ test("keeps normal and magna stamina in separate multiplicative frames", () => {
     effectiveWeaponSkillEffects: effects,
   }, 100);
 
-  assert.equal(result.totalEffectiveNormalStaminaPercent, 24.586307);
-  assert.equal(result.totalEffectiveMagnaStaminaPercent, 15.003247);
-  assert.equal(result.normalStaminaMultiplier, 1.24586307);
-  assert.equal(result.magnaStaminaMultiplier, 1.15003247);
+  assert.equal(displaySixDecimals(result.totalEffectiveNormalStaminaPercent), 24.586307);
+  assert.equal(displaySixDecimals(result.totalEffectiveMagnaStaminaPercent), 15.003247);
+  assert.equal(result.normalStaminaMultiplier, 1 + (2.1 + (100 / 65) ** 2.9) * (24.586309 / 5.587798) / 100);
+  assert.equal(result.magnaStaminaMultiplier, 1 + (2.1 + (100 / 41.4) ** 2.9) / 100);
 });
 
 test("preserves percent-to-multiplier precision through an integer damage boundary", () => {
@@ -159,6 +163,31 @@ test("preserves percent-to-multiplier precision through an integer damage bounda
   const otherFrames = calculateHpDependentAttack(deck);
   assert.equal(otherFrames.magnaStaminaMultiplier, 1.12345678);
   assert.equal(otherFrames.normalEnmityMultiplier, 1.09876543);
+});
+
+test("stamina curve and aura precision survive aggregation and final damage rounding", () => {
+  for (const kind of ["normal-stamina-up", "magna-stamina-up"] as const) {
+    const effect: EffectiveWeaponSkillEffect = {
+      sourceWeaponSlot: 1, sourceWeaponId: "synthetic", sourceSkillId: "stamina", sourceSkillName: "synthetic stamina",
+      kind, baseAmountPercent: 5, effectiveAmountPercent: 7, skillLevel: 15,
+      hpDependentCurve: { kind: "stamina", coefficient: 65 }, verificationStatus: "下書き", appliedModifiers: [],
+    };
+    const deck: DeckSnapshot = {
+      schemaVersion: 1, protagonist: { attack: 1_000_000_000, elementCode: "1" },
+      weapons: [], summons: [], characters: [], effectiveWeaponSkillEffects: [effect],
+    };
+    const hp = calculateHpDependentAttack(deck, 60);
+    const expectedPercent = (2.1 + 1.2 ** 2.9) * 1.4;
+    const contributions = kind === "normal-stamina-up" ? hp.staminaContributions : hp.magnaStaminaContributions;
+    const total = kind === "normal-stamina-up" ? hp.totalEffectiveNormalStaminaPercent : hp.totalEffectiveMagnaStaminaPercent;
+    assert.equal(contributions[0].effectiveAmountPercent, expectedPercent);
+    assert.equal(total, expectedPercent);
+    const base = calculateArticleBaseDamage({ schemaVersion: 1, targetEnemySlot: 1, deck,
+      battle: { schemaVersion: 1, enemies: [{ slot: 1, enemyId: "synthetic", elementCode: "1", defense: 1 }],
+        enemyPassiveEffectCount: 0, fieldEffectCount: 0 } }, calculateNormalAttackPower(deck), hp);
+    assert.equal(base.damageBeforeRandomAndCap, 1_053_154_925);
+    assert.equal(Math.ceil(1_000_000_000 * (1 + displaySixDecimals(expectedPercent) / 100)), 1_053_154_921);
+  }
 });
 
 function calculateFrogaAtHp(protagonistCurrentHpPercent: number) {
@@ -200,11 +229,11 @@ test("connects Froga skill 1296 to the 340% Agni aura at full HP", () => {
 
   const stamina = response.result.hpDependentAttack;
   assert.equal(stamina.staminaContributions[0]?.sourceSkillId, "1296");
-  assert.equal(stamina.staminaContributions[0]?.baseAmountPercent, 5.587798);
-  assert.equal(stamina.staminaContributions[0]?.effectiveAmountPercent, 24.586309);
+  assert.equal(displaySixDecimals(stamina.staminaContributions[0]!.baseAmountPercent), 5.587798);
+  assert.equal(displaySixDecimals(stamina.staminaContributions[0]!.effectiveAmountPercent), 24.586309);
   assert.equal(
     response.result.baseDamage.stages.some(
-      (stage) => stage.stage === "normal-stamina" && stage.totalPercent === 24.586309,
+      (stage) => stage.stage === "normal-stamina" && stage.totalPercent === stamina.totalEffectiveNormalStaminaPercent,
     ),
     true,
   );
@@ -213,8 +242,8 @@ test("connects Froga skill 1296 to the 340% Agni aura at full HP", () => {
 test("reproduces Froga skill 1296's observed 11.3% display at HP50", () => {
   const stamina = calculateFrogaAtHp(50).result.hpDependentAttack;
   assert.equal(stamina.staminaContributions[0]?.sourceSkillId, "1296");
-  assert.equal(stamina.staminaContributions[0]?.baseAmountPercent, 2.567266);
-  assert.equal(stamina.staminaContributions[0]?.effectiveAmountPercent, 11.295971);
+  assert.equal(displaySixDecimals(stamina.staminaContributions[0]!.baseAmountPercent), 2.567266);
+  assert.equal(displaySixDecimals(stamina.staminaContributions[0]!.effectiveAmountPercent), 11.295971);
   assert.equal(Math.round(stamina.totalEffectiveNormalStaminaPercent * 100) / 100, 11.3);
 });
 
@@ -225,7 +254,7 @@ test("reproduces Froga skill 1296's observed displays at HP25 and HP75", () => {
   ];
   for (const checkpoint of checkpoints) {
     const stamina = calculateFrogaAtHp(checkpoint.hpPercent).result.hpDependentAttack;
-    assert.equal(stamina.staminaContributions[0]?.effectiveAmountPercent, checkpoint.expectedEffectivePercent);
+    assert.equal(displaySixDecimals(stamina.staminaContributions[0]!.effectiveAmountPercent), checkpoint.expectedEffectivePercent);
     assert.equal(
       Math.round(stamina.totalEffectiveNormalStaminaPercent * 100) / 100,
       checkpoint.expectedDisplayPercent,
@@ -240,7 +269,7 @@ test("reproduces Froga skill 1296's observed absence at HP20 and 9.71% at HP30",
   ];
   for (const checkpoint of checkpoints) {
     const stamina = calculateFrogaAtHp(checkpoint.hpPercent).result.hpDependentAttack;
-    assert.equal(stamina.staminaContributions[0]?.effectiveAmountPercent, checkpoint.expectedEffectivePercent);
+    assert.equal(displaySixDecimals(stamina.staminaContributions[0]!.effectiveAmountPercent), checkpoint.expectedEffectivePercent);
     assert.equal(
       Math.round(stamina.totalEffectiveNormalStaminaPercent * 100) / 100,
       checkpoint.expectedDisplayPercent,

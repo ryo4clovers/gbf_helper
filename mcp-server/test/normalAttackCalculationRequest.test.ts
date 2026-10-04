@@ -1135,7 +1135,7 @@ test("applies Colossus Magna's attack sub aura without applying its magna boost"
   const advantage = calculateNormalAttackFromRequest(advantageInput);
 
   assert.equal(normal.result.attackPower.totalCharacterAttackSummonAuraPercent, 10);
-  assert.equal(normal.result.hpDependentAttack.totalEffectiveMagnaStaminaPercent, 15.003247);
+  assert.equal(normal.result.hpDependentAttack.totalEffectiveMagnaStaminaPercent, 2.1 + (100 / 41.4) ** 2.9);
   assert.equal(normal.result.protagonistHp?.hp, 30638);
   assert.equal(normal.result.baseDamage.damageBeforeRandomAndCap, 7824);
   assert.equal(advantage.result.baseDamage.damageBeforeRandomAndCap, 9809);
