@@ -36,7 +36,7 @@ export function resolveEffectiveCharacterHpAuras(
     if (summon.aura === undefined) return [];
     const aura = summon.aura;
     return aura.effects.flatMap((effect): EffectiveCharacterHpAura[] =>
-      effect.kind === "character-hp-up" &&
+      (effect.kind === "character-hp-up" || effect.kind === "character-hp-down") &&
       (effect.elementCode === "0" || effect.elementCode === characterElementCode) &&
       appliesFromPosition(summon, effect.activation)
         ? [{
@@ -57,9 +57,10 @@ export function resolveEffectiveCharacterHpAuras(
 
   const strongestByGroup = new Map<string, EffectiveCharacterHpAura>();
   for (const candidate of candidates) {
-    const key = candidate.sourcePosition === "sub"
+    const groupKey = candidate.sourcePosition === "sub"
       ? `${candidate.stackingGroup}`
       : `${candidate.sourcePosition}\u0000${candidate.sourceSummonSlot}\u0000${candidate.stackingGroup}`;
+    const key = `${candidate.kind}\u0000${groupKey}`;
     const current = strongestByGroup.get(key);
     if (current === undefined || candidate.amountPercent > current.amountPercent) {
       strongestByGroup.set(key, candidate);

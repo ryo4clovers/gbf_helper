@@ -38,6 +38,7 @@ export type WeaponSkillEffectKind =
   | "magna-stamina-up"
   | "normal-enmity-up"
   | "normal-hp-up"
+  | "weapon-hp-down"
   | "magna-hp-up"
   | "critical-rate-up"
   | "double-attack-rate-up"
@@ -162,6 +163,7 @@ export type SummonAuraEffectKind =
   | "normal-skill-boost"
   | "character-attack-up"
   | "character-hp-up"
+  | "character-hp-down"
   | "character-hp-flat"
   | "damage-cap-up"
   | "damage-dealt-up"
@@ -202,7 +204,7 @@ export type SummonAuraEffectDefinition =
       description: string;
     }
   | {
-      kind: "character-hp-up";
+      kind: "character-hp-up" | "character-hp-down";
       elementCode: string;
       amountPercent: number;
       activation: "always" | "main-only" | "sub-only";
@@ -224,7 +226,7 @@ export type SummonAuraEffectDefinition =
     };
 
 export interface EffectiveCharacterHpAura {
-  kind: "character-hp-up";
+  kind: "character-hp-up" | "character-hp-down";
   elementCode: string;
   amountPercent: number;
   stackingGroup: string;

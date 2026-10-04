@@ -1396,7 +1396,7 @@ function applyCharacterStats(response) {
     const label = document.querySelector(`[data-character-battle-hp-slot="${entry.slot}"]`);
     if (!label) continue;
     const hp = entry.result;
-    label.textContent = hp ? `戦闘最大HP（暫定）: ${numberFormat.format(hp.hp)}\n表示HP ${hp.baseHp} / 武器HP ${hp.weaponSkillHpPercent}%${hp.hpOverskillPercent === undefined ? "" : `（400%上限・オーバースキル ${hp.hpOverskillPercent}%）`} / 加護HP ${hp.summonAuraPercent}% / 久遠 ${entry.perpetuityRingPercent}% / 御朱印帳 ${entry.divineStampBookPercent}% / 固定加算 ${hp.summonAuraFlatHp ?? 0}` : "戦闘最大HP: 表示HPを設定してください";
+    label.textContent = hp ? `戦闘最大HP（暫定）: ${numberFormat.format(hp.hp)}\n表示HP ${hp.baseHp} / 武器HP ${hp.weaponSkillHpPercent}%${hp.hpOverskillPercent === undefined ? "" : `（400%上限・オーバースキル ${hp.hpOverskillPercent}%）`}${hp.weaponHpReductionPercent ? ` / 武器HP減少 ${hp.effectiveWeaponHpReductionPercent}%（別乗算・要検証）` : ""} / 加護HP ${hp.summonAuraPercent}%${hp.summonHpReductionPercent ? `（減少 ${hp.summonHpReductionPercent}%を含む・要検証）` : ""} / 久遠 ${entry.perpetuityRingPercent}% / 御朱印帳 ${entry.divineStampBookPercent}% / 固定加算 ${hp.summonAuraFlatHp ?? 0}` : "戦闘最大HP: 表示HPを設定してください";
   }
 }
 
@@ -2795,16 +2795,18 @@ function renderLocalResult(result) {
       notes.push(`武器スキル +${numberFormat.format(hp.weaponSkillHpPercent)}%`);
     }
     if (hp.hpOverskillPercent !== undefined) notes.push(`武器400%上限・HPオーバースキル ${numberFormat.format(hp.hpOverskillPercent)}%`);
+    if (hp.weaponHpReductionPercent) notes.push(`武器HP減少 ${hp.effectiveWeaponHpReductionPercent}%（合計 ${hp.weaponHpReductionPercent}%・別乗算）`);
     if (hp.summonAuraPercent !== 0) {
       notes.push(`召喚石加護 ${numberFormat.format(hp.summonAuraPercent)}%`);
     }
     if ((hp.summonAuraFlatHp ?? 0) > 0) {
       notes.push(`召喚石固定HP +${formatDamage(hp.summonAuraFlatHp)}`);
     }
-    if (hp.weaponSkillHpPercent === 0 && hp.summonAuraPercent === 0 && (hp.summonAuraFlatHp ?? 0) === 0) {
+    if (hp.weaponSkillHpPercent === 0 && hp.summonAuraPercent === 0 && !hp.weaponHpReductionPercent && (hp.summonAuraFlatHp ?? 0) === 0) {
       notes.push("補正なし");
     }
     if (hp.issues.includes("fractional-rounding-unresolved")) notes.push("端数処理は暫定");
+    if (hp.issues.includes("hp-reduction-unverified")) notes.push("HP減少の計算枠・丸めは要検証");
     if (hp.issues.includes("weapon-skill-hp-baseline-unresolved")) notes.push("基礎HPの基準は要検証");
     $("protagonist-hp-note").textContent = notes.join("・");
   }

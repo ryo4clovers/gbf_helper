@@ -2438,12 +2438,16 @@
               "targetElementCode": "5"
             },
             {
-              "kind": "utility",
-              "description": "メイン最大HP30%DOWNは未対応"
+              "kind": "character-hp-down",
+              "elementCode": "6",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "stackingGroup": "death-hp-reduction",
+              "description": "最大HP30%DOWN。守護・HP加護と加算する下書きモデル"
             }
           ],
           "verificationStatus": "下書き",
-          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Death_%28SSR%29およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Death_%28SSR%29およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証） / HP減少はhttps://gbf.wiki/HP・https://gbf.wiki/Death_(SSR)（2026-10-05参照、要検証）"
         },
         {
           "uncapLevel": 4,
@@ -2466,12 +2470,16 @@
               "targetElementCode": "5"
             },
             {
-              "kind": "utility",
-              "description": "メイン最大HP30%DOWNは未対応"
+              "kind": "character-hp-down",
+              "elementCode": "6",
+              "amountPercent": 30,
+              "activation": "main-only",
+              "stackingGroup": "death-hp-reduction",
+              "description": "最大HP30%DOWN。守護・HP加護と加算する下書きモデル"
             }
           ],
           "verificationStatus": "下書き",
-          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Death_%28SSR%29およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Death_%28SSR%29およびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証） / HP減少はhttps://gbf.wiki/HP・https://gbf.wiki/Death_(SSR)（2026-10-05参照、要検証）"
         },
         {
           "uncapLevel": 5,
@@ -3471,12 +3479,20 @@
         },
         {
           "kind": "utility",
-          "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
+          "description": "メインHP20000固定・被ダメ上限5000は未対応"
+        },
+        {
+          "kind": "character-hp-down",
+          "elementCode": "0",
+          "amountPercent": 30,
+          "activation": "sub-only",
+          "stackingGroup": "belial-hp-reduction",
+          "description": "最大HP30%DOWN。守護・HP加護と加算する下書きモデル"
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証） / HP減少はhttps://gbf.wiki/HP・https://gbf.wiki/Belial（2026-10-05参照、要検証）",
       "confirmedAt": "2026-09-09",
       "levelStats": {
         "maximumLevel": 150,
@@ -3531,11 +3547,19 @@
             },
             {
               "kind": "utility",
-              "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
+              "description": "メインHP20000固定・被ダメ上限5000は未対応"
+            },
+            {
+              "kind": "character-hp-down",
+              "elementCode": "0",
+              "amountPercent": 30,
+              "activation": "sub-only",
+              "stackingGroup": "belial-hp-reduction",
+              "description": "最大HP30%DOWN。守護・HP加護と加算する下書きモデル"
             }
           ],
           "verificationStatus": "下書き",
-          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証） / HP減少はhttps://gbf.wiki/HP・https://gbf.wiki/Belial（2026-10-05参照、要検証）"
         },
         {
           "uncapLevel": 1,
@@ -3559,11 +3583,19 @@
             },
             {
               "kind": "utility",
-              "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
+              "description": "メインHP20000固定・被ダメ上限5000は未対応"
+            },
+            {
+              "kind": "character-hp-down",
+              "elementCode": "0",
+              "amountPercent": 30,
+              "activation": "sub-only",
+              "stackingGroup": "belial-hp-reduction",
+              "description": "最大HP30%DOWN。守護・HP加護と加算する下書きモデル"
             }
           ],
           "verificationStatus": "下書き",
-          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証） / HP減少はhttps://gbf.wiki/HP・https://gbf.wiki/Belial（2026-10-05参照、要検証）"
         },
         {
           "uncapLevel": 2,
@@ -3587,11 +3619,19 @@
             },
             {
               "kind": "utility",
-              "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
+              "description": "メインHP20000固定・被ダメ上限5000は未対応"
+            },
+            {
+              "kind": "character-hp-down",
+              "elementCode": "0",
+              "amountPercent": 30,
+              "activation": "sub-only",
+              "stackingGroup": "belial-hp-reduction",
+              "description": "最大HP30%DOWN。守護・HP加護と加算する下書きモデル"
             }
           ],
           "verificationStatus": "下書き",
-          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証） / HP減少はhttps://gbf.wiki/HP・https://gbf.wiki/Belial（2026-10-05参照、要検証）"
         },
         {
           "uncapLevel": 3,
@@ -3615,11 +3655,19 @@
             },
             {
               "kind": "utility",
-              "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
+              "description": "メインHP20000固定・被ダメ上限5000は未対応"
+            },
+            {
+              "kind": "character-hp-down",
+              "elementCode": "0",
+              "amountPercent": 30,
+              "activation": "sub-only",
+              "stackingGroup": "belial-hp-reduction",
+              "description": "最大HP30%DOWN。守護・HP加護と加算する下書きモデル"
             }
           ],
           "verificationStatus": "下書き",
-          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証） / HP減少はhttps://gbf.wiki/HP・https://gbf.wiki/Belial（2026-10-05参照、要検証）"
         },
         {
           "uncapLevel": 4,
@@ -3643,11 +3691,19 @@
             },
             {
               "kind": "utility",
-              "description": "メインHP20000固定・被ダメ上限5000、サブHP30%DOWNは未対応"
+              "description": "メインHP20000固定・被ダメ上限5000は未対応"
+            },
+            {
+              "kind": "character-hp-down",
+              "elementCode": "0",
+              "amountPercent": 30,
+              "activation": "sub-only",
+              "stackingGroup": "belial-hp-reduction",
+              "description": "最大HP30%DOWN。守護・HP加護と加算する下書きモデル"
             }
           ],
           "verificationStatus": "下書き",
-          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証）"
+          "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認 / 数値化・計算順序はhttps://gbf.wiki/Belialおよびhttps://gbf.wiki/Supplemental_Damage（2026-10-03、要検証） / HP減少はhttps://gbf.wiki/HP・https://gbf.wiki/Belial（2026-10-05参照、要検証）"
         }
       ]
     },

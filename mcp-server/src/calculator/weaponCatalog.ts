@@ -20,6 +20,7 @@ const effectSchema = z
       "magna-stamina-up",
       "normal-enmity-up",
       "normal-hp-up",
+      "weapon-hp-down",
       "magna-hp-up",
       "critical-rate-up",
       "double-attack-rate-up",

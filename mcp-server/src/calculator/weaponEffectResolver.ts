@@ -78,7 +78,7 @@ function gridScaleMultiplier(source: EffectSource, weapons: DeckWeapon[]): numbe
 
 function matchesBoost(target: EffectSource, boost: EffectSource): boolean {
   if (boost.effect.kind !== "normal-skill-boost") return false;
-  if (target.effect.kind === "normal-skill-boost") return false;
+  if (target.effect.kind === "normal-skill-boost" || target.effect.kind === "weapon-hp-down") return false;
   if (target.effect.boostGroup !== boost.effect.boostGroup) return false;
   if (
     boost.effect.elementCode !== undefined &&
@@ -93,7 +93,7 @@ function matchesBoost(target: EffectSource, boost: EffectSource): boolean {
 
 function matchesSummonBoost(target: EffectSource, boost: SummonBoostSource): boolean {
   if (
-    target.effect.kind === "normal-skill-boost" ||
+    target.effect.kind === "normal-skill-boost" || target.effect.kind === "weapon-hp-down" ||
     target.effect.boostGroup !== (boost.effect.boostGroup ?? "normal")
   ) return false;
   if (
@@ -232,7 +232,7 @@ export function resolveEffectiveWeaponSkillEffects(
       summonBoosts.filter((boost) => matchesSummonBoost(source, boost)),
     );
     const matchingCharacterBoosts = characterSkillBoosts.filter((boost) =>
-      source.effect.kind !== "normal-skill-boost" &&
+      source.effect.kind !== "normal-skill-boost" && source.effect.kind !== "weapon-hp-down" &&
       source.effect.boostGroup === boost.boostGroup &&
       (source.effect.elementCode === undefined || source.effect.elementCode === boost.elementCode) &&
       boost.prefixes.some((prefix) => source.skill.name?.startsWith(prefix)),

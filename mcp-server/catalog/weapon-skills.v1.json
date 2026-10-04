@@ -2181,10 +2181,16 @@
         "tableId": "normal-large",
         "elementCode": "1"
       },
-      "unsupportedEffects": [
-        "火属性キャラの最大HP-10%"
+      "effects": [
+        {
+          "kind": "weapon-hp-down",
+          "elementCode": "1",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/HP / https://gbf.wiki/Weapon_Skills#Tyranny（2026-10-05参照、枠・合算上限・丸めは要検証）",
+          "note": "SLv・加護によらず10%。武器減少を合算し70%上限、HP増加とは別乗算。"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -2197,10 +2203,16 @@
         "tableId": "normal-large",
         "elementCode": "2"
       },
-      "unsupportedEffects": [
-        "水属性キャラの最大HP-10%"
+      "effects": [
+        {
+          "kind": "weapon-hp-down",
+          "elementCode": "2",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/HP / https://gbf.wiki/Weapon_Skills#Tyranny（2026-10-05参照、枠・合算上限・丸めは要検証）",
+          "note": "SLv・加護によらず10%。武器減少を合算し70%上限、HP増加とは別乗算。"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -2213,10 +2225,16 @@
         "tableId": "normal-large",
         "elementCode": "3"
       },
-      "unsupportedEffects": [
-        "土属性キャラの最大HP-10%"
+      "effects": [
+        {
+          "kind": "weapon-hp-down",
+          "elementCode": "3",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/HP / https://gbf.wiki/Weapon_Skills#Tyranny（2026-10-05参照、枠・合算上限・丸めは要検証）",
+          "note": "SLv・加護によらず10%。武器減少を合算し70%上限、HP増加とは別乗算。"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -2229,10 +2247,16 @@
         "tableId": "normal-large",
         "elementCode": "4"
       },
-      "unsupportedEffects": [
-        "風属性キャラの最大HP-10%"
+      "effects": [
+        {
+          "kind": "weapon-hp-down",
+          "elementCode": "4",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/HP / https://gbf.wiki/Weapon_Skills#Tyranny（2026-10-05参照、枠・合算上限・丸めは要検証）",
+          "note": "SLv・加護によらず10%。武器減少を合算し70%上限、HP増加とは別乗算。"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -2245,10 +2269,16 @@
         "tableId": "normal-large",
         "elementCode": "5"
       },
-      "unsupportedEffects": [
-        "光属性キャラの最大HP-10%"
+      "effects": [
+        {
+          "kind": "weapon-hp-down",
+          "elementCode": "5",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/HP / https://gbf.wiki/Weapon_Skills#Tyranny（2026-10-05参照、枠・合算上限・丸めは要検証）",
+          "note": "SLv・加護によらず10%。武器減少を合算し70%上限、HP増加とは別乗算。"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -2261,10 +2291,16 @@
         "tableId": "normal-large",
         "elementCode": "6"
       },
-      "unsupportedEffects": [
-        "闇属性キャラの最大HP-10%"
+      "effects": [
+        {
+          "kind": "weapon-hp-down",
+          "elementCode": "6",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/HP / https://gbf.wiki/Weapon_Skills#Tyranny（2026-10-05参照、枠・合算上限・丸めは要検証）",
+          "note": "SLv・加護によらず10%。武器減少を合算し70%上限、HP増加とは別乗算。"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -3322,10 +3358,16 @@
         "tableId": "normal-tyrant-ii",
         "elementCode": "6"
       },
-      "unsupportedEffects": [
-        "闇属性キャラの最大HP-10%"
+      "effects": [
+        {
+          "kind": "weapon-hp-down",
+          "elementCode": "6",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/HP / https://gbf.wiki/Weapon_Skills#Tyranny（2026-10-05参照、枠・合算上限・丸めは要検証）",
+          "note": "SLv・加護によらず10%。武器減少を合算し70%上限、HP増加とは別乗算。"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
@@ -3356,10 +3398,16 @@
         "tableId": "normal-tyrant-ii",
         "elementCode": "5"
       },
-      "unsupportedEffects": [
-        "光属性キャラの最大HP-10%"
+      "effects": [
+        {
+          "kind": "weapon-hp-down",
+          "elementCode": "5",
+          "amountPercent": 10,
+          "verificationStatus": "下書き",
+          "source": "ゲーム内効果文 / https://gbf.wiki/HP / https://gbf.wiki/Weapon_Skills#Tyranny（2026-10-05参照、枠・合算上限・丸めは要検証）",
+          "note": "SLv・加護によらず10%。武器減少を合算し70%上限、HP増加とは別乗算。"
+        }
       ],
-      "effects": [],
       "verificationStatus": "下書き",
       "source": "ユーザー提供のゲーム内武器詳細レスポンス（2026-09-13）。skill_id・名称・効果文を実機確認、効果量・計算枠は未検証",
       "confirmedAt": "2026-09-13"
