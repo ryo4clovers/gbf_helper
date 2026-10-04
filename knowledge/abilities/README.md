@@ -11,6 +11,7 @@
 | [status-effects.json](./status-effects.json) | ステータス効果ID(内部コード)カタログ。302種、`status`→名称/説明/派生バリアント/traits/使用アビリティ | 下書き(説明文は実機テキストのまま) |
 | [ability-effects.json](./ability-effects.json) | 各アビリティの倍率・効果量・効果時間(gbf.wiki等の外部ソースから)。`action_id`で free-slot-candidates.json と結合 | 下書き(ジョブアビリティ 293/309件。リミット239・極致・ベース10は全件、EXは60中44件) |
 | [damage-profiles.md](./damage-profiles.md) | ダメージアビリティの固有倍率・hit数・4段階減衰ライン・通過率・減衰値の基礎一覧 | 下書き（ドライブバースト・アーマーブレイク・菓製猛虎・サリエル1アビを収録。菓製猛虎とサリエル1アビの減衰設定は実機ID照合済み、未確認の補正・丸め等は要検証） |
+| [_sources/kikumaro-attenuation-2026-10-04.md](./_sources/kikumaro-attenuation-2026-10-04.md) / [JSON](./_sources/kikumaro-attenuation-2026-10-04.json) | きくまろGamingの6属性302表・514件の減衰数値、条件注記、出典と算術照合結果 | 下書き・二次情報（掲載更新2022-05-21。差分32件、欠損等7件を保持。計算機へ自動適用しない） |
 | [_sources/gbfwiki-class-skills-2026-09-07.md](./_sources/gbfwiki-class-skills-2026-09-07.md) | gbf.wiki『Class Skills』の全文抜粋(ジョブアビリティ400件超の効果量・倍率・CT)。ability-effects.json の一次資料 | 参考資料 |
 
 ## free-slot-candidates.json の構造
