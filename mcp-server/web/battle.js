@@ -9,7 +9,7 @@ import {
   resolveDamageMultiplier,
   resolveEnemyAttackDamage,
   selectPartyMember,
-} from "/battle-state.js?v=7";
+} from "/battle-state.js?v=8";
 import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=2";
 import { scaleDamageCapThreshold, finalizeNormalAttackHit } from "/normal-attack-rounding.js";
 
@@ -184,6 +184,9 @@ function enemyAttackFromResult(result, mode) {
 
 const setup = loadSetup();
 const setupStatIssues = battleSetupStatIssues(setup.request.deckConfig);
+if (setup.request.deckConfig.characters.some(c => c.position === "front" && !Number.isSafeInteger(setup.characterMaxHp?.[c.slot]))) {
+  setupStatIssues.push("戦闘最大HPが未計算です。編成画面から「戦闘シミュレーション」を開き直してください。");
+}
 // Single-hit actor selection is not the battle's protagonist.
 delete setup.request.attacker;
 delete setup.request.battleEffects;

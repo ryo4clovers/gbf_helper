@@ -284,7 +284,9 @@ export function resolveCalculatorDeckConfig(
     summon.position === "main" || summon.position === "grid" ? [index] : []
   );
   const characterStats = config.characters.map(character => calculateCharacterDisplayedStats(character,
-    resolvedWeaponStats, contributingSummonIndexes.map(index => resolvedSummonStats[index])));
+    resolvedWeaponStats, contributingSummonIndexes.map(index => resolvedSummonStats[index]),
+    PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS.reduce((sum, definition) =>
+      sum + PROTAGONIST_LIMIT_BONUS_VALUES.hp[config.protagonist[definition.fieldKey] ?? 0], 0)));
   const canDeriveDisplayedStats =
     config.protagonist.rank !== undefined &&
     selectedJob !== undefined &&
@@ -657,10 +659,12 @@ export function resolveCalculatorDeckConfig(
   deck.effectiveCharacterHpAuras = resolveEffectiveCharacterHpAuras(
     deck.summons,
     deck.protagonist.elementCode,
+    supportSummon,
   );
   deck.effectiveCharacterHpFlatAuras = resolveEffectiveCharacterHpFlatAuras(
     deck.summons,
     deck.protagonist.elementCode,
+    supportSummon,
   );
   issues.push(
     ...effectResolution.issues.map((issue) => ({

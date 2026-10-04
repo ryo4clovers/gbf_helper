@@ -22,7 +22,7 @@ export function characterAwakeningBonuses(level = 1, formCode = "1") {
 
 export function calculateCharacterDisplayedStats(character: CalculatorDeckCharacterConfig,
   weapons: Array<{ stats?: { attack: number; hp: number }; weaponKindCode?: string }>,
-  summons: Array<{ attack: number; hp: number } | undefined>) {
+  summons: Array<{ attack: number; hp: number } | undefined>, partyHpLimitBonus = 0) {
   const mode = character.displayedStatMode ?? "manual";
   const base = CHARACTER_STAT_PROFILES[resolveCharacterModelId(character.characterId)];
   const issues: string[] = [];
@@ -42,7 +42,8 @@ export function calculateCharacterDisplayedStats(character: CalculatorDeckCharac
     }, 0);
     const limitBonus = character.limitBonuses?.[key === "attack" ? "attackFlatBonus" : "hpFlatBonus"] ?? 0;
     const plus = (character.plusMark ?? 0) * (key === "attack" ? 3 : 1);
-    return { base: base[key], plus, awakening: awakening[key], limitBonus, ring, artifact, equipment, proficiency };
+    return { base: base[key], plus, awakening: awakening[key], limitBonus, ring, artifact, equipment, proficiency,
+      partyLimitBonus: key === "hp" ? partyHpLimitBonus : 0 };
   };
   const attack = total("attack", "攻撃力"), hp = total("hp", "HP");
   return { slot: character.slot, mode, attack: Object.values(attack).reduce((a, b) => a + b, 0),

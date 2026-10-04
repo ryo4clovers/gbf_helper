@@ -3,13 +3,13 @@ import { calculateCrewSupportEffects } from "./crew-support-config.js";
 // v2 separates shared ability modifiers from protagonist LB/completion totals.
 export const BATTLE_SETUP_STORAGE_KEY = "gbf-helper-battle-setup-v2";
 
-// Character displayed stats are not derived yet. Never simulate missing HP as 1.
+// Display stats must have been resolved before entering the battle.
 export function battleSetupStatIssues(deck) {
   return (deck.characters ?? []).filter((character) => character.position === "front").flatMap((character) => {
     const missing = [["hpOverride", "表示HP"], ["attackOverride", "表示ATK"]]
       .filter(([key]) => !Number.isSafeInteger(character[key]) || character[key] <= 0)
       .map(([, label]) => label);
-    return missing.length ? [`前衛${character.slot}（${character.nameHint ?? character.characterId}）の${missing.join("・")}が未入力です。編成画面のキャラ欄に、使用する編成の表示値を入力してください（自動計算は未対応）。`] : [];
+    return missing.length ? [`前衛${character.slot}（${character.nameHint ?? character.characterId}）の${missing.join("・")}が未入力です。編成画面のキャラ欄で自動算出または表示値の入力を行ってください。`] : [];
   });
 }
 export const SIMULATION_MODES = Object.freeze({
@@ -72,8 +72,8 @@ export function resolveEnemyAttackDamage(mode, minimumDamage, maximumDamage, ran
   return minimum + Math.floor(randomSource() * (maximum - minimum + 1));
 }
 
-function combatantFromDeck(entry, fallbackName, fallbackElement, initialCharge = 0) {
-  const maxHp = Math.max(1, Math.floor(entry.hpOverride ?? 1));
+function combatantFromDeck(entry, fallbackName, fallbackElement, initialCharge = 0, calculatedMaxHp) {
+  const maxHp = Math.max(1, Math.floor(Number.isFinite(calculatedMaxHp) && calculatedMaxHp > 0 ? calculatedMaxHp : entry.hpOverride ?? 1));
   return {
     id: entry.characterId ?? "protagonist",
     name: entry.nameHint ?? fallbackName,
@@ -107,6 +107,7 @@ export function createInitialBattleState(setup) {
       `キャラクター${character.slot}`,
       deck.protagonist.elementCode,
       crewSupportEffects.battleStartChargeGaugePercent,
+      setup.characterMaxHp?.[character.slot],
     ));
   const enemyMaxHp = Math.max(1, Math.floor(setup.enemyMaxHp ?? 1_000_000));
   const summons = [

@@ -1,4 +1,4 @@
-import { BATTLE_SETUP_STORAGE_KEY, battleSetupStatIssues } from "/battle-state.js?v=7";
+import { BATTLE_SETUP_STORAGE_KEY, battleSetupStatIssues } from "/battle-state.js?v=8";
 import {
   CALCULATOR_ENVIRONMENT_STORAGE_KEY,
   CALCULATOR_FORMATION_FORMAT,
@@ -1371,6 +1371,8 @@ function createCharacterStatSettings(character) {
     entry.awakening = { level: entry.awakening?.level ?? 1, formCode: select.value }; writeDeckConfig(latest); void calculate(); });
   label.append(select); fieldsGrid.append(label); details.append(fieldsGrid);
   const breakdown = document.createElement("p"); breakdown.className = "supporting-text"; breakdown.dataset.characterStatsSlot = String(character.slot); details.append(breakdown);
+  const battleHp = document.createElement("p"); battleHp.className = "supporting-text"; battleHp.dataset.characterBattleHpSlot = String(character.slot);
+  battleHp.textContent = "戦闘最大HPを計算中…"; details.append(battleHp);
   return details;
 }
 
@@ -1384,12 +1386,18 @@ function applyCharacterStats(response) {
     }
     const breakdown = document.querySelector(`[data-character-stats-slot="${stats.slot}"]`);
     if (breakdown) {
-      const names = { base: "キャラ基礎", plus: "+", awakening: "覚醒", limitBonus: "LB", ring: "指輪", artifact: "アーティファクト", equipment: "装備", proficiency: "得意武器" };
+      const names = { base: "キャラ基礎", plus: "+", awakening: "覚醒", limitBonus: "LB", ring: "指輪", artifact: "アーティファクト", equipment: "装備", proficiency: "得意武器", partyLimitBonus: "主人公の全体HP LB" };
       breakdown.textContent = stats.breakdown ? ["attack", "hp"].map(key => `${key === "attack" ? "ATK" : "HP"}: ` + Object.entries(stats.breakdown[key]).map(([name, value]) => `${names[name]} ${value}`).join(" / ")).join("\n") : stats.issues.join("\n");
     }
   }
   writeDeckConfig(config);
   updateCharacterStatDisplays(config);
+  for (const entry of response.battleHp?.characters ?? []) {
+    const label = document.querySelector(`[data-character-battle-hp-slot="${entry.slot}"]`);
+    if (!label) continue;
+    const hp = entry.result;
+    label.textContent = hp ? `戦闘最大HP（暫定）: ${numberFormat.format(hp.hp)}\n表示HP ${hp.baseHp} / 武器HP ${hp.weaponSkillHpPercent}%${hp.hpOverskillPercent === undefined ? "" : `（400%上限・オーバースキル ${hp.hpOverskillPercent}%）`} / 加護HP ${hp.summonAuraPercent}% / 久遠 ${entry.perpetuityRingPercent}% / 御朱印帳 ${entry.divineStampBookPercent}% / 固定加算 ${hp.summonAuraFlatHp ?? 0}` : "戦闘最大HP: 表示HPを設定してください";
+  }
 }
 
 function updateCharacterStatDisplays(config) {
@@ -2786,8 +2794,9 @@ function renderLocalResult(result) {
     if (hp.weaponSkillHpPercent > 0) {
       notes.push(`武器スキル +${numberFormat.format(hp.weaponSkillHpPercent)}%`);
     }
-    if (hp.summonAuraPercent > 0) {
-      notes.push(`召喚石加護 +${numberFormat.format(hp.summonAuraPercent)}%`);
+    if (hp.hpOverskillPercent !== undefined) notes.push(`武器400%上限・HPオーバースキル ${numberFormat.format(hp.hpOverskillPercent)}%`);
+    if (hp.summonAuraPercent !== 0) {
+      notes.push(`召喚石加護 ${numberFormat.format(hp.summonAuraPercent)}%`);
     }
     if ((hp.summonAuraFlatHp ?? 0) > 0) {
       notes.push(`召喚石固定HP +${formatDamage(hp.summonAuraFlatHp)}`);
@@ -3204,7 +3213,9 @@ $("open-battle").addEventListener("click", async () => {
     sessionStorage.setItem(
       BATTLE_SETUP_STORAGE_KEY,
       JSON.stringify({ schemaVersion: 1, request: { ...request, attacker: undefined },
-        protagonistMaxHp: response.result.protagonistHp?.hp, enemyMaxHp: request.enemy.maxHp ?? 1_000_000 }),
+        protagonistMaxHp: response.battleHp.protagonist?.hp,
+        characterMaxHp: Object.fromEntries(response.battleHp.characters.map(entry => [entry.slot, entry.result?.hp])),
+        enemyMaxHp: request.enemy.maxHp ?? 1_000_000 }),
     );
     window.location.href = "/battle.html";
   } catch (error) {

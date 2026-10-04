@@ -229,7 +229,7 @@ export interface EffectiveCharacterHpAura {
   amountPercent: number;
   stackingGroup: string;
   sourceSummonSlot: number;
-  sourcePosition: "main" | "sub";
+  sourcePosition: "main" | "sub" | "support";
   sourceSummonId: string;
   sourceSummonName?: string;
   sourceAuraName: string;
@@ -241,7 +241,7 @@ export interface EffectiveCharacterHpFlatAura {
   elementCode: string;
   amount: number;
   sourceSummonSlot: number;
-  sourcePosition: "main" | "sub";
+  sourcePosition: "main" | "sub" | "support";
   sourceSummonId: string;
   sourceSummonName?: string;
   sourceAuraName: string;

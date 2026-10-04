@@ -6,6 +6,23 @@ import {
 } from "../src/calculator/summonAuraEffectResolver.ts";
 import type { DeckSummon } from "../src/calculator/types.ts";
 
+test("support HP uses only always effects; main and support stack, sub duplicates do not", () => {
+  const main = hpSummon(1, "all", "全属性HP", 20);
+  main.position = "main";
+  const effect = main.aura!.effects[0];
+  if (effect.kind !== "character-hp-up") throw new Error("fixture");
+  effect.elementCode = "0"; effect.activation = "always";
+  const support = { masterId: "support", name: "support", elementCode: "1", aura: structuredClone(main.aura!) };
+  support.aura.effects.push({ ...effect, activation: "main-only", amountPercent: 100 },
+    { ...effect, activation: "sub-only", amountPercent: 100 },
+    { kind: "character-hp-flat", elementCode: "0", amount: 300, activation: "always", description: "固定" },
+    { kind: "character-hp-flat", elementCode: "0", amount: 9999, activation: "main-only", description: "メイン限定" });
+  const auras = resolveEffectiveCharacterHpAuras([main, hpSummon(2, "sub", "sub", 30)], "1", support);
+  assert.deepEqual(auras.map(a => [a.sourcePosition, a.amountPercent]), [["main", 20], ["sub", 30], ["support", 20]]);
+  assert.deepEqual(resolveEffectiveCharacterHpAuras([main], "6").map(a => a.amountPercent), [20]);
+  assert.deepEqual(resolveEffectiveCharacterHpFlatAuras([], "6", support).map(a => a.amount), [300]);
+});
+
 function hpSummon(
   slot: number,
   masterId: string,

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { calculateBattleHp } from "./battleHpCalculator.js";
 import { resolveCalculatorDeckConfig } from "./calculatorDeckResolver.js";
 import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
 import { resolveAbilityBonuses } from "./abilityBonusResolver.js";
@@ -101,6 +102,7 @@ export type NormalAttackCalculationRequest = z.input<typeof normalAttackCalculat
 
 export interface NormalAttackCalculationResponse {
   schemaVersion: 1;
+  battleHp: ReturnType<typeof calculateBattleHp>;
   characterStats: ReturnType<typeof resolveCalculatorDeckConfig>["characterStats"];
   deckResolutionIssues: ReturnType<typeof resolveCalculatorDeckConfig>["issues"];
   result: NormalAttackDamageResult;
@@ -275,6 +277,7 @@ export function calculateNormalAttackFromRequest(input: unknown,
     schemaVersion: 1,
     deckResolutionIssues: resolution.issues,
     characterStats: resolution.characterStats,
+    battleHp: calculateBattleHp(resolution.deck, supportSummon, request.modifiers.divineStampBookEnabled),
     result: calculateNormalAttackDamage(calculationInput, {
       ...diagnostics,
       baseDamageModel: request.calculationModel,

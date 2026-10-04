@@ -63,6 +63,18 @@ test("battle starts at turn 1 with the front party and support summon", () => {
   assert.deepEqual(state.summons.map((summon) => summon.id), ["deck:main:1", "support"]);
 });
 
+test("character combat HP is mapped by slot and drives potion healing without changing display HP", () => {
+  const input = setup();
+  input.request.deckConfig.characters.unshift({ slot: 3, position: "front", characterId: "c", hpOverride: 1000 });
+  input.characterMaxHp = { 1: 9000, 3: 2500, 4: 5000 };
+  const before = structuredClone(input), state = createInitialBattleState(input);
+  assert.deepEqual(state.party.map(c => [c.slot, c.maxHp]), [[0, 4877], [1, 9000], [3, 2500]]);
+  state.selectedPartyId = "a"; state.party[1].hp = 1000;
+  const healed = applyItem(state, { name: "回復", scope: "single", healPercent: 50 });
+  assert.equal(healed.party[1].hp, 5500);
+  assert.deepEqual(input, before);
+});
+
 test("normal attack advances a turn and records body and pursuit packets", () => {
   const initial = createInitialBattleState(setup());
   const state = applyAttack(initial, [
