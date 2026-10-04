@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { calculateWeaponOverskills } from "./weaponOverskills.js";
 import { resolveWeaponChargeAttack, weaponChargeStateSchema } from "./weaponChargeAttack.js";
 import { resolveCalculatorDeckConfig } from "./calculatorDeckResolver.js";
 import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttackSupport.js";
@@ -70,6 +71,7 @@ type GenerationOptions = {
   protagonistCharge?: { enabled: boolean; gauge: number };
   calculationContext?: Pick<NormalAttackCalculationRequest, "enemy" | "supportSummon">;
   resolveAttackCount?: (position: number, patch: NormalAttackPatch, guaranteed: number) => number;
+  resolveAddedHit?: (ratePercent: number) => boolean;
 };
 export type GeneratedBattleEvent = {
   sequence: number;
@@ -78,6 +80,7 @@ export type GeneratedBattleEvent = {
   criticalBuff?: { ratePercent: number; damagePercent: number };
 } & ({
   kind: "normal";
+  addedHit?: boolean;
   attackCount: number;
   splitCount: number;
   bodyHitCount: number;
@@ -284,9 +287,14 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
         const count = options.resolveAttackCount?.(actor.position, calculationPatch, guaranteed) ?? Math.max(guaranteed, attackCount(actor.key, turn));
         if (!Number.isInteger(count) || count < guaranteed || count > 3) throw new Error("連続攻撃回数が保証値と一致しません");
         if (count === 3) tripleAttackActions++;
+        const actorElement = actor.position === 0 ? deck.protagonist.elementCode : (front.find(c => c.slot === actor.position)?.elementCode ?? "6"); // All supported character profiles are dark.
+        const addedHitRate = calculateWeaponOverskills({ ...deck, protagonist: { ...deck.protagonist, elementCode: actorElement } }).addedHitRatePercent;
+        const addedHit = count > 1 && addedHitRate > 0 && (options.resolveAddedHit?.(addedHitRate)
+          ?? (request.multiattack.mode === "minimum" ? addedHitRate === 100 : request.multiattack.mode === "maximum" ? true : random() < addedHitRate / 100));
         events.push({ sequence: ++sequence, kind: "normal", actorPosition: actor.position,
-          name: NAMES[actor.key], attackCount: count, splitCount: split, bodyHitCount: count * split,
-          pursuitHitCount: count * split * (pursuitFrames.length + ((calculationPatch.battleEffects?.abilityNormalPursuitPercent ?? 0) > 0 ? 1 : 0)), calculationPatch, criticalBuff: criticalBuff(actor.position) });
+          ...(addedHit ? { addedHit: true } : {}),
+          name: NAMES[actor.key], attackCount: count, splitCount: split, bodyHitCount: count * split + (addedHit ? 1 : 0),
+          pursuitHitCount: (count * split + (addedHit ? 1 : 0)) * (pursuitFrames.length + ((calculationPatch.battleEffects?.abilityNormalPursuitPercent ?? 0) > 0 ? 1 : 0)), calculationPatch, criticalBuff: criticalBuff(actor.position) });
         if (actor.key === "ilsa" && options.ilsaCharge) {
           // TA gains 37%; apply the passive -35% once per attack action, never per split hit.
           ilsaGauge = Math.min(100, ilsaGauge + (ereshkigal ? 0 : Math.floor(37 * .65)));
@@ -297,7 +305,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
             protagonistGauge = Math.min(100, protagonistGauge + (ereshkigal ? 0 : [0, 10, 22, 37][count]));
             effect("通常攻撃：主人公奥義ゲージ", "charge-ready", protagonistGauge);
           }
-          ownHits += count * split * (1 + pursuitFrames.length + ((calculationPatch.battleEffects?.abilityNormalPursuitPercent ?? 0) > 0 ? 1 : 0));
+          ownHits += (count * split + (addedHit ? 1 : 0)) * (1 + pursuitFrames.length + ((calculationPatch.battleEffects?.abilityNormalPursuitPercent ?? 0) > 0 ? 1 : 0));
           // The reaction uses the level at the start of this action, including when it crosses 40 hits.
           if (lancer && level > 0) ability(0, "mythical-arms", level, calculationPatch);
           if (otherSelfReady) {

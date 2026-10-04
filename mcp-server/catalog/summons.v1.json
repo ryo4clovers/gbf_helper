@@ -598,14 +598,25 @@
       "auraDescription": "スキル「黒霧方陣」の効果が170%UP / サブ加護: 闇属性キャラの攻防10%UP",
       "auraEffects": [
         {
+          "kind": "normal-skill-boost",
+          "elementCode": "6",
+          "boostGroup": "magna",
+          "amountPercent": 170,
+          "targetSkillNamePrefixes": [
+            "黒霧方陣"
+          ],
+          "activation": "always",
+          "description": "Lv250のメイン・サポート加護：黒霧方陣170%（ユーザー提供実機で確認）"
+        },
+        {
           "kind": "utility",
-          "description": "効果文は確認済み。数値計算への構造化は未対応: スキル「黒霧方陣」の効果が170%UP / サブ加護: 闇属性キャラの攻防10%UP"
+          "description": "サブ加護の攻防10%は未接続"
         }
       ],
       "verificationStatus": "下書き",
       "supportSelectable": true,
-      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認",
-      "confirmedAt": "2026-09-09",
+      "source": "ユーザー提供のゲーム内所持召喚石詳細レスポンスでマスター情報と現在の効果文を確認。2026-10-05提供のLv250編成・戦闘開始時の加護文170%を構造化。超越途中のLv差は未対応",
+      "confirmedAt": "2026-10-05",
       "levelStats": {
         "maximumLevel": 250,
         "points": [
@@ -647,7 +658,8 @@
         "plusMark": 0,
         "attack": 2675,
         "hp": 1062
-      }
+      },
+      "auraMinimumLevel": 250
     },
     {
       "summonId": "2040047000",

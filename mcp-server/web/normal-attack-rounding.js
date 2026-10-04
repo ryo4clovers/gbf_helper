@@ -9,11 +9,12 @@ export function finalizeNormalAttackHit(attenuatedDamage, percentage, stages) {
     * (1 + stages.postAttenuationPercent / 100);
   const takenPercent = stages.enemyDamageTakenAmplificationPercent ?? 0;
   if (stages.beforePursuitRounding === "ceil") {
-    const parent = Math.ceil(amplified);
+    const roundedParent = Math.ceil(amplified);
+    const parent = stages.addedHitMultiplier === undefined ? roundedParent : Math.floor(roundedParent * stages.addedHitMultiplier);
     const hit = Math.floor(parent * (percentage / 100));
     return hit + Math.ceil(hit * (takenPercent / 100)) + stages.supplementalDamagePerHit;
   }
   // Retained for the legacy displayed-base path and explicit rounding diagnostics.
-  return amplified * (percentage / 100) * (1 + takenPercent / 100)
+  return amplified * (stages.addedHitMultiplier ?? 1) * (percentage / 100) * (1 + takenPercent / 100)
     + stages.supplementalDamagePerHit;
 }

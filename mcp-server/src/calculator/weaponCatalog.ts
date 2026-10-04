@@ -10,6 +10,8 @@ const statusSchema = z.enum(["検証済み", "下書き"]);
 export const weaponSkillEffectSchema = z
   .object({
     kind: z.enum([
+      "magna-attack-up",
+      "weapon-elemental-attack-up",
       "normal-attack-up",
       "ex-attack-up",
       "special-ex-attack-up",
@@ -74,6 +76,7 @@ export const weaponSkillEffectSchema = z
       }).strict(),
     ]).optional(),
     gridScaling: z.discriminatedUnion("kind", [
+      z.object({ kind: z.literal("skill-name-prefix-weapon-count"), prefix: z.string().min(1) }).strict(),
       z.object({ kind: z.literal("same-weapon-kind-count") }).strict(),
     ]).optional(),
     note: z.string().min(1).optional(),
@@ -201,6 +204,7 @@ const skillEntrySchema = z
     description: z.string().min(1),
     effects: z.array(weaponSkillEffectSchema),
     normalAttackAmountTable: skillAmountTableAssignmentSchema.optional(),
+    magnaAttackAmountTable: skillAmountTableAssignmentSchema.optional(),
     normalStaminaAmountTable: skillAmountTableAssignmentSchema.optional(),
     magnaStaminaAmountTable: skillAmountTableAssignmentSchema.optional(),
     normalEnmityAmountTable: skillAmountTableAssignmentSchema.optional(),
@@ -316,6 +320,7 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
   const expandedSkills = skillFile.skills.map((skill): WeaponSkillCatalogEntry => {
     const {
       normalAttackAmountTable,
+      magnaAttackAmountTable,
       normalStaminaAmountTable,
       magnaStaminaAmountTable,
       normalEnmityAmountTable,
@@ -329,6 +334,7 @@ export function loadIncrementalWeaponCatalog(): IncrementalWeaponCatalog {
       ...baseSkill
     } = skill;
     const assignments = [
+      { kind: "magna-attack-up" as const, assignment: magnaAttackAmountTable, tables: normalAttackTables, label: "magna attack" },
       {
         kind: "normal-attack-up" as const,
         assignment: normalAttackAmountTable,

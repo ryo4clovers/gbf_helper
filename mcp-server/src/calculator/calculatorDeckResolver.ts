@@ -1,3 +1,5 @@
+import { weaponAwakeningOptions } from "./weaponAwakening.js";
+import { weaponAwakeningStatBonus } from "../../web/weapon-awakening-stats.js";
 import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
 import { applyCalculatorDeckEquipmentRules } from "./calculatorDeckEquipmentRules.js";
 import { createSelectableJobCatalog } from "./jobCatalogView.js";
@@ -232,10 +234,12 @@ function calculateCatalogWeaponStats(
     return undefined;
   }
   if (uncapMaximumLevel !== undefined && weapon.level > uncapMaximumLevel) return undefined;
-  return calculateEquipmentLevelStats(master.levelStats, weapon.level, weapon.plusMark ?? 0, {
+  const stats = calculateEquipmentLevelStats(master.levelStats, weapon.level, weapon.plusMark ?? 0, {
     attack: 5,
     hp: 1,
   });
+  const bonus = weaponAwakeningStatBonus(weapon, weaponAwakeningOptions(weapon.weaponId));
+  return { attack: stats.attack + bonus.attack, hp: stats.hp + bonus.hp };
 }
 
 /**
@@ -606,7 +610,7 @@ export function resolveCalculatorDeckConfig(
       const master = summonCatalog.summons.get(summon.summonId);
       const calculatedStats = resolvedSummonStats[index];
       const resolvedAura =
-        master === undefined ? undefined : resolveCatalogSummonAura(master, summon.uncapLevel);
+        master === undefined ? undefined : resolveCatalogSummonAura(master, summon.uncapLevel, summon.level);
       return {
         slot: summon.slot,
         position: summon.position,

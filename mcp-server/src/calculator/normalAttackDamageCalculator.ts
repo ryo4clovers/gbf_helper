@@ -1,3 +1,4 @@
+import { calculateWeaponOverskills, applyDamageCapPenetration } from "./weaponOverskills.js";
 import {
   calculateDefenseAdjustedBaseDamage,
   elementalSuperiorityPercent,
@@ -93,6 +94,7 @@ export interface CombinedNormalAttackDistribution {
 }
 
 export interface NormalAttackBodyAttenuationResult {
+  weaponOverskills: ReturnType<typeof calculateWeaponOverskills>;
   schemaVersion: 1;
   profile: DamageAttenuationProfile;
   damageCapUpPercent: number;
@@ -222,7 +224,8 @@ export function calculateNormalAttackDamage(
     multiplierMax: options.multiplierMax,
     multiplierStep: options.multiplierStep,
   };
-  const bodyAttenuationProfile = PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES.normalAttack;
+  const weaponOverskills = calculateWeaponOverskills(input.deck);
+  const bodyAttenuationProfile = applyDamageCapPenetration(PROVISIONAL_STANDARD_DAMAGE_ATTENUATION_PROFILES.normalAttack, weaponOverskills.damageCapPenetrationPercent);
   const accountDamageCapUpPercent = baseDamage.deferredCapModifiers.reduce(
     (sum, modifier) => sum + modifier.amountPercent,
     0,
@@ -271,6 +274,7 @@ export function calculateNormalAttackDamage(
   const bodyDamageAttenuation: NormalAttackBodyAttenuationResult = {
     schemaVersion: 1,
     profile: bodyAttenuationProfile,
+    weaponOverskills,
     damageCapUpPercent: bodyDamageCapUpPercent,
     capModifiers: [
       ...baseDamage.deferredCapModifiers,

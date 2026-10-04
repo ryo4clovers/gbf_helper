@@ -909,6 +909,93 @@
       ],
       "verificationStatus": "下書き",
       "source": "gbf.wiki『Weapon Skills』のSLv1/10/15/20/25代表値（2026-09-21閲覧）を区間内等差で展開。二次情報のため実機未検証値は下書き"
+    },
+    {
+      "tableId": "magna-large",
+      "values": [
+        {
+          "skillLevel": 1,
+          "amountPercent": 6
+        },
+        {
+          "skillLevel": 2,
+          "amountPercent": 7
+        },
+        {
+          "skillLevel": 3,
+          "amountPercent": 8
+        },
+        {
+          "skillLevel": 4,
+          "amountPercent": 9
+        },
+        {
+          "skillLevel": 5,
+          "amountPercent": 10
+        },
+        {
+          "skillLevel": 6,
+          "amountPercent": 11
+        },
+        {
+          "skillLevel": 7,
+          "amountPercent": 12
+        },
+        {
+          "skillLevel": 8,
+          "amountPercent": 13
+        },
+        {
+          "skillLevel": 9,
+          "amountPercent": 14
+        },
+        {
+          "skillLevel": 10,
+          "amountPercent": 15
+        },
+        {
+          "skillLevel": 11,
+          "amountPercent": 15.6
+        },
+        {
+          "skillLevel": 12,
+          "amountPercent": 16.2
+        },
+        {
+          "skillLevel": 13,
+          "amountPercent": 16.8
+        },
+        {
+          "skillLevel": 14,
+          "amountPercent": 17.4
+        },
+        {
+          "skillLevel": 15,
+          "amountPercent": 18
+        },
+        {
+          "skillLevel": 16,
+          "amountPercent": 18.4
+        },
+        {
+          "skillLevel": 17,
+          "amountPercent": 18.8
+        },
+        {
+          "skillLevel": 18,
+          "amountPercent": 19.2
+        },
+        {
+          "skillLevel": 19,
+          "amountPercent": 19.6
+        },
+        {
+          "skillLevel": 20,
+          "amountPercent": 20
+        }
+      ],
+      "verificationStatus": "下書き",
+      "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/448535（2026-10-05参照、二次情報。SLv中間値・上限境界は要検証）"
     }
   ]
 }

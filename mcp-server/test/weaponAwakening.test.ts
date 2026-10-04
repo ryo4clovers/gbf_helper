@@ -28,7 +28,7 @@ const request = (deckConfig: CalculatorDeckConfig) => ({ schemaVersion: 1 as con
   enemy: { elementCode: "5", defense: 10, maxHp: 1e9 }, modifiers: {} });
 
 test("awakening catalog covers 30 known masters, two choices each and cumulative levels for all six types", () => {
-  const catalog = createSelectableWeaponCatalog().weapons.filter(w => w.awakening);
+  const catalog = createSelectableWeaponCatalog().weapons.filter(w => w.awakening?.maximumLevel === 4);
   assert.equal(catalog.length, 30);
   assert.ok(catalog.every(w => w.awakening!.types.length === 2));
   assert.equal(weaponAwakeningOptions("1040314300"), undefined); // Pain and Suffering is not eligible.

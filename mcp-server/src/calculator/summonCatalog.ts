@@ -115,6 +115,7 @@ const summonCatalogSchema = z
           auraName: z.string().min(1),
           auraDescription: z.string().min(1),
           auraEffects: z.array(auraEffectSchema),
+          auraMinimumLevel: z.number().int().positive().optional(),
           auraOverrides: z
             .array(
               z
@@ -159,11 +160,16 @@ export interface IncrementalSummonCatalog {
 export function resolveCatalogSummonAura(
   master: SummonMasterCatalogEntry,
   uncapLevel?: number,
+  level?: number,
 ): Pick<
   SummonMasterCatalogEntry,
   "auraDescription" | "auraEffects" | "verificationStatus" | "source" | "confirmedAt"
 > {
   const override = master.auraOverrides?.find((candidate) => candidate.uncapLevel === uncapLevel);
+  if (!override && master.auraMinimumLevel !== undefined && ((level !== undefined && level < master.auraMinimumLevel)
+    || (uncapLevel !== undefined && uncapLevel < (master.selectionDefaults?.uncapLevel ?? 0)))) {
+    return { ...master, auraEffects: [{ kind: "utility", description: `この段階の加護は未接続（登録値はLv${master.auraMinimumLevel}）` }] };
+  }
   return override ?? master;
 }
 

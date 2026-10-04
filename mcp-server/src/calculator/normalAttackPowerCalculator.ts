@@ -49,6 +49,11 @@ export interface NormalAttackPowerResult {
   /** This stage only applies the normal weapon-skill frame; it is not final damage. */
   stage: "normal-weapon-skill-frame";
   baseAttack: number;
+  magnaAttackContributions: EffectiveWeaponSkillEffect[];
+  totalEffectiveMagnaAttackPercent: number;
+  magnaSkillAdjustedAttack: number;
+  weaponElementalAttackContributions: EffectiveWeaponSkillEffect[];
+  totalWeaponElementalAttackPercent: number;
   contributions: EffectiveWeaponSkillEffect[];
   totalEffectiveNormalAttackPercent: number;
   normalAttackSkillMultiplier: number;
@@ -96,6 +101,12 @@ export function calculateNormalAttackPower(
   );
   const normalAttackSkillMultiplier = roundCalculation(1 + totalEffectiveNormalAttackPercent / 100);
   const normalSkillAdjustedAttack = roundCalculation(baseAttack * normalAttackSkillMultiplier);
+  const matching = (kind: string) => (deck.effectiveWeaponSkillEffects ?? []).filter(effect => effect.kind === kind && (!elementCode || !effect.elementCode || effect.elementCode === elementCode));
+  const magnaAttackContributions = matching("magna-attack-up");
+  const totalEffectiveMagnaAttackPercent = roundCalculation(magnaAttackContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0));
+  const magnaSkillAdjustedAttack = roundCalculation(normalSkillAdjustedAttack * (1 + totalEffectiveMagnaAttackPercent / 100));
+  const weaponElementalAttackContributions = matching("weapon-elemental-attack-up");
+  const totalWeaponElementalAttackPercent = Math.min(40, weaponElementalAttackContributions.reduce((sum, effect) => sum + effect.effectiveAmountPercent, 0));
   const regularExAttackContributions = (deck.effectiveWeaponSkillEffects ?? []).filter(
     (effect) =>
       effect.kind === "ex-attack-up" &&
@@ -118,7 +129,7 @@ export function calculateNormalAttackPower(
     regularExAttackPercent + specialExAttackPercent,
   );
   const exAttackSkillMultiplier = roundCalculation(1 + totalEffectiveExAttackPercent / 100);
-  const exSkillAdjustedAttack = roundCalculation(normalSkillAdjustedAttack * exAttackSkillMultiplier);
+  const exSkillAdjustedAttack = roundCalculation(magnaSkillAdjustedAttack * exAttackSkillMultiplier);
   const characterAttackSummonAuraContributions = deck.summons.flatMap((summon) => {
     if (summon.aura === undefined) return [];
     const aura = summon.aura;
@@ -221,10 +232,10 @@ export function calculateNormalAttackPower(
   const totalElementalSummonAuraPercent = roundCalculation(
     elementalSummonAuraContributions.reduce((sum, aura) => sum + aura.amountPercent, 0),
   );
-  const summonAuraMultiplier = roundCalculation(1 + totalElementalSummonAuraPercent / 100);
+  const summonAuraMultiplier = roundCalculation(1 + (totalElementalSummonAuraPercent + totalWeaponElementalAttackPercent) / 100);
   const summonAuraAdjustedAttack = roundCalculation(characterAttackSummonAuraAdjustedAttack * summonAuraMultiplier);
   const issues: NormalAttackPowerIssue[] = [];
-  if (contributions.some((effect) => effect.verificationStatus !== "検証済み")) {
+  if ([...contributions, ...magnaAttackContributions, ...weaponElementalAttackContributions].some((effect) => effect.verificationStatus !== "検証済み")) {
     issues.push({
       code: "unverified-normal-attack-up",
       message: "Normal attack-up calculation contains draft skill data.",
@@ -252,6 +263,8 @@ export function calculateNormalAttackPower(
     schemaVersion: 1,
     stage: "normal-weapon-skill-frame",
     baseAttack,
+    magnaAttackContributions, totalEffectiveMagnaAttackPercent, magnaSkillAdjustedAttack,
+    weaponElementalAttackContributions, totalWeaponElementalAttackPercent,
     contributions,
     totalEffectiveNormalAttackPercent,
     normalAttackSkillMultiplier,

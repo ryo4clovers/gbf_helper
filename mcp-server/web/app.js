@@ -1,3 +1,4 @@
+import { weaponAwakeningStatBonus } from "/weapon-awakening-stats.js";
 import { BATTLE_SETUP_STORAGE_KEY, battleSetupStatIssues } from "/battle-state.js?v=10";
 import {
   CALCULATOR_ENVIRONMENT_STORAGE_KEY,
@@ -19,7 +20,7 @@ import {
   upsertCalculatorProfile,
 } from "/calculator-state-storage.js?v=11";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
-import { createWeaponAwakeningControls, weaponAwakeningSummary } from "/weapon-awakening-controls.js?v=2";
+import { createWeaponAwakeningControls, weaponAwakeningSummary } from "/weapon-awakening-controls.js?v=3";
 import {
   PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS,
   PROTAGONIST_ELEMENT_ATTACK_LIMIT_BONUS_DEFINITIONS,
@@ -1618,8 +1619,9 @@ function applyCatalogWeaponLevelStats(weapon, master) {
     );
     if (!stats) return false;
   }
-  weapon.attackOverride = stats.attack;
-  weapon.hpOverride = stats.hp;
+  const bonus = weaponAwakeningStatBonus(weapon, master.awakening);
+  weapon.attackOverride = stats.attack + bonus.attack;
+  weapon.hpOverride = stats.hp + bonus.hp;
   return true;
 }
 
@@ -1836,6 +1838,7 @@ function createWeaponSlot(config, slot) {
     );
     if (master?.awakening || weapon.awakening) {
       awakeningControls = createWeaponAwakeningControls(weapon, master?.awakening, () => {
+        applyCatalogWeaponLevelStats(weapon, master);
         writeDeckConfig(config);
         updateParameterSummary();
         void calculate();
@@ -2687,6 +2690,7 @@ function predictionRequests(request) {
 
 const stageNames = {
   "normal-weapon-skill": "通常攻刃",
+  "magna-weapon-skill": "方陣攻刃",
   "ex-weapon-skill": "EX攻刃",
   "normal-stamina": "通常渾身",
   "magna-stamina": "方陣渾身",

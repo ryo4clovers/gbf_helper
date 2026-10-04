@@ -1,4 +1,5 @@
 export interface NormalAttackHitRoundingStages {
+  addedHitMultiplier?: number;
   postAttenuationPercent: number;
   enemyDamageTakenAmplificationPercent?: number;
   randomTargetHitCount: number;

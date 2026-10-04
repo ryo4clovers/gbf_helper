@@ -173,7 +173,8 @@ export function calculateArticleBaseDamage(
   const artifactAttackPercent = resolveCharacterArtifact(input).normalAttackPercent;
   const weaponSkillRaw = crewAdjustedAttack * (1 + (attackPower.totalEffectiveNormalAttackPercent + artifactAttackPercent) / 100);
   const weaponSkill = options.weaponSkillRoundingStage === "normal-weapon-skill" ? Math.ceil(weaponSkillRaw) : weaponSkillRaw;
-  const exWeaponSkillRaw = weaponSkill * (1 + attackPower.totalEffectiveExAttackPercent / 100);
+  const magnaWeaponSkill = weaponSkill * (1 + (attackPower.totalEffectiveMagnaAttackPercent ?? 0) / 100);
+  const exWeaponSkillRaw = magnaWeaponSkill * (1 + attackPower.totalEffectiveExAttackPercent / 100);
   const exWeaponSkill = options.weaponSkillRoundingStage === "ex-weapon-skill" ? Math.ceil(exWeaponSkillRaw) : exWeaponSkillRaw;
   const characterAttackSummonAuraContributions = attackPower.characterAttackSummonAuraContributions ?? [];
   const characterAttackPercent = attackPower.totalCharacterAttackSummonAuraPercent ?? 0;
@@ -202,6 +203,8 @@ export function calculateArticleBaseDamage(
         verificationStatus: aura.verificationStatus,
       }),
     ),
+    { stage: "elemental-attack", amountPercent: attackPower.totalWeaponElementalAttackPercent ?? 0,
+      sourceType: "formula", sourceId: "weapon-elemental-attack", sourceName: "武器の属性攻撃（上限40%・要検証）", verificationStatus: "下書き" },
     ...accountModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
     ...jobModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
     { stage: "elemental-attack", amountPercent: input.battleEffects?.elementAttackPercent ?? 0,
@@ -287,11 +290,13 @@ export function calculateArticleBaseDamage(
         sourceId: "artifact-start-atk-up", sourceName: "アーティファクト開始時攻撃UP（通常攻刃へ加算）", verificationStatus: "下書き" as const,
       }])],
     ),
+    ...((attackPower.magnaAttackContributions?.length ?? 0) === 0 ? [] : [stage("magna-weapon-skill", weaponSkill,
+      attackPower.totalEffectiveMagnaAttackPercent, magnaWeaponSkill, magnaWeaponSkill, "none", attackPower.magnaAttackContributions)]),
     ...(attackPower.exAttackContributions.length === 0 && options.weaponSkillRoundingStage !== "ex-weapon-skill"
       ? []
       : [stage(
           "ex-weapon-skill",
-          weaponSkill,
+          magnaWeaponSkill,
           attackPower.totalEffectiveExAttackPercent,
           exWeaponSkillRaw,
           exWeaponSkill,

@@ -1334,7 +1334,11 @@
       "description": "闇属性キャラの攻撃力上昇(大)",
       "effects": [],
       "verificationStatus": "下書き",
-      "source": "knowledge/dark-ssr-magna-celeste-horn.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
+      "source": "knowledge/dark-ssr-magna-celeste-horn.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
+      "magnaAttackAmountTable": {
+        "tableId": "magna-large",
+        "elementCode": "6"
+      }
     },
     {
       "skillId": "117",
@@ -7660,9 +7664,10 @@
       ],
       "verificationStatus": "下書き",
       "source": "knowledge/dark-ssr-revans-forbidden-agastia-rebuild.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証",
-      "unsupportedEffects": [
-        "攻撃力上昇(大)の数値・SLv曲線"
-      ]
+      "magnaAttackAmountTable": {
+        "tableId": "magna-large",
+        "elementCode": "6"
+      }
     },
     {
       "skillId": "1993",
@@ -8345,7 +8350,19 @@
       "skillId": "2297",
       "name": "マグナブースト・ダーク",
       "description": "スキル「黒霧方陣」の効果が20%UP",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "normal-skill-boost",
+          "elementCode": "6",
+          "boostGroup": "magna",
+          "targetSkillNamePrefixes": [
+            "黒霧方陣"
+          ],
+          "amountPercent": 20,
+          "verificationStatus": "下書き",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/448535（2026-10-05参照、二次情報。SLv中間値・上限境界は要検証）"
+        }
+      ],
       "verificationStatus": "下書き",
       "source": "knowledge/dark-ssr-magna-reverse-celeste-grace-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
     },
@@ -8393,7 +8410,38 @@
       "skillId": "2304",
       "name": "黒霧の星醒",
       "description": "装備している「黒霧方陣」がつくスキルを持った武器の数が多いほど攻撃力/ダメージ上限上昇",
-      "effects": [],
+      "effects": [
+        {
+          "kind": "ex-attack-up",
+          "amountPercent": 2,
+          "elementCode": "6",
+          "activationCondition": {
+            "kind": "minimum-weapon-level",
+            "level": 120
+          },
+          "gridScaling": {
+            "kind": "skill-name-prefix-weapon-count",
+            "prefix": "黒霧方陣"
+          },
+          "verificationStatus": "下書き",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/448535（2026-10-05参照、二次情報。SLv中間値・上限境界は要検証）"
+        },
+        {
+          "kind": "normal-frame-damage-cap-up",
+          "amountPercent": 1,
+          "elementCode": "6",
+          "activationCondition": {
+            "kind": "minimum-weapon-level",
+            "level": 120
+          },
+          "gridScaling": {
+            "kind": "skill-name-prefix-weapon-count",
+            "prefix": "黒霧方陣"
+          },
+          "verificationStatus": "下書き",
+          "source": "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/448535（2026-10-05参照、二次情報。SLv中間値・上限境界は要検証）"
+        }
+      ],
       "verificationStatus": "下書き",
       "source": "knowledge/dark-ssr-magna-reverse-celeste-grace-aeter.mdおよびgbf.wiki (2026-09-09照合)。効果量・計算枠は未検証"
     },

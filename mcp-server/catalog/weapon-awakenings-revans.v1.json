@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "verificationStatus": "下書き",
+  "checkedAt": "2026-10-05",
+  "sources": [
+    "https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/385303"
+  ],
+  "note": "ユーザー提供実機表示の攻撃form1の段階増分。武器ATK+500はステータス算出側で扱い、表示値入力へ二重加算しない。中間Lv・属性攻撃40%上限は要検証",
+  "minimumWeaponLevel": 100,
+  "minimumUncapLevel": 4,
+  "maximumLevel": 20,
+  "types": [
+    {
+      "formCode": "revans-dark-attack",
+      "name": "攻撃",
+      "effects": [
+        {
+          "level": 2,
+          "kind": "normal-attack-up",
+          "amountPercent": 2,
+          "elementCode": "6"
+        },
+        {
+          "level": 3,
+          "kind": "normal-attack-up",
+          "amountPercent": 2,
+          "elementCode": "6"
+        },
+        {
+          "level": 4,
+          "kind": "normal-attack-up",
+          "amountPercent": 2,
+          "elementCode": "6"
+        },
+        {
+          "level": 6,
+          "kind": "normal-attack-up",
+          "amountPercent": 3,
+          "elementCode": "6"
+        },
+        {
+          "level": 7,
+          "kind": "normal-attack-up",
+          "amountPercent": 3,
+          "elementCode": "6"
+        },
+        {
+          "level": 8,
+          "kind": "normal-attack-up",
+          "amountPercent": 3,
+          "elementCode": "6"
+        },
+        {
+          "level": 9,
+          "kind": "normal-attack-up",
+          "amountPercent": 3,
+          "elementCode": "6"
+        },
+        {
+          "level": 11,
+          "kind": "normal-attack-up",
+          "amountPercent": 4,
+          "elementCode": "6"
+        },
+        {
+          "level": 12,
+          "kind": "normal-attack-up",
+          "amountPercent": 4,
+          "elementCode": "6"
+        },
+        {
+          "level": 13,
+          "kind": "normal-attack-up",
+          "amountPercent": 4,
+          "elementCode": "6"
+        },
+        {
+          "level": 14,
+          "kind": "normal-attack-up",
+          "amountPercent": 5,
+          "elementCode": "6"
+        },
+        {
+          "level": 16,
+          "kind": "weapon-elemental-attack-up",
+          "amountPercent": 2,
+          "elementCode": "6"
+        },
+        {
+          "level": 17,
+          "kind": "ex-attack-up",
+          "amountPercent": 5,
+          "elementCode": "6"
+        },
+        {
+          "level": 18,
+          "kind": "weapon-elemental-attack-up",
+          "amountPercent": 3,
+          "elementCode": "6"
+        },
+        {
+          "level": 19,
+          "kind": "ex-attack-up",
+          "amountPercent": 5,
+          "elementCode": "6"
+        },
+        {
+          "level": 20,
+          "kind": "weapon-elemental-attack-up",
+          "amountPercent": 10,
+          "elementCode": "6"
+        }
+      ],
+      "statBonuses": [
+        {
+          "level": 5,
+          "attack": 100
+        },
+        {
+          "level": 10,
+          "attack": 100
+        },
+        {
+          "level": 15,
+          "attack": 300
+        }
+      ]
+    }
+  ],
+  "weapons": [
+    {
+      "weaponId": "1040422300",
+      "name": "フォービドゥンアガスティ・リビルド",
+      "types": [
+        "revans-dark-attack"
+      ],
+      "observedGameForms": {
+        "1": "revans-dark-attack"
+      }
+    }
+  ]
+}

@@ -99,7 +99,13 @@ function bodyDamageForMultiplier(result, multiplier, criticalDamageBonusPercent,
     : Math.floor(finalDamage);
 }
 
-function damagePacketsForHit(result, request, mode, note, criticalBuff) {
+function damagePacketsForHit(result, request, mode, note, criticalBuff, addedHit = false) {
+  if (addedHit) {
+    const stages = value => ({ ...value, randomTargetHitCount: 1, addedHitMultiplier: .2 });
+    result = { ...result, bodyDamageAttenuation: stages(result.bodyDamageAttenuation),
+      ...Object.fromEntries(["pursuitDamage", "abilityPursuitDamage", "destructionPursuitDamage"]
+        .filter(key => result[key]?.stages).map(key => [key, { ...result[key], stages: stages(result[key].stages) }])) };
+  }
   const bodyMultiplier = randomMultiplier(request, mode);
   const critical = result.criticalBodyDamage;
   const weaponCriticalTriggered = critical !== undefined
@@ -157,7 +163,7 @@ function damagePacketsForHit(result, request, mode, note, criticalBuff) {
   return packets;
 }
 
-function damagePackets(result, request, mode, attackCount, note, criticalBuff) {
+function damagePackets(result, request, mode, attackCount, note, criticalBuff, addedHit = false) {
   const packets = [];
   for (let hit = 1; hit <= attackCount; hit += 1) {
     const hitNote = attackCount === 1 ? note : `${note} ${hit}/${attackCount}hit`;
@@ -166,6 +172,7 @@ function damagePackets(result, request, mode, attackCount, note, criticalBuff) {
         (result.bodyDamageAttenuation.randomTargetHitCount ?? 1) > 1 ? `${hitNote}・分割${randomHit + 1}/${result.bodyDamageAttenuation.randomTargetHitCount}` : hitNote, criticalBuff));
     }
   }
+  if (addedHit) packets.push(...damagePacketsForHit(result, request, mode, "オーバースキル・マルチ追加hit", criticalBuff, true));
   return packets;
 }
 
@@ -451,7 +458,7 @@ async function attack(ougiEnabled, action) {
     for (const event of generated.events) {
       if (event.kind === "normal") {
         if (event.actorPosition === 0) protagonistResult = event.calculation;
-        packets.push(...damagePackets(event.calculation, setup.request, selectedMode, event.attackCount, "通常攻撃", event.criticalBuff)
+        packets.push(...damagePackets(event.calculation, setup.request, selectedMode, event.attackCount, "通常攻撃", event.criticalBuff, event.addedHit)
           .map((packet) => ({ ...packet, actorPosition: event.actorPosition })));
       } else if (["automatic-ability", "manual-ability", "charge-attack"].includes(event.kind)) packets.push(...automaticAbilityPackets(event, selectedMode));
       else packets.push(event);

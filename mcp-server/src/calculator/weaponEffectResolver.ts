@@ -70,6 +70,10 @@ function effectMeetsActivationCondition(source: EffectSource, weapons: DeckWeapo
 
 function gridScaleMultiplier(source: EffectSource, weapons: DeckWeapon[]): number {
   if (source.effect.gridScaling === undefined) return 1;
+  if (source.effect.gridScaling.kind === "skill-name-prefix-weapon-count") {
+    const prefix = source.effect.gridScaling.prefix;
+    return weapons.filter(weapon => weapon.skills.some(skill => skill.name?.startsWith(prefix))).length;
+  }
   if (source.effect.gridScaling.kind === "same-weapon-kind-count") {
     const weaponKindCode = source.weapon.weaponKindCode;
     if (weaponKindCode === undefined) return 0;
@@ -206,7 +210,16 @@ export function resolveEffectiveWeaponSkillEffects(
   const applicableSources = levelApplicableSources.filter(
     (source) => effectMeetsActivationCondition(source, weapons),
   );
-  const boosts = applicableSources.filter((source) => source.effect.kind === "normal-skill-boost");
+  // Magna Boost's 100% ceiling is independent of summon/character aura boosts.
+  const magnaBoostUsed = new Map<string, number>();
+  const boosts = applicableSources.filter((source) => source.effect.kind === "normal-skill-boost").map(source => {
+    if (source.skill.id !== "2297") return source;
+    const key = source.effect.elementCode ?? "";
+    const used = magnaBoostUsed.get(key) ?? 0;
+    const amountPercent = Math.min(source.effect.amountPercent ?? 0, Math.max(0, 100 - used));
+    magnaBoostUsed.set(key, used + amountPercent);
+    return { ...source, effect: { ...source.effect, amountPercent } };
+  });
 
   const effects = applicableSources.filter((source) => {
     const condition = source.effect.activationCondition;

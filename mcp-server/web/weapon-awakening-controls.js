@@ -1,8 +1,10 @@
+import { weaponAwakeningStatBonus } from "./weapon-awakening-stats.js";
 function matchesForm(type, code) {
   return type.formCode === code || (type.gameFormCodes ?? []).includes(code);
 }
 
 const labels = {
+  "weapon-elemental-attack-up": "武器属性攻撃", "ex-attack-up": "EX攻刃",
   "normal-attack-up": "通常攻刃", "normal-frame-damage-cap-up": "ダメージ上限",
   "normal-hp-up": "HP", "weapon-defense-up": "防御", "charge-damage-up": "奥義ダメージ",
   "charge-damage-cap-up": "奥義上限", "charge-supplemental-damage": "奥義与ダメージ",
@@ -48,7 +50,7 @@ export function createWeaponAwakeningControls(weapon, options, onChange) {
     typeSelect.disabled = !eligible && !selection;
     levelSelect.disabled = !eligible || !type;
     if (!options) note.textContent = "この武器の覚醒効果は未対応です。保存済みの設定は計算に反映されません。";
-    else if (!eligible) note.textContent = "4凸・武器Lv150以上で覚醒効果を反映します。現在の覚醒設定は保持されます。";
+    else if (!eligible) note.textContent = `${options.minimumUncapLevel}凸・武器Lv${options.minimumWeaponLevel}以上で覚醒効果を反映します。現在の覚醒設定は保持されます。`;
     else if (selection && !type) note.textContent = "保存済みの覚醒タイプは未照合です。対応するタイプを選び直してください。";
     else if (!type) note.textContent = "覚醒を設定すると、加護対象外の効果を編成に反映します（数値・枠は要検証）。";
     else {
@@ -57,6 +59,8 @@ export function createWeaponAwakeningControls(weapon, options, onChange) {
         if (level <= (selection.level ?? 0)) totals.set(effect.kind, (totals.get(effect.kind) ?? 0) + (effect.amountFlat ?? effect.amountPercent ?? 0));
       }
       note.textContent = `${totals.size ? [...totals].map(([kind, amount]) => `${labels[kind] ?? kind}+${amount.toLocaleString("ja-JP")}${kind === "charge-supplemental-damage" ? "" : "%"}`).join(" / ") : "Lv1は追加効果なし"}（要検証）`;
+      const bonus = weaponAwakeningStatBonus(weapon, options);
+      if (bonus.attack) note.textContent += ` / 武器ATK+${bonus.attack}`;
     }
   };
   typeSelect.addEventListener("change", () => {

@@ -28,6 +28,8 @@ export interface DeckSkill {
 }
 
 export type WeaponSkillEffectKind =
+  | "magna-attack-up"
+  | "weapon-elemental-attack-up"
   | "normal-attack-up"
   | "ex-attack-up"
   | "special-ex-attack-up"
@@ -95,7 +97,7 @@ export interface WeaponSkillEffectDefinition {
   /** Multiplies one skill occurrence by matching equipment in the current grid. */
   gridScaling?: {
     kind: "same-weapon-kind-count";
-  };
+  } | { kind: "skill-name-prefix-weapon-count"; prefix: string };
   note?: string;
   /** Verification is recorded per numeric effect, so one skill may mix confirmed and provisional levels. */
   verificationStatus?: "検証済み" | "下書き";
@@ -256,6 +258,7 @@ export interface EffectiveCharacterHpFlatAura {
 }
 
 export interface SummonMasterCatalogEntry {
+  auraMinimumLevel?: number;
   summonId: string;
   name: string;
   elementCode: string;

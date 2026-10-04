@@ -37,7 +37,7 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
   if ((request.state?.turn ?? 1) > 100) throw new Error("現在のシミュレーションは100ターンまでです");
   const normals: ReturnType<typeof calculateNormalAttackFromRequest>["result"][] = [];
   const warnings = new Set<string>([
-    "下書き：自動アビリティは実測未一致の候補値。武器技巧は不発、イルザ1アビは適用。総ダメージも参考値です。",
+    "下書き：自動アビリティは実測未一致の候補値。武器技巧100%以上・イルザ1アビは適用。総ダメージも参考値です。",
     "手動アビリティは浴衣イルザのみ、奥義は対応メイン武器と浴衣イルザ。チェインバースト・召喚・交代・劇毒・被ターゲット効果は未対応です。",
   ]);
   const deck = resolveCalculatorDeckConfig(request.calculation.deckConfig).deck;
@@ -99,6 +99,7 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     multiattack: { mode: "minimum", seed: 1 },
   }, { state, calculationContext: request.calculation, protagonistCharge: request.protagonistCharge,
     ilsaCharge: ilsaSettings?.chargeGauge === undefined ? undefined : { enabled: request.ilsaChargeEnabled, gauge: ilsaSettings.chargeGauge },
+    resolveAddedHit: rate => request.mode === "downside" ? rate === 100 : request.mode === "upside" ? rate > 0 : random() < rate / 100,
     resolveAttackCount: (position, patch, guaranteed) => {
     const response = calculateNormalAttackFromRequest(calculationFor(patch));
     const result = response.result;

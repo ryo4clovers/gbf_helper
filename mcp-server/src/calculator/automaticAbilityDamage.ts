@@ -1,3 +1,5 @@
+import { calculateWeaponOverskills, applyDamageCapPenetration } from "./weaponOverskills.js";
+import { calculateWeaponSkillCriticalProfile } from "./criticalBodyDamageCalculator.js";
 import { z } from "zod";
 import { normalAttackCalculationRequestSchema, resolveDamageCalculationRequest, type NormalAttackCalculationRequest } from "./normalAttackCalculationRequest.js";
 import { prepareNormalAttackActor, selectedCharacter, resolveCharacterArtifact, resolveNormalAttackSupport } from "./characterNormalAttack.js";
@@ -142,12 +144,17 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
   const supplementalDamage = weapons.supplementalDamage.effectiveAmount + (charge ? weapons.chargeSupplementalDamage.effectiveAmount : weapons.abilitySupplementalDamage.effectiveAmount)
     + effects.supportSkillSupplementalDamage + effects.enemySupplementalDamage + summons.supplementalDamage + mastery.supplementalDamage;
   criticalDamageBonusPercent += advantageous ? original.battleEffects?.criticalDamageBonusPercent ?? 0 : 0;
+  const weaponCritical = calculateWeaponSkillCriticalProfile(weaponCap("critical-rate-up", Infinity));
+  // Only guaranteed weapon criticals can be selected without a separate random branch.
+  if (advantageous && weaponCritical.effectiveRatePercent === 100) criticalDamageBonusPercent += weaponCritical.criticalDamageBonusPercent;
+  const weaponOverskills = calculateWeaponOverskills(actor.deck);
+  const attenuationProfile = applyDamageCapPenetration(profile.attenuation, weaponOverskills.damageCapPenetrationPercent);
   const fixedChargeDamage = charge ? profile.fixedChargeDamage ?? 0 : 0;
   const predictions = Array.from({ length: 101 }, (_, index) => {
     const randomMultiplier = (950 + index) / 1000;
     const rawDamage = (base.articleTrace!.prePostCapDamage * effectiveMultiplier * randomMultiplier + fixedChargeDamage)
       * (1 + criticalDamageBonusPercent / 100);
-    const attenuated = calculateDamageAttenuation(rawDamage, profile.attenuation, { damageCapUpPercent: capPercent }).damage;
+    const attenuated = calculateDamageAttenuation(rawDamage, attenuationProfile, { damageCapUpPercent: capPercent }).damage;
     const damage = Math.ceil((attenuated * (1 + effects.enemyDamageTakenAmplificationPercent / 100) + supplementalDamage)
       * (1 + amplificationPercent / 100));
     return { randomMultiplier, damage };
@@ -162,7 +169,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
     trace: { commonPreAbilityDamage: base.articleTrace!.prePostCapDamage, intrinsicMultiplier: profile.multiplier,
       damageUpPercent, damageContributions, effectiveMultiplier, fixedChargeDamage, capPercent, capContributions, amplificationPercent, supplementalDamage,
       enemyDamageTakenAmplificationPercent: effects.enemyDamageTakenAmplificationPercent,
-      attenuation: profile.attenuation, ringCapPercent, artifactAbilityPercent, level },
+      attenuation: attenuationProfile, weaponOverskills, weaponCritical, ringCapPercent, artifactAbilityPercent, level },
     attenuationEvidence: profile.attenuationTableId ? {
       status: "実機設定確認" as const, tableId: profile.attenuationTableId, actionId: profile.actionId,
       confirmedAt: "2026-10-04", source: "ユーザー提供キャラ詳細のdamage_limit_type・damage_limit1〜4・damage_deduction1〜4を照合",
@@ -173,7 +180,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
       : "減衰ラインは同概算上限の別アビリティからの候補で、対象ごとの実機検証が必要",
       "既存の序盤ログとは未一致。倍率・減衰・補正範囲・丸めを含む候補値であり、実測再現値ではない",
       "減衰→被ダメージUP→固定加算→与ダメージ増幅→切り上げの順は下書き。通常専用補正は適用しない",
-      "クリティカルは入力条件。発動確率・通常攻撃の確定クリティカルからは自動決定しない",
+      "有利属性の武器技巧100%以上は自動適用。100%未満の武器技巧抽選とキャラLBクリティカルは未接続。追加のバフクリティカルは入力条件",
       "主人公のジョブLv補正40%/20%・LB・選択済みジョブのコンプリート補正は主人公だけに自動加算（二次情報）",
       ...(!character && !resolution.protagonistAbilityCompletion.specified
         ? ["completedJobIds未入力のためアビリティのコンプリート補正は未反映（全取得を仮定しない）"] : []),

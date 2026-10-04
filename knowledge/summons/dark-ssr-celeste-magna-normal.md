@@ -6,7 +6,7 @@ rarity: SSR
 element: "闇"
 obtain: "ボスドロップ"
 status: 下書き
-last_updated: 2026-09-09
+last_updated: 2026-10-05
 source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/136372) と gbf.wiki (https://gbf.wiki/Celeste_Magna) の両方で確認(取得日: 2026-08-20)。ATK/HPともに一致。"
 ---
 
@@ -90,3 +90,7 @@ source: "GameWith SSR召喚石一覧 (https://xn--bck3aza1a2if6kra4ee0hf.gamewit
 
 - サブ加護効果の正確な倍率はGameWith一覧に明記されていない場合、未検証。
 - gbf.wikiでさらに上位の上限解放段階(5★/6★等)が存在する場合、本ファイルはGameWithの標準的な表記(3★/4★)までの記載としており、それ以降は未反映。
+
+## 計算接続（2026-10-05）
+
+ユーザー提供のLv250編成および戦闘開始の加護文から、黒霧方陣170%をメイン・サポートに接続。武器ブースト80%との合計420%で今回2戦に整合。低Lvが明示されたメインは170%を流用せず未接続とする。サポート選択は既存仕様で最大段階を使用。超越途中の効果量・サブ加護の攻防は未接続。

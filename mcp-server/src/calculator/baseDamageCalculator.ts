@@ -12,6 +12,7 @@ import type {
 
 export type BaseDamageStage =
   | DamageModifierStage
+  | "magna-weapon-skill"
   | "normal-weapon-skill"
   | "ex-weapon-skill"
   | "normal-stamina"
@@ -237,6 +238,8 @@ export function calculateDefenseAdjustedBaseDamage(
         verificationStatus: aura.verificationStatus,
       }),
     ),
+    { stage: "elemental-attack", amountPercent: attackPower.totalWeaponElementalAttackPercent ?? 0,
+      sourceType: "formula", sourceId: "weapon-elemental-attack", sourceName: "武器属性攻撃（上限40%・要検証）", verificationStatus: "下書き" },
     ...accountModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
     ...jobModifiers.filter((modifier) => modifier.stage === "elemental-attack"),
   ];
@@ -290,6 +293,8 @@ export function calculateDefenseAdjustedBaseDamage(
       contributions: attackPower.contributions,
       totalPercentOverride: attackPower.totalEffectiveNormalAttackPercent,
     },
+    ...((attackPower.magnaAttackContributions?.length ?? 0) === 0 ? [] : [{ stage: "magna-weapon-skill" as const,
+      contributions: attackPower.magnaAttackContributions, totalPercentOverride: attackPower.totalEffectiveMagnaAttackPercent }]),
     ...(attackPower.exAttackContributions.length === 0
       ? []
       : [{
