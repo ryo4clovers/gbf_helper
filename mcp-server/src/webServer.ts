@@ -53,6 +53,7 @@ const staticFiles: Record<string, { file: string; contentType: string }> = {
   "/normal-attack-rounding.js": { file: "normal-attack-rounding.js", contentType: "text/javascript; charset=utf-8" },
   "/battle.css": { file: "battle.css", contentType: "text/css; charset=utf-8" },
   "/progress.html": { file: "progress.html", contentType: "text/html; charset=utf-8" },
+  "/catalog-progress-filter.js": { file: "catalog-progress-filter.js", contentType: "text/javascript; charset=utf-8" },
   "/progress.js": { file: "progress.js", contentType: "text/javascript; charset=utf-8" },
   "/progress.css": { file: "progress.css", contentType: "text/css; charset=utf-8" },
 };
