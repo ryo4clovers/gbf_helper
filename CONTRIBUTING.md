@@ -38,6 +38,8 @@ npm run build       # 配布用JavaScriptの生成
 
 ### 計算機カタログ画面
 
+- 編成画面は1920px・1440px・960pxで左右2カラム、900px以下で1カラムとします。外側グリッドの最小幅は0にし、保存欄の操作は折り返します。各パネル内のカード・入力欄は `inputs` / `results` のコンテナクエリで調整し、子要素の最小幅で隣のパネルへはみ出さないようにします。レイアウト変更時は設定欄を展開した状態でも3サイズの重なり・横スクロールを確認してください。
+
 - 暴君は戦闘最大HP、修羅は最大HP確定後の開始時HPへ別々に適用します。`battleHp.protagonistStart` / `characters[].start` が開始HPとダメージ内訳を返し、戦闘設定の `protagonistInitialHp` / `characterInitialHp` へ渡します。戦闘中の再計算・回復では再適用しません。旧保存設定は編成画面から戦闘を開き直してください。効果量・実測範囲は `knowledge/mechanics/battle-start-hp.md` を参照。
 
 - リミテッド武器30本の覚醒は `mcp-server/catalog/weapon-awakenings.v1.json` で、対象ID・選択可能な2タイプ・Lvごとの増分・出典を管理します。武器を右クリックして「覚醒タイプ」「覚醒Lv1〜4」を選択すると、加護対象外の効果を共通計算へ接続します。4凸Lv150未満は効果を停止して設定を保持。武器の表示HP/ATK自体へ割合効果を足しません。`awakening.formCode` の `limited-attack` / `limited-defense` / `limited-charge` / `limited-ability` / `limited-healing` / `limited-multiattack` は計算機用のIDです。実機番号は未照合なので推測変換せず、未知の設定を保存して警告・選び直しへ誘導します。キャラ覚醒・他シリーズの武器覚醒とは別です。
