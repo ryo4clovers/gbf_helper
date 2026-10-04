@@ -1,4 +1,4 @@
-import { BATTLE_SETUP_STORAGE_KEY } from "/battle-state.js?v=4";
+import { BATTLE_SETUP_STORAGE_KEY, battleSetupStatIssues } from "/battle-state.js?v=6";
 import {
   CALCULATOR_ENVIRONMENT_STORAGE_KEY,
   CALCULATOR_FORMATION_FORMAT,
@@ -3046,6 +3046,13 @@ $("save-config").addEventListener("click", () => {
 
 $("open-battle").addEventListener("click", () => {
   const configuredRequest = buildRequest();
+  const statIssues = battleSetupStatIssues(configuredRequest.deckConfig);
+  if (statIssues.length) {
+    $("deck-state").textContent = statIssues.join("\n");
+    $("deck-state").classList.add("error-text");
+    $("deck-state").scrollIntoView({ block: "center" });
+    return;
+  }
   const request = currentTargetRequest(configuredRequest);
   persistRequest(configuredRequest);
   sessionStorage.setItem(

@@ -1,5 +1,6 @@
 import {
   BATTLE_SETUP_STORAGE_KEY,
+  battleSetupStatIssues,
   SIMULATION_MODES,
   applyGeneratedTurn,
   applyItem,
@@ -8,7 +9,7 @@ import {
   resolveDamageMultiplier,
   resolveEnemyAttackDamage,
   selectPartyMember,
-} from "/battle-state.js?v=5";
+} from "/battle-state.js?v=6";
 import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=2";
 import { scaleDamageCapThreshold, finalizeNormalAttackHit } from "/normal-attack-rounding.js";
 
@@ -182,6 +183,7 @@ function enemyAttackFromResult(result, mode) {
 }
 
 const setup = loadSetup();
+const setupStatIssues = battleSetupStatIssues(setup.request.deckConfig);
 // Single-hit actor selection is not the battle's protagonist.
 delete setup.request.attacker;
 delete setup.request.battleEffects;
@@ -298,6 +300,11 @@ function renderParty() {
       <div class="charge-row"><span>奥義</span><span class="charge-bar"><span style="width:${member.charge}%"></span></span><strong>${member.charge}%</strong></div>
       <div class="ability-row"></div>`;
     card.querySelector(".party-member-name").textContent = member.name;
+    if (member.slot > 0 && !setup.request.deckConfig.characters.find((entry) => entry.slot === member.slot)?.hpOverride) {
+      card.querySelector(".party-values span").textContent = "表示HP 未入力";
+      card.querySelector(".party-member-header strong").textContent = "—";
+      card.querySelector(".hp-bar span").style.width = "0%";
+    }
     card.addEventListener("click", () => { state = selectPartyMember(state, member.id); renderParty(); });
     card.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); state = selectPartyMember(state, member.id); renderParty(); } });
     const abilities = card.querySelector(".ability-row");
@@ -313,7 +320,7 @@ function renderParty() {
         const names = ["ウォー・エターナル", "ウェイジズ・オブ・シン", "ディヴァ・サタニカ"];
         button.textContent = `${number}アビ${remaining ? `（あと${remaining}T）` : ""}`;
         button.title = names[number - 1];
-        button.disabled = actionPending || member.hp <= 0 || state.enemy.hp <= 0 || remaining > 0;
+        button.disabled = setupStatIssues.length > 0 || actionPending || member.hp <= 0 || state.enemy.hp <= 0 || remaining > 0;
         button.addEventListener("click", (event) => { event.stopPropagation(); attack(false,
           { kind: "ilsa-ability", characterSlot: member.slot, ability: number }); });
         button.addEventListener("keydown", (event) => event.stopPropagation());
@@ -379,9 +386,10 @@ function renderLog() {
 function render() {
   $("turn-number").textContent = String(state.turn);
   $("undo-action").disabled = history.length === 0 || actionPending;
-  $("battle-status").textContent = state.enemy.hp === 0 ? "BATTLE FINISHED" : "BATTLE IN PROGRESS";
-  $("attack-ougi-off").disabled = state.enemy.hp === 0 || actionPending;
-  $("attack-ougi-on").disabled = actionPending || state.enemy.hp === 0 || !state.party.some((member) => isIlsa(member) && member.hp > 0);
+  $("battle-status").textContent = setupStatIssues.length ? "編成の入力が必要です" : state.enemy.hp === 0 ? "BATTLE FINISHED" : "BATTLE IN PROGRESS";
+  if (setupStatIssues.length) $("battle-error").textContent = setupStatIssues.join("\n");
+  $("attack-ougi-off").disabled = setupStatIssues.length > 0 || state.enemy.hp === 0 || actionPending;
+  $("attack-ougi-on").disabled = setupStatIssues.length > 0 || actionPending || state.enemy.hp === 0 || !state.party.some((member) => isIlsa(member) && member.hp > 0);
   $("reset-battle").disabled = actionPending;
   for (const input of document.querySelectorAll(".battle-settings input, .battle-settings select")) input.disabled = actionPending || state.events.length > 0;
   $("action-guidance").textContent = modeGuidance[simulationMode];
@@ -389,7 +397,7 @@ function render() {
     const selected = button.dataset.simulationMode === simulationMode;
     button.classList.toggle("selected", selected);
     button.setAttribute("aria-pressed", String(selected));
-    button.disabled = actionPending;
+    button.disabled = setupStatIssues.length > 0 || actionPending;
   }
   renderMultiattackRates();
   renderEnemy();
@@ -398,10 +406,10 @@ function render() {
   renderLog();
   for (const button of document.querySelectorAll("[data-item]")) {
     const item = itemDefinitions[button.dataset.item];
-    button.disabled = actionPending;
+    button.disabled = setupStatIssues.length > 0 || actionPending;
     if (!item.inventoryKey) continue;
     const count = state.items?.[item.inventoryKey] ?? 0;
-    button.disabled = count <= 0 || actionPending;
+    button.disabled = setupStatIssues.length > 0 || count <= 0 || actionPending;
     button.querySelector("small").textContent = count > 0
       ? `残り${count}個・選択中の味方を50%回復`
       : "所持していません（ポーションメーカーで追加）";
@@ -412,7 +420,7 @@ function render() {
 }
 
 async function attack(ougiEnabled, action) {
-  if (actionPending || state.enemy.hp === 0) return;
+  if (setupStatIssues.length || actionPending || state.enemy.hp === 0) return;
   const selectedMode = simulationMode;
   actionPending = true;
   $("battle-error").textContent = "";

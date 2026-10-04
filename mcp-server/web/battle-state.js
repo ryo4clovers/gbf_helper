@@ -2,6 +2,16 @@ import { calculateCrewSupportEffects } from "./crew-support-config.js";
 
 // v2 separates shared ability modifiers from protagonist LB/completion totals.
 export const BATTLE_SETUP_STORAGE_KEY = "gbf-helper-battle-setup-v2";
+
+// Character displayed stats are not derived yet. Never simulate missing HP as 1.
+export function battleSetupStatIssues(deck) {
+  return (deck.characters ?? []).filter((character) => character.position === "front").flatMap((character) => {
+    const missing = [["hpOverride", "表示HP"], ["attackOverride", "表示ATK"]]
+      .filter(([key]) => !Number.isSafeInteger(character[key]) || character[key] <= 0)
+      .map(([, label]) => label);
+    return missing.length ? [`前衛${character.slot}（${character.nameHint ?? character.characterId}）の${missing.join("・")}が未入力です。編成画面のキャラ欄に、使用する編成の表示値を入力してください（自動計算は未対応）。`] : [];
+  });
+}
 export const SIMULATION_MODES = Object.freeze({
   normal: "normal",
   downside: "downside",

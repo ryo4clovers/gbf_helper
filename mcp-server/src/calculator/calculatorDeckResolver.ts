@@ -12,6 +12,7 @@ import { loadIncrementalWeaponCatalog } from "./weaponCatalog.js";
 import { resolveEffectiveWeaponSkillEffects } from "./weaponEffectResolver.js";
 import { resolveCharacterSkillBoosts } from "./characterSkillBoosts.js";
 import { hasCharacterNormalAttackModel } from "./characterNormalAttack.js";
+import { resolveCharacterModelId } from "./characterIdentity.js";
 import type {
   CalculatorDeckConfig,
   CalculatorDeckProtagonistConfig,
@@ -500,12 +501,13 @@ export function resolveCalculatorDeckConfig(
     }
   });
   config.characters.forEach((character, index) => {
+    const modelId = resolveCharacterModelId(character.characterId);
     appendMissingStatIssues(issues, `characters.${index}`, character.attackOverride, character.hpOverride);
     issues.push({
       severity: "warning",
-      code: hasCharacterNormalAttackModel(character.characterId) ? "character-passives-partially-supported" : "character-passives-unresolved",
+      code: hasCharacterNormalAttackModel(modelId) ? "character-passives-partially-supported" : "character-passives-unresolved",
       path: `characters.${index}.characterId`,
-      message: hasCharacterNormalAttackModel(character.characterId)
+      message: hasCharacterNormalAttackModel(modelId)
         ? "アビリティ未使用時の単発通常攻撃を下書き接続済み。未知の強化・アビリティ・奥義・行動の予測生成は未対応です。"
         : `Character ${character.characterId} is identified, but its passive effects are not resolved yet.`,
     });
@@ -628,7 +630,7 @@ export function resolveCalculatorDeckConfig(
       mastery: character.mastery,
       slot: character.slot,
       position: character.position,
-      masterId: character.characterId,
+      masterId: resolveCharacterModelId(character.characterId),
       name: character.nameHint,
       level: character.level,
       uncapLevel: character.uncapLevel,

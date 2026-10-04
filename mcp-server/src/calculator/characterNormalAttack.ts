@@ -65,7 +65,7 @@ export function selectedCharacter(input: DamageCalculationInput) {
   if (!input.attacker) return undefined;
   const character = input.deck.characters.find((entry) => entry.slot === input.attacker!.characterSlot && entry.position === "front");
   if (!character || !hasCharacterNormalAttackModel(character.masterId)) throw new Error("Selected character has no supported normal-attack model");
-  if (character.attack === undefined) throw new Error("Selected character displayed attack is required");
+  if (character.attack === undefined) throw new Error(`前衛${character.slot}の表示ATKが未入力です。編成画面のキャラ欄に、使用する編成の表示ATKを入力してください`);
   if (character.elementCode !== undefined && character.elementCode !== "6") throw new Error("Supported dark character has inconsistent elementCode");
   if (character.masterId === "3040512000" && input.attacker.coupledConfectionActive === undefined) {
     throw new Error("Cidala requires explicit coupledConfectionActive state");

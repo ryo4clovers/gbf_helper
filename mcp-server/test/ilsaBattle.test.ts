@@ -5,6 +5,8 @@ import { calculateBattleTurn } from "../src/calculator/battleTurn.ts";
 import { applyIlsaBattleEffects, castIlsaAbility, initialIlsaState, ilsaOnAllyDefeat } from "../src/calculator/ilsaBattleState.ts";
 import { calculateIlsaDamage, ilsaSinProfile } from "../src/calculator/ilsaDamage.ts";
 import { calculateDamageAttenuation } from "../src/calculator/damageAttenuationCalculator.ts";
+import { createSelectableCharacterCatalog } from "../src/calculator/characterCatalogView.ts";
+import { resolveCalculatorDeckConfig } from "../src/calculator/calculatorDeckResolver.ts";
 
 function input(): any {
   const example = JSON.parse(readFileSync(new URL("../examples/battle-actions-request.v1.json", import.meta.url), "utf8"));
@@ -14,6 +16,42 @@ function input(): any {
     characters: [1, 2, 3].map((characterSlot) => ({ characterSlot, currentHpPercent: 100, chargeGauge: 0 })) };
 }
 const cast = (ability: number) => ({ kind: "ilsa-ability", characterSlot: 3, ability });
+
+test("catalog-selected character IDs run the same attacks, abilities and charge reset as numeric IDs", () => {
+  const numeric = input(), selected = structuredClone(numeric);
+  const catalog = createSelectableCharacterCatalog().characters;
+  for (const character of selected.calculation.deckConfig.characters) {
+    const entry = catalog.find((entry) => entry.masterId === character.characterId && !entry.styleId)!;
+    assert.ok(entry);
+    character.characterId = entry.characterId;
+  }
+  const original = structuredClone(selected);
+  assert.deepEqual(resolveCalculatorDeckConfig(selected.calculation.deckConfig).deck,
+    resolveCalculatorDeckConfig(numeric.calculation.deckConfig).deck);
+  // Ordinary picker selection reaches both manual and automatic action paths.
+  for (const ability of [1, 2, 3]) {
+    const actual = calculateBattleTurn({ ...selected, action: cast(ability) });
+    const expected = calculateBattleTurn({ ...numeric, action: cast(ability) });
+    assert.deepEqual(actual, expected);
+    selected.state = actual.endState; numeric.state = expected.endState;
+  }
+  assert.deepEqual(calculateBattleTurn(selected), calculateBattleTurn(numeric));
+  selected.characters[2].chargeGauge = numeric.characters[2].chargeGauge = 100;
+  const ougi = calculateBattleTurn({ ...selected, ilsaChargeEnabled: true });
+  assert.deepEqual(ougi, calculateBattleTurn({ ...numeric, ilsaChargeEnabled: true }));
+  assert.ok(ougi.events.some((event) => event.kind === "charge-attack"));
+  assert.ok(calculateBattleTurn({ ...selected, state: ougi.endState, action: cast(2) })
+    .events.some((event) => event.kind === "manual-ability"));
+  assert.deepEqual(selected.calculation, original.calculation, "persisted knowledge IDs are preserved");
+});
+
+test("catalog-selected Ilsa reports the missing displayed ATK with an actionable message", () => {
+  const request = input();
+  request.calculation.deckConfig.characters[2].characterId = "dark-ssr-ilsa-yukata";
+  delete request.calculation.deckConfig.characters[2].attackOverride;
+  assert.throws(() => calculateBattleTurn(request), /前衛3の表示ATKが未入力.*編成画面/);
+  assert.throws(() => calculateBattleTurn({ ...request, action: cast(2) }), /前衛3の表示ATKが未入力/);
+});
 
 test("manual abilities do not advance turns; buffs coexist with weapon echoes and expire after five attacks", () => {
   const request = input();
