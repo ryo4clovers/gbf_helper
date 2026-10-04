@@ -92,6 +92,30 @@ test("automatic abilities retain uncertainty, independent hit ranges and immutab
   assert.ok(result.predictions.every((p) => Number.isInteger(p.damage) && p.damage > 0));
 });
 
+test("captured attenuation evidence is scoped to Cidala and Sariel without verifying the whole model", () => {
+  for (const [slot, abilityId, tableId, actionId, thresholds, rates] of [
+    [1, "mission-chocolate", "5000001", "239421", [500000, 600000, 700000, 800000], [.5, .25, .05, .01]],
+    [2, "scythe-of-execution", "6000001", "245941", [600000, 700000, 800000, 1000000], [.7, .5, .05, .01]],
+  ] as const) {
+    const result = calculate({ ...request(abilityId), calculation: { ...request(abilityId).calculation,
+      attacker: { characterSlot: slot, coupledConfectionActive: false } } });
+    assert.equal(result.verificationStatus, "下書き");
+    assert.equal(result.attenuationEvidence.status, "実機設定確認");
+    assert.equal(result.attenuationEvidence.tableId, tableId);
+    assert.equal(result.attenuationEvidence.actionId, actionId);
+    assert.deepEqual(result.trace.attenuation.lines.map(line => line.threshold), thresholds);
+    assert.deepEqual(result.trace.attenuation.lines.map(line => line.passRate), rates);
+    assert.ok(result.issues.some(issue => issue.includes("丸めは未検証")));
+    assert.ok(!result.issues.some(issue => issue.includes("減衰ラインは同概算")));
+  }
+  for (const abilityId of ["mythical-arms", "other-self"]) {
+    const result = calculate(request(abilityId));
+    assert.equal(result.attenuationEvidence.status, "候補");
+    assert.equal(result.attenuationEvidence.tableId, undefined);
+    assert.ok(result.issues.some(issue => issue.includes("減衰ラインは同概算")));
+  }
+});
+
 test("normal-only buffs, cap and completion damage never change automatic abilities", () => {
   const input = request();
   const expected = calculate(input).predictions;

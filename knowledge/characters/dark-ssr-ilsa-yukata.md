@@ -11,8 +11,8 @@ obtain: "レジェンドガチャ(白芍巾着を入手で解放)"
 has_ex_ability: false
 release_date: "不明(GameWithに記載なし)"
 status: 下書き
-last_updated: 2026-10-03
-source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/390418) と gbf.wiki (https://gbf.wiki/Ilsa_(Yukata)) を突合(取得日: 2026-08-18)。HP1266/ATK11200で両者完全一致。最終上限解放後の性能を採用。"
+last_updated: 2026-10-04
+source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/390418) と gbf.wiki (https://gbf.wiki/Ilsa_(Yukata)) を突合(取得日: 2026-08-18)。HP1266/ATK11200で両者完全一致。最終上限解放後の性能を採用。2026-10-04にユーザー提供キャラ詳細2件の減衰欄を確認したが空欄で、数値照合は未了。"
 ---
 
 # 浴衣イルザ(Ilsa (Yukata))
@@ -46,6 +46,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/3
 - 効果: 敵全体に闇属性ダメージを与え、攻防をDOWNさせる。不散花の数に応じて性能がUPする。
 - 数値/スケーリング: 不散花1: 倍率6.5倍(上限約140万)、攻防-25%DOWN(5ターン)。不散花2: 倍率8.0倍(上限約190万)、攻防-25%DOWN(6ターン)。不散花3: 倍率9.5倍(上限約240万)、攻防-25%DOWN(7ターン)。
 - CT(クールタイム): 9ターン(Lv75で8ターンに短縮)。
+- 減衰設定の照合（2026-10-04）: キャラ詳細2件の`action_id: 235521`（ウェイジズ・オブ・シン＋）は`damage_limit_type`・`damage_limit1〜4`・`damage_deduction1〜4`がすべて空欄。減衰なしとは扱わず、不散花別のライン・通過率は未確認とする。[照合範囲](../abilities/damage-profiles.md)を参照
 - 出典: GameWith
 - ステータス: GameWithのみで確認(gbf.wiki側の当該部分は未取得)
 

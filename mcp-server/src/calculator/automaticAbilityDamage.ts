@@ -15,22 +15,27 @@ import { elementalSuperiorityPercent } from "./baseDamageCalculator.js";
 export const automaticAbilityIdSchema = z.enum(["mythical-arms", "mission-chocolate", "scythe-of-execution", "other-self"]);
 export type AutomaticAbilityId = z.infer<typeof automaticAbilityIdSchema>;
 
-function attenuation(id: string, thresholds: number[], rates: number[]): DamageAttenuationProfile {
-  return { id, name: `${id}（同概算上限のアビリティからの候補）`, lines: thresholds.map((threshold, i) => ({ threshold, passRate: rates[i] })) };
+function attenuation(id: string, thresholds: number[], rates: number[], tableId?: string): DamageAttenuationProfile {
+  return { id, name: tableId ? `${id}（実機減衰設定 ${tableId}）` : `${id}（同概算上限のアビリティからの候補）`,
+    lines: thresholds.map((threshold, i) => ({ threshold, passRate: rates[i] })) };
 }
 
-/** Approximate caps do not identify attenuation lines. These are explicit candidates, never verified profiles. */
+/** Captured table settings verify only attenuation parameters, not multipliers, modifiers or rounding. */
 export const AUTOMATIC_ABILITY_PROFILES = {
   "mythical-arms": { name: "ミソロジックアームズ", multiplier: 1, element: "character", characterId: undefined,
+    attenuationTableId: undefined, actionId: undefined,
     attenuation: attenuation("mythical-arms", [100000, 133333, 166666, 333333], [.5, .3, .05, .01]),
     source: "https://gbf.wiki/Lancer_Origin", multiplierStatus: "1倍を仮置き・独立検証が必要" },
   "mission-chocolate": { name: "菓製猛虎", multiplier: 4, element: "character", characterId: "3040512000",
-    attenuation: attenuation("mission-chocolate", [500000, 600000, 700000, 800000], [.5, .25, .05, .01]),
+    attenuationTableId: "5000001", actionId: "239421",
+    attenuation: attenuation("mission-chocolate", [500000, 600000, 700000, 800000], [.5, .25, .05, .01], "5000001"),
     source: "https://gbf.wiki/Cidala_(Valentine)", multiplierStatus: "二次情報" },
   "scythe-of-execution": { name: "エクスキューショナーズ・サイス＋", multiplier: 8, element: "character", characterId: "3040611000",
-    attenuation: attenuation("scythe-of-execution", [600000, 700000, 800000, 1000000], [.7, .5, .05, .01]),
+    attenuationTableId: "6000001", actionId: "245941",
+    attenuation: attenuation("scythe-of-execution", [600000, 700000, 800000, 1000000], [.7, .5, .05, .01], "6000001"),
     source: "https://gbf.wiki/Sariel", multiplierStatus: "二次情報" },
   "other-self": { name: "他化自在", multiplier: 3, element: "destruction", characterId: undefined,
+    attenuationTableId: undefined, actionId: undefined,
     attenuation: attenuation("other-self", [300000, 400000, 500000, 1000000], [.7, .5, .05, .01]),
     source: "https://gbf.wiki/Versusia", multiplierStatus: "二次情報" },
 } as const;
@@ -132,8 +137,14 @@ export function calculateAutomaticAbilityDamage(input: unknown) {
       damageUpPercent, damageContributions, effectiveMultiplier, capPercent, capContributions, amplificationPercent, supplementalDamage,
       enemyDamageTakenAmplificationPercent: effects.enemyDamageTakenAmplificationPercent,
       attenuation: profile.attenuation, ringCapPercent, artifactAbilityPercent, level },
+    attenuationEvidence: profile.attenuationTableId ? {
+      status: "実機設定確認" as const, tableId: profile.attenuationTableId, actionId: profile.actionId,
+      confirmedAt: "2026-10-04", source: "ユーザー提供キャラ詳細のdamage_limit_type・damage_limit1〜4・damage_deduction1〜4を照合",
+    } : { status: "候補" as const, source: "同概算上限の別アビリティからの候補。対象自身の実機減衰設定は未確認" },
     deckResolutionIssues: resolution.issues,
-    issues: ["減衰ラインは同概算上限の別アビリティからの候補で、対象ごとの実機検証が必要",
+    issues: [profile.attenuationTableId
+      ? "減衰ID・4ライン・通過率はキャラ詳細の実機設定を確認済み。倍率・編成補正・境界実測・丸めは未検証"
+      : "減衰ラインは同概算上限の別アビリティからの候補で、対象ごとの実機検証が必要",
       "既存の序盤ログとは未一致。倍率・減衰・補正範囲・丸めを含む候補値であり、実測再現値ではない",
       "減衰→被ダメージUP→固定加算→与ダメージ増幅→切り上げの順は下書き。通常専用補正は適用しない",
       "クリティカルは入力条件。発動確率・通常攻撃の確定クリティカルからは自動決定しない",
@@ -145,6 +156,8 @@ export function calculateAutomaticAbilityDamage(input: unknown) {
       ...(summons.enemyHpCapUnresolved || mastery.enemyHpCapUnresolved ? ["敵最大HP未入力のためHP依存の固定与ダメージは上限値で計算"] : []),
       ...artifact.unsupportedSkills.map((id) => `未接続アーティファクト: ${id}`),
       ...mastery.unsupportedBonuses.map((id) => `未接続強化: ${id}`)],
-    sources: [profile.source, "https://kikumarogaming.com/granbluefantasy-damegecaplist/", "https://gbf.wiki/Damage_Formula/Detailed_Damage_Formula"],
+    sources: [profile.source,
+      ...(profile.attenuationTableId ? ["https://gbf.wiki/User:Cajunwildcat/Skill_Attenuation"] : []),
+      "https://kikumarogaming.com/granbluefantasy-damegecaplist/", "https://gbf.wiki/Damage_Formula/Detailed_Damage_Formula"],
   };
 }

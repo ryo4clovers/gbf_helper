@@ -3,6 +3,15 @@
 `knowledge/` を充実させていく上での、情報源・収集方法・運用方針をまとめる作業メモ。
 セッションをまたいでも参照できるよう、リポジトリ内で管理する(Claude側の一時的な記憶には残さない)。
 
+### 他の計算対象アビリティを実機減衰設定で照合(2026-10-04)
+
+- 出典: ユーザー提供済みのキャラ詳細をオフラインで再解析し、公開キャラID・action_id・damage_limit_type・damage_limit1〜4・damage_deduction1〜4を比較。[User:Cajunwildcat/Skill Attenuation](https://gbf.wiki/User:Cajunwildcat/Skill_Attenuation)は同日のJina取得原文を再利用。ゲームAPI通信・操作なし。
+- カバレッジ: 現行の自動アビリティ4種と、追加で浴衣イルザの各アビリティ欄を確認。サリエル1アビは詳細2件ともaction_id 245941、減衰ID 6000001、ライン60/70/80/100万・通過率70/50/5/1%。Wiki・現行計算機と全値が一致し、第4ライン入口の累計は73万。その後も1%通過するため厳密な最大値ではない。実機名に合わせナレッジの「サイズ」を「サイス」へ訂正した。
+- 確度: 先行確認のシンダラ3アビ（5000001）とサリエル1アビ（6000001）は減衰設定を確認済みとし、計算結果にattenuationEvidenceを追加。倍率・編成補正・境界の実測・丸めを含む全体は下書きを維持する。計算式・数値は変更せず、モデル識別子automatic-ability-candidate-v2も維持。
+- 保留: 浴衣イルザ2アビ（235521）は詳細2件とも9フィールドが空欄。1・3アビ、サリエル2・3アビも空欄だったが、空欄からダメージなし・減衰なしとは判定しない。イルザ2アビの不散花別設定は未確認。ミソロジックアームズ・他化自在は調べた共有記録内で設定を確認できず、既存候補を維持する。ジョブ・召喚石由来の効果をNPC欄へ無理に対応付けない。
+- 検証: Windows Node.jsで`npm run check`（502テスト）・`npm run build`を通過。設定確認済み2種と候補2種の確度表示をテストし、計算全体は下書きのままとなることを確認。既存20発動39hitの全乱数候補・残差が変更前と一致（完全一致0/39、範囲内0/39、最大絶対差256,818）。出力は同ローカルフォルダの`2026-10-04_automatic-ability-attenuation-evidence-result.json`。
+- 生データ保存先: 既存のtools/network-recorder/captures/dark-2026-10-03/2026-10-03_export_sariel-ilsa-enhancements.json、シンダラはcidala-ability-2026-10-04/2026-10-04_export_cidala-ability.json。同じDownloads原本との重複を確認件数へ加えない。新規取り込み・draft消去対象なし。生データ・個体IDはコミットしない。
+
 ### 公開減衰表とシンダラ3アビの実機設定をIDで照合(2026-10-04)
 
 - 出典: ユーザー提示の[User:Cajunwildcat/Skill Attenuation](https://gbf.wiki/User:Cajunwildcat/Skill_Attenuation)をJina経由で参照。アビリティ81表、奥義8表を確認。数値IDを持つアビ表と、Standard等の名称ラベルやID記載のない奥義表を区別する。公式資料ではなく、すべてのキャラ/アビリティとの対応が掲載されているわけではない。

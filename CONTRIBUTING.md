@@ -96,13 +96,14 @@ node scripts/generate-battle-actions.mjs examples/battle-actions-request.v1.json
 
 ### 自動アビリティの候補ダメージ
 
-`/actions.html`の「自動アビリティのダメージ計算」を有効にすると、各発動の1hit・合計範囲を表示します。**減衰ライン・丸め・一部倍率は候補で、既存ログとの一致は未達です。** 総ダメージによる編成順位の判定にはまだ使えません。
+`/actions.html`の「自動アビリティのダメージ計算」を有効にすると、各発動の1hit・合計範囲を表示します。**一部の減衰ライン・丸め・倍率は候補で、編成からの独立計算による既存ログとの一致は未達です。** 総ダメージによる編成順位の判定にはまだ使えません。
 
 - 単発入口はHTTP `POST /api/calculate-automatic-ability`、読み取り専用MCP `calculate_automatic_ability_damage`。入力は`{ abilityId, calculation, criticalDamageBonusPercent? }`で、`abilityId`は`mythical-arms` / `mission-chocolate` / `scythe-of-execution` / `other-self`です。`calculation`には通常攻撃と共通の編成・敵・加護・HP・modifiers・攻撃者・発動直前の弱体を渡します。`random`と`calculationModel`は受け付けず、0.95〜1.05の0.001刻み、articleモデルの基礎攻撃式を使います。
 - 対象はランサー・オリジンLv40以上、闇シンダラ、サリエル。他化自在はメイン4凸ヴェルサシアが必要です。イルザには今回の条件での自動アビリティがありません。主人公のジョブLv補正（アビダメ40%・上限20%）、アビリティLB、指輪のアビ上限、アーティファクトのアビダメを接続します。通常専用の上限・増幅・固定加算は含めません。貫破の防御無視は共通で適用します。
 - `modifiers.abilityDamagePercent` / `abilityDamageCapPercent`は大事なもの等の共通追加補正で、主人公LB・コンプリート分を含めません。主人公LBは`otherLimitBonusLevels`の5/32/84/89を読み、`abilityDamageLimitBonusPercent` / `abilityDamageCapLimitBonusPercent`の明示入力時はその値で置き換えます（0も有効）。主人公だけに適用し、仲間には明示入力のLBも加算しません。`deckConfig.protagonist.completedJobIds`の選択済みジョブからアビダメ・上限のコンプリート補正を解決し、Class V条件を反映します。未入力時は全取得を仮定せず未反映の警告、空配列は取得なしです。
 - この共通追加補正の入力規約は通常計算APIのアーマーブレイクにも適用します。2026-10-04より前の画面・通常APIで保存したリクエストや、主人公専用分を手加算した自動アビリティ入力を再利用する場合は、`abilityDamagePercent` / `abilityDamageCapPercent`から既に含めたLB・コンプリート分を除き、取得済みジョブを`completedJobIds`へ指定してください。古い合計値を自動判別して差し引く処理はありません。計算画面では保存編成を開いて再計算すると新規約で生成します。旧戦闘セッションを混用しないよう保存キーをv2に変更したため、戦闘画面は編成画面から開き直します（保存編成は維持）。
 - 自動アビリティの`trace.damageContributions`と`trace.capContributions`で、共通入力・LB・コンプリート・ジョブLv等を個別に確認できます。モデル識別子は`automatic-ability-candidate-v2`。入力補正の接続を修正したもので、倍率・減衰・丸めの実測検証済み化ではありません。
+- `attenuationEvidence`は減衰設定の出典を返します。菓製猛虎（5000001）・サリエル1アビ（6000001）はキャラ詳細でID・4ライン・通過率を確認済み、ミソロジックアームズ・他化自在は候補です。設定確認は境界の実測や倍率・補正・丸めの検証と区別し、全体の`verificationStatus`は下書きを維持します。数値変更はなくモデル識別子も維持します。
 - クリティカルは単発APIの明示入力（既定0、不発条件）。発動率からの抽選や通常攻撃の確定クリティカルを流用しません。ミソロジックアームズの素倍率は資料で確定できず1倍を仮置きし、結果に必ず警告を残します。概算上限から減衰ラインを一意に決定したものではありません。
 - 行動生成API/CLIへ任意の`automaticAbilityConditions`を追加できます。例は下記。各キャラのHPを明示し、開始時ランダム強化がある場合は`artifactStartBuffs`も指定します。全ターン同じHP・アーティファクト状態、クリティカル不発のシナリオです。生成器は`abilityId`と`calculationPatch`を自動発動イベントにも付け、菓製猛虎/刑死/他化自在が**今回付与する弱体は今回のダメージには適用しません**。
 
