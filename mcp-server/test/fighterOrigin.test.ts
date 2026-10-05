@@ -163,6 +163,19 @@ test("API and Web share partial barrier-aware incoming reactions and never manuf
   assert.equal(after.enemy.hp,web.enemy.hp);
   assert.equal(after.events.filter(e=>e.note?.includes("カウンター1行動")).length,1);
   assert.ok(after.warnings.some(w=>w.includes("カウンターダメージ")));
+  const apiGaugeEvents=api.events.filter(e=>e.kind==="effect" && e.effect==="charge-ready" && e.actorPosition===0);
+  assert.equal(apiGaugeEvents.at(-1)!.value,33);
+  for (const enemyOptions of [{}, {enemyAttack:{damage:760,incomingChargeGain:4}}]) {
+    const applied=applyGeneratedTurn(web,api,api.events.filter(e=>e.kind==="effect"),enemyOptions);
+    assert.equal(applied.party[0].charge,33);
+    assert.equal(applied.party[0].hp,9297);
+    assert.equal(applied.events.filter(e=>e.note?.includes("カウンター1行動")).length,1);
+    const nextRequest=buildBattleTurnRequest(setup,applied,"downside",{secondsPerTurn:15,characters:{}});
+    assert.equal(nextRequest.protagonistCharge.gauge,33);
+    const nextTurn=calculateBattleTurn(nextRequest);
+    const nextGauge=nextTurn.events.filter(e=>e.kind==="effect" && e.effect==="charge-ready" && e.actorPosition===0).at(-1);
+    assert.equal(nextGauge!.value,57);
+  }
   assert.equal(web.party[0].hp,9952);
   assert.throws(()=>calculateBattleTurn({...base,protagonistIncoming:{hpBefore:1,hpAfter:2,maxHp:1}}),/Invalid/);
 });

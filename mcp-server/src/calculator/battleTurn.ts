@@ -157,12 +157,15 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     if (!resolution.protagonistNormalAttackChargeGain.specified) warnings.add("コンプリート選択が未指定のため通常ゲージ追加量は未確認（0として計算）");
   }
   if (deck.protagonist.job?.masterId === FIGHTER_ORIGIN_ID) warnings.add(FIGHTER_ORIGIN_UNRESOLVED);
-  let incomingReaction: ReturnType<typeof resolveFighterOriginIncoming> | undefined;
+  let incomingReaction: (ReturnType<typeof resolveFighterOriginIncoming> & { hpAfter: number }) | undefined;
   if (request.protagonistIncoming) {
     if (!turn.endState.fighterOrigin) throw new Error("明示被弾反応はファイター・オリジン専用です");
     const chargeEvent = [...events].reverse().find(e => e.kind === "effect" && e.effect === "charge-ready" && e.actorPosition === 0);
     const chargeBefore = chargeEvent?.kind === "effect" ? chargeEvent.value : request.protagonistCharge!.gauge;
-    incomingReaction = resolveFighterOriginIncoming({ ...request.protagonistIncoming, level: turn.endState.fighterOrigin.level, chargeBefore });
+    incomingReaction = { ...resolveFighterOriginIncoming({ ...request.protagonistIncoming, level: turn.endState.fighterOrigin.level, chargeBefore }),
+      hpAfter: request.protagonistIncoming.hpAfter };
+    events.push({ sequence: (events.at(-1)?.sequence ?? 0) + 1, kind: "effect", actorPosition: 0,
+      name: "被弾/カウンター：主人公奥義ゲージ", effect: "charge-ready", value: incomingReaction.chargeAfterCounter });
     for (const warning of incomingReaction.warnings) warnings.add(warning);
   }
   const protagonistCalculation = normals.length && turn.events.some((event) => event.kind === "normal" && event.actorPosition === 0)

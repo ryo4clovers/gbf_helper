@@ -196,7 +196,7 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
       const hpBefore = target.hp;
       target.hp = clamp(target.hp - amount, 0, target.maxHp);
       appendEvent(next, { kind: "enemy-damage", actor: next.enemy.name, target: target.name, amount, note: `${options.enemyAttack.note ?? ""}${absorbed ? `・バリア吸収 ${absorbed}` : ""}` });
-      if (next.actionState?.fighterOrigin) {
+      if (next.actionState?.fighterOrigin && !generated.incomingReaction) {
         const reaction = resolveFighterOriginIncoming({ level: next.actionState.fighterOrigin.level,
           hpBefore, hpAfter: target.hp, maxHp: target.maxHp, chargeBefore: target.charge,
           incomingChargeGain: options.enemyAttack.incomingChargeGain });
@@ -205,6 +205,18 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
           amount: null, note: "闘心Lv5カウンター1行動・ゲージ+5（ダメージ未加算）" });
         warnings.push(...reaction.warnings);
       }
+    }
+    // The API snapshot owns the reaction when supplied. Web damage/barrier handling
+    // may run above, but must not add incoming/counter gauge a second time.
+    if (generated.advancesTurn !== false && generated.incomingReaction && next.actionState?.fighterOrigin) {
+      const target = next.party[0];
+      const reaction = generated.incomingReaction;
+      if (!options.enemyAttack) appendEvent(next, { kind: "enemy-damage", actor: next.enemy.name, target: target.name,
+        amount: Math.max(0, target.hp - reaction.hpAfter), note: "APIのバリア後HP観測" });
+      target.hp = reaction.hpAfter;
+      target.charge = reaction.chargeAfterCounter;
+      if (reaction.counterActions) appendEvent(next, { kind: "effect", actor: target.name, target: next.enemy.name,
+        amount: null, note: "闘心Lv5カウンター1行動・ゲージ+5（ダメージ未加算）" });
     }
   }
   next.warnings = warnings;
