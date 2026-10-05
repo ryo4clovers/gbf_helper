@@ -3285,5 +3285,3959 @@
         "postEnemyUnnamedAbility": false
       }
     ]
+  },
+  "dawnBreakReference": {
+    "sourceFilename": "gbf-network-recorder-filtered-export-1791236864312.json",
+    "sizeBytes": 1204593,
+    "apiCount": 57,
+    "turnCount": 41,
+    "initialGauge": 30,
+    "maxHp": 19472,
+    "manualUses": 6,
+    "automaticUses": 18,
+    "uses": [
+      {
+        "turn": "before 1",
+        "automatic": false,
+        "level": 0,
+        "gaugeBefore": 30,
+        "gaugeAfter": 50,
+        "damage": [
+          {
+            "value": 54874
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 3,
+        "automatic": true,
+        "level": 0,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 86064
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 5,
+        "automatic": true,
+        "level": 1,
+        "gaugeBefore": 28,
+        "gaugeAfter": 48,
+        "damage": [
+          {
+            "value": 144595
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 7,
+        "automatic": true,
+        "level": 1,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 140390
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": "before 8",
+        "automatic": false,
+        "level": 1,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 101955
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 10,
+        "automatic": true,
+        "level": 2,
+        "gaugeBefore": 78,
+        "gaugeAfter": 98,
+        "damage": [
+          {
+            "value": 124495
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 11,
+        "automatic": true,
+        "level": 2,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 160294
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 13,
+        "automatic": true,
+        "level": 3,
+        "gaugeBefore": 28,
+        "gaugeAfter": 48,
+        "damage": [
+          {
+            "value": 157926
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 14,
+        "automatic": true,
+        "level": 3,
+        "gaugeBefore": 86,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 197600
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": "before 15",
+        "automatic": false,
+        "level": 3,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 159941
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 16,
+        "automatic": true,
+        "level": 4,
+        "gaugeBefore": 42,
+        "gaugeAfter": 62,
+        "damage": [
+          {
+            "value": 202424
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 20,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 138147
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": "before 22",
+        "automatic": false,
+        "level": 5,
+        "gaugeBefore": 0,
+        "gaugeAfter": 20,
+        "damage": [
+          {
+            "value": 179769
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 23,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 93,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 224173
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 24,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 21,
+        "gaugeAfter": 41,
+        "damage": [
+          {
+            "value": 182790
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 25,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 74,
+        "gaugeAfter": 94,
+        "damage": [
+          {
+            "value": 182549
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 26,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 188442
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": "before 29",
+        "automatic": false,
+        "level": 5,
+        "gaugeBefore": 40,
+        "gaugeAfter": 60,
+        "damage": [
+          {
+            "value": 186174
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 30,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 234349
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 34,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 79,
+        "gaugeAfter": 99,
+        "damage": [
+          {
+            "value": 202594
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 35,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 188153
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": "before 36",
+        "automatic": false,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 188988
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 38,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 73,
+        "gaugeAfter": 93,
+        "damage": [
+          {
+            "value": 230949
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 39,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 232808
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      }
+    ],
+    "incomingTurns": [
+      {
+        "turn": 1,
+        "hpBefore": 19472,
+        "hpAfterIncoming": 19472,
+        "hpLoss": 0,
+        "hitCount": 0,
+        "displayedDamage": [],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 2,
+        "hpBefore": 19472,
+        "hpAfterIncoming": 19472,
+        "hpLoss": 0,
+        "hitCount": 0,
+        "displayedDamage": [],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 3,
+        "hpBefore": 19472,
+        "hpAfterIncoming": 18560,
+        "hpLoss": 912,
+        "hitCount": 1,
+        "displayedDamage": [
+          912
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 4,
+        "hpBefore": 18560,
+        "hpAfterIncoming": 18560,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 5,
+        "hpBefore": 18560,
+        "hpAfterIncoming": 17961,
+        "hpLoss": 599,
+        "hitCount": 1,
+        "displayedDamage": [
+          599
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 6,
+        "hpBefore": 17961,
+        "hpAfterIncoming": 17961,
+        "hpLoss": 0,
+        "hitCount": 0,
+        "displayedDamage": [],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 7,
+        "hpBefore": 17961,
+        "hpAfterIncoming": 17304,
+        "hpLoss": 657,
+        "hitCount": 1,
+        "displayedDamage": [
+          657
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 8,
+        "hpBefore": 17304,
+        "hpAfterIncoming": 17304,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 9,
+        "hpBefore": 17304,
+        "hpAfterIncoming": 17304,
+        "hpLoss": 0,
+        "hitCount": 0,
+        "displayedDamage": [],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 10,
+        "hpBefore": 17304,
+        "hpAfterIncoming": 16771,
+        "hpLoss": 533,
+        "hitCount": 1,
+        "displayedDamage": [
+          533
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 11,
+        "hpBefore": 16771,
+        "hpAfterIncoming": 16085,
+        "hpLoss": 686,
+        "hitCount": 1,
+        "displayedDamage": [
+          686
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 12,
+        "hpBefore": 16085,
+        "hpAfterIncoming": 16085,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 13,
+        "hpBefore": 16085,
+        "hpAfterIncoming": 15582,
+        "hpLoss": 503,
+        "hitCount": 1,
+        "displayedDamage": [
+          503
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 14,
+        "hpBefore": 15582,
+        "hpAfterIncoming": 14905,
+        "hpLoss": 677,
+        "hitCount": 1,
+        "displayedDamage": [
+          677
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 15,
+        "hpBefore": 14905,
+        "hpAfterIncoming": 14905,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 16,
+        "hpBefore": 14905,
+        "hpAfterIncoming": 13203,
+        "hpLoss": 1702,
+        "hitCount": 6,
+        "displayedDamage": [
+          0,
+          40,
+          427,
+          406,
+          403,
+          426
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 17,
+        "hpBefore": 13203,
+        "hpAfterIncoming": 13203,
+        "hpLoss": 0,
+        "hitCount": 0,
+        "displayedDamage": [],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 18,
+        "hpBefore": 13203,
+        "hpAfterIncoming": 13203,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 19,
+        "hpBefore": 13203,
+        "hpAfterIncoming": 13203,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 20,
+        "hpBefore": 13203,
+        "hpAfterIncoming": 9215,
+        "hpLoss": 3988,
+        "hitCount": 10,
+        "displayedDamage": [
+          247,
+          426,
+          403,
+          428,
+          410,
+          406,
+          393,
+          426,
+          423,
+          426
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 1,
+        "counterBeforeDawn": true,
+        "toughnessMessages": [
+          {
+            "status": "1104",
+            "text": "攻撃UP(累積)"
+          },
+          {
+            "status": "1378",
+            "text": "防御UP(累積)"
+          },
+          {
+            "status": "7225",
+            "text": "ダメージ上限UP(累積)"
+          }
+        ]
+      },
+      {
+        "turn": 21,
+        "hpBefore": 9215,
+        "hpAfterIncoming": 9215,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 22,
+        "hpBefore": 9215,
+        "hpAfterIncoming": 9215,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 23,
+        "hpBefore": 9215,
+        "hpAfterIncoming": 8768,
+        "hpLoss": 447,
+        "hitCount": 1,
+        "displayedDamage": [
+          447
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 24,
+        "hpBefore": 8768,
+        "hpAfterIncoming": 6402,
+        "hpLoss": 2366,
+        "hitCount": 10,
+        "displayedDamage": [
+          0,
+          0,
+          0,
+          67,
+          381,
+          403,
+          377,
+          383,
+          383,
+          372
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 1,
+        "counterBeforeDawn": true,
+        "toughnessMessages": [
+          {
+            "status": "1104",
+            "text": "攻撃UP(累積)"
+          },
+          {
+            "status": "1378",
+            "text": "防御UP(累積)"
+          },
+          {
+            "status": "7225",
+            "text": "ダメージ上限UP(累積)"
+          }
+        ]
+      },
+      {
+        "turn": 25,
+        "hpBefore": 6402,
+        "hpAfterIncoming": 5770,
+        "hpLoss": 632,
+        "hitCount": 1,
+        "displayedDamage": [
+          632
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 26,
+        "hpBefore": 5770,
+        "hpAfterIncoming": 5168,
+        "hpLoss": 602,
+        "hitCount": 1,
+        "displayedDamage": [
+          602
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 27,
+        "hpBefore": 5168,
+        "hpAfterIncoming": 5168,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 28,
+        "hpBefore": 5168,
+        "hpAfterIncoming": 5168,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 29,
+        "hpBefore": 5168,
+        "hpAfterIncoming": 5168,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 30,
+        "hpBefore": 5168,
+        "hpAfterIncoming": 4801,
+        "hpLoss": 367,
+        "hitCount": 1,
+        "displayedDamage": [
+          367
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 31,
+        "hpBefore": 4801,
+        "hpAfterIncoming": 4801,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 32,
+        "hpBefore": 4801,
+        "hpAfterIncoming": 4801,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 33,
+        "hpBefore": 4801,
+        "hpAfterIncoming": 4801,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 34,
+        "hpBefore": 4801,
+        "hpAfterIncoming": 4423,
+        "hpLoss": 378,
+        "hitCount": 1,
+        "displayedDamage": [
+          378
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 35,
+        "hpBefore": 4423,
+        "hpAfterIncoming": 3812,
+        "hpLoss": 611,
+        "hitCount": 1,
+        "displayedDamage": [
+          611
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 36,
+        "hpBefore": 3812,
+        "hpAfterIncoming": 3812,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 37,
+        "hpBefore": 3812,
+        "hpAfterIncoming": 3812,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 38,
+        "hpBefore": 3812,
+        "hpAfterIncoming": 3422,
+        "hpLoss": 390,
+        "hitCount": 1,
+        "displayedDamage": [
+          390
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 39,
+        "hpBefore": 3422,
+        "hpAfterIncoming": 2801,
+        "hpLoss": 621,
+        "hitCount": 1,
+        "displayedDamage": [
+          621
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 40,
+        "hpBefore": 2801,
+        "hpAfterIncoming": 2801,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 41,
+        "hpBefore": 2801,
+        "hpAfterIncoming": 2801,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      }
+    ],
+    "damageTakenEndStates": [
+      {
+        "turn": 1,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 2,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 3,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 4,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 5,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 6,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 7,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 8,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 9,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 10,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 11,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 12,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 13,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 14,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 15,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 16,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 17,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 18,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 19,
+        "damageTakenStatus": null
+      },
+      {
+        "turn": 20,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 21,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 22,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 23,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 24,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 25,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 26,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 27,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 28,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 29,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 30,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 31,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 32,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 33,
+        "damageTakenStatus": null
+      },
+      {
+        "turn": 34,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 35,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 36,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 37,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 38,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 39,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 40,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 41,
+        "damageTakenStatus": "7564_1"
+      }
+    ]
+  },
+  "combinedAbilitiesReference": {
+    "sourceFilename": "gbf-network-recorder-filtered-export-1791237343885.json",
+    "sizeBytes": 1887728,
+    "apiCount": 57,
+    "completedTurns": 31,
+    "attackRecords": 32,
+    "terminalTurn": 32,
+    "manualActions": [
+      {
+        "beforeTurn": 1,
+        "name": "チャージ・コンバージョン",
+        "gaugeBefore": 30,
+        "gaugeUpdates": [],
+        "levelBefore": 0,
+        "levelAfter": 0
+      },
+      {
+        "beforeTurn": 1,
+        "name": "ドーンブレイク",
+        "gaugeBefore": 30,
+        "gaugeUpdates": [
+          50
+        ],
+        "levelBefore": 0,
+        "levelAfter": 0
+      },
+      {
+        "beforeTurn": 1,
+        "name": "ウェポンバーストIV＋",
+        "gaugeBefore": 50,
+        "gaugeUpdates": [
+          100
+        ],
+        "levelBefore": 0,
+        "levelAfter": 1
+      },
+      {
+        "beforeTurn": 6,
+        "name": "ウェポンバーストIV＋",
+        "gaugeBefore": 48,
+        "gaugeUpdates": [
+          100
+        ],
+        "levelBefore": 4,
+        "levelAfter": 5
+      },
+      {
+        "beforeTurn": 6,
+        "name": "アンリミテッド・ブースト",
+        "gaugeBefore": 100,
+        "gaugeUpdates": [],
+        "levelBefore": 5,
+        "levelAfter": 5
+      },
+      {
+        "beforeTurn": 8,
+        "name": "ドーンブレイク",
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5
+      },
+      {
+        "beforeTurn": 11,
+        "name": "ウェポンバーストIV＋",
+        "gaugeBefore": 100,
+        "gaugeUpdates": [],
+        "levelBefore": 5,
+        "levelAfter": 5
+      },
+      {
+        "beforeTurn": 15,
+        "name": "ドーンブレイク",
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5
+      },
+      {
+        "beforeTurn": 16,
+        "name": "ウェポンバーストIV＋",
+        "gaugeBefore": 100,
+        "gaugeUpdates": [],
+        "levelBefore": 5,
+        "levelAfter": 5
+      },
+      {
+        "beforeTurn": 21,
+        "name": "ウェポンバーストIV＋",
+        "gaugeBefore": 100,
+        "gaugeUpdates": [],
+        "levelBefore": 5,
+        "levelAfter": 5
+      },
+      {
+        "beforeTurn": 22,
+        "name": "ドーンブレイク",
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5
+      },
+      {
+        "beforeTurn": 26,
+        "name": "ウェポンバーストIV＋",
+        "gaugeBefore": 100,
+        "gaugeUpdates": [],
+        "levelBefore": 5,
+        "levelAfter": 5
+      },
+      {
+        "beforeTurn": 29,
+        "name": "ドーンブレイク",
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5
+      },
+      {
+        "beforeTurn": 31,
+        "name": "ウェポンバーストIV＋",
+        "gaugeBefore": 100,
+        "gaugeUpdates": [],
+        "levelBefore": 5,
+        "levelAfter": 5
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          40,
+          44,
+          64
+        ],
+        "levelBefore": 1,
+        "levelAfter": 2,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [],
+        "enemyDawnDamage": [
+          [
+            160277
+          ]
+        ],
+        "displayedIncoming": [
+          659
+        ],
+        "hpAfterIncoming": 18813,
+        "counterActions": 0,
+        "normalDawnDamageTakenStatuses": [],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 0,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 2,
+        "completed": true,
+        "gaugeBefore": 64,
+        "gaugeUpdates": [
+          88,
+          92,
+          100
+        ],
+        "levelBefore": 2,
+        "levelAfter": 2,
+        "conversionObserved": false,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [],
+        "enemyDawnDamage": [
+          [
+            168272
+          ]
+        ],
+        "displayedIncoming": [
+          690
+        ],
+        "hpAfterIncoming": 18123,
+        "counterActions": 0,
+        "normalDawnDamageTakenStatuses": [],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 0,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 3,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          24,
+          28,
+          48
+        ],
+        "levelBefore": 2,
+        "levelAfter": 3,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [],
+        "enemyDawnDamage": [
+          [
+            189288
+          ]
+        ],
+        "displayedIncoming": [
+          701
+        ],
+        "hpAfterIncoming": 17422,
+        "counterActions": 0,
+        "normalDawnDamageTakenStatuses": [],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 0,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 4,
+        "completed": true,
+        "gaugeBefore": 48,
+        "gaugeUpdates": [
+          72,
+          82,
+          90,
+          100
+        ],
+        "levelBefore": 3,
+        "levelAfter": 3,
+        "conversionObserved": false,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [],
+        "enemyDawnDamage": [
+          [
+            146946
+          ]
+        ],
+        "displayedIncoming": [
+          1442
+        ],
+        "hpAfterIncoming": 15980,
+        "counterActions": 0,
+        "normalDawnDamageTakenStatuses": [],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 0,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 5,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          24,
+          28,
+          48
+        ],
+        "levelBefore": 3,
+        "levelAfter": 4,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [],
+        "enemyDawnDamage": [
+          [
+            143690
+          ]
+        ],
+        "displayedIncoming": [
+          662
+        ],
+        "hpAfterIncoming": 15318,
+        "counterActions": 0,
+        "normalDawnDamageTakenStatuses": [],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 0,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 6,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          0,
+          4,
+          9,
+          29
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "charge",
+            "name": "無窮の蒼剣"
+          }
+        ],
+        "partyDawnDamage": [],
+        "enemyDawnDamage": [
+          [
+            304583
+          ]
+        ],
+        "displayedIncoming": [
+          652
+        ],
+        "hpAfterIncoming": 18820,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 7,
+        "completed": true,
+        "gaugeBefore": 29,
+        "gaugeUpdates": [
+          89,
+          89,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": false,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            329619
+          ],
+          [
+            318664
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            324264
+          ]
+        ],
+        "displayedIncoming": [
+          711
+        ],
+        "hpAfterIncoming": 18109,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 8,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            328446
+          ],
+          [
+            312242
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            326027
+          ]
+        ],
+        "displayedIncoming": [
+          0,
+          422,
+          415,
+          424,
+          393,
+          426,
+          0,
+          407,
+          419
+        ],
+        "hpAfterIncoming": 15203,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 9,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            179115
+          ],
+          [
+            179639
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            179954
+          ]
+        ],
+        "displayedIncoming": [
+          637
+        ],
+        "hpAfterIncoming": 14566,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 10,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            178288
+          ],
+          [
+            186533
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            179645
+          ]
+        ],
+        "displayedIncoming": [
+          683
+        ],
+        "hpAfterIncoming": 13883,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 11,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            376021
+          ],
+          [
+            367582
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            377185
+          ]
+        ],
+        "displayedIncoming": [
+          650
+        ],
+        "hpAfterIncoming": 13233,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 12,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            368316
+          ],
+          [
+            363676
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            378466
+          ]
+        ],
+        "displayedIncoming": [
+          672
+        ],
+        "hpAfterIncoming": 12561,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 13,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            370255
+          ],
+          [
+            371122
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            363318
+          ]
+        ],
+        "displayedIncoming": [
+          625
+        ],
+        "hpAfterIncoming": 11936,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 14,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            175080
+          ],
+          [
+            175903
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            176727
+          ]
+        ],
+        "displayedIncoming": [
+          647
+        ],
+        "hpAfterIncoming": 11289,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 15,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            175750
+          ],
+          [
+            180782
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            182425
+          ]
+        ],
+        "displayedIncoming": [
+          687
+        ],
+        "hpAfterIncoming": 10602,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 16,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            353341
+          ],
+          [
+            378292
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            376284
+          ]
+        ],
+        "displayedIncoming": [
+          635
+        ],
+        "hpAfterIncoming": 9967,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 17,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            369380
+          ],
+          [
+            352494
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            361939
+          ]
+        ],
+        "displayedIncoming": [
+          634
+        ],
+        "hpAfterIncoming": 9333,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 18,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            361712
+          ],
+          [
+            356855
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            372283
+          ]
+        ],
+        "displayedIncoming": [
+          1277
+        ],
+        "hpAfterIncoming": 8056,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 19,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            174635
+          ],
+          [
+            181757
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            175143
+          ]
+        ],
+        "displayedIncoming": [
+          669
+        ],
+        "hpAfterIncoming": 7387,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 20,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            180508
+          ],
+          [
+            176342
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            175123
+          ]
+        ],
+        "displayedIncoming": [
+          653
+        ],
+        "hpAfterIncoming": 6734,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 21,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            366468
+          ],
+          [
+            366468
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            370447
+          ]
+        ],
+        "displayedIncoming": [
+          681
+        ],
+        "hpAfterIncoming": 6053,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 22,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            365927
+          ],
+          [
+            360532
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            355137
+          ]
+        ],
+        "displayedIncoming": [
+          663
+        ],
+        "hpAfterIncoming": 5390,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 23,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            369696
+          ],
+          [
+            373668
+          ]
+        ],
+        "enemyDawnDamage": [],
+        "displayedIncoming": [
+          0
+        ],
+        "hpAfterIncoming": 5390,
+        "counterActions": 0,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 24,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            177399
+          ],
+          [
+            177399
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            180339
+          ]
+        ],
+        "displayedIncoming": [
+          640
+        ],
+        "hpAfterIncoming": 4750,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 25,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            176949
+          ],
+          [
+            179228
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            179030
+          ]
+        ],
+        "displayedIncoming": [
+          671
+        ],
+        "hpAfterIncoming": 4079,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 26,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            365949
+          ],
+          [
+            350969
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            350136
+          ]
+        ],
+        "displayedIncoming": [
+          643
+        ],
+        "hpAfterIncoming": 3436,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 27,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            345420
+          ],
+          [
+            349859
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            355130
+          ]
+        ],
+        "displayedIncoming": [
+          632
+        ],
+        "hpAfterIncoming": 2804,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 28,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            359291
+          ],
+          [
+            365949
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            348749
+          ]
+        ],
+        "displayedIncoming": [
+          1268
+        ],
+        "hpAfterIncoming": 1536,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 29,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            175462
+          ],
+          [
+            179228
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            180714
+          ]
+        ],
+        "displayedIncoming": [
+          672
+        ],
+        "hpAfterIncoming": 864,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 30,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            171697
+          ],
+          [
+            175462
+          ]
+        ],
+        "enemyDawnDamage": [
+          [
+            180417
+          ]
+        ],
+        "displayedIncoming": [
+          630
+        ],
+        "hpAfterIncoming": 234,
+        "counterActions": 1,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [
+          "7564_3"
+        ],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [],
+        "lose": false
+      },
+      {
+        "turn": 31,
+        "completed": true,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            341259
+          ],
+          [
+            342091
+          ]
+        ],
+        "enemyDawnDamage": [],
+        "displayedIncoming": [],
+        "counterActions": 0,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [
+          1
+        ],
+        "lose": false
+      },
+      {
+        "turn": 32,
+        "completed": false,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          60,
+          60,
+          100,
+          100,
+          100
+        ],
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "conversionObserved": true,
+        "ownActions": [
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "kind": "normal",
+            "swingComponents": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ],
+        "partyDawnDamage": [
+          [
+            340982
+          ],
+          [
+            352910
+          ]
+        ],
+        "enemyDawnDamage": [],
+        "displayedIncoming": [
+          407
+        ],
+        "hpAfterIncoming": 0,
+        "counterActions": 0,
+        "normalDawnDamageTakenStatuses": [
+          "7564_2",
+          "7564_2"
+        ],
+        "enemyDawnDamageTakenStatuses": [],
+        "conversionStateRemains": true,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponents": 6,
+        "defeatedPositions": [
+          0
+        ],
+        "lose": true
+      }
+    ]
   }
 }
