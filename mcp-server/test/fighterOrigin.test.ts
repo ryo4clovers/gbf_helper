@@ -150,7 +150,7 @@ test("API and Web share partial barrier-aware incoming reactions and never manuf
     fighterOrigin:{level:5,consumedGaugeRemainder:0}};
   const base:any={calculation:{schemaVersion:1,deckConfig:config,enemy:{elementCode:"5",defense:10}},state:actionState,
     protagonistCharge:{enabled:false,gauge:0},mode:"downside",secondsPerTurn:15,characters:[]};
-  const api=calculateBattleTurn({...base,protagonistIncoming:{hpBefore:9952,hpAfter:9297,maxHp:19472,incomingChargeGain:4}});
+  const api=calculateBattleTurn({...base,protagonistIncoming:{hpBefore:9952,hpAfter:9297,maxHp:19472,incomingChargeGain:4,barrier:{before:105,absorbed:105,after:0}}});
   assert.equal(api.incomingReaction!.chargeAfterCounter,33);
   assert.equal(api.incomingReaction!.counterActions,1);
   assert.equal(api.incomingReaction!.counterDamageSupported,false);
@@ -169,13 +169,34 @@ test("API and Web share partial barrier-aware incoming reactions and never manuf
     const applied=applyGeneratedTurn(web,api,api.events.filter(e=>e.kind==="effect"),enemyOptions);
     assert.equal(applied.party[0].charge,33);
     assert.equal(applied.party[0].hp,9297);
+    assert.equal(applied.party[0].shield.amount,0);
     assert.equal(applied.events.filter(e=>e.note?.includes("カウンター1行動")).length,1);
     const nextRequest=buildBattleTurnRequest(setup,applied,"downside",{secondsPerTurn:15,characters:{}});
     assert.equal(nextRequest.protagonistCharge.gauge,33);
     const nextTurn=calculateBattleTurn(nextRequest);
     const nextGauge=nextTurn.events.filter(e=>e.kind==="effect" && e.effect==="charge-ready" && e.actorPosition===0).at(-1);
     assert.equal(nextGauge!.value,57);
+    const secondHit=applyGeneratedTurn(applied,nextTurn,nextTurn.events.filter(e=>e.kind==="effect"),{enemyAttack:{damage:100}});
+    assert.equal(secondHit.party[0].hp,9197);
+    assert.equal(secondHit.party[0].charge,62);
+    assert.equal(secondHit.party[0].shield.amount,0);
   }
+  const partialAbsorption=calculateBattleTurn({...base,protagonistIncoming:{hpBefore:9952,hpAfter:9952,maxHp:19472,incomingChargeGain:4,barrier:{before:105,absorbed:40,after:65}}});
+  for (const enemyOptions of [{}, {enemyAttack:{damage:40,incomingChargeGain:4}}]) {
+    const partial=applyGeneratedTurn(web,partialAbsorption,partialAbsorption.events.filter(e=>e.kind==="effect"),enemyOptions);
+    assert.equal(partial.party[0].hp,9952);assert.equal(partial.party[0].charge,24);
+    assert.equal(partial.party[0].shield.amount,65);
+    assert.equal(partial.events.filter(e=>e.note?.includes("カウンター1行動")).length,0);
+  }
+  const noBarrierSnapshot=calculateBattleTurn({...base,protagonistIncoming:{hpBefore:9952,hpAfter:9297,maxHp:19472,incomingChargeGain:4}});
+  assert.throws(()=>applyGeneratedTurn(web,noBarrierSnapshot,noBarrierSnapshot.events.filter(e=>e.kind==="effect")),/explicit barrier snapshot/);
+  const suppliedDamage=applyGeneratedTurn(web,noBarrierSnapshot,noBarrierSnapshot.events.filter(e=>e.kind==="effect"),{enemyAttack:{damage:760,incomingChargeGain:4}});
+  assert.equal(suppliedDamage.party[0].shield.amount,0);assert.equal(suppliedDamage.party[0].charge,33);
+  assert.throws(()=>calculateBattleTurn({...base,protagonistIncoming:{hpBefore:9952,hpAfter:9297,maxHp:19472,barrier:{before:105,absorbed:105,after:1}}}));
+  const wrongBarrier=calculateBattleTurn({...base,protagonistIncoming:{hpBefore:9952,hpAfter:9297,maxHp:19472,barrier:{before:104,absorbed:104,after:0}}});
+  assert.throws(()=>applyGeneratedTurn(web,wrongBarrier,wrongBarrier.events.filter(e=>e.kind==="effect")),/current barrier/);
+  assert.throws(()=>applyGeneratedTurn(web,api,api.events.filter(e=>e.kind==="effect"),{enemyAttack:{damage:100}}),/disagrees/);
   assert.equal(web.party[0].hp,9952);
+  assert.equal(web.party[0].shield.amount,105);
   assert.throws(()=>calculateBattleTurn({...base,protagonistIncoming:{hpBefore:1,hpAfter:2,maxHp:1}}),/Invalid/);
 });

@@ -21,7 +21,10 @@ export const battleTurnRequestSchema = z.object({
   protagonistIncoming: z.object({
     hpBefore: z.number().finite().nonnegative(), hpAfter: z.number().finite().nonnegative(), maxHp: z.number().finite().positive(),
     incomingChargeGain: z.number().finite().min(0).max(100).optional(),
-  }).strict().optional().describe("主人公への1hitの実HP変化（バリア後）。オリファイ限定。被弾ゲージは明示量のみ、カウンターは行動/+5のみでダメージ未接続"),
+    barrier: z.object({ before: z.number().int().nonnegative(), absorbed: z.number().int().nonnegative(),
+      after: z.number().int().nonnegative() }).strict().refine(v => v.absorbed <= v.before && v.after === v.before - v.absorbed,
+      { message: "バリアの吸収前・吸収量・残量が一致しません" }).optional(),
+  }).strict().optional().describe("主人公への1hitの実HP変化（バリア後）。オリファイ限定。被弾ゲージは明示量のみ、カウンターは行動/+5のみでダメージ未接続。有効バリアのある状態へAPI単独適用する場合はbarrierの明示観測が必要"),
   defeatedPositions: z.array(z.number().int().min(0).max(3)).max(4).optional(),
   mode: z.enum(["normal", "downside", "upside"]),
   secondsPerTurn: z.number().finite().positive().max(3600),
@@ -157,13 +160,14 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     if (!resolution.protagonistNormalAttackChargeGain.specified) warnings.add("コンプリート選択が未指定のため通常ゲージ追加量は未確認（0として計算）");
   }
   if (deck.protagonist.job?.masterId === FIGHTER_ORIGIN_ID) warnings.add(FIGHTER_ORIGIN_UNRESOLVED);
-  let incomingReaction: (ReturnType<typeof resolveFighterOriginIncoming> & { hpAfter: number }) | undefined;
+  let incomingReaction: (ReturnType<typeof resolveFighterOriginIncoming> & Pick<NonNullable<typeof request.protagonistIncoming>, "hpBefore" | "hpAfter" | "maxHp" | "barrier">) | undefined;
   if (request.protagonistIncoming) {
     if (!turn.endState.fighterOrigin) throw new Error("明示被弾反応はファイター・オリジン専用です");
     const chargeEvent = [...events].reverse().find(e => e.kind === "effect" && e.effect === "charge-ready" && e.actorPosition === 0);
     const chargeBefore = chargeEvent?.kind === "effect" ? chargeEvent.value : request.protagonistCharge!.gauge;
     incomingReaction = { ...resolveFighterOriginIncoming({ ...request.protagonistIncoming, level: turn.endState.fighterOrigin.level, chargeBefore }),
-      hpAfter: request.protagonistIncoming.hpAfter };
+      hpBefore: request.protagonistIncoming.hpBefore, hpAfter: request.protagonistIncoming.hpAfter, maxHp: request.protagonistIncoming.maxHp,
+      ...(request.protagonistIncoming.barrier ? { barrier: request.protagonistIncoming.barrier } : {}) };
     events.push({ sequence: (events.at(-1)?.sequence ?? 0) + 1, kind: "effect", actorPosition: 0,
       name: "被弾/カウンター：主人公奥義ゲージ", effect: "charge-ready", value: incomingReaction.chargeAfterCounter });
     for (const warning of incomingReaction.warnings) warnings.add(warning);

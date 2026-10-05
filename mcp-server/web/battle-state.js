@@ -187,14 +187,30 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
       ...(activeChocolate && generated.endState.chocolateStacks ? [{ name: `菓製猛虎 ${generated.endState.chocolateStacks}` }] : []),
       ...(generated.endState.deathSentenceExpiresOnTurn > generated.turn ? [{ name: "刑死" }] : []),
     ];
+    const apiReaction = generated.incomingReaction;
+    const activeBarrier = next.turn < (next.party[0].shield?.expiresOnTurn ?? 0) ? next.party[0].shield.amount : 0;
+    if (apiReaction) {
+      if (apiReaction.hpBefore !== next.party[0].hp || apiReaction.maxHp !== next.party[0].maxHp)
+        throw new Error("API incoming HP observation does not match the current protagonist state");
+      if (apiReaction.barrier && apiReaction.barrier.before !== activeBarrier)
+        throw new Error("API incoming barrier observation does not match the current barrier");
+      if (activeBarrier > 0 && !apiReaction.barrier && !(next.enemy.attacks && options.enemyAttack))
+        throw new Error("API incoming reaction requires an explicit barrier snapshot or enemyAttack damage for an active barrier");
+    }
+    let webIncomingApplied = false;
     if (generated.advancesTurn !== false && next.enemy.attacks && options.enemyAttack && next.party[0].hp > 0) {
       const target = next.party[0];
       const incoming = Math.max(0, Math.floor(options.enemyAttack.damage));
       const absorbed = next.turn < (target.shield?.expiresOnTurn ?? 0) ? Math.min(incoming, target.shield.amount) : 0;
+      if (apiReaction?.barrier && absorbed !== apiReaction.barrier.absorbed)
+        throw new Error("Web incoming damage disagrees with the API barrier absorption observation");
       if (absorbed) target.shield.amount -= absorbed;
       const amount = incoming - absorbed;
       const hpBefore = target.hp;
       target.hp = clamp(target.hp - amount, 0, target.maxHp);
+      webIncomingApplied = true;
+      if (apiReaction && target.hp !== apiReaction.hpAfter)
+        throw new Error("Web incoming damage disagrees with the API HP observation");
       appendEvent(next, { kind: "enemy-damage", actor: next.enemy.name, target: target.name, amount, note: `${options.enemyAttack.note ?? ""}${absorbed ? `・バリア吸収 ${absorbed}` : ""}` });
       if (next.actionState?.fighterOrigin && !generated.incomingReaction) {
         const reaction = resolveFighterOriginIncoming({ level: next.actionState.fighterOrigin.level,
@@ -213,6 +229,7 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
       const reaction = generated.incomingReaction;
       if (!options.enemyAttack) appendEvent(next, { kind: "enemy-damage", actor: next.enemy.name, target: target.name,
         amount: Math.max(0, target.hp - reaction.hpAfter), note: "APIのバリア後HP観測" });
+      if (reaction.barrier && !webIncomingApplied && target.shield) target.shield.amount = reaction.barrier.after;
       target.hp = reaction.hpAfter;
       target.charge = reaction.chargeAfterCounter;
       if (reaction.counterActions) appendEvent(next, { kind: "effect", actor: target.name, target: next.enemy.name,
