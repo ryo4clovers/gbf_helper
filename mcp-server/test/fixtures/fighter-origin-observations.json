@@ -3285,5 +3285,1208 @@
         "postEnemyUnnamedAbility": false
       }
     ]
+  },
+  "dawnBreakReference": {
+    "sourceFilename": "gbf-network-recorder-filtered-export-1791236864312.json",
+    "sizeBytes": 1204593,
+    "apiCount": 57,
+    "turnCount": 41,
+    "initialGauge": 30,
+    "maxHp": 19472,
+    "manualUses": 6,
+    "automaticUses": 18,
+    "uses": [
+      {
+        "turn": "before 1",
+        "automatic": false,
+        "level": 0,
+        "gaugeBefore": 30,
+        "gaugeAfter": 50,
+        "damage": [
+          {
+            "value": 54874
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 3,
+        "automatic": true,
+        "level": 0,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 86064
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 5,
+        "automatic": true,
+        "level": 1,
+        "gaugeBefore": 28,
+        "gaugeAfter": 48,
+        "damage": [
+          {
+            "value": 144595
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 7,
+        "automatic": true,
+        "level": 1,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 140390
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": "before 8",
+        "automatic": false,
+        "level": 1,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 101955
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 10,
+        "automatic": true,
+        "level": 2,
+        "gaugeBefore": 78,
+        "gaugeAfter": 98,
+        "damage": [
+          {
+            "value": 124495
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 11,
+        "automatic": true,
+        "level": 2,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 160294
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 13,
+        "automatic": true,
+        "level": 3,
+        "gaugeBefore": 28,
+        "gaugeAfter": 48,
+        "damage": [
+          {
+            "value": 157926
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 14,
+        "automatic": true,
+        "level": 3,
+        "gaugeBefore": 86,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 197600
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": "before 15",
+        "automatic": false,
+        "level": 3,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 159941
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 16,
+        "automatic": true,
+        "level": 4,
+        "gaugeBefore": 42,
+        "gaugeAfter": 62,
+        "damage": [
+          {
+            "value": 202424
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 20,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 138147
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": "before 22",
+        "automatic": false,
+        "level": 5,
+        "gaugeBefore": 0,
+        "gaugeAfter": 20,
+        "damage": [
+          {
+            "value": 179769
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 23,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 93,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 224173
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 24,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 21,
+        "gaugeAfter": 41,
+        "damage": [
+          {
+            "value": 182790
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 25,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 74,
+        "gaugeAfter": 94,
+        "damage": [
+          {
+            "value": 182549
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 26,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 188442
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": "before 29",
+        "automatic": false,
+        "level": 5,
+        "gaugeBefore": 40,
+        "gaugeAfter": 60,
+        "damage": [
+          {
+            "value": 186174
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 30,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 234349
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 34,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 79,
+        "gaugeAfter": 99,
+        "damage": [
+          {
+            "value": 202594
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 35,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 188153
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": "before 36",
+        "automatic": false,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 188988
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 38,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 73,
+        "gaugeAfter": 93,
+        "damage": [
+          {
+            "value": 230949
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      },
+      {
+        "turn": 39,
+        "automatic": true,
+        "level": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "damage": [
+          {
+            "value": 232808
+          }
+        ],
+        "statuses": [
+          "7564_3",
+          "1479",
+          "1061"
+        ]
+      }
+    ],
+    "incomingTurns": [
+      {
+        "turn": 1,
+        "hpBefore": 19472,
+        "hpAfterIncoming": 19472,
+        "hpLoss": 0,
+        "hitCount": 0,
+        "displayedDamage": [],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 2,
+        "hpBefore": 19472,
+        "hpAfterIncoming": 19472,
+        "hpLoss": 0,
+        "hitCount": 0,
+        "displayedDamage": [],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 3,
+        "hpBefore": 19472,
+        "hpAfterIncoming": 18560,
+        "hpLoss": 912,
+        "hitCount": 1,
+        "displayedDamage": [
+          912
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 4,
+        "hpBefore": 18560,
+        "hpAfterIncoming": 18560,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 5,
+        "hpBefore": 18560,
+        "hpAfterIncoming": 17961,
+        "hpLoss": 599,
+        "hitCount": 1,
+        "displayedDamage": [
+          599
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 6,
+        "hpBefore": 17961,
+        "hpAfterIncoming": 17961,
+        "hpLoss": 0,
+        "hitCount": 0,
+        "displayedDamage": [],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 7,
+        "hpBefore": 17961,
+        "hpAfterIncoming": 17304,
+        "hpLoss": 657,
+        "hitCount": 1,
+        "displayedDamage": [
+          657
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 8,
+        "hpBefore": 17304,
+        "hpAfterIncoming": 17304,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 9,
+        "hpBefore": 17304,
+        "hpAfterIncoming": 17304,
+        "hpLoss": 0,
+        "hitCount": 0,
+        "displayedDamage": [],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 10,
+        "hpBefore": 17304,
+        "hpAfterIncoming": 16771,
+        "hpLoss": 533,
+        "hitCount": 1,
+        "displayedDamage": [
+          533
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 11,
+        "hpBefore": 16771,
+        "hpAfterIncoming": 16085,
+        "hpLoss": 686,
+        "hitCount": 1,
+        "displayedDamage": [
+          686
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 12,
+        "hpBefore": 16085,
+        "hpAfterIncoming": 16085,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 13,
+        "hpBefore": 16085,
+        "hpAfterIncoming": 15582,
+        "hpLoss": 503,
+        "hitCount": 1,
+        "displayedDamage": [
+          503
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 14,
+        "hpBefore": 15582,
+        "hpAfterIncoming": 14905,
+        "hpLoss": 677,
+        "hitCount": 1,
+        "displayedDamage": [
+          677
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 15,
+        "hpBefore": 14905,
+        "hpAfterIncoming": 14905,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 16,
+        "hpBefore": 14905,
+        "hpAfterIncoming": 13203,
+        "hpLoss": 1702,
+        "hitCount": 6,
+        "displayedDamage": [
+          0,
+          40,
+          427,
+          406,
+          403,
+          426
+        ],
+        "dawn": true,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 17,
+        "hpBefore": 13203,
+        "hpAfterIncoming": 13203,
+        "hpLoss": 0,
+        "hitCount": 0,
+        "displayedDamage": [],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 18,
+        "hpBefore": 13203,
+        "hpAfterIncoming": 13203,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 19,
+        "hpBefore": 13203,
+        "hpAfterIncoming": 13203,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 20,
+        "hpBefore": 13203,
+        "hpAfterIncoming": 9215,
+        "hpLoss": 3988,
+        "hitCount": 10,
+        "displayedDamage": [
+          247,
+          426,
+          403,
+          428,
+          410,
+          406,
+          393,
+          426,
+          423,
+          426
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 1,
+        "counterBeforeDawn": true,
+        "toughnessMessages": [
+          {
+            "status": "1104",
+            "text": "攻撃UP(累積)"
+          },
+          {
+            "status": "1378",
+            "text": "防御UP(累積)"
+          },
+          {
+            "status": "7225",
+            "text": "ダメージ上限UP(累積)"
+          }
+        ]
+      },
+      {
+        "turn": 21,
+        "hpBefore": 9215,
+        "hpAfterIncoming": 9215,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 22,
+        "hpBefore": 9215,
+        "hpAfterIncoming": 9215,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 23,
+        "hpBefore": 9215,
+        "hpAfterIncoming": 8768,
+        "hpLoss": 447,
+        "hitCount": 1,
+        "displayedDamage": [
+          447
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 24,
+        "hpBefore": 8768,
+        "hpAfterIncoming": 6402,
+        "hpLoss": 2366,
+        "hitCount": 10,
+        "displayedDamage": [
+          0,
+          0,
+          0,
+          67,
+          381,
+          403,
+          377,
+          383,
+          383,
+          372
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 1,
+        "counterBeforeDawn": true,
+        "toughnessMessages": [
+          {
+            "status": "1104",
+            "text": "攻撃UP(累積)"
+          },
+          {
+            "status": "1378",
+            "text": "防御UP(累積)"
+          },
+          {
+            "status": "7225",
+            "text": "ダメージ上限UP(累積)"
+          }
+        ]
+      },
+      {
+        "turn": 25,
+        "hpBefore": 6402,
+        "hpAfterIncoming": 5770,
+        "hpLoss": 632,
+        "hitCount": 1,
+        "displayedDamage": [
+          632
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 26,
+        "hpBefore": 5770,
+        "hpAfterIncoming": 5168,
+        "hpLoss": 602,
+        "hitCount": 1,
+        "displayedDamage": [
+          602
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 27,
+        "hpBefore": 5168,
+        "hpAfterIncoming": 5168,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 28,
+        "hpBefore": 5168,
+        "hpAfterIncoming": 5168,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 29,
+        "hpBefore": 5168,
+        "hpAfterIncoming": 5168,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 30,
+        "hpBefore": 5168,
+        "hpAfterIncoming": 4801,
+        "hpLoss": 367,
+        "hitCount": 1,
+        "displayedDamage": [
+          367
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 31,
+        "hpBefore": 4801,
+        "hpAfterIncoming": 4801,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 32,
+        "hpBefore": 4801,
+        "hpAfterIncoming": 4801,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 33,
+        "hpBefore": 4801,
+        "hpAfterIncoming": 4801,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 34,
+        "hpBefore": 4801,
+        "hpAfterIncoming": 4423,
+        "hpLoss": 378,
+        "hitCount": 1,
+        "displayedDamage": [
+          378
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 35,
+        "hpBefore": 4423,
+        "hpAfterIncoming": 3812,
+        "hpLoss": 611,
+        "hitCount": 1,
+        "displayedDamage": [
+          611
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 36,
+        "hpBefore": 3812,
+        "hpAfterIncoming": 3812,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 37,
+        "hpBefore": 3812,
+        "hpAfterIncoming": 3812,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 38,
+        "hpBefore": 3812,
+        "hpAfterIncoming": 3422,
+        "hpLoss": 390,
+        "hitCount": 1,
+        "displayedDamage": [
+          390
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 39,
+        "hpBefore": 3422,
+        "hpAfterIncoming": 2801,
+        "hpLoss": 621,
+        "hitCount": 1,
+        "displayedDamage": [
+          621
+        ],
+        "dawn": true,
+        "counters": 1,
+        "toughness": 0,
+        "counterBeforeDawn": true
+      },
+      {
+        "turn": 40,
+        "hpBefore": 2801,
+        "hpAfterIncoming": 2801,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      },
+      {
+        "turn": 41,
+        "hpBefore": 2801,
+        "hpAfterIncoming": 2801,
+        "hpLoss": 0,
+        "hitCount": 1,
+        "displayedDamage": [
+          0
+        ],
+        "dawn": false,
+        "counters": 0,
+        "toughness": 0,
+        "counterBeforeDawn": null
+      }
+    ],
+    "damageTakenEndStates": [
+      {
+        "turn": 1,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 2,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 3,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 4,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 5,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 6,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 7,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 8,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 9,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 10,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 11,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 12,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 13,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 14,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 15,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 16,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 17,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 18,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 19,
+        "damageTakenStatus": null
+      },
+      {
+        "turn": 20,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 21,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 22,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 23,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 24,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 25,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 26,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 27,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 28,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 29,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 30,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 31,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 32,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 33,
+        "damageTakenStatus": null
+      },
+      {
+        "turn": 34,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 35,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 36,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 37,
+        "damageTakenStatus": "7564_1"
+      },
+      {
+        "turn": 38,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 39,
+        "damageTakenStatus": "7564_3"
+      },
+      {
+        "turn": 40,
+        "damageTakenStatus": "7564_2"
+      },
+      {
+        "turn": 41,
+        "damageTakenStatus": "7564_1"
+      }
+    ]
   }
 }
