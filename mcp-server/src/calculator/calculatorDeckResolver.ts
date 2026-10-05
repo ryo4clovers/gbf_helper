@@ -161,6 +161,7 @@ export interface CalculatorDeckResolution {
   deck: DeckSnapshot;
   issues: CalculatorDeckResolutionIssue[];
   protagonistAbilityCompletion: { damagePercent: number; capPercent: number; specified: boolean };
+  protagonistNormalAttackChargeGain: { amountPerAttack: number; specified: boolean };
 }
 
 function calculateCatalogSummonStats(
@@ -690,6 +691,10 @@ export function resolveCalculatorDeckConfig(
     protagonistAbilityCompletion: {
       damagePercent: completion.totals.abilityDamage ?? 0,
       capPercent: completion.totals.abilityDamageCap ?? 0,
+      specified: config.protagonist.completedJobIds !== undefined,
+    },
+    protagonistNormalAttackChargeGain: {
+      amountPerAttack: completion.totals.normalAttackChargeGain ?? 0,
       specified: config.protagonist.completedJobIds !== undefined,
     },
   };

@@ -316,6 +316,7 @@ function renderParty() {
     card.querySelector(".party-member-name").textContent = member.name;
     const buffs = [];
     const weaponState = state.actionState?.weaponCharge;
+    if (member.slot === 0 && state.actionState?.fighterOrigin) buffs.push("闘心Lv " + state.actionState.fighterOrigin.level);
     if (member.slot === 0 && weaponState) {
       if (weaponState.darkAttackStacks) buffs.push("闇攻撃+" + weaponState.darkAttackStacks * 10 + "%");
       if (state.turn < weaponState.criticalExpiresOnTurn) buffs.push("クリティカル（確率30%・倍率50%）");

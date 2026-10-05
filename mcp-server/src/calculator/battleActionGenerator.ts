@@ -7,6 +7,7 @@ import { normalAttackCalculationRequestSchema, resolveDamageCalculationRequest, 
 import { calculateAutomaticAbilityDamage, AUTOMATIC_ABILITY_PROFILES, type AutomaticAbilityId } from "./automaticAbilityDamage.js";
 
 import { applyIlsaBattleEffects, initialIlsaState, ilsaBattleStateSchema, resetIlsaOnCharge } from "./ilsaBattleState.js";
+import { consumeFighterOriginGauge, fighterOriginStateSchema, FIGHTER_ORIGIN_ID } from "./fighterOriginState.js";
 
 export const automaticAbilityConditionsSchema = normalAttackCalculationRequestSchema.pick({
   enemy: true, modifiers: true, supportSummon: true,
@@ -50,7 +51,7 @@ export const battleActionGenerationRequestSchema = z.object({
 });
 
 export type BattleActionGenerationRequest = z.input<typeof battleActionGenerationRequestSchema>;
-type NormalAttackPatch = Pick<NormalAttackCalculationRequest, "attacker" | "mythicalLancerLevel" | "battleEffects">;
+type NormalAttackPatch = Pick<NormalAttackCalculationRequest, "attacker" | "mythicalLancerLevel" | "fighterSpiritLevel" | "battleEffects">;
 type ActorKey = "protagonist" | "cidala" | "sariel" | "ilsa";
 export const battleActionStateSchema = z.object({
   turn: z.number().int().min(1).max(101),
@@ -61,6 +62,7 @@ export const battleActionStateSchema = z.object({
   chocolateExpiresAt: z.number().finite().min(0).max(360000),
   ilsa: ilsaBattleStateSchema.optional(),
   weaponCharge: weaponChargeStateSchema.optional(),
+  fighterOrigin: fighterOriginStateSchema.optional(),
   defeatedPositions: z.array(z.number().int().min(0).max(3)).max(4).optional(),
   deathSentenceExpiresOnTurn: z.number().int().min(0).max(106),
 }).strict();
@@ -98,7 +100,7 @@ export type GeneratedBattleEvent = {
   damage: ReturnType<typeof calculateAutomaticAbilityDamage> | null;
 } | {
   kind: "effect";
-  effect: "other-self-ready" | "charge-ready" | "mythical-lancer-level" | "party-shield" | "dispel" | "weapon-buff";
+  effect: "other-self-ready" | "charge-ready" | "mythical-lancer-level" | "fighter-spirit-level" | "party-shield" | "dispel" | "weapon-buff";
   expiresOnTurn?: number;
   value: number;
 });
@@ -129,6 +131,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
   const deck = resolved.deck;
   const main = deck.weapons.find((weapon) => weapon.position === "main");
   const lancer = deck.protagonist.job?.masterId === "190501";
+  const fighter = deck.protagonist.job?.masterId === FIGHTER_ORIGIN_ID;
   if (lancer && (deck.protagonist.job?.level ?? 0) < 40) {
     throw new Error("ランサー・オリジンの行動効果はLv40以上に対応しています");
   }
@@ -159,6 +162,9 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
   const initialLevel = resolveProtagonistNormalAttackSupport(deck).initialMythicalLancerLevel;
   const random = randomStream(request.multiattack.seed);
   const saved = options.state && battleActionStateSchema.parse(options.state);
+  if (saved?.fighterOrigin && !fighter) throw new Error("闘心状態はファイター・オリジン専用です");
+  let fighterOrigin = fighter ? fighterOriginStateSchema.parse(saved?.fighterOrigin ?? {}) : undefined;
+  resolveProtagonistNormalAttackSupport(deck, undefined, fighterOrigin?.level);
   let ilsa = actors.some((actor) => actor.key === "ilsa") ? saved?.ilsa ?? initialIlsaState() : undefined;
   let ilsaGauge = options.ilsaCharge?.gauge ?? 0;
   let protagonistGauge = options.protagonistCharge?.gauge ?? 0;
@@ -174,7 +180,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
 
   function attackCount(key: ActorKey, turn: number): number {
     if (key === "ilsa" || (key === "sariel" && turn === 1)) return 3;
-    const guaranteed = key === "cidala" ? 2 : 1;
+    const guaranteed = key === "cidala" || (key === "protagonist" && fighter) ? 2 : 1;
     const configured = request.multiattack.rates?.[key];
     const rates = turn <= 4 && configured?.openingFourTurns ? configured.openingFourTurns : configured;
     const da = rates?.doubleAttackRatePercent ?? 0;
@@ -192,6 +198,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
     let tripleAttackActions = 0;
     let chargeAttackActions = 0;
     let ereshChargeActive = false;
+    let fighterGaugeConsumed = 0;
     const criticalBuff = (position: number) => position === 0 && turn < weaponCharge.criticalExpiresOnTurn
       ? { ratePercent: 30, damagePercent: 50 } : undefined;
     let takenAmplification = 0;
@@ -225,10 +232,11 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
       for (let action = 0; action < actionCount; action++) {
         const coupled = actor.key === "cidala" && turn <= 3;
         const split = actor.key === "ilsa" ? 3 : coupled ? 2 : actor.key === "protagonist"
-          ? resolveProtagonistNormalAttackSupport(deck, level).randomTargetHitCount : 1;
+          ? resolveProtagonistNormalAttackSupport(deck, level, fighterOrigin?.level).randomTargetHitCount : 1;
         const deathActive = turn < deathSentenceExpiresOnTurn;
         const calculationPatch: NormalAttackPatch = {
           mythicalLancerLevel: level,
+          ...(actor.position === 0 && fighterOrigin ? { fighterSpiritLevel: fighterOrigin.level } : {}),
           battleEffects: {
             enemyDefenseDownPercent: Math.min(4, chocolateStacks) * 10,
             enemyDefenseDownBeyondCapPercent: deathActive ? 10 : 0,
@@ -248,6 +256,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
         if (actor.position === 0 && options.protagonistCharge?.enabled && protagonistGauge >= 100) {
           if (!weaponChargeProfile) throw new Error("メイン武器の奥義は未対応です（フォールン・ソード4凸Lv150／エレシュキガルLv250に対応）");
           protagonistGauge = 0;
+          if (fighter) fighterGaugeConsumed += 100;
           effect("武器奥義：ゲージ消費", "charge-ready", 0);
           events.push({ sequence: ++sequence, kind: "charge-attack", actorPosition: 0, name: weaponChargeProfile.name,
             hitCount: 1, calculationPatch, criticalBuff: criticalBuff(0) });
@@ -283,7 +292,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
           }
           continue;
         }
-        const guaranteed = (actor.position === 0 && turn < weaponCharge.tripleAttackExpiresOnTurn) || actor.key === "ilsa" || (actor.key === "sariel" && turn === 1) ? 3 : actor.key === "cidala" ? 2 : 1;
+        const guaranteed = (actor.position === 0 && turn < weaponCharge.tripleAttackExpiresOnTurn) || actor.key === "ilsa" || (actor.key === "sariel" && turn === 1) ? 3 : actor.key === "cidala" || (actor.position === 0 && fighter) ? 2 : 1;
         const count = options.resolveAttackCount?.(actor.position, calculationPatch, guaranteed) ?? Math.max(guaranteed, attackCount(actor.key, turn));
         if (!Number.isInteger(count) || count < guaranteed || count > 3) throw new Error("連続攻撃回数が保証値と一致しません");
         if (count === 3) tripleAttackActions++;
@@ -302,7 +311,9 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
         }
         if (actor.key === "protagonist") {
           if (options.protagonistCharge) {
-            protagonistGauge = Math.min(100, protagonistGauge + (ereshkigal ? 0 : [0, 10, 22, 37][count]));
+            // Sage completion adds one per swing, never per random-target hit.
+            protagonistGauge = Math.min(100, protagonistGauge + (ereshkigal ? 0 : [0, 10, 22, 37][count]
+              + count * resolved.protagonistNormalAttackChargeGain.amountPerAttack));
             effect("通常攻撃：主人公奥義ゲージ", "charge-ready", protagonistGauge);
           }
           ownHits += (count * split + (addedHit ? 1 : 0)) * (1 + pursuitFrames.length + ((calculationPatch.battleEffects?.abilityNormalPursuitPercent ?? 0) > 0 ? 1 : 0));
@@ -323,6 +334,12 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
         }
       }
     }
+    // Observed Spirit message follows party actions/chain, after the CA damage.
+    if (fighterOrigin && fighterGaugeConsumed) {
+      const previousLevel = fighterOrigin.level;
+      fighterOrigin = consumeFighterOriginGauge(fighterOrigin, fighterGaugeConsumed, deck.protagonist.job?.level ?? 0);
+      if (fighterOrigin.level !== previousLevel) effect("闘心Lv", "fighter-spirit-level", fighterOrigin.level);
+    }
     if (versusia && tripleAttackActions + chargeAttackActions >= 5) {
       otherSelfReady = true;
       effect("他化自在（次の主人公通常攻撃で発動）", "other-self-ready", 1);
@@ -336,6 +353,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
     turns.push({ turn, elapsedSeconds, tripleAttackActions, chargeAttackActions, events,
       endState: { turn: turn + 1, mythicalLancerLevel: level, protagonistHitCount: ownHits, otherSelfReady,
         chocolateStacks, chocolateExpiresAt, deathSentenceExpiresOnTurn,
+        ...(fighterOrigin ? { fighterOrigin: { ...fighterOrigin } } : {}),
         ...(options.protagonistCharge || saved?.weaponCharge ? { weaponCharge: { ...weaponCharge } } : {}), ...(ilsa ? { ilsa } : {}),
         ...(saved?.defeatedPositions ? { defeatedPositions: saved.defeatedPositions } : {}) } });
   }
@@ -343,7 +361,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
     schemaVersion: 1 as const,
     kind: "generated-battle-actions" as const,
     verificationStatus: "下書き" as const,
-    modelVersion: "composition-weapon-charge-v1",
+    modelVersion: fighter ? "composition-fighter-origin-v1" : "composition-weapon-charge-v1",
     automaticAbilityConditions: conditions,
     mode: request.multiattack.mode,
     seed: request.multiattack.seed,

@@ -1,0 +1,3289 @@
+{
+  "schemaVersion": 1,
+  "confirmedOn": "2026-10-05",
+  "jobId": "100501",
+  "jobLevel": 50,
+  "evidenceScope": "User-provided passive recordings; action structure/state observations, not damage multipliers.",
+  "normalAttackChargeGainPerSwing": 1,
+  "noAbilities": {
+    "sourceFilename": "gbf-network-recorder-filtered-export-1791234379190.json",
+    "sizeBytes": 1321086,
+    "apiCount": 53,
+    "initialGauge": 30,
+    "initialLevel": 0,
+    "turns": [
+      {
+        "turn": 1,
+        "kind": "normal",
+        "levelBefore": 0,
+        "levelAfter": 0,
+        "gaugeBefore": 30,
+        "gaugeUpdates": [
+          54
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null,
+        "damageHits": [
+          [
+            12804
+          ],
+          [
+            12437
+          ]
+        ]
+      },
+      {
+        "turn": 2,
+        "kind": "normal",
+        "levelBefore": 0,
+        "levelAfter": 0,
+        "gaugeBefore": 54,
+        "gaugeUpdates": [
+          78
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 3,
+        "kind": "normal",
+        "levelBefore": 0,
+        "levelAfter": 0,
+        "gaugeBefore": 78,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          1,
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 4,
+        "kind": "charge",
+        "levelBefore": 0,
+        "levelAfter": 1,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": true
+      },
+      {
+        "turn": 5,
+        "kind": "normal",
+        "levelBefore": 1,
+        "levelAfter": 1,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          1,
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 6,
+        "kind": "normal",
+        "levelBefore": 1,
+        "levelAfter": 1,
+        "gaugeBefore": 40,
+        "gaugeUpdates": [
+          64
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 7,
+        "kind": "normal",
+        "levelBefore": 1,
+        "levelAfter": 1,
+        "gaugeBefore": 64,
+        "gaugeUpdates": [
+          88
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 8,
+        "kind": "normal",
+        "levelBefore": 1,
+        "levelAfter": 1,
+        "gaugeBefore": 88,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 9,
+        "kind": "charge",
+        "levelBefore": 1,
+        "levelAfter": 2,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": true
+      },
+      {
+        "turn": 10,
+        "kind": "normal",
+        "levelBefore": 2,
+        "levelAfter": 2,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          1,
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 11,
+        "kind": "normal",
+        "levelBefore": 2,
+        "levelAfter": 2,
+        "gaugeBefore": 40,
+        "gaugeUpdates": [
+          64
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 12,
+        "kind": "normal",
+        "levelBefore": 2,
+        "levelAfter": 2,
+        "gaugeBefore": 64,
+        "gaugeUpdates": [
+          88
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 13,
+        "kind": "normal",
+        "levelBefore": 2,
+        "levelAfter": 2,
+        "gaugeBefore": 88,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 14,
+        "kind": "charge",
+        "levelBefore": 2,
+        "levelAfter": 3,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": true
+      },
+      {
+        "turn": 15,
+        "kind": "normal",
+        "levelBefore": 3,
+        "levelAfter": 3,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          24
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 16,
+        "kind": "normal",
+        "levelBefore": 3,
+        "levelAfter": 3,
+        "gaugeBefore": 24,
+        "gaugeUpdates": [
+          48
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 17,
+        "kind": "normal",
+        "levelBefore": 3,
+        "levelAfter": 3,
+        "gaugeBefore": 48,
+        "gaugeUpdates": [
+          72
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 18,
+        "kind": "normal",
+        "levelBefore": 3,
+        "levelAfter": 3,
+        "gaugeBefore": 72,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          1,
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 19,
+        "kind": "charge",
+        "levelBefore": 3,
+        "levelAfter": 4,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": true,
+        "damageHits": [
+          [
+            84640,
+            88094
+          ]
+        ]
+      },
+      {
+        "turn": 20,
+        "kind": "normal",
+        "levelBefore": 4,
+        "levelAfter": 4,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null,
+        "damageHits": [
+          [
+            47933,
+            48072
+          ],
+          [
+            48003,
+            47689
+          ],
+          [
+            47759,
+            47446
+          ]
+        ]
+      },
+      {
+        "turn": 21,
+        "kind": "normal",
+        "levelBefore": 4,
+        "levelAfter": 4,
+        "gaugeBefore": 40,
+        "gaugeUpdates": [
+          80
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 22,
+        "kind": "normal",
+        "levelBefore": 4,
+        "levelAfter": 4,
+        "gaugeBefore": 80,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 23,
+        "kind": "charge",
+        "levelBefore": 4,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": true
+      },
+      {
+        "turn": 24,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          24,
+          34
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null,
+        "damageHits": [
+          [
+            42573,
+            43218
+          ],
+          [
+            43179,
+            42625
+          ]
+        ]
+      },
+      {
+        "turn": 25,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 34,
+        "gaugeUpdates": [
+          58
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 26,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 58,
+        "gaugeUpdates": [
+          82
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 27,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 82,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 28,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null,
+        "damageHits": [
+          [
+            92724,
+            83892
+          ]
+        ]
+      },
+      {
+        "turn": 29,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          24,
+          34
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 30,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 34,
+        "gaugeUpdates": [
+          58
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 31,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 58,
+        "gaugeUpdates": [
+          82
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 32,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 82,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 33,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 34,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          24,
+          34
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 35,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 34,
+        "gaugeUpdates": [
+          58
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 36,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 58,
+        "gaugeUpdates": [
+          82
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 37,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 82,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 38,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 39,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          24,
+          34
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 40,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 34,
+        "gaugeUpdates": [
+          58
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 41,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 58,
+        "gaugeUpdates": [
+          98
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      }
+    ],
+    "abilities": []
+  },
+  "weaponBurstReference": {
+    "sourceFilename": "gbf-network-recorder-filtered-export-1791235279493.json",
+    "sizeBytes": 1658396,
+    "apiCount": 76,
+    "initialGauge": 30,
+    "initialLevel": 0,
+    "turns": [
+      {
+        "turn": 1,
+        "kind": "charge",
+        "levelBefore": 1,
+        "levelAfter": 2,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": true
+      },
+      {
+        "turn": 2,
+        "kind": "normal",
+        "levelBefore": 2,
+        "levelAfter": 2,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          24
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 3,
+        "kind": "normal",
+        "levelBefore": 2,
+        "levelAfter": 2,
+        "gaugeBefore": 24,
+        "gaugeUpdates": [
+          64
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          1,
+          1,
+          1
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 4,
+        "kind": "normal",
+        "levelBefore": 2,
+        "levelAfter": 2,
+        "gaugeBefore": 64,
+        "gaugeUpdates": [
+          100,
+          100
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          1,
+          1,
+          1
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 5,
+        "kind": "charge",
+        "levelBefore": 2,
+        "levelAfter": 3,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": true
+      },
+      {
+        "turn": 6,
+        "kind": "charge",
+        "levelBefore": 4,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": true
+      },
+      {
+        "turn": 7,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          24
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 8,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 24,
+        "gaugeUpdates": [
+          64
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 9,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 64,
+        "gaugeUpdates": [
+          100,
+          100
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 10,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 11,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 12,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 13,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 40,
+        "gaugeUpdates": [
+          80
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 14,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 80,
+        "gaugeUpdates": [
+          100,
+          100
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 15,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 16,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 17,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 18,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 40,
+        "gaugeUpdates": [
+          64
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 19,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 64,
+        "gaugeUpdates": [
+          88,
+          98
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 20,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 98,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 21,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 22,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          24
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 23,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 24,
+        "gaugeUpdates": [
+          64
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 24,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 64,
+        "gaugeUpdates": [
+          100,
+          100
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 25,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 26,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 27,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 28,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 40,
+        "gaugeUpdates": [
+          64
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 29,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 64,
+        "gaugeUpdates": [
+          88,
+          98
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 30,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 98,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 31,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 32,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 33,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 40,
+        "gaugeUpdates": [
+          64
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 34,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 64,
+        "gaugeUpdates": [
+          88,
+          98
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 35,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 98,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 36,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 37,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          24
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 38,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 24,
+        "gaugeUpdates": [
+          48
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 39,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 48,
+        "gaugeUpdates": [
+          72,
+          82
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 40,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 82,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 41,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 42,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          24
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 43,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 24,
+        "gaugeUpdates": [
+          48
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 44,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 48,
+        "gaugeUpdates": [
+          88,
+          98
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 45,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 98,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 46,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 47,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          24
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 48,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 24,
+        "gaugeUpdates": [
+          64
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 49,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 64,
+        "gaugeUpdates": [
+          88,
+          98
+        ],
+        "attackCount": 2,
+        "swingHitCounts": [
+          2,
+          2
+        ],
+        "allyCharge": true,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 50,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 98,
+        "gaugeUpdates": [
+          100
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 51,
+        "kind": "charge",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0
+        ],
+        "attackCount": 0,
+        "swingHitCounts": [],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      },
+      {
+        "turn": 52,
+        "kind": "normal",
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40
+        ],
+        "attackCount": 3,
+        "swingHitCounts": [
+          2,
+          2,
+          2
+        ],
+        "allyCharge": false,
+        "incomingEventCount": 0,
+        "levelUpdateAfterParty": null
+      }
+    ],
+    "abilities": [
+      {
+        "turn": 1,
+        "levelBefore": 0,
+        "levelAfter": 1,
+        "gaugeBefore": 30,
+        "gaugeAfter": 100,
+        "effects": [
+          "charge-ready",
+          "attack-up",
+          "damage-cap-up",
+          "piercing",
+          "fighter-spirit"
+        ]
+      },
+      {
+        "turn": 6,
+        "levelBefore": 3,
+        "levelAfter": 4,
+        "gaugeBefore": 0,
+        "gaugeAfter": 100,
+        "effects": [
+          "charge-ready",
+          "attack-up",
+          "damage-cap-up",
+          "piercing",
+          "fighter-spirit"
+        ]
+      },
+      {
+        "turn": 11,
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeAfter": 100,
+        "effects": [
+          "charge-ready",
+          "attack-up",
+          "damage-cap-up",
+          "piercing",
+          "fighter-spirit"
+        ]
+      },
+      {
+        "turn": 16,
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeAfter": 100,
+        "effects": [
+          "charge-ready",
+          "attack-up",
+          "damage-cap-up",
+          "piercing",
+          "fighter-spirit"
+        ]
+      },
+      {
+        "turn": 21,
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "effects": [
+          "charge-ready",
+          "attack-up",
+          "damage-cap-up",
+          "piercing",
+          "fighter-spirit"
+        ]
+      },
+      {
+        "turn": 26,
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 0,
+        "gaugeAfter": 100,
+        "effects": [
+          "charge-ready",
+          "attack-up",
+          "damage-cap-up",
+          "piercing",
+          "fighter-spirit"
+        ]
+      },
+      {
+        "turn": 31,
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "effects": [
+          "charge-ready",
+          "attack-up",
+          "damage-cap-up",
+          "piercing",
+          "fighter-spirit"
+        ]
+      },
+      {
+        "turn": 36,
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "effects": [
+          "charge-ready",
+          "attack-up",
+          "damage-cap-up",
+          "piercing",
+          "fighter-spirit"
+        ]
+      },
+      {
+        "turn": 41,
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "effects": [
+          "charge-ready",
+          "attack-up",
+          "damage-cap-up",
+          "piercing",
+          "fighter-spirit"
+        ]
+      },
+      {
+        "turn": 46,
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "effects": [
+          "charge-ready",
+          "attack-up",
+          "damage-cap-up",
+          "piercing",
+          "fighter-spirit"
+        ]
+      },
+      {
+        "turn": 51,
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeAfter": 100,
+        "effects": [
+          "charge-ready",
+          "attack-up",
+          "damage-cap-up",
+          "piercing",
+          "fighter-spirit"
+        ]
+      }
+    ]
+  },
+  "incomingNoAbilities": {
+    "sourceFilename": "gbf-network-recorder-filtered-export-1791235713518.json",
+    "sizeBytes": 953619,
+    "apiCount": 51,
+    "initialHp": 19472,
+    "initialGauge": 30,
+    "turns": [
+      {
+        "turn": 1,
+        "levelAfterParty": 0,
+        "maxHp": 19472,
+        "hpBefore": 19472,
+        "hpAfter": 19472,
+        "targeted": false,
+        "incomingHitCount": 0,
+        "displayedIncoming": [],
+        "gaugeAfterParty": 54,
+        "incomingGaugeUpdates": [],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 2,
+        "levelAfterParty": 0,
+        "maxHp": 19472,
+        "hpBefore": 19472,
+        "hpAfter": 19472,
+        "targeted": false,
+        "incomingHitCount": 0,
+        "displayedIncoming": [],
+        "gaugeAfterParty": 78,
+        "incomingGaugeUpdates": [],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 3,
+        "levelAfterParty": 0,
+        "maxHp": 19472,
+        "hpBefore": 19472,
+        "hpAfter": 18611,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          861
+        ],
+        "gaugeAfterParty": 100,
+        "incomingGaugeUpdates": [
+          100
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 4,
+        "levelAfterParty": 1,
+        "maxHp": 19472,
+        "hpBefore": 18611,
+        "hpAfter": 18611,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          0
+        ],
+        "gaugeAfterParty": 0,
+        "incomingGaugeUpdates": [
+          0
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 105
+      },
+      {
+        "turn": 5,
+        "levelAfterParty": 1,
+        "maxHp": 19472,
+        "hpBefore": 18611,
+        "hpAfter": 18048,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          563
+        ],
+        "gaugeAfterParty": 24,
+        "incomingGaugeUpdates": [
+          28
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 6,
+        "levelAfterParty": 1,
+        "maxHp": 19472,
+        "hpBefore": 18048,
+        "hpAfter": 18048,
+        "targeted": false,
+        "incomingHitCount": 0,
+        "displayedIncoming": [],
+        "gaugeAfterParty": 68,
+        "incomingGaugeUpdates": [],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 7,
+        "levelAfterParty": 1,
+        "maxHp": 19472,
+        "hpBefore": 18048,
+        "hpAfter": 17360,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          688
+        ],
+        "gaugeAfterParty": 92,
+        "incomingGaugeUpdates": [
+          96
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 8,
+        "levelAfterParty": 1,
+        "maxHp": 19472,
+        "hpBefore": 17360,
+        "hpAfter": 16013,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          1347
+        ],
+        "gaugeAfterParty": 100,
+        "incomingGaugeUpdates": [
+          100
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 9,
+        "levelAfterParty": 2,
+        "maxHp": 19472,
+        "hpBefore": 16013,
+        "hpAfter": 16013,
+        "targeted": false,
+        "incomingHitCount": 0,
+        "displayedIncoming": [],
+        "gaugeAfterParty": 0,
+        "incomingGaugeUpdates": [],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 1500
+      },
+      {
+        "turn": 10,
+        "levelAfterParty": 2,
+        "maxHp": 19472,
+        "hpBefore": 16013,
+        "hpAfter": 16013,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          0
+        ],
+        "gaugeAfterParty": 24,
+        "incomingGaugeUpdates": [
+          24
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 797
+      },
+      {
+        "turn": 11,
+        "levelAfterParty": 2,
+        "maxHp": 19472,
+        "hpBefore": 16013,
+        "hpAfter": 16013,
+        "targeted": false,
+        "incomingHitCount": 0,
+        "displayedIncoming": [],
+        "gaugeAfterParty": 64,
+        "incomingGaugeUpdates": [],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 797
+      },
+      {
+        "turn": 12,
+        "levelAfterParty": 2,
+        "maxHp": 19472,
+        "hpBefore": 16013,
+        "hpAfter": 15379,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          634
+        ],
+        "gaugeAfterParty": 88,
+        "incomingGaugeUpdates": [
+          92
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 13,
+        "levelAfterParty": 2,
+        "maxHp": 19472,
+        "hpBefore": 15379,
+        "hpAfter": 14706,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          673
+        ],
+        "gaugeAfterParty": 100,
+        "incomingGaugeUpdates": [
+          100
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 14,
+        "levelAfterParty": 3,
+        "maxHp": 19472,
+        "hpBefore": 14706,
+        "hpAfter": 14706,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          0
+        ],
+        "gaugeAfterParty": 0,
+        "incomingGaugeUpdates": [
+          0
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 817
+      },
+      {
+        "turn": 15,
+        "levelAfterParty": 3,
+        "maxHp": 19472,
+        "hpBefore": 14706,
+        "hpAfter": 14706,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          0
+        ],
+        "gaugeAfterParty": 24,
+        "incomingGaugeUpdates": [
+          24
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 129
+      },
+      {
+        "turn": 16,
+        "levelAfterParty": 3,
+        "maxHp": 19472,
+        "hpBefore": 14706,
+        "hpAfter": 13400,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          1306
+        ],
+        "gaugeAfterParty": 48,
+        "incomingGaugeUpdates": [
+          56
+        ],
+        "observedIncomingGaugeDelta": 8,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 17,
+        "levelAfterParty": 3,
+        "maxHp": 19472,
+        "hpBefore": 13400,
+        "hpAfter": 12690,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          710
+        ],
+        "gaugeAfterParty": 96,
+        "incomingGaugeUpdates": [
+          100
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 18,
+        "levelAfterParty": 4,
+        "maxHp": 19472,
+        "hpBefore": 12690,
+        "hpAfter": 12690,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          0
+        ],
+        "gaugeAfterParty": 0,
+        "incomingGaugeUpdates": [
+          0
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 793
+      },
+      {
+        "turn": 19,
+        "levelAfterParty": 4,
+        "maxHp": 19472,
+        "hpBefore": 12690,
+        "hpAfter": 12690,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          0
+        ],
+        "gaugeAfterParty": 24,
+        "incomingGaugeUpdates": [
+          24
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 136
+      },
+      {
+        "turn": 20,
+        "levelAfterParty": 4,
+        "maxHp": 19472,
+        "hpBefore": 12690,
+        "hpAfter": 11380,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          1310
+        ],
+        "gaugeAfterParty": 48,
+        "incomingGaugeUpdates": [
+          56
+        ],
+        "observedIncomingGaugeDelta": 8,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 21,
+        "levelAfterParty": 4,
+        "maxHp": 19472,
+        "hpBefore": 11380,
+        "hpAfter": 10659,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          721
+        ],
+        "gaugeAfterParty": 80,
+        "incomingGaugeUpdates": [
+          84
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 22,
+        "levelAfterParty": 4,
+        "maxHp": 19472,
+        "hpBefore": 10659,
+        "hpAfter": 9952,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          707
+        ],
+        "gaugeAfterParty": 100,
+        "incomingGaugeUpdates": [
+          100
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 23,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 9952,
+        "hpAfter": 9952,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          0
+        ],
+        "gaugeAfterParty": 0,
+        "incomingGaugeUpdates": [
+          0
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 777
+      },
+      {
+        "turn": 24,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 9952,
+        "hpAfter": 9297,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          655
+        ],
+        "gaugeAfterParty": 24,
+        "incomingGaugeUpdates": [
+          28,
+          33
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 25,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 9297,
+        "hpAfter": 8581,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          716
+        ],
+        "gaugeAfterParty": 73,
+        "incomingGaugeUpdates": [
+          77,
+          82
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 26,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 8581,
+        "hpAfter": 7912,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          669
+        ],
+        "gaugeAfterParty": 100,
+        "incomingGaugeUpdates": [
+          100,
+          100
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 27,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 7912,
+        "hpAfter": 7912,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          0
+        ],
+        "gaugeAfterParty": 0,
+        "incomingGaugeUpdates": [
+          0
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 787
+      },
+      {
+        "turn": 28,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 7912,
+        "hpAfter": 7319,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          593
+        ],
+        "gaugeAfterParty": 24,
+        "incomingGaugeUpdates": [
+          28,
+          33
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 29,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 7319,
+        "hpAfter": 6659,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          660
+        ],
+        "gaugeAfterParty": 57,
+        "incomingGaugeUpdates": [
+          61,
+          66
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 30,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 6659,
+        "hpAfter": 5987,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          672
+        ],
+        "gaugeAfterParty": 90,
+        "incomingGaugeUpdates": [
+          94,
+          99
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 31,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 5987,
+        "hpAfter": 5290,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          697
+        ],
+        "gaugeAfterParty": 100,
+        "incomingGaugeUpdates": [
+          100,
+          100
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 32,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 5290,
+        "hpAfter": 5290,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          0
+        ],
+        "gaugeAfterParty": 0,
+        "incomingGaugeUpdates": [
+          0
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 61
+      },
+      {
+        "turn": 33,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 5290,
+        "hpAfter": 4661,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          629
+        ],
+        "gaugeAfterParty": 24,
+        "incomingGaugeUpdates": [
+          28,
+          33
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 34,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 4661,
+        "hpAfter": 3945,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          716
+        ],
+        "gaugeAfterParty": 73,
+        "incomingGaugeUpdates": [
+          77,
+          82
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 35,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 3945,
+        "hpAfter": 3249,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          696
+        ],
+        "gaugeAfterParty": 100,
+        "incomingGaugeUpdates": [
+          100,
+          100
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 36,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 3249,
+        "hpAfter": 3249,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          0
+        ],
+        "gaugeAfterParty": 0,
+        "incomingGaugeUpdates": [
+          0
+        ],
+        "observedIncomingGaugeDelta": 0,
+        "counterActions": 0,
+        "counterComponentCounts": [],
+        "counterConcurrentIndices": [],
+        "counterAfterIncoming": null,
+        "barrierAfter": 175
+      },
+      {
+        "turn": 37,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 3249,
+        "hpAfter": 2738,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          511
+        ],
+        "gaugeAfterParty": 24,
+        "incomingGaugeUpdates": [
+          28,
+          33
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 38,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 2738,
+        "hpAfter": 2028,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          710
+        ],
+        "gaugeAfterParty": 57,
+        "incomingGaugeUpdates": [
+          61,
+          66
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      },
+      {
+        "turn": 39,
+        "levelAfterParty": 5,
+        "maxHp": 19472,
+        "hpBefore": 2028,
+        "hpAfter": 1305,
+        "targeted": true,
+        "incomingHitCount": 1,
+        "displayedIncoming": [
+          723
+        ],
+        "gaugeAfterParty": 90,
+        "incomingGaugeUpdates": [
+          94,
+          99
+        ],
+        "observedIncomingGaugeDelta": 4,
+        "counterActions": 1,
+        "counterComponentCounts": [
+          2
+        ],
+        "counterConcurrentIndices": [
+          [
+            0,
+            1
+          ]
+        ],
+        "counterAfterIncoming": true,
+        "barrierAfter": 0
+      }
+    ]
+  },
+  "chargeConversionReference": {
+    "sourceFilename": "gbf-network-recorder-filtered-export-1791235964064.json",
+    "sizeBytes": 1085307,
+    "apiCount": 41,
+    "turnCount": 26,
+    "activationCount": 1,
+    "incomingEventCount": 0,
+    "initialHp": 19472,
+    "maxHp": 19472,
+    "hpConsumptionObserved": false,
+    "consumptions": [
+      {
+        "turn": 4,
+        "levelBefore": 0,
+        "levelAfter": 1,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          40,
+          50
+        ],
+        "normalSwingComponents": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "levelMessageAfterParty": true
+      },
+      {
+        "turn": 8,
+        "levelBefore": 1,
+        "levelAfter": 2,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          24
+        ],
+        "normalSwingComponents": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "levelMessageAfterParty": true
+      },
+      {
+        "turn": 12,
+        "levelBefore": 2,
+        "levelAfter": 3,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          24
+        ],
+        "normalSwingComponents": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "levelMessageAfterParty": true
+      },
+      {
+        "turn": 16,
+        "levelBefore": 3,
+        "levelAfter": 4,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          40
+        ],
+        "normalSwingComponents": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "levelMessageAfterParty": true
+      },
+      {
+        "turn": 19,
+        "levelBefore": 4,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          40,
+          50
+        ],
+        "normalSwingComponents": [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            1
+          ]
+        ],
+        "levelMessageAfterParty": true
+      },
+      {
+        "turn": 22,
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          24
+        ],
+        "normalSwingComponents": [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            1
+          ]
+        ],
+        "levelMessageAfterParty": null
+      },
+      {
+        "turn": 26,
+        "levelBefore": 5,
+        "levelAfter": 5,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          40
+        ],
+        "normalSwingComponents": [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            1
+          ]
+        ],
+        "levelMessageAfterParty": null
+      }
+    ]
+  },
+  "unlimitedBoostReference": {
+    "sourceFilename": "gbf-network-recorder-filtered-export-1791236343083.json",
+    "sizeBytes": 1060597,
+    "apiCount": 49,
+    "turnCount": 37,
+    "activation": {
+      "afterTurn": 22,
+      "gaugeBefore": 0,
+      "changedChargeName": "無窮の蒼剣",
+      "requiredGauge": 0
+    },
+    "turns": [
+      {
+        "turn": 23,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          0,
+          0
+        ],
+        "ownActionKinds": [
+          "無窮の蒼剣"
+        ],
+        "ownNormalActionCount": 0,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 24,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40,
+          80,
+          88,
+          93
+        ],
+        "ownActionKinds": [
+          "normal",
+          "normal"
+        ],
+        "ownNormalActionCount": 2,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 25,
+        "gaugeBefore": 93,
+        "gaugeUpdates": [
+          100,
+          0,
+          0
+        ],
+        "ownActionKinds": [
+          "normal",
+          "フォールン・スラッシュ＋＋"
+        ],
+        "ownNormalActionCount": 1,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 26,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40,
+          80,
+          80
+        ],
+        "ownActionKinds": [
+          "normal",
+          "normal"
+        ],
+        "ownNormalActionCount": 2,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 27,
+        "gaugeBefore": 80,
+        "gaugeUpdates": [
+          100,
+          0,
+          0
+        ],
+        "ownActionKinds": [
+          "normal",
+          "フォールン・スラッシュ＋＋"
+        ],
+        "ownNormalActionCount": 1,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 28,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40,
+          80,
+          84,
+          89
+        ],
+        "ownActionKinds": [
+          "normal",
+          "normal"
+        ],
+        "ownNormalActionCount": 2,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 29,
+        "gaugeBefore": 89,
+        "gaugeUpdates": [
+          100,
+          0,
+          0
+        ],
+        "ownActionKinds": [
+          "normal",
+          "フォールン・スラッシュ＋＋"
+        ],
+        "ownNormalActionCount": 1,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 30,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40,
+          80,
+          80
+        ],
+        "ownActionKinds": [
+          "normal",
+          "normal"
+        ],
+        "ownNormalActionCount": 2,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 31,
+        "gaugeBefore": 80,
+        "gaugeUpdates": [
+          100,
+          0,
+          0
+        ],
+        "ownActionKinds": [
+          "normal",
+          "フォールン・スラッシュ＋＋"
+        ],
+        "ownNormalActionCount": 1,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 32,
+        "gaugeBefore": 0,
+        "gaugeUpdates": [
+          40,
+          80,
+          100,
+          100
+        ],
+        "ownActionKinds": [
+          "normal",
+          "normal"
+        ],
+        "ownNormalActionCount": 2,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": true
+      },
+      {
+        "turn": 33,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          40,
+          40
+        ],
+        "ownActionKinds": [
+          "フォールン・スラッシュ＋＋",
+          "normal"
+        ],
+        "ownNormalActionCount": 1,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 34,
+        "gaugeBefore": 40,
+        "gaugeUpdates": [
+          80,
+          100,
+          100
+        ],
+        "ownActionKinds": [
+          "normal",
+          "normal"
+        ],
+        "ownNormalActionCount": 2,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 35,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          40,
+          40
+        ],
+        "ownActionKinds": [
+          "フォールン・スラッシュ＋＋",
+          "normal"
+        ],
+        "ownNormalActionCount": 1,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      },
+      {
+        "turn": 36,
+        "gaugeBefore": 40,
+        "gaugeUpdates": [
+          80,
+          100,
+          100,
+          100
+        ],
+        "ownActionKinds": [
+          "normal",
+          "normal"
+        ],
+        "ownNormalActionCount": 2,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": true
+      },
+      {
+        "turn": 37,
+        "gaugeBefore": 100,
+        "gaugeUpdates": [
+          0,
+          40,
+          40
+        ],
+        "ownActionKinds": [
+          "フォールン・スラッシュ＋＋",
+          "normal"
+        ],
+        "ownNormalActionCount": 1,
+        "unlimitedPreparationRemains": false,
+        "endlessBuffComponentCount": 6,
+        "postEnemyUnnamedAbility": false
+      }
+    ]
+  }
+}

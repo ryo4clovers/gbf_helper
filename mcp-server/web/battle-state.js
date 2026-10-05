@@ -1,4 +1,5 @@
 import { calculateCrewSupportEffects } from "./crew-support-config.js";
+import { resolveFighterOriginIncoming } from "./fighter-origin-reactions.js";
 
 // v2 separates shared ability modifiers from protagonist LB/completion totals.
 export const BATTLE_SETUP_STORAGE_KEY = "gbf-helper-battle-setup-v2";
@@ -153,6 +154,7 @@ function appendEvent(state, event) {
 export function applyGeneratedTurn(state, generated, packets, options = {}) {
   const next = copy(state);
   if (next.enemy.hp <= 0) return state;
+  const warnings = [...(generated.warnings ?? [])];
   for (const packet of packets) {
     if (next.enemy.hp <= 0) break;
     const member = packet.actorPosition === 0 ? next.party[0] : next.party.find((entry) => entry.slot === packet.actorPosition);
@@ -191,11 +193,21 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
       const absorbed = next.turn < (target.shield?.expiresOnTurn ?? 0) ? Math.min(incoming, target.shield.amount) : 0;
       if (absorbed) target.shield.amount -= absorbed;
       const amount = incoming - absorbed;
+      const hpBefore = target.hp;
       target.hp = clamp(target.hp - amount, 0, target.maxHp);
       appendEvent(next, { kind: "enemy-damage", actor: next.enemy.name, target: target.name, amount, note: `${options.enemyAttack.note ?? ""}${absorbed ? `・バリア吸収 ${absorbed}` : ""}` });
+      if (next.actionState?.fighterOrigin) {
+        const reaction = resolveFighterOriginIncoming({ level: next.actionState.fighterOrigin.level,
+          hpBefore, hpAfter: target.hp, maxHp: target.maxHp, chargeBefore: target.charge,
+          incomingChargeGain: options.enemyAttack.incomingChargeGain });
+        target.charge = reaction.chargeAfterCounter;
+        if (reaction.counterActions) appendEvent(next, { kind: "effect", actor: target.name, target: next.enemy.name,
+          amount: null, note: "闘心Lv5カウンター1行動・ゲージ+5（ダメージ未加算）" });
+        warnings.push(...reaction.warnings);
+      }
     }
   }
-  next.warnings = generated.warnings;
+  next.warnings = warnings;
   if (generated.advancesTurn !== false) next.turn += 1;
   if (next.actionState) {
     const defeated = next.party.filter((member) => member.hp <= 0).map((member) => member.slot);

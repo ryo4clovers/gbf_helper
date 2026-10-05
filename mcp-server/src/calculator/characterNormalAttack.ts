@@ -100,7 +100,7 @@ export function resolveNormalAttackSupport(input: DamageCalculationInput) {
   const buffCritical = input.battleEffects?.criticalDamageBonusPercent ?? 0;
   const buffCap = input.battleEffects?.damageCapPercent ?? 0;
   if (!character) {
-    const support = resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel);
+    const support = resolveProtagonistNormalAttackSupport(input.deck, input.mythicalLancerLevel, input.fighterSpiritLevel);
     return { ...support, damageCapPercent: support.damageCapPercent + buffCap,
       criticalDamageBonusPercent: support.criticalDamageBonusPercent + buffCritical,
       criticalTriggerRatePercent: buffCritical > 0 ? 100 : support.criticalTriggerRatePercent, normalAttackSupplementalDamage: 0, normalAttackAmplificationPercent: 0, sources: [support.source] };

@@ -762,6 +762,8 @@ export interface DamageCalculationInput {
   protagonistCurrentHpPercent?: number;
   /** Current battle level; absent uses the equipped weapon count at battle start. */
   mythicalLancerLevel?: number;
+  /** Fighter Origin level at the start of this action; absent is zero. */
+  fighterSpiritLevel?: number;
   accountBonuses?: AccountBonusSnapshot;
   crewModifiers?: CrewDamageModifierInput;
   incomingDamage?: {

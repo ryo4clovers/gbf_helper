@@ -28,6 +28,7 @@ export interface ProtagonistMultiattackRateResult {
   uncappedWeaponSkillTripleAttackRatePercent: number;
   uncappedDoubleAttackRatePercent: number;
   uncappedTripleAttackRatePercent: number;
+  guaranteedMinimumAttackCount: 1 | 2;
   contributions: MultiattackRateContribution[];
   issues: Array<"job-base-rate-unresolved" | "character-effects-unresolved" | "battle-buffs-unresolved">;
 }
@@ -138,8 +139,9 @@ export function calculateProtagonistMultiattackRates(
     status: "provisional",
     scope: "job-weapon-and-account-items",
     // The game truncates the final summed DA/TA values before displaying and rolling them.
-    doubleAttackRatePercent: Math.floor(cappedDoubleAttackRatePercent),
+    doubleAttackRatePercent: job?.masterId === "100501" ? 100 : Math.floor(cappedDoubleAttackRatePercent),
     tripleAttackRatePercent: Math.floor(cappedTripleAttackRatePercent),
+    guaranteedMinimumAttackCount: job?.masterId === "100501" ? 2 : 1,
     weaponSkillDoubleAttackRatePercent,
     weaponSkillTripleAttackRatePercent,
     uncappedWeaponSkillDoubleAttackRatePercent,

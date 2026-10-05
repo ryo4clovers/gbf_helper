@@ -4,6 +4,7 @@ import { resolveCalculatorDeckConfig } from "./calculatorDeckResolver.js";
 import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
 import { resolveAbilityBonuses } from "./abilityBonusResolver.js";
 import { resolveProtagonistIncomingDamageBonuses } from "./protagonistIncomingDamageBonuses.js";
+import { FIGHTER_ORIGIN_ID, FIGHTER_ORIGIN_UNRESOLVED } from "./fighterOriginState.js";
 import { resolveBattleSupportSummon } from "./summonCatalog.js";
 import {
   calculateNormalAttackDamage,
@@ -34,6 +35,7 @@ export const normalAttackCalculationRequestSchema = z
     }).strict().optional().describe("前衛キャラの単発通常攻撃。シンダラ(バレンタイン)/サリエル/浴衣イルザのアビリティ未使用時に対応。シンダラは双子緒虎の有無を明示"),
     protagonistCurrentHpPercent: z.number().finite().positive().max(100).default(100),
     mythicalLancerLevel: z.number().int().min(0).max(5).optional().describe("攻撃時点の神伝の槍手Lv。省略時は開始時の槍/斧本数"),
+    fighterSpiritLevel: z.number().int().min(0).max(5).optional().describe("攻撃時点の闘心Lv。省略時0。現在は通常分割のみ接続、攻防・技巧・与ダメ数値は未接続"),
     battleEffects: z.object({
       elementAttackPercent: optionalPercent,
       criticalDamageBonusPercent: optionalPercent,
@@ -107,6 +109,7 @@ export type NormalAttackCalculationRequest = z.input<typeof normalAttackCalculat
 
 export interface NormalAttackCalculationResponse {
   schemaVersion: 1;
+  warnings?: string[];
   battleHp: ReturnType<typeof calculateBattleHp>;
   characterStats: ReturnType<typeof resolveCalculatorDeckConfig>["characterStats"];
   deckResolutionIssues: ReturnType<typeof resolveCalculatorDeckConfig>["issues"];
@@ -258,6 +261,7 @@ export function resolveDamageCalculationRequest(input: unknown) {
     targetEnemySlot: 1,
     protagonistCurrentHpPercent: request.protagonistCurrentHpPercent,
     mythicalLancerLevel: request.mythicalLancerLevel,
+    fighterSpiritLevel: request.fighterSpiritLevel,
     battleEffects: request.battleEffects,
     accountBonuses,
     crewModifiers: {
@@ -281,6 +285,7 @@ export function calculateNormalAttackFromRequest(input: unknown,
   return {
     schemaVersion: 1,
     deckResolutionIssues: resolution.issues,
+    ...(resolution.deck.protagonist.job?.masterId === FIGHTER_ORIGIN_ID ? { warnings: [FIGHTER_ORIGIN_UNRESOLVED] } : {}),
     characterStats: resolution.characterStats,
     battleHp: calculateBattleHp(resolution.deck, supportSummon, request.modifiers.divineStampBookEnabled),
     result: calculateNormalAttackDamage(calculationInput, {

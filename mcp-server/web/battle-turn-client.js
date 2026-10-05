@@ -2,7 +2,7 @@
 export function buildBattleTurnRequest(setup, state, mode, settings, action, ilsaChargeEnabled = false) {
   const defeatedPositions = state.party.filter((member) => member.hp <= 0).map((member) => member.slot);
   const hpPercent = (member) => member.hp / member.maxHp * 100;
-  const { attacker, battleEffects, mythicalLancerLevel, ...calculation } = setup.request;
+  const { attacker, battleEffects, mythicalLancerLevel, fighterSpiritLevel, ...calculation } = setup.request;
   return {
     calculation: { ...calculation, enemy: { ...calculation.enemy, maxHp: state.enemy.maxHp },
       // Dead actors are excluded by defeatedPositions; use a valid placeholder only for them.

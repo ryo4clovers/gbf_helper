@@ -7,6 +7,8 @@ import { calculateIlsaDamage } from "./ilsaDamage.js";
 import { resolveCalculatorDeckConfig } from "./calculatorDeckResolver.js";
 import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttackSupport.js";
 import { calculateAutomaticAbilityDamage } from "./automaticAbilityDamage.js";
+import { FIGHTER_ORIGIN_ID, FIGHTER_ORIGIN_UNRESOLVED } from "./fighterOriginState.js";
+import { resolveFighterOriginIncoming } from "../../web/fighter-origin-reactions.js";
 
 const rates = z.object({ doubleAttackRatePercent: z.number().min(0).max(100), tripleAttackRatePercent: z.number().min(0).max(100) }).strict();
 export const battleTurnRequestSchema = z.object({
@@ -16,6 +18,10 @@ export const battleTurnRequestSchema = z.object({
     ability: z.union([z.literal(1), z.literal(2), z.literal(3)]) }).strict().optional(),
   ilsaChargeEnabled: z.boolean().default(false),
   protagonistCharge: z.object({ enabled: z.boolean(), gauge: z.number().finite().min(0).max(100) }).strict().optional(),
+  protagonistIncoming: z.object({
+    hpBefore: z.number().finite().nonnegative(), hpAfter: z.number().finite().nonnegative(), maxHp: z.number().finite().positive(),
+    incomingChargeGain: z.number().finite().min(0).max(100).optional(),
+  }).strict().optional().describe("主人公への1hitの実HP変化（バリア後）。オリファイ限定。被弾ゲージは明示量のみ、カウンターは行動/+5のみでダメージ未接続"),
   defeatedPositions: z.array(z.number().int().min(0).max(3)).max(4).optional(),
   mode: z.enum(["normal", "downside", "upside"]),
   secondsPerTurn: z.number().finite().positive().max(3600),
@@ -33,6 +39,7 @@ export const battleTurnRequestSchema = z.object({
  */
 export function calculateBattleTurn(input: unknown, random: () => number = Math.random) {
   const request = battleTurnRequestSchema.parse(input);
+  if (request.protagonistIncoming && (request.action || !request.protagonistCharge)) throw new Error("被弾反応は攻撃ターンと主人公ゲージ設定が必要です");
   if (new Set(request.characters.map((entry) => entry.characterSlot)).size !== request.characters.length) throw new Error("前衛の設定枠が重複しています");
   if ((request.state?.turn ?? 1) > 100) throw new Error("現在のシミュレーションは100ターンまでです");
   const normals: ReturnType<typeof calculateNormalAttackFromRequest>["result"][] = [];
@@ -40,7 +47,8 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     "下書き：自動アビリティは実測未一致の候補値。武器技巧100%以上・イルザ1アビは適用。総ダメージも参考値です。",
     "手動アビリティは浴衣イルザのみ、奥義は対応メイン武器と浴衣イルザ。チェインバースト・召喚・交代・劇毒・被ターゲット効果は未対応です。",
   ]);
-  const deck = resolveCalculatorDeckConfig(request.calculation.deckConfig).deck;
+  const resolution = resolveCalculatorDeckConfig(request.calculation.deckConfig);
+  const deck = resolution.deck;
   const ilsaCharacter = deck.characters.find((entry) => entry.position === "front" && entry.masterId === ILSA_ID);
   const initial = { turn: 1, protagonistHitCount: 0,
     mythicalLancerLevel: resolveProtagonistNormalAttackSupport(deck).initialMythicalLancerLevel,
@@ -57,7 +65,7 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     state.ilsa = ilsaOnAllyDefeat(state.ilsa, state.turn, newDefeats.length);
   }
   if (request.defeatedPositions || defeated.length) state.defeatedPositions = defeated;
-  function calculationFor(patch: Pick<NormalAttackCalculationRequest, "attacker" | "battleEffects" | "mythicalLancerLevel">): NormalAttackCalculationRequest {
+  function calculationFor(patch: Pick<NormalAttackCalculationRequest, "attacker" | "battleEffects" | "mythicalLancerLevel" | "fighterSpiritLevel">): NormalAttackCalculationRequest {
     const position = patch.attacker?.characterSlot;
     const character = request.characters.find((entry) => entry.characterSlot === position);
     if (position !== undefined && !character) throw new Error(`前衛${position}のHP設定が必要です`);
@@ -144,8 +152,21 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     }
     return event;
   });
-  if (request.protagonistCharge) warnings.add("主人公の通常ゲージはSA10/DA22/TA37%の暫定値。追加ゲージ補正・被ダメージ時のゲージは未接続");
+  if (request.protagonistCharge) {
+    warnings.add("主人公の通常ゲージはSA10/DA22/TA37%に選択済み賢者コンプリート+1×攻撃回数を加算。その他の追加ゲージ補正・被ダメージ時のゲージは未接続");
+    if (!resolution.protagonistNormalAttackChargeGain.specified) warnings.add("コンプリート選択が未指定のため通常ゲージ追加量は未確認（0として計算）");
+  }
+  if (deck.protagonist.job?.masterId === FIGHTER_ORIGIN_ID) warnings.add(FIGHTER_ORIGIN_UNRESOLVED);
+  let incomingReaction: ReturnType<typeof resolveFighterOriginIncoming> | undefined;
+  if (request.protagonistIncoming) {
+    if (!turn.endState.fighterOrigin) throw new Error("明示被弾反応はファイター・オリジン専用です");
+    const chargeEvent = [...events].reverse().find(e => e.kind === "effect" && e.effect === "charge-ready" && e.actorPosition === 0);
+    const chargeBefore = chargeEvent?.kind === "effect" ? chargeEvent.value : request.protagonistCharge!.gauge;
+    incomingReaction = resolveFighterOriginIncoming({ ...request.protagonistIncoming, level: turn.endState.fighterOrigin.level, chargeBefore });
+    for (const warning of incomingReaction.warnings) warnings.add(warning);
+  }
   const protagonistCalculation = normals.length && turn.events.some((event) => event.kind === "normal" && event.actorPosition === 0)
-    ? undefined : defeated.includes(0) ? undefined : calculateNormalAttackFromRequest(calculationFor({})).result;
-  return { schemaVersion: 1, verificationStatus: "下書き", modelVersion: plan.modelVersion, ...turn, advancesTurn: true, events, protagonistCalculation, warnings: [...warnings] };
+    ? undefined : defeated.includes(0) ? undefined : calculateNormalAttackFromRequest(calculationFor({ fighterSpiritLevel: state.fighterOrigin?.level })).result;
+  return { schemaVersion: 1, verificationStatus: "下書き", modelVersion: plan.modelVersion, ...turn, advancesTurn: true, events, protagonistCalculation,
+    ...(incomingReaction ? { incomingReaction } : {}), warnings: [...warnings] };
 }
