@@ -9,6 +9,7 @@ export function buildBattleTurnRequest(setup, state, mode, settings, action, ils
       protagonistCurrentHpPercent: state.party[0].hp > 0 ? hpPercent(state.party[0]) : 100 },
     state: state.actionState, action, ilsaChargeEnabled,
     protagonistCharge: { enabled: ilsaChargeEnabled, gauge: state.party[0].charge },
+    ...(settings.fighterLoadout ? { fighterLoadout: settings.fighterLoadout } : {}),
     ...(defeatedPositions.length || state.actionState?.defeatedPositions ? { defeatedPositions } : {}),
     mode, secondsPerTurn: settings.secondsPerTurn,
     characters: state.party.slice(1).map((member) => ({ characterSlot: member.slot,
@@ -19,6 +20,11 @@ export function buildBattleTurnRequest(setup, state, mode, settings, action, ils
 
 /** Select independent random damage for each automatic-ability hit. */
 export function automaticAbilityPackets(event, mode, random = Math.random) {
+  if (event.calculationStatus === "未計算" && (event.kind === "fighter-ability" || event.fighterReplacement)) {
+    const reason = { manual: "手動", ulfhedinn: "ウールヴ由来", endless: "無窮由来" }[event.trigger];
+    return [{ kind: "unresolved", actorPosition: event.actorPosition,
+      note: `${event.name}${reason ? `（${reason}）` : ""}・ダメージ/数値効果未計算${event.triggerOrderVerified === false ? "・共存発動の先後は未確認" : ""}` }];
+  }
   if (!event.damage) throw new Error(`${event.name}のダメージが未計算です`);
   return Array.from({ length: event.hitCount }, (_, index) => {
     const critical = event.criticalDamage && event.criticalBuff && (mode === "upside" || (mode === "normal" && random() < event.criticalBuff.ratePercent / 100));

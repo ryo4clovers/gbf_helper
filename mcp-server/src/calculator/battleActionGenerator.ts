@@ -8,6 +8,7 @@ import { calculateAutomaticAbilityDamage, AUTOMATIC_ABILITY_PROFILES, type Autom
 
 import { applyIlsaBattleEffects, initialIlsaState, ilsaBattleStateSchema, resetIlsaOnCharge } from "./ilsaBattleState.js";
 import { consumeFighterOriginGauge, fighterOriginStateSchema, FIGHTER_ORIGIN_ID } from "./fighterOriginState.js";
+import { configureFighterAbilities, castFighterAbility, fighterNormalTriggers, type FighterAbilityEvent } from "./fighterOriginAbilities.js";
 
 export const automaticAbilityConditionsSchema = normalAttackCalculationRequestSchema.pick({
   enemy: true, modifiers: true, supportSummon: true,
@@ -71,6 +72,7 @@ type GenerationOptions = {
   state?: BattleActionState;
   ilsaCharge?: { enabled: boolean; gauge: number };
   protagonistCharge?: { enabled: boolean; gauge: number };
+  fighterLoadout?: string[];
   calculationContext?: Pick<NormalAttackCalculationRequest, "enemy" | "supportSummon">;
   resolveAttackCount?: (position: number, patch: NormalAttackPatch, guaranteed: number) => number;
   resolveAddedHit?: (ratePercent: number) => boolean;
@@ -87,9 +89,12 @@ export type GeneratedBattleEvent = {
   splitCount: number;
   bodyHitCount: number;
   pursuitHitCount: number;
+  unresolvedPursuitHitCount?: number;
   calculationPatch: NormalAttackPatch;
 } | {
   kind: "charge-attack";
+  fighterReplacement?: boolean;
+  calculationStatus?: "未計算";
   hitCount: 1;
   calculationPatch: NormalAttackPatch;
 } | {
@@ -98,9 +103,9 @@ export type GeneratedBattleEvent = {
   hitCount: number;
   calculationPatch: NormalAttackPatch;
   damage: ReturnType<typeof calculateAutomaticAbilityDamage> | null;
-} | {
+} | FighterAbilityEvent | {
   kind: "effect";
-  effect: "other-self-ready" | "charge-ready" | "mythical-lancer-level" | "fighter-spirit-level" | "party-shield" | "dispel" | "weapon-buff";
+  effect: "other-self-ready" | "charge-ready" | "mythical-lancer-level" | "fighter-spirit-level" | "party-shield" | "dispel" | "dispel-all" | "weapon-buff" | "fighter-buff" | "fighter-full-heal";
   expiresOnTurn?: number;
   value: number;
 });
@@ -164,6 +169,9 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
   const saved = options.state && battleActionStateSchema.parse(options.state);
   if (saved?.fighterOrigin && !fighter) throw new Error("闘心状態はファイター・オリジン専用です");
   let fighterOrigin = fighter ? fighterOriginStateSchema.parse(saved?.fighterOrigin ?? {}) : undefined;
+  if (options.fighterLoadout && !fighter) throw new Error("オリファイの装備設定は専用ジョブのみ対応です");
+  if (fighterOrigin) fighterOrigin = configureFighterAbilities(fighterOrigin, options.fighterLoadout);
+  if (fighterOrigin?.abilities && (deck.protagonist.job?.level ?? 0) !== 50) throw new Error("オリファイのアビ対応はLv50のみです");
   resolveProtagonistNormalAttackSupport(deck, undefined, fighterOrigin?.level);
   let ilsa = actors.some((actor) => actor.key === "ilsa") ? saved?.ilsa ?? initialIlsaState() : undefined;
   let ilsaGauge = options.ilsaCharge?.gauge ?? 0;
@@ -227,6 +235,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
     for (const actor of actors) {
       if (saved?.defeatedPositions?.includes(actor.position)) continue;
       const baseActionCount = actor.key === "sariel" && turn === 1 ? 3
+        : actor.position === 0 && fighterOrigin?.abilities?.endless ? 2
         : actor.key === "ilsa" && ilsa?.multistrikeTurn === turn ? ilsa.multistrikeActions : 1;
       const actionCount = Math.max(baseActionCount, ereshChargeActive && actor.position > 0 ? 2 : 1);
       for (let action = 0; action < actionCount; action++) {
@@ -253,6 +262,24 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
         };
         calculationPatch.battleEffects = applyIlsaBattleEffects(calculationPatch.battleEffects ?? {}, ilsa, turn,
           actor.key !== "protagonist" || deck.protagonist.elementCode === "6");
+        if (actor.position === 0 && fighterOrigin?.abilities?.unlimitedPrepared) {
+          // Preparation overrides ON/OFF and gauge. No weapon damage/buffs, no gauge consumption.
+          events.push({ sequence: ++sequence, kind: "charge-attack", actorPosition: 0, name: "無窮の蒼剣",
+            hitCount: 1, calculationPatch, fighterReplacement: true, calculationStatus: "未計算" });
+          effect("無窮の蒼剣：敵の消去可能な強化を全解除", "dispel-all", 1);
+          effect("無窮の蒼剣：自分のHP・弱体を全回復", "fighter-full-heal", 1);
+          fighterOrigin.abilities.unlimitedPrepared = false;
+          fighterOrigin.abilities.endless = true;
+          effect("無窮の蒼剣：継続強化（数値未計算、次ターンから2行動）", "fighter-buff", 1);
+          chargeAttackActions++; ownHits++;
+          if (options.protagonistCharge) effect("置換奥義：ゲージ消費なし", "charge-ready", protagonistGauge);
+          if (options.ilsaCharge && !ereshkigal) {
+            ilsaGauge = Math.min(100, ilsaGauge + Math.floor(10 * .65));
+            const ally = actors.find(a => a.key === "ilsa");
+            if (ally) effect("主人公奥義：味方のゲージ上昇", "charge-ready", ilsaGauge, ally.position);
+          }
+          continue;
+        }
         if (actor.position === 0 && options.protagonistCharge?.enabled && protagonistGauge >= 100) {
           if (!weaponChargeProfile) throw new Error("メイン武器の奥義は未対応です（フォールン・ソード4凸Lv150／エレシュキガルLv250に対応）");
           protagonistGauge = 0;
@@ -292,7 +319,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
           }
           continue;
         }
-        const guaranteed = (actor.position === 0 && turn < weaponCharge.tripleAttackExpiresOnTurn) || actor.key === "ilsa" || (actor.key === "sariel" && turn === 1) ? 3 : actor.key === "cidala" || (actor.position === 0 && fighter) ? 2 : 1;
+        const guaranteed = (actor.position === 0 && (turn < weaponCharge.tripleAttackExpiresOnTurn || fighterOrigin?.abilities?.endless || turn < (fighterOrigin?.abilities?.woolExpiresOnTurn ?? 0))) || actor.key === "ilsa" || (actor.key === "sariel" && turn === 1) ? 3 : actor.key === "cidala" || (actor.position === 0 && fighter) ? 2 : 1;
         const count = options.resolveAttackCount?.(actor.position, calculationPatch, guaranteed) ?? Math.max(guaranteed, attackCount(actor.key, turn));
         if (!Number.isInteger(count) || count < guaranteed || count > 3) throw new Error("連続攻撃回数が保証値と一致しません");
         if (count === 3) tripleAttackActions++;
@@ -301,6 +328,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
         const addedHit = count > 1 && addedHitRate > 0 && (options.resolveAddedHit?.(addedHitRate)
           ?? (request.multiattack.mode === "minimum" ? addedHitRate === 100 : request.multiattack.mode === "maximum" ? true : random() < addedHitRate / 100));
         events.push({ sequence: ++sequence, kind: "normal", actorPosition: actor.position,
+          ...(actor.position === 0 && turn < (fighterOrigin?.abilities?.woolExpiresOnTurn ?? 0) ? { unresolvedPursuitHitCount: count * split } : {}),
           ...(addedHit ? { addedHit: true } : {}),
           name: NAMES[actor.key], attackCount: count, splitCount: split, bodyHitCount: count * split + (addedHit ? 1 : 0),
           pursuitHitCount: (count * split + (addedHit ? 1 : 0)) * (pursuitFrames.length + ((calculationPatch.battleEffects?.abilityNormalPursuitPercent ?? 0) > 0 ? 1 : 0)), calculationPatch, criticalBuff: criticalBuff(actor.position) });
@@ -310,6 +338,15 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
           effect(ereshkigal ? "グガルアンナ：奥義ゲージ上昇なし" : "確定TA：奥義ゲージ+24%（上昇量35%DOWN）", "charge-ready", ilsaGauge, actor.position);
         }
         if (actor.key === "protagonist") {
+          if (fighterOrigin) {
+            const triggers = fighterNormalTriggers(fighterOrigin, turn);
+            for (const trigger of triggers) {
+              const cast = castFighterAbility(fighterOrigin, turn, protagonistGauge, "beast-fang", trigger, triggers.length < 2);
+              fighterOrigin = cast.state;
+              events.push({ ...cast.event, sequence: ++sequence });
+              ownHits++;
+            }
+          }
           if (options.protagonistCharge) {
             // Sage completion adds one per swing, never per random-target hit.
             protagonistGauge = Math.min(100, protagonistGauge + (ereshkigal ? 0 : [0, 10, 22, 37][count]
@@ -361,7 +398,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
     schemaVersion: 1 as const,
     kind: "generated-battle-actions" as const,
     verificationStatus: "下書き" as const,
-    modelVersion: fighter ? "composition-fighter-origin-v1" : "composition-weapon-charge-v1",
+    modelVersion: fighterOrigin?.abilities ? "composition-fighter-origin-abilities-v1" : fighter ? "composition-fighter-origin-v1" : "composition-weapon-charge-v1",
     automaticAbilityConditions: conditions,
     mode: request.multiattack.mode,
     seed: request.multiattack.seed,

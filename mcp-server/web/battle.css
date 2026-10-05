@@ -10,7 +10,7 @@
 .turn-label { color: #c8bfff; font-size: .75rem; font-weight: 900; letter-spacing: .16em; }
 #turn-number { font-size: 2rem; line-height: 1; }
 .battle-status { padding: 7px 12px; border-radius: 999px; color: #bdf3ed; background: rgba(0,106,113,.34); font-size: .72rem; font-weight: 850; letter-spacing: .08em; }
-.history-actions { display: flex; justify-content: flex-end; gap: 8px; }
+.history-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; min-width: 0; }
 .battle-stage .text-button { color: #e7deff; }
 .danger-button { color: #ffdad6; background: rgba(186,26,26,.28); }
 .enemy-card { width: min(920px, calc(100% - 44px)); margin: 26px auto 18px; padding: clamp(18px, 3vw, 28px); display: grid; grid-template-columns: auto 1fr; gap: 18px; border-radius: 30px 18px 30px 18px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(12px); }
@@ -66,7 +66,8 @@
 .charge-row { margin-top: 9px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; color: var(--ink-soft); font-size: .68rem; font-weight: 800; }
 .charge-bar { height: 7px; overflow: hidden; border-radius: 999px; background: var(--surface-high); }
 .charge-bar > span { display: block; height: 100%; background: linear-gradient(90deg, #e59d15, #ffd66a); }
-.ability-row { margin-top: 10px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.ability-row { margin-top: 10px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.fighter-ability-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .ability-button { min-height: 34px; border: 0; border-radius: 11px 8px 11px 8px; color: var(--on-primary-container); background: var(--primary-container); font-size: .72rem; font-weight: 900; }
 .command-section + .command-section { margin-top: 24px; }
 .command-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
@@ -104,6 +105,9 @@
 .battle-settings fieldset { display: flex; flex-wrap: wrap; gap: 12px; margin-block: 12px; border: 1px solid var(--outline-soft); }
 .battle-settings label { display: flex; align-items: center; gap: 8px; font-size: .85rem; }
 .battle-settings input { width: 90px; }
+.battle-settings input[type="checkbox"] { width: auto; }
+.battle-settings fieldset[hidden] { display: none; }
+.ability-button { overflow-wrap: anywhere; min-width: 0; }
 .battle-settings input, .battle-settings select { padding: 8px; }
 #battle-warnings { font-size: .8rem; line-height: 1.7; }
 .log-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; }

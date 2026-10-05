@@ -159,8 +159,17 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
     if (next.enemy.hp <= 0) break;
     const member = packet.actorPosition === 0 ? next.party[0] : next.party.find((entry) => entry.slot === packet.actorPosition);
     if (!member || member.hp <= 0) throw new Error("行動者が前衛に存在しないか、戦闘不能です");
-    if (packet.kind === "effect") {
+    if (packet.kind === "unresolved") {
+      appendEvent(next, { kind: "unresolved", actor: member.name, target: next.enemy.name, amount: null, note: packet.note });
+    } else if (packet.kind === "effect") {
       if (packet.effect === "charge-ready") member.charge = packet.value;
+      if (packet.effect === "fighter-full-heal") {
+        const healed = member.maxHp - member.hp;
+        member.hp = member.maxHp; member.debuffs = [];
+        appendEvent(next, { kind: "heal", actor: member.name, target: member.name, amount: healed, note: packet.name });
+        continue;
+      }
+      if (packet.effect === "dispel-all") next.enemy.buffs = next.enemy.buffs.filter(buff => buff.removable === false);
       if (packet.effect === "party-shield") {
         for (const ally of next.party.filter((entry) => entry.hp > 0)) {
           if (next.turn >= (ally.shield?.expiresOnTurn ?? 0) || packet.value >= ally.shield.amount) {
@@ -237,6 +246,7 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
     }
   }
   next.warnings = warnings;
+  if (generated.damageCompleteness) next.damageCompleteness = generated.damageCompleteness;
   if (generated.advancesTurn !== false) next.turn += 1;
   if (next.actionState) {
     const defeated = next.party.filter((member) => member.hp <= 0).map((member) => member.slot);
@@ -250,6 +260,40 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
     if (next.turn < (next.actionState.ilsa?.sinExpiresOnTurn ?? 0)) next.enemy.debuffs.push({ name: "攻防25%DOWN" });
   }
   return next;
+}
+
+// Explicit save/restore: setup identity prevents a snapshot from another deck being replayed.
+export function serializeBattleSession(setup, state, history, settings, mode) {
+  return JSON.stringify({ schemaVersion: 1, setupKey: JSON.stringify(setup), state, history, settings, mode });
+}
+export function restoreBattleSession(serialized, setup, initial) {
+  const value = JSON.parse(serialized);
+  if (value.schemaVersion !== 1 || value.setupKey !== JSON.stringify(setup) || !Array.isArray(value.history)
+    || !["normal", "downside", "upside"].includes(value.mode) || !value.settings) throw new Error("保存した戦闘の編成・形式が一致しません");
+  const settings = value.settings;
+  const loadout = settings.fighterLoadout;
+  if (!Number.isFinite(settings.secondsPerTurn) || settings.secondsPerTurn <= 0 || settings.secondsPerTurn > 3600
+    || !settings.characters || (loadout && (!Array.isArray(loadout) || loadout.length > 3 || new Set(loadout).size !== loadout.length
+      || loadout.some(id => !["beast-fang", "ulfhedinn", "unlimited-boost"].includes(id))))) throw new Error("保存した戦闘設定が不正です");
+  for (const [slot, actor] of Object.entries(settings.characters)) {
+    if (!initial.party.some(p => p.slot === Number(slot))) throw new Error("保存した前衛設定が不正です");
+    if (actor.rates && [actor.rates.doubleAttackRatePercent, actor.rates.tripleAttackRatePercent].some(v => !Number.isFinite(v) || v < 0 || v > 100)) {
+      throw new Error("保存した連撃率が不正です");
+    }
+  }
+  for (const s of [value.state, ...value.history]) {
+    if (!s || !Number.isInteger(s.turn) || s.turn < 1 || s.turn > 101 || !Array.isArray(s.party)
+      || s.party.length !== initial.party.length || !Array.isArray(s.events) || !Number.isSafeInteger(s.nextEventId)
+      || !Number.isFinite(s.enemy?.hp) || s.enemy.hp < 0 || s.enemy.hp > s.enemy.maxHp
+      || s.enemy.maxHp !== value.state.enemy.maxHp) throw new Error("保存した戦闘状態が不正です");
+    s.party.forEach((p, i) => {
+      if (p.id !== initial.party[i].id || p.slot !== initial.party[i].slot || p.maxHp !== initial.party[i].maxHp
+        || !Number.isFinite(p.hp) || p.hp < 0 || p.hp > p.maxHp || !Number.isFinite(p.charge) || p.charge < 0 || p.charge > 100) {
+        throw new Error("保存した味方状態が不正です");
+      }
+    });
+  }
+  return copy(value);
 }
 
 export function applyAttack(state, packets, options = {}) {

@@ -7,15 +7,18 @@ import { calculateIlsaDamage } from "./ilsaDamage.js";
 import { resolveCalculatorDeckConfig } from "./calculatorDeckResolver.js";
 import { resolveProtagonistNormalAttackSupport } from "./protagonistNormalAttackSupport.js";
 import { calculateAutomaticAbilityDamage } from "./automaticAbilityDamage.js";
-import { FIGHTER_ORIGIN_ID, FIGHTER_ORIGIN_UNRESOLVED } from "./fighterOriginState.js";
+import { FIGHTER_ORIGIN_ID, FIGHTER_ORIGIN_UNRESOLVED, fighterOriginStateSchema, fighterLoadoutSchema } from "./fighterOriginState.js";
+import { configureFighterAbilities, castFighterAbility, FIGHTER_ABILITY_WARNING } from "./fighterOriginAbilities.js";
 import { resolveFighterOriginIncoming } from "../../web/fighter-origin-reactions.js";
 
 const rates = z.object({ doubleAttackRatePercent: z.number().min(0).max(100), tripleAttackRatePercent: z.number().min(0).max(100) }).strict();
 export const battleTurnRequestSchema = z.object({
   calculation: normalAttackCalculationRequestSchema,
   state: battleActionStateSchema.optional(),
-  action: z.object({ kind: z.literal("ilsa-ability"), characterSlot: z.number().int().min(1).max(3),
-    ability: z.union([z.literal(1), z.literal(2), z.literal(3)]) }).strict().optional(),
+  action: z.discriminatedUnion("kind", [z.object({ kind: z.literal("ilsa-ability"), characterSlot: z.number().int().min(1).max(3),
+    ability: z.union([z.literal(1), z.literal(2), z.literal(3)]) }).strict(),
+    z.object({ kind: z.literal("fighter-ability"), ability: z.enum(["weapon-burst", "beast-fang", "ulfhedinn", "unlimited-boost"]) }).strict()]).optional(),
+  fighterLoadout: fighterLoadoutSchema.optional(),
   ilsaChargeEnabled: z.boolean().default(false),
   protagonistCharge: z.object({ enabled: z.boolean(), gauge: z.number().finite().min(0).max(100) }).strict().optional(),
   protagonistIncoming: z.object({
@@ -48,7 +51,7 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
   const normals: ReturnType<typeof calculateNormalAttackFromRequest>["result"][] = [];
   const warnings = new Set<string>([
     "下書き：自動アビリティは実測未一致の候補値。武器技巧100%以上・イルザ1アビは適用。総ダメージも参考値です。",
-    "手動アビリティは浴衣イルザのみ、奥義は対応メイン武器と浴衣イルザ。チェインバースト・召喚・交代・劇毒・被ターゲット効果は未対応です。",
+    "手動アビリティは浴衣イルザとLv50オリファイの対応アビ、奥義は対応メイン武器と浴衣イルザ。オリファイ置換奥義のダメージ、チェインバースト・召喚・交代・劇毒・被ターゲット効果は未対応です。",
   ]);
   const resolution = resolveCalculatorDeckConfig(request.calculation.deckConfig);
   const deck = resolution.deck;
@@ -57,6 +60,15 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     mythicalLancerLevel: resolveProtagonistNormalAttackSupport(deck).initialMythicalLancerLevel,
     otherSelfReady: false, chocolateStacks: 0, chocolateExpiresAt: 0, deathSentenceExpiresOnTurn: 0 };
   const state = structuredClone(request.state ?? initial) as import("./battleActionGenerator.js").BattleActionState;
+  const fighter = deck.protagonist.job?.masterId === FIGHTER_ORIGIN_ID;
+  if (state.fighterOrigin && !fighter) throw new Error("闘心状態はファイター・オリジン専用です");
+  if (request.fighterLoadout && !fighter) throw new Error("オリファイの装備設定は専用ジョブのみ対応です");
+  if (fighter) state.fighterOrigin = configureFighterAbilities(fighterOriginStateSchema.parse(state.fighterOrigin ?? {}), request.fighterLoadout);
+  if (state.fighterOrigin?.abilities) {
+    if (deck.protagonist.job?.level !== 50) throw new Error("オリファイのアビ対応はLv50のみです");
+    if (!request.protagonistCharge) throw new Error("オリファイのアビ対応には主人公ゲージ設定が必要です");
+    warnings.add(FIGHTER_ABILITY_WARNING);
+  }
   if (ilsaCharacter) state.ilsa ??= initialIlsaState();
   const defeated = [...new Set([...(request.defeatedPositions ?? state.defeatedPositions ?? []),
     ...request.characters.filter((entry) => entry.currentHpPercent === 0).map((entry) => entry.characterSlot)])];
@@ -68,17 +80,35 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     state.ilsa = ilsaOnAllyDefeat(state.ilsa, state.turn, newDefeats.length);
   }
   if (request.defeatedPositions || defeated.length) state.defeatedPositions = defeated;
+  let protagonistFullyHealed = false;
   function calculationFor(patch: Pick<NormalAttackCalculationRequest, "attacker" | "battleEffects" | "mythicalLancerLevel" | "fighterSpiritLevel">): NormalAttackCalculationRequest {
     const position = patch.attacker?.characterSlot;
     const character = request.characters.find((entry) => entry.characterSlot === position);
     if (position !== undefined && !character) throw new Error(`前衛${position}のHP設定が必要です`);
     return { ...request.calculation, ...patch,
+      ...(protagonistFullyHealed ? { protagonistCurrentHpPercent: 100 } : {}),
       enemy: { ...request.calculation.enemy, attack: (request.calculation.enemy.attack ?? 10000)
         * (state.turn < (state.ilsa?.sinExpiresOnTurn ?? 0) ? .75 : 1) }, attacker: position === undefined ? undefined : {
       ...patch.attacker!, currentHpPercent: character!.currentHpPercent, artifactStartBuffs: character!.artifactStartBuffs,
     } };
   }
-  if (request.action) {
+  if (request.action?.kind === "fighter-ability") {
+    if (!fighter || deck.protagonist.job?.level !== 50 || !request.protagonistCharge) throw new Error("Lv50オリファイと主人公ゲージ設定が必要です");
+    if (defeated.includes(0)) throw new Error("戦闘不能の主人公はアビリティを使用できません");
+    state.fighterOrigin = configureFighterAbilities(state.fighterOrigin!, request.fighterLoadout ?? state.fighterOrigin?.abilities?.loadout ?? []);
+    const previous = state.fighterOrigin!;
+    const cast = castFighterAbility(previous, state.turn, request.protagonistCharge.gauge, request.action.ability);
+    state.fighterOrigin = cast.state;
+    state.protagonistHitCount += cast.event.hitCount;
+    warnings.add(FIGHTER_ABILITY_WARNING);
+    const events = [{ ...cast.event, sequence: 1 },
+      { sequence: 2, kind: "effect" as const, actorPosition: 0, name: "アビ使用後の主人公奥義ゲージ", effect: "charge-ready" as const, value: cast.gauge },
+      ...(previous.level !== cast.state.level ? [{ sequence: 3, kind: "effect" as const, actorPosition: 0, name: "闘心Lv", effect: "fighter-spirit-level" as const, value: cast.state.level }] : [])];
+    return { schemaVersion: 1, verificationStatus: "下書き", modelVersion: "composition-fighter-origin-abilities-v1", turn: state.turn,
+      elapsedSeconds: (state.turn - 1) * request.secondsPerTurn, advancesTurn: false, damageCompleteness: "partial", tripleAttackActions: 0,
+      endState: state, events, warnings: [...warnings] };
+  }
+  if (request.action?.kind === "ilsa-ability") {
     const { ability, characterSlot } = request.action;
     if (!ilsaCharacter || ilsaCharacter.slot !== characterSlot || (ilsaCharacter.level ?? 0) < 80) throw new Error("Lv80以上の前衛浴衣イルザを選択してください");
     if (defeated.includes(characterSlot)) throw new Error("戦闘不能のイルザはアビリティを使用できません");
@@ -135,8 +165,10 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
   let index = 0;
   const turn = plan.turns[0];
   const events = turn.events.map((event) => {
+    if (event.kind === "effect" && event.effect === "fighter-full-heal") protagonistFullyHealed = true;
     if (event.kind === "normal") return { ...event, calculation: normals[index++] };
     if (event.kind === "charge-attack") {
+      if (event.fighterReplacement) return { ...event, damage: null };
       const calculation = calculationFor(event.calculationPatch);
       const damage = event.actorPosition === 0 ? calculateWeaponChargeDamage(calculation)
         : calculateIlsaDamage(calculation, "charge", state.ilsa?.flowers ?? 1);
@@ -175,5 +207,6 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
   const protagonistCalculation = normals.length && turn.events.some((event) => event.kind === "normal" && event.actorPosition === 0)
     ? undefined : defeated.includes(0) ? undefined : calculateNormalAttackFromRequest(calculationFor({ fighterSpiritLevel: state.fighterOrigin?.level })).result;
   return { schemaVersion: 1, verificationStatus: "下書き", modelVersion: plan.modelVersion, ...turn, advancesTurn: true, events, protagonistCalculation,
+    ...(state.fighterOrigin?.abilities ? { damageCompleteness: "partial" as const } : {}),
     ...(incomingReaction ? { incomingReaction } : {}), warnings: [...warnings] };
 }

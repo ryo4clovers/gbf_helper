@@ -7,7 +7,7 @@
     <title>Battle Simulator — GBF Damage Lab</title>
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/battle.css" />
-    <script type="module" src="/battle.js?v=12"></script>
+    <script type="module" src="/battle.js?v=13"></script>
   </head>
   <body class="battle-page">
     <header class="top-app-bar battle-app-bar">
@@ -32,6 +32,8 @@
           <div class="history-actions">
             <button id="undo-action" class="text-button" type="button">↶ 元に戻す</button>
             <button id="reset-battle" class="tonal-button danger-button" type="button">リセット</button>
+            <button id="save-battle" class="text-button" type="button">戦闘を保存</button>
+            <button id="restore-battle" class="text-button" type="button">保存を復元</button>
           </div>
         </div>
 
@@ -71,6 +73,7 @@
           </div>
         </div>
         <p id="action-guidance" class="action-guidance"></p>
+        <p id="fighter-scope" class="section-note" hidden>オリファイLv50：ゲージ・闘心・アビ発動と行動回数に対応。アビ強化・追撃・弱体・無窮のダメージは未計算です。無窮の自己HP・弱体全回復は対応しています。表示ダメージと敵HPは対応済み成分のみです。アンリミ準備中は奥義OFFでも置換奥義を発動します。</p>
         <p class="section-note">選択した編成の順に通常攻撃・自動アビリティを実行します。編成を変更する場合は「編成・計算へ戻る」を使用してください。</p>
         <p class="section-note">「奥義 ON」で主人公と浴衣イルザがゲージ100%時に発動します。武器奥義はフォールン・ソード4凸Lv150／エレシュキガルLv250に対応。浴衣イルザは1〜3アビも使用できます。他キャラの奥義・手動アビリティ、チェインバースト・召喚・交代・劇毒は未対応。ダメージは下書きで、2アビの減衰は実測候補です。木人の反撃先は主人公に固定しています。</p>
         <details class="battle-settings">
@@ -79,6 +82,13 @@
           <label>1ターンの経過秒数 <input id="seconds-per-turn" type="number" min="1" max="3600" value="15" /></label>
           <p class="section-note">キャラ連撃率の自動合成は未対応です。通常モードは全補正込みのDA/TA率を入力してください。未入力の比較シナリオは既知の確定連撃だけを使います。ランダム強化は装備している場合だけ指定します。開始後は設定を固定します。</p>
           <div id="actor-settings"></div>
+          <fieldset id="fighter-loadout" hidden>
+            <legend>オリファイの装備アビリティ（開始前に選択）</legend>
+            <label><input type="checkbox" data-fighter-ability="beast-fang" /> ビーストファング</label>
+            <label><input type="checkbox" data-fighter-ability="ulfhedinn" /> ウールヴヘジン</label>
+            <label><input type="checkbox" data-fighter-ability="unlimited-boost" /> アンリミテッド・ブースト</label>
+            <p class="section-note">選択なしで既存の非アビ状態を使用できます。ウェポンバーストは基本アビです。複数の自動ダメージアビ候補・チャージ変換・ドーンブレイクの実行は未対応。</p>
+          </fieldset>
         </details>
         <details><summary>対応状況・計算の注意点</summary><ul id="battle-warnings"><li>前衛はLv80以上の闇シンダラ・サリエル・浴衣イルザに対応。未対応キャラは攻撃時に通知します。</li></ul></details>
         <p id="battle-error" role="alert" class="error-text"></p>

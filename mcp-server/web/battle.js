@@ -9,8 +9,9 @@ import {
   resolveDamageMultiplier,
   resolveEnemyAttackDamage,
   selectPartyMember,
-} from "/battle-state.js?v=10";
-import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=4";
+  serializeBattleSession, restoreBattleSession,
+} from "/battle-state.js?v=11";
+import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=5";
 import { scaleDamageCapThreshold, finalizeNormalAttackHit } from "/normal-attack-rounding.js";
 
 const $ = (id) => document.getElementById(id);
@@ -209,6 +210,9 @@ let actionPending = false;
 let simulationMode = SIMULATION_MODES.downside;
 let calculationPromise = null;
 let calculatedMultiattackRates = null;
+const fighterEnabled = ["100501", "origin1-fighter-origin"].includes(setup.request.deckConfig.protagonist.jobId)
+  && setup.request.deckConfig.protagonist.jobLevel === 50;
+const battleSaveKey = "gbf-helper-battle-session-v1";
 
 const modeGuidance = {
   normal: "通常：連撃と通常攻撃のクリティカルを抽選。キャラの実効DA/TA率は追加設定が必要です。",
@@ -317,6 +321,13 @@ function renderParty() {
     const buffs = [];
     const weaponState = state.actionState?.weaponCharge;
     if (member.slot === 0 && state.actionState?.fighterOrigin) buffs.push("闘心Lv " + state.actionState.fighterOrigin.level);
+    const fighter = state.actionState?.fighterOrigin;
+    const fa = fighter?.abilities;
+    if (member.slot === 0 && fa) {
+      if (state.turn < fa.woolExpiresOnTurn) buffs.push(`ウールヴ・TA確定 あと${fa.woolExpiresOnTurn - state.turn}T（数値強化未計算）`);
+      if (fa.unlimitedPrepared) buffs.push("アンリミ準備：次の行動は無窮の蒼剣");
+      if (fa.endless) buffs.push("無窮強化・2行動（数値未計算）");
+    }
     if (member.slot === 0 && weaponState) {
       if (weaponState.darkAttackStacks) buffs.push("闇攻撃+" + weaponState.darkAttackStacks * 10 + "%");
       if (state.turn < weaponState.criticalExpiresOnTurn) buffs.push("クリティカル（確率30%・倍率50%）");
@@ -332,6 +343,7 @@ function renderParty() {
     card.addEventListener("click", () => { state = selectPartyMember(state, member.id); renderParty(); });
     card.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); state = selectPartyMember(state, member.id); renderParty(); } });
     const abilities = card.querySelector(".ability-row");
+    if (member.slot === 0 && fighterEnabled) abilities.classList.add("fighter-ability-row");
     for (let number = 1; number <= (isIlsa(member) ? 3 : 4); number += 1) {
       const button = document.createElement("button");
       button.type = "button";
@@ -348,6 +360,22 @@ function renderParty() {
         button.addEventListener("click", (event) => { event.stopPropagation(); attack(false,
           { kind: "ilsa-ability", characterSlot: member.slot, ability: number }); });
         button.addEventListener("keydown", (event) => event.stopPropagation());
+      }
+      if (member.slot === 0 && fighterEnabled) {
+        const ids = ["weapon-burst", "beast-fang", "ulfhedinn", "unlimited-boost"];
+        const labels = ["ウェポンバースト", "ビーストファング", "ウールヴヘジン", "アンリミ"];
+        const id = ids[number - 1];
+        const loadout = fa?.loadout ?? [...document.querySelectorAll("[data-fighter-ability]:checked")].map(e => e.dataset.fighterAbility);
+        const readyIndex = number === 1 ? 0 : number === 2 ? 1 : 2;
+        const remaining = Math.max(0, (fa?.readyOnTurn[readyIndex] ?? 1) - state.turn);
+        button.textContent = labels[number - 1] + (number !== 4 && remaining ? `（${remaining}T）` : "");
+        button.title = "状態と発動のみ対応・数値効果未計算";
+        button.disabled = setupStatIssues.length > 0 || actionPending || member.hp <= 0 || state.enemy.hp === 0
+          || state.turn < (fa?.woolExpiresOnTurn ?? 0) || (number > 1 && !loadout.includes(id))
+          || (number !== 4 && remaining > 0) || (number === 3 && member.charge !== 100)
+          || (number === 4 && (fa?.unlimitedUsed || fighter?.level !== 5));
+        button.addEventListener("click", event => { event.stopPropagation(); void attack(false, { kind: "fighter-ability", ability: id }); });
+        button.addEventListener("keydown", event => event.stopPropagation());
       }
       abilities.append(button);
     }
@@ -415,6 +443,8 @@ function render() {
   $("attack-ougi-off").disabled = setupStatIssues.length > 0 || state.enemy.hp === 0 || actionPending;
   $("attack-ougi-on").disabled = setupStatIssues.length > 0 || actionPending || state.enemy.hp === 0 || !state.party.some((member) => (member.slot === 0 || isIlsa(member)) && member.hp > 0);
   $("reset-battle").disabled = actionPending;
+  $("save-battle").disabled = actionPending;
+  $("restore-battle").disabled = actionPending || !sessionStorage.getItem(battleSaveKey);
   for (const input of document.querySelectorAll(".battle-settings input, .battle-settings select")) input.disabled = actionPending || state.events.length > 0;
   $("action-guidance").textContent = modeGuidance[simulationMode];
   for (const button of document.querySelectorAll("[data-simulation-mode]")) {
@@ -461,7 +491,7 @@ async function attack(ougiEnabled, action) {
         if (event.actorPosition === 0) protagonistResult = event.calculation;
         packets.push(...damagePackets(event.calculation, setup.request, selectedMode, event.attackCount, "通常攻撃", event.criticalBuff, event.addedHit)
           .map((packet) => ({ ...packet, actorPosition: event.actorPosition })));
-      } else if (["automatic-ability", "manual-ability", "charge-attack"].includes(event.kind)) packets.push(...automaticAbilityPackets(event, selectedMode));
+      } else if (["automatic-ability", "manual-ability", "charge-attack", "fighter-ability"].includes(event.kind)) packets.push(...automaticAbilityPackets(event, selectedMode));
       else packets.push(event);
     }
     if (protagonistResult) acceptCalculatedRates(protagonistResult);
@@ -508,7 +538,8 @@ function readSettings() {
       ...(artifact === "" ? {} : { artifactStartBuffs: { attackUp: artifact === "attack" || artifact === "both", damageCapUp: artifact === "cap" || artifact === "both" } }),
     };
   }
-  return { characters, secondsPerTurn: Number($("seconds-per-turn").value) };
+  return { characters, secondsPerTurn: Number($("seconds-per-turn").value),
+    ...(fighterEnabled ? { fighterLoadout: [...document.querySelectorAll("[data-fighter-ability]:checked")].map(e => e.dataset.fighterAbility) } : {}) };
 }
 
 $("attack-ougi-off").addEventListener("click", () => void attack(false));
@@ -539,6 +570,30 @@ for (const button of document.querySelectorAll("[data-item]")) {
 }
 
 renderSettings();
+$("fighter-loadout").hidden = $("fighter-scope").hidden = !fighterEnabled;
+for (const input of document.querySelectorAll("[data-fighter-ability]")) input.addEventListener("change", render);
+$("save-battle").addEventListener("click", () => {
+  try { sessionStorage.setItem(battleSaveKey, serializeBattleSession(setup, state, history, readSettings(), simulationMode)); render(); }
+  catch (error) { $("battle-error").textContent = error.message; }
+});
+$("restore-battle").addEventListener("click", () => {
+  if (actionPending) return;
+  try {
+    const restored = restoreBattleSession(sessionStorage.getItem(battleSaveKey), setup, initialState);
+    state = restored.state; history = restored.history; simulationMode = restored.mode;
+    initialState.enemy.maxHp = initialState.enemy.hp = state.enemy.maxHp;
+    $("enemy-max-hp-setting").value = state.enemy.maxHp;
+    $("seconds-per-turn").value = restored.settings.secondsPerTurn;
+    for (const input of document.querySelectorAll("[data-fighter-ability]")) input.checked = restored.settings.fighterLoadout?.includes(input.dataset.fighterAbility) ?? false;
+    for (const [slot, settings] of Object.entries(restored.settings.characters ?? {})) {
+      if ($(`da-${slot}`)) $(`da-${slot}`).value = settings.rates?.doubleAttackRatePercent ?? "";
+      if ($(`ta-${slot}`)) $(`ta-${slot}`).value = settings.rates?.tripleAttackRatePercent ?? "";
+      const b = settings.artifactStartBuffs;
+      if ($(`artifact-${slot}`)) $(`artifact-${slot}`).value = !b ? "" : b.attackUp && b.damageCapUp ? "both" : b.attackUp ? "attack" : b.damageCapUp ? "cap" : "none";
+    }
+    $("battle-error").textContent = ""; render();
+  } catch (error) { $("battle-error").textContent = error.message; }
+});
 $("enemy-max-hp-setting").addEventListener("input", () => {
   if (actionPending || state.events.length > 0) return;
   const value = Number($("enemy-max-hp-setting").value);
