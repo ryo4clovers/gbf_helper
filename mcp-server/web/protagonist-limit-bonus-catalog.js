@@ -10,6 +10,7 @@ function definition(id, label, category, requiredRank, values = STANDARD_PERCENT
     values,
     unit,
     connected,
+    connectionScope: [21, 35, 41, 91].includes(id) ? "対応済みメイン武器の主人公奥義のみ（下書き）" : undefined,
   });
 }
 
@@ -41,13 +42,13 @@ export const PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS = Object.freeze([
 
   definition(5, "アビリティダメージ", "damage-multiplier", 1, STANDARD_PERCENT_VALUES, "%", true),
   definition(6, "オーバードライブ抑制", "special", 1),
-  definition(21, "奥義ダメージ", "damage-multiplier", 1),
+  definition(21, "奥義ダメージ", "damage-multiplier", 1, STANDARD_PERCENT_VALUES, "%", true),
   definition(32, "アビリティダメージ II", "damage-multiplier", 160, STANDARD_PERCENT_VALUES, "%", true),
-  definition(35, "奥義ダメージ II", "damage-multiplier", 170),
+  definition(35, "奥義ダメージ II", "damage-multiplier", 170, STANDARD_PERCENT_VALUES, "%", true),
   definition(37, "チェインバーストダメージUP", "damage-multiplier", 175),
-  definition(41, "奥義ダメージ III", "damage-multiplier", 190),
+  definition(41, "奥義ダメージ III", "damage-multiplier", 190, STANDARD_PERCENT_VALUES, "%", true),
   definition(74, "チェインバーストダメージUP II", "damage-multiplier", 215),
-  definition(91, "奥義ダメージ IV", "damage-multiplier", 290, Object.freeze([0, 2, 4, 8])),
+  definition(91, "奥義ダメージ IV", "damage-multiplier", 290, Object.freeze([0, 2, 4, 8]), "%", true),
 
   definition(8, "弱体成功率", "debuff", 1),
   definition(92, "弱体成功率 II", "debuff", 300, Object.freeze([0, 2, 4, 8])),

@@ -32,7 +32,7 @@ import {
 import {
   PROTAGONIST_OTHER_LIMIT_BONUS_CATEGORIES,
   PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS,
-} from "/protagonist-limit-bonus-catalog.js?v=2";
+} from "/protagonist-limit-bonus-catalog.js?v=3";
 import {
   calculateEquipmentLevelStats,
   calculateEquipmentSelectionDefaultStats,
@@ -808,6 +808,7 @@ function createOtherLimitBonusField(config, definition) {
   const meta = document.createElement("span");
   meta.className = "other-limit-bonus-meta";
   meta.textContent = `ID ${definition.id}・${definition.requiredRank === 1 ? "初期解放" : `Rank ${definition.requiredRank}`}`;
+  if (definition.connectionScope) meta.textContent += `・${definition.connectionScope}`;
   const select = document.createElement("select");
   const connectionLabel = definition.connected ? "計算接続済み" : "計算未接続";
   select.setAttribute("aria-label", `${definition.label}（${connectionLabel}）`);
@@ -2552,10 +2553,6 @@ function buildRequest() {
     const definition = PROTAGONIST_OTHER_LIMIT_BONUS_DEFINITIONS.find((entry) => entry.id === id);
     return definition?.values[otherLevels[id] ?? 0] ?? 0;
   };
-  const defenseLimitBonusPercent = ["2", "29", "81", "98"].reduce(
-    (sum, id) => sum + otherLimitBonusAmount(id),
-    0,
-  );
   const abilityDamageLimitBonusPercent = ["5", "32"].reduce(
     (sum, id) => sum + otherLimitBonusAmount(id),
     0,
@@ -2564,16 +2561,6 @@ function buildRequest() {
     (sum, id) => sum + otherLimitBonusAmount(id),
     0,
   );
-  const reductionIdsByElement = {
-    "1": ["15", "75", "112"], "2": ["16", "76", "113"],
-    "3": ["17", "77", "114"], "4": ["18", "78", "115"],
-    "5": ["19", "79", "116"], "6": ["20", "80", "117"],
-  };
-  const incomingElementalDamageReductionPercents = (reductionIdsByElement[$("enemy-element").value] ?? [])
-    .flatMap((id) => {
-      const amount = otherLimitBonusAmount(id);
-      return amount > 0 ? [amount] : [];
-    });
   return {
     schemaVersion: 1,
     deckConfig,
@@ -2598,15 +2585,12 @@ function buildRequest() {
       abilityDamageLimitBonusPercent,
       abilityDamageCapPercent: outgoingMemorialModifiers.abilityDamageCapPercent ?? 0,
       abilityDamageCapLimitBonusPercent,
+      incomingDamageModifierMode: "additional",
       protagonistDefensePercent:
         growth.totals.defensePercent
         + (completion.totals.defense ?? 0)
-        + defenseLimitBonusPercent
         + memorialDefensePercent,
-      incomingElementalDamageReductionPercents: [
-        ...incomingElementalDamageReductionPercents,
-        ...memorialReductionPercents,
-      ],
+      incomingElementalDamageReductionPercents: memorialReductionPercents,
     },
     random: {
       minimum: numberValue("random-min"),
@@ -3109,6 +3093,7 @@ $("protagonist-hp-percent").addEventListener("input", () => {
   schedulePersistence();
 });
 $("protagonist-hp-percent").addEventListener("change", () => void calculate());
+$("enemy-element").addEventListener("change", () => void calculate());
 $("enemy-preset").addEventListener("change", (event) => {
   if (event.target.value === "old-training-dummy") {
     $("enemy-name").value = "オールド・木人";
