@@ -9,7 +9,7 @@ import { reconcileAbilitySelection, validateAbilitySelection, fighterLoadoutFrom
 import { createCalculatorFormation, serializeCalculatorFormation, parseCalculatorFormation, mergeCalculatorFormation,
   serializeCalculatorProfiles, parseCalculatorProfiles, upsertCalculatorProfile } from "../web/calculator-state-storage.js";
 import { createInitialBattleState, serializeBattleSession, restoreBattleSession } from "../web/battle-state.js";
-import { buildBattleTurnRequest } from "../web/battle-turn-client.js";
+import { buildBattleTurnRequest, automaticAbilityPackets } from "../web/battle-turn-client.js";
 
 const jobs = createSelectableJobCatalog().jobs;
 const job = (id: string) => jobs.find(j => j.jobId === id)!;
@@ -23,6 +23,58 @@ function request(abilityIds: (string | null)[] = []) {
   return { calculation: { schemaVersion: 1, deckConfig: deck(abilityIds), enemy: { name: "敵", elementCode: "5", defense: 10 }, modifiers: {} },
     characters: [], mode: "downside", secondsPerTurn: 15, protagonistCharge: { enabled: false, gauge: 100 } };
 }
+
+test("integrated deck loadout casts Fang with its pre-cast reference and preserves explicit hit effects", () => {
+  const initial = request(["202071"]);
+  const input = { ...initial, calculation: { ...initial.calculation, beastFangDebuffHit: true } };
+  const before = structuredClone(input);
+  const cast = calculateBattleTurn({ ...input, action: { kind: "fighter-ability", ability: "beast-fang" } });
+  const event = cast.events.find(e => e.kind === "fighter-ability");
+  assert.ok(event && event.kind === "fighter-ability");
+  assert.equal(event.ability, "beast-fang");
+  assert.equal(event.debuffOutcome, "hit");
+  assert.equal(event.damage, null, "an unconfirmed attenuation table must not generate HP damage");
+  assert.equal(event.preAttenuationDamage?.trace.capContributions.battleBuffCap, 0, "cast damage precedes its own cap buff");
+  assert.equal(cast.endState.fighterOrigin?.abilities?.fangDebuffExpiresAt, 180);
+  assert.equal(cast.endState.fighterOrigin?.abilities?.fangCapExpiresOnTurn, 3);
+  assert.deepEqual(cast.endState.fighterOrigin?.abilities?.loadout, ["beast-fang"]);
+  assert.equal(automaticAbilityPackets(event, "normal")[0].kind, "unresolved");
+  assert.throws(() => calculateBattleTurn({ ...input, state: cast.endState,
+    action: { kind: "fighter-ability", ability: "beast-fang" } }), /再使用/);
+  assert.throws(() => calculateBattleTurn({ ...input, fighterLoadout: [],
+    action: { kind: "fighter-ability", ability: "beast-fang" } }), /一致/);
+  assert.deepEqual(input, before);
+});
+
+test("integrated Web and batch generation retain equipped automatic Fang reference across save and restore", () => {
+  const input = request(["202071", "200721", "203961"]);
+  const wool = calculateBattleTurn({ ...input, action: { kind: "fighter-ability", ability: "ulfhedinn" } });
+  const setup = { request: input.calculation, protagonistMaxHp: 1000, enemyMaxHp: 1000000 };
+  const state = createInitialBattleState(setup);
+  state.actionState = wool.endState; state.party[0].charge = 0;
+  const settings = { secondsPerTurn: 15, characters: {}, fighterLoadout: fighterLoadoutFromDeck(input.calculation.deckConfig.protagonist) };
+  const restored = restoreBattleSession(serializeBattleSession(setup, state, [], settings, "downside"), setup, state);
+  const fromWeb = buildBattleTurnRequest(setup, restored.state, "downside", settings);
+  const out = calculateBattleTurn(fromWeb);
+  const event = out.events.find(e => e.kind === "fighter-ability");
+  assert.ok(event && event.kind === "fighter-ability");
+  assert.equal(event.trigger, "ulfhedinn");
+  assert.equal(event.debuffOutcome, "unknown", "Web does not pretend to observe debuff accuracy");
+  assert.equal(event.preAttenuationDamage?.kind, "pre-attenuation-reference");
+  assert.equal(out.protagonistCalculation !== undefined, true, "enemy retaliation uses the state after automatic Fang");
+  assert.equal(out.endState.fighterOrigin?.abilities?.fangCapExpiresOnTurn, 3);
+  assert.equal(out.endState.fighterOrigin?.abilities?.fangDebuffExpiresAt, 0);
+  const batch = generateBattleActions({ schemaVersion: 1, deckConfig: input.calculation.deckConfig,
+    turns: 1, secondsPerTurn: 15, chargeAttack: false, manualAbilities: false,
+    multiattack: { mode: "minimum", seed: 1 }, automaticAbilityConditions: {
+      enemy: { elementCode: "5", defense: 10, maxHp: 1000000 }, protagonistCurrentHpPercent: 100,
+      characters: [], beastFangDebuffHit: true,
+    } }, { state: wool.endState, protagonistCharge: { enabled: false, gauge: 0 } });
+  const automatic = batch.turns[0].events.find(e => e.kind === "fighter-ability");
+  assert.ok(automatic && automatic.kind === "fighter-ability");
+  assert.equal(automatic.debuffOutcome, "hit");
+  assert.equal(automatic.preAttenuationDamage?.kind, "pre-attenuation-reference");
+});
 
 test("all 80 jobs expose class-correct fixed/free slots and only catalog candidates", () => {
   assert.equal(jobs.length, 80);

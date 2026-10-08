@@ -71,8 +71,10 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
   const character = selectedCharacter(original);
   if (profile.characterId !== character?.masterId) throw new Error("アビリティと攻撃者が一致しません");
   if (character && (character.level ?? 0) < 80) throw new Error("自動アビリティはキャラクターLv80以上に対応しています");
-  if (!character && original.deck.protagonist.elementCode !== "6") throw new Error("自動アビリティ計算は闇属性の主人公に対応しています");
-  if (!charge && !character && (original.deck.protagonist.job?.masterId !== "190501" || (original.deck.protagonist.job.level ?? 0) < 40)) {
+  const fang = abilityId === "beast-fang";
+  if (fang && (character || original.deck.protagonist.job?.masterId !== "100501" || original.deck.protagonist.job.level !== 50)) throw new Error("ビーストファングはLv50ファイター・オリジン専用です");
+  if (!fang && !character && original.deck.protagonist.elementCode !== "6") throw new Error("自動アビリティ計算は闇属性の主人公に対応しています");
+  if (!fang && !charge && !character && (original.deck.protagonist.job?.masterId !== "190501" || (original.deck.protagonist.job.level ?? 0) < 40)) {
     throw new Error("主人公の自動アビリティはランサー・オリジンLv40以上に対応しています");
   }
   if (abilityId === "other-self" && !original.deck.summons.some((summon) =>

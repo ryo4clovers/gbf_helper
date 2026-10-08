@@ -1,13 +1,17 @@
 import { fighterAbilitiesSchema, fighterOriginStateSchema, consumeFighterOriginGauge, type FighterOriginState } from "./fighterOriginState.js";
+import { beastFangPreAttenuationDamage } from "./beastFangDamage.js";
+import type { NormalAttackCalculationRequest } from "./normalAttackCalculationRequest.js";
 
 export type FighterAbility = "weapon-burst" | "beast-fang" | "ulfhedinn" | "unlimited-boost";
 export type FighterTrigger = "manual" | "ulfhedinn" | "endless";
 export type FighterAbilityEvent = {
   kind: "fighter-ability"; actorPosition: 0; name: string; ability: FighterAbility;
   trigger: FighterTrigger; hitCount: 0 | 1; damage: null; calculationStatus: "未計算";
+  preAttenuationDamage?: ReturnType<typeof beastFangPreAttenuationDamage>;
+  debuffOutcome?: "hit" | "miss" | "unknown";
   triggerOrderVerified: boolean;
 };
-export const FIGHTER_ABILITY_WARNING = "オリファイアビ：発動回数・ゲージ・闘心・期限・無窮TA保証・置換奥義の全回復/弱体解除/全ディスペルに対応。ウェポンバースト/ウールヴ/無窮/ファングの数値強化・追撃・攻防DOWN・倍率/上限は未計算。表示ダメージと敵HPは対応済み成分だけで、総ダメージではありません。共存する自動発動の先後は未識別。";
+export const FIGHTER_ABILITY_WARNING = "オリファイアビ：発動回数・ゲージ・闘心・期限・無窮TA保証・置換奥義の全回復/弱体解除/全ディスペルに対応。ビーストファングは減衰前参照・命中明示時の攻防DOWN・自上限に対応。減衰後ダメージは未計算。ウェポンバースト/ウールヴ/無窮の数値強化・追撃・置換奥義は未計算。表示ダメージと敵HPは対応済み成分だけで、総ダメージではありません。共存する自動発動の先後は未識別。";
 
 /** Loadout is immutable during a battle; omitted on continuation means reuse it. */
 export function configureFighterAbilities(state: FighterOriginState, loadout?: string[]): FighterOriginState {
@@ -20,7 +24,9 @@ export function configureFighterAbilities(state: FighterOriginState, loadout?: s
 
 /** The same execution handles manual and normal-action triggers. Never invent a damage profile. */
 export function castFighterAbility(input: FighterOriginState, turn: number, gauge: number, ability: FighterAbility,
-  trigger: FighterTrigger = "manual", triggerOrderVerified = true) {
+  trigger: FighterTrigger = "manual", triggerOrderVerified = true,
+  context?: { calculation: NormalAttackCalculationRequest; elapsedSeconds: number },
+  elapsedSeconds = context?.elapsedSeconds ?? 0) {
   const state = structuredClone(input);
   const a = state.abilities;
   if (!a || (ability !== "weapon-burst" && !a.loadout.includes(ability))) throw new Error("装備していないアビリティです");
@@ -47,14 +53,20 @@ export function castFighterAbility(input: FighterOriginState, turn: number, gaug
     a.woolExpiresOnTurn = turn + 4;
     a.readyOnTurn[2] = turn + 5;
   } else if (ability === "beast-fang") {
-    a.fangDebuffObserved = true; // Presence only; timed DEF/ATK effects are not applied to damage.
-    a.fangCapObserved = true; // Expiry/refresh/stacking is withheld with the unknown numerical profile.
+    a.fangDebuffObserved = true;
+    a.fangCapObserved = true;
+    if (context?.calculation.beastFangDebuffHit === true) a.fangDebuffExpiresAt = elapsedSeconds + 180;
+    a.fangCapExpiresOnTurn = turn + 2; // Refresh candidate; not a buff-duration extension operation.
     if (trigger === "manual") a.readyOnTurn[1] = turn + 7;
   } else {
     a.unlimitedPrepared = a.unlimitedUsed = true;
   }
+  // Context must represent the state BEFORE this cast's debuff/cap are applied.
   const event: FighterAbilityEvent = { kind: "fighter-ability", actorPosition: 0, name, ability, trigger,
-    hitCount: ability === "beast-fang" ? 1 : 0, damage: null, calculationStatus: "未計算", triggerOrderVerified };
+    hitCount: ability === "beast-fang" ? 1 : 0, damage: null, calculationStatus: "未計算", triggerOrderVerified,
+    ...(ability === "beast-fang" && context ? { preAttenuationDamage: beastFangPreAttenuationDamage(context.calculation),
+      debuffOutcome: context.calculation.beastFangDebuffHit === undefined ? "unknown" as const : context.calculation.beastFangDebuffHit ? "hit" as const : "miss" as const } : {}),
+  };
   return { state, gauge, event };
 }
 

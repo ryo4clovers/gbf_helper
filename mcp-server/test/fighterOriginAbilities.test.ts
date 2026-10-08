@@ -2,8 +2,12 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { calculateBattleTurn } from "../src/calculator/battleTurn.ts";
+import { generateBattleActions } from "../src/calculator/battleActionGenerator.ts";
 import { consumeFighterOriginGauge, fighterAbilitiesSchema } from "../src/calculator/fighterOriginState.ts";
 import { castFighterAbility } from "../src/calculator/fighterOriginAbilities.ts";
+import { beastFangPreAttenuationDamage, applyBeastFangEffects, beastFangEnemyAttackMultiplier } from "../src/calculator/beastFangDamage.ts";
+import { calculateAutomaticAbilityDamage } from "../src/calculator/automaticAbilityDamage.ts";
+import { resolveBattleDamageEffects } from "../src/calculator/battleDamageEffects.ts";
 import { createInitialBattleState, applyGeneratedTurn, serializeBattleSession, restoreBattleSession } from "../web/battle-state.js";
 import { buildBattleTurnRequest, automaticAbilityPackets } from "../web/battle-turn-client.js";
 
@@ -13,10 +17,145 @@ function request(): any {
   return { calculation: { schemaVersion: 1, deckConfig: { schemaVersion: 1, format: "gbf-helper-calculator-deck",
     protagonist: { elementCode: "6", jobId: "100501", jobLevel: 50, attackOverride: 50000, hpOverride: 1000, completedJobIds: ["250201"] },
     weapons: [{ slot: 1, position: "main", weaponId: "1040014300", level: 150, uncapLevel: 4, skillLevel: 15 }], characters: [], summons: [] },
-    enemy: { name: "敵", elementCode: "5", defense: 10 }, modifiers: {} },
+    enemy: { name: "敵", elementCode: "5", defense: 10 }, modifiers: {}, beastFangDebuffHit: true },
     characters: [], mode: "upside", secondsPerTurn: 15, fighterLoadout: loadout, protagonistCharge: { enabled: true, gauge: 30 } };
 }
 const gaugeAfter = (out: any, fallback: number) => out.events.filter((e: any) => e.kind === "effect" && e.effect === "charge-ready" && e.actorPosition === 0).at(-1)?.value ?? fallback;
+
+for (const outcome of [undefined, false, true]) {
+  test(`fixed conditions automatic Fang accepts characters without leaking them, and respects debuff hit ${String(outcome)}`, () => {
+    const input = activeInput(1, 0);
+    const fixed = { schemaVersion: 1, deckConfig: input.calculation.deckConfig,
+      turns: 1, secondsPerTurn: 15, chargeAttack: false, manualAbilities: false,
+      multiattack: { mode: "minimum", seed: 1 }, automaticAbilityConditions: {
+        enemy: input.calculation.enemy, modifiers: input.calculation.modifiers, protagonistCurrentHpPercent: 100,
+        characters: [], ...(outcome === undefined ? {} : { beastFangDebuffHit: outcome }),
+      } };
+    const before = structuredClone(fixed);
+    const plan = generateBattleActions(fixed, { state: input.state, fighterLoadout: loadout });
+    const casts = plan.turns[0].events.filter(e => e.kind === "fighter-ability");
+    assert.equal(casts.length, 4);
+    assert.ok(casts.every(e => e.kind === "fighter-ability" && e.preAttenuationDamage?.predictions.length === 101 && e.damage === null));
+    assert.ok(casts.every(e => e.kind === "fighter-ability" && e.debuffOutcome === (outcome === undefined ? "unknown" : outcome ? "hit" : "miss")));
+    assert.equal(plan.turns[0].endState.fighterOrigin!.abilities!.fangDebuffExpiresAt, outcome ? 180 : 0);
+    const first = casts[0].preAttenuationDamage!.trace.commonPreAbilityDamage;
+    const second = casts[1].preAttenuationDamage!.trace.commonPreAbilityDamage;
+    if (outcome) assert.ok(second > first);
+    else assert.equal(second, first);
+    assert.ok(plan.assumptions.some(a => a.includes(outcome === undefined ? "unknown" : outcome ? "明示true" : "明示false")));
+    assert.ok(plan.warnings?.some(w => w.includes("弱体命中未指定は新規付与なし")));
+    assert.deepEqual(fixed, before);
+  });
+}
+
+test("Fang manual/automatic share pre-cast damage; following casts gain DEF Down and cap without mutating inputs", () => {
+  const input = activeInput(1, 0, false);
+  input.state.fighterOrigin.abilities.endless = false;
+  input.calculation.deckConfig.protagonist.attackOverride = 5000;
+  const before = structuredClone(input);
+  const manual = calculateBattleTurn({ ...input, action: { kind: "fighter-ability", ability: "beast-fang" } });
+  const automatic = calculateBattleTurn({ ...input, state: { ...input.state, fighterOrigin: { ...input.state.fighterOrigin,
+    abilities: { ...input.state.fighterOrigin.abilities, woolExpiresOnTurn: 5 } } } });
+  const m = manual.events.find(e => e.kind === "fighter-ability")!;
+  const a = automatic.events.find(e => e.kind === "fighter-ability")!;
+  assert.deepEqual(m.preAttenuationDamage, a.preAttenuationDamage);
+  assert.equal(m.preAttenuationDamage!.trace.intrinsicMultiplier, 4);
+  assert.equal(m.preAttenuationDamage!.trace.capContributions.battleBuffCap, 0);
+  assert.equal(manual.endState.fighterOrigin!.abilities!.fangCapExpiresOnTurn, 3);
+  assert.equal(manual.endState.fighterOrigin!.abilities!.fangDebuffExpiresAt, 180);
+  const next = calculateBattleTurn({ ...input, state: manual.endState });
+  const repeated = calculateBattleTurn({ ...input, state: { ...manual.endState, turn: 8 }, action: { kind: "fighter-ability", ability: "beast-fang" } });
+  assert.equal(repeated.events[0].preAttenuationDamage!.trace.capContributions.battleBuffCap, 0);
+  assert.ok(repeated.events[0].preAttenuationDamage!.trace.commonPreAbilityDamage > m.preAttenuationDamage!.trace.commonPreAbilityDamage);
+  assert.ok(next.events.some(e => e.kind === "normal"));
+  assert.deepEqual(input, before);
+});
+
+test("two triggers update damage sequentially, refresh instead of stacking, and do not alter manual cooldown", () => {
+  const out = calculateBattleTurn(activeInput(11, 0));
+  const casts = out.events.filter(e => e.kind === "fighter-ability");
+  assert.equal(casts[0].preAttenuationDamage!.trace.capContributions.battleBuffCap, 0);
+  assert.equal(casts[1].preAttenuationDamage!.trace.capContributions.battleBuffCap, 50);
+  assert.ok(casts[1].preAttenuationDamage!.trace.commonPreAbilityDamage > casts[0].preAttenuationDamage!.trace.commonPreAbilityDamage);
+  assert.deepEqual(casts[2].preAttenuationDamage, casts[3].preAttenuationDamage);
+  assert.equal(out.endState.fighterOrigin!.abilities!.fangCapExpiresOnTurn, 13);
+  assert.equal(out.endState.fighterOrigin!.abilities!.readyOnTurn[1], 1);
+  const normals = out.events.filter(e => e.kind === "normal");
+  assert.equal(normals[0].calculationPatch.battleEffects!.damageCapPercent, 0);
+  assert.equal(normals[1].calculationPatch.battleEffects!.damageCapPercent, 50);
+  assert.equal(normals[0].calculation.incomingDamage!.enemyAttack, 10000);
+  assert.equal(out.protagonistCalculation!.incomingDamage!.enemyAttack, 7500);
+});
+
+test("Fang debuff needs an explicit hit; misses preserve earlier expiry; ambiguous frames stay non-additive and warned", () => {
+  const input = request(); delete input.calculation.beastFangDebuffHit;
+  const unknown = calculateBattleTurn({ ...input, action: { kind: "fighter-ability", ability: "beast-fang" } });
+  assert.equal(unknown.events[0].debuffOutcome, "unknown");
+  assert.equal(unknown.endState.fighterOrigin!.abilities!.fangDebuffExpiresAt, 0);
+  input.calculation.beastFangDebuffHit = true;
+  const hit = calculateBattleTurn({ ...input, action: { kind: "fighter-ability", ability: "beast-fang" } });
+  const missed = castFighterAbility(hit.endState.fighterOrigin!, 8, 30, "beast-fang", "manual", true,
+    { calculation: { ...input.calculation, beastFangDebuffHit: false }, elapsedSeconds: 105 });
+  assert.equal(missed.state.abilities!.fangDebuffExpiresAt, 180);
+  assert.equal(missed.event.debuffOutcome, "miss");
+  const effects = applyBeastFangEffects({ enemyDefenseDownPercent: 20, damageCapPercent: 60 }, hit.endState.fighterOrigin, 1, 0, true);
+  assert.equal(effects.enemyDefenseDownPercent, 25);
+  assert.equal(effects.damageCapPercent, 60);
+  const capped = applyBeastFangEffects({ enemyDefenseDownPercent: 60, enemyDefenseDownBeyondCapPercent: 10 }, hit.endState.fighterOrigin, 1, 0, true);
+  assert.equal(resolveBattleDamageEffects(capped).totalDefenseDownPercent, 60);
+  const automatic = calculateBattleTurn({ ...input, state: hit.endState,
+    calculation: { ...input.calculation, battleEffects: { enemyDefenseDownPercent: 40 } } });
+  const control = calculateBattleTurn({ ...input, calculation: { ...input.calculation, battleEffects: { enemyDefenseDownPercent: 40 } } });
+  assert.equal(automatic.events.find(e => e.kind === "normal")!.calculation.bodyDamageDistribution.preparedNominalDamage, control.events.find(e => e.kind === "normal")!.calculation.bodyDamageDistribution.preparedNominalDamage);
+  assert.ok(automatic.warnings.some(w => w.includes("別枠なら過小評価")));
+});
+
+test("Fang cap expires on the turn boundary; debuffs expire at exactly 180 seconds and legacy flags add no numbers", () => {
+  const state = { level: 0, consumedGaugeRemainder: 0, abilities: fighterAbilitiesSchema.parse({ loadout,
+    fangCapObserved: true, fangDebuffObserved: true, fangCapExpiresOnTurn: 3, fangDebuffExpiresAt: 180 }) };
+  assert.equal(applyBeastFangEffects({}, state, 2, 179, true).damageCapPercent, 50);
+  assert.equal(applyBeastFangEffects({}, state, 3, 179, true).damageCapPercent, 0);
+  assert.equal(applyBeastFangEffects({}, state, 3, 180, true).enemyDefenseDownPercent, 0);
+  assert.equal(applyBeastFangEffects({}, state, 2, 179, false).damageCapPercent, 0);
+  assert.equal(beastFangEnemyAttackMultiplier(state, 179), .75);
+  assert.equal(beastFangEnemyAttackMultiplier(state, 180), 1);
+  const legacy = { ...state, abilities: fighterAbilitiesSchema.parse({ loadout, fangCapObserved: true, fangDebuffObserved: true }) };
+  assert.deepEqual(applyBeastFangEffects({}, legacy, 1, 0, true), { damageCapPercent: 0, enemyDefenseDownPercent: 0 });
+  const input = request(); input.calculation.deckConfig.protagonist.attackOverride = 5000;
+  const first = calculateBattleTurn({ ...input, action: { kind: "fighter-ability", ability: "beast-fang" } });
+  const same = castFighterAbility(first.endState.fighterOrigin!, 2, 30, "beast-fang", "endless", true, { calculation: input.calculation, elapsedSeconds: 15 }, 15);
+  assert.equal(same.state.abilities!.fangCapExpiresOnTurn, 4);
+  assert.equal(same.state.abilities!.fangDebuffExpiresAt, 195);
+});
+
+test("Fang returns pre-attenuation only, unknowns stay visible, and other protagonist ability gates stay unchanged", () => {
+  const input = request(); input.calculation.deckConfig.protagonist.attackOverride = 1000000;
+  const result = beastFangPreAttenuationDamage(input.calculation);
+  assert.equal(result.kind, "pre-attenuation-reference");
+  assert.equal(result.verificationStatus, "下書き");
+  assert.ok(result.predictions[100].damage > result.predictions[0].damage);
+  assert.ok(result.issues.some(i => i.includes("枠競合")));
+  assert.throws(() => calculateAutomaticAbilityDamage({ abilityId: "mythical-arms", calculation: input.calculation }), /ランサー/);
+  input.calculation.deckConfig.protagonist.jobId = "190501";
+  assert.throws(() => beastFangPreAttenuationDamage(input.calculation), /専用/);
+});
+
+test("unknown Fang damage cannot reduce enemy HP; new timed state survives save/restore and undo", () => {
+  const input = request();
+  const setup = { request: input.calculation, enemyMaxHp: 10000000, protagonistMaxHp: 1000 };
+  const initial = createInitialBattleState(setup);
+  const settings = { secondsPerTurn: 15, characters: {}, fighterLoadout: loadout };
+  const out = calculateBattleTurn({ ...input, action: { kind: "fighter-ability", ability: "beast-fang" } });
+  const packets = out.events.flatMap(e => e.kind === "fighter-ability" ? automaticAbilityPackets(e, "upside") : [e]);
+  const after = applyGeneratedTurn(initial, out, packets);
+  assert.equal(after.enemy.hp, initial.enemy.hp);
+  assert.equal(out.events[0].damage, null);
+  assert.ok(out.events[0].preAttenuationDamage);
+  const restored = restoreBattleSession(serializeBattleSession(setup, after, [initial], settings, "upside"), setup, initial);
+  assert.equal(restored.state.actionState.fighterOrigin.abilities.fangCapExpiresOnTurn, 3);
+  assert.equal(restored.state.actionState.fighterOrigin.abilities.fangDebuffExpiresAt, 180);
+  assert.deepEqual(restored.history.pop(), initial);
+});
 
 test("8th recording: 23 manual uses and all 41 party action/gauge/Spirit traces (observed incoming gauge supplied)", () => {
   let input = request(); const original = structuredClone(input); let manualFang = 0, automaticFang = 0;
@@ -104,7 +243,7 @@ test("T11/T12/T15: independent triggers, per-action CA selection, expiry, and un
   const casts = four.events.filter(e => e.kind === "fighter-ability");
   assert.equal(casts.length, 4);
   assert.deepEqual(casts.map(e => e.kind === "fighter-ability" && e.trigger), ["ulfhedinn", "endless", "ulfhedinn", "endless"]);
-  assert.ok(casts.every(e => e.kind === "fighter-ability" && !e.triggerOrderVerified && e.damage === null));
+  assert.ok(casts.every(e => e.kind === "fighter-ability" && !e.triggerOrderVerified && e.damage === null && e.preAttenuationDamage?.verificationStatus === "下書き"));
   assert.equal(four.damageCompleteness, "partial");
   const mixed = calculateBattleTurn(activeInput(12, 80));
   assert.deepEqual(mixed.events.filter(e => e.kind === "normal" || e.kind === "charge-attack").map(e => e.kind), ["normal", "charge-attack"]);

@@ -36,6 +36,7 @@ export const normalAttackCalculationRequestSchema = z
     protagonistCurrentHpPercent: z.number().finite().positive().max(100).default(100),
     mythicalLancerLevel: z.number().int().min(0).max(5).optional().describe("攻撃時点の神伝の槍手Lv。省略時は開始時の槍/斧本数"),
     fighterSpiritLevel: z.number().int().min(0).max(5).optional().describe("攻撃時点の闘心Lv。省略時0。現在は通常分割のみ接続、攻防・技巧・与ダメ数値は未接続"),
+    beastFangDebuffHit: z.boolean().optional().describe("Fang攻防DOWNの命中観測/シナリオ。未指定は命中不明で新規数値付与なし"),
     battleEffects: z.object({
       elementAttackPercent: optionalPercent,
       criticalDamageBonusPercent: optionalPercent,

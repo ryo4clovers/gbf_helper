@@ -12,6 +12,7 @@ import { configureFighterAbilities, castFighterAbility, FIGHTER_ABILITY_WARNING 
 import { resolveFighterOriginIncoming } from "../../web/fighter-origin-reactions.js";
 import { fighterLoadoutFromDeck } from "../../web/protagonist-abilities.js";
 import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
+import { applyBeastFangEffects, beastFangEnemyAttackMultiplier, BEAST_FANG_WARNING } from "./beastFangDamage.js";
 
 const rates = z.object({ doubleAttackRatePercent: z.number().min(0).max(100), tripleAttackRatePercent: z.number().min(0).max(100) }).strict();
 export const battleTurnRequestSchema = z.object({
@@ -79,6 +80,7 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     if (deck.protagonist.job?.level !== 50) throw new Error("オリファイのアビ対応はLv50のみです");
     if (!request.protagonistCharge) throw new Error("オリファイのアビ対応には主人公ゲージ設定が必要です");
     warnings.add(FIGHTER_ABILITY_WARNING);
+    if (state.fighterOrigin.abilities.loadout.includes("beast-fang")) warnings.add(BEAST_FANG_WARNING);
   }
   if (ilsaCharacter) state.ilsa ??= initialIlsaState();
   const defeated = [...new Set([...(request.defeatedPositions ?? state.defeatedPositions ?? []),
@@ -92,6 +94,7 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
   }
   if (request.defeatedPositions || defeated.length) state.defeatedPositions = defeated;
   let protagonistFullyHealed = false;
+  let incomingFighterState = state.fighterOrigin;
   function calculationFor(patch: Pick<NormalAttackCalculationRequest, "attacker" | "battleEffects" | "mythicalLancerLevel" | "fighterSpiritLevel">): NormalAttackCalculationRequest {
     const position = patch.attacker?.characterSlot;
     const character = request.characters.find((entry) => entry.characterSlot === position);
@@ -99,7 +102,7 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     return { ...request.calculation, ...patch,
       ...(protagonistFullyHealed ? { protagonistCurrentHpPercent: 100 } : {}),
       enemy: { ...request.calculation.enemy, attack: (request.calculation.enemy.attack ?? 10000)
-        * (state.turn < (state.ilsa?.sinExpiresOnTurn ?? 0) ? .75 : 1) }, attacker: position === undefined ? undefined : {
+        * beastFangEnemyAttackMultiplier(incomingFighterState, (state.turn - 1) * request.secondsPerTurn, state.turn < (state.ilsa?.sinExpiresOnTurn ?? 0)) }, attacker: position === undefined ? undefined : {
       ...patch.attacker!, currentHpPercent: character!.currentHpPercent, artifactStartBuffs: character!.artifactStartBuffs,
     } };
   }
@@ -108,7 +111,19 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     if (defeated.includes(0)) throw new Error("戦闘不能の主人公はアビリティを使用できません");
     state.fighterOrigin = configureFighterAbilities(state.fighterOrigin!, loadout ?? state.fighterOrigin?.abilities?.loadout ?? []);
     const previous = state.fighterOrigin!;
-    const cast = castFighterAbility(previous, state.turn, request.protagonistCharge.gauge, request.action.ability);
+    const elapsedSeconds = (state.turn - 1) * request.secondsPerTurn;
+    const deathActive = state.turn < state.deathSentenceExpiresOnTurn;
+    const chocolate = elapsedSeconds < state.chocolateExpiresAt ? state.chocolateStacks : 0;
+    const effects = applyBeastFangEffects(applyIlsaBattleEffects({ ...request.calculation.battleEffects,
+      elementAttackPercent: (request.calculation.battleEffects?.elementAttackPercent ?? 0) + (state.weaponCharge?.darkAttackStacks ?? 0) * 10,
+      enemyDefenseDownPercent: (request.calculation.battleEffects?.enemyDefenseDownPercent ?? 0) + Math.min(4, chocolate) * 10,
+      enemyDefenseDownBeyondCapPercent: (request.calculation.battleEffects?.enemyDefenseDownBeyondCapPercent ?? 0) + (deathActive ? 10 : 0),
+      enemySupplementalDamage: (request.calculation.battleEffects?.enemySupplementalDamage ?? 0) + chocolate * 3000,
+      supportSkillSupplementalDamage: Math.max(request.calculation.battleEffects?.supportSkillSupplementalDamage ?? 0, deathActive ? 30000 : 0),
+    }, state.ilsa, state.turn, deck.protagonist.elementCode === "6"), previous, state.turn, elapsedSeconds, true);
+    const cast = castFighterAbility(previous, state.turn, request.protagonistCharge.gauge, request.action.ability,
+      "manual", true, { calculation: calculationFor({ fighterSpiritLevel: previous.level, battleEffects: effects }), elapsedSeconds });
+    for (const issue of cast.event.preAttenuationDamage?.issues ?? []) warnings.add(issue);
     state.fighterOrigin = cast.state;
     state.protagonistHitCount += cast.event.hitCount;
     warnings.add(FIGHTER_ABILITY_WARNING);
@@ -129,9 +144,12 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     const elapsedSeconds = (state.turn - 1) * request.secondsPerTurn;
     const chocolate = elapsedSeconds < state.chocolateExpiresAt ? state.chocolateStacks : 0;
     const deathActive = state.turn < state.deathSentenceExpiresOnTurn;
-    const battleEffects = applyIlsaBattleEffects({ enemyDefenseDownPercent: Math.min(4, chocolate) * 10,
-      enemyDefenseDownBeyondCapPercent: deathActive ? 10 : 0, enemySupplementalDamage: chocolate * 3000,
-      supportSkillSupplementalDamage: deathActive ? 30000 : 0 }, previous, state.turn, true);
+    const battleEffects = applyBeastFangEffects(applyIlsaBattleEffects({ ...request.calculation.battleEffects,
+      enemyDefenseDownPercent: (request.calculation.battleEffects?.enemyDefenseDownPercent ?? 0) + Math.min(4, chocolate) * 10,
+      enemyDefenseDownBeyondCapPercent: (request.calculation.battleEffects?.enemyDefenseDownBeyondCapPercent ?? 0) + (deathActive ? 10 : 0),
+      enemySupplementalDamage: (request.calculation.battleEffects?.enemySupplementalDamage ?? 0) + chocolate * 3000,
+      supportSkillSupplementalDamage: Math.max(request.calculation.battleEffects?.supportSkillSupplementalDamage ?? 0, deathActive ? 30000 : 0) },
+      previous, state.turn, true), state.fighterOrigin, state.turn, elapsedSeconds, false);
     // Resolve skill 2 damage against the state BEFORE its own DEF Down is applied.
     const damage = ability === 2 ? calculateIlsaDamage(calculationFor({ attacker: { characterSlot }, battleEffects }), "ability", previous.flowers) : undefined;
     for (const issue of damage?.issues ?? []) warnings.add(issue);
@@ -150,6 +168,7 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     turns: request.state?.turn ?? 1, secondsPerTurn: request.secondsPerTurn, chargeAttack: false, manualAbilities: false,
     multiattack: { mode: "minimum", seed: 1 },
   }, { state, calculationContext: request.calculation, protagonistCharge: request.protagonistCharge,
+    resolveFighterCalculation: patch => calculationFor(patch),
     ilsaCharge: ilsaSettings?.chargeGauge === undefined ? undefined : { enabled: request.ilsaChargeEnabled, gauge: ilsaSettings.chargeGauge },
     resolveAddedHit: rate => request.mode === "downside" ? rate === 100 : request.mode === "upside" ? rate > 0 : random() < rate / 100,
     resolveAttackCount: (position, patch, guaranteed) => {
@@ -215,7 +234,8 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
       name: "被弾/カウンター：主人公奥義ゲージ", effect: "charge-ready", value: incomingReaction.chargeAfterCounter });
     for (const warning of incomingReaction.warnings) warnings.add(warning);
   }
-  const protagonistCalculation = normals.length && turn.events.some((event) => event.kind === "normal" && event.actorPosition === 0)
+  incomingFighterState = turn.endState.fighterOrigin;
+  const protagonistCalculation = !state.fighterOrigin?.abilities?.loadout.includes("beast-fang") && normals.length && turn.events.some((event) => event.kind === "normal" && event.actorPosition === 0)
     ? undefined : defeated.includes(0) ? undefined : calculateNormalAttackFromRequest(calculationFor({ fighterSpiritLevel: state.fighterOrigin?.level })).result;
   return { schemaVersion: 1, verificationStatus: "下書き", modelVersion: plan.modelVersion, ...turn, advancesTurn: true, events, protagonistCalculation,
     ...(state.fighterOrigin?.abilities ? { damageCompleteness: "partial" as const } : {}),
