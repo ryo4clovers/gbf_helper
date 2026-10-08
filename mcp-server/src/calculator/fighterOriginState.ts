@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const FIGHTER_ORIGIN_ID = "100501";
-export const FIGHTER_ORIGIN_UNRESOLVED = "オリファイ：確定連撃・奥義消費後の闘心Lv・Lv4以上の通常分割を接続。実HP減少1hitのLv5カウンター行動と+5ゲージは部分対応。闘心の攻防/クリティカル/与ダメ数値、装備/最大HPパッシブ、被弾ゲージ一般式、カウンターダメージ/タフネスは未対応。Lv50の対応アビは状態・発動のみで数値未計算、チャージ変換/ドーンは未実装。分割ダメージは既存の候補処理を使用し、倍率/丸めとダメージの実測一致は未確認。";
+export const FIGHTER_ORIGIN_UNRESOLVED = "オリファイ：確定連撃・奥義消費後の闘心Lv・Lv4以上の通常分割を接続。実HP減少1hitのLv5カウンター行動と+5ゲージは部分対応。闘心の攻防/クリティカル/与ダメ数値、装備/最大HPパッシブ、被弾ゲージ一般式、カウンターダメージ/タフネスは未対応。Lv50の対応アビは状態・発動とファングの減衰前参照/条件付き効果を接続、その他数値とファング減衰後ダメージは未計算、チャージ変換/ドーンは未実装。分割ダメージは既存の候補処理を使用し、倍率/丸めとダメージの実測一致は未確認。";
 export const fighterLoadoutSchema = z.array(z.enum(["beast-fang", "ulfhedinn", "unlimited-boost"])).max(3)
   .refine(v => new Set(v).size === v.length, "アビリティの装備が重複しています");
 export const fighterAbilitiesSchema = z.object({
@@ -11,6 +11,8 @@ export const fighterAbilitiesSchema = z.object({
   woolExpiresOnTurn: z.number().int().nonnegative().default(0),
   fangCapObserved: z.boolean().default(false),
   fangDebuffObserved: z.boolean().default(false),
+  fangCapExpiresOnTurn: z.number().int().nonnegative().default(0),
+  fangDebuffExpiresAt: z.number().finite().nonnegative().default(0),
   unlimitedPrepared: z.boolean().default(false),
   unlimitedUsed: z.boolean().default(false),
   endless: z.boolean().default(false),

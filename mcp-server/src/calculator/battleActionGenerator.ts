@@ -9,9 +9,10 @@ import { calculateAutomaticAbilityDamage, AUTOMATIC_ABILITY_PROFILES, type Autom
 import { applyIlsaBattleEffects, initialIlsaState, ilsaBattleStateSchema, resetIlsaOnCharge } from "./ilsaBattleState.js";
 import { consumeFighterOriginGauge, fighterOriginStateSchema, FIGHTER_ORIGIN_ID } from "./fighterOriginState.js";
 import { configureFighterAbilities, castFighterAbility, fighterNormalTriggers, type FighterAbilityEvent } from "./fighterOriginAbilities.js";
+import { applyBeastFangEffects, BEAST_FANG_WARNING } from "./beastFangDamage.js";
 
 export const automaticAbilityConditionsSchema = normalAttackCalculationRequestSchema.pick({
-  enemy: true, modifiers: true, supportSummon: true,
+  enemy: true, modifiers: true, supportSummon: true, beastFangDebuffHit: true,
 }).extend({
   protagonistCurrentHpPercent: z.number().finite().positive().max(100),
   characters: z.array(normalAttackCalculationRequestSchema.shape.attacker.unwrap().omit({ coupledConfectionActive: true })
@@ -73,9 +74,10 @@ type GenerationOptions = {
   ilsaCharge?: { enabled: boolean; gauge: number };
   protagonistCharge?: { enabled: boolean; gauge: number };
   fighterLoadout?: string[];
-  calculationContext?: Pick<NormalAttackCalculationRequest, "enemy" | "supportSummon">;
+  calculationContext?: Pick<NormalAttackCalculationRequest, "enemy" | "supportSummon" | "battleEffects">;
   resolveAttackCount?: (position: number, patch: NormalAttackPatch, guaranteed: number) => number;
   resolveAddedHit?: (ratePercent: number) => boolean;
+  resolveFighterCalculation?: (patch: NormalAttackPatch) => NormalAttackCalculationRequest;
 };
 export type GeneratedBattleEvent = {
   sequence: number;
@@ -247,13 +249,14 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
           mythicalLancerLevel: level,
           ...(actor.position === 0 && fighterOrigin ? { fighterSpiritLevel: fighterOrigin.level } : {}),
           battleEffects: {
-            enemyDefenseDownPercent: Math.min(4, chocolateStacks) * 10,
-            enemyDefenseDownBeyondCapPercent: deathActive ? 10 : 0,
-            enemySupplementalDamage: chocolateStacks * 3000,
-            supportSkillSupplementalDamage: deathActive ? 30000 : 0,
-            normalAttackSupplementalDamage: ereshChargeActive && actor.position > 0 ? 50000 : 0,
-            elementAttackPercent: actor.position === 0 ? weaponCharge.darkAttackStacks * 10 : 0,
-            enemyDamageTakenAmplificationPercent: takenAmplification,
+            ...options.calculationContext?.battleEffects,
+            enemyDefenseDownPercent: (options.calculationContext?.battleEffects?.enemyDefenseDownPercent ?? 0) + Math.min(4, chocolateStacks) * 10,
+            enemyDefenseDownBeyondCapPercent: (options.calculationContext?.battleEffects?.enemyDefenseDownBeyondCapPercent ?? 0) + (deathActive ? 10 : 0),
+            enemySupplementalDamage: (options.calculationContext?.battleEffects?.enemySupplementalDamage ?? 0) + chocolateStacks * 3000,
+            supportSkillSupplementalDamage: Math.max(options.calculationContext?.battleEffects?.supportSkillSupplementalDamage ?? 0, deathActive ? 30000 : 0),
+            normalAttackSupplementalDamage: Math.max(options.calculationContext?.battleEffects?.normalAttackSupplementalDamage ?? 0, ereshChargeActive && actor.position > 0 ? 50000 : 0),
+            elementAttackPercent: (options.calculationContext?.battleEffects?.elementAttackPercent ?? 0) + (actor.position === 0 ? weaponCharge.darkAttackStacks * 10 : 0),
+            enemyDamageTakenAmplificationPercent: Math.max(options.calculationContext?.battleEffects?.enemyDamageTakenAmplificationPercent ?? 0, takenAmplification),
           },
           ...(actor.position === 0 ? {} : { attacker: {
             characterSlot: actor.position,
@@ -262,6 +265,8 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
         };
         calculationPatch.battleEffects = applyIlsaBattleEffects(calculationPatch.battleEffects ?? {}, ilsa, turn,
           actor.key !== "protagonist" || deck.protagonist.elementCode === "6");
+        const beforeFangEffects = calculationPatch.battleEffects;
+        calculationPatch.battleEffects = applyBeastFangEffects(beforeFangEffects, fighterOrigin, turn, elapsedSeconds, actor.position === 0);
         if (actor.position === 0 && fighterOrigin?.abilities?.unlimitedPrepared) {
           // Preparation overrides ON/OFF and gauge. No weapon damage/buffs, no gauge consumption.
           events.push({ sequence: ++sequence, kind: "charge-attack", actorPosition: 0, name: "無窮の蒼剣",
@@ -331,7 +336,7 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
           ...(actor.position === 0 && turn < (fighterOrigin?.abilities?.woolExpiresOnTurn ?? 0) ? { unresolvedPursuitHitCount: count * split } : {}),
           ...(addedHit ? { addedHit: true } : {}),
           name: NAMES[actor.key], attackCount: count, splitCount: split, bodyHitCount: count * split + (addedHit ? 1 : 0),
-          pursuitHitCount: (count * split + (addedHit ? 1 : 0)) * (pursuitFrames.length + ((calculationPatch.battleEffects?.abilityNormalPursuitPercent ?? 0) > 0 ? 1 : 0)), calculationPatch, criticalBuff: criticalBuff(actor.position) });
+          pursuitHitCount: (count * split + (addedHit ? 1 : 0)) * (pursuitFrames.length + ((calculationPatch.battleEffects?.abilityNormalPursuitPercent ?? 0) > 0 ? 1 : 0)), calculationPatch: structuredClone(calculationPatch), criticalBuff: criticalBuff(actor.position) });
         if (actor.key === "ilsa" && options.ilsaCharge) {
           // TA gains 37%; apply the passive -35% once per attack action, never per split hit.
           ilsaGauge = Math.min(100, ilsaGauge + (ereshkigal ? 0 : Math.floor(37 * .65)));
@@ -341,11 +346,20 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
           if (fighterOrigin) {
             const triggers = fighterNormalTriggers(fighterOrigin, turn);
             for (const trigger of triggers) {
-              const cast = castFighterAbility(fighterOrigin, turn, protagonistGauge, "beast-fang", trigger, triggers.length < 2);
+              const patch = { ...calculationPatch, battleEffects: applyBeastFangEffects(beforeFangEffects, fighterOrigin, turn, elapsedSeconds, true) };
+              const calculation = options.resolveFighterCalculation?.(patch) ?? (conditions ? {
+                schemaVersion: 1 as const, deckConfig: request.deckConfig,
+                enemy: conditions.enemy, modifiers: conditions.modifiers, supportSummon: conditions.supportSummon,
+                protagonistCurrentHpPercent: conditions.protagonistCurrentHpPercent,
+                beastFangDebuffHit: conditions.beastFangDebuffHit, ...patch,
+              } : undefined);
+              const cast = castFighterAbility(fighterOrigin, turn, protagonistGauge, "beast-fang", trigger, triggers.length < 2,
+                calculation ? { calculation, elapsedSeconds } : undefined, elapsedSeconds);
               fighterOrigin = cast.state;
               events.push({ ...cast.event, sequence: ++sequence });
               ownHits++;
             }
+            calculationPatch.battleEffects = applyBeastFangEffects(beforeFangEffects, fighterOrigin, turn, elapsedSeconds, true);
           }
           if (options.protagonistCharge) {
             // Sage completion adds one per swing, never per random-target hit.
@@ -404,8 +418,13 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
     seed: request.multiattack.seed,
     randomAlgorithm: "lcg32-1664525-1013904223",
     deckResolutionIssues: resolved.issues,
+    ...(fighterOrigin?.abilities?.loadout.includes("beast-fang") ? { warnings: [BEAST_FANG_WARNING] } : {}),
     assumptions: [
-      "単体敵・全員生存・命中と弱体成功・手動アビリティ/奥義/召喚なし。敵行動、交代、解除なし",
+      "単体敵・全員生存・ダメージ命中とファング以外の弱体成功を仮定。手動アビリティ/奥義/召喚なし。敵行動、交代、解除なし",
+      ...(fighterOrigin?.abilities?.loadout.includes("beast-fang") ? [conditions?.beastFangDebuffHit === true
+        ? "ファング弱体は明示trueの命中シナリオ。成功率の実測確定ではない"
+        : conditions?.beastFangDebuffHit === false ? "ファング弱体は明示falseの失敗シナリオ。新規付与なし、既存期限は保持"
+        : "ファング弱体は命中未指定（unknown）。新規数値付与なし、既存期限は保持"] : []),
       "180秒弱体は各ターン開始時に期限を判定し、ターン内の経過時間は0秒とする",
       "連撃率は全補正込みの明示入力。武器/神伝Lv/覚醒/大事なもの/オーバースキル等からは自動合成しない",
       "連撃率未指定のminimum/maximumは既知の確定連撃だけによるシナリオ。総ダメージの厳密な上下限ではない",
