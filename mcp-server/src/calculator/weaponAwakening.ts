@@ -20,7 +20,8 @@ const catalogSchema = z.object({
 
 const catalog = catalogSchema.parse(JSON.parse(readFileSync(new URL("../../catalog/weapon-awakenings.v1.json", import.meta.url), "utf8")));
 const revans = catalogSchema.parse(JSON.parse(readFileSync(new URL("../../catalog/weapon-awakenings-revans.v1.json", import.meta.url), "utf8")));
-const catalogs = [catalog, revans];
+const exo = catalogSchema.parse(JSON.parse(readFileSync(new URL("../../catalog/weapon-awakenings-exo.v1.json", import.meta.url), "utf8")));
+const catalogs = [catalog, revans, exo];
 const types = new Map(catalogs.flatMap(c => c.types).map(type => [type.formCode, type]));
 const weapons = new Map(catalogs.flatMap(c => c.weapons).map(weapon => [weapon.weaponId, weapon]));
 if (types.size !== catalogs.reduce((n,c) => n+c.types.length,0) || weapons.size !== catalogs.reduce((n,c) => n+c.weapons.length,0)

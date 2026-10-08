@@ -1,0 +1,365 @@
+{
+  "source": "2026-10-09の40発から計算用スカラーだけを抽出。同じ測定による回帰照合であり、独立検証ではない。数値ID未確認",
+  "vectors": [
+    {
+      "base": 20743.093938878585,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 43,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 98159
+    },
+    {
+      "base": 20743.093938878585,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 43,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 95715
+    },
+    {
+      "base": 20743.093938878585,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 43,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 99136
+    },
+    {
+      "base": 35363.663901197506,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 46,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 163011
+    },
+    {
+      "base": 35363.663901197506,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 46,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 174345
+    },
+    {
+      "base": 35363.663901197506,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 46,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 158844
+    },
+    {
+      "base": 35363.663901197506,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 46,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 168845
+    },
+    {
+      "base": 56238.60212606683,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 51,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 256054
+    },
+    {
+      "base": 56238.60212606683,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 51,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 266392
+    },
+    {
+      "base": 56238.60212606683,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 51,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 269838
+    },
+    {
+      "base": 86133.23551587987,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 58,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 411245
+    },
+    {
+      "base": 86133.23551587987,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 58,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 420988
+    },
+    {
+      "base": 86133.23551587987,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 58,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 418146
+    },
+    {
+      "base": 86133.23551587987,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 58,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 417740
+    },
+    {
+      "base": 172367.25272004525,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 62,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 796161
+    },
+    {
+      "base": 172367.25272004525,
+      "multiplier": 4.34,
+      "criticalBonus": 50,
+      "cap": 62,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 1075183
+    },
+    {
+      "base": 172367.25272004525,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 62,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 804285
+    },
+    {
+      "base": 172367.25272004525,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 62,
+      "penetration": 0,
+      "amplification": 8.6,
+      "observed": 827844
+    },
+    {
+      "base": 313921.5904433405,
+      "multiplier": 4.34,
+      "criticalBonus": 50,
+      "cap": 62,
+      "penetration": 2,
+      "amplification": 8.6,
+      "observed": 1127494
+    },
+    {
+      "base": 313921.5904433405,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 62,
+      "penetration": 2,
+      "amplification": 8.6,
+      "observed": 1105615
+    },
+    {
+      "base": 313921.5904433405,
+      "multiplier": 4.34,
+      "criticalBonus": 50,
+      "cap": 62,
+      "penetration": 2,
+      "amplification": 8.6,
+      "observed": 1126113
+    },
+    {
+      "base": 313921.5904433405,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 62,
+      "penetration": 2,
+      "amplification": 8.6,
+      "observed": 1111124
+    },
+    {
+      "base": 313921.5904433405,
+      "multiplier": 4.34,
+      "criticalBonus": 50,
+      "cap": 62,
+      "penetration": 2,
+      "amplification": 8.6,
+      "observed": 1126159
+    },
+    {
+      "base": 313921.5904433405,
+      "multiplier": 4.34,
+      "criticalBonus": 0,
+      "cap": 62,
+      "penetration": 2,
+      "amplification": 8.6,
+      "observed": 1111275
+    },
+    {
+      "base": 527950.9961842541,
+      "multiplier": 4.34,
+      "criticalBonus": 50,
+      "cap": 62,
+      "penetration": 4,
+      "amplification": 8.6,
+      "observed": 1146492
+    },
+    {
+      "base": 527950.9961842541,
+      "multiplier": 4.34,
+      "criticalBonus": 50,
+      "cap": 62,
+      "penetration": 4,
+      "amplification": 8.6,
+      "observed": 1148122
+    },
+    {
+      "base": 527950.9961842541,
+      "multiplier": 4.34,
+      "criticalBonus": 50,
+      "cap": 62,
+      "penetration": 4,
+      "amplification": 8.6,
+      "observed": 1148045
+    },
+    {
+      "base": 527950.9961842541,
+      "multiplier": 4.34,
+      "criticalBonus": 50,
+      "cap": 62,
+      "penetration": 4,
+      "amplification": 8.6,
+      "observed": 1148083
+    },
+    {
+      "base": 527950.9961842541,
+      "multiplier": 4.34,
+      "criticalBonus": 50,
+      "cap": 62,
+      "penetration": 4,
+      "amplification": 8.6,
+      "observed": 1145250
+    },
+    {
+      "base": 527950.9961842541,
+      "multiplier": 4.34,
+      "criticalBonus": 50,
+      "cap": 62,
+      "penetration": 4,
+      "amplification": 8.6,
+      "observed": 1148083
+    },
+    {
+      "base": 800382.9728517651,
+      "multiplier": 4.34,
+      "criticalBonus": 58.8,
+      "cap": 62,
+      "penetration": 6,
+      "amplification": 8.6,
+      "observed": 1176842
+    },
+    {
+      "base": 800382.9728517651,
+      "multiplier": 4.34,
+      "criticalBonus": 58.8,
+      "cap": 62,
+      "penetration": 6,
+      "amplification": 8.6,
+      "observed": 1175445
+    },
+    {
+      "base": 800382.9728517651,
+      "multiplier": 4.34,
+      "criticalBonus": 58.8,
+      "cap": 62,
+      "penetration": 6,
+      "amplification": 8.6,
+      "observed": 1176016
+    },
+    {
+      "base": 800382.9728517651,
+      "multiplier": 4.34,
+      "criticalBonus": 58.8,
+      "cap": 62,
+      "penetration": 6,
+      "amplification": 8.6,
+      "observed": 1177858
+    },
+    {
+      "base": 1000855.5814572051,
+      "multiplier": 4.34,
+      "criticalBonus": 58.8,
+      "cap": 62,
+      "penetration": 6,
+      "amplification": 8.6,
+      "observed": 1195431
+    },
+    {
+      "base": 1000855.5814572051,
+      "multiplier": 4.34,
+      "criticalBonus": 58.8,
+      "cap": 62,
+      "penetration": 6,
+      "amplification": 8.6,
+      "observed": 1193128
+    },
+    {
+      "base": 1000855.5814572051,
+      "multiplier": 4.34,
+      "criticalBonus": 58.8,
+      "cap": 62,
+      "penetration": 6,
+      "amplification": 8.6,
+      "observed": 1189237
+    },
+    {
+      "base": 1000855.5814572051,
+      "multiplier": 4.34,
+      "criticalBonus": 58.8,
+      "cap": 62,
+      "penetration": 6,
+      "amplification": 8.6,
+      "observed": 1193287
+    },
+    {
+      "base": 1000855.5814572051,
+      "multiplier": 4.34,
+      "criticalBonus": 58.8,
+      "cap": 62,
+      "penetration": 6,
+      "amplification": 8.6,
+      "observed": 1191461
+    },
+    {
+      "base": 1000855.5814572051,
+      "multiplier": 4.34,
+      "criticalBonus": 58.8,
+      "cap": 62,
+      "penetration": 6,
+      "amplification": 8.6,
+      "observed": 1190825
+    }
+  ]
+}

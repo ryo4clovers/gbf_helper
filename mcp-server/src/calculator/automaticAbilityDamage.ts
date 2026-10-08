@@ -116,7 +116,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
   const caLb = ["21", "35", "41", "91"].reduce((sum, id) => sum + (id === "91" ? [0, 2, 4, 8] : [0, 1, 3, 5])[caLevels[id] ?? 0], 0);
   const damageContributions = { account: (charge ? calculation.modifiers.chargeDamagePercent : calculation.modifiers.abilityDamagePercent) ?? 0,
     weapon: charge ? weapons.chargeDamage.effectivePercent : weapons.abilityDamage.effectivePercent,
-    artifact: artifactAbilityPercent, jobLevel: character || charge ? 0 : 40,
+    artifact: artifactAbilityPercent, jobLevel: character || charge || fang ? 0 : 40,
     limitBonus: charge ? (character ? 0 : caLb) : bonuses.limitBonusPercent ?? 0,
     completion: character || charge ? 0 : resolution.protagonistAbilityCompletion.damagePercent,
     ...(charge ? { awakening: awakening.chargeDamagePercent, ringChargeDamage: (character?.mastery?.ring ?? []).filter((bonus) => bonus.name === "奥義ダメージ")
@@ -135,7 +135,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
     weaponChargeCap: charge ? weapons.chargeDamageCap.effectivePercent : 0,
     weaponSpecialGeneralCap: weaponCap("special-frame-damage-cap-up"), weaponAbilityCap: charge ? 0 : weapons.abilityDamageCap.effectivePercent,
     weaponSpecialAbilityCap: charge ? 0 : weaponCap("special-ability-damage-cap-up", 30), actorCap, summonCap: summons.capPercent,
-    ringCap: ringCapPercent, jobLevelCap: character || charge ? 0 : 20, accountAbilityCap: (charge ? calculation.modifiers.chargeDamageCapPercent : calculation.modifiers.abilityDamageCapPercent) ?? 0,
+    ringCap: ringCapPercent, jobLevelCap: character || charge ? 0 : fang ? 25 : 20, accountAbilityCap: (charge ? calculation.modifiers.chargeDamageCapPercent : calculation.modifiers.abilityDamageCapPercent) ?? 0,
     limitBonusCap: charge ? 0 : bonuses.limitBonusDamageCapUpPercent ?? 0,
     completionCap: character || charge ? 0 : resolution.protagonistAbilityCompletion.capPercent };
   const capPercent = Object.values(capContributions).reduce((sum, value) => sum + value, 0);
@@ -146,7 +146,12 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
   const supplementalDamage = weapons.supplementalDamage.effectiveAmount + (charge ? weapons.chargeSupplementalDamage.effectiveAmount : weapons.abilitySupplementalDamage.effectiveAmount)
     + effects.supportSkillSupplementalDamage + effects.enemySupplementalDamage + summons.supplementalDamage + mastery.supplementalDamage;
   criticalDamageBonusPercent += advantageous ? original.battleEffects?.criticalDamageBonusPercent ?? 0 : 0;
-  const weaponCritical = calculateWeaponSkillCriticalProfile(weaponCap("critical-rate-up", Infinity));
+  const criticalProfile = calculateWeaponSkillCriticalProfile(weaponCap("critical-rate-up", Infinity));
+  // Fang's six 101.4% observations match +50%. Keep this provisional exception scoped
+  // to Fang: the exact low-surplus activation boundary is not independently measured.
+  const weaponCritical = fang && criticalProfile.overcriticalRatePercent > 0 && criticalProfile.overcriticalRatePercent < 2
+    ? { ...criticalProfile, overcriticalDamageDisplayPercent: 0, criticalDamageBonusPercent: 50, criticalDamageMultiplier: 1.5 }
+    : criticalProfile;
   // Only guaranteed weapon criticals can be selected without a separate random branch.
   if (advantageous && weaponCritical.effectiveRatePercent === 100) criticalDamageBonusPercent += weaponCritical.criticalDamageBonusPercent;
   const weaponOverskills = calculateWeaponOverskills(actor.deck);
@@ -175,7 +180,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
     trace: { commonPreAbilityDamage: base.articleTrace!.prePostCapDamage, intrinsicMultiplier: profile.multiplier,
       damageUpPercent, damageContributions, effectiveMultiplier, fixedChargeDamage, capPercent, capContributions, amplificationPercent, supplementalDamage,
       enemyDamageTakenAmplificationPercent: effects.enemyDamageTakenAmplificationPercent, thresholdRounding: "ceil-increase" as const,
-      attenuation: attenuationProfile, weaponOverskills, weaponCritical, ringCapPercent, artifactAbilityPercent, level },
+      attenuation: attenuationProfile, weaponOverskills, weaponCritical, advantageous, ringCapPercent, artifactAbilityPercent, level },
     attenuationEvidence: profile.attenuationTableId ? {
       status: "実機設定確認" as const, tableId: profile.attenuationTableId, actionId: profile.actionId,
       confirmedAt: "2026-10-04", source: "ユーザー提供キャラ詳細のdamage_limit_type・damage_limit1〜4・damage_deduction1〜4を照合",
@@ -187,7 +192,7 @@ export function calculateProfileDamage(input: NormalAttackCalculationRequest, ab
       "上限増加分の切り上げはイルザ2アビ・奥義と主人公奥義の照合で支持。対象・編成ごとの倍率・補正範囲・丸めは引き続き要検証",
       "減衰→被ダメージUP→固定加算→与ダメージ増幅→切り上げの順は下書き。通常専用補正は適用しない",
       "有利属性の武器技巧100%以上は自動適用。100%未満の武器技巧抽選とキャラLBクリティカルは未接続。追加のバフクリティカルは入力条件",
-      "主人公のジョブLv補正40%/20%・LB・選択済みジョブのコンプリート補正は主人公だけに自動加算（二次情報）",
+      fang ? "オリジンファイターLv50のアビ倍率補正0%・全上限25%を接続（二次情報）。他Lvは要検証" : "主人公のジョブLv補正40%/20%・LB・選択済みジョブのコンプリート補正は主人公だけに自動加算（二次情報）",
       ...(!character && !resolution.protagonistAbilityCompletion.specified
         ? ["completedJobIds未入力のためアビリティのコンプリート補正は未反映（全取得を仮定しない）"] : []),
       ...(abilityId === "mythical-arms" ? [profile.multiplierStatus] : []),

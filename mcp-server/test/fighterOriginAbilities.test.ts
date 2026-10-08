@@ -35,7 +35,7 @@ for (const outcome of [undefined, false, true]) {
     const plan = generateBattleActions(fixed, { state: input.state, fighterLoadout: loadout });
     const casts = plan.turns[0].events.filter(e => e.kind === "fighter-ability");
     assert.equal(casts.length, 4);
-    assert.ok(casts.every(e => e.kind === "fighter-ability" && e.preAttenuationDamage?.predictions.length === 101 && e.damage === null));
+    assert.ok(casts.every(e => e.kind === "fighter-ability" && e.preAttenuationDamage?.predictions.length === 101 && e.damage?.predictions.length === 101));
     assert.ok(casts.every(e => e.kind === "fighter-ability" && e.debuffOutcome === (outcome === undefined ? "unknown" : outcome ? "hit" : "miss")));
     assert.equal(plan.turns[0].endState.fighterOrigin!.abilities!.fangDebuffExpiresAt, outcome ? 180 : 0);
     const first = casts[0].preAttenuationDamage!.trace.commonPreAbilityDamage;
@@ -140,7 +140,7 @@ test("Fang returns pre-attenuation only, unknowns stay visible, and other protag
   assert.throws(() => beastFangPreAttenuationDamage(input.calculation), /専用/);
 });
 
-test("unknown Fang damage cannot reduce enemy HP; new timed state survives save/restore and undo", () => {
+test("candidate Fang damage reduces enemy HP; new timed state survives save/restore and undo", () => {
   const input = request();
   const setup = { request: input.calculation, enemyMaxHp: 10000000, protagonistMaxHp: 1000 };
   const initial = createInitialBattleState(setup);
@@ -148,8 +148,8 @@ test("unknown Fang damage cannot reduce enemy HP; new timed state survives save/
   const out = calculateBattleTurn({ ...input, action: { kind: "fighter-ability", ability: "beast-fang" } });
   const packets = out.events.flatMap(e => e.kind === "fighter-ability" ? automaticAbilityPackets(e, "upside") : [e]);
   const after = applyGeneratedTurn(initial, out, packets);
-  assert.equal(after.enemy.hp, initial.enemy.hp);
-  assert.equal(out.events[0].damage, null);
+  assert.ok(after.enemy.hp < initial.enemy.hp);
+  assert.ok(out.events[0].damage!.perHit.minimum > 0);
   assert.ok(out.events[0].preAttenuationDamage);
   const restored = restoreBattleSession(serializeBattleSession(setup, after, [initial], settings, "upside"), setup, initial);
   assert.equal(restored.state.actionState.fighterOrigin.abilities.fangCapExpiresOnTurn, 3);
@@ -243,7 +243,7 @@ test("T11/T12/T15: independent triggers, per-action CA selection, expiry, and un
   const casts = four.events.filter(e => e.kind === "fighter-ability");
   assert.equal(casts.length, 4);
   assert.deepEqual(casts.map(e => e.kind === "fighter-ability" && e.trigger), ["ulfhedinn", "endless", "ulfhedinn", "endless"]);
-  assert.ok(casts.every(e => e.kind === "fighter-ability" && !e.triggerOrderVerified && e.damage === null && e.preAttenuationDamage?.verificationStatus === "下書き"));
+  assert.ok(casts.every(e => e.kind === "fighter-ability" && !e.triggerOrderVerified && e.damage?.verificationStatus === "下書き" && e.preAttenuationDamage?.verificationStatus === "下書き"));
   assert.equal(four.damageCompleteness, "partial");
   const mixed = calculateBattleTurn(activeInput(12, 80));
   assert.deepEqual(mixed.events.filter(e => e.kind === "normal" || e.kind === "charge-attack").map(e => e.kind), ["normal", "charge-attack"]);

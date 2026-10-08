@@ -108131,7 +108131,16 @@
           }
         ]
       },
-      "skillSlots": [],
+      "skillSlots": [
+        {
+          "sourceKey": "skill1",
+          "skillId": "861"
+        },
+        {
+          "sourceKey": "skill2",
+          "skillId": "2428"
+        }
+      ],
       "listedSkills": [
         {
           "sourceKey": "skill1",

@@ -33,12 +33,12 @@ test("integrated deck loadout casts Fang with its pre-cast reference and preserv
   assert.ok(event && event.kind === "fighter-ability");
   assert.equal(event.ability, "beast-fang");
   assert.equal(event.debuffOutcome, "hit");
-  assert.equal(event.damage, null, "an unconfirmed attenuation table must not generate HP damage");
+  assert.ok(event.damage?.perHit.minimum > 0, "adopted candidate attenuation generates provisional HP damage");
   assert.equal(event.preAttenuationDamage?.trace.capContributions.battleBuffCap, 0, "cast damage precedes its own cap buff");
   assert.equal(cast.endState.fighterOrigin?.abilities?.fangDebuffExpiresAt, 180);
   assert.equal(cast.endState.fighterOrigin?.abilities?.fangCapExpiresOnTurn, 3);
   assert.deepEqual(cast.endState.fighterOrigin?.abilities?.loadout, ["beast-fang"]);
-  assert.equal(automaticAbilityPackets(event, "normal")[0].kind, "unresolved");
+  assert.equal(automaticAbilityPackets(event, "normal")[0].kind, "fighter-ability");
   assert.throws(() => calculateBattleTurn({ ...input, state: cast.endState,
     action: { kind: "fighter-ability", ability: "beast-fang" } }), /再使用/);
   assert.throws(() => calculateBattleTurn({ ...input, fighterLoadout: [],

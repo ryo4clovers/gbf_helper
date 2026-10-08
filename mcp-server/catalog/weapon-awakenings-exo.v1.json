@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "verificationStatus": "下書き",
+  "checkedAt": "2026-10-09",
+  "sources": ["https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/450852"],
+  "note": "ユーザー提供のハマルティア武器詳細で特殊form3、各Lv増分とLv10の攻刃20%/HP20%を確認。加護対象外の通常攻刃/HP枠は公開二次情報と戦闘照合による候補。攻撃覚醒・他の六道神器は未対応",
+  "minimumWeaponLevel": 150,
+  "minimumUncapLevel": 4,
+  "maximumLevel": 10,
+  "types": [{
+    "formCode": "exo-special", "name": "特殊",
+    "effects": [
+      {"level": 2, "kind": "normal-attack-up", "amountPercent": 5},
+      {"level": 3, "kind": "normal-hp-up", "amountPercent": 4},
+      {"level": 4, "kind": "normal-hp-up", "amountPercent": 4},
+      {"level": 5, "kind": "normal-attack-up", "amountPercent": 5},
+      {"level": 6, "kind": "normal-attack-up", "amountPercent": 5},
+      {"level": 7, "kind": "normal-hp-up", "amountPercent": 4},
+      {"level": 8, "kind": "normal-hp-up", "amountPercent": 4},
+      {"level": 9, "kind": "normal-attack-up", "amountPercent": 5},
+      {"level": 10, "kind": "normal-hp-up", "amountPercent": 4}
+    ]
+  }],
+  "weapons": [{"weaponId": "1040423200", "name": "神杖エクス・ハマルティア", "types": ["exo-special"], "observedGameForms": {"3": "exo-special"}}]
+}

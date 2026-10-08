@@ -33,6 +33,6 @@ export function automaticAbilityPackets(event, mode, random = Math.random) {
     const predictions = (critical ? event.criticalDamage : event.damage).predictions;
     const selected = mode === "downside" ? 0 : mode === "upside" ? predictions.length - 1 : Math.floor(random() * predictions.length);
     return { kind: event.kind ?? "automatic-ability", actorPosition: event.actorPosition, damage: predictions[selected].damage,
-      note: `${event.name} ${index + 1}/${event.hitCount}hit${critical ? "・武器奥義クリティカル" : ""}・下書きのダメージ候補` };
+      note: `${event.name} ${index + 1}/${event.hitCount}hit${critical ? event.ability === "beast-fang" ? "・武器技巧クリティカル" : "・武器奥義クリティカル" : ""}・下書きのダメージ候補` };
   });
 }
