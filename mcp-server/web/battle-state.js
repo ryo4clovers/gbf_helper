@@ -1,5 +1,6 @@
 import { calculateCrewSupportEffects } from "./crew-support-config.js";
 import { resolveFighterOriginIncoming } from "./fighter-origin-reactions.js";
+import { fighterLoadoutFromDeck } from "./protagonist-abilities.js";
 
 // v2 separates shared ability modifiers from protagonist LB/completion totals.
 export const BATTLE_SETUP_STORAGE_KEY = "gbf-helper-battle-setup-v2";
@@ -266,15 +267,31 @@ export function applyGeneratedTurn(state, generated, packets, options = {}) {
 export function serializeBattleSession(setup, state, history, settings, mode) {
   return JSON.stringify({ schemaVersion: 1, setupKey: JSON.stringify(setup), state, history, settings, mode });
 }
+function migratedBattleSetupKey(setup) {
+  if (!setup || typeof setup !== "object" || Array.isArray(setup)
+    || !setup.request?.deckConfig?.protagonist || typeof setup.request.deckConfig.protagonist !== "object"
+    || Array.isArray(setup.request.deckConfig.protagonist)) throw new Error("保存した戦闘の編成形式が不正です");
+  const migrated = copy(setup);
+  const protagonist = migrated.request.deckConfig.protagonist;
+  const abilityIds = protagonist.abilityIds === undefined ? [] : protagonist.abilityIds;
+  // Normalize only this migrated field's placement; other setup identity remains strict.
+  delete protagonist.abilityIds;
+  protagonist.abilityIds = abilityIds;
+  return JSON.stringify(migrated);
+}
 export function restoreBattleSession(serialized, setup, initial) {
   const value = JSON.parse(serialized);
-  if (value.schemaVersion !== 1 || value.setupKey !== JSON.stringify(setup) || !Array.isArray(value.history)
+  if (!value || typeof value !== "object" || Array.isArray(value) || typeof value.setupKey !== "string"
+    || value.schemaVersion !== 1 || migratedBattleSetupKey(JSON.parse(value.setupKey)) !== migratedBattleSetupKey(setup) || !Array.isArray(value.history)
     || !["normal", "downside", "upside"].includes(value.mode) || !value.settings) throw new Error("保存した戦闘の編成・形式が一致しません");
   const settings = value.settings;
   const loadout = settings.fighterLoadout;
+  const expectedLoadout = fighterLoadoutFromDeck(setup.request.deckConfig.protagonist);
+  const matchesLoadout = (value) => JSON.stringify([...(value ?? [])].sort()) === JSON.stringify([...(expectedLoadout ?? [])].sort());
   if (!Number.isFinite(settings.secondsPerTurn) || settings.secondsPerTurn <= 0 || settings.secondsPerTurn > 3600
     || !settings.characters || (loadout && (!Array.isArray(loadout) || loadout.length > 3 || new Set(loadout).size !== loadout.length
       || loadout.some(id => !["beast-fang", "ulfhedinn", "unlimited-boost"].includes(id))))) throw new Error("保存した戦闘設定が不正です");
+  if (expectedLoadout !== undefined && !matchesLoadout(loadout)) throw new Error("保存したアビリティ装備が編成と一致しません");
   for (const [slot, actor] of Object.entries(settings.characters)) {
     if (!initial.party.some(p => p.slot === Number(slot))) throw new Error("保存した前衛設定が不正です");
     if (actor.rates && [actor.rates.doubleAttackRatePercent, actor.rates.tripleAttackRatePercent].some(v => !Number.isFinite(v) || v < 0 || v > 100)) {
@@ -286,6 +303,8 @@ export function restoreBattleSession(serialized, setup, initial) {
       || s.party.length !== initial.party.length || !Array.isArray(s.events) || !Number.isSafeInteger(s.nextEventId)
       || !Number.isFinite(s.enemy?.hp) || s.enemy.hp < 0 || s.enemy.hp > s.enemy.maxHp
       || s.enemy.maxHp !== value.state.enemy.maxHp) throw new Error("保存した戦闘状態が不正です");
+    if (expectedLoadout !== undefined && s.actionState?.fighterOrigin?.abilities && !matchesLoadout(s.actionState.fighterOrigin.abilities.loadout))
+      throw new Error("保存した戦闘状態のアビリティ装備が編成と一致しません");
     s.party.forEach((p, i) => {
       if (p.id !== initial.party[i].id || p.slot !== initial.party[i].slot || p.maxHp !== initial.party[i].maxHp
         || !Number.isFinite(p.hp) || p.hp < 0 || p.hp > p.maxHp || !Number.isFinite(p.charge) || p.charge < 0 || p.charge > 100) {

@@ -10,6 +10,8 @@ import { calculateAutomaticAbilityDamage } from "./automaticAbilityDamage.js";
 import { FIGHTER_ORIGIN_ID, FIGHTER_ORIGIN_UNRESOLVED, fighterOriginStateSchema, fighterLoadoutSchema } from "./fighterOriginState.js";
 import { configureFighterAbilities, castFighterAbility, FIGHTER_ABILITY_WARNING } from "./fighterOriginAbilities.js";
 import { resolveFighterOriginIncoming } from "../../web/fighter-origin-reactions.js";
+import { fighterLoadoutFromDeck } from "../../web/protagonist-abilities.js";
+import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
 
 const rates = z.object({ doubleAttackRatePercent: z.number().min(0).max(100), tripleAttackRatePercent: z.number().min(0).max(100) }).strict();
 export const battleTurnRequestSchema = z.object({
@@ -61,9 +63,18 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
     otherSelfReady: false, chocolateStacks: 0, chocolateExpiresAt: 0, deathSentenceExpiresOnTurn: 0 };
   const state = structuredClone(request.state ?? initial) as import("./battleActionGenerator.js").BattleActionState;
   const fighter = deck.protagonist.job?.masterId === FIGHTER_ORIGIN_ID;
+  const deckLoadout = fighterLoadoutFromDeck(parseCalculatorDeckConfig(request.calculation.deckConfig).protagonist);
+  if (deckLoadout !== undefined && request.fighterLoadout !== undefined
+    && JSON.stringify([...deckLoadout].sort()) !== JSON.stringify([...request.fighterLoadout].sort())) {
+    throw new Error("戦闘のアビリティ装備が編成と一致しません");
+  }
+  const loadout = deckLoadout ?? request.fighterLoadout;
+  if (request.fighterLoadout !== undefined && fighter && deck.protagonist.job?.level !== 50) throw new Error("オリファイのアビ対応はLv50のみです");
   if (state.fighterOrigin && !fighter) throw new Error("闘心状態はファイター・オリジン専用です");
   if (request.fighterLoadout && !fighter) throw new Error("オリファイの装備設定は専用ジョブのみ対応です");
-  if (fighter) state.fighterOrigin = configureFighterAbilities(fighterOriginStateSchema.parse(state.fighterOrigin ?? {}), request.fighterLoadout);
+  if (fighter) state.fighterOrigin = configureFighterAbilities(fighterOriginStateSchema.parse(state.fighterOrigin ?? {}),
+    deck.protagonist.job?.level === 50 ? loadout : undefined);
+  if (deckLoadout !== undefined && !fighter && state.fighterOrigin?.abilities) throw new Error("編成外の主人公アビリティ状態です");
   if (state.fighterOrigin?.abilities) {
     if (deck.protagonist.job?.level !== 50) throw new Error("オリファイのアビ対応はLv50のみです");
     if (!request.protagonistCharge) throw new Error("オリファイのアビ対応には主人公ゲージ設定が必要です");
@@ -95,7 +106,7 @@ export function calculateBattleTurn(input: unknown, random: () => number = Math.
   if (request.action?.kind === "fighter-ability") {
     if (!fighter || deck.protagonist.job?.level !== 50 || !request.protagonistCharge) throw new Error("Lv50オリファイと主人公ゲージ設定が必要です");
     if (defeated.includes(0)) throw new Error("戦闘不能の主人公はアビリティを使用できません");
-    state.fighterOrigin = configureFighterAbilities(state.fighterOrigin!, request.fighterLoadout ?? state.fighterOrigin?.abilities?.loadout ?? []);
+    state.fighterOrigin = configureFighterAbilities(state.fighterOrigin!, loadout ?? state.fighterOrigin?.abilities?.loadout ?? []);
     const previous = state.fighterOrigin!;
     const cast = castFighterAbility(previous, state.turn, request.protagonistCharge.gauge, request.action.ability);
     state.fighterOrigin = cast.state;

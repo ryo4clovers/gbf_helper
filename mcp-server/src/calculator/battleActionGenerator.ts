@@ -9,6 +9,8 @@ import { calculateAutomaticAbilityDamage, AUTOMATIC_ABILITY_PROFILES, type Autom
 import { applyIlsaBattleEffects, initialIlsaState, ilsaBattleStateSchema, resetIlsaOnCharge } from "./ilsaBattleState.js";
 import { consumeFighterOriginGauge, fighterOriginStateSchema, FIGHTER_ORIGIN_ID } from "./fighterOriginState.js";
 import { configureFighterAbilities, castFighterAbility, fighterNormalTriggers, type FighterAbilityEvent } from "./fighterOriginAbilities.js";
+import { fighterLoadoutFromDeck } from "../../web/protagonist-abilities.js";
+import { parseCalculatorDeckConfig } from "./calculatorDeckConfig.js";
 
 export const automaticAbilityConditionsSchema = normalAttackCalculationRequestSchema.pick({
   enemy: true, modifiers: true, supportSummon: true,
@@ -170,7 +172,11 @@ export function generateBattleActions(input: unknown, options: GenerationOptions
   if (saved?.fighterOrigin && !fighter) throw new Error("闘心状態はファイター・オリジン専用です");
   let fighterOrigin = fighter ? fighterOriginStateSchema.parse(saved?.fighterOrigin ?? {}) : undefined;
   if (options.fighterLoadout && !fighter) throw new Error("オリファイの装備設定は専用ジョブのみ対応です");
-  if (fighterOrigin) fighterOrigin = configureFighterAbilities(fighterOrigin, options.fighterLoadout);
+  const deckLoadout = fighterLoadoutFromDeck(parseCalculatorDeckConfig(request.deckConfig).protagonist);
+  if (deckLoadout !== undefined && options.fighterLoadout !== undefined
+    && JSON.stringify([...deckLoadout].sort()) !== JSON.stringify([...options.fighterLoadout].sort())) throw new Error("戦闘のアビリティ装備が編成と一致しません");
+  if (fighterOrigin) fighterOrigin = configureFighterAbilities(fighterOrigin,
+    deck.protagonist.job?.level === 50 ? deckLoadout ?? options.fighterLoadout : options.fighterLoadout);
   if (fighterOrigin?.abilities && (deck.protagonist.job?.level ?? 0) !== 50) throw new Error("オリファイのアビ対応はLv50のみです");
   resolveProtagonistNormalAttackSupport(deck, undefined, fighterOrigin?.level);
   let ilsa = actors.some((actor) => actor.key === "ilsa") ? saved?.ilsa ?? initialIlsaState() : undefined;

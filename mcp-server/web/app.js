@@ -1,4 +1,6 @@
 import { weaponAwakeningStatBonus } from "/weapon-awakening-stats.js";
+import { createProtagonistAbilityEditor } from "/protagonist-ability-editor.js?v=1";
+import { validateAbilitySelection, reconcileAbilitySelection } from "/protagonist-abilities.js?v=1";
 import { BATTLE_SETUP_STORAGE_KEY, battleSetupStatIssues } from "/battle-state.js?v=10";
 import {
   CALCULATOR_ENVIRONMENT_STORAGE_KEY,
@@ -18,7 +20,7 @@ import {
   serializeCalculatorFormation,
   serializeCalculatorProfiles,
   upsertCalculatorProfile,
-} from "/calculator-state-storage.js?v=11";
+} from "/calculator-state-storage.js?v=12";
 import { DEFAULT_CALCULATOR_DECK } from "/calculator-default-deck.js?v=1";
 import { createWeaponAwakeningControls, weaponAwakeningSummary } from "/weapon-awakening-controls.js?v=3";
 import {
@@ -703,6 +705,9 @@ function createJobLevelField(config, job, key, label, maximum, minimum = 0) {
     if (!valid) { input.reportValidity(); return; }
     config.protagonist[key] = value;
     normalizeJobGrowthLevels(config.protagonist, job);
+    const reconciled = reconcileAbilitySelection(config.protagonist, job?.abilities);
+    config.protagonist.abilityIds = reconciled.selected;
+    if (reconciled.removed.length) setPersistenceStatus("育成段階の変更で装備条件を満たさなくなったアビリティを外しました");
     writeDeckConfig(config);
     renderJobEditor(config);
     $("protagonist-strengthening-fields").querySelector(`[aria-label="${label}を変更"]`)?.focus();
@@ -907,6 +912,12 @@ function renderJobEditor(config) {
   );
   choice.append(icon, details);
   card.append(choice);
+  card.append(createProtagonistAbilityEditor(config.protagonist, job?.abilities, (abilityIds) => {
+    config.protagonist.abilityIds = abilityIds;
+    writeDeckConfig(config);
+    renderJobEditor(config);
+    void calculate();
+  }));
   if (jobId) {
     normalizeJobGrowthLevels(config.protagonist, job);
     const controls = document.createElement("div");
@@ -1150,6 +1161,10 @@ function selectJob(job) {
   }
   config.protagonist.jobId = job.jobId;
   config.protagonist.jobNameHint = job.name;
+  normalizeJobGrowthLevels(config.protagonist, job);
+  const reconciled = reconcileAbilitySelection(config.protagonist, job.abilities);
+  config.protagonist.abilityIds = reconciled.selected;
+  if (reconciled.removed.length) setPersistenceStatus("ジョブ変更で装備できなくなったアビリティを外しました");
   writeDeckConfig(config);
   renderWeaponEditor();
   $("job-picker").close();
@@ -1159,6 +1174,7 @@ function selectJob(job) {
 function removeSelectedJob() {
   const config = readDeckConfig();
   delete config.protagonist.jobId;
+  config.protagonist.abilityIds = [];
   delete config.protagonist.jobNameHint;
   delete config.protagonist.jobLevel;
   delete config.protagonist.masterLevel;
@@ -1875,6 +1891,8 @@ function renderWeaponEditor() {
     applyEquipmentRules(config);
     applyCatalogWeaponLevelStatsToConfig(config);
     normalizeJobGrowthLevels(config.protagonist, catalogJob(config.protagonist.jobId));
+    config.protagonist.abilityIds ??= [];
+    validateAbilitySelection(config.protagonist, catalogJob(config.protagonist.jobId)?.abilities);
     writeDeckConfig(config);
     renderJobEditor(config);
     renderCharacterEditor(config);
@@ -2960,6 +2978,7 @@ function render(response, predictions) {
 }
 
 function applyRequestToForm(request) {
+  validateAbilitySelection(request.deckConfig.protagonist, catalogJob(request.deckConfig.protagonist.jobId)?.abilities);
   deckField.value = JSON.stringify(request.deckConfig, null, 2);
   selectedSupportSummon = request.supportSummon ?? null;
   renderWeaponEditor();

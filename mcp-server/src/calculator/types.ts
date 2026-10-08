@@ -563,6 +563,8 @@ export interface DeckSnapshot {
 }
 
 export interface CalculatorDeckProtagonistConfig {
+  /** Ordered free slots; fixed job abilities are derived from the job catalog. */
+  abilityIds?: (string | null)[];
   attackLimitBonusLevel?: number;
   hpLimitBonusLevel?: number;
   hp2LimitBonusLevel?: number;

@@ -544,3 +544,9 @@ footer { padding: 0 20px 30px; text-align: center; color: var(--ink-soft); font-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+.job-card > .job-choice { grid-column: 1 / -1; }
+.protagonist-ability-editor { grid-column: 1 / -1; min-width: 0; padding: 12px; border-top: 1px solid var(--outline-soft); }
+ .protagonist-ability-editor h3 { margin: 0 0 8px; font-size: 1rem; }
+ .protagonist-ability-editor label { display: grid; gap: 4px; margin: 10px 0; min-width: 0; }
+ .protagonist-ability-editor select { width: 100%; min-width: 0; max-width: 100%; }
+ .protagonist-ability-editor p, .protagonist-ability-editor small { overflow-wrap: anywhere; }

@@ -3,6 +3,22 @@ import assert from "node:assert/strict";
 import { createInitialBattleState, applyGeneratedTurn } from "../web/battle-state.js";
 import { buildBattleTurnRequest, automaticAbilityPackets } from "../web/battle-turn-client.js";
 
+test("Fang reference packets distinguish conditional effects while retaining unresolved damage", () => {
+  const event = { kind: "fighter-ability", ability: "beast-fang", name: "ビーストファング", actorPosition: 0,
+    calculationStatus: "未計算", damage: null, trigger: "manual", triggerOrderVerified: false };
+  assert.match(automaticAbilityPackets(event, "normal")[0].note, /ダメージ\/数値効果未計算/);
+  for (const debuffOutcome of ["hit", "miss", "unknown"]) {
+    const packet = automaticAbilityPackets({ ...event, debuffOutcome,
+      preAttenuationDamage: { kind: "pre-attenuation-reference", damage: 999 } }, "normal")[0];
+    assert.equal(packet.kind, "unresolved");
+    assert.equal(packet.damage, undefined);
+    assert.match(packet.note, /条件付き効果対応・減衰後ダメージ未計算/);
+    assert.match(packet.note, /共存発動の先後は未確認/);
+  }
+  assert.match(automaticAbilityPackets({ ...event, ability: "other", preAttenuationDamage: { kind: "pre-attenuation-reference" } }, "normal")[0].note,
+    /ダメージ\/数値効果未計算/);
+});
+
 const setup = { enemyMaxHp: 1000, request: { schemaVersion: 1, attacker: { characterSlot: 3 }, battleEffects: { enemyDefenseDownPercent: 50 },
   deckConfig: { protagonist: { elementCode: "6", hpOverride: 100 }, weapons: [], summons: [],
     characters: [{ characterId: "ilsa", nameHint: "イルザ", slot: 3, position: "front", hpOverride: 200 }] },

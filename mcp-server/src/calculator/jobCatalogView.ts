@@ -3,6 +3,8 @@ import path from "node:path";
 import matter from "gray-matter";
 import { z } from "zod";
 import { KNOWLEDGE_BASE_PATH } from "../constants.js";
+import { createJobAbilityConfigs } from "./jobAbilityCatalog.js";
+import type { JobAbilityConfig } from "../../web/protagonist-abilities.js";
 
 const jobFrontmatterSchema = z
   .object({
@@ -28,8 +30,10 @@ const weaponKindCodes: Record<string, string> = {
   楽器: "9",
   刀: "10",
 };
+let cachedAbilityConfigs: Map<string, JobAbilityConfig> | undefined;
 
 export interface SelectableJobCatalogEntry {
+  abilities?: JobAbilityConfig;
   jobId: string;
   imageUrl: string;
   name: string;
@@ -130,11 +134,13 @@ export function createSelectableJobCatalog(
   knowledgeBasePath = KNOWLEDGE_BASE_PATH,
 ): SelectableJobCatalog {
   const jobsPath = path.join(knowledgeBasePath, "jobs");
+  const documents: { slug: string; jobId: string; classTier: string; markdown: string }[] = [];
   const jobs = readdirSync(jobsPath)
     .filter((name) => name.endsWith(".md") && !name.startsWith("_") && name !== "README.md")
     .map((name): SelectableJobCatalogEntry => {
       const document = matter(readFileSync(path.join(jobsPath, name), "utf8"));
       const frontmatter = jobFrontmatterSchema.parse(document.data);
+      documents.push({ slug: name.slice(0, -3), jobId: frontmatter.job_id, classTier: frontmatter.class_tier, markdown: document.content });
       const baseRates = baseMultiattackRates(document.content);
       const jobLevelBonuses = growthBonusRows(section(document.content, "ジョブLvアップボーナス"));
       const masterLevelBonuses = growthBonusRows(section(document.content, "マスターレベル強化"));
@@ -172,5 +178,10 @@ export function createSelectableJobCatalog(
       };
     })
     .sort((left, right) => left.name.localeCompare(right.name, "ja"));
+  // Custom fixture knowledge directories may intentionally omit the ability catalog.
+  if (knowledgeBasePath === KNOWLEDGE_BASE_PATH) {
+    const configs = cachedAbilityConfigs ??= createJobAbilityConfigs(knowledgeBasePath, documents);
+    for (const job of jobs) job.abilities = configs.get(job.jobId);
+  }
   return { schemaVersion: 1, jobs };
 }

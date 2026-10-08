@@ -10,9 +10,10 @@ import {
   resolveEnemyAttackDamage,
   selectPartyMember,
   serializeBattleSession, restoreBattleSession,
-} from "/battle-state.js?v=11";
-import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=5";
+} from "/battle-state.js?v=13";
+import { buildBattleTurnRequest, automaticAbilityPackets } from "/battle-turn-client.js?v=6";
 import { scaleDamageCapThreshold, finalizeNormalAttackHit } from "/normal-attack-rounding.js";
+import { FIGHTER_ACTION_IDS, fighterLoadoutFromDeck, abilityIssue, validateAbilitySelection } from "/protagonist-abilities.js?v=1";
 
 const $ = (id) => document.getElementById(id);
 const numberFormat = new Intl.NumberFormat("ja-JP", { maximumFractionDigits: 0 });
@@ -192,7 +193,30 @@ function enemyAttackFromResult(result, mode) {
 }
 
 const setup = loadSetup();
+// Missing choices in old battle setups mean empty free slots, never all abilities.
+if (setup.request.deckConfig.protagonist.abilityIds === undefined) setup.request.deckConfig.protagonist.abilityIds = [];
+let jobAbilityConfig;
+try {
+  const response = await fetch("/api/catalog/jobs");
+  if (!response.ok) throw new Error("ジョブのアビリティ情報を取得できませんでした");
+  const catalog = await response.json();
+  jobAbilityConfig = catalog.jobs.find(job => job.jobId === setup.request.deckConfig.protagonist.jobId)?.abilities;
+} catch (error) { $("battle-error").textContent = error.message; }
 const setupStatIssues = battleSetupStatIssues(setup.request.deckConfig);
+try { validateAbilitySelection(setup.request.deckConfig.protagonist, jobAbilityConfig); }
+catch (error) { setupStatIssues.push(error.message); }
+const formationFighterLoadout = fighterLoadoutFromDeck(setup.request.deckConfig.protagonist) ?? [];
+const protagonistAbilities = jobAbilityConfig ? [
+  ...jobAbilityConfig.fixed.map(a => ({ ...a, engineId: fighterEnabledForSetup() ? "weapon-burst" : undefined })),
+  ...Array.from({ length: jobAbilityConfig.freeSlots }, (_, slot) => {
+    const id = setup.request.deckConfig.protagonist.abilityIds[slot];
+    const a = jobAbilityConfig.candidates.find(a => a.id === id);
+    return a ? { ...a, engineId: fighterEnabledForSetup() ? FIGHTER_ACTION_IDS[id] : undefined } : { name: "未装備", battleStatus: "未装備" };
+  }),
+] : [{ name: "候補未登録", battleStatus: "戦闘効果未実装" }];
+function fighterEnabledForSetup() {
+  return ["100501", "origin1-fighter-origin"].includes(setup.request.deckConfig.protagonist.jobId) && setup.request.deckConfig.protagonist.jobLevel === 50;
+}
 if (!setup.initialHpResolved) {
   setupStatIssues.push("開始時HPの補正が未計算です。編成画面から「戦闘シミュレート」を開き直してください。");
 }
@@ -344,13 +368,19 @@ function renderParty() {
     card.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); state = selectPartyMember(state, member.id); renderParty(); } });
     const abilities = card.querySelector(".ability-row");
     if (member.slot === 0 && fighterEnabled) abilities.classList.add("fighter-ability-row");
-    for (let number = 1; number <= (isIlsa(member) ? 3 : 4); number += 1) {
+    for (let number = 1; number <= (member.slot === 0 ? protagonistAbilities.length : isIlsa(member) ? 3 : 4); number += 1) {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "ability-button";
       button.textContent = `ABILITY ${number}`;
       button.disabled = true;
       button.title = "手動アビリティは未対応です。対応済みの自動アビリティは攻撃後に実行します";
+      if (member.slot === 0) {
+        const a = protagonistAbilities[number - 1];
+        const issue = abilityIssue(a, setup.request.deckConfig.protagonist);
+        button.textContent = a.name + (issue ? `（${issue}）` : !a.engineId && a.name !== "未装備" ? "（未実装）" : "");
+        button.title = issue || a.battleStatus;
+      }
       if (isIlsa(member)) {
         const remaining = Math.max(0, (state.actionState?.ilsa?.readyOnTurn[number - 1] ?? 1) - state.turn);
         const names = ["ウォー・エターナル", "ウェイジズ・オブ・シン", "ディヴァ・サタニカ"];
@@ -361,19 +391,27 @@ function renderParty() {
           { kind: "ilsa-ability", characterSlot: member.slot, ability: number }); });
         button.addEventListener("keydown", (event) => event.stopPropagation());
       }
-      if (member.slot === 0 && fighterEnabled) {
-        const ids = ["weapon-burst", "beast-fang", "ulfhedinn", "unlimited-boost"];
-        const labels = ["ウェポンバースト", "ビーストファング", "ウールヴヘジン", "アンリミ"];
-        const id = ids[number - 1];
-        const loadout = fa?.loadout ?? [...document.querySelectorAll("[data-fighter-ability]:checked")].map(e => e.dataset.fighterAbility);
-        const readyIndex = number === 1 ? 0 : number === 2 ? 1 : 2;
+      if (member.slot === 0 && fighterEnabled && protagonistAbilities[number - 1].engineId) {
+        const a = protagonistAbilities[number - 1];
+        const id = a.engineId;
+        const loadout = formationFighterLoadout;
+        const readyIndex = id === "weapon-burst" ? 0 : id === "beast-fang" ? 1 : 2;
         const remaining = Math.max(0, (fa?.readyOnTurn[readyIndex] ?? 1) - state.turn);
-        button.textContent = labels[number - 1] + (number !== 4 && remaining ? `（${remaining}T）` : "");
+        button.textContent = a.name + (id !== "unlimited-boost" && remaining ? `（${remaining}T）` : "");
         button.title = "状態と発動のみ対応・数値効果未計算";
         button.disabled = setupStatIssues.length > 0 || actionPending || member.hp <= 0 || state.enemy.hp === 0
-          || state.turn < (fa?.woolExpiresOnTurn ?? 0) || (number > 1 && !loadout.includes(id))
-          || (number !== 4 && remaining > 0) || (number === 3 && member.charge !== 100)
-          || (number === 4 && (fa?.unlimitedUsed || fighter?.level !== 5));
+          || state.turn < (fa?.woolExpiresOnTurn ?? 0) || (id !== "weapon-burst" && !loadout.includes(id))
+          || (id !== "unlimited-boost" && remaining > 0) || (id === "ulfhedinn" && member.charge !== 100)
+          || (id === "unlimited-boost" && (fa?.unlimitedUsed || fighter?.level !== 5));
+        const reason = setupStatIssues.length ? "編成設定を確認" : actionPending ? "処理中" : member.hp <= 0 ? "戦闘不能"
+          : state.enemy.hp === 0 ? "敵撃破済み" : state.turn < (fa?.woolExpiresOnTurn ?? 0) ? "ウールヴ中は手動使用不可"
+          : id !== "weapon-burst" && !loadout.includes(id) ? "未装備"
+          : id !== "unlimited-boost" && remaining > 0 ? `再使用まで${remaining}T`
+          : id === "ulfhedinn" && member.charge !== 100 ? "奥義ゲージ100%が必要"
+          : id === "unlimited-boost" && fa?.unlimitedUsed ? "使用済み"
+          : id === "unlimited-boost" && fighter?.level !== 5 ? "闘心Lv5が必要" : "";
+        button.title = `${reason ? `${reason}。` : ""}状態と発動のみ対応・数値効果未計算`;
+        if (reason) button.textContent = `${a.name}（${reason}）`;
         button.addEventListener("click", event => { event.stopPropagation(); void attack(false, { kind: "fighter-ability", ability: id }); });
         button.addEventListener("keydown", event => event.stopPropagation());
       }
@@ -494,6 +532,8 @@ async function attack(ougiEnabled, action) {
       } else if (["automatic-ability", "manual-ability", "charge-attack", "fighter-ability"].includes(event.kind)) packets.push(...automaticAbilityPackets(event, selectedMode));
       else packets.push(event);
     }
+    // The API may calculate incoming damage after normal-action effects have changed.
+    protagonistResult = generated.protagonistCalculation ?? protagonistResult;
     if (protagonistResult) acceptCalculatedRates(protagonistResult);
     commit(applyGeneratedTurn(state, generated, packets, { enemyAttack: protagonistResult && enemyAttackFromResult(protagonistResult, selectedMode) }));
   } catch (error) {
@@ -539,7 +579,7 @@ function readSettings() {
     };
   }
   return { characters, secondsPerTurn: Number($("seconds-per-turn").value),
-    ...(fighterEnabled ? { fighterLoadout: [...document.querySelectorAll("[data-fighter-ability]:checked")].map(e => e.dataset.fighterAbility) } : {}) };
+    ...(fighterEnabled ? { fighterLoadout: formationFighterLoadout } : {}) };
 }
 
 $("attack-ougi-off").addEventListener("click", () => void attack(false));
@@ -570,8 +610,7 @@ for (const button of document.querySelectorAll("[data-item]")) {
 }
 
 renderSettings();
-$("fighter-loadout").hidden = $("fighter-scope").hidden = !fighterEnabled;
-for (const input of document.querySelectorAll("[data-fighter-ability]")) input.addEventListener("change", render);
+$("fighter-scope").hidden = !fighterEnabled;
 $("save-battle").addEventListener("click", () => {
   try { sessionStorage.setItem(battleSaveKey, serializeBattleSession(setup, state, history, readSettings(), simulationMode)); render(); }
   catch (error) { $("battle-error").textContent = error.message; }
@@ -584,7 +623,6 @@ $("restore-battle").addEventListener("click", () => {
     initialState.enemy.maxHp = initialState.enemy.hp = state.enemy.maxHp;
     $("enemy-max-hp-setting").value = state.enemy.maxHp;
     $("seconds-per-turn").value = restored.settings.secondsPerTurn;
-    for (const input of document.querySelectorAll("[data-fighter-ability]")) input.checked = restored.settings.fighterLoadout?.includes(input.dataset.fighterAbility) ?? false;
     for (const [slot, settings] of Object.entries(restored.settings.characters ?? {})) {
       if ($(`da-${slot}`)) $(`da-${slot}`).value = settings.rates?.doubleAttackRatePercent ?? "";
       if ($(`ta-${slot}`)) $(`ta-${slot}`).value = settings.rates?.tripleAttackRatePercent ?? "";

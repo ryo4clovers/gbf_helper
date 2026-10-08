@@ -7,7 +7,7 @@
     <title>Battle Simulator — GBF Damage Lab</title>
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/battle.css" />
-    <script type="module" src="/battle.js?v=13"></script>
+    <script type="module" src="/battle.js?v=15"></script>
   </head>
   <body class="battle-page">
     <header class="top-app-bar battle-app-bar">
@@ -82,13 +82,7 @@
           <label>1ターンの経過秒数 <input id="seconds-per-turn" type="number" min="1" max="3600" value="15" /></label>
           <p class="section-note">キャラ連撃率の自動合成は未対応です。通常モードは全補正込みのDA/TA率を入力してください。未入力の比較シナリオは既知の確定連撃だけを使います。ランダム強化は装備している場合だけ指定します。開始後は設定を固定します。</p>
           <div id="actor-settings"></div>
-          <fieldset id="fighter-loadout" hidden>
-            <legend>オリファイの装備アビリティ（開始前に選択）</legend>
-            <label><input type="checkbox" data-fighter-ability="beast-fang" /> ビーストファング</label>
-            <label><input type="checkbox" data-fighter-ability="ulfhedinn" /> ウールヴヘジン</label>
-            <label><input type="checkbox" data-fighter-ability="unlimited-boost" /> アンリミテッド・ブースト</label>
-            <p class="section-note">選択なしで既存の非アビ状態を使用できます。ウェポンバーストは基本アビです。複数の自動ダメージアビ候補・チャージ変換・ドーンブレイクの実行は未対応。</p>
-          </fieldset>
+          <p class="section-note">主人公アビリティは編成画面でセットしたものを使用します。変更する場合は編成に戻り、戦闘を開き直してください。未実装の効果は発動しません。</p>
         </details>
         <details><summary>対応状況・計算の注意点</summary><ul id="battle-warnings"><li>前衛はLv80以上の闇シンダラ・サリエル・浴衣イルザに対応。未対応キャラは攻撃時に通知します。</li></ul></details>
         <p id="battle-error" role="alert" class="error-text"></p>

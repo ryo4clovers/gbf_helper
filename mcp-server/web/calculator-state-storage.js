@@ -27,6 +27,7 @@ function pick(source, keys) {
 }
 
 const protagonistKeys = [
+  "abilityIds",
   "attackLimitBonusLevel", "hpLimitBonusLevel", "hp2LimitBonusLevel", "otherLimitBonusLevels",
   ...PROTAGONIST_PARTY_HP_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
   ...PROTAGONIST_CRITICAL_LIMIT_BONUS_DEFINITIONS.map(({ fieldKey }) => fieldKey),
@@ -163,6 +164,13 @@ function assertFormation(formation) {
   }
   const otherLimitBonusLevels = sanitizeOtherLimitBonusLevels(deck.protagonist.otherLimitBonusLevels);
   const normalizedProtagonist = { ...deck.protagonist };
+  const abilityIds = normalizedProtagonist.abilityIds ?? [];
+  if (!Array.isArray(abilityIds) || abilityIds.length > 3 || abilityIds.some(id => id !== null && (typeof id !== "string" || !/^\d{1,16}$/.test(id)))
+    || new Set(abilityIds.filter(Boolean)).size !== abilityIds.filter(Boolean).length) {
+    throw new Error("主人公アビリティの保存形式が正しくありません");
+  }
+  // Old formations did not contain equipment choices: migrate to empty slots.
+  normalizedProtagonist.abilityIds = [...abilityIds];
   if (normalizedProtagonist.hp2LimitBonusLevel === undefined
     && otherLimitBonusLevels?.["103"] !== undefined) {
     normalizedProtagonist.hp2LimitBonusLevel = otherLimitBonusLevels["103"];
@@ -278,8 +286,8 @@ function assertCalculatorProfile(profile) {
   if (typeof profile.updatedAt !== "string" || !Number.isFinite(Date.parse(profile.updatedAt))) {
     throw new Error("名前付き保存の更新日時が正しくありません");
   }
-  assertFormation(profile.formation);
-  return { ...profile, name: profile.name.trim() };
+  const formation = assertFormation(profile.formation);
+  return { ...profile, name: profile.name.trim(), formation };
 }
 
 export function serializeCalculatorFormation(formation) {

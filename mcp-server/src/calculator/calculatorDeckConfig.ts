@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { parseDeckResponse } from "./deckParser.js";
 import type { CalculatorDeckConfig } from "./types.js";
+import { createSelectableJobCatalog } from "./jobCatalogView.js";
+import { validateAbilitySelection } from "../../web/protagonist-abilities.js";
 
 const idSchema = z
   .union([z.string(), z.number().finite()])
@@ -62,6 +64,7 @@ const crewSupportSettingsSchema = z
 
 const protagonistSchema = z
   .object({
+    abilityIds: z.array(z.string().regex(/^\d+$/).max(16).nullable()).max(3).optional(),
     attackLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     hpLimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
     hp2LimitBonusLevel: nonNegativeIntegerSchema.refine((value) => value <= 3).optional(),
@@ -284,7 +287,12 @@ function removeUndefinedValues(value: unknown): unknown {
 
 /** Validates user-authored calculator deck JSON and normalizes IDs/numeric strings. */
 export function parseCalculatorDeckConfig(input: unknown): CalculatorDeckConfig {
-  return calculatorDeckConfigSchema.parse(input);
+  const config = calculatorDeckConfigSchema.parse(input);
+  if (config.protagonist.abilityIds !== undefined) {
+    const job = createSelectableJobCatalog().jobs.find(j => j.jobId === config.protagonist.jobId);
+    validateAbilitySelection(config.protagonist, job?.abilities);
+  }
+  return config;
 }
 
 /**

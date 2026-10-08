@@ -22,6 +22,8 @@ const WEB_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."
 const MAX_BODY_BYTES = 1_048_576;
 
 const staticFiles: Record<string, { file: string; contentType: string }> = {
+  "/protagonist-abilities.js": { file: "protagonist-abilities.js", contentType: "text/javascript; charset=utf-8" },
+  "/protagonist-ability-editor.js": { file: "protagonist-ability-editor.js", contentType: "text/javascript; charset=utf-8" },
   "/fighter-origin-reactions.js": { file: "fighter-origin-reactions.js", contentType: "text/javascript; charset=utf-8" },
   "/weapon-awakening-stats.js": { file: "weapon-awakening-stats.js", contentType: "text/javascript; charset=utf-8" },
   "/actions.html": { file: "actions.html", contentType: "text/html; charset=utf-8" },

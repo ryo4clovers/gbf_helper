@@ -22,8 +22,10 @@ export function buildBattleTurnRequest(setup, state, mode, settings, action, ils
 export function automaticAbilityPackets(event, mode, random = Math.random) {
   if (event.calculationStatus === "未計算" && (event.kind === "fighter-ability" || event.fighterReplacement)) {
     const reason = { manual: "手動", ulfhedinn: "ウールヴ由来", endless: "無窮由来" }[event.trigger];
+    const limitation = event.ability === "beast-fang" && event.preAttenuationDamage?.kind === "pre-attenuation-reference"
+      ? "条件付き効果対応・減衰後ダメージ未計算" : "ダメージ/数値効果未計算";
     return [{ kind: "unresolved", actorPosition: event.actorPosition,
-      note: `${event.name}${reason ? `（${reason}）` : ""}・ダメージ/数値効果未計算${event.triggerOrderVerified === false ? "・共存発動の先後は未確認" : ""}` }];
+      note: `${event.name}${reason ? `（${reason}）` : ""}・${limitation}${event.triggerOrderVerified === false ? "・共存発動の先後は未確認" : ""}` }];
   }
   if (!event.damage) throw new Error(`${event.name}のダメージが未計算です`);
   return Array.from({ length: event.hitCount }, (_, index) => {
