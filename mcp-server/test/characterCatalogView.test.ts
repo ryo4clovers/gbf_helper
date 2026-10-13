@@ -38,7 +38,7 @@ test("creates a browser-safe catalog from all character knowledge", () => {
   assert.equal(JSON.stringify(catalog).includes("source"), false);
   const ilsa = catalog.characters.find((character) => character.characterId === "dark-ssr-ilsa-yukata")!;
   assert.equal(ilsa.masterId, "3040456000");
-  assert.equal(ilsa.imageUrl, "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/m/3040456000_01.jpg");
+  assert.equal(ilsa.imageUrl, "/thumbnails/npc/3040456000_01.jpg");
   assert.equal(catalog.characters.find((character) => character.characterId === "dark-ssr-sariel-limited")?.masterId, "3040611000");
   assert.equal(catalog.characters.find((character) => character.characterId === "dark-ssr-cidala-valentine")?.masterId, "3040512000");
   // A seasonal version must not inherit another version's picture.
@@ -49,7 +49,7 @@ test("creates a browser-safe catalog from all character knowledge", () => {
   assert.equal(imageIds.length, catalog.characters.length, "all current knowledge entries have reviewed image identities");
   assert.equal(new Set(imageIds).size, imageIds.length, "master ID and style must uniquely identify a character variant");
   for (const character of catalog.characters) {
-    if (character.imageUrl) assert.match(character.imageUrl, /^https:\/\/prd-game-a-granbluefantasy\.akamaized\.net\/assets\/img\/sp\/assets\/npc\/m\/30[234]\d{7}_01(?:_st2)?\.jpg$/);
+    if (character.imageUrl) assert.match(character.imageUrl, /^\/thumbnails\/npc\/30[234]\d{7}_01(?:_st2)?\.jpg$/);
   }
 });
 

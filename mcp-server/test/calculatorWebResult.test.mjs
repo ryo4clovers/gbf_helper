@@ -140,11 +140,11 @@ test("weapon and summon parameter editors open from occupied slots with right cl
   assert.match(styles, /\.equipment-strengthening-fields \.weapon-slot-controls \{/u);
 });
 
-test("web server permits the known job thumbnail host without widening other CSP directives", async () => {
+test("web server restricts thumbnails to local images without widening other CSP directives", async () => {
   const webServer = await readFile(new URL("../src/webServer.ts", import.meta.url), "utf8");
   assert.match(
     webServer,
-    /img-src 'self' data: https:\/\/prd-game-a-granbluefantasy\.akamaized\.net;/u,
+    /img-src 'self' data:;/u,
   );
   assert.match(webServer, /connect-src 'self';/u);
 });

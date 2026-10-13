@@ -71,7 +71,7 @@ export function createSelectableCharacterCatalog(
         ...(image ? {
           masterId: image.masterId,
           ...(image.styleId ? { styleId: image.styleId } : {}),
-          imageUrl: `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/m/${image.masterId}_01${image.styleId ? `_st${image.styleId}` : ""}.jpg`,
+          imageUrl: `/thumbnails/npc/${image.masterId}_01${image.styleId ? `_st${image.styleId}` : ""}.jpg`,
         } : {}),
         name: frontmatter.name_jp,
         nameEn: frontmatter.name_en,

@@ -15,3 +15,6 @@ tools/network-recorder/captures/*
 # スクリプトはコミットするが、生成された貼り付け用テキストはコミットしない。
 /handoff.txt
 /handoff*.txt
+
+# Downloaded thumbnails are local-only, not distributed with the repository.
+mcp-server/.cache/

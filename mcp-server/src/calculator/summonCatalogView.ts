@@ -37,7 +37,7 @@ export function createSelectableSummonCatalog(): SelectableSummonCatalog {
     .map(
       (summon): SelectableSummonCatalogEntry => ({
         summonId: summon.summonId,
-        imageUrl: `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/summon/m/${summon.summonId}.jpg`,
+        imageUrl: `/thumbnails/summon/${summon.summonId}.jpg`,
         name: summon.name,
         elementCode: summon.elementCode,
         rarityCode: summon.rarityCode,

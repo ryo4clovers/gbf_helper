@@ -1,3 +1,4 @@
+import { createThumbnailCache } from "./services/thumbnailCache.js";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
@@ -66,7 +67,7 @@ function securityHeaders(response: ServerResponse): void {
   response.setHeader("Referrer-Policy", "no-referrer");
   response.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://prd-game-a-granbluefantasy.akamaized.net; connect-src 'self'; base-uri 'none'; form-action 'self'",
+    "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'self'",
   );
 }
 
@@ -99,9 +100,32 @@ function errorMessage(error: unknown): string {
   return error instanceof Error ? error.message : "計算中に不明なエラーが発生しました";
 }
 
+const thumbnailCache = createThumbnailCache({
+  directory: process.env.GBF_THUMBNAIL_CACHE_DIR ?? path.resolve(WEB_ROOT, "..", ".cache", "thumbnails"),
+  allowedKeys: new Set([
+    ...createSelectableCharacterCatalog().characters, ...createSelectableJobCatalog().jobs,
+    ...createSelectableWeaponCatalog().weapons, ...createSelectableSummonCatalog().summons,
+  ].flatMap(entry => entry.imageUrl ? [entry.imageUrl.slice("/thumbnails/".length)] : [])),
+});
+
 const server = createServer(async (request, response) => {
   try {
     const url = new URL(request.url ?? "/", `http://${HOST}:${PORT}`);
+    if ((request.method === "GET" || request.method === "HEAD") && url.pathname.startsWith("/thumbnails/")) {
+      securityHeaders(response);
+      try {
+        const bytes = await thumbnailCache.get(url.pathname.slice("/thumbnails/".length));
+        if (!bytes) { json(response, 404, { error: "未登録の画像です" }); return; }
+        response.writeHead(200, { "Content-Type": "image/jpeg", "Content-Length": bytes.length,
+          "Cache-Control": "private, max-age=3600" });
+        response.end(request.method === "HEAD" ? undefined : bytes);
+      } catch (error) {
+        console.error("Thumbnail cache:", errorMessage(error));
+        response.setHeader("Retry-After", "300");
+        json(response, 503, { error: "画像を取得できませんでした。保存済み画像は引き続き利用できます" });
+      }
+      return;
+    }
     if (request.method === "GET" && url.pathname === "/api/catalog/weapons") {
       json(response, 200, createSelectableWeaponCatalog());
       return;

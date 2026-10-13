@@ -11,7 +11,7 @@ test("creates a deterministic browser-safe catalog from all job knowledge", () =
   assert.equal(fighterOrigin?.name, "ファイター・オリジン");
   assert.equal(
     fighterOrigin?.imageUrl,
-    "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/100501_01.jpg",
+    "/thumbnails/leader/100501_01.jpg",
   );
   assert.equal(fighterOrigin?.classTier, "オリジン");
   assert.deepEqual(fighterOrigin?.weaponKinds, [
