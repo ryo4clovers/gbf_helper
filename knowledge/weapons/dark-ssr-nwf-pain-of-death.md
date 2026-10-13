@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ペイン・オブ・デス(Pain of Death)
-![ペイン・オブ・デス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040113200.jpg)
+![ペイン・オブ・デス](../_image/weapon/1040113200_low.jpg)
 
 ## 概要
 

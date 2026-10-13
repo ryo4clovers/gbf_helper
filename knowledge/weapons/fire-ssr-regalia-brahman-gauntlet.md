@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ブラフマンガントレ
-![ブラフマンガントレ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040609800.jpg)
+![ブラフマンガントレ](../_image/weapon/1040609800_low.jpg)
 
 ## 概要
 

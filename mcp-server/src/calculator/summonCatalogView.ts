@@ -37,7 +37,7 @@ export function createSelectableSummonCatalog(): SelectableSummonCatalog {
     .map(
       (summon): SelectableSummonCatalogEntry => ({
         summonId: summon.summonId,
-        imageUrl: `/thumbnails/summon/${summon.summonId}.jpg`,
+        imageUrl: `/images/summon/${summon.summonId}.jpg`,
         name: summon.name,
         elementCode: summon.elementCode,
         rarityCode: summon.rarityCode,

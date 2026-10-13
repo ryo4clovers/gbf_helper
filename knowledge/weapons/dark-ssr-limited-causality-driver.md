@@ -14,7 +14,7 @@ source: "実機所持品の武器詳細・編成・戦闘レスポンス（ユ�
 ---
 
 # 因果の楔針(Causality Driver)
-![因果の楔針](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040916700.jpg)
+![因果の楔針](../_image/weapon/1040916700_low.jpg)
 
 ## 概要
 

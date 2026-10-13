@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ル・オー・ホーン(Lu Woh's Horn)
-![ル・オー・ホーン](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040313000.jpg)
+![ル・オー・ホーン](../_image/weapon/1040313000_low.jpg)
 
 ## 概要
 

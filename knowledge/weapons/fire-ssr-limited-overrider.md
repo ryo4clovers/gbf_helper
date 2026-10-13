@@ -14,7 +14,7 @@ source: "武器ID・skill_id・効果文はゲーム内deck/武器詳細レス�
 ---
 
 # オーバーライド(Overrider)
-![オーバーライド](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040218900.jpg)
+![オーバーライド](../_image/weapon/1040218900_low.jpg)
 
 ## 概要
 

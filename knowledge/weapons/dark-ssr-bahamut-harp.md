@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # バハムートハープ・フツルス(Harp of Bahamut Fyutlus)
-![バハムートハープ・フツルス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040803800.jpg)
+![バハムートハープ・フツルス](../_image/weapon/1040803800_low.jpg)
 
 ## 概要
 

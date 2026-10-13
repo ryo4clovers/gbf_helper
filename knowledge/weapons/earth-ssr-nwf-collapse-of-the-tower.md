@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # クラッシュ・オブ・ザ・タワー(Collapse of The Tower)
-![クラッシュ・オブ・ザ・タワー](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040313500.jpg)
+![クラッシュ・オブ・ザ・タワー](../_image/weapon/1040313500_low.jpg)
 
 ## 概要
 

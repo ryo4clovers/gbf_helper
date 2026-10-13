@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ヒート・オブ・ザ・サン(Heat of The Sun)
-![ヒート・オブ・ザ・サン](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040912600.jpg)
+![ヒート・オブ・ザ・サン](../_image/weapon/1040912600_low.jpg)
 
 ## 概要
 

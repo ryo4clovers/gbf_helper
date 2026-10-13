@@ -55,7 +55,7 @@ export function createSelectableWeaponCatalog(): SelectableWeaponCatalog {
   const weapons = [...catalog.weapons.values()]
     .map((weapon): SelectableWeaponCatalogEntry => ({
       weaponId: weapon.weaponId,
-      imageUrl: `/thumbnails/weapon/${weapon.weaponId}.jpg`,
+      imageUrl: `/images/weapon/${weapon.weaponId}.jpg`,
       name: weapon.name,
       ...(weapon.nameEn ? { nameEn: weapon.nameEn } : {}),
       elementCode: weapon.elementCode,

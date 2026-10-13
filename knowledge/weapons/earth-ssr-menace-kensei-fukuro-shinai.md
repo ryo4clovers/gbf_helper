@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 剣聖の袋竹刀
-![剣聖の袋竹刀](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040905500.jpg)
+![剣聖の袋竹刀](../_image/weapon/1040905500_low.jpg)
 
 ## 概要
 

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 溟渤と激流の裁き(Draconic Axe (Origin))
-![溟渤と激流の裁き](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040316500.jpg)
+![溟渤と激流の裁き](../_image/weapon/1040316500_low.jpg)
 
 ## 概要
 

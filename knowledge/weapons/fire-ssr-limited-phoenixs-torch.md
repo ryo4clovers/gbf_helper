@@ -14,7 +14,7 @@ source: "実機の武器詳細・サブ編成・戦闘レスポンス(ユーザ�
 ---
 
 # 不死鳥の灯火(Phoenix's Torch)
-![不死鳥の灯火](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040422700.jpg)
+![不死鳥の灯火](../_image/weapon/1040422700_low.jpg)
 
 ## 概要
 

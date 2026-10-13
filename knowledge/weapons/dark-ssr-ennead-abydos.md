@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # アビュドス
-![アビュドス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040115500.jpg)
+![アビュドス](../_image/weapon/1040115500_low.jpg)
 
 ## 概要
 

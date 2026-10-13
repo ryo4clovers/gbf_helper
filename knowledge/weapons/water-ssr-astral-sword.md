@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # フェイトレス(Fateless)
-![フェイトレス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040019700.jpg)
+![フェイトレス](../_image/weapon/1040019700_low.jpg)
 
 ## 概要
 

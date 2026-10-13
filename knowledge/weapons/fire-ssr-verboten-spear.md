@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07。
 ---
 
 # 禁栄の禍槍(Verboten Spear (Fire))
-![禁栄の禍槍](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040220800.jpg)
+![禁栄の禍槍](../_image/weapon/1040220800_low.jpg)
 
 ## 概要
 

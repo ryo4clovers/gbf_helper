@@ -14,7 +14,7 @@ source: "本家武器一覧から通常表示した装備詳細レスポンス(2
 ---
 
 # 千年護持(Sennen Goji)
-![千年護持](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040917100.jpg)
+![千年護持](../_image/weapon/1040917100_low.jpg)
 
 ## 概要
 

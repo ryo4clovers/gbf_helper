@@ -14,7 +14,7 @@ source: "武器ID・skill_id・効果文はゲーム内武器詳細レスポン�
 ---
 
 # 絶拳(Fist of Destruction)
-![絶拳](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040612700.jpg)
+![絶拳](../_image/weapon/1040612700_low.jpg)
 
 ## 概要
 

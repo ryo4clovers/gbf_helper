@@ -154,7 +154,7 @@ export function createSelectableJobCatalog(
       });
       return {
         jobId: frontmatter.job_id,
-        imageUrl: `/thumbnails/leader/${frontmatter.job_id}_01.jpg`,
+        imageUrl: `/images/job/${frontmatter.job_id}_01.jpg`,
         name: frontmatter.name_jp,
         nameEn: frontmatter.name_en,
         classTier: frontmatter.class_tier,

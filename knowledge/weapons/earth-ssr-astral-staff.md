@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ユグドラシル・ブランチ(Yggdrasil's Bough)
-![ユグドラシル・ブランチ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040416600.jpg)
+![ユグドラシル・ブランチ](../_image/weapon/1040416600_low.jpg)
 
 ## 概要
 

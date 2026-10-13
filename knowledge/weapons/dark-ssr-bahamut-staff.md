@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # バハムートスタッフ・フツルス(Staff of Bahamut Fyutlus)
-![バハムートスタッフ・フツルス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040407000.jpg)
+![バハムートスタッフ・フツルス](../_image/weapon/1040407000_low.jpg)
 
 ## 概要
 

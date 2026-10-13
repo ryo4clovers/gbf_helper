@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 絶対否定の杖(Dark Opus Cane (Normal ATK))
-![絶対否定の杖](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040415000.jpg)
+![絶対否定の杖](../_image/weapon/1040415000_low.jpg)
 
 ## 概要
 

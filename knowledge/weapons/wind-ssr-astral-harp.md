@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # イノセント・ラヴ(Innocent Love)
-![イノセント・ラヴ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040811600.jpg)
+![イノセント・ラヴ](../_image/weapon/1040811600_low.jpg)
 
 ## 概要
 

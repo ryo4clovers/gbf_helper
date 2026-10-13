@@ -14,7 +14,7 @@ source: "実機所持品の武器詳細・編成・戦闘レスポンス（ユ�
 ---
 
 # エクセキューショナー(Executioner)
-![エクセキューショナー](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040918100.jpg)
+![エクセキューショナー](../_image/weapon/1040918100_low.jpg)
 
 ## 概要
 

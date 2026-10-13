@@ -15,6 +15,8 @@
 - Follow the current source policy and collection constraints in `docs/data-collection-notes.md`; do not bypass authenticated-game or browser restrictions to collect data.
 - `draft/` and `tools/network-recorder/captures/` may contain local or account-related data. They are local-only: do not commit, quote, or expose their contents unless the user explicitly asks.
 
+- Calculator and knowledge images must reference local files under knowledge/_image/; keep normal and _low variants separate. Never collect images during display, startup or routine checks. Collect only at the user's explicit request, serialize static image requests at least 1.5 seconds apart, and keep binaries out of Git. Missing images must not block selection or calculation. See CONTRIBUTING.md.
+
 ## Editing conventions
 
 - The project uses full-access Codex permissions. This removes technical sandbox limits but does not authorize work outside the user's requested scope.

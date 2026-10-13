@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # アビスルック
-![アビスルック](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040508900.jpg)
+![アビスルック](../_image/weapon/1040508900_low.jpg)
 
 ## 概要
 

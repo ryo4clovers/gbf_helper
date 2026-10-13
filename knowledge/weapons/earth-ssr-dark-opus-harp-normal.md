@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 絶対否定の竪琴(Dark Opus Harp (Normal ATK))
-![絶対否定の竪琴](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040809400.jpg)
+![絶対否定の竪琴](../_image/weapon/1040809400_low.jpg)
 
 ## 概要
 

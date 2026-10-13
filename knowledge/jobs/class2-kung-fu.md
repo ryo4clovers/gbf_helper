@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # クンフー(Kung Fu)
-![クンフー](../_images/cdn/assets/img/sp/assets/leader/m/160101_01.jpg)
+![クンフー](../_image/job/160101_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: カウンター(Lv1で習得)
-![カウンター](../_images/cdn/assets/img/sp/ui/icon/ability/m/23_1.png)
+![カウンター](../_image/ability/23_1.png)
 
 - 効果(初期): カウンター効果(回避/3回)/自分の攻撃UP
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: 捨身の型II(Lv5で習得)
-![捨身の型II](../_images/cdn/assets/img/sp/ui/icon/ability/m/35_3.png)
+![捨身の型II](../_image/ability/35_3.png)
 
 - 効果(初期): 自分の攻撃UP(特大)/防御DOWN
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: 内功(Lv15で習得)
-![内功](../_images/cdn/assets/img/sp/ui/icon/ability/m/50_2.png)
+![内功](../_image/ability/50_2.png)
 
 - 効果(初期): 自分のHPを回復/防御UP
 - 使用間隔: 5ターン

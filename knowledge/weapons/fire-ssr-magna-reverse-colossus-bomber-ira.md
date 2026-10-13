@@ -14,7 +14,7 @@ source: "実機の武器詳細・編成・アビリティ実行レスポンス(�
 ---
 
 # コロッサスボンバー・イラ
-![コロッサスボンバー・イラ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040317400.jpg)
+![コロッサスボンバー・イラ](../_image/weapon/1040317400_low.jpg)
 
 ## 概要
 

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 万象尽滅の鋭刃(Versacia Dagger (Water))
-![万象尽滅の鋭刃](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040122300.jpg)
+![万象尽滅の鋭刃](../_image/weapon/1040122300_low.jpg)
 
 ## 概要
 

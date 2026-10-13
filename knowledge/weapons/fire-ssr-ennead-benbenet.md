@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ベンベネト
-![ベンベネト](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040217700.jpg)
+![ベンベネト](../_image/weapon/1040217700_low.jpg)
 
 ## 概要
 

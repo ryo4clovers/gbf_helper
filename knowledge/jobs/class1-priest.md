@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # プリースト(Priest)
-![プリースト](../_images/cdn/assets/img/sp/assets/leader/m/120001_01.jpg)
+![プリースト](../_image/job/120001_01.jpg)
 
 ## 概要
 
@@ -36,14 +36,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ヒールオール(Lv1で習得)
-![ヒールオール](../_images/cdn/assets/img/sp/ui/icon/ability/m/36_2.png)
+![ヒールオール](../_image/ability/36_2.png)
 
 - 効果(初期): 参戦者のHPを回復(小)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: オーラ(Lv10で習得)
-![オーラ](../_images/cdn/assets/img/sp/ui/icon/ability/m/22_3.png)
+![オーラ](../_image/ability/22_3.png)
 
 - 効果(初期): 参戦者の防御UP(小)
 - 使用間隔: 5ターン

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 輝羅煌閃杖
-![輝羅煌閃杖](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040418000.jpg)
+![輝羅煌閃杖](../_image/weapon/1040418000_low.jpg)
 
 ## 概要
 

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 永遠拒絶の槍(Dark Opus Spear (Magna))
-![永遠拒絶の槍](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040212600.jpg)
+![永遠拒絶の槍](../_image/weapon/1040212600_low.jpg)
 
 ## 概要
 

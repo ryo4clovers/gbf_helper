@@ -14,7 +14,7 @@ test("creates a deterministic browser-safe weapon catalog", () => {
   assert.ok(catalog.weapons.some((weapon) => weapon.weaponId === "1040613800" && weapon.name === "ウィルナス・フィンガー"));
   assert.equal(
     catalog.weapons.find((weapon) => weapon.weaponId === "1040218900")?.imageUrl,
-    "/thumbnails/weapon/1040218900.jpg",
+    "/images/weapon/1040218900.jpg",
   );
   assert.ok(catalog.weapons.some((weapon) => weapon.weaponId === "1010000000" && weapon.name === "スパタ" && weapon.nameEn === "Spatha"));
   assert.deepEqual(
@@ -52,7 +52,7 @@ test("creates a deterministic browser-safe weapon catalog", () => {
     catalog.weapons.find((weapon) => weapon.weaponId === "1040401500"),
     {
       weaponId: "1040401500",
-      imageUrl: "/thumbnails/weapon/1040401500.jpg",
+      imageUrl: "/images/weapon/1040401500.jpg",
       name: "コロッサスケーン・マグナ",
       elementCode: "1",
       weaponKindCode: "5",

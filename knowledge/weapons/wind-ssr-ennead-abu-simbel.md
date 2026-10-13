@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # アブシンベル
-![アブシンベル](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040616600.jpg)
+![アブシンベル](../_image/weapon/1040616600_low.jpg)
 
 ## 概要
 

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 暁闇と葬送の蝕み(Draconic Gun (Origin))
-![暁闇と葬送の蝕み](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040516500.jpg)
+![暁闇と葬送の蝕み](../_image/weapon/1040516500_low.jpg)
 
 ## 概要
 

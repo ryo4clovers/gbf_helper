@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 竜伐の撃爪・再誕
-![竜伐の撃爪・再誕](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040316700.jpg)
+![竜伐の撃爪・再誕](../_image/weapon/1040316700_low.jpg)
 
 ## 概要
 

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ミトロンの宝剣
-![ミトロンの宝剣](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040110400.jpg)
+![ミトロンの宝剣](../_image/weapon/1040110400_low.jpg)
 
 ## 概要
 

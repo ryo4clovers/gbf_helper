@@ -14,7 +14,7 @@ source: "本家武器一覧から通常表示した装備詳細レスポンス(2
 ---
 
 # イクサバ(Ixaba)
-![イクサバ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040906400.jpg)
+![イクサバ](../_image/weapon/1040906400_low.jpg)
 
 ## 概要
 

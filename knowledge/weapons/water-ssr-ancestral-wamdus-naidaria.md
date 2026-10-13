@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ワムデュス・ナイダリア(Wamdus' Naiaderia)
-![ワムデュス・ナイダリア](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040215100.jpg)
+![ワムデュス・ナイダリア](../_image/weapon/1040215100_low.jpg)
 
 ## 概要
 

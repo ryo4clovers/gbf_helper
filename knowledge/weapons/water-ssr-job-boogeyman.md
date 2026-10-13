@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ルクス・イン・デネブリス(Lux in Tenebris)
-![ルクス・イン・デネブリス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040517500.jpg)
+![ルクス・イン・デネブリス](../_image/weapon/1040517500_low.jpg)
 
 ## 概要
 
