@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ソーサラー(Sorcerer)
-![ソーサラー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/130101_01.jpg)
+![ソーサラー](../_images/cdn/assets/img/sp/assets/leader/m/130101_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: エーテルブラスト(Lv1で習得)
-![エーテルブラスト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/60_1.png)
+![エーテルブラスト](../_images/cdn/assets/img/sp/ui/icon/ability/m/60_1.png)
 
 - 効果(初期): 敵に2～3倍自属性ダメージ
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: アイス(Lv5で習得)
-![アイス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/5_1.png)
+![アイス](../_images/cdn/assets/img/sp/ui/icon/ability/m/5_1.png)
 
 - 効果(初期): 敵全体に水属性ダメージ(小)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: ブラインド(Lv15で習得)
-![ブラインド](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/39_4.png)
+![ブラインド](../_images/cdn/assets/img/sp/ui/icon/ability/m/39_4.png)
 
 - 効果(初期): 敵に暗闇効果
 - 使用間隔: 5ターン

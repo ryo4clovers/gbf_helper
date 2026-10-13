@@ -14,7 +14,7 @@ source: "実機の武器詳細・編成レスポンス(ユーザー提供、2026
 ---
 
 # ブラフマンシミター
-![ブラフマンシミター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040015000.jpg)
+![ブラフマンシミター](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040015000.jpg)
 
 ## 概要
 

@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # 義賊(Vigilante)
-![義賊](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/140301_01.jpg)
+![義賊](../_images/cdn/assets/img/sp/assets/leader/m/140301_01.jpg)
 
 ## 概要
 
@@ -36,35 +36,35 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: ブレイクアサシンIII＋
-![ブレイクアサシンIII＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/43_3.png)
+![ブレイクアサシンIII＋](../_images/cdn/assets/img/sp/ui/icon/ability/m/43_3.png)
 
 - 効果: 自分に追い撃ち効果(敵ブレイク時のみ/1回)/クリティカル確率UP/弱点属性追撃効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: トレジャーハントIV
-![トレジャーハントIV](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/13_1.png)
+![トレジャーハントIV](../_images/cdn/assets/img/sp/ui/icon/ability/m/13_1.png)
 
 - 効果: 敵に自属性ダメージ/敵のアイテムドロップ率UP(3回) ◆トレハンLvに応じてダメージ性能UP
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: ホワイトスモーク
-![ホワイトスモーク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/87_3.png)
+![ホワイトスモーク](../_images/cdn/assets/img/sp/ui/icon/ability/m/87_3.png)
 
 - 効果: 味方全体の弱体効果無効(1回)/幻影効果(1回)
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: ルピフリップ
-![ルピフリップ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/260_1.png)
+![ルピフリップ](../_images/cdn/assets/img/sp/ui/icon/ability/m/260_1.png)
 
 - 効果: 敵に無属性ダメージ ◆ルピを消費
 - 使用間隔: 0ターン(条件により即使用可)
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ5: 楼門五三桐
-![楼門五三桐](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1098_3.png)
+![楼門五三桐](../_images/cdn/assets/img/sp/ui/icon/ability/m/1098_3.png)
 
 - 効果: 敵全体に強襲効果/トレハンLvに応じて味方全体に自属性追撃効果(最大60%)
 - 使用間隔: 5ターン
@@ -192,7 +192,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### 参伍博戯(段階6到達で習得可能)
-![参伍博戯](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2189_3.png)
+![参伍博戯](../_images/cdn/assets/img/sp/ui/icon/ability/m/2189_3.png)
 
 - 効果: 敵全体のアイテムドロップ率UP(3～5回)/自分に乱撃(3ヒット)効果
 - 使用間隔: 7ターン
@@ -200,7 +200,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### 春宵一刻値万両(段階6到達で習得可能)
-![春宵一刻値万両](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2190_1.png)
+![春宵一刻値万両](../_images/cdn/assets/img/sp/ui/icon/ability/m/2190_1.png)
 
 - 効果: 敵全体に自属性ダメージ/攻防DOWN(累積)　◆◆トレハンLvに応じてダメージ回数UP(最大8回)/トレハンLvが5以上の時、通常攻撃後に発動
 - 使用間隔: 6ターン
@@ -208,7 +208,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### 義侠の神髄(段階6到達で習得可能)
-![義侠の神髄](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2191_3.png)
+![義侠の神髄](../_images/cdn/assets/img/sp/ui/icon/ability/m/2191_3.png)
 
 - 効果: 自分に義侠の神髄効果　◆◆効果中、連続攻撃確率UP/通常攻撃の与ダメージ上昇/トリプルアタック時に敵のHPを奪って味方全体のHPを回復する
 - 使用間隔: 10ターン

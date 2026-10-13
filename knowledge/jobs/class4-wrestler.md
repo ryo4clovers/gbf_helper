@@ -15,7 +15,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 ---
 
 # レスラー(Wrestler)
-![レスラー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/160301_01.jpg)
+![レスラー](../_images/cdn/assets/img/sp/assets/leader/m/160301_01.jpg)
 
 ## 概要
 
@@ -34,7 +34,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 ## アビリティ構成
 
 ### アビリティ1: ナイフハンド・ストライク
-![ナイフハンド・ストライク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/23_1.png)
+![ナイフハンド・ストライク](../_images/cdn/assets/img/sp/ui/icon/ability/m/23_1.png)
 
 - 効果: 自身に3.5倍カウンター(被ダメ/3回)×2ターン、防御30%UP×2ターン、敵対心UP(100%ではない)×2ターン。
 - 数値/スケーリング: マスターレベル30強化後は敵対心が100%(疑似かばう)になり、逆境効果(最小30%〜最大90%)×2ターンが追加される。
@@ -44,21 +44,21 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 ## リミットアビリティ
 
 ### ファイティングスピリット
-![ファイティングスピリット](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/85_3.png)
+![ファイティングスピリット](../_images/cdn/assets/img/sp/ui/icon/ability/m/85_3.png)
 
 - 効果: 自分にファイティングスピリット状態(毎ターンテンションが上昇、被ダメージで解除、最大テンションLv4まで上昇しその後は効果時間のみ延長)を付与する。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
 
 ### マイクパフォーマンス
-![マイクパフォーマンス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/301_3.png)
+![マイクパフォーマンス](../_images/cdn/assets/img/sp/ui/icon/ability/m/301_3.png)
 
 - 効果: 3ターンの間、参戦者に高揚効果(10%)を付与する。
 - CT(クールタイム): 8ターン。
 - 出典: GameWith
 
 ### ツープラトン
-![ツープラトン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/302_1.png)
+![ツープラトン](../_images/cdn/assets/img/sp/ui/icon/ability/m/302_1.png)
 
 - 効果: 味方全体がターン経過なしで通常攻撃を実行する。オーガ(下位ジョブ)で習得。
 - CT(クールタイム): 15ターン。
@@ -156,7 +156,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### タッグチーム(段階6到達で習得可能)
-![タッグチーム](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1234_3.png)
+![タッグチーム](../_images/cdn/assets/img/sp/ui/icon/ability/m/1234_3.png)
 
 - 効果: 自分の次に配置されたキャラとタッグを組む　◆◆タッグは味方一人とのみ組むことができる/再使用でタッグを解散する
 - 使用間隔: 1ターン
@@ -164,7 +164,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### ファイティングソング(段階6到達で習得可能)
-![ファイティングソング](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2074_3.png)
+![ファイティングソング](../_images/cdn/assets/img/sp/ui/icon/ability/m/2074_3.png)
 
 - 効果: 自分のトリプルアタック確率UP/トリプルアタック時にエキサイトマッチLvが1上昇/ターン終了時にLvが7の時、Lvをリセットし自分のダメージアビリティが即時使用可能/攻撃大幅UP　◆◆再使用不可
 - 使用間隔: 再使用不可
@@ -172,7 +172,7 @@ source: "GameWith (https://xn--bck3aza1a2if6kra4ee0hf.gamewith.jp/article/show/4
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### ヒール・タイム(段階6到達で習得可能)
-![ヒール・タイム](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2075_3.png)
+![ヒール・タイム](../_images/cdn/assets/img/sp/ui/icon/ability/m/2075_3.png)
 
 - 効果: ヒールに転向する(様々な効果が自動発動/奥義ゲージ100%時、奥義を温存していても発動する)　◆◆バトル開始時に自動発動/アビリティ使用不可/再使用不可
 - 使用間隔: 再使用不可

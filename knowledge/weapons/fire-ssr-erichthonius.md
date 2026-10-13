@@ -14,7 +14,7 @@ source: "実機編成レスポンス(2026-09-07、ユーザー提供)でLv150・
 ---
 
 # エリクトニオス(Erichthonius)
-![エリクトニオス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040206800.jpg)
+![エリクトニオス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040206800.jpg)
 
 ## 概要
 

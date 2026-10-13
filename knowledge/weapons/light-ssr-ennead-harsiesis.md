@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ハルシエシス
-![ハルシエシス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040711600.jpg)
+![ハルシエシス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040711600.jpg)
 
 ## 概要
 

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # テュロスワンド
-![テュロスワンド](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040414100.jpg)
+![テュロスワンド](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040414100.jpg)
 
 ## 概要
 

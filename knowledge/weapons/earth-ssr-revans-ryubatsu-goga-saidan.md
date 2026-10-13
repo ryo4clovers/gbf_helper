@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 竜伐の剛牙・再誕
-![竜伐の剛牙・再誕](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040117700.jpg)
+![竜伐の剛牙・再誕](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040117700.jpg)
 
 ## 概要
 

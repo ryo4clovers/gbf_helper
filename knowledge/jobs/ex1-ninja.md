@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # 忍者(Ninja)
-![忍者](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/210201_01.jpg)
+![忍者](../_images/cdn/assets/img/sp/assets/leader/m/210201_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: 忍術(Lv1で習得)
-![忍術](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/73_3.png)
+![忍術](../_images/cdn/assets/img/sp/ui/icon/ability/m/73_3.png)
 
 - 効果(初期): 印を結んで忍術を発動
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: 風魔手裏剣(Lv5で習得)
-![風魔手裏剣](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/74_1.png)
+![風魔手裏剣](../_images/cdn/assets/img/sp/ui/icon/ability/m/74_1.png)
 
 - 効果(初期): 敵に自属性ダメージ/印に応じて追加効果発動　◆刀：自分の忍術再使用間隔短縮　格闘：自分のダブルアタック確率UP/攻撃UP
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: 朧(Lv15で習得)
-![朧](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/75_1.png)
+![朧](../_images/cdn/assets/img/sp/ui/icon/ability/m/75_1.png)
 
 - 効果(初期): 敵に自属性ダメージ　◆刀：自分に暗闇効果/ダブルアタック確率UP　格闘：自分の攻撃UP/防御DOWN/奥義ゲージ上昇量UP
 - 使用間隔: 6ターン
@@ -59,7 +59,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### 焙烙玉(習得Lv不明)
-![焙烙玉](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/99_1.png)
+![焙烙玉](../_images/cdn/assets/img/sp/ui/icon/ability/m/99_1.png)
 
 - 効果: 5ターン後に敵全体に自属性ダメージ
 - 使用間隔: 7ターン

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 永遠の知識求る竪琴(Harp of the Teachers)
-![永遠の知識求る竪琴](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040809600.jpg)
+![永遠の知識求る竪琴](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040809600.jpg)
 
 ## 概要
 

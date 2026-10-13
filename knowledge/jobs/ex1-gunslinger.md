@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ガンスリンガー(Gunslinger)
-![ガンスリンガー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/240201_01.jpg)
+![ガンスリンガー](../_images/cdn/assets/img/sp/assets/leader/m/240201_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: アーリーショット(Lv1で習得)
-![アーリーショット](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/152_1.png)
+![アーリーショット](../_images/cdn/assets/img/sp/ui/icon/ability/m/152_1.png)
 
 - 効果(初期): ターン経過なしで通常攻撃を実行◆◆弾丸を使用
 - 使用間隔: 4ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: トライン(Lv5で習得)
-![トライン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/153_3.png)
+![トライン](../_images/cdn/assets/img/sp/ui/icon/ability/m/153_3.png)
 
 - 効果(初期): 次の攻撃が必ずトリプルアタック(1回)/攻撃UP(累積)/防御DOWN(累積)◆◆残弾数を超える回数の連続攻撃はできない
 - 使用間隔: 4ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: バレットリロード(Lv15で習得)
-![バレットリロード](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/154_3.png)
+![バレットリロード](../_images/cdn/assets/img/sp/ui/icon/ability/m/154_3.png)
 
 - 効果(初期): 残弾を全て捨てリロードを完了する
 - 使用間隔: 8ターン
@@ -59,7 +59,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### ブリッツバースト(習得Lv不明)
-![ブリッツバースト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/579_3.png)
+![ブリッツバースト](../_images/cdn/assets/img/sp/ui/icon/ability/m/579_3.png)
 
 - 効果: バレットを全て消費/消費した弾数に応じて奥義ゲージUP/次のターン攻撃大幅UP(1回)
 - 使用間隔: 10ターン

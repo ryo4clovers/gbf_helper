@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # コロッサスブレード・マグナ
-![コロッサスブレード・マグナ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040902700.jpg)
+![コロッサスブレード・マグナ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040902700.jpg)
 
 ## 概要
 

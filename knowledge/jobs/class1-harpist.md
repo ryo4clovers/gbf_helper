@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ハーピスト(Harpist)
-![ハーピスト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/180001_01.jpg)
+![ハーピスト](../_images/cdn/assets/img/sp/assets/leader/m/180001_01.jpg)
 
 ## 概要
 
@@ -36,14 +36,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: オーヴァチュア(Lv1で習得)
-![オーヴァチュア](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/61_3.png)
+![オーヴァチュア](../_images/cdn/assets/img/sp/ui/icon/ability/m/61_3.png)
 
 - 効果(初期): 味方全体の回復性能UP　★メイン武器の武器種が楽器の時、性能UP
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: チャームボイス(Lv10で習得)
-![チャームボイス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/62_4.png)
+![チャームボイス](../_images/cdn/assets/img/sp/ui/icon/ability/m/62_4.png)
 
 - 効果(初期): 敵に魅了効果　★メイン武器の武器種が楽器の時、性能UP
 - 使用間隔: 5ターン

@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ウォーロック(Warlock)
-![ウォーロック](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/130301_01.jpg)
+![ウォーロック](../_images/cdn/assets/img/sp/assets/leader/m/130301_01.jpg)
 
 ## 概要
 
@@ -36,35 +36,35 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: エーテルブラストIII＋
-![エーテルブラストIII＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/60_1.png)
+![エーテルブラストIII＋](../_images/cdn/assets/img/sp/ui/icon/ability/m/60_1.png)
 
 - 効果: 敵全体に6倍自属性ダメージ/味方全体に刻印を付与 ◆付与する刻印の種類は自身の属性によって変化
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: チェイサー
-![チェイサー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/95_3.png)
+![チェイサー](../_images/cdn/assets/img/sp/ui/icon/ability/m/95_3.png)
 
 - 効果: 味方全体に自属性追撃効果
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: エーテルフラップ
-![エーテルフラップ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/60_4.png)
+![エーテルフラップ](../_images/cdn/assets/img/sp/ui/icon/ability/m/60_4.png)
 
 - 効果: 敵にエーテルフラップ効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: ブラックヘイズ
-![ブラックヘイズ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1_4.png)
+![ブラックヘイズ](../_images/cdn/assets/img/sp/ui/icon/ability/m/1_4.png)
 
 - 効果: 敵全体の攻撃DOWN/防御DOWN/毒効果/暗闇効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ5: レプリケーションキャスト
-![レプリケーションキャスト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1097_1.png)
+![レプリケーションキャスト](../_images/cdn/assets/img/sp/ui/icon/ability/m/1097_1.png)
 
 - 効果: 敵全体に自属性ダメージ/味方全体の奥義ゲージUP(20%) ◆パーティの得意武器「杖」のキャラの数に応じて性能UP
 - 使用間隔: 12ターン
@@ -192,7 +192,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### デモンズフレア(段階6到達で習得可能)
-![デモンズフレア](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2144_1.png)
+![デモンズフレア](../_images/cdn/assets/img/sp/ui/icon/ability/m/2144_1.png)
 
 - 効果: 敵全体に10倍自属性ダメージ/強化効果を1つ無効化/攻防DOWN/連続攻撃確率DOWN/弱体耐性DOWN
 - 使用間隔: 15ターン
@@ -200,7 +200,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### 魔術結界(段階6到達で習得可能)
-![魔術結界](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2145_3.png)
+![魔術結界](../_images/cdn/assets/img/sp/ui/icon/ability/m/2145_3.png)
 
 - 効果: 魔術結界を展開する　◆効果中、味方全体のステータス大幅UP/ターン終了時、魔術結界Lvに応じて奥義ゲージを消費/Lvが1上昇(最大7)/敵全体に自属性ダメージ(最大12回)
 - 使用間隔: 10ターン
@@ -208,7 +208,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### 魔紋解放(段階6到達で習得可能)
-![魔紋解放](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2146_3.png)
+![魔紋解放](../_images/cdn/assets/img/sp/ui/icon/ability/m/2146_3.png)
 
 - 効果: 味方全体が必ずトリプルアタック/弱点属性追撃効果/ダメージ上限UP/通常攻撃の与ダメージUP　◆自属性の刻印が5以上の時のみ使用可能
 - 使用間隔: 7ターン

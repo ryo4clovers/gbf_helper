@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ティアマトシュート・アウラ
-![ティアマトシュート・アウラ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040713400.jpg)
+![ティアマトシュート・アウラ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040713400.jpg)
 
 ## 概要
 

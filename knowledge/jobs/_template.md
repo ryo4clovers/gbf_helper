@@ -15,7 +15,7 @@ source: "要検証"
 ---
 
 # {ジョブ名}({英名})
-![{ジョブ名}](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/{{job_id}}_01.jpg)
+![{ジョブ名}](../_images/cdn/assets/img/sp/assets/leader/m/{{job_id}}_01.jpg)
 
 ## 概要
 
@@ -41,7 +41,7 @@ source: "要検証"
      だけでは基本/リミットの区別が付かないので注意(2026-09-06確認)。 -->
 
 ### アビリティ1: {スキル名}(LvNで習得。Lv到達で「{スキル名}＋」等に強化される場合はその到達Lvも記載)
-![{スキル名}](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/{class_name}.png)
+![{スキル名}](../_images/cdn/assets/img/sp/ui/icon/ability/m/{class_name}.png)
 
 - 効果(初期):
 - 効果(強化後、該当する場合):
@@ -59,7 +59,7 @@ source: "要検証"
      各見出しに習得Lvを明記する(例: "### {スキル名}(Lv10で習得)")。 -->
 
 ### {スキル名}(LvNで習得)
-![{スキル名}](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/{class_name}.png)
+![{スキル名}](../_images/cdn/assets/img/sp/ui/icon/ability/m/{class_name}.png)
 
 - 効果:
 - 使用間隔:

@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # レンジャー(Ranger)
-![レンジャー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/170001_01.jpg)
+![レンジャー](../_images/cdn/assets/img/sp/assets/leader/m/170001_01.jpg)
 
 ## 概要
 
@@ -36,14 +36,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ライトウェイト(Lv1で習得)
-![ライトウェイト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/51_3.png)
+![ライトウェイト](../_images/cdn/assets/img/sp/ui/icon/ability/m/51_3.png)
 
 - 効果(初期): 敵の全ての攻撃を回避
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: アローレイン(Lv10で習得)
-![アローレイン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/59_1.png)
+![アローレイン](../_images/cdn/assets/img/sp/ui/icon/ability/m/59_1.png)
 
 - 効果(初期): 敵全体に自属性ダメージ
 - 使用間隔: 5ターン

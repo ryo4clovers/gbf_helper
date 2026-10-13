@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # バハムートスピア・フツルス(Spear of Bahamut Fyutlus)
-![バハムートスピア・フツルス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040205400.jpg)
+![バハムートスピア・フツルス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040205400.jpg)
 
 ## 概要
 

@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # 陰陽師(Onmyoji)
-![陰陽師](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/150401_01.jpg)
+![陰陽師](../_images/cdn/assets/img/sp/assets/leader/m/150401_01.jpg)
 
 ## 概要
 
@@ -36,7 +36,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: 百恠咒符(Lv1で習得)
-![百恠咒符](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2285_3.png)
+![百恠咒符](../_images/cdn/assets/img/sp/ui/icon/ability/m/2285_3.png)
 
 - 効果(初期): 自分がターン進行時に攻撃行動を3回行う/霊符による陣を展開　◆◆霊符を5消費
 - 使用間隔: 10ターン
@@ -45,21 +45,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### 式神・蛟(習得Lv不明)
-![式神・蛟](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2286_1.png)
+![式神・蛟](../_images/cdn/assets/img/sp/ui/icon/ability/m/2286_1.png)
 
 - 効果: ターゲットに関わらず3回自属性ダメージ/敵全体に攻防DOWN(累積)/ランダムな弱体効果　◆◆霊符を3消費してこのアビリティが再度使用可能になる
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### 天地開闢(習得Lv不明)
-![天地開闢](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2287_3.png)
+![天地開闢](../_images/cdn/assets/img/sp/ui/icon/ability/m/2287_3.png)
 
 - 効果: 味方全体の奥義ゲージUP(30%)/高揚効果　◆◆霊符を7消費して自分が即座に奥義発動可能/奥義再発動(1回)効果追加
 - 使用間隔: 9ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### 呪々相乗(習得Lv不明)
-![呪々相乗](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2288_4.png)
+![呪々相乗](../_images/cdn/assets/img/sp/ui/icon/ability/m/2288_4.png)
 
 - 効果: 敵全体に2回自属性ダメージ/被ダメージUP(6回)/スロウ効果/強化効果を1つ無効化/霊域Lvが1上昇(最大2/消去不可)　◆◆霊符を7消費/敵の霊域Lvが2の場合、このアビリティが五行封印に変化
 - 使用間隔: 7ターン

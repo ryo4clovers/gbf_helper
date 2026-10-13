@@ -14,7 +14,7 @@ source: "本家ルリアノート武器図鑑の通常表示(2026-09-21確認) /
 ---
 
 # 水天の福音(Gospel of Water and Sky)
-![水天の福音](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040117800.jpg)
+![水天の福音](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040117800.jpg)
 
 ## 概要
 

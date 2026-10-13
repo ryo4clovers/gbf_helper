@@ -14,7 +14,7 @@ source: "実機の武器詳細・編成・バトルレスポンス(ユーザー�
 ---
 
 # 炎威の翼鎌(Firestorm Scythe)
-![炎威の翼鎌](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040314900.jpg)
+![炎威の翼鎌](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040314900.jpg)
 
 ## 概要
 

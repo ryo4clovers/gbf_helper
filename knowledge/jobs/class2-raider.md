@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # レイダー(Raider)
-![レイダー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/140101_01.jpg)
+![レイダー](../_images/cdn/assets/img/sp/assets/leader/m/140101_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ブレイクアサシン(Lv1で習得)
-![ブレイクアサシン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/43_3.png)
+![ブレイクアサシン](../_images/cdn/assets/img/sp/ui/icon/ability/m/43_3.png)
 
 - 効果(初期): 自分に追い撃ち効果(敵ブレイク時のみ/1回)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: トレジャーハントII(Lv5で習得)
-![トレジャーハントII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/13_4.png)
+![トレジャーハントII](../_images/cdn/assets/img/sp/ui/icon/ability/m/13_4.png)
 
 - 効果(初期): 敵のアイテムドロップ率UP(2回)
 - 使用間隔: 3ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: トリックステップ(Lv15で習得)
-![トリックステップ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/34_4.png)
+![トリックステップ](../_images/cdn/assets/img/sp/ui/icon/ability/m/34_4.png)
 
 - 効果(初期): 敵がオーバードライブ時にモードゲージを減少
 - 使用間隔: 5ターン

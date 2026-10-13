@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # メカニック(Mechanic)
-![メカニック](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/290201_01.jpg)
+![メカニック](../_images/cdn/assets/img/sp/assets/leader/m/290201_01.jpg)
 
 ## 概要
 
@@ -36,7 +36,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: アクティベート(Lv1で習得)
-![アクティベート](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/496_3.png)
+![アクティベート](../_images/cdn/assets/img/sp/ui/icon/ability/m/496_3.png)
 
 - 効果(初期): コンパニオンを稼働させる
 ◆◆エネルギー追加(最大10)
@@ -44,14 +44,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: フレキシブル・アーツ(Lv5で習得)
-![フレキシブル・アーツ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/497_3.png)
+![フレキシブル・アーツ](../_images/cdn/assets/img/sp/ui/icon/ability/m/497_3.png)
 
 - 効果(初期): アクションパーツに定められた特定のアビリティに変化
 - 使用間隔: 4ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: リフューリング(Lv15で習得)
-![リフューリング](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/498_3.png)
+![リフューリング](../_images/cdn/assets/img/sp/ui/icon/ability/m/498_3.png)
 
 - 効果(初期): 味方全体の攻撃UP/防御UP/コンパニオン稼働時、エネルギーを5追加
 - 使用間隔: 6ターン
@@ -60,7 +60,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### アクチュエーション(習得Lv不明)
-![アクチュエーション](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/582_3.png)
+![アクチュエーション](../_images/cdn/assets/img/sp/ui/icon/ability/m/582_3.png)
 
 - 効果: コンパニオン稼働時、自分のHPをエネルギーに変換
 ◆◆HPを現在値の最大50%消費

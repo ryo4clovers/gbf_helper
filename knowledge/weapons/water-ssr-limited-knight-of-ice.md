@@ -14,7 +14,7 @@ source: "本家ルリアノート武器図鑑の通常表示(2026-09-21確認) /
 ---
 
 # ナイト・オブ・アイス(Knight of Ice)
-![ナイト・オブ・アイス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040115600.jpg)
+![ナイト・オブ・アイス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040115600.jpg)
 
 ## 概要
 

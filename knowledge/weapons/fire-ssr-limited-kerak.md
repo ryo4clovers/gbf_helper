@@ -14,7 +14,7 @@ source: "本家武器一覧から通常表示した装備詳細レスポンス(2
 ---
 
 # ケラク(Kerak)
-![ケラク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040812000.jpg)
+![ケラク](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040812000.jpg)
 
 ## 概要
 

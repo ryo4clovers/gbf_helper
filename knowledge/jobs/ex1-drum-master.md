@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ドラムマスター(Drum Master)
-![ドラムマスター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/270201_01.jpg)
+![ドラムマスター](../_images/cdn/assets/img/sp/assets/leader/m/270201_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: 極点(Lv1で習得)
-![極点](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/144_3.png)
+![極点](../_images/cdn/assets/img/sp/ui/icon/ability/m/144_3.png)
 
 - 効果(初期): 味方全体の奥義ダメージUP/奥義ダメージ上限UP/チェインバースト上限UP
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: 熱烈峻厳(Lv5で習得)
-![熱烈峻厳](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/408_3.png)
+![熱烈峻厳](../_images/cdn/assets/img/sp/ui/icon/ability/m/408_3.png)
 
 - 効果(初期): 自分以外の味方全体に奥義ゲージを分配する/奥義ゲージ上昇量UP　◆◆奥義ゲージを30%消費
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: 闘志の残響(Lv15で習得)
-![闘志の残響](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/409_4.png)
+![闘志の残響](../_images/cdn/assets/img/sp/ui/icon/ability/m/409_4.png)
 
 - 効果(初期): 敵全体に自属性防御DOWN　◆◆奥義ゲージを20%消費
 - 使用間隔: 6ターン
@@ -59,7 +59,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### 律動共振(習得Lv不明)
-![律動共振](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/529_3.png)
+![律動共振](../_images/cdn/assets/img/sp/ui/icon/ability/m/529_3.png)
 
 - 効果: 味方単体の奥義ゲージUP(40%)
 - 使用間隔: 7ターン

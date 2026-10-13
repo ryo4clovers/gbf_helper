@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ランサー・オリジン(Lancer (Origin))
-![ランサー・オリジン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/190501_01.jpg)
+![ランサー・オリジン](../_images/cdn/assets/img/sp/assets/leader/m/190501_01.jpg)
 
 ## 概要
 
@@ -36,7 +36,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: リードドライブIII(Lv1で習得。Lv50で「リードドライブIII＋」に強化)
-![リードドライブIII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2816_1.png)
+![リードドライブIII](../_images/cdn/assets/img/sp/ui/icon/ability/m/2816_1.png)
 
 - 効果(初期): 敵全体に3回自属性ダメージ
 ◆槍：自分に弱点属性追撃効果/味方全体のトリプルアタック確率UP(1回)
@@ -48,21 +48,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### ラウンドインペイラー(Lv10で習得)
-![ラウンドインペイラー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2817_1.png)
+![ラウンドインペイラー](../_images/cdn/assets/img/sp/ui/icon/ability/m/2817_1.png)
 
 - 効果: 敵に10回自属性ダメージ/螺旋創効果
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アンバインドチャージ(Lv30で習得)
-![アンバインドチャージ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2818_1.png)
+![アンバインドチャージ](../_images/cdn/assets/img/sp/ui/icon/ability/m/2818_1.png)
 
 - 効果: ターン経過無しで通常攻撃を実行◆　◆神伝の槍手Lvが5の時、通常攻撃の与ダメージUP効果追加
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### インフィニット・インパルス(Lv50で習得)
-![インフィニット・インパルス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2819_3.png)
+![インフィニット・インパルス](../_images/cdn/assets/img/sp/ui/icon/ability/m/2819_3.png)
 
 - 効果: 槍：味方全体に無限の蒼槍効果(1回)
 斧：味方全体に無限の蒼斧効果(1回)

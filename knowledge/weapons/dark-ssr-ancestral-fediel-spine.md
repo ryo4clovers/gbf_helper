@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # フェディエル・スパイン(Fediel's Spine)
-![フェディエル・スパイン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040020300.jpg)
+![フェディエル・スパイン](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040020300.jpg)
 
 ## 概要
 

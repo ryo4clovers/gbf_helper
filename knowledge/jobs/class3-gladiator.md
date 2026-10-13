@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # グラディエーター(Gladiator)
-![グラディエーター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/300201_01.jpg)
+![グラディエーター](../_images/cdn/assets/img/sp/assets/leader/m/300201_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: アナザーブレード(Lv1で習得)
-![アナザーブレード](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/846_3.png)
+![アナザーブレード](../_images/cdn/assets/img/sp/ui/icon/ability/m/846_3.png)
 
 - 効果(初期): 奥義がコンパニオンウェポンの奥義に変化/奥義ダメージUP(1回)　◆◆コンパニオンウェポン装備時のみ使用可能
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: ツインサーキュラー(Lv5で習得)
-![ツインサーキュラー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/847_1.png)
+![ツインサーキュラー](../_images/cdn/assets/img/sp/ui/icon/ability/m/847_1.png)
 
 - 効果(初期): 敵全体に2回自属性ダメージ
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: ディストリーム(Lv15で習得)
-![ディストリーム](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/848_1.png)
+![ディストリーム](../_images/cdn/assets/img/sp/ui/icon/ability/m/848_1.png)
 
 - 効果(初期): 敵に5回弱点属性ダメージ
 ◆◆コンパニオンウェポン装備時：攻撃回数2倍
@@ -60,7 +60,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### クロスガード(習得Lv不明)
-![クロスガード](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/37_3.png)
+![クロスガード](../_images/cdn/assets/img/sp/ui/icon/ability/m/37_3.png)
 
 - 効果: 味方全体の全属性ダメージ40%カット
 ◆◆コンパニオンウェポン装備時：自分にブロック効果追加
@@ -68,7 +68,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### チェイスブレード(習得Lv不明)
-![チェイスブレード](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/64_3.png)
+![チェイスブレード](../_images/cdn/assets/img/sp/ui/icon/ability/m/64_3.png)
 
 - 効果: 効果中必ずトリプルアタック/自分に与ダメージ上昇効果
 ◆◆コンパニオンウェポン装備時のみ使用可能

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # バハムートアクス・フツルス(Axe of Bahamut Fyutlus)
-![バハムートアクス・フツルス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040304300.jpg)
+![バハムートアクス・フツルス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040304300.jpg)
 
 ## 概要
 

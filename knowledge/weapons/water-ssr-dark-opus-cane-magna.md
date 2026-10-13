@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 永遠拒絶の杖(Dark Opus Cane (Magna))
-![永遠拒絶の杖](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040415100.jpg)
+![永遠拒絶の杖](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040415100.jpg)
 
 ## 概要
 

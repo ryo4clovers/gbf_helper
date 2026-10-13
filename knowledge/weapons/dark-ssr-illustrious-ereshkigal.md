@@ -14,7 +14,7 @@ source: "実機所持品の武器詳細・編成・戦闘レスポンス（ユ�
 ---
 
 # エレシュキガル(Ereshkigal)
-![エレシュキガル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040315100.jpg)
+![エレシュキガル](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040315100.jpg)
 
 ## 概要
 

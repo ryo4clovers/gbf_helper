@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ハウンドドッグ(Hound Dog)
-![ハウンドドッグ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/170301_01.jpg)
+![ハウンドドッグ](../_images/cdn/assets/img/sp/assets/leader/m/170301_01.jpg)
 
 ## 概要
 
@@ -36,42 +36,42 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: チャフリリース＋
-![チャフリリース＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/313_1.png)
+![チャフリリース＋](../_images/cdn/assets/img/sp/ui/icon/ability/m/313_1.png)
 
 - 効果: 敵全体に10倍自属性ダメージ/敵の全ての攻撃を回避/攻撃UP ◆回避時：敵全体に自属性ダメージ/暗闇効果/強化効果を1つ消去/スロウ効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: タクティクスコマンド
-![タクティクスコマンド](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/98_3.png)
+![タクティクスコマンド](../_images/cdn/assets/img/sp/ui/icon/ability/m/98_3.png)
 
 - 効果: 任意の二人のポジションを入れ替える
 - 使用間隔: 20ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: ジャミング
-![ジャミング](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/315_3.png)
+![ジャミング](../_images/cdn/assets/img/sp/ui/icon/ability/m/315_3.png)
 
 - 効果: 味方全体の回避率UP/クリティカル確率UP
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: トワイライトゾーン
-![トワイライトゾーン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/316_5.png)
+![トワイライトゾーン](../_images/cdn/assets/img/sp/ui/icon/ability/m/316_5.png)
 
 - 効果: フィールドにトワイライトゾーン効果
 - 使用間隔: 16ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ5: レイショナルショット
-![レイショナルショット](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/577_1.png)
+![レイショナルショット](../_images/cdn/assets/img/sp/ui/icon/ability/m/577_1.png)
 
 - 効果: 敵全体に自属性ダメージ/自属性防御DOWN
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ6: タイム・オン・ターゲット
-![タイム・オン・ターゲット](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1099_4.png)
+![タイム・オン・ターゲット](../_images/cdn/assets/img/sp/ui/icon/ability/m/1099_4.png)
 
 - 効果: 敵に自属性ダメージ/ランダムな弱体効果 ◆パーティの得意武器「弓」「銃」のキャラの数に応じて発動回数UP(最大6回)
 - 使用間隔: 15ターン
@@ -199,7 +199,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### ホーミングマーク(段階6到達で習得可能)
-![ホーミングマーク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2180_4.png)
+![ホーミングマーク](../_images/cdn/assets/img/sp/ui/icon/ability/m/2180_4.png)
 
 - 効果: 敵にホーミングマーク効果　◆◆効果中、3ターン毎に敵の現HPに応じた5回無属性ダメージ/強化効果を1つ無効化/弱体耐性DOWN(累積)/再使用不可
 - 使用間隔: 再使用不可
@@ -207,7 +207,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### スニーキングタイプ(段階6到達で習得可能)
-![スニーキングタイプ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2181_3.png)
+![スニーキングタイプ](../_images/cdn/assets/img/sp/ui/icon/ability/m/2181_3.png)
 
 - 効果: 自分にスニーキングタイプ効果　◆◆効果中、通常攻撃を行わないが攻撃のターゲットになりにくい/奥義発動時、自分の次に配置されたキャラに攻撃大幅UP(1回)を付与/ダメージを受けなかったターン終了時、敵に10倍自属性ダメージ/被ダメージ上昇効果/自分の奥義ゲージUP(50％)
 - 使用間隔: 7ターン
@@ -215,7 +215,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### バッキングコマンド(段階6到達で習得可能)
-![バッキングコマンド](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2182_3.png)
+![バッキングコマンド](../_images/cdn/assets/img/sp/ui/icon/ability/m/2182_3.png)
 
 - 効果: 自分とサブメンバーの一人を5ターンの間入れ替え、後方から味方全体を支援する
 - 使用間隔: 10ターン

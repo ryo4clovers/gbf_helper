@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # オーガ(Ogre)
-![オーガ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/160201_01.jpg)
+![オーガ](../_images/cdn/assets/img/sp/assets/leader/m/160201_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: カウンターII(Lv1で習得)
-![カウンターII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/23_1.png)
+![カウンターII](../_images/cdn/assets/img/sp/ui/icon/ability/m/23_1.png)
 
 - 効果(初期): カウンター効果(回避/3回)/自分の攻撃UP
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: 闘気(Lv5で習得)
-![闘気](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/49_1.png)
+![闘気](../_images/cdn/assets/img/sp/ui/icon/ability/m/49_1.png)
 
 - 効果(初期): 敵に自属性ダメージ/奥義ゲージUP
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: 羅喉阿修羅陣(Lv15で習得)
-![羅喉阿修羅陣](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/57_3.png)
+![羅喉阿修羅陣](../_images/cdn/assets/img/sp/ui/icon/ability/m/57_3.png)
 
 - 効果(初期): 自分の奥義ゲージ上昇量UP
 - 使用間隔: 8ターン
@@ -59,14 +59,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### 練気(習得Lv不明)
-![練気](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/49_3.png)
+![練気](../_images/cdn/assets/img/sp/ui/icon/ability/m/49_3.png)
 
 - 効果: 自分の攻撃UP(累積)
 - 使用間隔: 2ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### 一字構え(習得Lv不明)
-![一字構え](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/97_3.png)
+![一字構え](../_images/cdn/assets/img/sp/ui/icon/ability/m/97_3.png)
 
 - 効果: 敵対心UP/カウンターが発動しているとき反撃回数UP(2回)
 - 使用間隔: 7ターン

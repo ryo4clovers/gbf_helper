@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # 剣豪(Kengo)
-![剣豪](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/220301_01.jpg)
+![剣豪](../_images/cdn/assets/img/sp/assets/leader/m/220301_01.jpg)
 
 ## 概要
 
@@ -36,7 +36,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: 剣禅一如(Lv1で習得)
-![剣禅一如](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/608_3.png)
+![剣禅一如](../_images/cdn/assets/img/sp/ui/icon/ability/m/608_3.png)
 
 - 効果(初期): 自分に特殊強化(連続攻撃確率UP)/クリティカル確率UP
 ◆◆特殊強化は被ダメージまで効果継続
@@ -46,14 +46,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### 大鷲返し(習得Lv不明)
-![大鷲返し](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/23_1.png)
+![大鷲返し](../_images/cdn/assets/img/sp/ui/icon/ability/m/23_1.png)
 
 - 効果: カウンター効果(回避・被ダメージ/2回)
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### 無明斬(習得Lv不明)
-![無明斬](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/609_3.png)
+![無明斬](../_images/cdn/assets/img/sp/ui/icon/ability/m/609_3.png)
 
 - 効果: 効果中ターン進行時に攻撃行動を3回行う
 ◆◆奥義ゲージを40%消費
@@ -61,7 +61,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### 烈刀一閃(習得Lv不明)
-![烈刀一閃](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/610_3.png)
+![烈刀一閃](../_images/cdn/assets/img/sp/ui/icon/ability/m/610_3.png)
 
 - 効果: 敵に自属性ダメージ/自分の奥義性能UP
 ◆◆奥義ゲージを60%消費
@@ -152,7 +152,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### 破魔ノ弦(段階6到達で習得可能)
-![破魔ノ弦](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1983_1.png)
+![破魔ノ弦](../_images/cdn/assets/img/sp/ui/icon/ability/m/1983_1.png)
 
 - 効果: 敵全体に自属性ダメージ/強化効果を1つ無効化/自分の奥義ゲージUP(30%)　◆◆弓装備時のみ使用可能
 - 使用間隔: 5ターン
@@ -160,7 +160,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### 秘剣・極一閃(段階6到達で習得可能)
-![秘剣・極一閃](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1984_1.png)
+![秘剣・極一閃](../_images/cdn/assets/img/sp/ui/icon/ability/m/1984_1.png)
 
 - 効果: 敵に8倍自属性ダメージ/自分に返し刀効果　◆◆返し刀効果中、自属性追撃効果/通常攻撃時に敵に自属性ダメージ/スロウ効果
 - 使用間隔: 12ターン
@@ -168,7 +168,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### 達眼(段階6到達で習得可能)
-![達眼](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1985_3.png)
+![達眼](../_images/cdn/assets/img/sp/ui/icon/ability/m/1985_3.png)
 
 - 効果: 自分に達眼効果　◆◆達眼効果中通常攻撃をしない/再使用で解除
 - 使用間隔: 0ターン

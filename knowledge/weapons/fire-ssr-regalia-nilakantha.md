@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ニーラカンタ
-![ニーラカンタ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040417900.jpg)
+![ニーラカンタ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040417900.jpg)
 
 ## 概要
 

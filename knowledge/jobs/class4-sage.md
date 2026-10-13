@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # セージ(Sage)
-![セージ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/120301_01.jpg)
+![セージ](../_images/cdn/assets/img/sp/assets/leader/m/120301_01.jpg)
 
 ## 概要
 
@@ -36,28 +36,28 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: ヒールオールIII＋
-![ヒールオールIII＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/36_2.png)
+![ヒールオールIII＋](../_images/cdn/assets/img/sp/ui/icon/ability/m/36_2.png)
 
 - 効果: 参戦者のHPを回復(大)/味方全体の弱体効果を2ターン短縮
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: シャイニングII
-![シャイニングII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/12_1.png)
+![シャイニングII](../_images/cdn/assets/img/sp/ui/icon/ability/m/12_1.png)
 
 - 効果: 敵全体に光属性3.5～5倍ダメージ/「ホーリースパイク」付与
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: ディスペル・シージ
-![ディスペル・シージ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/58_4.png)
+![ディスペル・シージ](../_images/cdn/assets/img/sp/ui/icon/ability/m/58_4.png)
 
 - 効果: 敵全体の強化効果を1つ無効化
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: キュアーフェン
-![キュアーフェン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/54_2.png)
+![キュアーフェン](../_images/cdn/assets/img/sp/ui/icon/ability/m/54_2.png)
 
 - 効果: 味方全体の弱体効果を1つ回復/バリア効果
 - 使用間隔: 5ターン
@@ -185,7 +185,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### イルミネイトパス(段階6到達で習得可能)
-![イルミネイトパス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2011_1.png)
+![イルミネイトパス](../_images/cdn/assets/img/sp/ui/icon/ability/m/2011_1.png)
 
 - 効果: 敵全体に自属性ダメージ/味方全体のHP回復/奥義ゲージUP(10%)
 - 使用間隔: 5ターン
@@ -193,7 +193,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### ブランシュラパン(段階6到達で習得可能)
-![ブランシュラパン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2012_3.png)
+![ブランシュラパン](../_images/cdn/assets/img/sp/ui/icon/ability/m/2012_3.png)
 
 - 効果: 自分にブランシュラパン効果　◆◆再使用不可
 - 使用間隔: 再使用不可
@@ -201,7 +201,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### カテドラル(段階6到達で習得可能)
-![カテドラル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2013_3.png)
+![カテドラル](../_images/cdn/assets/img/sp/ui/icon/ability/m/2013_3.png)
 
 - 効果: 味方全体にバリア効果/カテドラル効果　◆◆2回被ダメージで解除
 - 使用間隔: 16ターン

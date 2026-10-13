@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 美と慈愛の杖(Wand of Gabriel)
-![美と慈愛の杖](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040415300.jpg)
+![美と慈愛の杖](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040415300.jpg)
 
 ## 概要
 

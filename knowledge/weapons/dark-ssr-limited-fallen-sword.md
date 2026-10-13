@@ -14,7 +14,7 @@ source: "実機所持品の武器詳細・編成・戦闘レスポンス（ユ�
 ---
 
 # フォールン・ソード(Fallen Sword)
-![フォールン・ソード](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040014300.jpg)
+![フォールン・ソード](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040014300.jpg)
 
 ## 概要
 

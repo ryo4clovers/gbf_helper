@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 世界樹の晶剣・アルボス
-![世界樹の晶剣・アルボス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040026300.jpg)
+![世界樹の晶剣・アルボス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040026300.jpg)
 
 ## 概要
 

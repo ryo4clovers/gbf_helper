@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # マスカレード(Masquerade)
-![マスカレード](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/280301_01.jpg)
+![マスカレード](../_images/cdn/assets/img/sp/assets/leader/m/280301_01.jpg)
 
 ## 概要
 
@@ -36,7 +36,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: アトラクト・ステップ(Lv1で習得)
-![アトラクト・ステップ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1412_3.png)
+![アトラクト・ステップ](../_images/cdn/assets/img/sp/ui/icon/ability/m/1412_3.png)
 
 - 効果(初期): 自分の回避率UP/敵対心UP/敵の全ての攻撃を回避(1回)/アトラクト効果　◆◆回避成功時、味方全体の舞踏Lvが1上昇
 - 使用間隔: 7ターン
@@ -45,21 +45,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### バウンス・シャッセ(習得Lv不明)
-![バウンス・シャッセ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1413_3.png)
+![バウンス・シャッセ](../_images/cdn/assets/img/sp/ui/icon/ability/m/1413_3.png)
 
 - 効果: 味方全体が必ずトリプルアタック/ターン進行時に攻撃行動を2回行う/奥義発動不可　◆◆味方全体の舞踏Lvを10消費
 - 使用間隔: 9ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### ノン・シークエンス(習得Lv不明)
-![ノン・シークエンス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1414_1.png)
+![ノン・シークエンス](../_images/cdn/assets/img/sp/ui/icon/ability/m/1414_1.png)
 
 - 効果: ターゲットに関わらず6回自属性ダメージ/味方全体の舞踏Lvが1上昇　◆◆自分の舞踏Lvに応じてダメージ回数UP(最大16回)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### シャル・ウィ・ダンス(習得Lv不明)
-![シャル・ウィ・ダンス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1415_5.png)
+![シャル・ウィ・ダンス](../_images/cdn/assets/img/sp/ui/icon/ability/m/1415_5.png)
 
 - 効果: フィールドにボールルーム効果
 - 使用間隔: 15ターン
@@ -150,7 +150,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### ヴェニーズワルツ(段階6到達で習得可能)
-![ヴェニーズワルツ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2269_3.png)
+![ヴェニーズワルツ](../_images/cdn/assets/img/sp/ui/icon/ability/m/2269_3.png)
 
 - 効果: 自分にヴェニーズワルツ効果　◆◆効果中、ターン終了時に奥義ゲージが50%以上の時、30%消費して味方全体の舞踏Lvを3上昇/自属性攻撃UP(累積)/ダメージ上限UP(累積)
 - 使用間隔: 7ターン
@@ -158,7 +158,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### スパイラルターン(段階6到達で習得可能)
-![スパイラルターン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2270_1.png)
+![スパイラルターン](../_images/cdn/assets/img/sp/ui/icon/ability/m/2270_1.png)
 
 - 効果: ターゲットに関わらず6回自属性ダメージ/敵全体の強化効果を1つ無効化/特殊技ダメージDOWN(累積)　◆自分がトリプルアタック時にスパイラルターンの再使用間隔を1ターン短縮/自分の舞踏Lvが7以上の時、2回発動
 - 使用間隔: 6ターン
@@ -166,7 +166,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### マーシャル・コレオグラフィ(段階6到達で習得可能)
-![マーシャル・コレオグラフィ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2271_3.png)
+![マーシャル・コレオグラフィ](../_images/cdn/assets/img/sp/ui/icon/ability/m/2271_3.png)
 
 - 効果: 自分にマーシャル・コレオグラフィ効果　◆◆効果中、奥義が発動しないが自分の攻撃UP/必ずトリプルアタック/通常攻撃の与ダメージ上昇/「仮面舞踏会」発動時、敵に2回自属性ダメージ/自分の攻撃大幅UP(1回)を追加
 - 使用間隔: 7ターン

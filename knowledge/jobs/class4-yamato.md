@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ヤマト(Yamato)
-![ヤマト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/460301_01.jpg)
+![ヤマト](../_images/cdn/assets/img/sp/assets/leader/m/460301_01.jpg)
 
 ## 概要
 
@@ -36,28 +36,28 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: 岐首断剣＋
-![岐首断剣＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1964_1.png)
+![岐首断剣＋](../_images/cdn/assets/img/sp/ui/icon/ability/m/1964_1.png)
 
 - 効果: 敵に8倍自属性ダメージ/敵の予兆解除条件を減少/八塩折Lvが1上昇 ◆予兆解除可能時のみ使用可能
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: 見聞一刀
-![見聞一刀](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1965_1.png)
+![見聞一刀](../_images/cdn/assets/img/sp/ui/icon/ability/m/1965_1.png)
 
 - 効果: 敵に8倍自属性ダメージ/自分に見聞一刀効果 ◆回避成功時に後之閃が発動
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: 白雹乱流
-![白雹乱流](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1966_3.png)
+![白雹乱流](../_images/cdn/assets/img/sp/ui/icon/ability/m/1966_3.png)
 
 - 効果: フェイタルチェインゲージUP(30%) ◆八塩折Lvに応じて味方全体の奥義ゲージUP
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: 山隆海裂
-![山隆海裂](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1967_1.png)
+![山隆海裂](../_images/cdn/assets/img/sp/ui/icon/ability/m/1967_1.png)
 
 - 効果: 敵に3回合計40倍自属性ダメージ/解除可能な敵の予兆を中断させる ◆八塩折Lvが8の時のみ使用可能/予兆解除可能時のみ使用可能/再使用不可
 - 使用間隔: 再使用不可(1回限り等の特殊アビリティ)
@@ -185,7 +185,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### 大蛇之息吹(段階6到達で習得可能)
-![大蛇之息吹](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2266_3.png)
+![大蛇之息吹](../_images/cdn/assets/img/sp/ui/icon/ability/m/2266_3.png)
 
 - 効果: 自分が即座に奥義発動可能　◆◆八塩折Lvが8の時、奥義再発動(1回)効果追加/予兆解除可能時のみ使用可能
 - 使用間隔: 6ターン
@@ -193,7 +193,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### 天十握剣(段階6到達で習得可能)
-![天十握剣](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2267_1.png)
+![天十握剣](../_images/cdn/assets/img/sp/ui/icon/ability/m/2267_1.png)
 
 - 効果: 敵に10倍自属性ダメージ/連続攻撃確率DOWN(累積)　◆◆フェイタルチェイン発動時に即時使用可能になる/八塩折Lvが8の時、2回発動
 - 使用間隔: 8ターン
@@ -201,7 +201,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### 清祓乃神楽(段階6到達で習得可能)
-![清祓乃神楽](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2268_3.png)
+![清祓乃神楽](../_images/cdn/assets/img/sp/ui/icon/ability/m/2268_3.png)
 
 - 効果: 味方全体の連続攻撃確率UP　◆◆八塩折Lv5以上：自属性攻撃UP追加　◆八塩折Lv8：自属性追撃効果追加
 - 使用間隔: 6ターン

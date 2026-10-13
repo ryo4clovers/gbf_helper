@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ミトロンの弓
-![ミトロンの弓](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040708400.jpg)
+![ミトロンの弓](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040708400.jpg)
 
 ## 概要
 

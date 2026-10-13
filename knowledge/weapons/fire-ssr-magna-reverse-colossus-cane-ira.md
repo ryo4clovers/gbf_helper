@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # コロッサスケーン・イラ
-![コロッサスケーン・イラ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040423100.jpg)
+![コロッサスケーン・イラ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040423100.jpg)
 
 ## 概要
 

@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # 黒猫道士(Black Cat Sorcerer)
-![黒猫道士](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/250301_01.jpg)
+![黒猫道士](../_images/cdn/assets/img/sp/assets/leader/m/250301_01.jpg)
 
 ## 概要
 
@@ -36,7 +36,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ブラックチャーム(Lv1で習得)
-![ブラックチャーム](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/556_3.png)
+![ブラックチャーム](../_images/cdn/assets/img/sp/ui/icon/ability/m/556_3.png)
 
 - 効果(初期): 味方全体のステータス大幅UP/再使用で解除 
 ◆◆MPを毎ターン3消費/再使用またはMP0で解除時に自分が3ターン弱体化
@@ -46,21 +46,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### テネブラエ(習得Lv不明)
-![テネブラエ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/557_4.png)
+![テネブラエ](../_images/cdn/assets/img/sp/ui/icon/ability/m/557_4.png)
 
 - 効果: 敵全体の攻撃性能DOWN/弱体耐性DOWN ◆◆ブラックチャームか天眼陣中のみ使用可/同効果を解除し再使用間隔3ターン延長
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### ムーンライト(習得Lv不明)
-![ムーンライト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/558_3.png)
+![ムーンライト](../_images/cdn/assets/img/sp/ui/icon/ability/m/558_3.png)
 
 - 効果: 自分の奥義ゲージをMPに変換
 - 使用間隔: 4ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### スペシャルボム(習得Lv不明)
-![スペシャルボム](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/559_3.png)
+![スペシャルボム](../_images/cdn/assets/img/sp/ui/icon/ability/m/559_3.png)
 
 - 効果: 自分の連続攻撃確率UP/クリティカル確率UP◆
 ◆MP3消費
@@ -152,7 +152,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### オクルス・フェーリス(段階6到達で習得可能)
-![オクルス・フェーリス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1986_3.png)
+![オクルス・フェーリス](../_images/cdn/assets/img/sp/ui/icon/ability/m/1986_3.png)
 
 - 効果: 味方全体にバリア効果/幻影効果(1回)/ブロック効果　◆◆MP5消費
 - 使用間隔: 8ターン
@@ -160,7 +160,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### 木天蓼(段階6到達で習得可能)
-![木天蓼](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1987_3.png)
+![木天蓼](../_images/cdn/assets/img/sp/ui/icon/ability/m/1987_3.png)
 
 - 効果: 自分に木天蓼効果　◆再使用不可
 - 使用間隔: 再使用不可
@@ -168,7 +168,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### スクラッチャー(段階6到達で習得可能)
-![スクラッチャー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1988_3.png)
+![スクラッチャー](../_images/cdn/assets/img/sp/ui/icon/ability/m/1988_3.png)
 
 - 効果: 味方全体のトリプルアタック確率UP(1回)/自属性追撃効果(1回)　◆◆MP15消費/再使用不可
 - 使用間隔: 再使用不可

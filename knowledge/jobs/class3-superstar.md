@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # スーパースター(Superstar)
-![スーパースター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/180201_01.jpg)
+![スーパースター](../_images/cdn/assets/img/sp/assets/leader/m/180201_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: オーヴァチュアII(Lv1で習得)
-![オーヴァチュアII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/61_3.png)
+![オーヴァチュアII](../_images/cdn/assets/img/sp/ui/icon/ability/m/61_3.png)
 
 - 効果(初期): 参戦者の回復性能UP(累積)　★メイン武器の武器種が楽器の時、性能UP
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: ソウルピルファー(Lv5で習得)
-![ソウルピルファー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/65_4.png)
+![ソウルピルファー](../_images/cdn/assets/img/sp/ui/icon/ability/m/65_4.png)
 
 - 効果(初期): 敵全体の弱体耐性DOWN/味方全体の弱体耐性UP　★メイン武器の武器種が楽器の時、性能UP
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: ソング・オブ・グランデ(Lv15で習得)
-![ソング・オブ・グランデ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/24_3.png)
+![ソング・オブ・グランデ](../_images/cdn/assets/img/sp/ui/icon/ability/m/24_3.png)
 
 - 効果(初期): 味方全体のダブルアタック確率UP(大)　★メイン武器の武器種が楽器の時、性能UP
 - 使用間隔: 6ターン
@@ -59,14 +59,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### ひつじのうた(習得Lv不明)
-![ひつじのうた](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/62_4.png)
+![ひつじのうた](../_images/cdn/assets/img/sp/ui/icon/ability/m/62_4.png)
 
 - 効果: 敵に睡眠効果/スロウ効果　★メイン武器の武器種が楽器の時、性能UP
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### トレマーラウンド(習得Lv不明)
-![トレマーラウンド](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/147_3.png)
+![トレマーラウンド](../_images/cdn/assets/img/sp/ui/icon/ability/m/147_3.png)
 
 - 効果: 参戦者の数に応じて味方全体の攻防UP
 - 使用間隔: 6ターン

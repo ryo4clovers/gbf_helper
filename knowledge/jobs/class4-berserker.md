@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # ベルセルク(Berserker)
-![ベルセルク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/100301_01.jpg)
+![ベルセルク](../_images/cdn/assets/img/sp/assets/leader/m/100301_01.jpg)
 
 ## 概要
 
@@ -36,35 +36,35 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: ウェポンバーストIII＋
-![ウェポンバーストIII＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/18_3.png)
+![ウェポンバーストIII＋](../_images/cdn/assets/img/sp/ui/icon/ability/m/18_3.png)
 
 - 効果: 自分が即座に奥義発動可能/攻撃UP/チェインバーストダメージUP/奥義性能UP(1回)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: レイジIV
-![レイジIV](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/14_3.png)
+![レイジIV](../_images/cdn/assets/img/sp/ui/icon/ability/m/14_3.png)
 
 - 効果: 参戦者の攻撃UP(大)/味方全体のダメージ上限UP ◆奥義ゲージを30％消費
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: アーマーブレイクII
-![アーマーブレイクII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/11_1.png)
+![アーマーブレイクII](../_images/cdn/assets/img/sp/ui/icon/ability/m/11_1.png)
 
 - 効果: 敵に自属性ダメージ/防御DOWN
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: ランページII
-![ランページII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/45_3.png)
+![ランページII](../_images/cdn/assets/img/sp/ui/icon/ability/m/45_3.png)
 
 - 効果: 自分の連続攻撃確率UP(大)/防御DOWN
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ5: ウールヴヘジン
-![ウールヴヘジン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1096_3.png)
+![ウールヴヘジン](../_images/cdn/assets/img/sp/ui/icon/ability/m/1096_3.png)
 
 - 効果: 効果中攻防UP/必ずトリプルアタック/自属性追撃効果/弱体耐性が大幅に上昇/アビリティ使用不可 ◆奥義ゲージを100%消費
 - 使用間隔: 5ターン
@@ -191,7 +191,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### フェロシティロアー(段階6到達で習得可能)
-![フェロシティロアー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1977_3.png)
+![フェロシティロアー](../_images/cdn/assets/img/sp/ui/icon/ability/m/1977_3.png)
 
 - 効果: 得意武器「斧」「剣」のキャラに連続攻撃確率UP/自属性追撃効果
 - 使用間隔: 6ターン
@@ -199,7 +199,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### ビーストファング(段階6到達で習得可能)
-![ビーストファング](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1978_1.png)
+![ビーストファング](../_images/cdn/assets/img/sp/ui/icon/ability/m/1978_1.png)
 
 - 効果: 敵に自属性ダメージ/攻防DOWN/自分のダメージ上限UP　◆◆ウールヴヘジン効果中通常攻撃時に自動発動
 - 使用間隔: 7ターン
@@ -207,7 +207,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### 狂戦の血(段階6到達で習得可能)
-![狂戦の血](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1979_3.png)
+![狂戦の血](../_images/cdn/assets/img/sp/ui/icon/ability/m/1979_3.png)
 
 - 効果: 自分に狂戦の血効果　◆HPの不足もしくは再使用で解除
 - 使用間隔: 0ターン

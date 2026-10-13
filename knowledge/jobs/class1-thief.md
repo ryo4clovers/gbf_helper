@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # シーフ(Thief)
-![シーフ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/140001_01.jpg)
+![シーフ](../_images/cdn/assets/img/sp/assets/leader/m/140001_01.jpg)
 
 ## 概要
 
@@ -36,14 +36,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ブレイクアサシン(Lv1で習得)
-![ブレイクアサシン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/43_3.png)
+![ブレイクアサシン](../_images/cdn/assets/img/sp/ui/icon/ability/m/43_3.png)
 
 - 効果(初期): 自分に追い撃ち効果(敵ブレイク時のみ/1回)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: トレジャーハント(Lv10で習得)
-![トレジャーハント](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/13_4.png)
+![トレジャーハント](../_images/cdn/assets/img/sp/ui/icon/ability/m/13_4.png)
 
 - 効果(初期): 敵のアイテムドロップ率UP(1回)
 - 使用間隔: 3ターン

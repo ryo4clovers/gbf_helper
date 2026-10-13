@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # マークスマン(Marksman)
-![マークスマン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/170101_01.jpg)
+![マークスマン](../_images/cdn/assets/img/sp/assets/leader/m/170101_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ライトウェイト(Lv1で習得)
-![ライトウェイト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/51_3.png)
+![ライトウェイト](../_images/cdn/assets/img/sp/ui/icon/ability/m/51_3.png)
 
 - 効果(初期): 敵の全ての攻撃を回避
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: アローレインII(Lv5で習得)
-![アローレインII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/59_1.png)
+![アローレインII](../_images/cdn/assets/img/sp/ui/icon/ability/m/59_1.png)
 
 - 効果(初期): 敵全体に自属性ダメージ/攻撃DOWN(小)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: ハードライン(Lv15で習得)
-![ハードライン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/42_1.png)
+![ハードライン](../_images/cdn/assets/img/sp/ui/icon/ability/m/42_1.png)
 
 - 効果(初期): 弱体状態の敵に大ダメージ
 - 使用間隔: 7ターン

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # カラダンダ
-![カラダンダ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040416300.jpg)
+![カラダンダ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040416300.jpg)
 
 ## 概要
 

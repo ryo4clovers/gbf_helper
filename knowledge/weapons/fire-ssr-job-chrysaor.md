@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ヴァッサーシュパイアー(Wasserspeier)
-![ヴァッサーシュパイアー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040018100.jpg)
+![ヴァッサーシュパイアー](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040018100.jpg)
 
 ## 概要
 

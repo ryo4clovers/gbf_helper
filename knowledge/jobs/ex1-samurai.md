@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # 侍(Samurai)
-![侍](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/220201_01.jpg)
+![侍](../_images/cdn/assets/img/sp/assets/leader/m/220201_01.jpg)
 
 ## 概要
 
@@ -36,7 +36,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: 画竜点睛(Lv1で習得)
-![画竜点睛](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/76_3.png)
+![画竜点睛](../_images/cdn/assets/img/sp/ui/icon/ability/m/76_3.png)
 
 - 効果(初期): 連続攻撃確率UP
 ◆◆被ダメージまで効果継続
@@ -44,14 +44,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: 瞑想(Lv5で習得)
-![瞑想](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/77_3.png)
+![瞑想](../_images/cdn/assets/img/sp/ui/icon/ability/m/77_3.png)
 
 - 効果(初期): 自分の攻撃UP/クリティカル確率UP/弱体効果を全て回復　◆◆奥義ゲージを30％消費
 - 使用間隔: 1ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: 鴉雀無声(Lv15で習得)
-![鴉雀無声](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/78_3.png)
+![鴉雀無声](../_images/cdn/assets/img/sp/ui/icon/ability/m/78_3.png)
 
 - 効果(初期): 自分の防御UP　◆刀：自分に幻影効果(1回)/自分の攻撃DOWN　弓：自分の攻撃UP/連続攻撃確率DOWN/奥義ゲージDOWN
 - 使用間隔: 7ターン
@@ -60,7 +60,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### 雲散霧消(習得Lv不明)
-![雲散霧消](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/51_3.png)
+![雲散霧消](../_images/cdn/assets/img/sp/ui/icon/ability/m/51_3.png)
 
 - 効果: 敵の全ての攻撃を回避
 - 使用間隔: 5ターン

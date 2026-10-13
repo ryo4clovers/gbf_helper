@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 狂飆と至高の祈り(Draconic Cane (Origin))
-![狂飆と至高の祈り](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040422200.jpg)
+![狂飆と至高の祈り](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040422200.jpg)
 
 ## 概要
 

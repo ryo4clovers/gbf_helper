@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)�
 ---
 
 # 万象尽滅の宝剣(Versacia Sword (Fire))
-![万象尽滅の宝剣](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040028900.jpg)
+![万象尽滅の宝剣](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040028900.jpg)
 
 ## 概要
 

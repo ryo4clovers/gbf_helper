@@ -14,7 +14,7 @@ source: "実機編成レスポンス(2026-09-07、ユーザー提供)でLv1・SL
 ---
 
 # ミムメモ人形(Mimlemel Doll)
-![ミムメモ人形](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040812900.jpg)
+![ミムメモ人形](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040812900.jpg)
 
 ## 概要
 

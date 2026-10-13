@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # パラディン(Paladin)
-![パラディン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/110401_01.jpg)
+![パラディン](../_images/cdn/assets/img/sp/assets/leader/m/110401_01.jpg)
 
 ## 概要
 
@@ -36,7 +36,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: エレメンタル・ファランクス(Lv1で習得)
-![エレメンタル・ファランクス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1720_3.png)
+![エレメンタル・ファランクス](../_images/cdn/assets/img/sp/ui/icon/ability/m/1720_3.png)
 
 - 効果(初期): 味方全体に自分の有利属性ダメージカット(80%)/被ダメージの属性を自分の有利属性に変換/他の参戦者に全属性ダメージカット(80%)
 - 使用間隔: 5ターン
@@ -45,21 +45,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### ノブレス・プロテジー(習得Lv不明)
-![ノブレス・プロテジー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1721_3.png)
+![ノブレス・プロテジー](../_images/cdn/assets/img/sp/ui/icon/ability/m/1721_3.png)
 
 - 効果: 自分にかばう効果(全体)/バリア効果
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### フルレジスト(習得Lv不明)
-![フルレジスト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1722_3.png)
+![フルレジスト](../_images/cdn/assets/img/sp/ui/icon/ability/m/1722_3.png)
 
 - 効果: 味方全体の弱体耐性大幅UP/強化効果が無効化されない
 - 使用間隔: 10ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### セイクリッド・プロテクション(習得Lv不明)
-![セイクリッド・プロテクション](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1723_3.png)
+![セイクリッド・プロテクション](../_images/cdn/assets/img/sp/ui/icon/ability/m/1723_3.png)
 
 - 効果: 味方全体に被ダメージ減少効果
 - 使用間隔: 6ターン

@@ -14,7 +14,7 @@ source: "実機編成レスポンス(2026-09-07、ユーザー提供)でLv150・
 ---
 
 # ソロモンアクセル(Solomon's Accelerator)
-![ソロモンアクセル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040915300.jpg)
+![ソロモンアクセル](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040915300.jpg)
 
 ## 概要
 

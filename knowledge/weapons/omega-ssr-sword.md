@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07。
 ---
 
 # オメガスウォード(Ultima Sword)
-![オメガスウォード](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040011900.jpg)
+![オメガスウォード](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040011900.jpg)
 
 <!-- オメガウェポンは武器種ごとに1エントリ(1 weapon_id)。属性は作成時に選択するため
      このファイルの `element` は代表個体(この提供データは火)のもの。 -->

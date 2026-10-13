@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # クレリック(Cleric)
-![クレリック](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/120101_01.jpg)
+![クレリック](../_images/cdn/assets/img/sp/assets/leader/m/120101_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ヒールオール(Lv1で習得)
-![ヒールオール](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/36_2.png)
+![ヒールオール](../_images/cdn/assets/img/sp/ui/icon/ability/m/36_2.png)
 
 - 効果(初期): 参戦者のHPを回復(小)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: クリアオール(Lv5で習得)
-![クリアオール](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/26_2.png)
+![クリアオール](../_images/cdn/assets/img/sp/ui/icon/ability/m/26_2.png)
 
 - 効果(初期): 参戦者の弱体効果を1つ回復
 - 使用間隔: 4ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: シャイニング(Lv15で習得)
-![シャイニング](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/12_1.png)
+![シャイニング](../_images/cdn/assets/img/sp/ui/icon/ability/m/12_1.png)
 
 - 効果(初期): 敵全体に光属性ダメージ(中)
 - 使用間隔: 5ターン

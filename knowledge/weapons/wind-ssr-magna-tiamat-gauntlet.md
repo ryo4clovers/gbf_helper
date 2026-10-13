@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ティアマトガントレ・マグナ
-![ティアマトガントレ・マグナ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040600500.jpg)
+![ティアマトガントレ・マグナ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040600500.jpg)
 
 ## 概要
 

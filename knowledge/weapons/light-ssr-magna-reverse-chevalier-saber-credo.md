@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # シュヴァリエセイバー・クレド
-![シュヴァリエセイバー・クレド](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040916200.jpg)
+![シュヴァリエセイバー・クレド](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040916200.jpg)
 
 ## 概要
 

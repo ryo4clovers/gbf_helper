@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # マリアッチ(Mariachi)
-![マリアッチ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/180401_01.jpg)
+![マリアッチ](../_images/cdn/assets/img/sp/assets/leader/m/180401_01.jpg)
 
 ## 概要
 
@@ -36,7 +36,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: エンペサル・トカル(Lv1で習得)
-![エンペサル・トカル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2621_3.png)
+![エンペサル・トカル](../_images/cdn/assets/img/sp/ui/icon/ability/m/2621_3.png)
 
 - 効果(初期): 演奏を開始して自分にソンブレロ効果
 ◆◆演奏中、毎ターンフェイタルチェインゲージUP(20%)/攻撃開始時に自分の奥義ゲージを30%消費して味方全体の攻防UP/連続攻撃確率UP/通常攻撃の与ダメージUP/コンパニオンウェポン装備時のみ使用可能
@@ -46,21 +46,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### ピッツィカート(習得Lv不明)
-![ピッツィカート](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2622_1.png)
+![ピッツィカート](../_images/cdn/assets/img/sp/ui/icon/ability/m/2622_1.png)
 
 - 効果: 敵に自属性ダメージ/弱体耐性DOWN(累積)/調律Lvが1上昇(最大10)　◆◆ソンブレロ効果中、通常攻撃後に発動
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### ラス・マニャニータス(習得Lv不明)
-![ラス・マニャニータス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2623_2.png)
+![ラス・マニャニータス](../_images/cdn/assets/img/sp/ui/icon/ability/m/2623_2.png)
 
 - 効果: 味方全体に活性効果/回復性能UP(累積)/回避率UP(累積)
 - 使用間隔: 3ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### 至高のアンサンブル(習得Lv不明)
-![至高のアンサンブル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2624_3.png)
+![至高のアンサンブル](../_images/cdn/assets/img/sp/ui/icon/ability/m/2624_3.png)
 
 - 効果: アルパを3消費して至高のアンサンブルを披露する　◆◆選択した曲によって効果が変化/フェイタルチェイン発動時にアルパを1追加(最大3)
 - 使用間隔: 15ターン

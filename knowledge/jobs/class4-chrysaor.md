@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # クリュサオル(Chrysaor)
-![クリュサオル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/300301_01.jpg)
+![クリュサオル](../_images/cdn/assets/img/sp/assets/leader/m/300301_01.jpg)
 
 ## 概要
 
@@ -36,28 +36,28 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: アナザーブレードII＋
-![アナザーブレードII＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/846_3.png)
+![アナザーブレードII＋](../_images/cdn/assets/img/sp/ui/icon/ability/m/846_3.png)
 
 - 効果: 奥義がコンパニオンウェポンの奥義に変化(1回)/自分の奥義性能UP(1回)/奥義ゲージUP(30％) ◆コンパニオンウェポン装備時のみ使用可能
 - 使用間隔: 4ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: デュアルアーツ
-![デュアルアーツ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/849_3.png)
+![デュアルアーツ](../_images/cdn/assets/img/sp/ui/icon/ability/m/849_3.png)
 
 - 効果: 効果中自分の奥義が2回発動◆コンパニオンウェポン装備時のみ使用可能
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: ディプティク
-![ディプティク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/850_3.png)
+![ディプティク](../_images/cdn/assets/img/sp/ui/icon/ability/m/850_3.png)
 
 - 効果: 効果中ターン進行時に攻撃行動を2回行う/自分に自属性追撃効果 ◆奥義ゲージ20%消費/コンパニオンウェポン装備時のみ使用可能
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: アーセガル
-![アーセガル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/851_1.png)
+![アーセガル](../_images/cdn/assets/img/sp/ui/icon/ability/m/851_1.png)
 
 - 効果: 敵に自属性ダメージ/自分の奥義ゲージUP(20%)◆コンパニオンウェポン装備時：2回発動
 - 使用間隔: 7ターン
@@ -185,7 +185,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### ディス・クシフォス(段階6到達で習得可能)
-![ディス・クシフォス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2131_3.png)
+![ディス・クシフォス](../_images/cdn/assets/img/sp/ui/icon/ability/m/2131_3.png)
 
 - 効果: 自分にディス・クシフォス効果(コンパニオンウェポンの奥義発動時、自分が必ずトリプルアタック/攻撃大幅UP/再攻撃効果)　◆コンパニオンウェポン装備時のみ使用可能/再使用不可
 - 使用間隔: 再使用不可
@@ -193,7 +193,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### アストラプシテ(段階6到達で習得可能)
-![アストラプシテ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2132_1.png)
+![アストラプシテ](../_images/cdn/assets/img/sp/ui/icon/ability/m/2132_1.png)
 
 - 効果: 敵に2回自属性ダメージ/攻防DOWN(累積)/自分の奥義ゲージUP(20%)　◆チェインバースト発生時に発動/チェイン数に応じてダメージ回数UP(最大10回)
 - 使用間隔: 6ターン
@@ -201,7 +201,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### アンバーエッジ(段階6到達で習得可能)
-![アンバーエッジ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/774_1.png)
+![アンバーエッジ](../_images/cdn/assets/img/sp/ui/icon/ability/m/774_1.png)
 
 - 効果: 敵全体に自属性ダメージ/最大CT増加/味方全体に高揚効果/弱体効果無効(1回)
 - 使用間隔: 10ターン

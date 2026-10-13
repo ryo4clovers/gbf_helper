@@ -14,7 +14,7 @@ source: "実機編成レスポンス(2026-09-09、ユーザー提供)でLv150・
 ---
 
 # エッケザックス(Ecke Sachs)
-![エッケザックス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040007100.jpg)
+![エッケザックス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040007100.jpg)
 
 ## 概要
 

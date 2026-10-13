@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 極神剣
-![極神剣](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040020600.jpg)
+![極神剣](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040020600.jpg)
 
 ## 概要
 

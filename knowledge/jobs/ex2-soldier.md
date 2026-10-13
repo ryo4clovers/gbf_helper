@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ソルジャー(Soldier)
-![ソルジャー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/240301_01.jpg)
+![ソルジャー](../_images/cdn/assets/img/sp/assets/leader/m/240301_01.jpg)
 
 ## 概要
 
@@ -36,7 +36,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: スリーラウンドバースト(Lv1で習得)
-![スリーラウンドバースト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/879_1.png)
+![スリーラウンドバースト](../_images/cdn/assets/img/sp/ui/icon/ability/m/879_1.png)
 
 - 効果(初期): 効果中必ずトリプルアタック/ターン経過なしで通常攻撃を実行　◆◆弾丸を使用
 - 使用間隔: 4ターン
@@ -45,7 +45,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### フルファイア(習得Lv不明)
-![フルファイア](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/880_1.png)
+![フルファイア](../_images/cdn/assets/img/sp/ui/icon/ability/m/880_1.png)
 
 - 効果: 残弾が尽きるまで通常攻撃を行う
 ◆◆弾丸を全て使用
@@ -53,14 +53,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### フォーティチュード(習得Lv不明)
-![フォーティチュード](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/70_3.png)
+![フォーティチュード](../_images/cdn/assets/img/sp/ui/icon/ability/m/70_3.png)
 
 - 効果: 自分の通常攻撃の与ダメージUP効果/逆境効果/クリティカル確率UP
 - 使用間隔: 8ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### ゲリーリャ(習得Lv不明)
-![ゲリーリャ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/881_3.png)
+![ゲリーリャ](../_images/cdn/assets/img/sp/ui/icon/ability/m/881_3.png)
 
 - 効果: 自分の回避率UP/奥義ゲージ上昇量UP/遊撃効果　◆◆遊撃効果中、回避成功時にターゲットに関わらず4回弱点属性ダメージ
 - 使用間隔: 5ターン
@@ -150,7 +150,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### コンバットレーション(段階6到達で習得可能)
-![コンバットレーション](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2079_3.png)
+![コンバットレーション](../_images/cdn/assets/img/sp/ui/icon/ability/m/2079_3.png)
 
 - 効果: 味方全体に活性効果/クリティカル確率UP/ダメージ上限UP
 - 使用間隔: 6ターン
@@ -158,7 +158,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### イモータルコマンドー(段階6到達で習得可能)
-![イモータルコマンドー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1134_3.png)
+![イモータルコマンドー](../_images/cdn/assets/img/sp/ui/icon/ability/m/1134_3.png)
 
 - 効果: 自分に不死身効果/敵対心大幅UP/効果中、ターン終了時に自分が瀕死状態の時、再攻撃効果
 - 使用間隔: 6ターン
@@ -166,7 +166,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### アムニッションベルト(段階6到達で習得可能)
-![アムニッションベルト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2080_3.png)
+![アムニッションベルト](../_images/cdn/assets/img/sp/ui/icon/ability/m/2080_3.png)
 
 - 効果: 効果中、残弾がなくなった時にリロードを完了する
 - 使用間隔: 7ターン

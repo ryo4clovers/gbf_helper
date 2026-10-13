@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # キス・オブ・ザ・デビル(Kiss of The Devil)
-![キス・オブ・ザ・デビル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040614300.jpg)
+![キス・オブ・ザ・デビル](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040614300.jpg)
 
 ## 概要
 

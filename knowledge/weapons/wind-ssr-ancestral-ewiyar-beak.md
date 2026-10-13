@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # イーウィヤ・ビーク(Ewiyar's Beak)
-![イーウィヤ・ビーク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040912400.jpg)
+![イーウィヤ・ビーク](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040912400.jpg)
 
 ## 概要
 

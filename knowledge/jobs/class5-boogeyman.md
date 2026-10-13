@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ブギーマン(Boogeyman)
-![ブギーマン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/170401_01.jpg)
+![ブギーマン](../_images/cdn/assets/img/sp/assets/leader/m/170401_01.jpg)
 
 ## 概要
 
@@ -36,7 +36,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: レイン・オブ・パラベラム(Lv1で習得)
-![レイン・オブ・パラベラム](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2553_1.png)
+![レイン・オブ・パラベラム](../_images/cdn/assets/img/sp/ui/icon/ability/m/2553_1.png)
 
 - 効果(初期): ターゲットに関わらず8回自属性ダメージ/敵全体に被ダメージ上昇/自分に暗夜の銃口効果　◆闇の名声が5の時、攻撃回数2倍/暗夜の銃口の効果時間延長/自分に再攻撃効果追加
 - 使用間隔: 9ターン
@@ -45,21 +45,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### ブラッド・オウス・マーカー(習得Lv不明)
-![ブラッド・オウス・マーカー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2551_3.png)
+![ブラッド・オウス・マーカー](../_images/cdn/assets/img/sp/ui/icon/ability/m/2551_3.png)
 
 - 効果: 自分と同じ属性のキャラ単体と自分のHPを最大値の10％消費し血の誓印を結ぶ　◆◆二人以上と血の誓印を結んだ場合、ターン終了時に血の誓印を全て消去/自分に無属性ダメージ
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### コンチネンタル・テーラー(習得Lv不明)
-![コンチネンタル・テーラー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2552_3.png)
+![コンチネンタル・テーラー](../_images/cdn/assets/img/sp/ui/icon/ability/m/2552_3.png)
 
 - 効果: 自分に被ダメージ無効(2回)/弱体効果無効(1回)/ディスペルガード効果(1回)　◆闇の名声が5の時、効果が全体化
 - 使用間隔: 9ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### セイスヘイヴン(習得Lv不明)
-![セイスヘイヴン](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2550_4.png)
+![セイスヘイヴン](../_images/cdn/assets/img/sp/ui/icon/ability/m/2550_4.png)
 
 - 効果: 敵全体に6回自属性ダメージ/攻防DOWN/強化効果を1つ無効化/自分が敵の全ての攻撃を回避(1回)　◆敵が特殊技を使用時、即時使用可能になる
 - 使用間隔: 6ターン

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 叡智と廻生の煌き(Draconic Katana (Origin))
-![叡智と廻生の煌き](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040915600.jpg)
+![叡智と廻生の煌き](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040915600.jpg)
 
 ## 概要
 

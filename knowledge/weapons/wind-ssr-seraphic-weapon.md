@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 果てぬ風呼の魔弓(Ring of Raphael)
-![果てぬ風呼の魔弓](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040709100.jpg)
+![果てぬ風呼の魔弓](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040709100.jpg)
 
 ## 概要
 

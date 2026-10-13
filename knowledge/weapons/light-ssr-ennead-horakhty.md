@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ホルアクティ
-![ホルアクティ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040913300.jpg)
+![ホルアクティ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040913300.jpg)
 
 ## 概要
 

@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # レリックバスター(Relic Buster)
-![レリックバスター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/450301_01.jpg)
+![レリックバスター](../_images/cdn/assets/img/sp/assets/leader/m/450301_01.jpg)
 
 ## 概要
 
@@ -36,28 +36,28 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: オーグメント・マギア＋
-![オーグメント・マギア＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1416_3.png)
+![オーグメント・マギア＋](../_images/cdn/assets/img/sp/ui/icon/ability/m/1416_3.png)
 
 - 効果: 自分にマシンセルを5つ付与(最大5)/HP回復◆HPが50％以上の時ストレングス効果/50%未満の時逆境効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: タクティカル・シールド
-![タクティカル・シールド](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1417_3.png)
+![タクティカル・シールド](../_images/cdn/assets/img/sp/ui/icon/ability/m/1417_3.png)
 
 - 効果: 味方全体にバリア効果/弱体効果無効(1回)/ブロック効果◆マシンセルの数に応じてバリアの性能UP
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: リミットバースト
-![リミットバースト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1418_3.png)
+![リミットバースト](../_images/cdn/assets/img/sp/ui/icon/ability/m/1418_3.png)
 
 - 効果: マシンセルの数に応じて味方全体の奥義ゲージUP/奥義性能UP(1回)◆マシンセルを全て消費
 - 使用間隔: 12ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: ブリッツレイド
-![ブリッツレイド](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1419_1.png)
+![ブリッツレイド](../_images/cdn/assets/img/sp/ui/icon/ability/m/1419_1.png)
 
 - 効果: ターン経過なしで通常攻撃を実行◆マシンセルを1つ消費
 - 使用間隔: 0ターン(条件により即使用可)
@@ -185,7 +185,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### ライトニング・シュート(段階6到達で習得可能)
-![ライトニング・シュート](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2263_1.png)
+![ライトニング・シュート](../_images/cdn/assets/img/sp/ui/icon/ability/m/2263_1.png)
 
 - 効果: ターゲットに関わらず3回自属性ダメージ/敵全体に攻撃DOWN(累積)/自属性防御DOWN(累積)　◆マシンセルを1つ消費して、奥義発動後に発動
 - 使用間隔: 6ターン
@@ -193,7 +193,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### ハイパーヴェロシティ(段階6到達で習得可能)
-![ハイパーヴェロシティ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2264_1.png)
+![ハイパーヴェロシティ](../_images/cdn/assets/img/sp/ui/icon/ability/m/2264_1.png)
 
 - 効果: 敵に自属性ダメージ/マシンセルを消費した数に応じて味方全体が以下の効果を順に得る(クリティカル確率UP/自属性攻撃UP/回避率UP/活性/有利属性ダメージ軽減)　◆マシンセルを全て消費/大ダメージを受けた時、即時使用可能になる
 - 使用間隔: 10ターン
@@ -201,7 +201,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### ブルータルセル(段階6到達で習得可能)
-![ブルータルセル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2265_1.png)
+![ブルータルセル](../_images/cdn/assets/img/sp/ui/icon/ability/m/2265_1.png)
 
 - 効果: 敵全体に自属性ダメージ/強化効果を1つ無効化/スロウ効果　◆自分と同じ属性のキャラが奥義発動時、自分にブルータルセルを1つ追加(最大9)/ターン終了時にブルータルセルを3つ消費して発動
 - 使用間隔: 6ターン

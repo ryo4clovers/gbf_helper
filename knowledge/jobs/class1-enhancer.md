@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # エンハンサー(Enhancer)
-![エンハンサー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/150001_01.jpg)
+![エンハンサー](../_images/cdn/assets/img/sp/assets/leader/m/150001_01.jpg)
 
 ## 概要
 
@@ -36,14 +36,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ディレイ(Lv1で習得)
-![ディレイ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/32_1.png)
+![ディレイ](../_images/cdn/assets/img/sp/ui/icon/ability/m/32_1.png)
 
 - 効果(初期): 敵に自属性ダメージ/スロウ効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: エレメンタルフォース(Lv10で習得)
-![エレメンタルフォース](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/20_3.png)
+![エレメンタルフォース](../_images/cdn/assets/img/sp/ui/icon/ability/m/20_3.png)
 
 - 効果(初期): 参戦者のアビリティダメージUP(小)
 - 使用間隔: 5ターン

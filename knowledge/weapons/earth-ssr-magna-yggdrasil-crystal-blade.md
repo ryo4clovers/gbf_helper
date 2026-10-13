@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 世界樹の晶剣・マグナ
-![世界樹の晶剣・マグナ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040002200.jpg)
+![世界樹の晶剣・マグナ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040002200.jpg)
 
 ## 概要
 

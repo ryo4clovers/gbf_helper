@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ウォーリア(Warrior)
-![ウォーリア](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/100101_01.jpg)
+![ウォーリア](../_images/cdn/assets/img/sp/assets/leader/m/100101_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ウェポンバースト(Lv1で習得)
-![ウェポンバースト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/18_3.png)
+![ウェポンバースト](../_images/cdn/assets/img/sp/ui/icon/ability/m/18_3.png)
 
 - 効果(初期): 自分が即座に奥義発動可能
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: レイジII(Lv5で習得)
-![レイジII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/14_3.png)
+![レイジII](../_images/cdn/assets/img/sp/ui/icon/ability/m/14_3.png)
 
 - 効果(初期): 参戦者の攻撃UP(中)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: アーマーブレイク(Lv15で習得)
-![アーマーブレイク](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/11_1.png)
+![アーマーブレイク](../_images/cdn/assets/img/sp/ui/icon/ability/m/11_1.png)
 
 - 効果(初期): 敵に自属性ダメージ/防御DOWN
 - 使用間隔: 5ターン

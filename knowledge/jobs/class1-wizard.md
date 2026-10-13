@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ウィザード(Wizard)
-![ウィザード](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/130001_01.jpg)
+![ウィザード](../_images/cdn/assets/img/sp/assets/leader/m/130001_01.jpg)
 
 ## 概要
 
@@ -36,14 +36,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: エーテルブラスト(Lv1で習得)
-![エーテルブラスト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/60_1.png)
+![エーテルブラスト](../_images/cdn/assets/img/sp/ui/icon/ability/m/60_1.png)
 
 - 効果: 敵に2〜3倍自属性ダメージ
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: ファイア(Lv10で習得)
-![ファイア](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/4_1.png)
+![ファイア](../_images/cdn/assets/img/sp/ui/icon/ability/m/4_1.png)
 
 - 効果: 敵全体に火属性ダメージ(小)(レスポンスの記載通り「火属性」。自属性ではなく火属性固定の可能性、要検証)
 - 使用間隔: 5ターン

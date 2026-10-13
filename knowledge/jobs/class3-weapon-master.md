@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ウェポンマスター(Weapon Master)
-![ウェポンマスター](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/100201_01.jpg)
+![ウェポンマスター](../_images/cdn/assets/img/sp/assets/leader/m/100201_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ウェポンバーストII(Lv1で習得)
-![ウェポンバーストII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/18_3.png)
+![ウェポンバーストII](../_images/cdn/assets/img/sp/ui/icon/ability/m/18_3.png)
 
 - 効果(初期): 自分が即座に奥義発動可能/攻撃UP
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: ランページ(Lv5で習得)
-![ランページ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/45_3.png)
+![ランページ](../_images/cdn/assets/img/sp/ui/icon/ability/m/45_3.png)
 
 - 効果(初期): 自分の連続攻撃確率UP
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: レイジIII(Lv15で習得)
-![レイジIII](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/14_3.png)
+![レイジIII](../_images/cdn/assets/img/sp/ui/icon/ability/m/14_3.png)
 
 - 効果(初期): 参戦者の攻撃UP(大)
 - 使用間隔: 5ターン
@@ -59,14 +59,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### ブレイブソウル(習得Lv不明)
-![ブレイブソウル](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/14_3.png)
+![ブレイブソウル](../_images/cdn/assets/img/sp/ui/icon/ability/m/14_3.png)
 
 - 効果: 自分にストレングス効果　★最大HPに応じて性能上昇
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### パワーレイズ(習得Lv不明)
-![パワーレイズ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/90_3.png)
+![パワーレイズ](../_images/cdn/assets/img/sp/ui/icon/ability/m/90_3.png)
 
 - 効果: 自分のクリティカル確率UP
 - 使用間隔: 7ターン

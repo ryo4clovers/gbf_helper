@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ランサー(Lancer)
-![ランサー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/190001_01.jpg)
+![ランサー](../_images/cdn/assets/img/sp/assets/leader/m/190001_01.jpg)
 
 ## 概要
 
@@ -36,14 +36,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: リードドライブ(Lv1で習得)
-![リードドライブ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/63_1.png)
+![リードドライブ](../_images/cdn/assets/img/sp/ui/icon/ability/m/63_1.png)
 
 - 効果: 敵に自属性ダメージ ◆槍: ブレイク状態を維持(ブレイク時間延長) ／ 斧: モードゲージ減少
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: デュアルインパルス(Lv10で習得)
-![デュアルインパルス](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/64_3.png)
+![デュアルインパルス](../_images/cdn/assets/img/sp/ui/icon/ability/m/64_3.png)
 
 - 効果: 効果中必ず連続攻撃 ◆槍: 参戦者のダブルアタック確率UP(小) ／ 斧: 敵のダブルアタック確率DOWN(小)
 - 使用間隔: 5ターン

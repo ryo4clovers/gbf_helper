@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 黒銀の滅爪(Claws of Terror)
-![黒銀の滅爪](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040612500.jpg)
+![黒銀の滅爪](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040612500.jpg)
 
 ## 概要
 

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ビガ・エドフ
-![ビガ・エドフ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040419700.jpg)
+![ビガ・エドフ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040419700.jpg)
 
 ## 概要
 

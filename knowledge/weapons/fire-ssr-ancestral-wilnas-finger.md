@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ウィルナス・フィンガー(Wilnas' Finger)
-![ウィルナス・フィンガー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040613800.jpg)
+![ウィルナス・フィンガー](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040613800.jpg)
 
 ## 概要
 

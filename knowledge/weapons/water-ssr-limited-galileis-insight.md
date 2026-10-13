@@ -14,7 +14,7 @@ source: "本家ルリアノート武器図鑑の通常表示(2026-09-21確認) /
 ---
 
 # ガリレオ・サイト(Galilei's Insight)
-![ガリレオ・サイト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040211600.jpg)
+![ガリレオ・サイト](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040211600.jpg)
 
 ## 概要
 

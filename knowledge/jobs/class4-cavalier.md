@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ---
 
 # キャバルリー(Cavalier)
-![キャバルリー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/leader/m/420301_01.jpg)
+![キャバルリー](../_images/cdn/assets/img/sp/assets/leader/m/420301_01.jpg)
 
 ## 概要
 
@@ -36,28 +36,28 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 ## アビリティ構成
 
 ### アビリティ1: ホースマンズデューティ＋
-![ホースマンズデューティ＋](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1123_3.png)
+![ホースマンズデューティ＋](../_images/cdn/assets/img/sp/ui/icon/ability/m/1123_3.png)
 
 - 効果: 味方全体に自属性追撃効果 槍：自分にブロック効果/敵対心大幅UP/弱体耐性UP 銃：自分に被ダメージ無効(2回)/敵対心大幅DOWN
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ2: ドラグラクト
-![ドラグラクト](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1124_1.png)
+![ドラグラクト](../_images/cdn/assets/img/sp/ui/icon/ability/m/1124_1.png)
 
 - 効果: ターゲットに関わらず5回自属性ダメージ 槍：自分のHP回復銃：自分のチェインバースト性能UP(累積)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ3: バタリング・ラム
-![バタリング・ラム](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1125_1.png)
+![バタリング・ラム](../_images/cdn/assets/img/sp/ui/icon/ability/m/1125_1.png)
 
 - 効果: 敵に自属性ダメージ 槍：敵の強化効果を1つ無効化 銃：敵にスロウ効果 ◆人馬一体Lv3の時2回発動
 - 使用間隔: 7ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブ画面API)
 
 ### アビリティ4: ハイ・コマンド
-![ハイ・コマンド](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/1126_3.png)
+![ハイ・コマンド](../_images/cdn/assets/img/sp/ui/icon/ability/m/1126_3.png)
 
 - 効果: 自分に気高き使命効果 槍：重騎兵の勲のカウンター回数UP(2回)/全力でカウンター 銃：味方全体の連続攻撃確率UP
 - 使用間隔: 12ターン
@@ -191,7 +191,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 段階6まで強化すると、以下3つのリミットアビリティのいずれも習得可能になる(習得には別途トレジャーを消費、複数同時に習得可能):
 
 ### ヴァロラスリー(段階6到達で習得可能)
-![ヴァロラスリー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2260_1.png)
+![ヴァロラスリー](../_images/cdn/assets/img/sp/ui/icon/ability/m/2260_1.png)
 
 - 効果: 槍：敵全体に8倍自属性ダメージ/自分の攻撃大幅UP(1回)　◆銃：敵に6回自属性ダメージ/自分が必ずトリプルアタック/通常攻撃の与ダメージ上昇
 - 使用間隔: 8ターン
@@ -199,7 +199,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### アトラクト・エンミティ(段階6到達で習得可能)
-![アトラクト・エンミティ](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2261_3.png)
+![アトラクト・エンミティ](../_images/cdn/assets/img/sp/ui/icon/ability/m/2261_3.png)
 
 - 効果: 自分にかばう効果(全体)/有利属性ダメージ軽減/弱体耐性大幅UP/吸収効果/奥義封印効果 　◆◆メイン武器の武器種が槍の時のみ使用可能
 - 使用間隔: 7ターン
@@ -207,7 +207,7 @@ source: "実機(グランブルーファンタジー公式サイト、ジョブ�
 - 出典: 実機の極致の証アビリティ習得レスポンス(ユーザー提供、2026-09-06、draftフォルダ経由)
 
 ### フィールドコマンダー(段階6到達で習得可能)
-![フィールドコマンダー](https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/icon/ability/m/2262_3.png)
+![フィールドコマンダー](../_images/cdn/assets/img/sp/ui/icon/ability/m/2262_3.png)
 
 - 効果: 自分にフィールドコマンダー効果/自分以外の味方全体にアンダーコマンド効果　◆◆フィールドコマンダー効果：ダメージを受けなかったターン終了時、敵に3回自属性ダメージ/攻防DOWN(累積)/弱体耐性DOWN(累積)　◆アンダーコマンド効果：主人公と同じ属性攻撃UP/連続攻撃確率UP/クリティカル確率UP/ダメージ上限UP　◆メイン武器の武器種が銃の時のみ使用可能
 - 使用間隔: 9ターン

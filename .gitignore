@@ -18,3 +18,6 @@ tools/network-recorder/captures/*
 
 # Downloaded thumbnails are local-only, not distributed with the repository.
 mcp-server/.cache/
+
+# Knowledge images: retain source manifest, keep downloaded binaries local.
+knowledge/_images/cdn/

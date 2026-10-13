@@ -14,7 +14,7 @@ source: "実機の武器詳細・編成レスポンス(ユーザー提供、2026
 ---
 
 # 永遠拒絶の大鎌(Dark Opus Axe / Magna)
-![永遠拒絶の大鎌](https://prd-game-a-granbluefantasy.akamaized.net/assets/img_low/sp/assets/weapon/m/1040310700.jpg)
+![永遠拒絶の大鎌](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040310700.jpg)
 
 <!-- 超越済みインスタンスの `param.image_id` は "1040310700_03"。基本サムネは接尾辞なし。 -->
 
