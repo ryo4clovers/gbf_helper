@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # レヴィアンゲイズ・マレ
-![レヴィアンゲイズ・マレ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040119700.jpg)
+![レヴィアンゲイズ・マレ](../_image/weapon/1040119700_low.jpg)
 
 ## 概要
 

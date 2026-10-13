@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 豊穣と恩愛の寿ぎ(Draconic Bow (Origin))
-![豊穣と恩愛の寿ぎ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040712800.jpg)
+![豊穣と恩愛の寿ぎ](../_image/weapon/1040712800_low.jpg)
 
 ## 概要
 

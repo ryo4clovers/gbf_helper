@@ -14,7 +14,7 @@ source: "本家武器一覧から通常表示した装備詳細レスポンス(2
 ---
 
 # 悪滅の雷(Purifying Thunderbolt)
-![悪滅の雷](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040709000.jpg)
+![悪滅の雷](../_image/weapon/1040709000_low.jpg)
 
 ## 概要
 

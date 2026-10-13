@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 万象尽滅の鎧腕(Versacia Fist (Wind))
-![万象尽滅の鎧腕](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040621200.jpg)
+![万象尽滅の鎧腕](../_image/weapon/1040621200_low.jpg)
 
 ## 概要
 

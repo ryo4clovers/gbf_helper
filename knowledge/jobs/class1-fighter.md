@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ファイター(Fighter)
-![ファイター](../_images/cdn/assets/img/sp/assets/leader/m/100001_01.jpg)
+![ファイター](../_image/job/100001_01.jpg)
 
 ## 概要
 
@@ -36,14 +36,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ウェポンバースト(Lv1で習得)
-![ウェポンバースト](../_images/cdn/assets/img/sp/ui/icon/ability/m/18_3.png)
+![ウェポンバースト](../_image/ability/18_3.png)
 
 - 効果: 自分が即座に奥義発動可能
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: レイジ(Lv10で習得)
-![レイジ](../_images/cdn/assets/img/sp/ui/icon/ability/m/14_3.png)
+![レイジ](../_image/ability/14_3.png)
 
 - 効果: 参戦者の攻撃UP(小)(3ターン)
 - 使用間隔: 5ターン

@@ -14,7 +14,7 @@ source: "要検証"       # 実機レスポンス取得日 / 参照した gbf.wi
 ---
 
 # {武器名}({英名})
-![{武器名}](../_images/cdn/assets/img_low/sp/assets/weapon/m/{{weapon_id}}.jpg)
+![{武器名}](../_image/weapon/{{weapon_id}}_low.jpg)
 
 <!-- サムネイルは weapon_id から組み立てる。高解像度が必要なら `img/`(m: 中/ ls: 大)に差し替え可 -->
 

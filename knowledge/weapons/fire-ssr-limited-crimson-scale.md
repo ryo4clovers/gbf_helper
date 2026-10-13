@@ -14,7 +14,7 @@ source: "実機の武器詳細・編成・バトルレスポンス(ユーザー�
 ---
 
 # クリムゾンスケイル(Crimson Scale)
-![クリムゾンスケイル](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040315900.jpg)
+![クリムゾンスケイル](../_image/weapon/1040315900_low.jpg)
 
 ## 概要
 

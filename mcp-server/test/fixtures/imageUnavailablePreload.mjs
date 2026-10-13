@@ -3,6 +3,7 @@ import { ServerResponse } from "node:http";
 // Test-only: never contact an external server, including during manual browser checks.
 const mode = process.env.GBF_TEST_IMAGE_MODE ?? "offline";
 globalThis.fetch = async () => {
+  console.error("TEST_UNEXPECTED_EXTERNAL_FETCH");
   // Hold until test-process cleanup, independent of machine load and real timeout clocks.
   if (mode === "pending") return new Promise(() => {});
   if (mode === "failed") return new Response("Unavailable", { status: 503 });

@@ -19,7 +19,7 @@ test("creates a deterministic browser-safe summon catalog", () => {
   const versusia = catalog.summons.find((summon) => summon.summonId === "2040448000");
   assert.equal(
     agni?.imageUrl,
-    "/thumbnails/summon/2040094000.jpg",
+    "/images/summon/2040094000.jpg",
   );
   assert.equal(hades?.auraEffects.length, 4);
   assert.equal(hades?.auraEffects[0]?.kind, "normal-skill-boost");

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # アビスストライカー
-![アビスストライカー](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040309400.jpg)
+![アビスストライカー](../_image/weapon/1040309400_low.jpg)
 
 ## 概要
 

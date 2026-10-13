@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07。
 ---
 
 # 雄渾と灼熱の調べ(Draconic Harp (Origin))
-![雄渾と灼熱の調べ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040815900.jpg)
+![雄渾と灼熱の調べ](../_image/weapon/1040815900_low.jpg)
 
 ## 概要
 

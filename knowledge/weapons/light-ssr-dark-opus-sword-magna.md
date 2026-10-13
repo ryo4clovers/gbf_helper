@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 永遠拒絶の剣(Dark Opus Sword (Magna))
-![永遠拒絶の剣](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040017100.jpg)
+![永遠拒絶の剣](../_image/weapon/1040017100_low.jpg)
 
 ## 概要
 

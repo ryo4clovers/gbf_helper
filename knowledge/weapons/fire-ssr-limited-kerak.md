@@ -14,7 +14,7 @@ source: "本家武器一覧から通常表示した装備詳細レスポンス(2
 ---
 
 # ケラク(Kerak)
-![ケラク](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040812000.jpg)
+![ケラク](../_image/weapon/1040812000_low.jpg)
 
 ## 概要
 

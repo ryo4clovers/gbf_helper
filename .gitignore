@@ -21,3 +21,8 @@ mcp-server/.cache/
 
 # Knowledge images: retain source manifest, keep downloaded binaries local.
 knowledge/_images/cdn/
+
+# Optional public assets; keep metadata and directory placeholders in Git.
+knowledge/_image/**/*.jpg
+knowledge/_image/**/*.png
+knowledge/_image/**/*.part

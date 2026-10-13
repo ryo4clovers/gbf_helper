@@ -14,7 +14,7 @@ source: "実機の武器詳細・編成レスポンス(ユーザー提供、2026
 ---
 
 # ロード・オブ・フレイム(Lord of Flames)
-![ロード・オブ・フレイム](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040023700.jpg)
+![ロード・オブ・フレイム](../_image/weapon/1040023700_low.jpg)
 
 ## 概要
 

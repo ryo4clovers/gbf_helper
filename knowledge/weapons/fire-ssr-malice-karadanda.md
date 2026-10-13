@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # カラダンダ
-![カラダンダ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040416300.jpg)
+![カラダンダ](../_image/weapon/1040416300_low.jpg)
 
 ## 概要
 

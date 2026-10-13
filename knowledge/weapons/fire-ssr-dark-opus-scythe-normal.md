@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-07)�
 ---
 
 # 絶対否定の大鎌(Dark Opus Axe / Normal ATK)
-![絶対否定の大鎌](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040310600.jpg)
+![絶対否定の大鎌](../_image/weapon/1040310600_low.jpg)
 
 <!-- 提供インスタンスは超越済みのため `param.image_id` は "1040310600_03"(超越後の見た目)。基本サムネは接尾辞なし。 -->
 

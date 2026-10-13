@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # リフレクト・オブ・ザ・ムーン(Reflection of The Moon)
-![リフレクト・オブ・ザ・ムーン](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040710700.jpg)
+![リフレクト・オブ・ザ・ムーン](../_image/weapon/1040710700_low.jpg)
 
 ## 概要
 

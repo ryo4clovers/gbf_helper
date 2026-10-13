@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 永遠拒絶の太刀(Dark Opus Katana (Magna))
-![永遠拒絶の太刀](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040911100.jpg)
+![永遠拒絶の太刀](../_image/weapon/1040911100_low.jpg)
 
 ## 概要
 

@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 闇の子の歯牙(Scythe of Belial)
-![闇の子の歯牙](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040310800.jpg)
+![闇の子の歯牙](../_image/weapon/1040310800_low.jpg)
 
 ## 概要
 

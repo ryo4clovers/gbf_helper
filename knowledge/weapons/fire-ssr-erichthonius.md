@@ -14,7 +14,7 @@ source: "実機編成レスポンス(2026-09-07、ユーザー提供)でLv150・
 ---
 
 # エリクトニオス(Erichthonius)
-![エリクトニオス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040206800.jpg)
+![エリクトニオス](../_image/weapon/1040206800_low.jpg)
 
 ## 概要
 

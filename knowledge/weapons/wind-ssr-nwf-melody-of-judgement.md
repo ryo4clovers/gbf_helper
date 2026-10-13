@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # メロディ・オブ・ジャッジメント(Melody of Judgement)
-![メロディ・オブ・ジャッジメント](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040813300.jpg)
+![メロディ・オブ・ジャッジメント](../_image/weapon/1040813300_low.jpg)
 
 ## 概要
 

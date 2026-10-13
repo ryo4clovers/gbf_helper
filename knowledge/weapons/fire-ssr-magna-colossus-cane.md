@@ -14,7 +14,7 @@ source: "実機の武器図鑑詳細と武器詳細レスポンス(ユーザー�
 ---
 
 # コロッサスケーン・マグナ(Colossus Cane Omega)
-![コロッサスケーン・マグナ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040401500.jpg)
+![コロッサスケーン・マグナ](../_image/weapon/1040401500_low.jpg)
 
 ## 概要
 

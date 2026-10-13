@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ダークフェンサー(Dark Fencer)
-![ダークフェンサー](../_images/cdn/assets/img/sp/assets/leader/m/150201_01.jpg)
+![ダークフェンサー](../_image/job/150201_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ディレイII(Lv1で習得)
-![ディレイII](../_images/cdn/assets/img/sp/ui/icon/ability/m/32_1.png)
+![ディレイII](../_image/ability/32_1.png)
 
 - 効果(初期): 敵に自属性ダメージ/スロウ効果
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: ミゼラブルミスト(Lv5で習得)
-![ミゼラブルミスト](../_images/cdn/assets/img/sp/ui/icon/ability/m/44_4.png)
+![ミゼラブルミスト](../_image/ability/44_4.png)
 
 - 効果(初期): 敵全体の攻撃DOWN/防御DOWN
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: グラビティ(Lv15で習得)
-![グラビティ](../_images/cdn/assets/img/sp/ui/icon/ability/m/25_4.png)
+![グラビティ](../_image/ability/25_4.png)
 
 - 効果(初期): 敵の最大CT増加
 - 使用間隔: 9ターン
@@ -59,14 +59,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### クイックダウン(習得Lv不明)
-![クイックダウン](../_images/cdn/assets/img/sp/ui/icon/ability/m/28_4.png)
+![クイックダウン](../_image/ability/28_4.png)
 
 - 効果: 敵の連続攻撃確率DOWN
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### ブラッドソード(習得Lv不明)
-![ブラッドソード](../_images/cdn/assets/img/sp/ui/icon/ability/m/96_3.png)
+![ブラッドソード](../_image/ability/96_3.png)
 
 - 効果: 通常攻撃と奥義の与ダメージに応じて回復
 - 使用間隔: 9ターン

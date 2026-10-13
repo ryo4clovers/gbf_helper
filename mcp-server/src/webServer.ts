@@ -1,4 +1,4 @@
-import { createThumbnailCache } from "./services/thumbnailCache.js";
+import { createLocalImageStore } from "./services/localImageStore.js";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
@@ -100,29 +100,24 @@ function errorMessage(error: unknown): string {
   return error instanceof Error ? error.message : "計算中に不明なエラーが発生しました";
 }
 
-const thumbnailCache = createThumbnailCache({
-  directory: process.env.GBF_THUMBNAIL_CACHE_DIR ?? path.resolve(WEB_ROOT, "..", ".cache", "thumbnails"),
-  allowedKeys: new Set([
-    ...createSelectableCharacterCatalog().characters, ...createSelectableJobCatalog().jobs,
-    ...createSelectableWeaponCatalog().weapons, ...createSelectableSummonCatalog().summons,
-  ].flatMap(entry => entry.imageUrl ? [entry.imageUrl.slice("/thumbnails/".length)] : [])),
-});
+const localImages = createLocalImageStore(
+  process.env.GBF_IMAGE_DIR ?? path.resolve(WEB_ROOT, "..", "..", "knowledge", "_image"),
+);
 
 const server = createServer(async (request, response) => {
   try {
     const url = new URL(request.url ?? "/", `http://${HOST}:${PORT}`);
-    if ((request.method === "GET" || request.method === "HEAD") && url.pathname.startsWith("/thumbnails/")) {
+    if ((request.method === "GET" || request.method === "HEAD") && url.pathname.startsWith("/images/")) {
       securityHeaders(response);
       try {
-        const bytes = await thumbnailCache.get(url.pathname.slice("/thumbnails/".length));
-        if (!bytes) { json(response, 404, { error: "未登録の画像です" }); return; }
-        response.writeHead(200, { "Content-Type": "image/jpeg", "Content-Length": bytes.length,
+        const image = await localImages.get(url.pathname.slice("/images/".length));
+        if (!image) { json(response, 404, { error: "ローカル画像が未保存か、形式が不正です" }); return; }
+        response.writeHead(200, { "Content-Type": image.contentType, "Content-Length": image.bytes.length,
           "Cache-Control": "private, max-age=3600" });
-        response.end(request.method === "HEAD" ? undefined : bytes);
+        response.end(request.method === "HEAD" ? undefined : image.bytes);
       } catch (error) {
-        console.error("Thumbnail cache:", errorMessage(error));
-        response.setHeader("Retry-After", "300");
-        json(response, 503, { error: "画像を取得できませんでした。保存済み画像は引き続き利用できます" });
+        console.error("Local images:", errorMessage(error));
+        json(response, 503, { error: "ローカル画像を読み取れませんでした" });
       }
       return;
     }

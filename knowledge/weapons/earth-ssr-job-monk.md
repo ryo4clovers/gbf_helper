@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 金砕棒(Kanabo)
-![金砕棒](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040417400.jpg)
+![金砕棒](../_image/weapon/1040417400_low.jpg)
 
 ## 概要
 

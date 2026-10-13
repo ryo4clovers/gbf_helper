@@ -14,7 +14,7 @@ source: "実機所持品の武器詳細・編成・戦闘レスポンス（ユ�
 ---
 
 # ペイン・アンド・ストレイン(Pain and Suffering)
-![ペイン・アンド・ストレイン](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040314300.jpg)
+![ペイン・アンド・ストレイン](../_image/weapon/1040314300_low.jpg)
 
 ## 概要
 

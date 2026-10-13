@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # ビショップ(Bishop)
-![ビショップ](../_images/cdn/assets/img/sp/assets/leader/m/120201_01.jpg)
+![ビショップ](../_image/job/120201_01.jpg)
 
 ## 概要
 
@@ -36,21 +36,21 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: ヒールオールII(Lv1で習得)
-![ヒールオールII](../_images/cdn/assets/img/sp/ui/icon/ability/m/36_2.png)
+![ヒールオールII](../_image/ability/36_2.png)
 
 - 効果(初期): 参戦者のHPを回復(中)
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: ディスペル(Lv5で習得)
-![ディスペル](../_images/cdn/assets/img/sp/ui/icon/ability/m/58_4.png)
+![ディスペル](../_image/ability/58_4.png)
 
 - 効果(初期): 敵の強化効果を1つ無効化
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ3: リヴァイヴ(Lv15で習得)
-![リヴァイヴ](../_images/cdn/assets/img/sp/ui/icon/ability/m/46_2.png)
+![リヴァイヴ](../_image/ability/46_2.png)
 
 - 効果(初期): 味方単体を復活
 - 使用間隔: 12ターン
@@ -59,14 +59,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## リミットアビリティ
 
 ### ベール(習得Lv不明)
-![ベール](../_images/cdn/assets/img/sp/ui/icon/ability/m/53_3.png)
+![ベール](../_image/ability/53_3.png)
 
 - 効果: 味方全体の弱体効果無効(1回)
 - 使用間隔: 6ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### ホワイトウォール(習得Lv不明)
-![ホワイトウォール](../_images/cdn/assets/img/sp/ui/icon/ability/m/52_3.png)
+![ホワイトウォール](../_image/ability/52_3.png)
 
 - 効果: 味方全体にバリア効果
 - 使用間隔: 7ターン

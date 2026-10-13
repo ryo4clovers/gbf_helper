@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # バハムートソード・フツルス(Sword of Bahamut Fyutlus)
-![バハムートソード・フツルス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040007400.jpg)
+![バハムートソード・フツルス](../_image/weapon/1040007400_low.jpg)
 
 ## 概要
 

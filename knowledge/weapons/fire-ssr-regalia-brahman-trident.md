@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08・
 ---
 
 # ブラフマントライデント
-![ブラフマントライデント](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040210400.jpg)
+![ブラフマントライデント](../_image/weapon/1040210400_low.jpg)
 
 ## 概要
 

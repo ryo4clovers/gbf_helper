@@ -15,7 +15,7 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ---
 
 # グラップラー(Grappler)
-![グラップラー](../_images/cdn/assets/img/sp/assets/leader/m/160001_01.jpg)
+![グラップラー](../_image/job/160001_01.jpg)
 
 ## 概要
 
@@ -36,14 +36,14 @@ source: "実機(グランブルーファンタジー公式サイト)より取得
 ## アビリティ構成
 
 ### アビリティ1: カウンター(Lv1で習得)
-![カウンター](../_images/cdn/assets/img/sp/ui/icon/ability/m/23_1.png)
+![カウンター](../_image/ability/23_1.png)
 
 - 効果(初期): カウンター効果(回避/3回)/自分の攻撃UP
 - 使用間隔: 5ターン
 - 出典: 実機(グランブルーファンタジー公式サイト、ジョブLv詳細レスポンス)
 
 ### アビリティ2: 捨身の型(Lv10で習得)
-![捨身の型](../_images/cdn/assets/img/sp/ui/icon/ability/m/35_3.png)
+![捨身の型](../_image/ability/35_3.png)
 
 - 効果(初期): 自分の攻撃UP(大)/防御DOWN
 - 使用間隔: 6ターン

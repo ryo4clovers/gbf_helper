@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ライズ・オブ・ジャスティス(Rise of Justice)
-![ライズ・オブ・ジャスティス](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040020800.jpg)
+![ライズ・オブ・ジャスティス](../_image/weapon/1040020800_low.jpg)
 
 ## 概要
 

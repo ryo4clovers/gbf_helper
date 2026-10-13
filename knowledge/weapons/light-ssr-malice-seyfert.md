@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # セイファート
-![セイファート](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040314000.jpg)
+![セイファート](../_image/weapon/1040314000_low.jpg)
 
 ## 概要
 

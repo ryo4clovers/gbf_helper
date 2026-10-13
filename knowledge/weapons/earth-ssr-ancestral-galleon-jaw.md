@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # ガレヲン・ジョー(Galleon's Jaw)
-![ガレヲン・ジョー](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040513400.jpg)
+![ガレヲン・ジョー](../_image/weapon/1040513400_low.jpg)
 
 ## 概要
 

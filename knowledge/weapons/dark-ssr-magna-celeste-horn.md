@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # セレストホーン・マグナ
-![セレストホーン・マグナ](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040201900.jpg)
+![セレストホーン・マグナ](../_image/weapon/1040201900_low.jpg)
 
 ## 概要
 

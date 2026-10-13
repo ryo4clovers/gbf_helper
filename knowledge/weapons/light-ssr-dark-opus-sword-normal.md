@@ -14,7 +14,7 @@ source: "実機の武器詳細レスポンス(ユーザー提供、2026-09-08。
 ---
 
 # 絶対否定の剣(Dark Opus Sword (Normal ATK))
-![絶対否定の剣](../_images/cdn/assets/img_low/sp/assets/weapon/m/1040017000.jpg)
+![絶対否定の剣](../_image/weapon/1040017000_low.jpg)
 
 ## 概要
 
